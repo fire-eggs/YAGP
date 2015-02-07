@@ -1,0 +1,532 @@
+﻿0 HEAD
+1 SOUR PAF
+2 NAME Personal Ancestral File
+2 VERS 5.2.18.0
+2 CORP The Church of Jesus Christ of Latter-day Saints
+3 ADDR 50 East North Temple Street
+4 CONT Salt Lake City, UT 84150
+4 CONT USA
+1 DEST PAF
+1 DATE 13 Mar 2007
+2 TIME 16:37:33
+1 FILE thomasraygledhill.ged
+1 GEDC
+2 VERS 5.5
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+1 LANG English
+1 SUBM @SUB1@
+0 @SUB1@ SUBM
+1 NAME Bonnie Sorensen
+1 ADDR 19318 Indian Springs Rd.
+2 CONT Penn Valley, CA 95946
+2 CTRY USA
+1 PHON (530)432-3155
+1 EMAIL bonniemsorensen@gmail.com
+0 @I5305@ INDI
+1 NAME Thomas Ray /Gledhill/
+2 SURN Gledhill
+2 GIVN Thomas Ray
+1 SEX M
+1 BIRT
+2 DATE 13 Feb 1883
+2 PLAC Mount Pleasant, Sanpete, Utah
+1 DEAT
+2 DATE 18 Feb 1955
+2 PLAC Richfield, Sevier, Utah
+1 BURI
+2 DATE 21 Feb 1955
+2 PLAC Richfield, Sevier, Utah
+1 AFN 18GR-2J
+1 _UID A8935D4E32EDD511BC7E00A0CCE0BE5180AA
+1 FAMC @F5536@
+2 _PRIMARY Y
+1 NOTE !Baptism: Originally baptized 1891. Rebaptized  11 Oct 1967.
+1 SOUR @S567@
+1 SOUR @S568@
+1 SOUR @S569@
+1 SOUR @S558@
+1 SOUR @S570@
+1 SOUR @S571@
+1 SOUR @S545@
+1 SOUR @S549@
+1 SOUR @S70@
+1 SOUR @S71@
+1 SOUR @S72@
+1 SOUR @S38@
+1 SOUR @S73@
+1 SOUR @S74@
+1 CHAN
+2 DATE 13 Mar 2007
+3 TIME 12:33:55
+1 OBJE
+2 FORM jpg
+2 FILE Photos\Thomas Ray Gledhill BR7 th400.jpg
+2 TITL Thomas Ray Gledhill
+2 NOTE 
+2 _SCBK Y
+2 _PRIM Y
+2 _TYPE PHOTO
+2 _SSHOW Y
+1 OBJE
+2 FORM jpg
+2 FILE Photos\GledhillGrands Wedding th400.jpg
+2 TITL Thomas Ray and Rebecca Gledhill Wedding
+2 NOTE 
+2 _SCBK Y
+2 _PRIM N
+2 _TYPE PHOTO
+2 _SSHOW Y
+0 @I5495@ INDI
+1 NAME Thomas /Gledhill/
+2 SURN Gledhill
+2 GIVN Thomas
+1 SEX M
+1 BIRT
+2 DATE 17 Apr 1856
+2 PLAC Oldham, Lancashire, England
+1 CHR
+2 DATE 8 Jan 1882
+2 PLAC Vermillion, Sevier, Ut
+1 DEAT
+2 DATE 12 Dec 1933
+2 PLAC Richfield, Sevier, Utah
+1 BURI
+2 DATE 15 Dec 1933
+2 PLAC Richfield, Sevier, Ut
+1 AFN 17CV-3Q
+1 _UID AA935D4E32EDD511BC7E00A0CCE0BE5182CA
+1 FAMS @F5536@
+1 FAMC @F5539@
+1 NOTE !Baptism: Rebaptized 11 Oct 1967.
+1 SOUR @S79@
+1 SOUR @S80@
+1 SOUR @S81@
+1 SOUR @S82@
+1 SOUR @S83@
+1 SOUR @S545@
+1 SOUR @S562@
+1 SOUR @S563@
+1 SOUR @S564@
+1 SOUR @S565@
+1 SOUR @S566@
+1 SOUR @S549@
+1 CHAN
+2 DATE 13 Mar 2007
+3 TIME 16:25:25
+1 OBJE
+2 FORM jpg
+2 FILE Photos\Thomas Gledhill BE15 th400.jpg
+2 TITL Thomas Gledhill
+2 NOTE 
+2 _SCBK Y
+2 _PRIM Y
+2 _TYPE PHOTO
+2 _SSHOW Y
+0 @I5777@ INDI
+1 NAME Betty /HAGUE/
+2 SURN HAGUE
+2 GIVN Betty
+1 SEX F
+1 BIRT
+2 DATE 8 Jul 1814
+2 PLAC Of, Oldham, Lnchr, England
+1 DEAT
+2 DATE 18 Jul 1888
+2 PLAC 18 Jul 1888
+1 BURI
+2 DATE Jul 1888
+2 PLAC Sigurd, Sevier, Ut
+1 AFN 17CS-T8
+1 _UID F54E935F3E3B0A4395443A2D9A303B145432
+1 FAMS @F5539@
+1 FAMC @F5542@
+1 SOUR @S561@
+1 CHAN
+2 DATE 27 Feb 2007
+3 TIME 08:19:16
+1 OBJE
+2 FORM jpg
+2 FILE Photos\BettyHague BH-11 th400.jpg
+2 TITL Betty Hague
+2 NOTE 
+2 _SCBK Y
+2 _PRIM Y
+2 _TYPE PHOTO
+2 _SSHOW Y
+1 OBJE
+2 FORM jpg
+2 FILE Photos\EdwardGledhillFamily BE-30 th600.jpg
+2 TITL Edward Gledhill family
+2 NOTE 
+2 _SCBK Y
+2 _PRIM N
+2 _TYPE PHOTO
+2 _SSHOW Y
+0 @I6242@ INDI
+1 NAME Edward /GLEDHILL/
+2 SURN GLEDHILL
+2 GIVN Edward
+1 SEX M
+1 BIRT
+2 DATE 31 Jul 1811
+2 PLAC Of, Oldham, Lnchr, England
+1 CHR
+2 DATE 9 Jun 1814
+2 PLAC Oldham, Manchester, England
+1 DEAT
+2 DATE 6 Jul 1888
+2 PLAC 6 Jul 1888
+1 BURI
+2 DATE Jul 1888
+2 PLAC Sigurd, Sevier, Ut
+1 AFN 17CS-S3
+1 _UID 09FC7B6449F4C243A39F43ACC284370BDF65
+1 FAMS @F5539@
+1 FAMC @F5540@
+1 SOUR @S561@
+1 CHAN
+2 DATE 27 Feb 2007
+3 TIME 08:18:32
+1 OBJE
+2 FORM jpg
+2 FILE Photos\EdwardGledhill BH9 th400.jpg
+2 TITL Edward Gledhill
+2 NOTE 
+2 _SCBK Y
+2 _PRIM Y
+2 _TYPE PHOTO
+2 _SSHOW Y
+1 OBJE
+2 FORM jpg
+2 FILE Photos\EdwardGledhillFamily BE-30 th600.jpg
+2 TITL Edward Gledhill family
+2 NOTE 
+2 _SCBK Y
+2 _PRIM N
+2 _TYPE PHOTO
+2 _SSHOW Y
+0 @I12664@ INDI
+1 NAME John /GLEDHILL/
+2 SURN GLEDHILL
+2 GIVN John
+1 SEX M
+1 BIRT
+2 DATE 12 Jul 1772
+2 PLAC Barksland, Yorkshire, England
+1 CHR
+2 DATE 12 Jul 1772
+2 PLAC Barkisland, Ripponden, Halifax, York, England
+1 DEAT
+2 DATE 19 May 1848
+2 PLAC Royton Workhouse, Lancashire, England
+1 BURI
+2 PLAC , , England
+1 AFN 9787-6L
+1 _UID 93DF84E64F618445B771203D82C3C48B6EBF
+1 FAMS @F5540@
+1 FAMC @F5556@
+1 SOUR @S561@
+1 CHAN
+2 DATE 10 Feb 2006
+3 TIME 00:00:00
+0 @I12665@ INDI
+1 NAME Sarah /WHITTAKER/
+2 SURN WHITTAKER
+2 GIVN Sarah
+1 SEX F
+1 BIRT
+2 DATE 1774
+2 PLAC Sands, Oldham, Lncshr, Eng
+1 CHR
+2 DATE 20 Nov 1774
+2 PLAC St  Mary, Oldham, Lancashire, England
+1 DEAT
+2 DATE 4 Mar 1878
+2 PLAC Laneside, Crompton, Lancashire, England
+1 BURI
+2 DATE 8 Jul 1846
+2 PLAC Shaw, Lancashire, England
+1 AFN 9787-7R
+1 _UID 8CB68E183083204ABDED638A8F401744C6F6
+1 FAMS @F5540@
+1 FAMC @F5557@
+1 SOUR @S561@
+1 CHAN
+2 DATE 25 Feb 2007
+3 TIME 00:00:00
+0 @I12677@ INDI
+1 NAME William /GLEDHILL/
+2 SURN GLEDHILL
+2 GIVN William
+1 SEX M
+1 BIRT
+2 DATE ABT 1745
+2 PLAC Ripponden, Halifax, York, England
+1 DEAT
+2 DATE 17 Aug 1803
+1 BURI
+2 DATE 17 Aug 1803
+2 PLAC Rippendon, Yorkshire, England
+1 AFN 9787-MT
+1 _UID 786C0D51D377754BB68905B3E9879B398791
+1 FAMS @F5556@
+1 SOUR @S561@
+1 CHAN
+2 DATE 10 Feb 2006
+3 TIME 00:00:00
+0 @I12678@ INDI
+1 NAME Mrs William /GLEDHILL/
+2 SURN GLEDHILL
+2 GIVN Mrs William
+1 SEX F
+1 BIRT
+2 DATE ABT 1749
+2 PLAC Ripponden, Halifax, York, England
+1 AFN G6B4-CC
+1 _UID 473649D222F4374A8CAA593097D67DDDB5D7
+1 FAMS @F5556@
+1 SOUR @S561@
+1 CHAN
+2 DATE 10 Feb 2006
+3 TIME 00:00:00
+0 @I12690@ INDI
+1 NAME Edmund /WHITTAKER/
+2 SURN WHITTAKER
+2 GIVN Edmund
+1 SEX M
+1 BIRT
+2 DATE 7 Feb 1746
+2 PLAC St Mary, Oldham, Lancashire, England
+1 AFN 1VPX-FM1
+1 _UID EAB05BEAC24EA64DAC26066A20DBC2C6A76A
+1 FAMS @F5557@
+1 SOUR @S561@
+1 CHAN
+2 DATE 10 Feb 2006
+3 TIME 00:00:00
+0 @I12691@ INDI
+1 NAME Mrs Martha /WHITTAKER/
+2 SURN WHITTAKER
+2 GIVN Mrs Martha
+1 SEX F
+1 BIRT
+2 DATE ABT 1749
+2 PLAC Of Oldham, Lancashire, England
+1 AFN 1VPX-FN7
+1 _UID A05590479DDD7E429B139FD44889A6A64477
+1 FAMS @F5557@
+1 SOUR @S561@
+1 CHAN
+2 DATE 10 Feb 2006
+3 TIME 00:00:00
+0 @I12698@ INDI
+1 NAME Thomas /HAGUE/
+2 SURN HAGUE
+2 GIVN Thomas
+1 SEX M
+1 BIRT
+2 DATE ABT 1788
+2 PLAC <Of, Oldham, Lancs, England>
+1 AFN B6PR-PP
+1 _UID 345130FBECB4544B8675D57123881CE7DEEE
+1 FAMS @F5542@
+1 SOUR @S561@
+1 CHAN
+2 DATE 10 Feb 2006
+3 TIME 00:00:00
+0 @I12699@ INDI
+1 NAME Betty /TAYLOR/
+2 SURN TAYLOR
+2 GIVN Betty
+1 SEX F
+1 BIRT
+2 DATE ABT 1775
+2 PLAC Of, Oldham, Lancs, England
+1 AFN B6PR-QV
+1 _UID 9E954335A1AF094AA688C9A0B903A7438B37
+1 FAMS @F5542@
+1 SOUR @S561@
+1 CHAN
+2 DATE 10 Feb 2006
+3 TIME 00:00:00
+0 @I12701@ INDI
+1 NAME Lillie Belle /IVIE/
+2 SURN IVIE
+2 GIVN Lillie Belle
+1 SEX F
+1 BIRT
+2 DATE 13 Oct 1865
+2 PLAC Mount Pleasant, Sanpete, Ut
+1 DEAT
+2 DATE 1 May 1929
+2 PLAC Richfield, Sevier, Ut
+1 BURI
+2 DATE 5 May 1929
+2 PLAC Richfield, Sevier, Ut
+1 AFN 4TWX-1N
+1 _UID DC25FEEA89613A4BAACABEB241DAE9014158
+1 FAMS @F5536@
+1 NOTE !Baptism: Rebaptized 27 May 1964.
+1 SOUR @S549@
+1 SOUR @S545@
+1 CHAN
+2 DATE 27 Feb 2007
+3 TIME 18:04:47
+1 OBJE
+2 FORM jpg
+2 FILE Photos\Lillie Belle Ivie BE17 th400.jpg
+2 TITL Lillie Belle Ivie
+2 NOTE 
+2 _SCBK Y
+2 _PRIM Y
+2 _TYPE PHOTO
+2 _SSHOW Y
+1 OBJE
+2 FORM jpg
+2 FILE Photos\Elizabeth C Eames & Lillie Belle Ivie D32 th450.jpg
+2 TITL Elizabeth C Eames & Lillie Belle Ivie
+2 NOTE 
+2 _SCBK Y
+2 _PRIM N
+2 _TYPE PHOTO
+2 _SSHOW Y
+0 @F5536@ FAM
+1 _UID 08ABE2F2CDAC7645AD34A5AF5567B0177351
+1 HUSB @I5495@
+1 WIFE @I12701@
+1 CHIL @I5305@
+1 MARR
+2 DATE 8 Jan 1882
+2 PLAC Vermillion, Sevier, Ut
+0 @F5539@ FAM
+1 _UID 5E6D3FF08141F2418119B2481DCFA4BFD2AC
+1 HUSB @I6242@
+1 WIFE @I5777@
+1 CHIL @I5495@
+1 MARR
+2 DATE 4 Jun 1832
+2 PLAC Manchester Cathedral
+0 @F5540@ FAM
+1 _UID D18C3577F2C51942BA4E29E45D9CA37743B1
+1 HUSB @I12664@
+1 WIFE @I12665@
+1 CHIL @I6242@
+1 MARR
+2 DATE ABT 1795
+2 PLAC Crompton, Lancashire, England
+0 @F5542@ FAM
+1 _UID B422F9D953CB0E47850E737440CDF6079F63
+1 HUSB @I12698@
+1 WIFE @I12699@
+1 CHIL @I5777@
+0 @F5556@ FAM
+1 _UID 324252C20E0F8E4D96AA52727F760278F338
+1 HUSB @I12677@
+1 WIFE @I12678@
+1 CHIL @I12664@
+1 MARR
+2 DATE ABT 1768
+2 PLAC Ripponden, Halifax, Yorkshire, England
+0 @F5557@ FAM
+1 _UID C73E141A6B9BCA4E93DFF4AB335DE04A1C78
+1 HUSB @I12690@
+1 WIFE @I12691@
+1 CHIL @I12665@
+1 MARR
+2 DATE ABT 1770
+2 PLAC <Of Oldham, Lancashire, England>
+0 @S38@ SOUR
+1 TITL GS Film #1262935 TIB
+1 NOTE Endowment
+0 @S70@ SOUR
+1 TITL GS film #27404 Vermillion Ward records p.175
+1 NOTE Birth
+0 @S71@ SOUR
+1 TITL GS Film #178136 Logan Temple marriages p.95
+1 NOTE Marriage
+0 @S72@ SOUR
+1 TITL Obituary in Salt Lake Tribune
+1 NOTE Death
+0 @S73@ SOUR
+1 TITL Archive record and TIB
+1 NOTE Baptism
+0 @S74@ SOUR
+1 TITL GS Film #178136 Logan Temple marriages p.95
+1 NOTE Sealing
+0 @S79@ SOUR
+1 TITL GS Film #002038 #27404 Vermilion Ward 1901-9 & 1912-41
+1 NOTE Birth
+0 @S80@ SOUR
+1 TITL GS Film #27404 Vermillion Ward 1912-41
+1 NOTE Marriage
+0 @S81@ SOUR
+1 TITL GS Film #26450 Richfield 4th Ward Form E 1933
+1 NOTE Death
+0 @S82@ SOUR
+1 TITL GS Film #27404 Vermillion Ward 1912-41, also TIB
+1 NOTE Baptism
+0 @S83@ SOUR
+1 TITL GS Film #1267445 TIB
+1 NOTE Endowment
+0 @S545@ SOUR
+1 REPO @REPO2@
+1 TITL Ancestral File (R)
+1 AUTH The Church of Jesus Christ of Latter-day Saints
+1 PUBL Copyright (c) 1987, June 1998, data as of 5 January 1998
+0 @S549@ SOUR
+1 REPO @REPO3@
+1 TITL Ancestral File (R)
+1 AUTH The Church of Jesus Christ of Latter-day Saints
+1 PUBL Copyright (c) 1987, June 1998, data as of 5 January 1998
+0 @S558@ SOUR
+1 TITL GS Film #1262935 TIB
+1 NOTE Endowment
+0 @S561@ SOUR
+1 REPO @REPO4@
+1 TITL Ancestral File (R)
+1 AUTH The Church of Jesus Christ of Latter-day Saints
+1 PUBL Copyright (c) 1987, June 1998, data as of 5 January 1998
+0 @S562@ SOUR
+1 TITL GS Film #002038 #27404 Vermilion Ward 1901-9 & 1912-41
+1 NOTE Birth
+0 @S563@ SOUR
+1 TITL GS Film #27404 Vermillion Ward 1912-41
+1 NOTE Marriage
+0 @S564@ SOUR
+1 TITL GS Film #26450 Richfield 4th Ward Form E 1933
+1 NOTE Death
+0 @S565@ SOUR
+1 TITL GS Film #27404 Vermillion Ward 1912-41, also TIB
+1 NOTE Baptism
+0 @S566@ SOUR
+1 TITL GS Film #1267445 TIB
+1 NOTE Endowment
+0 @S567@ SOUR
+1 TITL GS film #27404 Vermillion Ward records p.175
+1 NOTE Birth
+0 @S568@ SOUR
+1 TITL GS Film #178136 Logan Temple marriages p.95
+1 NOTE Marriage
+0 @S569@ SOUR
+1 TITL Obituary in Salt Lake Tribune
+1 NOTE Death
+0 @S570@ SOUR
+1 TITL Archive record and TIB
+1 NOTE Baptism
+0 @S571@ SOUR
+1 TITL GS Film #178136 Logan Temple marriages p.95
+1 NOTE Sealing
+0 @REPO2@ REPO
+1 NAME Family History Library
+1 ADDR 35 N West Temple Street
+2 CONT Salt Lake City, Utah 84150  USA
+0 @REPO3@ REPO
+1 NAME Family History Library
+1 ADDR 35 N West Temple Street
+2 CONT Salt Lake City, Utah 84150  USA
+0 @REPO4@ REPO
+1 NAME Family History Library
+1 ADDR 35 N West Temple Street
+2 CONT Salt Lake City, Utah 84150  USA
+0 TRLR
