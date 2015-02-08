@@ -1,4 +1,4 @@
-﻿using KBRImport;
+﻿using SharpGEDParser;
 
 namespace TestProgram
 {

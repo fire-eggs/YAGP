@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KBRImport
+namespace SharpGEDParser
 {
     public class KBRGedParser
     {
@@ -18,7 +13,8 @@ namespace KBRImport
         {
             // Given a glop of lines which represent a 'record', parse it into GED data (HEAD/INDI/FAM/etc)
             KBRGedRec ident = Make(rec);
-            ident.Validate();
+            ident.Parse(); // TODO execute in parallel
+            ident.Validate(); // TODO execute in parallel
             return ident;
         }
 

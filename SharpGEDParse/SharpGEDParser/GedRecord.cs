@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 // Set of lines read from a GED file which encompass a 'record'
 // Starts with '0'
-namespace KBRImport
+namespace SharpGEDParser
 {
     public class GedRecord
     {

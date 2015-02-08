@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KBRImport
+namespace SharpGEDParser
 {
     public class KBRGedRec
     {
@@ -22,9 +18,14 @@ namespace KBRImport
             return string.Format("KBRGedRec:{0}:{1}:{2}", Tag, Ident, Lines);
         }
 
-        public void Validate()
+        public virtual void Parse()
         {
-            // TODO check lines and add errors to an error set
+            // TODO parse sub-record data: OVERRIDE ME
+        }
+
+        public virtual void Validate()
+        {
+            // TODO check lines and add errors to an error set OVERRIDE ME
         }
 
         public string Ident { get; set; }
