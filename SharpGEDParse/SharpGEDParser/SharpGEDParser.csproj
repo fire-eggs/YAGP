@@ -41,9 +41,11 @@
   <ItemGroup>
     <Compile Include="FileRead.cs" />
     <Compile Include="GedRecord.cs" />
+    <Compile Include="KBRGedHead.cs" />
     <Compile Include="KBRGedIndi.cs" />
     <Compile Include="KBRGedParser.cs" />
     <Compile Include="KBRGedRec.cs" />
+    <Compile Include="KBRGedUnk.cs" />
     <Compile Include="KBRGedUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

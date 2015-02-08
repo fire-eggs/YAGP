@@ -1,11 +1,12 @@
-﻿namespace SharpGEDParser
+﻿
+namespace SharpGEDParser
 {
-    public class KBRGedIndi : KBRGedRec
+    public class KBRGedHead : KBRGedRec
     {
-        public KBRGedIndi(GedRecord lines, string ident) : base(lines)
+        public KBRGedHead(GedRecord lines, string ident) : base(lines)
         {
             Ident = ident;
-            Tag = "INDI"; // TODO use enum
+            Tag = "HEAD"; // TODO use enum
         }
 
         public override string ToString()

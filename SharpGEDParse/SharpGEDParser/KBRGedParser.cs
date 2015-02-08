@@ -20,8 +20,6 @@ namespace SharpGEDParser
 
         private KBRGedRec Make(GedRecord rec)
         {
-            // TODO should this be some sort of Factory?
-
             // 1. The first line in the rec should start with '0'
             string head = rec.FirstLine();
             int firstDex = KBRGedUtil.FirstChar(head);
@@ -34,11 +32,30 @@ namespace SharpGEDParser
             KBRGedUtil.IdentAndTag(head, firstDex + 1, ref ident, ref tag);
 
             // 3. create a KBRGedRec derived class
+            return GedRecFactory(rec, ident, tag);
+        }
 
-            var tmpOut = new KBRGedRec(rec);
-            tmpOut.Ident = ident;
-            tmpOut.Tag = tag;
-            return tmpOut;
+        private KBRGedRec GedRecFactory(GedRecord rec, string ident, string tag)
+        {
+            // TODO Very much brute force. If/until this is found to be optimizable
+            switch (tag.ToUpper())
+            {
+                case "HEAD":
+                    return new KBRGedHead(rec, ident);
+                case "INDI":
+                    return new KBRGedIndi(rec, ident);
+
+                case "FAM":
+                case "SUBM":
+                case "REPO":
+                case "SOUR":
+                default:
+                    return new KBRGedUnk(rec, ident, tag);
+            }
         }
     }
 }
+
+// TODO separation of parsing and container logic
+// TODO export
+// TODO details in 'head' may impact further parsing? ANSEL, ANSI, etc?
