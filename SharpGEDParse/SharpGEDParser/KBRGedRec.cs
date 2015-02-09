@@ -20,11 +20,13 @@ namespace SharpGEDParser
 
         public virtual void Parse()
         {
+            // TODO make abstract?
             // TODO parse sub-record data: OVERRIDE ME
         }
 
         public virtual void Validate()
         {
+            // TODO make abstract?
             // TODO check lines and add errors to an error set OVERRIDE ME
         }
 

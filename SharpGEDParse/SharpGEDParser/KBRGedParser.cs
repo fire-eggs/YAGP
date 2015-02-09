@@ -59,3 +59,4 @@ namespace SharpGEDParser
 // TODO separation of parsing and container logic
 // TODO export
 // TODO details in 'head' may impact further parsing? ANSEL, ANSI, etc?
+// TODO Heredis has a 'PLAC'/'FORM' tag in header which defines the format of places
