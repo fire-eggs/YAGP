@@ -39,5 +39,22 @@ namespace SharpGEDParser
         {
             return _lines[0];
         }
+
+        public string GetLine(int linedex)
+        {
+            return _lines[linedex];
+        }
+        public int Max { get { return _lines.Count; } }
+
+        public char GetLevel(int linedex)
+        {
+            if (linedex >= Max)
+                return ' ';
+            string line = _lines[linedex];
+            int dex = KBRGedUtil.FirstChar(line);
+            if (dex < 0)
+                return ' '; // empty line
+            return line[dex];
+        }
     }
 }

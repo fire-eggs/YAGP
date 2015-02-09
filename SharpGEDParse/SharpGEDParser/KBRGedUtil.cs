@@ -21,6 +21,16 @@
             return dex;
         }
 
+        public static int AllCharsUntil(string line, int max, int dex, char target)
+        {
+            while (dex < max && line[dex] != target)
+                dex++;
+            if (dex >= max) // target not found
+                return max; // TODO is this correct???
+            return dex;
+        }
+
+
         public static int CharsUntil(string line, int max, int dex, char target)
         {
             while (dex < max && line[dex] != target && line[dex] != ' ') // TODO allow tabs?
@@ -30,6 +40,22 @@
             return dex;
         }
 
+        public static int Ident(string line, int startDex, ref string ident)
+        {
+            int max = line.Length;
+            startDex = FirstChar(line, startDex, max);
+            if (line[startDex] == '@')
+            {
+                // get ident
+                int endIdent = CharsUntil(line, max, startDex + 1, '@');
+                // endIdent now points at the trailing '@' or ' '
+                ident = line.Substring(startDex + 1, endIdent - startDex - 1);
+                return endIdent;
+            }
+            return -1;
+        }
+
+        // startDex points at the first space after the level
         public static int IdentAndTag(string line, int startDex, ref string ident, ref string tag)
         {
             // "0 @I1@ INDI"
