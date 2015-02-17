@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 
 namespace SharpGEDParser
 {
@@ -79,9 +76,29 @@ namespace SharpGEDParser
     // NOTE: also used for birth (FAMC extra); ADOP (FAMC, ADOP extra)
     public class EventRec : Rec
     {
+        public string Date { get; set; }
+        public string Place { get; set; }
+
+        public string Age { get; set; }
+
+        public Tuple<int, int> Change { get; set; }
+
+        public Tuple<int, int> Note { get; set; }
+
+        public Tuple<int, int> Source { get; set; }
+
         public EventRec(string tag)
         {
             Tag = tag;
+        }
+
+        public override string ToString()
+        {
+            string note = Note != null ? ",Note:" + Note : "";
+            string chan = Change != null ? ",Chan:" + Change : "";
+            string src = Source != null ? ",Sour:" + Source : "";
+            return string.Format("__{0}:When:'{1}',Where:'{2}'{3}{4}{5}", 
+                base.ToString(), Date, Place, note, chan, src);
         }
     }
 
@@ -106,9 +123,6 @@ namespace SharpGEDParser
         // Permanent record information
         public string PermanentRecord { get; set; }
 
-        // Ancestral File Number
-        public string AncestralFileNumber { get; set; }
-
         // Source records
         public List<SourceRec> Sources { get; set; }
 
@@ -116,6 +130,8 @@ namespace SharpGEDParser
         public List<UnkRec> Unknowns { get; set; }
 
         public List<EventRec> Events { get; set; }
+
+        public List<EventRec> FamEvents { get; set; }
 
         public List<NameRec> Names { get; set; }
 
@@ -132,6 +148,9 @@ namespace SharpGEDParser
 
         public bool Living { get; set; }
 
+        public Tuple<int, int> Note { get; set; }
+        public Tuple<int, int> Change { get; set; }
+
         public KBRGedIndi(GedRecord lines, string ident) : base(lines)
         {
             BuildTagSet();
@@ -141,6 +160,7 @@ namespace SharpGEDParser
             Sources = new List<SourceRec>();
             Unknowns = new List<UnkRec>();
             Events = new List<EventRec>();
+            FamEvents = new List<EventRec>();
             Names = new List<NameRec>();
             Data = new List<DataRec>();
 
@@ -210,7 +230,7 @@ namespace SharpGEDParser
             rec.End = maxLineDex;
             Unknowns.Add(rec);
 
-            Console.WriteLine("***" + rec);
+//            Console.WriteLine("***" + rec);
         }
 
         public override string ToString()
@@ -230,39 +250,51 @@ namespace SharpGEDParser
             tagSet.Add("SEX", SexProc);
             tagSet.Add("BAPM", EventProc); // simple event
             tagSet.Add("DEAT", EventProc); // simple event
+            tagSet.Add("CREM", EventProc); // simple event
             tagSet.Add("BURI", EventProc); // simple event
             tagSet.Add("CHR", EventProc); // simple event
-            tagSet.Add("EVEN", EventProc); // simple event
+            tagSet.Add("NATU", EventProc);
+            tagSet.Add("IMMI", EventProc);
+            tagSet.Add("WILL", EventProc);
+            tagSet.Add("EMIG", EventProc);
+
+            tagSet.Add("EVEN", EventProc); // TODO simple or family event?
 
             tagSet.Add("BIRT", BirtProc); // birth,adoption
             tagSet.Add("ADOP", BirtProc); // birth,adoption
 
             tagSet.Add("CAST", AttribProc);
             tagSet.Add("TITL", AttribProc);
+            tagSet.Add("RESI", AttribProc);
+            tagSet.Add("OCCU", AttribProc);
+            tagSet.Add("FACT", AttribProc);
+            tagSet.Add("DSCR", AttribProc);
+
+            tagSet.Add("ANUL", FamEventProc);
+            tagSet.Add("MARL", FamEventProc);
+            tagSet.Add("DIV", FamEventProc);
 
             tagSet.Add("BAPL", LdsOrdProc);
+
             tagSet.Add("FAMC", ChildLink);
             tagSet.Add("FAMS", SpouseLink);
+
             tagSet.Add("SUBM", SubmProc);
             tagSet.Add("ASSO", AssocProc);
             tagSet.Add("ALIA", AliasProc);
             tagSet.Add("ANCI", AnciProc);
             tagSet.Add("DESI", DesiProc);
             tagSet.Add("RFN", PermRecProc);
-            tagSet.Add("AFN", AfnProc); // TODO switch to DataProc?
+            tagSet.Add("AFN", DataProc);
+            tagSet.Add("REFN", DataProc);
             tagSet.Add("SOUR", SourceProc);
             tagSet.Add("_UID", DataProc);
-            tagSet.Add("NOTE", DataProc); // TODO temporary
-            tagSet.Add("CHAN", DataProc); // TODO temporary
+            tagSet.Add("NOTE", NoteProc);
+            tagSet.Add("CHAN", ChanProc);
             tagSet.Add("OBJE", DataProc); // TODO temporary
 
             tagSet.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
             tagSet.Add("LVNG", LivingProc); // "Generations" custom
-        }
-
-        private void AfnProc(int begline, int endline, int nextchar)
-        {
-            AncestralFileNumber = _line.Substring(nextchar);
         }
 
         private void LivingProc(int begline, int endline, int nextchar)
@@ -274,15 +306,11 @@ namespace SharpGEDParser
 
         private void BirtProc(int begline, int endline, int nextchar)
         {
-            var rec = new EventRec(_tag);
-            rec.Beg = begline;
-            rec.End = endline;
-            Events.Add(rec);
-
-            // TODO parse event details
+            EventProc(begline, endline, nextchar);
             // TODO parse birt, adop specific
-
-            Console.WriteLine(rec);
+            Debug.Assert(KBRGedUtil.ParseFor(Lines, begline, endline, "FAMC") == null);
+            // ADOP is a sub-tag on FAMC
+//            Debug.Assert(_tag == "BIRT" && KBRGedUtil.ParseFor(Lines, begline, endline, "ADOP") == null);
         }
 
         private void PermRecProc(int begline, int endline, int nextchar)
@@ -333,7 +361,7 @@ namespace SharpGEDParser
             rec.Beg = begline;
             rec.End = endline;
             Subm.Add(rec);
-            Console.WriteLine(rec);
+//            Console.WriteLine(rec);
         }
 
         private void SpouseLink(int begline, int endline, int nextchar)
@@ -346,7 +374,7 @@ namespace SharpGEDParser
             rec.Beg = begline;
             rec.End = endline;
             FamLinks.Add(rec);
-            Console.WriteLine(rec);
+//            Console.WriteLine(rec);
         }
 
         private void ChildLink(int begline, int endline, int nextchar)
@@ -359,7 +387,7 @@ namespace SharpGEDParser
             rec.Beg = begline;
             rec.End = endline;
             ChildLinks.Add(rec);
-            Console.WriteLine(rec);
+//            Console.WriteLine(rec);
         }
 
         private void LdsOrdProc(int begline, int endline, int nextchar)
@@ -372,6 +400,17 @@ namespace SharpGEDParser
             // TODO
         }
 
+        private void FamEventProc(int begline, int endline, int nextchar)
+        {
+            // A family event: same as an event but has additional husband, wife tags
+            EventProc(begline, endline, nextchar);
+
+            // TODO need to add to FamEvents , not Events
+
+            Debug.Assert(KBRGedUtil.ParseFor(Lines, begline, endline, "HUSB") == null);
+            Debug.Assert(KBRGedUtil.ParseFor(Lines, begline, endline, "WIFE") == null);
+        }
+
         private void EventProc(int begline, int endline, int nextchar)
         {
             var rec = new EventRec(_tag);
@@ -380,7 +419,15 @@ namespace SharpGEDParser
             Events.Add(rec);
 
             // TODO parse event details
-            Console.WriteLine(rec);
+            rec.Date = KBRGedUtil.ParseFor(Lines, begline + 1, endline, "DATE");
+            rec.Place = KBRGedUtil.ParseFor(Lines, begline + 1, endline, "PLAC");
+            rec.Age = KBRGedUtil.ParseFor(Lines, begline + 1, endline, "AGE");
+
+            rec.Change = KBRGedUtil.ParseForMulti(Lines, begline + 1, endline, "CHAN");
+            rec.Note = KBRGedUtil.ParseForMulti(Lines, begline + 1, endline, "NOTE");
+            rec.Source = KBRGedUtil.ParseForMulti(Lines, begline + 1, endline, "SOUR");
+
+//            Console.WriteLine(rec);
         }
 
         private void SexProc(int begline, int endline, int nextchar)
@@ -406,11 +453,12 @@ namespace SharpGEDParser
             rec.Beg = begline;
             rec.End = endline;
             rec.Names = _line.Substring(startName, startSur-startName).Trim();
-            rec.Surname = _line.Substring(startSur+1, endSur-startSur-1);
+            if (startSur < max) // e.g. "1 NAME LIVING"
+                rec.Surname = _line.Substring(startSur+1, endSur-startSur-1);
             Names.Add(rec);
 
             // TODO parse more details
-            Console.WriteLine(rec);
+//            Console.WriteLine(rec);
         }
 
         private void SourceProc(int begline, int endline, int nextchar)
@@ -427,7 +475,7 @@ namespace SharpGEDParser
             Sources.Add(rec);
 
             // TODO parse more stuff
-            Console.WriteLine(rec);
+//            Console.WriteLine(rec);
         }
 
         private void DataProc(int begline, int endline, int nextchar)
@@ -437,6 +485,16 @@ namespace SharpGEDParser
             rec.Beg = begline;
             rec.End = endline;
             Data.Add(rec);
+        }
+
+        private void NoteProc(int begline, int endline, int nextchar)
+        {
+            Note = new Tuple<int, int>(begline, endline);
+        }
+
+        private void ChanProc(int begline, int endline, int nextchar)
+        {
+            Change = new Tuple<int, int>(begline, endline);
         }
     }
 }

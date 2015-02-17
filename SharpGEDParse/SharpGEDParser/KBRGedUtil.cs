@@ -1,4 +1,8 @@
-﻿namespace SharpGEDParser
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Activation;
+
+namespace SharpGEDParser
 {
     static class KBRGedUtil
     {
@@ -85,5 +89,85 @@
                 return endTag; // TODO off-by-one?
             }
         }
+
+        public static int TagAndRemain(string line, ref string ident, ref string tag, ref string remain)
+        {
+            int max = line.Length;
+
+            // Move past level
+            int dex = FirstChar(line, 0, max);
+            dex = AllCharsUntil(line, max, dex, ' ');
+            dex = IdentAndTag(line, dex, ref ident, ref tag);
+            remain = line.Substring(dex); // TODO check for nothing remaining
+            return dex;
+        }
+
+        public static string ParseFor(GedRecord glop, int dex, int max, string target)
+        {
+            for (; dex <= max; dex++)
+            {
+                string line = glop.GetLine(dex);
+                string tag = "";
+                string remain = "";
+                string ident = "";
+                int res = TagAndRemain(line, ref ident, ref tag, ref remain);
+
+                if (tag == target)
+                    return remain;
+            }
+
+            return null;
+        }
+
+        public static int LevelTagAndRemain(string line, ref char level, ref string ident, ref string tag, ref string remain)
+        {
+            int max = line.Length;
+
+            // Move past level
+            int dex = FirstChar(line, 0, max);
+            level = line[dex];
+            dex = AllCharsUntil(line, max, dex, ' ');
+            dex = IdentAndTag(line, dex, ref ident, ref tag);
+            remain = line.Substring(dex); // TODO check for nothing remaining
+            return dex;
+        }
+
+        public static Tuple<int,int> ParseForMulti(GedRecord glop, int dex, int max, string target)
+        {
+            string tag = "";
+            string remain = "";
+            string ident = "";
+            char level = '@';
+            for (; dex <= max; dex++)
+            {
+                string line = glop.GetLine(dex);
+                int res = LevelTagAndRemain(line, ref level, ref ident, ref tag, ref remain);
+
+                if (tag == target)
+                {
+                    int end = ParseForEndOfMulti(glop, level, dex, max);
+                    return new Tuple<int, int>(dex, end);
+                }
+            }
+
+            return null;
+        }
+
+        public static int ParseForEndOfMulti(GedRecord glop, char level, int dex, int max)
+        {
+            int end = dex;
+            // We found the first line of a target (e.g. 'NOTE')
+            // Return the index of the end of the target
+            for (int i = dex+1; i <= max; i++)
+            {
+                string line = glop.GetLine(i);
+                int first = FirstChar(line);
+                if (line[first] <= level)
+                    break;
+                end++;
+            }
+            return end;
+        }
+
     }
 }

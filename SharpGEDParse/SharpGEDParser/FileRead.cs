@@ -113,7 +113,7 @@ namespace SharpGEDParser
                 }
             }
 
-            Console.WriteLine(_currRec);
+            //Console.WriteLine(_currRec);
         }
 
         private GedRecord _currRec;
@@ -129,11 +129,11 @@ namespace SharpGEDParser
                 if (_currRec.LineCount > 1) // TODO be smarter?
                 {
                     // start of a new record
-                    Console.WriteLine(_currRec);
+//                    Console.WriteLine(_currRec);
 
                     // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
                     var parsed = Parser.Parse(_currRec);
-                    Console.WriteLine(">>>" + parsed);
+//                    Console.WriteLine(">>>" + parsed);
                 }
                 _currRec = new GedRecord(lineNum, line);
             }

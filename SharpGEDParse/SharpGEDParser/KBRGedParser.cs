@@ -44,8 +44,9 @@ namespace SharpGEDParser
                     return new KBRGedHead(rec, ident);
                 case "INDI":
                     return new KBRGedIndi(rec, ident);
-
                 case "FAM":
+                    return new KBRGedFam(rec, ident);
+
                 case "SUBM":
                 case "REPO":
                 case "SOUR":
