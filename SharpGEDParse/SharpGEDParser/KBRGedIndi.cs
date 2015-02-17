@@ -173,6 +173,8 @@ namespace SharpGEDParser
             FamLinks = new List<FamLinkRec>();
 
             Living = false;
+
+            // TODO can any properties, especially List<>, not be initialized until use? Efficiently?
         }
 
         public override void Parse()
@@ -306,7 +308,11 @@ namespace SharpGEDParser
 
         private void BirtProc(int begline, int endline, int nextchar)
         {
-            EventProc(begline, endline, nextchar);
+            // TODO save this rec 'special' so easy to find later?
+
+            var rec = CommonEventProcessing(begline, endline);
+            Events.Add(rec);
+
             // TODO parse birt, adop specific
             Debug.Assert(KBRGedUtil.ParseFor(Lines, begline, endline, "FAMC") == null);
             // ADOP is a sub-tag on FAMC
@@ -318,33 +324,31 @@ namespace SharpGEDParser
             PermanentRecord = _line.Substring(nextchar);
         }
 
-        private void DesiProc(int begline, int endline, int nextchar)
+        private XRefRec CommonXRefProcessing(int begline, int endline, int nextchar)
         {
             string ident = "";
             int res = KBRGedUtil.Ident(_line, nextchar, ref ident);
             var rec = new XRefRec(_tag, ident);
             rec.Beg = begline;
             rec.End = endline;
+            return rec;
+        }
+
+        private void DesiProc(int begline, int endline, int nextchar)
+        {
+            var rec = CommonXRefProcessing(begline, endline, nextchar);
             Desi.Add(rec);
         }
 
         private void AnciProc(int begline, int endline, int nextchar)
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_line, nextchar, ref ident);
-            var rec = new XRefRec(_tag, ident);
-            rec.Beg = begline;
-            rec.End = endline;
+            var rec = CommonXRefProcessing(begline, endline, nextchar);
             Anci.Add(rec);
         }
 
         private void AliasProc(int begline, int endline, int nextchar)
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_line, nextchar, ref ident);
-            var rec = new XRefRec(_tag, ident);
-            rec.Beg = begline;
-            rec.End = endline;
+            var rec = CommonXRefProcessing(begline, endline, nextchar);
             Alia.Add(rec);
         }
 
@@ -361,6 +365,7 @@ namespace SharpGEDParser
             rec.Beg = begline;
             rec.End = endline;
             Subm.Add(rec);
+            // TODO submitter details?
 //            Console.WriteLine(rec);
         }
 
@@ -403,22 +408,20 @@ namespace SharpGEDParser
         private void FamEventProc(int begline, int endline, int nextchar)
         {
             // A family event: same as an event but has additional husband, wife tags
-            EventProc(begline, endline, nextchar);
+            var rec = CommonEventProcessing(begline, endline);
+            FamEvents.Add(rec);
 
-            // TODO need to add to FamEvents , not Events
-
+            // TODO family event specific processing
             Debug.Assert(KBRGedUtil.ParseFor(Lines, begline, endline, "HUSB") == null);
             Debug.Assert(KBRGedUtil.ParseFor(Lines, begline, endline, "WIFE") == null);
         }
 
-        private void EventProc(int begline, int endline, int nextchar)
+        private EventRec CommonEventProcessing(int begline, int endline)
         {
             var rec = new EventRec(_tag);
             rec.Beg = begline;
             rec.End = endline;
-            Events.Add(rec);
 
-            // TODO parse event details
             rec.Date = KBRGedUtil.ParseFor(Lines, begline + 1, endline, "DATE");
             rec.Place = KBRGedUtil.ParseFor(Lines, begline + 1, endline, "PLAC");
             rec.Age = KBRGedUtil.ParseFor(Lines, begline + 1, endline, "AGE");
@@ -426,7 +429,13 @@ namespace SharpGEDParser
             rec.Change = KBRGedUtil.ParseForMulti(Lines, begline + 1, endline, "CHAN");
             rec.Note = KBRGedUtil.ParseForMulti(Lines, begline + 1, endline, "NOTE");
             rec.Source = KBRGedUtil.ParseForMulti(Lines, begline + 1, endline, "SOUR");
+            return rec;
+        }
 
+        private void EventProc(int begline, int endline, int nextchar)
+        {
+            var rec = CommonEventProcessing(begline, endline);
+            Events.Add(rec);
 //            Console.WriteLine(rec);
         }
 
