@@ -28,42 +28,44 @@ namespace UnitTestProject1
             return fr.Data;
         }
 
+        public KBRGedIndi parse(string testString)
+        {
+            if (!testString.EndsWith("0 KLUDGE"))
+                testString += "\n0 KLUDGE";
+            var res = ReadIt(testString);
+            Assert.AreEqual(1, res.Count);
+            Assert.AreEqual("INDI", res[0].Tag);
+            var rec = res[0] as KBRGedIndi;
+            Assert.AreNotEqual(null, rec);
+            return rec;
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
             // NOTE extra trailing '0' record: testing kludge
-            var simpleInd = "0 @I1@ INDI\n1 NAME One /Note/\n2 SURN Note\n2 GIVN One\n1 NOTE First line of a note.\n2 @IDENT@ CONT Second line of a note.\n2 CONT Third line of a note.\n0 TESTKLUDGE";
-            var res = ReadIt(simpleInd);
-            Assert.AreEqual(res.Count, 1);
-            Assert.AreEqual(res[0].Tag, "INDI");
-
-            var rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'U');
-            Assert.AreEqual(rec.Names.Count, 1);
+            var simpleInd = "0 @I1@ INDI\n1 NAME One /Note/\n2 SURN Note\n2 GIVN One\n1 NOTE First line of a note.\n2 @IDENT@ CONT Second line of a note.\n2 CONT Third line of a note.";
+            var rec = parse(simpleInd);
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Names.Count);
         }
 
         [TestMethod]
         public void TestSexU()
         {
-            var indiU1 = "0 INDI\n1 NAME kludge\n0TestKludge";
-            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX U\n0TestKludge";
-            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Gibber\n0TestKludge";
+            var indi1 = "0 INDI\n1 SEX";
+            var indiU1 = "0 INDI\n1 NAME kludge";
+            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX U";
+            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Gibber";
 
-            var res = ReadIt(indiU1);
-            var rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'U');
-
-            res = ReadIt(indiU2);
-            rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'U');
-
-            res = ReadIt(indiU3);
-            rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual('U', rec.Sex); // TODO known issue: not validating
+            var rec = parse(indi1);
+            Assert.AreEqual('U', rec.Sex);
+            rec = parse(indiU1);
+            Assert.AreEqual('U', rec.Sex);
+            rec = parse(indiU2);
+            Assert.AreEqual('U', rec.Sex);
+            rec = parse(indiU3);
+            Assert.AreEqual('U', rec.Sex);
         }
 
         [TestMethod]
@@ -110,6 +112,76 @@ namespace UnitTestProject1
             rec = res[0] as KBRGedIndi;
             Assert.AreNotEqual(rec, null);
             Assert.AreEqual(rec.Sex, 'F');
+        }
+
+        [TestMethod]
+        public void TestNoName()
+        {
+            var indi1 = "0 INDI\n1 SEX";
+            var rec = parse(indi1);
+            Assert.AreEqual(0, rec.Names.Count);
+        }
+
+        [TestMethod]
+        public void TestBasicName()
+        {
+            var indi1 = "0 INDI\n1 NAME kludge";
+            var rec = parse(indi1);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("kludge", rec.Names[0].Names);
+            Assert.AreEqual(null, rec.Names[0].Surname);
+        }
+
+        [TestMethod]
+        public void TestBasicSurname()
+        {
+            var indi1 = "0 INDI\n1 NAME kludge /clan/";
+            var rec = parse(indi1);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("kludge", rec.Names[0].Names);
+            Assert.AreEqual("clan", rec.Names[0].Surname);
+        }
+
+        [TestMethod]
+        public void TestBasicSurname2()
+        {
+            // real person from a GED, extra spaces
+            var indi1 = "0 INDI\n1    NAME     Marjorie    Lee     /Smith/   \n2 GIVN Marjorie Lee\n2 SURN Smith";
+
+            var rec = parse(indi1);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("Marjorie Lee", rec.Names[0].Names); // TODO failure to strip extra spaces
+            Assert.AreEqual("Smith", rec.Names[0].Surname);
+        }
+
+        [TestMethod]
+        public void TestId()
+        {
+            var indi1 = "0   @1@   INDI  extra\n1 SEX";
+            var indi2 = "0 @@ INDI\n1 SEX";
+            var rec = parse(indi1);
+            Assert.AreEqual("1", rec.Ident);
+            rec = parse(indi2);
+            Assert.AreEqual("", rec.Ident);
+        }
+
+        [TestMethod]
+        public void TestMultiName()
+        {
+            var indi = "0 INDI\n1 NAME John /Smith/\n1 NAME Eric /Jones/";
+            var rec = parse(indi);
+            Assert.AreEqual(2, rec.Names.Count);
+            Assert.AreEqual("Smith", rec.Names[0].Surname);
+            Assert.AreEqual("Jones", rec.Names[1].Surname);
+        }
+
+        [TestMethod]
+        public void TestSuffix()
+        {
+            var indi = "0 INDI\n1 NAME Given Name /Smith/ jr";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("jr", rec.Names[0].Suffix);
         }
     }
 }

@@ -243,7 +243,8 @@ namespace SharpGEDParser
             // TODO this looks wrong - code smell
             int max = _context.Line.Length;
             int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.nextchar, max);
-            _rec.Sex = _context.Line[sexDex];
+            if (sexDex > 0)
+                _rec.Sex = _context.Line[sexDex];
         }
 
         private void NoteProc()
@@ -283,12 +284,19 @@ namespace SharpGEDParser
             int startSur = KBRGedUtil.AllCharsUntil(line, max, startName, '/');
             int endSur = KBRGedUtil.AllCharsUntil(line, max, startSur + 1, '/');
 
+            var suffix = line.Substring(endSur+1).Trim();
+
             var rec = new NameRec();
             rec.Beg = _context.begline;
             rec.End = _context.endline;
+
+            // TODO clean up extra spaces
             rec.Names = line.Substring(startName, startSur - startName).Trim();
             if (startSur < max) // e.g. "1 NAME LIVING"
                 rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1);
+            if (suffix.Length > 0)
+                rec.Suffix = suffix;
+
             _rec.Names.Add(rec);
 
             // TODO parse more details

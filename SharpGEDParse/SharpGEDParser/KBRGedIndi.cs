@@ -105,9 +105,10 @@ namespace SharpGEDParser
     {
         public string Names { get; set; }
         public string Surname { get; set; }
+        public string Suffix { get; set; }
         public override string ToString()
         {
-            return string.Format(" {0} /{1}/", Names, Surname);
+            return string.Format(" {0} /{1}/ {2}", Names, Surname, Suffix).Trim();
         }
     }
 
