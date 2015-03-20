@@ -125,7 +125,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestBasicName()
         {
-            var indi1 = "0 INDI\n1 NAME kludge";
+            var indi1 = "0 INDI\n1 NAME  kludge  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
@@ -136,10 +136,15 @@ namespace UnitTestProject1
         public void TestBasicSurname()
         {
             var indi1 = "0 INDI\n1 NAME kludge /clan/";
+            var indi2 = "0 INDI\n1 NAME /clan2/";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
             Assert.AreEqual("clan", rec.Names[0].Surname);
+            rec = parse(indi2);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("", rec.Names[0].Names);
+            Assert.AreEqual("clan2", rec.Names[0].Surname);
         }
 
         [TestMethod]
@@ -159,17 +164,25 @@ namespace UnitTestProject1
         {
             var indi1 = "0   @1@   INDI  extra\n1 SEX";
             var indi2 = "0 @@ INDI\n1 SEX";
+            var indi3 = "0   @VERYLONGPERSONID@   INDI  extra\n1 SEX";
             var rec = parse(indi1);
             Assert.AreEqual("1", rec.Ident);
             rec = parse(indi2);
             Assert.AreEqual("", rec.Ident);
+            rec = parse(indi3);
+            Assert.AreEqual("VERYLONGPERSONID", rec.Ident);
         }
 
         [TestMethod]
         public void TestMultiName()
         {
             var indi = "0 INDI\n1 NAME John /Smith/\n1 NAME Eric /Jones/";
+            var indi2 = "0 INDI\n1 NAME John /Smith/\n1 SEX M\n2 NOTE blah blah\n1 NAME Eric /Jones/";
             var rec = parse(indi);
+            Assert.AreEqual(2, rec.Names.Count);
+            Assert.AreEqual("Smith", rec.Names[0].Surname);
+            Assert.AreEqual("Jones", rec.Names[1].Surname);
+            rec = parse(indi2);
             Assert.AreEqual(2, rec.Names.Count);
             Assert.AreEqual("Smith", rec.Names[0].Surname);
             Assert.AreEqual("Jones", rec.Names[1].Surname);
@@ -186,6 +199,59 @@ namespace UnitTestProject1
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("esq", rec.Names[0].Suffix);
+        }
+
+        [TestMethod]
+        public void TestFams()
+        {
+            var indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS @FAMILY1@";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.FamLinks.Count);
+            Assert.AreEqual("FAMS", rec.FamLinks[0].Tag);
+            Assert.AreEqual("FAMILY1", rec.FamLinks[0].XRef);
+        }
+
+        [TestMethod]
+        public void TestFamc()
+        {
+            var indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC @FAMILY1@";
+            var rec = parse(indi2);
+            Assert.AreEqual(1, rec.ChildLinks.Count);
+            Assert.AreEqual("FAMC", rec.ChildLinks[0].Tag);
+            Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef);
+
+            // TODO not sure what is going on. is the space an identity terminator?
+            var indi1 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC @ FAMILY1 @";
+            rec = parse(indi1);
+            Assert.AreEqual(1, rec.ChildLinks.Count);
+            Assert.AreEqual("FAMC", rec.ChildLinks[0].Tag);
+            Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef);
+        }
+
+        [TestMethod]
+        public void TestFamsFamc()
+        {
+            var indi2 = "0 @PERSON3@ INDI\n1 FAMS @FAMILY2@\n1 NAME /Child 1/\n1 FAMC @FAMILY1@";
+            var rec = parse(indi2);
+            Assert.AreEqual(1, rec.ChildLinks.Count);
+            Assert.AreEqual("FAMC", rec.ChildLinks[0].Tag);
+            Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef);
+            Assert.AreEqual(1, rec.FamLinks.Count);
+            Assert.AreEqual("FAMS", rec.FamLinks[0].Tag);
+            Assert.AreEqual("FAMILY2", rec.FamLinks[0].XRef);
+        }
+
+        [TestMethod]
+        public void TestMultiFam()
+        {
+            var indi2 = "0 @PERSON3@ INDI\n1 FAMS @FAMILY2@\n1 NAME /Child 1/\n1 FAMC @FAMILY1@\n1 FAMS @FAMILY3@\n1 FAMC @FAMILY4@";
+            var rec = parse(indi2);
+            Assert.AreEqual(2, rec.ChildLinks.Count);
+            Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef);
+            Assert.AreEqual("FAMILY4", rec.ChildLinks[1].XRef);
+            Assert.AreEqual(2, rec.FamLinks.Count);
+            Assert.AreEqual("FAMILY2", rec.FamLinks[0].XRef);
+            Assert.AreEqual("FAMILY3", rec.FamLinks[1].XRef);
         }
     }
 }
