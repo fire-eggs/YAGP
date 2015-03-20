@@ -240,7 +240,10 @@ namespace SharpGEDParser
 
         private void SexProc()
         {
-            _rec.Sex = _context.Line[_context.nextchar];
+            // TODO this looks wrong - code smell
+            int max = _context.Line.Length;
+            int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.nextchar, max);
+            _rec.Sex = _context.Line[sexDex];
         }
 
         private void NoteProc()

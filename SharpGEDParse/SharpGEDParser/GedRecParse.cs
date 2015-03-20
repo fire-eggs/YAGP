@@ -48,7 +48,7 @@ namespace SharpGEDParser
             {
                 int startrec = linedex;
                 linedex++;
-                if (linedex >= Lines.Max)
+                if (linedex > Lines.Max)
                     break;
                 while (Lines.GetLevel(linedex) > '1')
                     linedex++;

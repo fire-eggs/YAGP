@@ -171,6 +171,7 @@ namespace SharpGEDParser
             FamLinks = new List<FamLinkRec>();
 
             Living = false;
+            Sex = 'U'; // unknown until proven otherwise
 
             // TODO can any properties, especially List<>, not be initialized until use? Efficiently?
         }
