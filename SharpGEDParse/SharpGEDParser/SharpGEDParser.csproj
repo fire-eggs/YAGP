@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileRead.cs" />
+    <Compile Include="GedFamParse.cs" />
+    <Compile Include="GedHeadParse.cs" />
+    <Compile Include="GedIndiParse.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="KBRGedFam.cs" />
     <Compile Include="KBRGedHead.cs" />

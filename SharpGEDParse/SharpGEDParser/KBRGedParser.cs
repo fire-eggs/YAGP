@@ -7,18 +7,28 @@ namespace SharpGEDParser
         public KBRGedParser(string gedPath)
         {
             // TODO dunno yet if the path to the GED is useful
+
+            _IndiParseSingleton = new GedIndiParse();
+            _FamParseSingleton  = new GedFamParse();
+            _HeadParseSingleton = new GedHeadParse();
         }
 
         public KBRGedRec Parse(GedRecord rec)
         {
             // Given a glop of lines which represent a 'record', parse it into GED data (HEAD/INDI/FAM/etc)
-            KBRGedRec ident = Make(rec);
-            ident.Parse(); // TODO execute in parallel
-            ident.Validate(); // TODO execute in parallel
-            return ident;
+            Tuple<KBRGedRec, GedParse> parseSet = Make(rec);
+
+            // TODO execute in parallel
+            if (parseSet.Item2 != null)
+            {
+                parseSet.Item2.Parse(parseSet.Item1);
+                //parseSet.Item2.Validate(parseSet.Item1);
+            }
+            Console.WriteLine(parseSet.Item1);
+            return parseSet.Item1;
         }
 
-        private KBRGedRec Make(GedRecord rec)
+        private Tuple<KBRGedRec, GedParse> Make(GedRecord rec)
         {
             // 1. The first line in the rec should start with '0'
             string head = rec.FirstLine();
@@ -35,25 +45,41 @@ namespace SharpGEDParser
             return GedRecFactory(rec, ident, tag);
         }
 
-        private KBRGedRec GedRecFactory(GedRecord rec, string ident, string tag)
+        private Tuple<KBRGedRec, GedParse> GedRecFactory(GedRecord rec, string ident, string tag)
         {
+            KBRGedRec data;
+
             // TODO Very much brute force. If/until this is found to be optimizable
             switch (tag.ToUpper())
             {
                 case "HEAD":
-                    return new KBRGedHead(rec, ident);
+                    data = new KBRGedHead(rec, ident);
+                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton);
                 case "INDI":
-                    return new KBRGedIndi(rec, ident);
+                    data = new KBRGedIndi(rec, ident);
+                    return new Tuple<KBRGedRec, GedParse>(data, _IndiParseSingleton);
                 case "FAM":
-                    return new KBRGedFam(rec, ident);
+                    data = new KBRGedFam(rec, ident);
+                    return new Tuple<KBRGedRec, GedParse>(data, _FamParseSingleton);
 
                 case "SUBM":
                 case "REPO":
                 case "SOUR":
                 default:
-                    return new KBRGedUnk(rec, ident, tag);
+                    data = new KBRGedUnk(rec, ident, tag);
+                    return new Tuple<KBRGedRec, GedParse>(data, null);
             }
         }
+
+        private GedParse _IndiParseSingleton;
+        private GedParse _FamParseSingleton;
+        private GedParse _HeadParseSingleton;
+
+    }
+
+    public interface GedParse
+    {
+        void Parse(KBRGedRec rec);
     }
 }
 

@@ -4,7 +4,7 @@ namespace SharpGEDParser
 {
     public class KBRGedRec
     {
-        protected GedRecord Lines { get; set; }
+        public GedRecord Lines { get; set; }
 
         public KBRGedRec(GedRecord lines)
         {
