@@ -178,10 +178,14 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestSuffix()
         {
-            var indi = "0 INDI\n1 NAME Given Name /Smith/ jr";
+            var indi = "0 INDI\n1 NAME Given Name /Smith/ jr ";
+            var indi2 = "0 INDI\n1 NAME Given Name /Smith/esq";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("jr", rec.Names[0].Suffix);
+            rec = parse(indi2);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("esq", rec.Names[0].Suffix);
         }
     }
 }

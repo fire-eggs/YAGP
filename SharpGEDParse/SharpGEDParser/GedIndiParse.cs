@@ -284,7 +284,9 @@ namespace SharpGEDParser
             int startSur = KBRGedUtil.AllCharsUntil(line, max, startName, '/');
             int endSur = KBRGedUtil.AllCharsUntil(line, max, startSur + 1, '/');
 
-            var suffix = line.Substring(endSur+1).Trim();
+            var suffix = "";
+            if (endSur+1 < max)
+                suffix = line.Substring(endSur+1).Trim();
 
             var rec = new NameRec();
             rec.Beg = _context.begline;
