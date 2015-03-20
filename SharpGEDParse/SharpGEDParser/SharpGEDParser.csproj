@@ -44,6 +44,7 @@
     <Compile Include="GedHeadParse.cs" />
     <Compile Include="GedIndiParse.cs" />
     <Compile Include="GedRecord.cs" />
+    <Compile Include="GedRecParse.cs" />
     <Compile Include="KBRGedFam.cs" />
     <Compile Include="KBRGedHead.cs" />
     <Compile Include="KBRGedIndi.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -33,8 +34,6 @@ namespace SharpGEDParser
 
         public void ReadGed(string gedPath)
         {
-            Parser = new KBRGedParser(gedPath);
-
             FilePath = gedPath;
             GetEncoding(gedPath);
             ReadLines();
@@ -97,23 +96,29 @@ namespace SharpGEDParser
             }
         }
 
+        public void ReadLines(StreamReader _stream)
+        {
+            Parser = new KBRGedParser(FilePath ?? "");
+            Data = new List<KBRGedRec>();
+
+            _currRec = new GedRecord();
+            _lineNum = 1;
+            string line = _stream.ReadLine();
+            while (line != null)
+            {
+                ProcessRecord(line, _lineNum);
+
+                line = _stream.ReadLine();
+                _lineNum++;
+            }
+        }
+
         private void ReadLines()
         {
-            _currRec = new GedRecord();
             using (_stream = new StreamReader(FilePath, FileEnc))
             {
-                _lineNum = 1;
-                string line = _stream.ReadLine();
-                while (line != null)
-                {
-                    ProcessRecord(line, _lineNum);
-
-                    line = _stream.ReadLine();
-                    _lineNum++;
-                }
+                ReadLines(_stream);
             }
-
-            //Console.WriteLine(_currRec);
         }
 
         private GedRecord _currRec;
@@ -134,6 +139,8 @@ namespace SharpGEDParser
                     // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
                     var parsed = Parser.Parse(_currRec);
 //                    Console.WriteLine(">>>" + parsed);
+
+                    Data.Add(parsed);
                 }
                 _currRec = new GedRecord(lineNum, line);
             }
@@ -142,5 +149,8 @@ namespace SharpGEDParser
                 _currRec.AddLine(line);
             }
         }
+
+        // TODO needs to be intelligent - header/people/families/relations/etc
+        public List<KBRGedRec> Data { get; set; }
     }
 }

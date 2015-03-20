@@ -4,80 +4,35 @@ using System.Diagnostics;
 
 namespace SharpGEDParser
 {
-    public class ParseContext
+
+    public class GedIndiParse : GedRecParse
     {
-        public string Line;
-        public string Tag;
-        public int begline;
-        public int endline;
-        public int nextchar;
-        public KBRGedIndi rec;
-    }
+        private static KBRGedIndi _rec;
 
-    public class GedIndiParse : GedParse
-    {
-        public GedIndiParse()
+        protected override void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
         {
-            BuildTagSet();
-            // TODO does this make parsing effectively single-threaded? need one context per thread?
-            _context = new ParseContext();
-        }
-
-        private static ParseContext _context;
-
-        public void Parse(KBRGedRec rec)
-        {
-            // At this point we know it is an INDI record and its ident.
-            // TODO any trailing data after 'INDI' keyword?
-
-            var Lines = rec.Lines;
-
-            int linedex = 1;
-            while (Lines.GetLevel(linedex) != '1')
-                linedex++;
-            if (linedex > Lines.Max)
-                return;
-
-            while (true)
-            {
-                int startrec = linedex;
-                linedex++;
-                if (linedex >= Lines.Max)
-                    break;
-                while (Lines.GetLevel(linedex) > '1')
-                    linedex++;
-                ParseSubRec(rec, startrec, linedex - 1);
-                if (linedex >= Lines.Max)
-                    break;
-            }
-
-            // TODO all this can be refactored in common for other record types (FAM,INDI, etc), except the "parseSub" delegate invocation
-        }
-
-        public void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
-        {
-            string _line = rec.Lines.GetLine(startLineDex);
+            string line = rec.Lines.GetLine(startLineDex);
             string ident = "";
-            string _tag = "";
+            string tag = "";
 
-            int nextChar = KBRGedUtil.IdentAndTag(_line, 1, ref ident, ref _tag); //HACK assuming no leading spaces
+            int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
             //            Console.WriteLine("____{2}({3}):{0}-{1}", startLineDex, maxLineDex, _tag, ident);
 
-            if (tagSet.ContainsKey(_tag))
+            if (tagSet.ContainsKey(tag))
             {
                 // TODO does this make parsing effectively single-threaded? need one context per thread?
-                _context.Line = _line;
-                _context.Tag = _tag;
+                _context.Line = line;
+                _context.Tag = tag;
                 _context.begline = startLineDex;
                 _context.endline = maxLineDex;
                 _context.nextchar = nextChar;
-                _context.rec = rec as KBRGedIndi;
+                _rec = rec as KBRGedIndi;
 
-                tagSet[_tag]();
+                tagSet[tag]();
             }
             else
             {
-                UnknownTag(rec, _tag, startLineDex, maxLineDex);
+                UnknownTag(rec, tag, startLineDex, maxLineDex);
             }
         }
 
@@ -93,7 +48,7 @@ namespace SharpGEDParser
 
         private Dictionary<string, IndiTagProc> tagSet = new Dictionary<string, IndiTagProc>();
 
-        private void BuildTagSet()
+        protected override void BuildTagSet()
         {
             tagSet.Add("NAME", NameProc);
             tagSet.Add("RESN", DataProc); // TODO sufficient?
@@ -153,7 +108,7 @@ namespace SharpGEDParser
             var rec = new DataRec(_context.Tag, data);
             rec.Beg = _context.begline;
             rec.End = _context.endline;
-            _context.rec.Data.Add(rec);
+            _rec.Data.Add(rec);
         }
 
         private XRefRec CommonXRefProcessing()
@@ -169,32 +124,32 @@ namespace SharpGEDParser
         private void DesiProc()
         {
             var rec = CommonXRefProcessing();
-            _context.rec.Desi.Add(rec);
+            _rec.Desi.Add(rec);
         }
 
         private void AnciProc()
         {
             var rec = CommonXRefProcessing();
-            _context.rec.Anci.Add(rec);
+            _rec.Anci.Add(rec);
         }
 
         private void AliasProc()
         {
             var rec = CommonXRefProcessing();
-            _context.rec.Alia.Add(rec);
+            _rec.Alia.Add(rec);
         }
 
         private void SubmProc()
         {
             var rec = CommonXRefProcessing();
-            _context.rec.Subm.Add(rec);
+            _rec.Subm.Add(rec);
             // TODO sufficient? are there submitter details?
         }
 
         private void LivingProc()
         {
             // Some programs explicitly indicate 'living'. 
-            _context.rec.Living = true;
+            _rec.Living = true;
         }
 
         private void SpouseLink()
@@ -205,10 +160,10 @@ namespace SharpGEDParser
             var rec = new FamLinkRec(ident);
             rec.Beg = _context.begline;
             rec.End = _context.endline;
-            _context.rec.FamLinks.Add(rec);
+            _rec.FamLinks.Add(rec);
 
             // TODO parse NOTE
-            Debug.Assert(KBRGedUtil.ParseFor(_context.rec.Lines, 
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, 
                                              _context.begline, 
                                              _context.endline, "NOTE") == null);
         }
@@ -221,23 +176,23 @@ namespace SharpGEDParser
             var rec = new ChildLinkRec(ident);
             rec.Beg = _context.begline;
             rec.End = _context.endline;
-            _context.rec.ChildLinks.Add(rec);
+            _rec.ChildLinks.Add(rec);
 
             // TODO parse PEDI, STAT, NOTE
-            Debug.Assert(KBRGedUtil.ParseFor(_context.rec.Lines,
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
                                              _context.begline,
                                              _context.endline, "NOTE") == null);
-            Debug.Assert(KBRGedUtil.ParseFor(_context.rec.Lines,
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
                                              _context.begline,
                                              _context.endline, "PEDI") == null);
-            Debug.Assert(KBRGedUtil.ParseFor(_context.rec.Lines,
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
                                              _context.begline,
                                              _context.endline, "STAT") == null);
         }
 
         private EventRec CommonEventProcessing()
         {
-            var lines = _context.rec.Lines;
+            var lines = _rec.Lines;
             int begline = _context.begline;
             int endline = _context.endline;
 
@@ -258,45 +213,45 @@ namespace SharpGEDParser
         private void EventProc()
         {
             var rec = CommonEventProcessing();
-            _context.rec.Events.Add(rec);
+            _rec.Events.Add(rec);
         }
 
         private void FamEventProc()
         {
             // A family event: same as an event but has additional husband, wife tags
             var rec = CommonEventProcessing();
-            _context.rec.FamEvents.Add(rec);
+            _rec.FamEvents.Add(rec);
 
             // TODO family event specific processing
-            Debug.Assert(KBRGedUtil.ParseFor(_context.rec.Lines, _context.begline, _context.endline, "HUSB") == null);
-            Debug.Assert(KBRGedUtil.ParseFor(_context.rec.Lines, _context.begline, _context.endline, "WIFE") == null);
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.begline, _context.endline, "HUSB") == null);
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.begline, _context.endline, "WIFE") == null);
         }
 
         private void BirtProc()
         {
             var rec = CommonEventProcessing();
-            _context.rec.Events.Add(rec);
+            _rec.Events.Add(rec);
 
             // TODO parse birt, adop specific
-            Debug.Assert(KBRGedUtil.ParseFor(_context.rec.Lines, _context.begline, _context.endline, "FAMC") == null);
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.begline, _context.endline, "FAMC") == null);
             // ADOP is a sub-tag on FAMC
             //            Debug.Assert(_tag == "BIRT" && KBRGedUtil.ParseFor(Lines, begline, endline, "ADOP") == null);
         }
 
         private void SexProc()
         {
-            _context.rec.Sex = _context.Line[_context.nextchar];
+            _rec.Sex = _context.Line[_context.nextchar];
         }
 
         private void NoteProc()
         {
-            Debug.Assert(_context.rec.Note == null);
-            _context.rec.Note = new Tuple<int, int>(_context.begline, _context.endline);
+            Debug.Assert(_rec.Note == null);
+            _rec.Note = new Tuple<int, int>(_context.begline, _context.endline);
         }
         private void ChanProc()
         {
-            Debug.Assert(_context.rec.Change == null);
-            _context.rec.Change = new Tuple<int, int>(_context.begline, _context.endline);
+            Debug.Assert(_rec.Change == null);
+            _rec.Change = new Tuple<int, int>(_context.begline, _context.endline);
         }
 
         private void LdsOrdProc()
@@ -331,7 +286,7 @@ namespace SharpGEDParser
             rec.Names = line.Substring(startName, startSur - startName).Trim();
             if (startSur < max) // e.g. "1 NAME LIVING"
                 rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1);
-            _context.rec.Names.Add(rec);
+            _rec.Names.Add(rec);
 
             // TODO parse more details
         }
@@ -347,7 +302,7 @@ namespace SharpGEDParser
             var rec = new SourceRec(ident);
             rec.Beg = _context.begline;
             rec.End = _context.endline;
-            _context.rec.Sources.Add(rec);
+            _rec.Sources.Add(rec);
 
             // TODO parse more stuff
         }
