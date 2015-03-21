@@ -2,6 +2,7 @@
 using SharpGEDParser;
 
 // ReSharper disable ConvertToConstant.Local
+// ReSharper disable InconsistentNaming
 
 namespace UnitTestProject1
 {
@@ -226,6 +227,12 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Alia.Count);
             Assert.AreEqual("John /Doe/", rec.Alia[0].XRef);
 
+            indi2 = "0 INDI\n1 ALIA John /Doe/  \n1 ALIA Jane Doe";
+            rec = parse(indi2);
+            Assert.AreEqual(2, rec.Alia.Count);
+            Assert.AreEqual("John /Doe/", rec.Alia[0].XRef);
+            Assert.AreEqual("Jane Doe", rec.Alia[1].XRef);
+
             // TODO multiple aliases
             // TODO confused about GED syntax here...
         }
@@ -273,6 +280,127 @@ namespace UnitTestProject1
             indi = "0 INDI\n1 RESN       privacy     ";
             rec = parse(indi);
             Assert.AreEqual("privacy", rec.Restriction);
+        }
+
+        [TestMethod]
+        public void TestNote()
+        {
+            // TODO multiple notes
+            //Assert.AreEqual(1, rec.Notes.Count);
+
+            var indi = "0 INDI\n1 NOTE";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Note.Item1);
+            Assert.AreEqual(1, rec.Note.Item2);
+
+            // TODO conc/cont
+
+            indi = "0 INDI\n1 NOTE notes\n2 CONT more detail";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Note.Item1);
+            Assert.AreEqual(2, rec.Note.Item2);
+        }
+
+        [TestMethod]
+        public void TestChange()
+        {
+            // TODO multiple changes possible?
+
+            var indi = "0 INDI\n1 CHAN";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Change.Item1);
+            Assert.AreEqual(1, rec.Change.Item2);
+
+            indi = "0 INDI\n1 CHAN notes\n2 DATE blah";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Change.Item1);
+            Assert.AreEqual(2, rec.Change.Item2);
+
+            // TODO test actual details
+        }
+
+        [TestMethod]
+        public void TestLiving()
+        {
+            var indi = "0 INDI\n1 CHAN";
+            var rec = parse(indi);
+            Assert.IsFalse(rec.Living);
+
+            indi = "0 INDI\n1 LVG Gibber";
+            rec = parse(indi);
+            Assert.IsTrue(rec.Living);
+            indi = "0 INDI\n1 LVG";
+            rec = parse(indi);
+            Assert.IsTrue(rec.Living);
+            indi = "0 INDI\n1 LVNG Gibber";
+            rec = parse(indi);
+            Assert.IsTrue(rec.Living);
+            indi = "0 INDI\n1 LVNG";
+            rec = parse(indi);
+            Assert.IsTrue(rec.Living);
+        }
+
+        [TestMethod]
+        public void TestRFN()
+        {
+            var indi = "0 INDI\n1 RFN";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("RFN", rec.Data[0].Tag);
+            Assert.AreEqual("", rec.Data[0].Data);
+
+            indi = "0 INDI\n1 RFN 2547";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("RFN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
+        }
+
+        [TestMethod]
+        public void TestREFN()
+        {
+            var indi = "0 INDI\n1 REFN";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("REFN", rec.Data[0].Tag);
+            Assert.AreEqual("", rec.Data[0].Data);
+
+            indi = "0 INDI\n1 REFN 2547";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("REFN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
+        }
+        [TestMethod]
+        public void TestAFN()
+        {
+            var indi = "0 INDI\n1 AFN";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("AFN", rec.Data[0].Tag);
+            Assert.AreEqual("", rec.Data[0].Data);
+
+            indi = "0 INDI\n1 AFN 2547";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("AFN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
+        }
+        [TestMethod]
+        public void TestUID()
+        {
+            var indi = "0 INDI\n1 _UID";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("_UID", rec.Data[0].Tag);
+            Assert.AreEqual("", rec.Data[0].Data);
+
+            // UID value from a real ged file
+            indi = "0 INDI\n1 _UID BA8E953A325A1342B5F691F88A6A6E018F33";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("_UID", rec.Data[0].Tag);
+            Assert.AreEqual("BA8E953A325A1342B5F691F88A6A6E018F33", rec.Data[0].Data);
         }
     }
 }

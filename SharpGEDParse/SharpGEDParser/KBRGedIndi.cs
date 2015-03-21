@@ -111,14 +111,12 @@ namespace SharpGEDParser
 
     public class KBRGedIndi : KBRGedRec
     {
+        // TODO track this via Data instead?
         // Restriction notice
         public string Restriction { get; set; }
 
         // Individual's sex
         public char Sex { get; set; }
-
-        // Permanent record information
-        public string PermanentRecord { get; set; }
 
         // Source records
         public List<SourceRec> Sources { get; set; }
@@ -160,6 +158,7 @@ namespace SharpGEDParser
             Names = new List<NameRec>();
             Data = new List<DataRec>();
 
+            // TODO consider tracking in a single list
             Alia = new List<XRefRec>();
             Anci = new List<XRefRec>();
             Desi = new List<XRefRec>();

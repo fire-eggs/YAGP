@@ -113,7 +113,7 @@ namespace SharpGEDParser
         private void DataProc()
         {
             string data = _context.Line.Substring(_context.nextchar);
-            var rec = new DataRec(_context.Tag, data);
+            var rec = new DataRec(_context.Tag, data.Trim());
             rec.Beg = _context.begline;
             rec.End = _context.endline;
             _rec.Data.Add(rec);
