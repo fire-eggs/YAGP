@@ -233,7 +233,6 @@ namespace UnitTestProject1
             Assert.AreEqual("John /Doe/", rec.Alia[0].XRef);
             Assert.AreEqual("Jane Doe", rec.Alia[1].XRef);
 
-            // TODO multiple aliases
             // TODO confused about GED syntax here...
         }
 
@@ -244,7 +243,14 @@ namespace UnitTestProject1
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Anci.Count);
             Assert.AreEqual("SUBM1", rec.Anci[0].XRef);
+
+            indi = "0 INDI\n1 ANCI @SUBM2@\n1 ANCI @SUBM3@";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Anci.Count);
+            Assert.AreEqual("SUBM2", rec.Anci[0].XRef);
+            Assert.AreEqual("SUBM3", rec.Anci[1].XRef);
         }
+
         [TestMethod]
         public void TestDesi()
         {
@@ -252,7 +258,14 @@ namespace UnitTestProject1
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Desi.Count);
             Assert.AreEqual("SUBM1", rec.Desi[0].XRef);
+
+            indi = "0 INDI\n1 DESI @SUBM2@\n1 DESI @SUBM3@";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Desi.Count);
+            Assert.AreEqual("SUBM2", rec.Desi[0].XRef);
+            Assert.AreEqual("SUBM3", rec.Desi[1].XRef);
         }
+
         [TestMethod]
         public void TestSubm()
         {
@@ -260,6 +273,18 @@ namespace UnitTestProject1
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Subm.Count);
             Assert.AreEqual("SUBM1", rec.Subm[0].XRef);
+
+            indi = "0 INDI\n1 SUBM @SUBM2@\n1 SUBM @SUBM3@";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Subm.Count);
+            Assert.AreEqual("SUBM2", rec.Subm[0].XRef);
+            Assert.AreEqual("SUBM3", rec.Subm[1].XRef);
+
+            // TODO some real geds not using xref format
+            indi = "0 INDI\n1 SUBM Jane Doe";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Subm.Count);
+            Assert.AreEqual("Jane Doe", rec.Subm[0].XRef);
         }
 
         [TestMethod]
@@ -285,33 +310,46 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestNote()
         {
-            // TODO multiple notes
-            //Assert.AreEqual(1, rec.Notes.Count);
+            // TODO conc/cont
+            // TODO verify note contents
 
             var indi = "0 INDI\n1 NOTE";
             var rec = parse(indi);
-            Assert.AreEqual(1, rec.Note.Item1);
-            Assert.AreEqual(1, rec.Note.Item2);
-
-            // TODO conc/cont
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual(1, rec.Notes[0].Item1);
+            Assert.AreEqual(1, rec.Notes[0].Item2);
 
             indi = "0 INDI\n1 NOTE notes\n2 CONT more detail";
             rec = parse(indi);
-            Assert.AreEqual(1, rec.Note.Item1);
-            Assert.AreEqual(2, rec.Note.Item2);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual(1, rec.Notes[0].Item1);
+            Assert.AreEqual(2, rec.Notes[0].Item2);
+
+            indi = "0 INDI\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Notes.Count);
+            Assert.AreEqual(1, rec.Notes[0].Item1);
+            Assert.AreEqual(2, rec.Notes[0].Item2);
+            Assert.AreEqual(4, rec.Notes[1].Item1);
+            Assert.AreEqual(4, rec.Notes[1].Item2);
         }
 
         [TestMethod]
         public void TestChange()
         {
-            // TODO multiple changes possible?
-
             var indi = "0 INDI\n1 CHAN";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Change.Item1);
             Assert.AreEqual(1, rec.Change.Item2);
 
             indi = "0 INDI\n1 CHAN notes\n2 DATE blah";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Change.Item1);
+            Assert.AreEqual(2, rec.Change.Item2);
+
+            // Only 1 change record allowed
+            // Gedcom spec says take the FIRST one
+            indi = "0 INDI\n1 CHAN notes\n2 DATE blah\n1 CHAN notes2";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Change.Item1);
             Assert.AreEqual(2, rec.Change.Item2);
@@ -354,6 +392,14 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Data.Count);
             Assert.AreEqual("RFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
+
+            // TODO GEDCOM spec says only one RFN but current code allows multiple
+            // TODO GEDCOM spec says to take the first
+            indi = "0 INDI\n1 RFN 2547\n1 RFN gibber";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("RFN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
         }
 
         [TestMethod]
@@ -370,6 +416,15 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Data.Count);
             Assert.AreEqual("REFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
+
+            // GEDCOM spec allows multiples
+            indi = "0 INDI\n1 REFN 2547\n1 REFN gibber";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Data.Count);
+            Assert.AreEqual("REFN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
+            Assert.AreEqual("REFN", rec.Data[1].Tag);
+            Assert.AreEqual("gibber", rec.Data[1].Data);
         }
         [TestMethod]
         public void TestAFN()
@@ -385,10 +440,20 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Data.Count);
             Assert.AreEqual("AFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
+
+            // TODO GEDCOM spec says only one AFN but current code allows multiple
+            // TODO GEDCOM spec says to take the first
+            indi = "0 INDI\n1 AFN 2547\n1 AFN gibber";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("AFN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
         }
         [TestMethod]
         public void TestUID()
         {
+            // TODO not a standard tag, dunno if multiples allowed. Code currently supports.
+
             var indi = "0 INDI\n1 _UID";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Data.Count);
@@ -401,6 +466,80 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Data.Count);
             Assert.AreEqual("_UID", rec.Data[0].Tag);
             Assert.AreEqual("BA8E953A325A1342B5F691F88A6A6E018F33", rec.Data[0].Data);
+
+            indi = "0 INDI\n1 _UID 1\n1 _UID 2";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Data.Count);
+            Assert.AreEqual("_UID", rec.Data[0].Tag);
+            Assert.AreEqual("1", rec.Data[0].Data);
+            Assert.AreEqual("_UID", rec.Data[1].Tag);
+            Assert.AreEqual("2", rec.Data[1].Data);
+
+        }
+        [TestMethod]
+        public void TestRIN()
+        {
+            var indi = "0 INDI\n1 RIN\n1 NAME foo";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("RIN", rec.Data[0].Tag);
+            Assert.AreEqual("", rec.Data[0].Data);
+
+            indi = "0 INDI\n1 RIN 2547";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("RIN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
+
+            // TODO GEDCOM spec says only one RIN but current code allows multiple
+            // TODO GEDCOM spec says to take the first
+            indi = "0 INDI\n1 RIN 2547\n1 RIN gibber";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("RIN", rec.Data[0].Tag);
+            Assert.AreEqual("2547", rec.Data[0].Data);
+        }
+
+        [TestMethod]
+        public void TestAsso()
+        {
+            var indi = "0 INDI\n1 ASSO @foo@";
+            var rec = parse(indi);
+// TODO            Assert.AreEqual(1, rec.Asso.Count);
+        }
+
+        [TestMethod]
+        public void TestSource()
+        {
+            var indi = "0 INDI\n1 SOUR @S331@\n2 QUAY 3";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Sources.Count);
+            Assert.AreEqual("S331", rec.Sources[0].XRef);
+            Assert.AreEqual(1, rec.Sources[0].Beg);
+            Assert.AreEqual(2, rec.Sources[0].End);
+
+            indi = "0 INDI\n1 SOUR @S331@\n2 QUAY 3\n1 SOUR @S148@";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Sources.Count);
+            Assert.AreEqual("S331", rec.Sources[0].XRef);
+            Assert.AreEqual(1, rec.Sources[0].Beg);
+            Assert.AreEqual(2, rec.Sources[0].End);
+            Assert.AreEqual("S148", rec.Sources[1].XRef);
+            Assert.AreEqual(3, rec.Sources[1].Beg);
+            Assert.AreEqual(3, rec.Sources[1].End);
+
+            // extracted from a real GED file
+            indi = "0 INDI\n1 SOUR @S333@\n2 QUAY 3\n1 SOUR @S66@\n2 _RIN 6217\n2 PAGE Missouri/Richmond/Ray/ED #150/Page 4A\n2 DATA\n3 TEXT Trigg Street\n4 CONT 86 91 Claypole, Aaron, head, 59\n4 CONT Myrtle C., daughter-in-law, 17, M\n3 DATE 7 JAN 1920\n2 QUAY 3";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Sources.Count);
+            Assert.AreEqual("S333", rec.Sources[0].XRef);
+            Assert.AreEqual(1, rec.Sources[0].Beg);
+            Assert.AreEqual(2, rec.Sources[0].End);
+            Assert.AreEqual("S66", rec.Sources[1].XRef);
+            Assert.AreEqual(3, rec.Sources[1].Beg);
+            Assert.AreEqual(11, rec.Sources[1].End);
+
+            // TODO validate details
         }
     }
 }
