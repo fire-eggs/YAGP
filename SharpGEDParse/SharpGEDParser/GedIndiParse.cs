@@ -135,7 +135,11 @@ namespace SharpGEDParser
 
         private void AliasProc()
         {
-            var rec = CommonXRefProcessing();
+            // TODO some samples have slashes; others names + /surname/
+            string ident = _context.Line.Substring(_context.nextchar).Trim();
+            var rec = new XRefRec(_context.Tag, ident);
+            rec.Beg = _context.begline;
+            rec.End = _context.endline;
             _rec.Alia.Add(rec);
         }
 
@@ -203,9 +207,12 @@ namespace SharpGEDParser
             rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
             rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
             rec.Age = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGE");
+            rec.Type = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TYPE");
 
             rec.Change = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "CHAN");
             rec.Note = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
+
+            // TODO more than one source permitted!
             rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
             return rec;
         }

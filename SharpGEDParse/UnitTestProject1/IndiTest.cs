@@ -1,45 +1,12 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpGEDParser;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-// TODO my asserts are backward - 'expected' first
+// ReSharper disable ConvertToConstant.Local
 
 namespace UnitTestProject1
 {
     [TestClass]
-    public class IndiTest
+    public class IndiTest : GedParseTest
     {
-        // TODO refactor to common base
-        public static Stream ToStream(string str)
-        {
-            return new MemoryStream(Encoding.UTF8.GetBytes(str ?? ""));
-        }
-
-        // TODO refactor to common base
-        public static List<KBRGedRec> ReadIt(string testString)
-        {
-            FileRead fr = new FileRead();
-            using (var stream = new StreamReader(ToStream(testString)))
-            {
-                fr.ReadLines(stream);
-            }
-            return fr.Data;
-        }
-
-        public KBRGedIndi parse(string testString)
-        {
-            if (!testString.EndsWith("0 KLUDGE"))
-                testString += "\n0 KLUDGE";
-            var res = ReadIt(testString);
-            Assert.AreEqual(1, res.Count);
-            Assert.AreEqual("INDI", res[0].Tag);
-            var rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(null, rec);
-            return rec;
-        }
-
         [TestMethod]
         public void TestMethod1()
         {
@@ -65,7 +32,7 @@ namespace UnitTestProject1
             rec = parse(indiU2);
             Assert.AreEqual('U', rec.Sex);
             rec = parse(indiU3);
-            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual('U', rec.Sex, "Failed to translate to U");
         }
 
         [TestMethod]
@@ -75,20 +42,14 @@ namespace UnitTestProject1
             var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Masculine\n0TestKludge";
             var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Male\n0TestKludge";
 
-            var res = ReadIt(indiU1);
-            var rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'M');
+            var rec = parse(indiU1);
+            Assert.AreEqual('M', rec.Sex);
 
-            res = ReadIt(indiU2);
-            rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'M');
+            rec = parse(indiU2);
+            Assert.AreEqual('M', rec.Sex);
 
-            res = ReadIt(indiU3);
-            rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'M');
+            rec = parse(indiU3);
+            Assert.AreEqual('M', rec.Sex);
         }
 
         [TestMethod]
@@ -98,20 +59,14 @@ namespace UnitTestProject1
             var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Feminine\n0TestKludge";
             var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Female\n0TestKludge";
 
-            var res = ReadIt(indiU1);
-            var rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'F');
+            var rec = parse(indiU1);
+            Assert.AreEqual('F', rec.Sex);
 
-            res = ReadIt(indiU2);
-            rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'F');
+            rec = parse(indiU2);
+            Assert.AreEqual('F', rec.Sex);
 
-            res = ReadIt(indiU3);
-            rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(rec, null);
-            Assert.AreEqual(rec.Sex, 'F');
+            rec = parse(indiU3);
+            Assert.AreEqual('F', rec.Sex);
         }
 
         [TestMethod]
@@ -155,7 +110,7 @@ namespace UnitTestProject1
 
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
-            Assert.AreEqual("Marjorie Lee", rec.Names[0].Names); // TODO failure to strip extra spaces
+            Assert.AreEqual("Marjorie Lee", rec.Names[0].Names, "Failure to remove extra spaces"); // TODO failure to strip extra spaces
             Assert.AreEqual("Smith", rec.Names[0].Surname);
         }
 
@@ -225,7 +180,7 @@ namespace UnitTestProject1
             rec = parse(indi1);
             Assert.AreEqual(1, rec.ChildLinks.Count);
             Assert.AreEqual("FAMC", rec.ChildLinks[0].Tag);
-            Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef);
+            Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef, "Is space a terminator?");
         }
 
         [TestMethod]
@@ -252,6 +207,22 @@ namespace UnitTestProject1
             Assert.AreEqual(2, rec.FamLinks.Count);
             Assert.AreEqual("FAMILY2", rec.FamLinks[0].XRef);
             Assert.AreEqual("FAMILY3", rec.FamLinks[1].XRef);
+        }
+
+        [TestMethod]
+        public void TestAlias()
+        {
+            var indi = "0 INDI\n1 ALIA Zettie";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Alia.Count);
+            Assert.AreEqual("Zettie", rec.Alia[0].XRef);
+            var indi2 = "0 INDI\n1 ALIA John /Doe/  ";
+            rec = parse(indi2);
+            Assert.AreEqual(1, rec.Alia.Count);
+            Assert.AreEqual("John /Doe/", rec.Alia[0].XRef);
+
+            // TODO multiple aliases
+            // TODO confused about GED syntax here...
         }
     }
 }

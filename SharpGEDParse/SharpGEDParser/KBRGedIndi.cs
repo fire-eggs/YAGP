@@ -77,13 +77,10 @@ namespace SharpGEDParser
     {
         public string Date { get; set; }
         public string Place { get; set; }
-
         public string Age { get; set; }
-
+        public string Type { get; set; } // detail, classification
         public Tuple<int, int> Change { get; set; }
-
         public Tuple<int, int> Note { get; set; }
-
         public Tuple<int, int> Source { get; set; }
 
         public EventRec(string tag)

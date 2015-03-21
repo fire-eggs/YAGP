@@ -79,14 +79,14 @@ namespace SharpGEDParser
 
                 int endTag = CharsUntil(line, max, startDex, ' ');
                 tag = line.Substring(startDex, endTag - startDex);
-                return endTag; // TODO off-by-one?
+                return endTag;
             }
             else
             {
                 // startdex points at 'H' ("0 HEAD")
                 int endTag = CharsUntil(line, max, startDex + 1, ' ');
                 tag = line.Substring(startDex, endTag - startDex);
-                return endTag; // TODO off-by-one?
+                return endTag;
             }
         }
 
@@ -113,7 +113,7 @@ namespace SharpGEDParser
                 int res = TagAndRemain(line, ref ident, ref tag, ref remain);
 
                 if (tag == target)
-                    return remain;
+                    return remain.Trim();
             }
 
             return null;
