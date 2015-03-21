@@ -16,7 +16,6 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
-            // NOTE extra trailing '0' record: testing kludge
             var simpleInd = "0 @I1@ INDI\n1 NAME One /Note/\n2 SURN Note\n2 GIVN One\n1 NOTE First line of a note.\n2 @IDENT@ CONT Second line of a note.\n2 CONT Third line of a note.";
             var rec = parse(simpleInd);
             Assert.AreEqual('U', rec.Sex);
@@ -254,6 +253,26 @@ namespace UnitTestProject1
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Subm.Count);
             Assert.AreEqual("SUBM1", rec.Subm[0].XRef);
+        }
+
+        [TestMethod]
+        public void TestRestriction()
+        {
+            var indi = "0 INDI\n1 RESN";
+            var rec = parse(indi);
+            Assert.AreEqual(null, rec.Restriction);
+            
+            indi = "0 INDI\n1 RESN locked";
+            rec = parse(indi);
+            Assert.AreEqual("locked", rec.Restriction);
+
+            indi = "0 INDI\n1 RESN gibber";
+            rec = parse(indi);
+            Assert.AreEqual("gibber", rec.Restriction);
+
+            indi = "0 INDI\n1 RESN       privacy     ";
+            rec = parse(indi);
+            Assert.AreEqual("privacy", rec.Restriction);
         }
     }
 }

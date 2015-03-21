@@ -28,6 +28,8 @@ namespace UnitTestProject1
 
         public T parse<T>(string testString, string tagN) where T: class
         {
+            // TODO this is a bug
+            // Testing kludge required: parser won't terminate w/o trailing '0' record.
             if (!testString.EndsWith("0 KLUDGE"))
                 testString += "\n0 KLUDGE";
             var res = ReadIt(testString);

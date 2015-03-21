@@ -51,13 +51,13 @@ namespace SharpGEDParser
         protected override void BuildTagSet()
         {
             tagSet.Add("NAME", NameProc);
-            tagSet.Add("RESN", DataProc); // TODO sufficient?
-            tagSet.Add("SEX", SexProc);
+            tagSet.Add("RESN", RestrictProc);
+            tagSet.Add("SEX",  SexProc);
             tagSet.Add("BAPM", EventProc); // simple event
             tagSet.Add("DEAT", EventProc); // simple event
             tagSet.Add("CREM", EventProc); // simple event
             tagSet.Add("BURI", EventProc); // simple event
-            tagSet.Add("CHR", EventProc); // simple event
+            tagSet.Add("CHR",  EventProc); // simple event
             tagSet.Add("NATU", EventProc);
             tagSet.Add("IMMI", EventProc);
             tagSet.Add("WILL", EventProc);
@@ -100,6 +100,14 @@ namespace SharpGEDParser
 
             tagSet.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
             tagSet.Add("LVNG", LivingProc); // "Generations" custom
+        }
+
+        private void RestrictProc()
+        {
+            string data = _context.Line.Substring(_context.nextchar);
+            if (string.IsNullOrWhiteSpace(data))
+                return;
+            _rec.Restriction = data.Trim();
         }
 
         private void DataProc()
