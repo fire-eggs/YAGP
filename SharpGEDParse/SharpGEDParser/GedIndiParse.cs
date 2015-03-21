@@ -129,6 +129,7 @@ namespace SharpGEDParser
 
         private void AnciProc()
         {
+            // TODO one GED has 'HIGH', 'LOW' and 'MEDIUM'...
             var rec = CommonXRefProcessing();
             _rec.Anci.Add(rec);
         }

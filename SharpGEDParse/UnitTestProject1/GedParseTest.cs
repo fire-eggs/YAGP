@@ -26,15 +26,15 @@ namespace UnitTestProject1
             return fr.Data;
         }
 
-        public KBRGedIndi parse(string testString)
+        public T parse<T>(string testString, string tagN) where T: class
         {
             if (!testString.EndsWith("0 KLUDGE"))
                 testString += "\n0 KLUDGE";
             var res = ReadIt(testString);
             Assert.AreEqual(1, res.Count, "record count");
-            Assert.AreEqual("INDI", res[0].Tag, "Indi Tag");
-            var rec = res[0] as KBRGedIndi;
-            Assert.AreNotEqual(null, rec, "not INDI record");
+            Assert.AreEqual(tagN, res[0].Tag, "Tag:"+tagN);
+            var rec = res[0] as T;
+            Assert.AreNotEqual(null, rec, "wrong record type:"+tagN);
             return rec;
         }
     }

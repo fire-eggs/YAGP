@@ -1,10 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SharpGEDParser;
 
 namespace UnitTestProject1
 {
     [TestClass]
     public class IndiEventTest : GedParseTest
     {
+        private KBRGedIndi parse(string val)
+        {
+            return parse<KBRGedIndi>(val, "INDI");
+        }
+
         [TestMethod]
         public void TestBirth()
         {

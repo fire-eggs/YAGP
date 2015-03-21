@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SharpGEDParser;
 
 // ReSharper disable ConvertToConstant.Local
 
@@ -7,6 +8,11 @@ namespace UnitTestProject1
     [TestClass]
     public class IndiTest : GedParseTest
     {
+        private KBRGedIndi parse(string val)
+        {
+            return parse<KBRGedIndi>(val, "INDI");
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
@@ -223,6 +229,31 @@ namespace UnitTestProject1
 
             // TODO multiple aliases
             // TODO confused about GED syntax here...
+        }
+
+        [TestMethod]
+        public void TestAnci()
+        {
+            var indi = "0 INDI\n1 ANCI @SUBM1@";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Anci.Count);
+            Assert.AreEqual("SUBM1", rec.Anci[0].XRef);
+        }
+        [TestMethod]
+        public void TestDesi()
+        {
+            var indi = "0 INDI\n1 DESI @SUBM1@";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Desi.Count);
+            Assert.AreEqual("SUBM1", rec.Desi[0].XRef);
+        }
+        [TestMethod]
+        public void TestSubm()
+        {
+            var indi = "0 INDI\n1 SUBM @SUBM1@";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Subm.Count);
+            Assert.AreEqual("SUBM1", rec.Subm[0].XRef);
         }
     }
 }
