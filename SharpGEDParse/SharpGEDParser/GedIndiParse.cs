@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace SharpGEDParser
 {
+    // TODO need to handle bad lines as errors (missing level, etc)
 
     public class GedIndiParse : GedRecParse
     {
@@ -91,6 +92,7 @@ namespace SharpGEDParser
             tagSet.Add("DESI", DesiProc);
             tagSet.Add("RFN", DataProc); // TODO is this sufficient?
             tagSet.Add("AFN", DataProc);
+            tagSet.Add("RIN", DataProc);
             tagSet.Add("REFN", DataProc);
             tagSet.Add("SOUR", SourceProc);
             tagSet.Add("_UID", DataProc);
@@ -154,9 +156,10 @@ namespace SharpGEDParser
 
         private void SubmProc()
         {
+            // TODO some real GEDs not using Xref format
+            // TODO log such as an error
             var rec = CommonXRefProcessing();
             _rec.Subm.Add(rec);
-            // TODO sufficient? are there submitter details?
         }
 
         private void LivingProc()
@@ -256,6 +259,7 @@ namespace SharpGEDParser
 
         private void SexProc()
         {
+            // TODO log unknown value as error
             // TODO this looks wrong - code smell
             int max = _context.Line.Length;
             int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.nextchar, max);
@@ -265,12 +269,14 @@ namespace SharpGEDParser
 
         private void NoteProc()
         {
-            Debug.Assert(_rec.Note == null);
-            _rec.Note = new Tuple<int, int>(_context.begline, _context.endline);
+            // Multiple notes allowed
+            _rec.Notes.Add(new Tuple<int, int>(_context.begline, _context.endline));
         }
         private void ChanProc()
         {
-            Debug.Assert(_rec.Change == null);
+            // GEDCOM spec says to take the FIRST
+            if (_rec.Change != null)
+                return; // TODO log multiple records as error
             _rec.Change = new Tuple<int, int>(_context.begline, _context.endline);
         }
 

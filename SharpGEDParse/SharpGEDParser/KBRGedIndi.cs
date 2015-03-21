@@ -143,7 +143,7 @@ namespace SharpGEDParser
 
         public bool Living { get; set; }
 
-        public Tuple<int, int> Note { get; set; }
+        public List<Tuple<int, int>> Notes { get; set; }
         public Tuple<int, int> Change { get; set; }
 
         public KBRGedIndi(GedRecord lines, string ident) : base(lines)
@@ -166,6 +166,8 @@ namespace SharpGEDParser
 
             ChildLinks = new List<ChildLinkRec>();
             FamLinks = new List<FamLinkRec>();
+
+            Notes = new List<Tuple<int, int>>();
 
             Living = false;
             Sex = 'U'; // unknown until proven otherwise
