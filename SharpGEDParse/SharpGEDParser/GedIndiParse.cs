@@ -33,16 +33,30 @@ namespace SharpGEDParser
             }
             else
             {
-                UnknownTag(rec, tag, startLineDex, maxLineDex);
+                UnknownTag(tag, startLineDex, maxLineDex);
             }
         }
 
-        private void UnknownTag(KBRGedRec mRec, string _tag, int startLineDex, int maxLineDex)
+        private void UnknownTag(string tag, int startLineDex, int maxLineDex)
         {
-            var rec = new UnkRec(_tag);
+            var rec = new UnkRec(tag);
             rec.Beg = startLineDex;
             rec.End = maxLineDex;
-            (mRec as KBRGedIndi).Unknowns.Add(rec); // TODO general property?
+            _rec.Unknowns.Add(rec);
+        }
+
+        private void ErrorTag(string err)
+        {
+            ErrorTag(_context.Tag, _context.begline, _context.endline, err);
+        }
+
+        private void ErrorTag(string tag, int startLineDex, int maxLineDex, string err)
+        {
+            var rec = new UnkRec(tag);
+            rec.Beg = startLineDex;
+            rec.End = maxLineDex;
+            rec.Error = err;
+            _rec.Errors.Add(rec);
         }
 
         private delegate void IndiTagProc();
@@ -90,15 +104,16 @@ namespace SharpGEDParser
             tagSet.Add("ALIA", AliasProc);
             tagSet.Add("ANCI", AnciProc);
             tagSet.Add("DESI", DesiProc);
-            tagSet.Add("RFN", DataProc); // TODO is this sufficient?
-            tagSet.Add("AFN", DataProc);
-            tagSet.Add("RIN", DataProc);
             tagSet.Add("REFN", DataProc);
             tagSet.Add("SOUR", SourceProc);
             tagSet.Add("_UID", DataProc);
             tagSet.Add("NOTE", NoteProc);
             tagSet.Add("CHAN", ChanProc);
             tagSet.Add("OBJE", DataProc); // TODO temporary
+
+            tagSet.Add("RFN", OneDataProc);
+            tagSet.Add("AFN", OneDataProc);
+            tagSet.Add("RIN", OneDataProc);
 
             tagSet.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
             tagSet.Add("LVNG", LivingProc); // "Generations" custom
@@ -119,6 +134,17 @@ namespace SharpGEDParser
             rec.Beg = _context.begline;
             rec.End = _context.endline;
             _rec.Data.Add(rec);
+        }
+
+        // GEDCOM standard states only one of these allowed, take the first
+        private void OneDataProc()
+        {
+            if (_rec.HasData(_context.Tag))
+            {
+                ErrorTag(string.Format("Multiple {0}: used first", _context.Tag));
+                return;
+            }
+            DataProc();
         }
 
         private XRefRec CommonXRefProcessing()
@@ -272,11 +298,15 @@ namespace SharpGEDParser
             // Multiple notes allowed
             _rec.Notes.Add(new Tuple<int, int>(_context.begline, _context.endline));
         }
+
         private void ChanProc()
         {
             // GEDCOM spec says to take the FIRST
             if (_rec.Change != null)
-                return; // TODO log multiple records as error
+            {
+                ErrorTag(_context.Tag, _context.begline, _context.endline, "Multiple CHAN: first one used");
+                return;
+            }
             _rec.Change = new Tuple<int, int>(_context.begline, _context.endline);
         }
 

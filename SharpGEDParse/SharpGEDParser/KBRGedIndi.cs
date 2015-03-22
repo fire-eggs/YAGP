@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace SharpGEDParser
 {
@@ -19,6 +21,7 @@ namespace SharpGEDParser
 
     public class UnkRec : Rec
     {
+        public string Error { get; set; }
         public UnkRec(string tag)
         {
             Tag = tag;
@@ -123,6 +126,7 @@ namespace SharpGEDParser
 
         // Unknown records
         public List<UnkRec> Unknowns { get; set; }
+        public List<UnkRec> Errors { get; set; }
 
         public List<EventRec> Events { get; set; }
 
@@ -153,11 +157,13 @@ namespace SharpGEDParser
             Tag = "INDI"; // TODO use enum?
 
             Sources = new List<SourceRec>();
-            Unknowns = new List<UnkRec>();
             Events = new List<EventRec>();
             FamEvents = new List<EventRec>();
             Names = new List<NameRec>();
             Data = new List<DataRec>();
+
+            Unknowns = new List<UnkRec>();
+            Errors = new List<UnkRec>();
 
             // TODO consider tracking in a single list
             Alia = new List<XRefRec>();
@@ -182,5 +188,9 @@ namespace SharpGEDParser
             return string.Format("{0}({1}):{2}", Tag, Ident, Lines);
         }
 
+        public bool HasData(string tag)
+        {
+            return Data.Any(dataRec => dataRec.Tag == tag);
+        }
     }
 }

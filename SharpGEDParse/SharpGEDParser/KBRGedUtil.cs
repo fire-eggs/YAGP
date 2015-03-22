@@ -34,7 +34,6 @@ namespace SharpGEDParser
             return dex;
         }
 
-
         public static int CharsUntil(string line, int max, int dex, char target)
         {
             while (dex < max && line[dex] != target && line[dex] != ' ') // TODO allow tabs?

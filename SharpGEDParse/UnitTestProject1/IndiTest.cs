@@ -353,6 +353,7 @@ namespace UnitTestProject1
             rec = parse(indi);
             Assert.AreEqual(1, rec.Change.Item1);
             Assert.AreEqual(2, rec.Change.Item2);
+            Assert.AreEqual(1, rec.Errors.Count);
 
             // TODO test actual details
         }
@@ -400,6 +401,8 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Data.Count);
             Assert.AreEqual("RFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
+            Assert.AreEqual(1, rec.Errors.Count);
+            // TODO test specific error?
         }
 
         [TestMethod]
@@ -425,6 +428,8 @@ namespace UnitTestProject1
             Assert.AreEqual("2547", rec.Data[0].Data);
             Assert.AreEqual("REFN", rec.Data[1].Tag);
             Assert.AreEqual("gibber", rec.Data[1].Data);
+            Assert.AreEqual(1, rec.Errors.Count);
+            // TODO test specific error?
         }
         [TestMethod]
         public void TestAFN()
@@ -448,6 +453,8 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Data.Count);
             Assert.AreEqual("AFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
+            Assert.AreEqual(1, rec.Errors.Count);
+            // TODO test specific error?
         }
         [TestMethod]
         public void TestUID()
