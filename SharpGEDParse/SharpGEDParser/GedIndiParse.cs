@@ -292,7 +292,21 @@ namespace SharpGEDParser
 
         private void AssocProc()
         {
-            // TODO
+            var rec = CommonXRefProcessing();
+            _rec.Assoc.Add(rec);
+
+            // TODO parse RELA
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+                                             _context.begline,
+                                             _context.endline, "RELA") == null);
+            // TODO parse SOUR
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+                                             _context.begline,
+                                             _context.endline, "SOUR") == null);
+            // TODO parse NOTE
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+                                             _context.begline,
+                                             _context.endline, "NOTE") == null);
         }
 
         private void NameProc()

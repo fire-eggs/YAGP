@@ -134,6 +134,7 @@ namespace SharpGEDParser
         public List<XRefRec> Anci { get; set; }
         public List<XRefRec> Desi { get; set; }
         public List<XRefRec> Subm { get; set; }
+        public List<XRefRec> Assoc { get; set; }
 
         public List<ChildLinkRec> ChildLinks { get; set; }
 
@@ -168,6 +169,7 @@ namespace SharpGEDParser
             FamLinks = new List<FamLinkRec>();
 
             Notes = new List<Tuple<int, int>>();
+            Assoc = new List<XRefRec>();
 
             Living = false;
             Sex = 'U'; // unknown until proven otherwise

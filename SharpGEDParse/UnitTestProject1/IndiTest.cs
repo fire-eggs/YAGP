@@ -505,7 +505,13 @@ namespace UnitTestProject1
         {
             var indi = "0 INDI\n1 ASSO @foo@";
             var rec = parse(indi);
-// TODO            Assert.AreEqual(1, rec.Asso.Count);
+            Assert.AreEqual(1, rec.Assoc.Count);
+
+            indi = "0 INDI\n1 ASSO @foo@\n1 ASSO @bar@";
+            rec = parse(indi);
+            Assert.AreEqual(2, rec.Assoc.Count);
+
+            // TODO test for details - RELA, SOUR, NOTE
         }
 
         [TestMethod]
