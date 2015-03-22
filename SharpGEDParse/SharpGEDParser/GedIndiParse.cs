@@ -65,40 +65,10 @@ namespace SharpGEDParser
 
         protected override void BuildTagSet()
         {
+            // Details
             tagSet.Add("NAME", NameProc);
             tagSet.Add("RESN", RestrictProc);
             tagSet.Add("SEX",  SexProc);
-            tagSet.Add("BAPM", EventProc); // simple event
-            tagSet.Add("DEAT", EventProc); // simple event
-            tagSet.Add("CREM", EventProc); // simple event
-            tagSet.Add("BURI", EventProc); // simple event
-            tagSet.Add("CHR",  EventProc); // simple event
-            tagSet.Add("NATU", EventProc);
-            tagSet.Add("IMMI", EventProc);
-            tagSet.Add("WILL", EventProc);
-            tagSet.Add("EMIG", EventProc);
-
-            tagSet.Add("EVEN", EventProc); // TODO simple or family event?
-
-            tagSet.Add("BIRT", BirtProc); // birth,adoption
-            tagSet.Add("ADOP", BirtProc); // birth,adoption
-
-            tagSet.Add("CAST", AttribProc);
-            tagSet.Add("TITL", AttribProc);
-            tagSet.Add("RESI", AttribProc);
-            tagSet.Add("OCCU", AttribProc);
-            tagSet.Add("FACT", AttribProc);
-            tagSet.Add("DSCR", AttribProc);
-
-            tagSet.Add("ANUL", FamEventProc);
-            tagSet.Add("MARL", FamEventProc);
-            tagSet.Add("DIV", FamEventProc);
-
-            tagSet.Add("BAPL", LdsOrdProc);
-
-            tagSet.Add("FAMC", ChildLink);
-            tagSet.Add("FAMS", SpouseLink);
-
             tagSet.Add("SUBM", SubmProc);
             tagSet.Add("ASSO", AssocProc);
             tagSet.Add("ALIA", AliasProc);
@@ -115,8 +85,75 @@ namespace SharpGEDParser
             tagSet.Add("AFN", OneDataProc);
             tagSet.Add("RIN", OneDataProc);
 
+            // Non-standard tags
             tagSet.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
             tagSet.Add("LVNG", LivingProc); // "Generations" custom
+
+            // Events
+            tagSet.Add("DEAT", EventProc);
+            tagSet.Add("CREM", EventProc);
+            tagSet.Add("BURI", EventProc);
+            tagSet.Add("NATU", EventProc);
+            tagSet.Add("IMMI", EventProc);
+            tagSet.Add("WILL", EventProc);
+            tagSet.Add("EMIG", EventProc);
+            tagSet.Add("BAPM", EventProc);
+            tagSet.Add("BARM", EventProc);
+            tagSet.Add("BASM", EventProc);
+            tagSet.Add("BLES", EventProc);
+            tagSet.Add("CHRA", EventProc);
+            tagSet.Add("CONF", EventProc);
+            tagSet.Add("FCOM", EventProc);
+            tagSet.Add("ORDN", EventProc);
+            tagSet.Add("PROB", EventProc);
+            tagSet.Add("GRAD", EventProc);
+            tagSet.Add("RETI", EventProc);
+
+            tagSet.Add("BIRT", BirtProc); // birth,adoption
+            tagSet.Add("ADOP", BirtProc); // birth,adoption
+            tagSet.Add("CHR",  BirtProc);
+
+            // Attributes
+            tagSet.Add("CAST", AttribProc);
+            tagSet.Add("TITL", AttribProc);
+            tagSet.Add("OCCU", AttribProc);
+            tagSet.Add("FACT", AttribProc);
+            tagSet.Add("DSCR", AttribProc);
+            tagSet.Add("EDUC", AttribProc);
+            tagSet.Add("IDNO", AttribProc);
+            tagSet.Add("NATI", AttribProc);
+            tagSet.Add("NCHI", AttribProc);
+            tagSet.Add("NMR", AttribProc);
+            tagSet.Add("PROP", AttribProc);
+            tagSet.Add("RELI", AttribProc);
+            tagSet.Add("SSN", AttribProc);
+
+            // Family Events
+            tagSet.Add("ANUL", FamEventProc);
+            tagSet.Add("MARL", FamEventProc);
+            tagSet.Add("MARS", FamEventProc);
+            tagSet.Add("DIV", FamEventProc);
+            tagSet.Add("DIVF", FamEventProc);
+            tagSet.Add("ENGA", FamEventProc);
+            tagSet.Add("MARB", FamEventProc);
+            tagSet.Add("MARC", FamEventProc);
+
+            // LDS events
+            tagSet.Add("BAPL", LdsOrdProc);
+            tagSet.Add("CONL", LdsOrdProc);
+            tagSet.Add("ENDL", LdsOrdProc);
+            tagSet.Add("SLGC", LdsOrdProc);
+            tagSet.Add("SLGS", LdsOrdProc);
+
+            // Family association
+            tagSet.Add("FAMC", ChildLink);
+            tagSet.Add("FAMS", SpouseLink);
+
+            // Ambiguous tags
+            tagSet.Add("EVEN", EventProc); // TODO simple or family event?
+            tagSet.Add("CENS", EventProc); // TODO simple or family event?
+            tagSet.Add("RESI", AttribProc);// TODO attribute or family event?
+
         }
 
         private void RestrictProc()
@@ -248,6 +285,8 @@ namespace SharpGEDParser
             rec.Type = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TYPE");
 
             rec.Change = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "CHAN");
+
+            // TODO more than one note permitted!
             rec.Note = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
 
             // TODO more than one source permitted!
@@ -312,7 +351,33 @@ namespace SharpGEDParser
 
         private void LdsOrdProc()
         {
-            // TODO
+            // TODO these all parse similarly except SLGC which requires a FAMC tag
+            var lines = _rec.Lines;
+            int begline = _context.begline;
+            int endline = _context.endline;
+
+            var rec = new LDSRec(_context.Tag);
+            rec.Beg = begline;
+            rec.End = endline;
+
+            rec.Temple = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TEMP");
+            rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
+
+            // TODO SLGC specific?
+            rec.Famc = KBRGedUtil.ParseFor(lines, begline + 1, endline, "FAMC");
+
+            rec.Status = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "STAT");
+
+            // TODO date for this record vs date for Status sub-record?
+            rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
+
+            // TODO more than one note permitted!
+            rec.Note = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
+
+            // TODO more than one source permitted!
+            rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
+
+            _rec.LDSEvents.Add(rec);
         }
 
         private void AttribProc()

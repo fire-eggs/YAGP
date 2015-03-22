@@ -394,8 +394,7 @@ namespace UnitTestProject1
             Assert.AreEqual("RFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
 
-            // TODO GEDCOM spec says only one RFN but current code allows multiple
-            // TODO GEDCOM spec says to take the first
+            // GEDCOM spec says to take the first
             indi = "0 INDI\n1 RFN 2547\n1 RFN gibber";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Data.Count);
@@ -428,8 +427,6 @@ namespace UnitTestProject1
             Assert.AreEqual("2547", rec.Data[0].Data);
             Assert.AreEqual("REFN", rec.Data[1].Tag);
             Assert.AreEqual("gibber", rec.Data[1].Data);
-            Assert.AreEqual(1, rec.Errors.Count);
-            // TODO test specific error?
         }
         [TestMethod]
         public void TestAFN()
@@ -446,8 +443,7 @@ namespace UnitTestProject1
             Assert.AreEqual("AFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
 
-            // TODO GEDCOM spec says only one AFN but current code allows multiple
-            // TODO GEDCOM spec says to take the first
+            // GEDCOM spec says to take the first
             indi = "0 INDI\n1 AFN 2547\n1 AFN gibber";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Data.Count);
@@ -498,13 +494,14 @@ namespace UnitTestProject1
             Assert.AreEqual("RIN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
 
-            // TODO GEDCOM spec says only one RIN but current code allows multiple
-            // TODO GEDCOM spec says to take the first
+            // GEDCOM spec says to take the first
             indi = "0 INDI\n1 RIN 2547\n1 RIN gibber";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Data.Count);
             Assert.AreEqual("RIN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
+            Assert.AreEqual(1, rec.Errors.Count);
+            // TODO test specific error?
         }
 
         [TestMethod]

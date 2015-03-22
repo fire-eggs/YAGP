@@ -101,6 +101,29 @@ namespace SharpGEDParser
         }
     }
 
+    public class LDSRec : Rec
+    {
+        public string Date { get; set; }
+        public string Place { get; set; }
+        public string Temple { get; set; }
+        public Tuple<int, int> Status { get; set; }
+        public Tuple<int, int> Note { get; set; }
+        public Tuple<int, int> Source { get; set; }
+        public string Famc { get; set; }  // For SLGC
+        public LDSRec(string tag)
+        {
+            Tag = tag;
+        }
+
+        public override string ToString()
+        {
+            string note = Note != null ? ",Note:" + Note : "";
+            string src = Source != null ? ",Sour:" + Source : "";
+            return string.Format("__{0}:When:'{1}',Where:'{2}'{3}{4}",
+                base.ToString(), Date, Place, note, src);
+        }
+    }
+
     public class NameRec : Rec
     {
         public string Names { get; set; }
@@ -132,6 +155,8 @@ namespace SharpGEDParser
 
         public List<EventRec> FamEvents { get; set; }
 
+        public List<LDSRec> LDSEvents { get; set; }
+
         public List<NameRec> Names { get; set; }
 
         public List<XRefRec> Alia { get; set; }
@@ -161,6 +186,7 @@ namespace SharpGEDParser
             FamEvents = new List<EventRec>();
             Names = new List<NameRec>();
             Data = new List<DataRec>();
+            LDSEvents = new List<LDSRec>();
 
             Unknowns = new List<UnkRec>();
             Errors = new List<UnkRec>();
