@@ -278,6 +278,7 @@ namespace SharpGEDParser
             var rec = new EventRec(_context.Tag);
             rec.Beg = begline;
             rec.End = endline;
+            rec.Detail = _context.Line.Substring(_context.nextchar).Trim();
 
             rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
             rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
@@ -296,6 +297,9 @@ namespace SharpGEDParser
 
         private void EventProc()
         {
+            // TODO a second CREM record is an error?
+            // TODO a second DEAT record is an error?
+
             var rec = CommonEventProcessing();
             _rec.Events.Add(rec);
         }
@@ -313,6 +317,8 @@ namespace SharpGEDParser
 
         private void BirtProc()
         {
+            // TODO a second birth record is an error?
+
             var rec = CommonEventProcessing();
             _rec.Events.Add(rec);
 
@@ -382,7 +388,8 @@ namespace SharpGEDParser
 
         private void AttribProc()
         {
-            // TODO
+            var rec = CommonEventProcessing();
+            _rec.Attribs.Add(rec);
         }
 
         private void AssocProc()

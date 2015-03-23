@@ -78,6 +78,7 @@ namespace SharpGEDParser
     // NOTE: also used for birth (FAMC extra); ADOP (FAMC, ADOP extra)
     public class EventRec : Rec
     {
+        public string Detail { get; set; } // e.g. caste_name
         public string Date { get; set; }
         public string Place { get; set; }
         public string Age { get; set; }
@@ -153,6 +154,8 @@ namespace SharpGEDParser
 
         public List<EventRec> Events { get; set; }
 
+        public List<EventRec> Attribs { get; set; }
+
         public List<EventRec> FamEvents { get; set; }
 
         public List<LDSRec> LDSEvents { get; set; }
@@ -184,6 +187,7 @@ namespace SharpGEDParser
             Sources = new List<SourceRec>();
             Events = new List<EventRec>();
             FamEvents = new List<EventRec>();
+            Attribs = new List<EventRec>();
             Names = new List<NameRec>();
             Data = new List<DataRec>();
             LDSEvents = new List<LDSRec>();
