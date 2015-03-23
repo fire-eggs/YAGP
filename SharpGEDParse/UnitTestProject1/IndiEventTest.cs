@@ -1,14 +1,61 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 
+// ReSharper disable InconsistentNaming
+
 namespace UnitTestProject1
 {
     [TestClass]
     public class IndiEventTest : GedParseTest
     {
+        // TODO ambiguous tag : EVEN
+        // TODO ambiguous tag : CENS
+
         private KBRGedIndi parse(string val)
         {
             return parse<KBRGedIndi>(val, "INDI");
+        }
+
+        // Dunno if this is "cheating" or not but perform common event testing for
+        // a given tag.
+        public KBRGedIndi TestEventTag1(string tag)
+        {
+            string indi =
+                string.Format("0 INDI\n1 {0}\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            var rec = parse(indi);
+
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual("1774", rec.Events[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
+
+            return rec;
+        }
+        public KBRGedIndi TestEventTag2(string tag)
+        {
+            string indi = string.Format("0 INDI\n1 {0}\n2 TYPE suspicious\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            var rec = parse(indi);
+
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual("1776", rec.Events[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
+            Assert.AreEqual("suspicious", rec.Events[0].Type);
+
+            return rec;
+        }
+
+        public KBRGedIndi TestEventTag3(string tag)
+        {
+            string indi3 = string.Format("0 INDI\n1 {0}\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            var rec = parse(indi3);
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(null, rec.Events[0].Date);
+            Assert.AreEqual(null, rec.Events[0].Age);
+            Assert.AreEqual(null, rec.Events[0].Type);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
+            return rec;
         }
 
         [TestMethod]
@@ -18,6 +65,7 @@ namespace UnitTestProject1
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual("BIRT", rec.Events[0].Tag);
             Assert.AreEqual("1774", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
 
@@ -25,6 +73,7 @@ namespace UnitTestProject1
             rec = parse(indi2);
 
             Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual("BIRT", rec.Events[0].Tag);
             Assert.AreEqual("1776", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
             Assert.AreEqual("suspicious", rec.Events[0].Type);
@@ -33,43 +82,194 @@ namespace UnitTestProject1
             rec = parse(indi3);
 
             Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual("BIRT", rec.Events[0].Tag);
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);
             Assert.AreEqual(null, rec.Events[0].Type);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
+
+            // TODO - optional 'Y' argument?
+            // TODO - FAMC testing
         }
 
         [TestMethod]
         public void TestCHR()
         {
-            string indi = "0 INDI\n1 CHR\n2 DATE 20 Nov 1774\n2 PLAC St  Mary, Oldham, Lancashire, England";
-            var rec = parse(indi);
+            TestEventTag1("CHR");
+            TestEventTag2("CHR");
+            TestEventTag3("CHR");
 
-            Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual("20 Nov 1774", rec.Events[0].Date);
-            Assert.AreEqual("St  Mary, Oldham, Lancashire, England", rec.Events[0].Place);
+            // TODO - optional 'Y' argument?
+            // TODO - FAMC testing
         }
 
         [TestMethod]
         public void TestDeath()
         {
-            string indi = "0 INDI\n1 DEAT\n2 DATE 4 Mar 1878\n2 PLAC Laneside, Crompton, Lancashire, England";
+            string tag = "DEAT";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+
+            // TODO - optional 'Y' argument?
+            // TODO test AGE with all events
+
+            string indi = string.Format("0 INDI\n1 {0}\n2 AGE 17\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual("4 Mar 1878", rec.Events[0].Date);
-            Assert.AreEqual("Laneside, Crompton, Lancashire, England", rec.Events[0].Place);
+            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual("17", rec.Events[0].Age);
+            Assert.AreEqual("1776", rec.Events[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
+        }
+
+        [TestMethod]
+        public void TestCrem()
+        {
+            var tag = "CREM";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
         }
 
         [TestMethod]
         public void TestBurial()
         {
-            string indi = "0 INDI\n1 BURI\n2 DATE 8 Jul 1846\n2 PLAC Shaw, Lancashire, England";
-            var rec = parse(indi);
-
-            Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual("8 Jul 1846", rec.Events[0].Date);
-            Assert.AreEqual("Shaw, Lancashire, England", rec.Events[0].Place);
+            var tag = "BURI";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestBAPM()
+        {
+            var tag = "BAPM";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestBARM()
+        {
+            var tag = "BARM";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestBASM()
+        {
+            var tag = "BASM";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestBLES()
+        {
+            var tag = "BLES";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestCHRA()
+        {
+            var tag = "CHRA";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestCONF()
+        {
+            var tag = "CONF";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestFCOM()
+        {
+            var tag = "FCOM";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestORDN()
+        {
+            var tag = "ORDN";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestNATU()
+        {
+            var tag = "NATU";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestEMIG()
+        {
+            var tag = "EMIG";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestIMMI()
+        {
+            var tag = "IMMI";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestPROB()
+        {
+            var tag = "PROB";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestWILL()
+        {
+            var tag = "WILL";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestGRAD()
+        {
+            var tag = "GRAD";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestRETI()
+        {
+            var tag = "RETI";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+        }
+        [TestMethod]
+        public void TestADOP()
+        {
+            var tag = "ADOP";
+            TestEventTag1(tag);
+            TestEventTag2(tag);
+            TestEventTag3(tag);
+            // TODO FAMC testing
+            // TODO FAMC + ADOP
         }
 
         [TestMethod]
