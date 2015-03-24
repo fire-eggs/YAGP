@@ -23,12 +23,17 @@ namespace SharpGEDParser
             _tagSet.Add("CHAN", ChanProc);
 
             _tagSet.Add("_UID", DataProc);
-            _tagSet.Add("MARR", FamEventProc);
-            _tagSet.Add("DIV", FamEventProc);
+
             _tagSet.Add("EVEN", FamEventProc);
+            _tagSet.Add("ANUL", FamEventProc);
+            _tagSet.Add("MARL", FamEventProc);
+            _tagSet.Add("MARS", FamEventProc);
+            _tagSet.Add("DIV", FamEventProc);
+            _tagSet.Add("DIVF", FamEventProc);
             _tagSet.Add("ENGA", FamEventProc);
             _tagSet.Add("MARB", FamEventProc);
             _tagSet.Add("MARC", FamEventProc);
+            _tagSet.Add("MARR", FamEventProc);
         }
 
         protected override void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
@@ -122,21 +127,8 @@ namespace SharpGEDParser
         private void FamEventProc(int begline, int endline, int nextchar)
         {
             // A family event: same as an event but has additional husband, wife tags
-            var rec = new EventRec(_context.Tag);
-            rec.Beg = begline;
-            rec.End = endline;
+            var rec = CommonEventProcessing(_rec.Lines);
             _rec.FamEvents.Add(rec);
-
-            // TODO parse event details
-            rec.Date = KBRGedUtil.ParseFor(_rec.Lines, begline + 1, endline, "DATE");
-            rec.Place = KBRGedUtil.ParseFor(_rec.Lines, begline + 1, endline, "PLAC");
-            rec.Age = KBRGedUtil.ParseFor(_rec.Lines, begline + 1, endline, "AGE");
-
-            rec.Change = KBRGedUtil.ParseForMulti(_rec.Lines, begline + 1, endline, "CHAN");
-            rec.Note = KBRGedUtil.ParseForMulti(_rec.Lines, begline + 1, endline, "NOTE");
-            rec.Source = KBRGedUtil.ParseForMulti(_rec.Lines, begline + 1, endline, "SOUR");
-
-            //            Console.WriteLine(rec);
 
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, begline, endline, "HUSB") == null);
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, begline, endline, "WIFE") == null);

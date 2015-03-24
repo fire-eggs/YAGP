@@ -164,8 +164,6 @@ namespace SharpGEDParser
 
         public List<EventRec> Attribs { get; set; }
 
-        public List<EventRec> FamEvents { get; set; }
-
         public List<LDSRec> LDSEvents { get; set; }
 
         public List<NameRec> Names { get; set; }
@@ -194,7 +192,6 @@ namespace SharpGEDParser
 
             Sources = new List<SourceRec>();
             Events = new List<EventRec>();
-            FamEvents = new List<EventRec>();
             Attribs = new List<EventRec>();
             Names = new List<NameRec>();
             Data = new List<DataRec>();

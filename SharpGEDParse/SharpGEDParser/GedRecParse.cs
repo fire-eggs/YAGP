@@ -57,5 +57,38 @@ namespace SharpGEDParser
                     break;
             }
         }
+
+        protected EventRec CommonEventProcessing(GedRecord lines)
+        {
+            int begline = _context.begline;
+            int endline = _context.endline;
+
+            var rec = new EventRec(_context.Tag);
+            rec.Beg = begline;
+            rec.End = endline;
+            rec.Detail = _context.Line.Substring(_context.nextchar).Trim();
+
+            rec.Age = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGE");
+            rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
+            rec.Type = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TYPE");
+            rec.Cause = KBRGedUtil.ParseFor(lines, begline + 1, endline, "CAUS");
+            rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
+            rec.Agency = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGNC");
+            rec.Religion = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RELI");
+            rec.Restriction = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RESN");
+
+            // TODO CHAN - only one allowed!
+            rec.Change = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "CHAN");
+
+            // TODO more than one note permitted!
+            rec.Note = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
+
+            // TODO more than one source permitted!
+            rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
+
+            // TODO OBJE tag
+
+            return rec;
+        }
     }
 }

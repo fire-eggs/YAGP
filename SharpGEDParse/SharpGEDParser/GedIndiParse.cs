@@ -108,6 +108,7 @@ namespace SharpGEDParser
             tagSet.Add("PROB", EventProc);
             tagSet.Add("GRAD", EventProc);
             tagSet.Add("RETI", EventProc);
+            tagSet.Add("EVEN", EventProc);
 
             tagSet.Add("BIRT", BirtProc); // birth,adoption
             tagSet.Add("ADOP", BirtProc); // birth,adoption
@@ -127,17 +128,8 @@ namespace SharpGEDParser
             tagSet.Add("PROP", AttribProc);
             tagSet.Add("RELI", AttribProc);
             tagSet.Add("SSN", AttribProc);
-
-            // Family Events
-            tagSet.Add("ANUL", FamEventProc);
-            tagSet.Add("MARL", FamEventProc);
-            tagSet.Add("MARS", FamEventProc);
-            tagSet.Add("DIV", FamEventProc);
-            tagSet.Add("DIVF", FamEventProc);
-            tagSet.Add("ENGA", FamEventProc);
-            tagSet.Add("MARB", FamEventProc);
-            tagSet.Add("MARC", FamEventProc);
-            tagSet.Add("MARR", FamEventProc);
+            tagSet.Add("CENS", AttribProc);
+            tagSet.Add("RESI", AttribProc);
 
             // LDS events
             tagSet.Add("BAPL", LdsOrdProc);
@@ -149,12 +141,6 @@ namespace SharpGEDParser
             // Family association
             tagSet.Add("FAMC", ChildLink);
             tagSet.Add("FAMS", SpouseLink);
-
-            // Ambiguous tags
-            tagSet.Add("EVEN", EventProc); // TODO simple or family event?
-            tagSet.Add("CENS", EventProc); // TODO simple or family event?
-            tagSet.Add("RESI", AttribProc);// TODO attribute or family event?
-
         }
 
         private void RestrictProc()
@@ -270,65 +256,20 @@ namespace SharpGEDParser
                                              _context.endline, "STAT") == null);
         }
 
-        private EventRec CommonEventProcessing()
-        {
-            var lines = _rec.Lines;
-            int begline = _context.begline;
-            int endline = _context.endline;
-
-            var rec = new EventRec(_context.Tag);
-            rec.Beg = begline;
-            rec.End = endline;
-            rec.Detail = _context.Line.Substring(_context.nextchar).Trim();
-
-            rec.Age = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGE");
-            rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
-            rec.Type = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TYPE");
-            rec.Cause = KBRGedUtil.ParseFor(lines, begline + 1, endline, "CAUS");
-            rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
-            rec.Agency = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGNC");
-            rec.Religion = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RELI");
-            rec.Restriction = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RESN");
-
-            // TODO CHAN - only one allowed!
-            rec.Change = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "CHAN");
-
-            // TODO more than one note permitted!
-            rec.Note = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
-
-            // TODO more than one source permitted!
-            rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
-
-            // TODO OBJE tag
-
-            return rec;
-        }
-
         private void EventProc()
         {
             // TODO a second CREM record is an error?
             // TODO a second DEAT record is an error?
 
-            var rec = CommonEventProcessing();
+            var rec = CommonEventProcessing(_rec.Lines);
             _rec.Events.Add(rec);
-        }
-
-        private void FamEventProc()
-        {
-            // A family event: same as an event but has additional husband, wife tags
-            var rec = CommonEventProcessing();
-            _rec.FamEvents.Add(rec);
-
-            // TODO family event specific processing
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.begline, _context.endline, "HUSB") == null);
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.begline, _context.endline, "WIFE") == null);
         }
 
         private void BirtProc()
         {
             // TODO a second birth record is an error?
 
-            var rec = CommonEventProcessing();
+            var rec = CommonEventProcessing(_rec.Lines);
             _rec.Events.Add(rec);
 
             // TODO parse birt, adop specific
@@ -397,7 +338,7 @@ namespace SharpGEDParser
 
         private void AttribProc()
         {
-            var rec = CommonEventProcessing();
+            var rec = CommonEventProcessing(_rec.Lines);
             _rec.Attribs.Add(rec);
         }
 

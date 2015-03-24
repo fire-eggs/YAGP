@@ -8,9 +8,6 @@ namespace UnitTestProject1
     [TestClass]
     public class IndiEventTest : GedParseTest
     {
-        // TODO ambiguous tag : EVEN
-        // TODO ambiguous tag : CENS
-
         // TODO AGNC
         // TODO RELI
         // TODO CAUS
