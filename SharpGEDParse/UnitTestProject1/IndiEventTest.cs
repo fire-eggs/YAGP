@@ -11,6 +11,14 @@ namespace UnitTestProject1
         // TODO ambiguous tag : EVEN
         // TODO ambiguous tag : CENS
 
+        // TODO AGNC
+        // TODO RELI
+        // TODO CAUS
+        // TODO RESN
+        // TODO CHAN
+        // TODO OBJE
+        // TODO multiple NOTE, SOUR
+
         private KBRGedIndi parse(string val)
         {
             return parse<KBRGedIndi>(val, "INDI");

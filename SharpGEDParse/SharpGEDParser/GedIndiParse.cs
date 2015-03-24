@@ -137,6 +137,7 @@ namespace SharpGEDParser
             tagSet.Add("ENGA", FamEventProc);
             tagSet.Add("MARB", FamEventProc);
             tagSet.Add("MARC", FamEventProc);
+            tagSet.Add("MARR", FamEventProc);
 
             // LDS events
             tagSet.Add("BAPL", LdsOrdProc);
@@ -280,11 +281,16 @@ namespace SharpGEDParser
             rec.End = endline;
             rec.Detail = _context.Line.Substring(_context.nextchar).Trim();
 
-            rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
-            rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
             rec.Age = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGE");
+            rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
             rec.Type = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TYPE");
+            rec.Cause = KBRGedUtil.ParseFor(lines, begline + 1, endline, "CAUS");
+            rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
+            rec.Agency = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGNC");
+            rec.Religion = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RELI");
+            rec.Restriction = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RESN");
 
+            // TODO CHAN - only one allowed!
             rec.Change = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "CHAN");
 
             // TODO more than one note permitted!
@@ -292,6 +298,9 @@ namespace SharpGEDParser
 
             // TODO more than one source permitted!
             rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
+
+            // TODO OBJE tag
+
             return rec;
         }
 

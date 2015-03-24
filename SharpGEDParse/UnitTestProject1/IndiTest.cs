@@ -284,7 +284,7 @@ namespace UnitTestProject1
             indi = "0 INDI\n1 SUBM Jane Doe";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Subm.Count);
-            Assert.AreEqual("Jane Doe", rec.Subm[0].XRef);
+            Assert.AreEqual("Jane Doe", rec.Subm[0].XRef, "Some GEDs not using xref format");
         }
 
         [TestMethod]

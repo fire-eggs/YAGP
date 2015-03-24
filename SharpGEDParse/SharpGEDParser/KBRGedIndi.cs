@@ -76,6 +76,7 @@ namespace SharpGEDParser
     }
 
     // NOTE: also used for birth (FAMC extra); ADOP (FAMC, ADOP extra)
+    // NOTE: also used for family events (HUSB, WIFE extras)
     public class EventRec : Rec
     {
         public string Detail { get; set; } // e.g. caste_name
@@ -83,9 +84,16 @@ namespace SharpGEDParser
         public string Place { get; set; }
         public string Age { get; set; }
         public string Type { get; set; } // detail, classification
-        public Tuple<int, int> Change { get; set; }
-        public Tuple<int, int> Note { get; set; }
-        public Tuple<int, int> Source { get; set; }
+        public string Agency { get; set; }
+        public string Cause { get; set; }
+        public string Religion { get; set; }
+        public string Restriction { get; set; }
+
+        public Tuple<int, int> Change { get; set; } // TODO enforce single change
+        public Tuple<int, int> Note { get; set; } // TODO multiple notes
+        public Tuple<int, int> Source { get; set; } // TODO multiple source
+
+        // TODO OBJE tag, multiple
 
         public EventRec(string tag)
         {
