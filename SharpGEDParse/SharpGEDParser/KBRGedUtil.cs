@@ -43,9 +43,8 @@ namespace SharpGEDParser
             return dex;
         }
 
-        public static int Ident(string line, int startDex, ref string ident)
+        public static int Ident(string line, int max, int startDex, ref string ident)
         {
-            int max = line.Length;
             startDex = FirstChar(line, startDex, max);
             if (line[startDex] == '@')
             {

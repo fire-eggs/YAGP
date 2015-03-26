@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace SharpGEDParser
 {
@@ -23,10 +24,11 @@ namespace SharpGEDParser
             {
                 // TODO does this make parsing effectively single-threaded? need one context per thread?
                 _context.Line = line;
+                _context.Max = line.Length;
                 _context.Tag = tag;
-                _context.begline = startLineDex;
-                _context.endline = maxLineDex;
-                _context.nextchar = nextChar;
+                _context.Begline = startLineDex;
+                _context.Endline = maxLineDex;
+                _context.Nextchar = nextChar;
                 _rec = rec as KBRGedIndi;
 
                 tagSet[tag]();
@@ -47,7 +49,7 @@ namespace SharpGEDParser
 
         private void ErrorTag(string err)
         {
-            ErrorTag(_context.Tag, _context.begline, _context.endline, err);
+            ErrorTag(_context.Tag, _context.Begline, _context.Endline, err);
         }
 
         private void ErrorTag(string tag, int startLineDex, int maxLineDex, string err)
@@ -145,7 +147,7 @@ namespace SharpGEDParser
 
         private void RestrictProc()
         {
-            string data = _context.Line.Substring(_context.nextchar);
+            string data = _context.Line.Substring(_context.Nextchar);
             if (string.IsNullOrWhiteSpace(data))
                 return;
             _rec.Restriction = data.Trim();
@@ -153,10 +155,10 @@ namespace SharpGEDParser
 
         private void DataProc()
         {
-            string data = _context.Line.Substring(_context.nextchar);
+            string data = _context.Line.Substring(_context.Nextchar);
             var rec = new DataRec(_context.Tag, data.Trim());
-            rec.Beg = _context.begline;
-            rec.End = _context.endline;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
             _rec.Data.Add(rec);
         }
 
@@ -173,12 +175,18 @@ namespace SharpGEDParser
 
         private XRefRec CommonXRefProcessing()
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, _context.nextchar, ref ident);
-            var rec = new XRefRec(_context.Tag, ident);
-            rec.Beg = _context.begline;
-            rec.End = _context.endline;
-            return rec;
+            // TODO test missing identifier
+            // TODO missing ident as error
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            if (res != -1)
+            {
+                var rec = new XRefRec(_context.Tag, ident);
+                rec.Beg = _context.Begline;
+                rec.End = _context.Endline;
+                return rec;
+            }
+            return null;
         }
 
         private void DesiProc()
@@ -197,10 +205,10 @@ namespace SharpGEDParser
         private void AliasProc()
         {
             // TODO some samples have slashes; others names + /surname/
-            string ident = _context.Line.Substring(_context.nextchar).Trim();
+            string ident = _context.Line.Substring(_context.Nextchar).Trim();
             var rec = new XRefRec(_context.Tag, ident);
-            rec.Beg = _context.begline;
-            rec.End = _context.endline;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
             _rec.Alia.Add(rec);
         }
 
@@ -220,40 +228,50 @@ namespace SharpGEDParser
 
         private void SpouseLink()
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, _context.nextchar, ref ident);
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+
+            // TODO test missing ident
+            // TODO missing ident as error
+            if (res == -1)
+                return;
 
             var rec = new FamLinkRec(ident);
-            rec.Beg = _context.begline;
-            rec.End = _context.endline;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
             _rec.FamLinks.Add(rec);
 
             // TODO parse NOTE
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, 
-                                             _context.begline, 
-                                             _context.endline, "NOTE") == null);
+                                             _context.Begline, 
+                                             _context.Endline, "NOTE") == null);
         }
 
         private void ChildLink()
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, _context.nextchar, ref ident);
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+
+            // TODO test missing ident
+            // TODO missing ident as error
+            if (res == -1)
+                return;
 
             var rec = new ChildLinkRec(ident);
-            rec.Beg = _context.begline;
-            rec.End = _context.endline;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
             _rec.ChildLinks.Add(rec);
 
             // TODO parse PEDI, STAT, NOTE
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
-                                             _context.begline,
-                                             _context.endline, "NOTE") == null);
+                                             _context.Begline,
+                                             _context.Endline, "NOTE") == null);
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
-                                             _context.begline,
-                                             _context.endline, "PEDI") == null);
+                                             _context.Begline,
+                                             _context.Endline, "PEDI") == null);
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
-                                             _context.begline,
-                                             _context.endline, "STAT") == null);
+                                             _context.Begline,
+                                             _context.Endline, "STAT") == null);
         }
 
         private void EventProc()
@@ -273,7 +291,7 @@ namespace SharpGEDParser
             _rec.Events.Add(rec);
 
             // TODO parse birt, adop specific
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.begline, _context.endline, "FAMC") == null);
+            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.Begline, _context.Endline, "FAMC") == null);
             // ADOP is a sub-tag on FAMC
             //            Debug.Assert(_tag == "BIRT" && KBRGedUtil.ParseFor(Lines, begline, endline, "ADOP") == null);
         }
@@ -281,9 +299,7 @@ namespace SharpGEDParser
         private void SexProc()
         {
             // TODO log unknown value as error
-            // TODO this looks wrong - code smell
-            int max = _context.Line.Length;
-            int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.nextchar, max);
+            int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.Nextchar, _context.Max);
             if (sexDex > 0)
                 _rec.Sex = _context.Line[sexDex];
         }
@@ -291,7 +307,7 @@ namespace SharpGEDParser
         private void NoteProc()
         {
             // Multiple notes allowed
-            _rec.Notes.Add(new Tuple<int, int>(_context.begline, _context.endline));
+            _rec.Notes.Add(new Tuple<int, int>(_context.Begline, _context.Endline));
         }
 
         private void ChanProc()
@@ -299,18 +315,18 @@ namespace SharpGEDParser
             // GEDCOM spec says to take the FIRST
             if (_rec.Change != null)
             {
-                ErrorTag(_context.Tag, _context.begline, _context.endline, "Multiple CHAN: first one used");
+                ErrorTag(_context.Tag, _context.Begline, _context.Endline, "Multiple CHAN: first one used");
                 return;
             }
-            _rec.Change = new Tuple<int, int>(_context.begline, _context.endline);
+            _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
         }
 
         private void LdsOrdProc()
         {
             // TODO these all parse similarly except SLGC which requires a FAMC tag
             var lines = _rec.Lines;
-            int begline = _context.begline;
-            int endline = _context.endline;
+            int begline = _context.Begline;
+            int endline = _context.Endline;
 
             var rec = new LDSRec(_context.Tag);
             rec.Beg = begline;
@@ -349,22 +365,22 @@ namespace SharpGEDParser
 
             // TODO parse RELA
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
-                                             _context.begline,
-                                             _context.endline, "RELA") == null);
+                                             _context.Begline,
+                                             _context.Endline, "RELA") == null);
             // TODO parse SOUR
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
-                                             _context.begline,
-                                             _context.endline, "SOUR") == null);
+                                             _context.Begline,
+                                             _context.Endline, "SOUR") == null);
             // TODO parse NOTE
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
-                                             _context.begline,
-                                             _context.endline, "NOTE") == null);
+                                             _context.Begline,
+                                             _context.Endline, "NOTE") == null);
         }
 
         private void NameProc()
         {
             string line = _context.Line;
-            int nextchar = _context.nextchar;
+            int nextchar = _context.Nextchar;
 
             int max = line.Length;
             int startName = KBRGedUtil.FirstChar(line, nextchar, max);
@@ -377,8 +393,8 @@ namespace SharpGEDParser
                 suffix = line.Substring(endSur+1).Trim();
 
             var rec = new NameRec();
-            rec.Beg = _context.begline;
-            rec.End = _context.endline;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
 
             // TODO clean up extra spaces
             rec.Names = line.Substring(startName, startSur - startName).Trim();
@@ -397,12 +413,17 @@ namespace SharpGEDParser
             // "1 SOUR @n@"
             // TODO "1 SOUR descr"
 
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, _context.nextchar, ref ident);
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+
+            // TODO test missing ident
+            // TODO missing ident as error
+            if (res == -1)
+                return;
 
             var rec = new SourceRec(ident);
-            rec.Beg = _context.begline;
-            rec.End = _context.endline;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
             _rec.Sources.Add(rec);
 
             // TODO parse more stuff

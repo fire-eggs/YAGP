@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SharpGEDParser
 {
     public abstract class GedRecParse : GedParse
@@ -11,10 +6,11 @@ namespace SharpGEDParser
         public class ParseContext
         {
             public string Line;
+            public int Max; // length of Line
             public string Tag;
-            public int begline;
-            public int endline;
-            public int nextchar;
+            public int Begline;
+            public int Endline;
+            public int Nextchar;
         }
 
         public GedRecParse()
@@ -60,13 +56,13 @@ namespace SharpGEDParser
 
         protected EventRec CommonEventProcessing(GedRecord lines)
         {
-            int begline = _context.begline;
-            int endline = _context.endline;
+            int begline = _context.Begline;
+            int endline = _context.Endline;
 
             var rec = new EventRec(_context.Tag);
             rec.Beg = begline;
             rec.End = endline;
-            rec.Detail = _context.Line.Substring(_context.nextchar).Trim();
+            rec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
 
             rec.Age = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGE");
             rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");

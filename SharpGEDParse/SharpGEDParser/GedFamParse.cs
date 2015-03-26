@@ -48,9 +48,9 @@ namespace SharpGEDParser
                 // TODO does this make parsing effectively single-threaded? need one context per thread?
                 _context.Line = line;
                 _context.Tag = tag;
-                _context.begline = startLineDex;
-                _context.endline = maxLineDex;
-                _context.nextchar = nextChar;
+                _context.Begline = startLineDex;
+                _context.Endline = maxLineDex;
+                _context.Nextchar = nextChar;
                 _rec = rec as KBRGedFam;
 
                 _tagSet[tag](startLineDex, maxLineDex, nextChar);
@@ -75,7 +75,7 @@ namespace SharpGEDParser
             // TODO "1 SOUR descr"
 
             string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, nextchar, ref ident);
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
 
             var rec = new SourceRec(ident);
             rec.Beg = begline;
@@ -93,24 +93,34 @@ namespace SharpGEDParser
 
         private void kidProc(int begline, int endline, int nextchar)
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, nextchar, ref ident);
-            _rec.Childs.Add(ident);
+            // TODO test missing identifier
+            // TODO missing ident is error
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
+            if (res != -1)
+                _rec.Childs.Add(ident);
         }
 
         private void momProc(int begline, int endline, int nextchar)
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, nextchar, ref ident);
-            _rec.Mom = ident;
+            // TODO test missing identifier
+            // TODO missing ident is error
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
+            if (res != -1)
+                _rec.Mom = ident;
         }
 
         private void dadProc(int begline, int endline, int nextchar)
         {
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, nextchar, ref ident);
-            _rec.Dad = ident;
+            // TODO test missing identifier
+            // TODO missing ident is error
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
+            if (res != -1)
+                _rec.Dad = ident;
         }
+
         private void ChanProc(int begline, int endline, int nextchar)
         {
             _rec.Change = new Tuple<int, int>(begline, endline);
