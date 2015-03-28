@@ -69,7 +69,7 @@ namespace SharpGEDParser
                 if (linedex > context.Endline)
                     break;
                 int startrec = linedex;
-                while (Lines.GetLevel(linedex+1) > startLevel && linedex+1 < context.Endline)
+                while (Lines.GetLevel(linedex+1) > startLevel && linedex+1 <= context.Endline)
                     linedex++;
                 ParseSubRec(rec, startrec, linedex);
                 linedex++;
