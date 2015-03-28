@@ -34,5 +34,10 @@ namespace SharpGEDParser
         public string Religion { get; set; }
         public string Restriction { get; set; }
 
+        // Family Event support
+        public string HusbDetail { get; set; }
+        public string HusbAge { get; set; }
+        public string WifeDetail { get; set; }
+        public string WifeAge { get; set; }
     }
 }

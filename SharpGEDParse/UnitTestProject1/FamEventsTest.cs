@@ -118,5 +118,40 @@ namespace UnitTestProject1
             TestEventTag(tag);
             TestEventTag2(tag);
         }
+
+        [TestMethod]
+        public void TestSpouseDetail()
+        {
+            string indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 HUSB blah blah\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            Assert.AreEqual("blah blah", rec.FamEvents[0].HusbDetail);
+            Assert.AreEqual(null, rec.FamEvents[0].HusbAge);
+
+            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 WIFE blah blah\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            Assert.AreEqual("blah blah", rec.FamEvents[0].WifeDetail);
+            Assert.AreEqual(null, rec.FamEvents[0].WifeAge);
+
+            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 HUSB blah blah\n3 AGE 87\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            Assert.AreEqual("blah blah", rec.FamEvents[0].HusbDetail);
+            Assert.AreEqual("87", rec.FamEvents[0].HusbAge);
+
+            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 WIFE bloh bloh\n3 AGE 23\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            Assert.AreEqual("bloh bloh", rec.FamEvents[0].WifeDetail);
+            Assert.AreEqual("23", rec.FamEvents[0].WifeAge);
+
+            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked\n2 WIFE bloh bloh\n3 AGE 23";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            Assert.AreEqual("bloh bloh", rec.FamEvents[0].WifeDetail);
+            Assert.AreEqual("23", rec.FamEvents[0].WifeAge);
+            
+        }
     }
 }

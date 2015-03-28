@@ -146,10 +146,6 @@ namespace SharpGEDParser
             _EventParseSingleton.Parse(eRec, _context);
 
             _rec.FamEvents.Add(eRec);
-
-            // TODO test & implement
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, begline, endline, "HUSB") == null);
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, begline, endline, "WIFE") == null);
         }
 
     }

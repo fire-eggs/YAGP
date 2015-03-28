@@ -27,6 +27,9 @@ namespace SharpGEDParser
             tagSet.Add("SOUR", SourProc);
             tagSet.Add("NOTE", NoteProc);
 // TODO            tagSet.Add("OBJE", ObjeProc);
+
+            tagSet.Add("HUSB", HusbProc); // Family event support
+            tagSet.Add("WIFE", WifeProc); // Family event support
         }
 
         protected override void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
@@ -100,6 +103,35 @@ namespace SharpGEDParser
         private void ResnProc()
         {
             _rec.Restriction = Remainder();
+        }
+
+        private void HusbProc()
+        {
+            _rec.HusbDetail = Remainder();
+            if (_context.Endline > _context.Begline)
+            {
+                string line = _rec.Lines.GetLine(_context.Begline + 1);
+                string ident = null;
+                string tag = null;
+                int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+                if (tag == "AGE")
+                    _rec.HusbAge = line.Substring(nextChar).Trim();
+                // TODO anything else is unknown/error
+            }
+        }
+        private void WifeProc()
+        {
+            _rec.WifeDetail = Remainder();
+            if (_context.Endline > _context.Begline)
+            {
+                string line = _rec.Lines.GetLine(_context.Begline + 1);
+                string ident = null;
+                string tag = null;
+                int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+                if (tag == "AGE")
+                    _rec.WifeAge = line.Substring(nextChar).Trim();
+                // TODO anything else is unknown/error
+            }
         }
         private void NoteProc()
         {
