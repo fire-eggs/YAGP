@@ -283,8 +283,9 @@ namespace UnitTestProject1
             // TODO some real geds not using xref format
             indi = "0 INDI\n1 SUBM Jane Doe";
             rec = parse(indi);
-            Assert.AreEqual(1, rec.Subm.Count);
-            Assert.AreEqual("Jane Doe", rec.Subm[0].XRef, "Some GEDs not using xref format");
+            Assert.AreEqual(0, rec.Subm.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+//            Assert.AreEqual("Jane Doe", rec.Subm[0].XRef, "Some GEDs not using xref format");
         }
 
         [TestMethod]

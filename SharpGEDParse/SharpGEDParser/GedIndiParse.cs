@@ -214,10 +214,12 @@ namespace SharpGEDParser
 
         private void SubmProc()
         {
-            // TODO some real GEDs not using Xref format
-            // TODO log such as an error
+            // some real GEDs not using Xref format
             var rec = CommonXRefProcessing();
-            _rec.Subm.Add(rec);
+            if (rec == null)
+                ErrorTag(_context.Tag, _context.Begline, _context.Endline, "Failed to parse submitter XREF");
+            else
+                _rec.Subm.Add(rec);
         }
 
         private void LivingProc()
@@ -234,7 +236,7 @@ namespace SharpGEDParser
             // TODO test missing ident
             // TODO missing ident as error
             if (res == -1)
-                return;
+                return; // TODO should preserve what was read, parse note etc. ?
 
             var rec = new FamLinkRec(ident);
             rec.Beg = _context.Begline;

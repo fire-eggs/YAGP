@@ -47,6 +47,7 @@ namespace SharpGEDParser
             {
                 // TODO does this make parsing effectively single-threaded? need one context per thread?
                 _context.Line = line;
+                _context.Max = line.Length;
                 _context.Tag = tag;
                 _context.Begline = startLineDex;
                 _context.Endline = maxLineDex;
