@@ -283,9 +283,11 @@ namespace UnitTestProject1
             string indi2 = "0 INDI\n1 BURI\n2 PLAC Corinth Cemt. Barry Co., Missouri.\n2 SOUR @S122@\n3 DATA\n4 TEXT Date of Import: 17 Jun 2000\n2 SOUR @S124@";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(3, rec.Events[0].Source.Item1);
-            Assert.AreEqual(5, rec.Events[0].Source.Item2);
-            // TODO - more than one source!
+            Assert.AreEqual(2, rec.Events[0].Sources.Count);
+            Assert.AreEqual(3, rec.Events[0].Sources[0].Beg);
+            Assert.AreEqual(5, rec.Events[0].Sources[0].End);
+            Assert.AreEqual(6, rec.Events[0].Sources[1].Beg);
+            Assert.AreEqual(6, rec.Events[0].Sources[1].End);
         }
 
     }

@@ -135,12 +135,19 @@ namespace SharpGEDParser
             _rec.Data.Add(rec);
         }
 
+        private GedParse _EventParseSingleton;
+
         private void FamEventProc(int begline, int endline, int nextchar)
         {
-            // A family event: same as an event but has additional husband, wife tags
-            var rec = CommonEventProcessing(_rec.Lines);
-            _rec.FamEvents.Add(rec);
+            var eRec = new KBRGedEvent(_rec.Lines, _context.Tag);
+            eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
+            if (_EventParseSingleton == null)
+                _EventParseSingleton = new GedEventParse();
+            _EventParseSingleton.Parse(eRec, _context);
 
+            _rec.FamEvents.Add(eRec);
+
+            // TODO test & implement
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, begline, endline, "HUSB") == null);
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, begline, endline, "WIFE") == null);
         }

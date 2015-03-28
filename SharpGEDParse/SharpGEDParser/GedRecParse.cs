@@ -24,7 +24,7 @@ namespace SharpGEDParser
         protected abstract void ParseSubRec(KBRGedRec rec, int start, int max);
 
         // TODO does this make parsing effectively single-threaded? need one context per thread?
-        internal static ParseContext _context;
+        internal ParseContext _context;
 
         // Common parsing logic for all record types
         public void Parse(KBRGedRec rec)
@@ -54,37 +54,38 @@ namespace SharpGEDParser
             }
         }
 
-        protected EventRec CommonEventProcessing(GedRecord lines)
+        public void Parse(KBRGedRec rec, ParseContext context)
         {
-            int begline = _context.Begline;
-            int endline = _context.Endline;
+            var Lines = rec.Lines;
 
-            var rec = new EventRec(_context.Tag);
-            rec.Beg = begline;
-            rec.End = endline;
-            rec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
+            int linedex = context.Begline+1;
+            if (linedex > context.Endline)
+                return;
 
-            rec.Age = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGE");
-            rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
-            rec.Type = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TYPE");
-            rec.Cause = KBRGedUtil.ParseFor(lines, begline + 1, endline, "CAUS");
-            rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
-            rec.Agency = KBRGedUtil.ParseFor(lines, begline + 1, endline, "AGNC");
-            rec.Religion = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RELI");
-            rec.Restriction = KBRGedUtil.ParseFor(lines, begline + 1, endline, "RESN");
+            char startLevel = Lines.GetLevel(linedex);
 
-            // TODO CHAN - only one allowed!
-            rec.Change = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "CHAN");
+            while (true)
+            {
+                if (linedex > context.Endline)
+                    break;
+                int startrec = linedex;
+                while (Lines.GetLevel(linedex+1) > startLevel && linedex+1 < context.Endline)
+                    linedex++;
+                ParseSubRec(rec, startrec, linedex);
+                linedex++;
+            }
+        }
 
-            // TODO more than one note permitted!
-            rec.Note = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
+        private GedParse _EventParseSingleton;
 
-            // TODO more than one source permitted!
-            rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
-
-            // TODO OBJE tag
-
-            return rec;
+        protected KBRGedEvent CommonEventProcessing(GedRecord lines)
+        {
+            var eRec = new KBRGedEvent(lines, _context.Tag);
+            eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
+            if (_EventParseSingleton == null)
+                _EventParseSingleton = new GedEventParse();
+            _EventParseSingleton.Parse(eRec, _context);
+            return eRec;
         }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SharpGEDParser
 {
@@ -18,7 +14,7 @@ namespace SharpGEDParser
             Childs = new List<string>();
 
             Unknowns = new List<UnkRec>();
-            FamEvents = new List<EventRec>();
+            FamEvents = new List<KBRGedEvent>();
             Data = new List<DataRec>();
         }
 
@@ -36,6 +32,6 @@ namespace SharpGEDParser
         public Tuple<int, int> Note { get; set; } // TODO COMMON
         public Tuple<int, int> Change { get; set; } // TODO COMMON
 
-        public List<EventRec> FamEvents { get; set; } // TODO COMMON
+        public List<KBRGedEvent> FamEvents { get; set; } // TODO COMMON
     }
 }

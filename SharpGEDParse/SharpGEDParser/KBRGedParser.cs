@@ -80,6 +80,8 @@ namespace SharpGEDParser
     public interface GedParse
     {
         void Parse(KBRGedRec rec);
+
+        void Parse(KBRGedRec rec, GedRecParse.ParseContext context);
     }
 }
 

@@ -40,11 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileRead.cs" />
+    <Compile Include="GedEventParse.cs" />
     <Compile Include="GedFamParse.cs" />
     <Compile Include="GedHeadParse.cs" />
     <Compile Include="GedIndiParse.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
+    <Compile Include="KBRGedEvent.cs" />
     <Compile Include="KBRGedFam.cs" />
     <Compile Include="KBRGedHead.cs" />
     <Compile Include="KBRGedIndi.cs" />

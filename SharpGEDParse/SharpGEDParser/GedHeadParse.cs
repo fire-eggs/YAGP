@@ -8,5 +8,10 @@ namespace SharpGEDParser
         {
 //            Debug.Assert(false);
         }
+
+        public void Parse(KBRGedRec rec, GedRecParse.ParseContext context)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

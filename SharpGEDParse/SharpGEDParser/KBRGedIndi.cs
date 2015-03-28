@@ -160,9 +160,9 @@ namespace SharpGEDParser
         public List<UnkRec> Unknowns { get; set; }
         public List<UnkRec> Errors { get; set; }
 
-        public List<EventRec> Events { get; set; }
+        public List<KBRGedEvent> Events { get; set; }
 
-        public List<EventRec> Attribs { get; set; }
+        public List<KBRGedEvent> Attribs { get; set; }
 
         public List<LDSRec> LDSEvents { get; set; }
 
@@ -191,8 +191,8 @@ namespace SharpGEDParser
             Tag = "INDI"; // TODO use enum?
 
             Sources = new List<SourceRec>();
-            Events = new List<EventRec>();
-            Attribs = new List<EventRec>();
+            Events = new List<KBRGedEvent>();
+            Attribs = new List<KBRGedEvent>();
             Names = new List<NameRec>();
             Data = new List<DataRec>();
             LDSEvents = new List<LDSRec>();
