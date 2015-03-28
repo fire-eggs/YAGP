@@ -75,7 +75,7 @@ namespace SharpGEDParser
             tagSet.Add("ALIA", AliasProc);
             tagSet.Add("ANCI", AnciProc);
             tagSet.Add("DESI", DesiProc);
-            tagSet.Add("REFN", DataProc);
+            tagSet.Add("REFN", DataProc); // TODO temporary - need type sub-record
             tagSet.Add("SOUR", SourceProc);
             tagSet.Add("_UID", DataProc);
             tagSet.Add("NOTE", NoteProc);
@@ -287,14 +287,8 @@ namespace SharpGEDParser
         private void BirtProc()
         {
             // TODO a second birth record is an error?
-
             var rec = CommonEventProcessing(_rec.Lines);
             _rec.Events.Add(rec);
-
-            // TODO parse birt, adop specific
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, _context.Begline, _context.Endline, "FAMC") == null);
-            // ADOP is a sub-tag on FAMC
-            //            Debug.Assert(_tag == "BIRT" && KBRGedUtil.ParseFor(Lines, begline, endline, "ADOP") == null);
         }
 
         private void SexProc()

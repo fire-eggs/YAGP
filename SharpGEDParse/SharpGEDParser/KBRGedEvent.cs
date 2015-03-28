@@ -39,5 +39,9 @@ namespace SharpGEDParser
         public string HusbAge { get; set; }
         public string WifeDetail { get; set; }
         public string WifeAge { get; set; }
+
+        // BIRT/CHR/ADOP individual event support
+        public string Famc { get; set; }
+        public string FamcAdop { get; set; }
     }
 }

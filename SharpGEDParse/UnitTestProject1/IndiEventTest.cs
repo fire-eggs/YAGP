@@ -56,11 +56,43 @@ namespace UnitTestProject1
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual("", rec.Events[0].Detail);
+            Assert.AreEqual(null, rec.Events[0].Famc);
+            Assert.AreEqual(null, rec.Events[0].FamcAdop);
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);
             Assert.AreEqual(null, rec.Events[0].Type);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
             return rec;
+        }
+
+        public void TestBirthExtra(string tag)
+        {
+            string indi = string.Format("0 INDI\n1 {0} Y\n2 FAMC @FAM99@\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            var rec = parse(indi);
+
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual("Y", rec.Events[0].Detail);
+            Assert.AreEqual("@FAM99@", rec.Events[0].Famc);
+            Assert.AreEqual(null, rec.Events[0].FamcAdop);
+            Assert.AreEqual(null, rec.Events[0].Date);
+            Assert.AreEqual(null, rec.Events[0].Age);
+            Assert.AreEqual(null, rec.Events[0].Type);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
+
+            indi = string.Format("0 INDI\n1 {0} Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 ADOP pater", tag);
+            rec = parse(indi);
+
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual("Y", rec.Events[0].Detail);
+            Assert.AreEqual("@FAM99@", rec.Events[0].Famc);
+            Assert.AreEqual("pater", rec.Events[0].FamcAdop);
+            Assert.AreEqual(null, rec.Events[0].Date);
+            Assert.AreEqual(null, rec.Events[0].Age);
+            Assert.AreEqual(null, rec.Events[0].Type);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
         }
 
         [TestMethod]
@@ -93,8 +125,7 @@ namespace UnitTestProject1
             Assert.AreEqual(null, rec.Events[0].Type);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
 
-            // TODO - optional 'Y' argument?
-            // TODO - FAMC testing
+            TestBirthExtra("BIRT");
         }
 
         [TestMethod]
@@ -103,9 +134,7 @@ namespace UnitTestProject1
             TestEventTag1("CHR");
             TestEventTag2("CHR");
             TestEventTag3("CHR");
-
-            // TODO - optional 'Y' argument?
-            // TODO - FAMC testing
+            TestBirthExtra("CHR");
         }
 
         [TestMethod]
@@ -273,8 +302,7 @@ namespace UnitTestProject1
             TestEventTag1(tag);
             TestEventTag2(tag);
             TestEventTag3(tag);
-            // TODO FAMC testing
-            // TODO FAMC + ADOP
+            TestBirthExtra(tag);
         }
 
         [TestMethod]
