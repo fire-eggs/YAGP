@@ -62,12 +62,21 @@ namespace SharpGEDParser
             }
         }
 
+        private void ErrorRec(string reason)
+        {
+            var rec = new UnkRec(_context.Tag);
+            rec.Error = reason;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
+            _rec.Errors.Add(rec);
+        }
+
         private void UnknownTag(KBRGedRec mRec, string _tag, int startLineDex, int maxLineDex)
         {
             var rec = new UnkRec(_tag);
             rec.Beg = startLineDex;
             rec.End = maxLineDex;
-            (mRec as KBRGedIndi).Unknowns.Add(rec); // TODO general property?
+            (mRec as KBRGedFam).Unknowns.Add(rec); // TODO general property?
         }
 
         private void SourProc(int begline, int endline, int nextchar)
@@ -94,32 +103,38 @@ namespace SharpGEDParser
 
         private void kidProc(int begline, int endline, int nextchar)
         {
-            // TODO test missing identifier
-            // TODO missing ident is error
             string ident = null;
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
-            if (res != -1)
+            if (res != -1 && !string.IsNullOrEmpty(ident))
                 _rec.Childs.Add(ident);
+            else
+            {
+                ErrorRec("missing identifier");
+            }
         }
 
         private void momProc(int begline, int endline, int nextchar)
         {
-            // TODO test missing identifier
-            // TODO missing ident is error
             string ident = null;
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
-            if (res != -1)
+            if (res != -1 && !string.IsNullOrEmpty(ident))
                 _rec.Mom = ident;
+            else
+            {
+                ErrorRec("missing identifier");
+            }
         }
 
         private void dadProc(int begline, int endline, int nextchar)
         {
-            // TODO test missing identifier
-            // TODO missing ident is error
             string ident = null;
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
-            if (res != -1)
+            if (res != -1 && !string.IsNullOrEmpty(ident))
                 _rec.Dad = ident;
+            else
+            {
+                ErrorRec("missing identifier");
+            }
         }
 
         private void ChanProc(int begline, int endline, int nextchar)

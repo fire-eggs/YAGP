@@ -16,11 +16,12 @@ namespace SharpGEDParser
             Unknowns = new List<UnkRec>();
             FamEvents = new List<KBRGedEvent>();
             Data = new List<DataRec>();
+            Errors = new List<UnkRec>();
         }
 
         public List<UnkRec> Unknowns { get; set; } // TODO COMMON
 
-        public List<string> Childs { get; set; }
+        public List<string> Childs { get; set; } // identity strings for children
 
         public List<SourceRec> Sources { get; set; } // TODO COMMON
 
@@ -33,5 +34,7 @@ namespace SharpGEDParser
         public Tuple<int, int> Change { get; set; } // TODO COMMON
 
         public List<KBRGedEvent> FamEvents { get; set; } // TODO COMMON
+
+        public List<UnkRec> Errors { get; set; } // TODO COMMON
     }
 }

@@ -46,6 +46,9 @@ namespace SharpGEDParser
         public static int Ident(string line, int max, int startDex, ref string ident)
         {
             startDex = FirstChar(line, startDex, max);
+            if (startDex == -1)
+                return -1;
+
             if (line[startDex] == '@')
             {
                 // get ident
