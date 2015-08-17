@@ -34,6 +34,8 @@ namespace SharpGEDParser
             _tagSet.Add("MARB", FamEventProc);
             _tagSet.Add("MARC", FamEventProc);
             _tagSet.Add("MARR", FamEventProc);
+
+            // TODO LDS Spouse sealing? SLGS
         }
 
         protected override void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
