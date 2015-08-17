@@ -22,7 +22,8 @@ namespace SharpGEDParser
             _tagSet.Add("SOUR", SourProc);
             _tagSet.Add("CHAN", ChanProc);
 
-            _tagSet.Add("_UID", DataProc);
+            //_tagSet.Add("_UID", DataProc); // TODO not seen?
+            _tagSet.Add("_STAT", DataProc); // From 'AGES' program
 
             _tagSet.Add("EVEN", FamEventProc);
             _tagSet.Add("ANUL", FamEventProc);

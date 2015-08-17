@@ -318,5 +318,13 @@ namespace UnitTestProject1
             Assert.AreEqual(6, rec.Events[0].Sources[1].End);
         }
 
+        [TestMethod]
+        public void TestErrorSource()
+        {
+            string indi = "0 INDI\n1 BURI\n2 PLAC Corinth Cemt. Barry Co., Missouri.\n2 SOUR\n3 DATA\n4 TEXT Date of Import: 17 Jun 2000\n1 SOUR";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Events[0].Errors.Count);
+        }
     }
 }

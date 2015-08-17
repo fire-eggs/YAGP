@@ -175,6 +175,11 @@ namespace SharpGEDParser
             _rec.Errors.Add(rec);
         }
 
+        private void AddError(string reason)
+        {
+            ErrorTag(_context.Tag, _context.Begline, _context.Endline, reason);
+        }
+
         private void SourProc()
         {
             // "1 SOUR @n@"
@@ -183,10 +188,12 @@ namespace SharpGEDParser
             string ident = null;
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
 
-            // TODO test missing ident
-            // TODO missing ident as error
-            if (res == -1)
+            // missing ident as error
+            if (res == -1 || string.IsNullOrWhiteSpace(ident))
+            {
+                AddError("missing identifier");
                 return;
+            }
 
             var rec = new SourceRec(ident);
             rec.Beg = _context.Begline;

@@ -403,7 +403,7 @@ namespace SharpGEDParser
             // TODO parse more details
         }
 
-        private void SourceProc()
+        private void SourceProc() // TODO duplicate code
         {
             // "1 SOUR @n@"
             // TODO "1 SOUR descr"
@@ -411,10 +411,12 @@ namespace SharpGEDParser
             string ident = null;
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
 
-            // TODO test missing ident
-            // TODO missing ident as error
-            if (res == -1)
+            // missing ident as error
+            if (res == -1 || string.IsNullOrWhiteSpace(ident))
+            {
+                ErrorTag("missing identifier");
                 return;
+            }
 
             var rec = new SourceRec(ident);
             rec.Beg = _context.Begline;
