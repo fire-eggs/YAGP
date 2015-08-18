@@ -11,18 +11,7 @@ namespace SharpGEDParser
         public KBRGedEvent(GedRecord lines, string tag) : base(lines)
         {
             Tag = tag;
-
-            Notes = new List<Tuple<int, int>>();
-            Sources = new List<SourceRec>();
-            Unknowns = new List<UnkRec>();
-            Errors = new List<UnkRec>();
         }
-
-        public List<SourceRec> Sources { get; set; } // TODO COMMON
-        public List<Tuple<int, int>> Notes { get; set; }
-        public Tuple<int, int> Change { get; set; } // TODO COMMON
-        public List<UnkRec> Unknowns { get; set; } // TODO COMMON
-        public List<UnkRec> Errors { get; set; }
 
         public string Detail { get; set; } // e.g. caste_name
         public string Date { get; set; }

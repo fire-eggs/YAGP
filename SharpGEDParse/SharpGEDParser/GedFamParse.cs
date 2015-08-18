@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace SharpGEDParser
 {
@@ -90,6 +89,9 @@ namespace SharpGEDParser
             string ident = "";
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
 
+            // TODO check identifier
+            // TODO parse source in common
+
             var rec = new SourceRec(ident);
             rec.Beg = begline;
             rec.End = endline;
@@ -101,7 +103,7 @@ namespace SharpGEDParser
 
         private void NoteProc(int begline, int endline, int nextchar)
         {
-            _rec.Note = new Tuple<int, int>(begline, endline);
+            _rec.Notes.Add(new Tuple<int, int>(begline, endline));
         }
 
         private void kidProc(int begline, int endline, int nextchar)

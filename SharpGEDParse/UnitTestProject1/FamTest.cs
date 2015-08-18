@@ -99,18 +99,20 @@ namespace UnitTestProject1
         {
             string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 NOTE @N123@";
             var rec = parse(fam);
-            Assert.AreNotEqual(null, rec.Note);
-            Assert.AreEqual(2, rec.Note.Item1);
-            Assert.AreEqual(2, rec.Note.Item2);
+            Assert.AreNotEqual(null, rec.Notes);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual(2, rec.Notes[0].Item1);
+            Assert.AreEqual(2, rec.Notes[0].Item2);
         }
         [TestMethod]
         public void TestFamNote2()
         {
             string fam = "0 @F1@ FAM\n1 NOTE This is a family record note\n2 CONT blah blah ";
             var rec = parse(fam);
-            Assert.AreNotEqual(null, rec.Note);
-            Assert.AreEqual(1, rec.Note.Item1);
-            Assert.AreEqual(2, rec.Note.Item2);
+            Assert.AreNotEqual(null, rec.Notes);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual(1, rec.Notes[0].Item1);
+            Assert.AreEqual(2, rec.Notes[0].Item2);
         }
     }
 }

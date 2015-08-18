@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace SharpGEDParser
@@ -153,13 +152,6 @@ namespace SharpGEDParser
         // Individual's sex
         public char Sex { get; set; }
 
-        // Source records
-        public List<SourceRec> Sources { get; set; }
-
-        // Unknown records
-        public List<UnkRec> Unknowns { get; set; }
-        public List<UnkRec> Errors { get; set; }
-
         public List<KBRGedEvent> Events { get; set; }
 
         public List<KBRGedEvent> Attribs { get; set; }
@@ -178,27 +170,17 @@ namespace SharpGEDParser
 
         public List<FamLinkRec> FamLinks { get; set; }
 
-        public List<DataRec> Data { get; set; }
-
         public bool Living { get; set; }
-
-        public List<Tuple<int, int>> Notes { get; set; }
-        public Tuple<int, int> Change { get; set; }
 
         public KBRGedIndi(GedRecord lines, string ident) : base(lines)
         {
             Ident = ident;
             Tag = "INDI"; // TODO use enum?
 
-            Sources = new List<SourceRec>();
             Events = new List<KBRGedEvent>();
             Attribs = new List<KBRGedEvent>();
             Names = new List<NameRec>();
-            Data = new List<DataRec>();
             LDSEvents = new List<LDSRec>();
-
-            Unknowns = new List<UnkRec>();
-            Errors = new List<UnkRec>();
 
             // TODO consider tracking in a single list
             Alia = new List<XRefRec>();
@@ -209,7 +191,6 @@ namespace SharpGEDParser
             ChildLinks = new List<ChildLinkRec>();
             FamLinks = new List<FamLinkRec>();
 
-            Notes = new List<Tuple<int, int>>();
             Assoc = new List<XRefRec>();
 
             Living = false;
