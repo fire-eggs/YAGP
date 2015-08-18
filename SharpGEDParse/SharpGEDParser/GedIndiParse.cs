@@ -293,10 +293,14 @@ namespace SharpGEDParser
 
         private void SexProc()
         {
-            // TODO log unknown value as error
+            // TODO log unknown value as warn?
             int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.Nextchar, _context.Max);
             if (sexDex > 0)
+            {
                 _rec.Sex = _context.Line[sexDex];
+                if (!"MFU".Contains(_rec.Sex.ToString().ToUpper()))
+                    _rec.Sex = 'U';
+            }
         }
 
         private void NoteProc()
