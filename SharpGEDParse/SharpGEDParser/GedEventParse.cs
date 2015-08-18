@@ -182,25 +182,7 @@ namespace SharpGEDParser
 
         private void SourProc()
         {
-            // "1 SOUR @n@"
-            // TODO "1 SOUR descr"
-
-            string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
-
-            // missing ident as error
-            if (res == -1 || string.IsNullOrWhiteSpace(ident))
-            {
-                AddError("missing identifier");
-                return;
-            }
-
-            var rec = new SourceRec(ident);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
-            _rec.Sources.Add(rec);
-
-            // TODO parse more stuff
+            SourceProc(_rec);
         }
     }
 }

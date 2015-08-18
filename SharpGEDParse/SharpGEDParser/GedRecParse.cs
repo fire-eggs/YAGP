@@ -87,5 +87,48 @@ namespace SharpGEDParser
             _EventParseSingleton.Parse(eRec, _context);
             return eRec;
         }
+
+        protected UnkRec ErrorRec(string reason)
+        {
+            var rec = new UnkRec(_context.Tag);
+            rec.Error = reason;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
+            return rec;
+        }
+
+        // Common SOUR processing
+        protected void SourceProc(KBRGedRec _rec)
+        {
+            // "1 SOUR @n@"
+            // "1 SOUR text"
+            // "1 SOUR text\n2 CONC text"
+
+            string embed = null;
+            string ident = null;
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            if (res == -1 || string.IsNullOrWhiteSpace(ident))
+            {
+                embed = _context.Line.Substring(_context.Nextchar).Trim();
+                // possibly error
+                if (embed.Contains("@") || string.IsNullOrWhiteSpace(embed))
+                {
+                    _rec.Errors.Add(ErrorRec("identifier error"));
+                    return;
+                }
+
+                // possibly embedded text
+                // TODO CONC/CONT lines
+            }
+
+            var rec = new SourceRec(ident);
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
+            rec.Embed = embed;
+
+            _rec.Sources.Add(rec);
+
+            // TODO parse more
+        }
     }
 }

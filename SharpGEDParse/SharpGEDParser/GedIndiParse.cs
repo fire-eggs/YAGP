@@ -76,7 +76,7 @@ namespace SharpGEDParser
             tagSet.Add("ANCI", AnciProc);
             tagSet.Add("DESI", DesiProc);
             tagSet.Add("REFN", DataProc); // TODO temporary - need type sub-record
-            tagSet.Add("SOUR", SourceProc);
+            tagSet.Add("SOUR", SourProc);
             tagSet.Add("_UID", DataProc);
             tagSet.Add("NOTE", NoteProc);
             tagSet.Add("CHAN", ChanProc);
@@ -407,27 +407,9 @@ namespace SharpGEDParser
             // TODO parse more details
         }
 
-        private void SourceProc() // TODO duplicate code
+        private void SourProc()
         {
-            // "1 SOUR @n@"
-            // TODO "1 SOUR descr"
-
-            string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
-
-            // missing ident as error
-            if (res == -1 || string.IsNullOrWhiteSpace(ident))
-            {
-                ErrorTag("missing identifier");
-                return;
-            }
-
-            var rec = new SourceRec(ident);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
-            _rec.Sources.Add(rec);
-
-            // TODO parse more stuff
+            SourceProc(_rec);
         }
 
     }

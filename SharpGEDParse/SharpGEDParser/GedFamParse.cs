@@ -64,15 +64,6 @@ namespace SharpGEDParser
             }
         }
 
-        private void ErrorRec(string reason)
-        {
-            var rec = new UnkRec(_context.Tag);
-            rec.Error = reason;
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
-            _rec.Errors.Add(rec);
-        }
-
         private void UnknownTag(KBRGedRec mRec, string _tag, int startLineDex, int maxLineDex)
         {
             var rec = new UnkRec(_tag);
@@ -83,22 +74,7 @@ namespace SharpGEDParser
 
         private void SourProc(int begline, int endline, int nextchar)
         {
-            // "1 SOUR @n@"
-            // TODO "1 SOUR descr"
-
-            string ident = "";
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
-
-            // TODO check identifier
-            // TODO parse source in common
-
-            var rec = new SourceRec(ident);
-            rec.Beg = begline;
-            rec.End = endline;
-            _rec.Sources.Add(rec);
-
-            // TODO parse more stuff
-            //            Console.WriteLine(rec);
+            SourceProc(_rec);
         }
 
         private void NoteProc(int begline, int endline, int nextchar)
@@ -114,7 +90,7 @@ namespace SharpGEDParser
                 _rec.Childs.Add(ident);
             else
             {
-                ErrorRec("missing identifier");
+                _rec.Errors.Add(ErrorRec("missing identifier"));
             }
         }
 
@@ -126,7 +102,7 @@ namespace SharpGEDParser
                 _rec.Mom = ident;
             else
             {
-                ErrorRec("missing identifier");
+                _rec.Errors.Add(ErrorRec("missing identifier"));
             }
         }
 
@@ -138,7 +114,7 @@ namespace SharpGEDParser
                 _rec.Dad = ident;
             else
             {
-                ErrorRec("missing identifier");
+                _rec.Errors.Add(ErrorRec("missing identifier"));
             }
         }
 

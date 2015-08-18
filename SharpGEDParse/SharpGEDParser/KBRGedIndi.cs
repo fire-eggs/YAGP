@@ -29,6 +29,8 @@ namespace SharpGEDParser
 
     public class SourceRec : XRefRec
     {
+        public string Embed { get; set; } // embedded source text
+
         public SourceRec(string xref) : base ("SOUR", xref)
         {
         }

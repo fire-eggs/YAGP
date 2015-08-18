@@ -114,5 +114,30 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Notes[0].Item1);
             Assert.AreEqual(2, rec.Notes[0].Item2);
         }
+
+        [TestMethod]
+        public void TestChange()
+        {
+            var indi = "0 @F1@ FAM\n1 CHAN";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Change.Item1);
+            Assert.AreEqual(1, rec.Change.Item2);
+
+            indi = "0 @F1@ FAM\n1 CHAN notes\n2 DATE blah";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Change.Item1);
+            Assert.AreEqual(2, rec.Change.Item2);
+
+            // Only 1 change record allowed
+            // Gedcom spec says take the FIRST one
+            indi = "0 @F1@ FAM\n1 CHAN notes\n2 DATE blah\n1 CHAN notes2";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Change.Item1);
+            Assert.AreEqual(2, rec.Change.Item2);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            // TODO test actual details
+        }
+
     }
 }
