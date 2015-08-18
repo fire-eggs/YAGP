@@ -395,8 +395,8 @@ namespace SharpGEDParser
             rec.Beg = _context.Begline;
             rec.End = _context.Endline;
 
-            // TODO clean up extra spaces
             rec.Names = line.Substring(startName, startSur - startName).Trim();
+            rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
             if (startSur < max) // e.g. "1 NAME LIVING"
                 rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1);
             if (suffix.Length > 0)

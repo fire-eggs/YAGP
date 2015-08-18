@@ -9,6 +9,8 @@ namespace UnitTestProject1
     [TestClass]
     public class IndiTest : GedParseTest
     {
+        // TODO a surname with space? e.g. "von neumann"? extra spaces?
+
         private KBRGedIndi parse(string val)
         {
             return parse<KBRGedIndi>(val, "INDI");
