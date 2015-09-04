@@ -120,8 +120,15 @@ namespace SharpGEDParser
 
         private void ChanProc(int begline, int endline, int nextchar)
         {
-            _rec.Change = new Tuple<int, int>(begline, endline);
+            // GEDCOM spec says only one change allowed; says to take the FIRST one
+            if (_rec.Change == null)
+                _rec.Change = new Tuple<int, int>(begline, endline);
+            else
+            {
+                _rec.Errors.Add(ErrorRec("More than one change record"));
+            }
         }
+
         private void DataProc(int begline, int endline, int nextchar)
         {
             string data = _context.Line.Substring(nextchar);

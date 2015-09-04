@@ -120,11 +120,13 @@ namespace UnitTestProject1
         {
             var indi = "0 @F1@ FAM\n1 CHAN";
             var rec = parse(indi);
+            Assert.AreNotEqual(null, rec.Change);
             Assert.AreEqual(1, rec.Change.Item1);
             Assert.AreEqual(1, rec.Change.Item2);
 
             indi = "0 @F1@ FAM\n1 CHAN notes\n2 DATE blah";
             rec = parse(indi);
+            Assert.AreNotEqual(null, rec.Change);
             Assert.AreEqual(1, rec.Change.Item1);
             Assert.AreEqual(2, rec.Change.Item2);
 
@@ -132,6 +134,7 @@ namespace UnitTestProject1
             // Gedcom spec says take the FIRST one
             indi = "0 @F1@ FAM\n1 CHAN notes\n2 DATE blah\n1 CHAN notes2";
             rec = parse(indi);
+            Assert.AreNotEqual(null, rec.Change);
             Assert.AreEqual(1, rec.Change.Item1);
             Assert.AreEqual(2, rec.Change.Item2);
             Assert.AreEqual(1, rec.Errors.Count);
