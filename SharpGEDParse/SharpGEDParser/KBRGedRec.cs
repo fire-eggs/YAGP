@@ -11,7 +11,7 @@ namespace SharpGEDParser
         {
             Unknowns = new List<UnkRec>();
             Errors = new List<UnkRec>();
-            Sources = new List<SourceRec>();
+            Sources = new List<GedSourCit>();
             Data = new List<DataRec>();
             Notes = new List<Tuple<int, int>>();
 
@@ -41,7 +41,7 @@ namespace SharpGEDParser
         public string Tag { get; set; }
         public List<UnkRec> Unknowns { get; set; }
         public List<UnkRec> Errors { get; set; }
-        public List<SourceRec> Sources { get; set; }
+        public List<GedSourCit> Sources { get; set; }
         public List<DataRec> Data { get; set; }
         public List<Tuple<int, int>> Notes { get; set; }
         public Tuple<int, int> Change { get; set; }

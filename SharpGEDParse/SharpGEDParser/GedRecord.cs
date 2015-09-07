@@ -11,6 +11,9 @@ namespace SharpGEDParser
         private List<string> _lines;
         private int _firstLine;
 
+        public int Beg { get { return _firstLine; } }
+        public int End { get { return _firstLine + LineCount; } }
+
         public GedRecord()
         {
             _lines = new List<string>();

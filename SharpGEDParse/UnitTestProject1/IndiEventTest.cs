@@ -311,11 +311,15 @@ namespace UnitTestProject1
             string indi2 = "0 INDI\n1 BURI\n2 PLAC Corinth Cemt. Barry Co., Missouri.\n2 SOUR @S122@\n3 DATA\n4 TEXT Date of Import: 17 Jun 2000\n2 SOUR @S124@";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(2, rec.Events[0].Sources.Count);
-            Assert.AreEqual(3, rec.Events[0].Sources[0].Beg);
-            Assert.AreEqual(5, rec.Events[0].Sources[0].End);
-            Assert.AreEqual(6, rec.Events[0].Sources[1].Beg);
-            Assert.AreEqual(6, rec.Events[0].Sources[1].End);
+            var aEvent = rec.Events[0];
+            Assert.AreEqual(2, aEvent.Sources.Count);
+            Assert.AreEqual(3, aEvent.Sources[0].Beg);
+            Assert.AreEqual(5, aEvent.Sources[0].End);
+            Assert.AreEqual(6, aEvent.Sources[1].Beg);
+            Assert.AreEqual(6, aEvent.Sources[1].End);
+
+            Assert.AreEqual("S124", aEvent.Sources[1].XRef);
+            Assert.AreEqual("S122", aEvent.Sources[0].XRef);
         }
 
         [TestMethod]

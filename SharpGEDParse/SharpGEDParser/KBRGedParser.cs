@@ -11,6 +11,7 @@ namespace SharpGEDParser
             _IndiParseSingleton = new GedIndiParse();
             _FamParseSingleton  = new GedFamParse();
             _HeadParseSingleton = new GedHeadParse();
+            _SourParseSingleton = new GedSourParse();
         }
 
         public KBRGedRec Parse(GedRecord rec)
@@ -47,6 +48,8 @@ namespace SharpGEDParser
 
         private Tuple<KBRGedRec, GedParse> GedRecFactory(GedRecord rec, string ident, string tag)
         {
+            // Parse 'top level' records. Parsing of some record types (e.g. NOTE, SOUR, etc) are likely to be in 'common' with sub-record parsing
+
             KBRGedRec data;
 
             // TODO Very much brute force. If/until this is found to be optimizable
@@ -65,6 +68,9 @@ namespace SharpGEDParser
                 case "SUBM":
                 case "REPO":
                 case "SOUR":
+                case "OBJE":
+                case "NOTE":
+                case "SUBN":
                 default:
                     data = new KBRGedUnk(rec, ident, tag);
                     return new Tuple<KBRGedRec, GedParse>(data, null);
@@ -74,7 +80,7 @@ namespace SharpGEDParser
         private GedParse _IndiParseSingleton;
         private GedParse _FamParseSingleton;
         private GedParse _HeadParseSingleton;
-
+        private GedParse _SourParseSingleton;
     }
 
     public interface GedParse

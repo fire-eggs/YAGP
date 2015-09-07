@@ -97,9 +97,13 @@ namespace SharpGEDParser
             return rec;
         }
 
-        // Common SOUR processing
-        protected void SourceProc(KBRGedRec _rec)
+        private GedParse _SourParseSingleton;
+
+        // Common Source Citation processing
+        protected void SourCitProc(KBRGedRec _rec)
         {
+            // TODO somehow push into GedSourCitParse???
+
             // "1 SOUR @n@"
             // "1 SOUR text"
             // "1 SOUR text\n2 CONC text"
@@ -117,18 +121,19 @@ namespace SharpGEDParser
                     return;
                 }
 
-                // possibly embedded text
+                // TODO possibly embedded text
                 // TODO CONC/CONT lines
             }
 
-            var rec = new SourceRec(ident);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
-            rec.Embed = embed;
-
-            _rec.Sources.Add(rec);
-
-            // TODO parse more
+            GedSourCit sRec = new GedSourCit(_rec.Lines);
+            sRec.Beg = _context.Begline;
+            sRec.End = _context.Endline;
+            sRec.XRef = ident;
+            sRec.Embed = embed;
+            _rec.Sources.Add(sRec);
+            if (_SourParseSingleton == null)
+                _SourParseSingleton = new GedSourCitParse();
+            _SourParseSingleton.Parse(sRec, _context);
         }
     }
 }

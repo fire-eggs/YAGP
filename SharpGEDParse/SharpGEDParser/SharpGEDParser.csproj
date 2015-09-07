@@ -46,6 +46,11 @@
     <Compile Include="GedIndiParse.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
+    <Compile Include="GedRepository.cs" />
+    <Compile Include="GedSource.cs" />
+    <Compile Include="GedSourCit.cs" />
+    <Compile Include="GedSourCitParse.cs" />
+    <Compile Include="GedSourParse.cs" />
     <Compile Include="KBRGedEvent.cs" />
     <Compile Include="KBRGedFam.cs" />
     <Compile Include="KBRGedHead.cs" />

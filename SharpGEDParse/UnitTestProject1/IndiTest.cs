@@ -527,23 +527,29 @@ namespace UnitTestProject1
             var indi = "0 INDI\n1 SOUR @S331@\n2 QUAY 3";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual("S331", rec.Sources[0].XRef);
             Assert.AreEqual(1, rec.Sources[0].Beg);
             Assert.AreEqual(2, rec.Sources[0].End);
+            Assert.AreEqual("S331", rec.Sources[0].XRef);
+            Assert.AreEqual("3", rec.Sources[0].Quay);
 
             indi = "0 INDI\n1 SOUR @S331@\n2 QUAY 3\n1 SOUR @S148@";
             rec = parse(indi);
             Assert.AreEqual(2, rec.Sources.Count);
             Assert.AreEqual("S331", rec.Sources[0].XRef);
+            Assert.AreEqual("3", rec.Sources[0].Quay);
             Assert.AreEqual(1, rec.Sources[0].Beg);
             Assert.AreEqual(2, rec.Sources[0].End);
             Assert.AreEqual("S148", rec.Sources[1].XRef);
             Assert.AreEqual(3, rec.Sources[1].Beg);
             Assert.AreEqual(3, rec.Sources[1].End);
+        }
 
+        [TestMethod]
+        public void TestSource2()
+        {
             // extracted from a real GED file
-            indi = "0 INDI\n1 SOUR @S333@\n2 QUAY 3\n1 SOUR @S66@\n2 _RIN 6217\n2 PAGE Missouri/Richmond/Ray/ED #150/Page 4A\n2 DATA\n3 TEXT Trigg Street\n4 CONT 86 91 Claypole, Aaron, head, 59\n4 CONT Myrtle C., daughter-in-law, 17, M\n3 DATE 7 JAN 1920\n2 QUAY 3";
-            rec = parse(indi);
+            var indi = "0 INDI\n1 SOUR @S333@\n2 QUAY 3\n1 SOUR @S66@\n2 _RIN 6217\n2 PAGE Missouri/Richmond/Ray/ED #150/Page 4A\n2 DATA\n3 TEXT Trigg Street\n4 CONT 86 91 Claypole, Aaron, head, 59\n4 CONT Myrtle C., daughter-in-law, 17, M\n3 DATE 7 JAN 1920\n2 QUAY 3";
+            var rec = parse(indi);
             Assert.AreEqual(2, rec.Sources.Count);
             Assert.AreEqual("S333", rec.Sources[0].XRef);
             Assert.AreEqual(1, rec.Sources[0].Beg);
@@ -552,7 +558,14 @@ namespace UnitTestProject1
             Assert.AreEqual(3, rec.Sources[1].Beg);
             Assert.AreEqual(11, rec.Sources[1].End);
 
-            // TODO validate details
+            Assert.AreEqual("3", rec.Sources[0].Quay);
+
+            Assert.AreEqual("3", rec.Sources[1].Quay);
+            Assert.AreEqual("6217", rec.Sources[1].RIN);
+            Assert.AreEqual("Missouri/Richmond/Ray/ED #150/Page 4A", rec.Sources[1].Page);
+            Assert.AreEqual("7 JAN 1920", rec.Sources[1].Date);
+
+            Assert.AreEqual("Trigg Street\n 86 91 Claypole, Aaron, head, 59 Myrtle C., daughter-in-law, 17, M\n", rec.Sources[1].Text);
         }
     }
 }

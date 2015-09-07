@@ -74,7 +74,7 @@ namespace SharpGEDParser
 
         private void SourProc(int begline, int endline, int nextchar)
         {
-            SourceProc(_rec);
+            SourCitProc(_rec);
         }
 
         private void NoteProc(int begline, int endline, int nextchar)

@@ -182,7 +182,7 @@ namespace SharpGEDParser
 
         private void SourProc()
         {
-            SourceProc(_rec);
+            SourCitProc(_rec);
         }
     }
 }

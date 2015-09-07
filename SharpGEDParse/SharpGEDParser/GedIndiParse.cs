@@ -120,7 +120,7 @@ namespace SharpGEDParser
             tagSet.Add("TITL", AttribProc);
             tagSet.Add("OCCU", AttribProc);
             tagSet.Add("FACT", AttribProc);
-            tagSet.Add("DSCR", AttribProc);
+            tagSet.Add("DSCR", AttribProc); // TODO description might have CONC/CONT lines
             tagSet.Add("EDUC", AttribProc);
             tagSet.Add("IDNO", AttribProc);
             tagSet.Add("NATI", AttribProc);
@@ -409,7 +409,7 @@ namespace SharpGEDParser
 
         private void SourProc()
         {
-            SourceProc(_rec);
+            SourCitProc(_rec);
         }
 
     }

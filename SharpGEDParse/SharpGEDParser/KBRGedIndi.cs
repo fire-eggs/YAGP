@@ -27,15 +27,6 @@ namespace SharpGEDParser
         }
     }
 
-    public class SourceRec : XRefRec
-    {
-        public string Embed { get; set; } // embedded source text
-
-        public SourceRec(string xref) : base ("SOUR", xref)
-        {
-        }
-    }
-
     // Currently used for _UID
     public class DataRec : Rec
     {
