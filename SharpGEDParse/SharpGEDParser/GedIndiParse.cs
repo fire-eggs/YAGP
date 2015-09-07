@@ -8,44 +8,6 @@ namespace SharpGEDParser
 
     public class GedIndiParse : GedRecParse
     {
-        private static KBRGedIndi _rec;
-
-        protected override void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
-        {
-            string line = rec.Lines.GetLine(startLineDex);
-            string ident = "";
-            string tag = "";
-
-            int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
-            //            Console.WriteLine("____{2}({3}):{0}-{1}", startLineDex, maxLineDex, _tag, ident);
-
-            if (tagSet.ContainsKey(tag))
-            {
-                // TODO does this make parsing effectively single-threaded? need one context per thread?
-                _context.Line = line;
-                _context.Max = line.Length;
-                _context.Tag = tag;
-                _context.Begline = startLineDex;
-                _context.Endline = maxLineDex;
-                _context.Nextchar = nextChar;
-                _rec = rec as KBRGedIndi;
-
-                tagSet[tag]();
-            }
-            else
-            {
-                UnknownTag(tag, startLineDex, maxLineDex);
-            }
-        }
-
-        private void UnknownTag(string tag, int startLineDex, int maxLineDex)
-        {
-            var rec = new UnkRec(tag);
-            rec.Beg = startLineDex;
-            rec.End = maxLineDex;
-            _rec.Unknowns.Add(rec);
-        }
-
         private void ErrorTag(string err)
         {
             ErrorTag(_context.Tag, _context.Begline, _context.Endline, err);
@@ -60,88 +22,84 @@ namespace SharpGEDParser
             _rec.Errors.Add(rec);
         }
 
-        private delegate void IndiTagProc();
-
-        private Dictionary<string, IndiTagProc> tagSet = new Dictionary<string, IndiTagProc>();
-
         protected override void BuildTagSet()
         {
             // Details
-            tagSet.Add("NAME", NameProc);
-            tagSet.Add("RESN", RestrictProc);
-            tagSet.Add("SEX",  SexProc);
-            tagSet.Add("SUBM", SubmProc);
-            tagSet.Add("ASSO", AssocProc);
-            tagSet.Add("ALIA", AliasProc);
-            tagSet.Add("ANCI", AnciProc);
-            tagSet.Add("DESI", DesiProc);
-            tagSet.Add("REFN", DataProc); // TODO temporary - need type sub-record
-            tagSet.Add("SOUR", SourProc);
-            tagSet.Add("_UID", DataProc);
-            tagSet.Add("NOTE", NoteProc);
-            tagSet.Add("CHAN", ChanProc);
-            tagSet.Add("OBJE", DataProc); // TODO temporary
+            _tagSet.Add("NAME", NameProc);
+            _tagSet.Add("RESN", RestrictProc);
+            _tagSet.Add("SEX",  SexProc);
+            _tagSet.Add("SUBM", SubmProc);
+            _tagSet.Add("ASSO", AssocProc);
+            _tagSet.Add("ALIA", AliasProc);
+            _tagSet.Add("ANCI", AnciProc);
+            _tagSet.Add("DESI", DesiProc);
+            _tagSet.Add("REFN", DataProc); // TODO temporary - need type sub-record
+            _tagSet.Add("SOUR", SourProc);
+            _tagSet.Add("_UID", DataProc);
+            _tagSet.Add("NOTE", NoteProc);
+            _tagSet.Add("CHAN", ChanProc);
+            _tagSet.Add("OBJE", DataProc); // TODO temporary
 
-            tagSet.Add("RFN", OneDataProc);
-            tagSet.Add("AFN", OneDataProc);
-            tagSet.Add("RIN", OneDataProc);
+            _tagSet.Add("RFN", OneDataProc);
+            _tagSet.Add("AFN", OneDataProc);
+            _tagSet.Add("RIN", OneDataProc);
 
             // Non-standard tags
-            tagSet.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
-            tagSet.Add("LVNG", LivingProc); // "Generations" custom
+            _tagSet.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
+            _tagSet.Add("LVNG", LivingProc); // "Generations" custom
 
             // Events
-            tagSet.Add("DEAT", EventProc);
-            tagSet.Add("CREM", EventProc);
-            tagSet.Add("BURI", EventProc);
-            tagSet.Add("NATU", EventProc);
-            tagSet.Add("IMMI", EventProc);
-            tagSet.Add("WILL", EventProc);
-            tagSet.Add("EMIG", EventProc);
-            tagSet.Add("BAPM", EventProc);
-            tagSet.Add("BARM", EventProc);
-            tagSet.Add("BASM", EventProc);
-            tagSet.Add("BLES", EventProc);
-            tagSet.Add("CHRA", EventProc);
-            tagSet.Add("CONF", EventProc);
-            tagSet.Add("FCOM", EventProc);
-            tagSet.Add("ORDN", EventProc);
-            tagSet.Add("PROB", EventProc);
-            tagSet.Add("GRAD", EventProc);
-            tagSet.Add("RETI", EventProc);
-            tagSet.Add("EVEN", EventProc);
+            _tagSet.Add("DEAT", EventProc);
+            _tagSet.Add("CREM", EventProc);
+            _tagSet.Add("BURI", EventProc);
+            _tagSet.Add("NATU", EventProc);
+            _tagSet.Add("IMMI", EventProc);
+            _tagSet.Add("WILL", EventProc);
+            _tagSet.Add("EMIG", EventProc);
+            _tagSet.Add("BAPM", EventProc);
+            _tagSet.Add("BARM", EventProc);
+            _tagSet.Add("BASM", EventProc);
+            _tagSet.Add("BLES", EventProc);
+            _tagSet.Add("CHRA", EventProc);
+            _tagSet.Add("CONF", EventProc);
+            _tagSet.Add("FCOM", EventProc);
+            _tagSet.Add("ORDN", EventProc);
+            _tagSet.Add("PROB", EventProc);
+            _tagSet.Add("GRAD", EventProc);
+            _tagSet.Add("RETI", EventProc);
+            _tagSet.Add("EVEN", EventProc);
 
-            tagSet.Add("BIRT", BirtProc); // birth,adoption
-            tagSet.Add("ADOP", BirtProc); // birth,adoption
-            tagSet.Add("CHR",  BirtProc);
+            _tagSet.Add("BIRT", BirtProc); // birth,adoption
+            _tagSet.Add("ADOP", BirtProc); // birth,adoption
+            _tagSet.Add("CHR",  BirtProc);
 
             // Attributes
-            tagSet.Add("CAST", AttribProc);
-            tagSet.Add("TITL", AttribProc);
-            tagSet.Add("OCCU", AttribProc);
-            tagSet.Add("FACT", AttribProc);
-            tagSet.Add("DSCR", AttribProc); // TODO description might have CONC/CONT lines
-            tagSet.Add("EDUC", AttribProc);
-            tagSet.Add("IDNO", AttribProc);
-            tagSet.Add("NATI", AttribProc);
-            tagSet.Add("NCHI", AttribProc);
-            tagSet.Add("NMR", AttribProc);
-            tagSet.Add("PROP", AttribProc);
-            tagSet.Add("RELI", AttribProc);
-            tagSet.Add("SSN", AttribProc);
-            tagSet.Add("CENS", AttribProc);
-            tagSet.Add("RESI", AttribProc);
+            _tagSet.Add("CAST", AttribProc);
+            _tagSet.Add("TITL", AttribProc);
+            _tagSet.Add("OCCU", AttribProc);
+            _tagSet.Add("FACT", AttribProc);
+            _tagSet.Add("DSCR", AttribProc); // TODO description might have CONC/CONT lines
+            _tagSet.Add("EDUC", AttribProc);
+            _tagSet.Add("IDNO", AttribProc);
+            _tagSet.Add("NATI", AttribProc);
+            _tagSet.Add("NCHI", AttribProc);
+            _tagSet.Add("NMR", AttribProc);
+            _tagSet.Add("PROP", AttribProc);
+            _tagSet.Add("RELI", AttribProc);
+            _tagSet.Add("SSN", AttribProc);
+            _tagSet.Add("CENS", AttribProc);
+            _tagSet.Add("RESI", AttribProc);
 
             // LDS events
-            tagSet.Add("BAPL", LdsOrdProc);
-            tagSet.Add("CONL", LdsOrdProc);
-            tagSet.Add("ENDL", LdsOrdProc);
-            tagSet.Add("SLGC", LdsOrdProc);
-            tagSet.Add("SLGS", LdsOrdProc);
+            _tagSet.Add("BAPL", LdsOrdProc);
+            _tagSet.Add("CONL", LdsOrdProc);
+            _tagSet.Add("ENDL", LdsOrdProc);
+            _tagSet.Add("SLGC", LdsOrdProc);
+            _tagSet.Add("SLGS", LdsOrdProc);
 
             // Family association
-            tagSet.Add("FAMC", ChildLink);
-            tagSet.Add("FAMS", SpouseLink);
+            _tagSet.Add("FAMC", ChildLink);
+            _tagSet.Add("FAMS", SpouseLink);
         }
 
         private void RestrictProc()
@@ -149,7 +107,7 @@ namespace SharpGEDParser
             string data = _context.Line.Substring(_context.Nextchar);
             if (string.IsNullOrWhiteSpace(data))
                 return;
-            _rec.Restriction = data.Trim();
+            (_rec as KBRGedIndi).Restriction = data.Trim();
         }
 
         private void DataProc()
@@ -164,7 +122,7 @@ namespace SharpGEDParser
         // GEDCOM standard states only one of these allowed, take the first
         private void OneDataProc()
         {
-            if (_rec.HasData(_context.Tag))
+            if ((_rec as KBRGedIndi).HasData(_context.Tag))
             {
                 ErrorTag(string.Format("Multiple {0}: used first", _context.Tag));
                 return;
@@ -191,14 +149,14 @@ namespace SharpGEDParser
         private void DesiProc()
         {
             var rec = CommonXRefProcessing();
-            _rec.Desi.Add(rec);
+            (_rec as KBRGedIndi).Desi.Add(rec);
         }
 
         private void AnciProc()
         {
             // TODO one GED has 'HIGH', 'LOW' and 'MEDIUM'...
             var rec = CommonXRefProcessing();
-            _rec.Anci.Add(rec);
+            (_rec as KBRGedIndi).Anci.Add(rec);
         }
 
         private void AliasProc()
@@ -208,7 +166,7 @@ namespace SharpGEDParser
             var rec = new XRefRec(_context.Tag, ident);
             rec.Beg = _context.Begline;
             rec.End = _context.Endline;
-            _rec.Alia.Add(rec);
+            (_rec as KBRGedIndi).Alia.Add(rec);
         }
 
         private void SubmProc()
@@ -216,15 +174,15 @@ namespace SharpGEDParser
             // some real GEDs not using Xref format
             var rec = CommonXRefProcessing();
             if (rec == null)
-                ErrorTag(_context.Tag, _context.Begline, _context.Endline, "Failed to parse submitter XREF");
+                ErrorTag("Failed to parse submitter XREF");
             else
-                _rec.Subm.Add(rec);
+                (_rec as KBRGedIndi).Subm.Add(rec);
         }
 
         private void LivingProc()
         {
             // Some programs explicitly indicate 'living'. 
-            _rec.Living = true;
+            (_rec as KBRGedIndi).Living = true;
         }
 
         private void SpouseLink()
@@ -240,7 +198,7 @@ namespace SharpGEDParser
             var rec = new FamLinkRec(ident);
             rec.Beg = _context.Begline;
             rec.End = _context.Endline;
-            _rec.FamLinks.Add(rec);
+            (_rec as KBRGedIndi).FamLinks.Add(rec);
 
             // TODO parse NOTE
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, 
@@ -261,7 +219,7 @@ namespace SharpGEDParser
             var rec = new ChildLinkRec(ident);
             rec.Beg = _context.Begline;
             rec.End = _context.Endline;
-            _rec.ChildLinks.Add(rec);
+            (_rec as KBRGedIndi).ChildLinks.Add(rec);
 
             // TODO parse PEDI, STAT, NOTE
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
@@ -281,14 +239,14 @@ namespace SharpGEDParser
             // TODO a second DEAT record is an error?
 
             var rec = CommonEventProcessing(_rec.Lines);
-            _rec.Events.Add(rec);
+            (_rec as KBRGedIndi).Events.Add(rec);
         }
 
         private void BirtProc()
         {
             // TODO a second birth record is an error?
             var rec = CommonEventProcessing(_rec.Lines);
-            _rec.Events.Add(rec);
+            (_rec as KBRGedIndi).Events.Add(rec);
         }
 
         private void SexProc()
@@ -297,9 +255,9 @@ namespace SharpGEDParser
             int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.Nextchar, _context.Max);
             if (sexDex > 0)
             {
-                _rec.Sex = _context.Line[sexDex];
-                if (!"MFU".Contains(_rec.Sex.ToString().ToUpper()))
-                    _rec.Sex = 'U';
+                (_rec as KBRGedIndi).Sex = _context.Line[sexDex];
+                if (!"MFU".Contains((_rec as KBRGedIndi).Sex.ToString().ToUpper()))
+                    (_rec as KBRGedIndi).Sex = 'U';
             }
         }
 
@@ -314,7 +272,7 @@ namespace SharpGEDParser
             // GEDCOM spec says to take the FIRST
             if (_rec.Change != null)
             {
-                ErrorTag(_context.Tag, _context.Begline, _context.Endline, "Multiple CHAN: first one used");
+                ErrorTag("Multiple CHAN: first one used");
                 return;
             }
             _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
@@ -348,19 +306,19 @@ namespace SharpGEDParser
             // TODO more than one source permitted!
             rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
 
-            _rec.LDSEvents.Add(rec);
+            (_rec as KBRGedIndi).LDSEvents.Add(rec);
         }
 
         private void AttribProc()
         {
             var rec = CommonEventProcessing(_rec.Lines);
-            _rec.Attribs.Add(rec);
+            (_rec as KBRGedIndi).Attribs.Add(rec);
         }
 
         private void AssocProc()
         {
             var rec = CommonXRefProcessing();
-            _rec.Assoc.Add(rec);
+            (_rec as KBRGedIndi).Assoc.Add(rec);
 
             // TODO parse RELA
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
@@ -402,7 +360,7 @@ namespace SharpGEDParser
             if (suffix.Length > 0)
                 rec.Suffix = suffix;
 
-            _rec.Names.Add(rec);
+            (_rec as KBRGedIndi).Names.Add(rec);
 
             // TODO parse more details
         }

@@ -5,12 +5,6 @@ namespace SharpGEDParser
 {
     public class GedFamParse : GedRecParse
     {
-        private static KBRGedFam _rec;
-
-        private delegate void FamTagProc(int begLine, int endLine, int nextChar);
-
-        private readonly Dictionary<string, FamTagProc> _tagSet = new Dictionary<string, FamTagProc>();
-
         protected override void BuildTagSet()
         {
             _tagSet.Add("HUSB", dadProc);
@@ -38,117 +32,85 @@ namespace SharpGEDParser
             // TODO LDS Spouse sealing? SLGS
         }
 
-        protected override void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
-        {
-            string line = rec.Lines.GetLine(startLineDex);
-            string ident = "";
-            string tag = "";
-
-            int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
-            if (_tagSet.ContainsKey(tag))
-            {
-                // TODO does this make parsing effectively single-threaded? need one context per thread?
-                _context.Line = line;
-                _context.Max = line.Length;
-                _context.Tag = tag;
-                _context.Begline = startLineDex;
-                _context.Endline = maxLineDex;
-                _context.Nextchar = nextChar;
-                _rec = rec as KBRGedFam;
-
-                _tagSet[tag](startLineDex, maxLineDex, nextChar);
-            }
-            else
-            {
-                UnknownTag(rec, tag, startLineDex, maxLineDex);
-            }
-        }
-
-        private void UnknownTag(KBRGedRec mRec, string _tag, int startLineDex, int maxLineDex)
-        {
-            var rec = new UnkRec(_tag);
-            rec.Beg = startLineDex;
-            rec.End = maxLineDex;
-            (mRec as KBRGedFam).Unknowns.Add(rec); // TODO general property?
-        }
-
-        private void SourProc(int begline, int endline, int nextchar)
+        private void SourProc()
         {
             SourCitProc(_rec);
         }
 
-        private void NoteProc(int begline, int endline, int nextchar)
+        private void NoteProc()
         {
-            _rec.Notes.Add(new Tuple<int, int>(begline, endline));
+            _rec.Notes.Add(new Tuple<int, int>(_context.Begline, _context.Endline));
         }
 
-        private void kidProc(int begline, int endline, int nextchar)
+        private void kidProc()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
-                _rec.Childs.Add(ident);
+                (_rec as KBRGedFam).Childs.Add(ident);
             else
             {
                 _rec.Errors.Add(ErrorRec("missing identifier"));
             }
         }
 
-        private void momProc(int begline, int endline, int nextchar)
+        private void momProc()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
-                _rec.Mom = ident;
+                (_rec as KBRGedFam).Mom = ident;
             else
             {
                 _rec.Errors.Add(ErrorRec("missing identifier"));
             }
         }
 
-        private void dadProc(int begline, int endline, int nextchar)
+        private void dadProc()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, nextchar, ref ident);
+            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
-                _rec.Dad = ident;
+                (_rec as KBRGedFam).Dad = ident;
             else
             {
                 _rec.Errors.Add(ErrorRec("missing identifier"));
             }
         }
 
-        private void ChanProc(int begline, int endline, int nextchar)
+        private void ChanProc()
         {
             // GEDCOM spec says only one change allowed; says to take the FIRST one
             if (_rec.Change == null)
-                _rec.Change = new Tuple<int, int>(begline, endline);
+                _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
             else
             {
                 _rec.Errors.Add(ErrorRec("More than one change record"));
             }
         }
 
-        private void DataProc(int begline, int endline, int nextchar)
+        private void DataProc()
         {
-            string data = _context.Line.Substring(nextchar);
+            string data = Remainder();
             var rec = new DataRec(_context.Tag, data);
-            rec.Beg = begline;
-            rec.End = endline;
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
             _rec.Data.Add(rec);
         }
 
         private GedParse _EventParseSingleton;
 
-        private void FamEventProc(int begline, int endline, int nextchar)
+        private void FamEventProc()
         {
+            // TODO push into GedEventParse
+
             var eRec = new KBRGedEvent(_rec.Lines, _context.Tag);
             eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
             if (_EventParseSingleton == null)
                 _EventParseSingleton = new GedEventParse();
             _EventParseSingleton.Parse(eRec, _context);
 
-            _rec.FamEvents.Add(eRec);
+            (_rec as KBRGedFam).FamEvents.Add(eRec);
         }
 
     }

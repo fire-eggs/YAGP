@@ -1,8 +1,16 @@
 ﻿
+using System.Collections.Generic;
+
 namespace SharpGEDParser
 {
     public abstract class GedRecParse : GedParse
     {
+        protected KBRGedRec _rec;
+
+        protected delegate void TagProc();
+
+        protected readonly Dictionary<string, TagProc> _tagSet = new Dictionary<string, TagProc>();
+
         public class ParseContext
         {
             public string Line;
@@ -21,14 +29,14 @@ namespace SharpGEDParser
 
         protected abstract void BuildTagSet();
 
-        protected abstract void ParseSubRec(KBRGedRec rec, int start, int max);
-
         // TODO does this make parsing effectively single-threaded? need one context per thread?
         internal ParseContext _context;
 
         // Common parsing logic for all record types
         public void Parse(KBRGedRec rec)
         {
+            _rec = rec;
+
             // At this point we know the record 'type' and its ident.
             // TODO any trailing data after the keyword?
 
@@ -56,6 +64,7 @@ namespace SharpGEDParser
 
         public void Parse(KBRGedRec rec, ParseContext context)
         {
+            _rec = rec;
             var Lines = rec.Lines;
 
             int linedex = context.Begline+1;
@@ -80,6 +89,8 @@ namespace SharpGEDParser
 
         protected KBRGedEvent CommonEventProcessing(GedRecord lines)
         {
+            // TODO somehow push into GedEventParse
+
             var eRec = new KBRGedEvent(lines, _context.Tag);
             eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
             if (_EventParseSingleton == null)
@@ -102,7 +113,7 @@ namespace SharpGEDParser
         // Common Source Citation processing
         protected void SourCitProc(KBRGedRec _rec)
         {
-            // TODO somehow push into GedSourCitParse???
+            // TODO somehow push into GedSourCitParse
 
             // "1 SOUR @n@"
             // "1 SOUR text"
@@ -135,5 +146,45 @@ namespace SharpGEDParser
                 _SourParseSingleton = new GedSourCitParse();
             _SourParseSingleton.Parse(sRec, _context);
         }
+
+        protected void UnknownTag(string tag, int startLineDex, int maxLineDex)
+        {
+            var rec = new UnkRec(tag);
+            rec.Beg = startLineDex;
+            rec.End = maxLineDex;
+            _rec.Unknowns.Add(rec);
+        }
+
+        protected void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
+        {
+            string line = rec.Lines.GetLine(startLineDex);
+            string ident = "";
+            string tag = "";
+
+            int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+            if (_tagSet.ContainsKey(tag))
+            {
+                // TODO does this make parsing effectively single-threaded? need one context per thread?
+                _context.Line = line;
+                _context.Max = line.Length;
+                _context.Tag = tag;
+                _context.Begline = startLineDex;
+                _context.Endline = maxLineDex;
+                _context.Nextchar = nextChar;
+                _rec = rec;
+
+                _tagSet[tag]();
+            }
+            else
+            {
+                UnknownTag(tag, startLineDex, maxLineDex);
+            }
+        }
+
+        protected string Remainder()
+        {
+            return _context.Line.Substring(_context.Nextchar).Trim();
+        }
+
     }
 }

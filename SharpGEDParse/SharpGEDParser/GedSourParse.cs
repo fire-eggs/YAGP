@@ -9,14 +9,10 @@ namespace SharpGEDParser
 {
     public class GedSourParse : GedRecParse
     {
-        private static GedSource _rec;
-
-        private delegate void SourTagProc(int begLine, int endLine, int nextChar);
-
-        private readonly Dictionary<string, SourTagProc> _tagSet = new Dictionary<string, SourTagProc>();
-
         protected override void BuildTagSet()
         {
+            // TODO many of these are wrong for a SOUR *record*
+
             _tagSet.Add("AUTH", authProc);
             _tagSet.Add("TITL", titlProc);
             _tagSet.Add("PAGE", pageProc);
@@ -29,96 +25,61 @@ namespace SharpGEDParser
             _tagSet.Add("_RIN", rinProc);
         }
 
-        private void rinProc(int begline, int endline, int nextchar)
+        private void rinProc()
         {
-            _rec.RIN = _context.Line.Substring(nextchar).Trim();
+            (_rec as GedSource).RIN = Remainder();
         }
 
-        private void chngProc(int begline, int endline, int nextchar)
+        private void chngProc()
         {
             // GEDCOM spec says only one change allowed; says to take the FIRST one
             if (_rec.Change == null)
-                _rec.Change = new Tuple<int, int>(begline, endline);
+                _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
             else
             {
                 _rec.Errors.Add(ErrorRec("More than one change record"));
             }
         }
 
-        private void noteProc(int begline, int endline, int nextchar)
+        private void noteProc()
         {
             throw new NotImplementedException();
         }
 
-        private void textProc(int begline, int endline, int nextchar)
+        private void textProc()
         {
-            _rec.Text = _context.Line.Substring(nextchar);
+            (_rec as GedSource).Text = Remainder();
             // TODO CONC/CONT
         }
 
-        private void dateProc(int begline, int endline, int nextchar)
+        private void dateProc()
         {
-            _rec.Date = _context.Line.Substring(nextchar).Trim();
+            (_rec as GedSource).Date = Remainder();
         }
 
-        private void quayProc(int begline, int endline, int nextchar)
+        private void quayProc()
         {
-            _rec.Quay = _context.Line.Substring(nextchar).Trim();
+            (_rec as GedSource).Quay = Remainder();
         }
 
-        private void ignoreProc(int begline, int endline, int nextchar)
+        private void ignoreProc()
         {
             // TODO do nothing?
         }
 
-        private void pageProc(int begline, int endline, int nextchar)
+        private void pageProc()
         {
-            _rec.Page = _context.Line.Substring(nextchar).Trim();
+            (_rec as GedSource).Page = Remainder();
         }
 
-        private void titlProc(int begline, int endline, int nextchar)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void authProc(int begline, int endline, int nextchar)
+        private void titlProc()
         {
             throw new NotImplementedException();
         }
 
-        protected override void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
+        private void authProc()
         {
-            string line = rec.Lines.GetLine(startLineDex);
-            string ident = "";
-            string tag = "";
-
-            int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
-            if (_tagSet.ContainsKey(tag))
-            {
-                // TODO does this make parsing effectively single-threaded? need one context per thread?
-                _context.Line = line;
-                _context.Max = line.Length;
-                _context.Tag = tag;
-                _context.Begline = startLineDex;
-                _context.Endline = maxLineDex;
-                _context.Nextchar = nextChar;
-                _rec = rec as GedSource;
-
-                _tagSet[tag](startLineDex, maxLineDex, nextChar);
-            }
-            else
-            {
-                UnknownTag(rec, tag, startLineDex, maxLineDex);
-            }
+            throw new NotImplementedException();
         }
-
-        private void UnknownTag(KBRGedRec mRec, string _tag, int startLineDex, int maxLineDex)
-        {
-            var rec = new UnkRec(_tag);
-            rec.Beg = startLineDex;
-            rec.End = maxLineDex;
-            (mRec as GedSource).Unknowns.Add(rec); // TODO general property?
-        }
-
     }
 }
