@@ -60,6 +60,7 @@
     <Compile Include="KBRGedUnk.cs" />
     <Compile Include="KBRGedUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourCitDataParse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

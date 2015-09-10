@@ -565,7 +565,7 @@ namespace UnitTestProject1
             Assert.AreEqual("Missouri/Richmond/Ray/ED #150/Page 4A", rec.Sources[1].Page);
             Assert.AreEqual("7 JAN 1920", rec.Sources[1].Date);
 
-            Assert.AreEqual("Trigg Street\n 86 91 Claypole, Aaron, head, 59 Myrtle C., daughter-in-law, 17, M\n", rec.Sources[1].Text);
+            Assert.AreEqual("Trigg Street\n86 91 Claypole, Aaron, head, 59\nMyrtle C., daughter-in-law, 17, M", rec.Sources[1].Text);
         }
     }
 }

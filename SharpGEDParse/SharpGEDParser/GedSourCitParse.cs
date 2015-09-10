@@ -18,9 +18,9 @@ namespace SharpGEDParser
             _tagSet.Add("_RIN", rinProc); // Non-standard
         }
 
-        private void noteProc()
+        private void noteProc() // TODO
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); 
         }
 
         private void quayProc()
@@ -28,9 +28,9 @@ namespace SharpGEDParser
             (_rec as GedSourCit).Quay = Remainder();
         }
 
-        private void ignoreProc()
+        private void ignoreProc() // TODO
         {
-            // TODO do nothing?
+            throw new NotImplementedException();
         }
 
         private void pageProc()
@@ -54,9 +54,9 @@ namespace SharpGEDParser
 
         private void dataProc()
         {
-            // brute-force processing for a DATA sub-record.
             // The DATA line itself should have no relevance.
-            // Valid sub-tags are DATE and TEXT; TEXT may have CONC/CONT
+            // TODO create a singleton
+            new SourCitDataParse().Parse(_rec, _context);
         }
     }
 }
