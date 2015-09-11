@@ -67,3 +67,17 @@ namespace UnitTestProject1
 
     }
 }
+
+// TODO xref parsing
+// From Tamura Jones:
+/*
+Issue an error for non-ASCII characters in a GEDCOM identifier, and abort.
+Upon encountering a C0 Control Character (0x00-0x1F) in a GEDCOM identifier, report a fatal error and abort.
+A Horizontal Tab is invisible, assist the user by mentioning that control character by name.
+Upon encountering a colon in a GEDCOM identifier, report a fatal error and abort.
+Upon encountering an exclamation mark in a GEDCOM identifier, report a fatal error and abort.
+Upon encountering an underscore in a GEDCOM identifier, report a fatal error and abort.
+Upon encountering a number sign in a GEDCOM identifier; simply continue.
+Upon encountering a space in a GEDCOM identifier, report a warning and continue.
+For any other non-alphanumeric character in a GEDCOM identifier: simply continue.
+*/
