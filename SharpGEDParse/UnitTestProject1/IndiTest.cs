@@ -254,6 +254,25 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void AnciXrefMissing()
+        {
+            var indi = "0 INDI\n1 ANCI";
+            var rec = parse(indi);
+            Assert.AreEqual(0, rec.Anci.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 ANCI ";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Anci.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 ANCI xref";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Anci.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+        }
+
+        [TestMethod]
         public void TestDesi()
         {
             var indi = "0 INDI\n1 DESI @SUBM1@";
@@ -266,6 +285,25 @@ namespace UnitTestProject1
             Assert.AreEqual(2, rec.Desi.Count);
             Assert.AreEqual("SUBM2", rec.Desi[0].XRef);
             Assert.AreEqual("SUBM3", rec.Desi[1].XRef);
+        }
+
+        [TestMethod]
+        public void DesiXrefMissing()
+        {
+            var indi = "0 INDI\n1 DESI";
+            var rec = parse(indi);
+            Assert.AreEqual(0, rec.Desi.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 DESI ";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Desi.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 DESI xref";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Desi.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
         }
 
         [TestMethod]
@@ -288,6 +326,25 @@ namespace UnitTestProject1
             Assert.AreEqual(0, rec.Subm.Count);
             Assert.AreEqual(1, rec.Errors.Count);
 //            Assert.AreEqual("Jane Doe", rec.Subm[0].XRef, "Some GEDs not using xref format");
+        }
+
+        [TestMethod]
+        public void SubmXrefMissing()
+        {
+            var indi = "0 INDI\n1 SUBM";
+            var rec = parse(indi);
+            Assert.AreEqual(0, rec.Subm.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 SUBM ";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Subm.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 SUBM xref";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Subm.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
         }
 
         [TestMethod]
@@ -520,6 +577,26 @@ namespace UnitTestProject1
 
             // TODO test for details - RELA, SOUR, NOTE
         }
+
+        [TestMethod]
+        public void AssoXrefMissing()
+        {
+            var indi = "0 INDI\n1 ASSO";
+            var rec = parse(indi);
+            Assert.AreEqual(0, rec.Assoc.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 ASSO ";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Assoc.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 ASSO xref";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Assoc.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+        }
+
 
         [TestMethod]
         public void TestSource()

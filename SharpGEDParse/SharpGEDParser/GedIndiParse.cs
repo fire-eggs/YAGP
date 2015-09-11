@@ -132,8 +132,6 @@ namespace SharpGEDParser
 
         private XRefRec CommonXRefProcessing()
         {
-            // TODO test missing identifier
-            // TODO missing ident as error
             string ident = null;
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1)
@@ -143,20 +141,24 @@ namespace SharpGEDParser
                 rec.End = _context.Endline;
                 return rec;
             }
+
+            ErrorTag(string.Format("Missing xref for {0}", _context.Tag));
             return null;
         }
 
         private void DesiProc()
         {
             var rec = CommonXRefProcessing();
-            (_rec as KBRGedIndi).Desi.Add(rec);
+            if (rec != null)
+                (_rec as KBRGedIndi).Desi.Add(rec);
         }
 
         private void AnciProc()
         {
             // TODO one GED has 'HIGH', 'LOW' and 'MEDIUM'...
             var rec = CommonXRefProcessing();
-            (_rec as KBRGedIndi).Anci.Add(rec);
+            if (rec != null)
+                (_rec as KBRGedIndi).Anci.Add(rec);
         }
 
         private void AliasProc()
@@ -173,9 +175,7 @@ namespace SharpGEDParser
         {
             // some real GEDs not using Xref format
             var rec = CommonXRefProcessing();
-            if (rec == null)
-                ErrorTag("Failed to parse submitter XREF");
-            else
+            if (rec != null)
                 (_rec as KBRGedIndi).Subm.Add(rec);
         }
 
@@ -318,7 +318,8 @@ namespace SharpGEDParser
         private void AssocProc()
         {
             var rec = CommonXRefProcessing();
-            (_rec as KBRGedIndi).Assoc.Add(rec);
+            if (rec != null)
+                (_rec as KBRGedIndi).Assoc.Add(rec);
 
             // TODO parse RELA
             Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
