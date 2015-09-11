@@ -1,32 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
+using System.Diagnostics;
+
+// ReSharper disable ConvertToConstant.Local
 
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest1 : GedParseTest
     {
-        public static Stream ToStream(string str)
-        {
-            return new MemoryStream(Encoding.UTF8.GetBytes(str ?? ""));
-        }
-
-        // TODO need to abstract the GedData one level
-        public static List<KBRGedRec> ReadIt(string testString)
-        {
-            FileRead fr = new FileRead();
-            using (var stream = new StreamReader(ToStream(testString)))
-            {
-                fr.ReadLines(stream);
-            }
-            return fr.Data;
-        }
-
         [TestMethod]
         public void TestMethod1()
         {
@@ -59,6 +41,29 @@ namespace UnitTestProject1
             Debug.Assert(res[4].Tag == "INDI");
             Debug.Assert(res[5].Tag == "FAM");
         }
-        // TODO really need record-level testing, e.g. INDI
+
+        [TestMethod]
+        public void IllegalAdopLevel()
+        {
+            // ADOP as a sub-record of PLAC is an error
+            string indi = "0 INDI\n1 BIRT Y\n2 FAMC @FAM99@\n2 PLAC Sands, Oldham, Lncshr, Eng\n3 ADOP pater";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreNotEqual(0, rec.Errors.Count);
+        }
+
+        [TestMethod]
+        public void BogusText()
+        {
+            // NOTE the third line is missing the leading level #
+            string indi = "0 INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+
+            Assert.AreEqual(1, rec.Attribs.Count);
+
+            // TODO where/how is the error recorded?
+            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+        }
+
     }
 }
