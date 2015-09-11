@@ -175,6 +175,25 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void FamsXrefMissing()
+        {
+            var indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS";
+            var rec = parse(indi);
+            Assert.AreEqual(0, rec.FamLinks.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS blah";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.FamLinks.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS @@";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.FamLinks.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+        }
+
+        [TestMethod]
         public void TestFamc()
         {
             var indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC @FAMILY1@";
@@ -183,12 +202,11 @@ namespace UnitTestProject1
             Assert.AreEqual("FAMC", rec.ChildLinks[0].Tag);
             Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef);
 
-            // TODO not sure what is going on. is the space an identity terminator?
+            // xref identifier cannot start with a space.
             var indi1 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC @ FAMILY1 @";
             rec = parse(indi1);
-            Assert.AreEqual(1, rec.ChildLinks.Count);
-            Assert.AreEqual("FAMC", rec.ChildLinks[0].Tag);
-            Assert.AreEqual("FAMILY1", rec.ChildLinks[0].XRef, "Is space a terminator?");
+            Assert.AreEqual(0, rec.ChildLinks.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
         }
 
         [TestMethod]
@@ -200,6 +218,11 @@ namespace UnitTestProject1
             Assert.AreEqual(0, rec.ChildLinks.Count);
 
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah";
+            rec = parse(indi2);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(0, rec.ChildLinks.Count);
+
+            indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah @@";
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(0, rec.ChildLinks.Count);
@@ -284,6 +307,11 @@ namespace UnitTestProject1
             rec = parse(indi);
             Assert.AreEqual(0, rec.Anci.Count);
             Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 ANCI xref @@";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Anci.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
         }
 
         [TestMethod]
@@ -315,6 +343,11 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Errors.Count);
 
             indi = "0 INDI\n1 DESI xref";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Desi.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 DESI xref @@";
             rec = parse(indi);
             Assert.AreEqual(0, rec.Desi.Count);
             Assert.AreEqual(1, rec.Errors.Count);
@@ -356,6 +389,11 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Errors.Count);
 
             indi = "0 INDI\n1 SUBM xref";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Subm.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 SUBM @@";
             rec = parse(indi);
             Assert.AreEqual(0, rec.Subm.Count);
             Assert.AreEqual(1, rec.Errors.Count);
@@ -606,6 +644,11 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Errors.Count);
 
             indi = "0 INDI\n1 ASSO xref";
+            rec = parse(indi);
+            Assert.AreEqual(0, rec.Assoc.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            indi = "0 INDI\n1 ASSO @@";
             rec = parse(indi);
             Assert.AreEqual(0, rec.Assoc.Count);
             Assert.AreEqual(1, rec.Errors.Count);

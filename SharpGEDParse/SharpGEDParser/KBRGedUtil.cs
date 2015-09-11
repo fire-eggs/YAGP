@@ -55,6 +55,8 @@ namespace SharpGEDParser
                 int endIdent = CharsUntil(line, max, startDex + 1, '@');
                 // endIdent now points at the trailing '@' or ' '
                 ident = line.Substring(startDex + 1, endIdent - startDex - 1);
+                if (string.IsNullOrWhiteSpace(ident))
+                    return -1;
                 return endIdent;
             }
             return -1;
