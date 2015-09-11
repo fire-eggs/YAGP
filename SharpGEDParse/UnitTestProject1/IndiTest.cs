@@ -513,7 +513,6 @@ namespace UnitTestProject1
             Assert.AreEqual("RFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
             Assert.AreEqual(1, rec.Errors.Count);
-            // TODO test specific error?
         }
 
         [TestMethod]

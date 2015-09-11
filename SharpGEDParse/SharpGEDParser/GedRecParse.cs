@@ -105,6 +105,7 @@ namespace SharpGEDParser
             rec.Error = reason;
             rec.Beg = _context.Begline;
             rec.End = _context.Endline;
+            _rec.Errors.Add(rec);
             return rec;
         }
 
@@ -128,12 +129,12 @@ namespace SharpGEDParser
                 // possibly error
                 if (embed.Contains("@") || string.IsNullOrWhiteSpace(embed))
                 {
-                    _rec.Errors.Add(ErrorRec("identifier error"));
+                    ErrorRec("identifier error");
                     return;
                 }
 
                 // TODO possibly embedded text
-                // TODO CONC/CONT lines
+                // TODO CONC/CONT lines with embedded text
             }
 
             GedSourCit sRec = new GedSourCit(_rec.Lines);

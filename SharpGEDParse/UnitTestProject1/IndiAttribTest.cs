@@ -49,6 +49,46 @@ namespace UnitTestProject1
             string tag = "DSCR";
             TestAttrib1(tag);
         }
+
+        [TestMethod]
+        public void LongDSCR()
+        {
+            string indi = "0 INDI\n1 DSCR attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            KBRGedIndi rec = parse(indi);
+
+            Assert.AreEqual(1, rec.Attribs.Count);
+            Assert.AreEqual("DSCR", rec.Attribs[0].Tag);
+            Assert.AreEqual("attrib_valuea big man\nI don't know the\nsecret handshake", rec.Attribs[0].Detail);
+            Assert.AreEqual("17", rec.Attribs[0].Age);
+            Assert.AreEqual("1774", rec.Attribs[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Attribs[0].Place);
+            Assert.AreEqual("suspicious", rec.Attribs[0].Type);
+        }
+
+        [TestMethod]
+        public void ErrorCont()
+        {
+            // NOTE: CONC/CONT invalid for any but DSCR
+            string indi = "0 INDI\n1 EDUC attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            KBRGedIndi rec = parse(indi);
+            Assert.AreEqual(1, rec.Attribs.Count);
+            Assert.AreNotEqual(0, rec.Attribs[0].Errors.Count);
+        }
+
+        [TestMethod]
+        public void BogusText()
+        {
+            // NOTE the third line is missing the leading level #
+            string indi = "0 INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            KBRGedIndi rec = parse(indi);
+
+            Assert.AreEqual(1, rec.Attribs.Count);
+
+            // TODO where/how is the error recorded?
+            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+        }
+
         [TestMethod]
         public void TestEDUC()
         {

@@ -78,7 +78,7 @@ namespace SharpGEDParser
             _tagSet.Add("TITL", AttribProc);
             _tagSet.Add("OCCU", AttribProc);
             _tagSet.Add("FACT", AttribProc);
-            _tagSet.Add("DSCR", AttribProc); // TODO description might have CONC/CONT lines
+            _tagSet.Add("DSCR", AttribProc);
             _tagSet.Add("EDUC", AttribProc);
             _tagSet.Add("IDNO", AttribProc);
             _tagSet.Add("NATI", AttribProc);

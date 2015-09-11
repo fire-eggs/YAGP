@@ -50,7 +50,7 @@ namespace SharpGEDParser
                 (_rec as KBRGedFam).Childs.Add(ident);
             else
             {
-                _rec.Errors.Add(ErrorRec("missing identifier"));
+                ErrorRec("missing identifier");
             }
         }
 
@@ -62,7 +62,7 @@ namespace SharpGEDParser
                 (_rec as KBRGedFam).Mom = ident;
             else
             {
-                _rec.Errors.Add(ErrorRec("missing identifier"));
+                ErrorRec("missing identifier");
             }
         }
 
@@ -74,7 +74,7 @@ namespace SharpGEDParser
                 (_rec as KBRGedFam).Dad = ident;
             else
             {
-                _rec.Errors.Add(ErrorRec("missing identifier"));
+                ErrorRec("missing identifier");
             }
         }
 
@@ -85,7 +85,7 @@ namespace SharpGEDParser
                 _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
             else
             {
-                _rec.Errors.Add(ErrorRec("More than one change record"));
+                ErrorRec("More than one change record");
             }
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace SharpGEDParser
 {
@@ -24,6 +23,9 @@ namespace SharpGEDParser
             _tagSet.Add("WIFE", WifeProc); // Family event support
 
             _tagSet.Add("FAMC", FAMCProc); // BIRT / CHR / ADOP support
+
+            _tagSet.Add("CONC", dscrProc);
+            _tagSet.Add("CONT", dscrProc);
         }
 
         private void AgeProc()
@@ -114,29 +116,32 @@ namespace SharpGEDParser
             // GEDCOM spec says to take the FIRST
             if ((_rec as KBRGedEvent).Change != null)
             {
-                AddError("Multiple CHAN: first one used");
+                ErrorRec("Multiple CHAN: first one used");
                 return;
             }
             (_rec as KBRGedEvent).Change = new Tuple<int, int>(_context.Begline, _context.Endline);
         }
 
-        private void ErrorTag(string tag, int startLineDex, int maxLineDex, string err)
-        {
-            var rec = new UnkRec(tag);
-            rec.Beg = startLineDex;
-            rec.End = maxLineDex;
-            rec.Error = err;
-            _rec.Errors.Add(rec);
-        }
-
-        private void AddError(string reason)
-        {
-            ErrorTag(_context.Tag, _context.Begline, _context.Endline, reason);
-        }
-
         private void SourProc()
         {
             SourCitProc(_rec);
+        }
+
+        private void dscrProc()
+        {
+            // handling of CONC/CONT tags for DSCR
+            if (_rec.Tag != "DSCR")
+            {
+                ErrorRec(string.Format("Invalid CONC/CONT for {0}", _rec.Tag));
+                return;
+            }
+
+            string extra = Remainder();
+            if (_context.Tag == "CONC")
+                (_rec as KBRGedEvent).Detail += extra.Trim();
+            if (_context.Tag == "CONT")
+                (_rec as KBRGedEvent).Detail += "\n" + extra.TrimEnd();
+
         }
     }
 }

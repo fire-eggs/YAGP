@@ -37,7 +37,7 @@ namespace SharpGEDParser
                 _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
             else
             {
-                _rec.Errors.Add(ErrorRec("More than one change record"));
+                ErrorRec("More than one change record");
             }
         }
 
