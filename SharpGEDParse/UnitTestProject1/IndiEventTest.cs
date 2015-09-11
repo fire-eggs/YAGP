@@ -96,6 +96,15 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void FamcBadSub()
+        {
+            var indi2 = "0 INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
+            var rec = parse(indi2);
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreNotEqual(0, rec.Events[0].Errors.Count);
+        }
+
+        [TestMethod]
         public void TestBirth()
         {
             string indi = "0 INDI\n1 BIRT\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng";

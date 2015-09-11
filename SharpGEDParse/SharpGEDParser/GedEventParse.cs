@@ -72,7 +72,10 @@ namespace SharpGEDParser
                 int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
                 if (tag == "ADOP")
                     (_rec as KBRGedEvent).FamcAdop = line.Substring(nextChar).Trim();
-                // TODO anything else is unknown/error
+                else
+                {
+                    ErrorRec(string.Format("Unknown FAMC subordinate tag {0}", tag));
+                }
             }
         }
 
