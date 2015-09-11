@@ -192,6 +192,20 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void FamcXrefMissing()
+        {
+            var indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC";
+            var rec = parse(indi2);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(0, rec.ChildLinks.Count);
+
+            indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah";
+            rec = parse(indi2);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(0, rec.ChildLinks.Count);
+        }
+
+        [TestMethod]
         public void TestFamsFamc()
         {
             var indi2 = "0 @PERSON3@ INDI\n1 FAMS @FAMILY2@\n1 NAME /Child 1/\n1 FAMC @FAMILY1@";
@@ -510,12 +524,12 @@ namespace UnitTestProject1
             Assert.AreEqual("AFN", rec.Data[0].Tag);
             Assert.AreEqual("2547", rec.Data[0].Data);
             Assert.AreEqual(1, rec.Errors.Count);
-            // TODO test specific error?
         }
+
         [TestMethod]
         public void TestUID()
         {
-            // TODO not a standard tag, dunno if multiples allowed. Code currently supports.
+            // NOTE not a standard tag, dunno if multiples allowed. Code currently supports.
 
             var indi = "0 INDI\n1 _UID";
             var rec = parse(indi);

@@ -210,11 +210,11 @@ namespace SharpGEDParser
         {
             string ident = null;
             int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
-
-            // TODO test missing ident
-            // TODO missing ident as error
             if (res == -1)
+            {
+                ErrorTag(string.Format("Missing xref for {0}", _context.Tag));
                 return;
+            }
 
             var rec = new ChildLinkRec(ident);
             rec.Beg = _context.Begline;
