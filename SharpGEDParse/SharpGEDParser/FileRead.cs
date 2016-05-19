@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -31,6 +32,11 @@ namespace SharpGEDParser
         private string FilePath { get; set; }
 
         private KBRGedParser Parser { get; set; }
+
+        // TODO needs to be intelligent - header/people/families/relations/etc
+        public List<KBRGedRec> Data { get; set; }
+
+        private GedRecord _currRec;
 
         public void ReadGed(string gedPath)
         {
@@ -96,50 +102,69 @@ namespace SharpGEDParser
             }
         }
 
-        public void ReadLines(StreamReader _stream)
+        /// <summary>
+        /// Read GED lines from a stream. This is split from file processing so unit testing can 
+        /// be done using string streams.
+        /// </summary>
+        /// <param name="instream"></param>
+        public void ReadLines(StreamReader instream)
         {
             Parser = new KBRGedParser(FilePath ?? "");
             Data = new List<KBRGedRec>();
 
             _currRec = new GedRecord();
             _lineNum = 1;
-            string line = _stream.ReadLine();
+            string line = instream.ReadLine(); // TODO CR, LF, CR/LF, and LF/CR must be validated?
             while (line != null)
             {
-                ProcessRecord(line, _lineNum);
+                ProcessLine(line, _lineNum);
 
-                line = _stream.ReadLine();
+                line = instream.ReadLine();
                 _lineNum++;
             }
+
+            // TODO a mal-formed file might be missing the end 0 TRLR line. If so, _currRec contains a record which as not been processed?
         }
 
         private void ReadLines()
         {
+            // TODO what happens if file doesn't exist?
             using (_stream = new StreamReader(FilePath, FileEnc))
             {
                 ReadLines(_stream);
             }
         }
 
-        private GedRecord _currRec;
-
-        private void ProcessRecord(string line, int lineNum)
+        /// <summary>
+        /// Deal with a single line. It either starts with '0' and is to be a new record,
+        /// or is accumulated into a record.
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="lineNum"></param>
+        private void ProcessLine(string line, int lineNum)
         {
-            int dex = KBRGedUtil.FirstChar(line);
+            int dex = GedLineUtil.FirstChar(line);
             if (dex < 0)
+            {
+                DoError("Empty line", lineNum);
                 return; // empty line
+            }
+            if (line.Length > 255) // TODO anything special for UTF-16?
+            {
+                DoError("Line too long", lineNum);
+                // proceed anyway
+            }
+
+            // NOTE: do NOT warn about leading spaces "GEDCOM readers should ignore it when it occurs".
 
             if (line[dex] == '0')
             {
-                if (_currRec.LineCount > 1) // TODO be smarter?
+                if (_currRec.LineCount > 1) // TODO should warn about a mal-formed record [single '0' line]
                 {
-                    // start of a new record
-//                    Console.WriteLine(_currRec);
+                    // start of a new record. deal with the previous record first
 
                     // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
                     var parsed = Parser.Parse(_currRec);
-//                    Console.WriteLine(">>>" + parsed);
-
                     Data.Add(parsed);
                 }
                 _currRec = new GedRecord(lineNum, line);
@@ -150,7 +175,14 @@ namespace SharpGEDParser
             }
         }
 
-        // TODO needs to be intelligent - header/people/families/relations/etc
-        public List<KBRGedRec> Data { get; set; }
+        private void DoError(string msg, int lineNum)
+        {
+            var rec = new KBRGedUnk(null,"","");
+            var err = new UnkRec("");
+            err.Error = msg;
+            err.Beg = lineNum;
+            err.End = lineNum;
+            Data.Add(rec);
+        }
     }
 }
