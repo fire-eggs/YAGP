@@ -47,6 +47,7 @@ namespace SharpGEDParser
         private void PlacProc()
         {
             (_rec as KBRGedEvent).Place = Remainder();
+            CheckForExtra();
         }
         private void AgncProc()
         {
@@ -145,6 +146,20 @@ namespace SharpGEDParser
             if (_context.Tag == "CONT")
                 (_rec as KBRGedEvent).Detail += "\n" + extra.TrimEnd();
 
+        }
+
+        /// <summary>
+        /// Check for additional, unsupported sub-records. E.g. "2 PLAC foo\n3 ADOP bar"
+        /// </summary>
+        private void CheckForExtra()
+        {
+            if (_context.Endline <= _context.Begline) 
+                return;
+            var rec = new UnkRec(_context.Tag);
+            rec.Beg = _context.Begline;
+            rec.End = _context.Endline;
+            rec.Error = "Extra line(s) found and ignored";
+            _rec.Errors.Add(rec);
         }
     }
 }
