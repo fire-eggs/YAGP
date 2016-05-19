@@ -133,7 +133,7 @@ namespace SharpGEDParser
         private XRefRec CommonXRefProcessing()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1)
             {
                 var rec = new XRefRec(_context.Tag, ident);
@@ -188,7 +188,7 @@ namespace SharpGEDParser
         private void SpouseLink()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res == -1)
             {
                 ErrorTag(string.Format("Missing xref for {0}", _context.Tag));
@@ -201,7 +201,7 @@ namespace SharpGEDParser
             (_rec as KBRGedIndi).FamLinks.Add(rec);
 
             // TODO parse NOTE
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines, 
+            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines, 
                                              _context.Begline, 
                                              _context.Endline, "NOTE") == null);
         }
@@ -209,7 +209,7 @@ namespace SharpGEDParser
         private void ChildLink()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res == -1)
             {
                 ErrorTag(string.Format("Missing xref for {0}", _context.Tag));
@@ -222,13 +222,13 @@ namespace SharpGEDParser
             (_rec as KBRGedIndi).ChildLinks.Add(rec);
 
             // TODO parse PEDI, STAT, NOTE
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
                                              _context.Begline,
                                              _context.Endline, "NOTE") == null);
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
                                              _context.Begline,
                                              _context.Endline, "PEDI") == null);
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
                                              _context.Begline,
                                              _context.Endline, "STAT") == null);
         }
@@ -252,7 +252,7 @@ namespace SharpGEDParser
         private void SexProc()
         {
             // TODO log unknown value as warn?
-            int sexDex = KBRGedUtil.FirstChar(_context.Line, _context.Nextchar, _context.Max);
+            int sexDex = GedLineUtil.FirstChar(_context.Line, _context.Nextchar, _context.Max);
             if (sexDex > 0)
             {
                 (_rec as KBRGedIndi).Sex = _context.Line[sexDex];
@@ -289,22 +289,22 @@ namespace SharpGEDParser
             rec.Beg = begline;
             rec.End = endline;
 
-            rec.Temple = KBRGedUtil.ParseFor(lines, begline + 1, endline, "TEMP");
-            rec.Place = KBRGedUtil.ParseFor(lines, begline + 1, endline, "PLAC");
+            rec.Temple = GedLineUtil.ParseFor(lines, begline + 1, endline, "TEMP");
+            rec.Place = GedLineUtil.ParseFor(lines, begline + 1, endline, "PLAC");
 
             // TODO SLGC specific?
-            rec.Famc = KBRGedUtil.ParseFor(lines, begline + 1, endline, "FAMC");
+            rec.Famc = GedLineUtil.ParseFor(lines, begline + 1, endline, "FAMC");
 
-            rec.Status = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "STAT");
+            rec.Status = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "STAT");
 
             // TODO date for this record vs date for Status sub-record?
-            rec.Date = KBRGedUtil.ParseFor(lines, begline + 1, endline, "DATE");
+            rec.Date = GedLineUtil.ParseFor(lines, begline + 1, endline, "DATE");
 
             // TODO more than one note permitted!
-            rec.Note = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
+            rec.Note = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "NOTE");
 
             // TODO more than one source permitted!
-            rec.Source = KBRGedUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
+            rec.Source = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "SOUR");
 
             (_rec as KBRGedIndi).LDSEvents.Add(rec);
         }
@@ -322,15 +322,15 @@ namespace SharpGEDParser
                 (_rec as KBRGedIndi).Assoc.Add(rec);
 
             // TODO parse RELA
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
                                              _context.Begline,
                                              _context.Endline, "RELA") == null);
             // TODO parse SOUR
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
                                              _context.Begline,
                                              _context.Endline, "SOUR") == null);
             // TODO parse NOTE
-            Debug.Assert(KBRGedUtil.ParseFor(_rec.Lines,
+            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
                                              _context.Begline,
                                              _context.Endline, "NOTE") == null);
         }
@@ -341,10 +341,10 @@ namespace SharpGEDParser
             int nextchar = _context.Nextchar;
 
             int max = line.Length;
-            int startName = KBRGedUtil.FirstChar(line, nextchar, max);
+            int startName = GedLineUtil.FirstChar(line, nextchar, max);
 
-            int startSur = KBRGedUtil.AllCharsUntil(line, max, startName, '/');
-            int endSur = KBRGedUtil.AllCharsUntil(line, max, startSur + 1, '/');
+            int startSur = GedLineUtil.AllCharsUntil(line, max, startName, '/');
+            int endSur = GedLineUtil.AllCharsUntil(line, max, startSur + 1, '/');
 
             var suffix = "";
             if (endSur+1 < max)
