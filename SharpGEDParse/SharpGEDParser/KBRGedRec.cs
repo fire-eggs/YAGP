@@ -15,7 +15,7 @@ namespace SharpGEDParser
             Data = new List<DataRec>();
             Notes = new List<Tuple<int, int>>();
 
-            if (lines.LineCount < 1)
+            if (lines != null && lines.LineCount < 1)
                 throw new Exception("Empty GedRecord!");
             Lines = lines;
         }

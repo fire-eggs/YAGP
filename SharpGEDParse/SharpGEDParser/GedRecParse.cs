@@ -42,8 +42,9 @@ namespace SharpGEDParser
 
             var Lines = rec.Lines;
 
+            int sublinedex;
             int linedex = 1;
-            while (Lines.GetLevel(linedex) != '1')
+            while (Lines.GetLevel(linedex, out sublinedex) != '1' && linedex <= Lines.Max)
                 linedex++;
             if (linedex > Lines.Max)
                 return;
@@ -51,12 +52,13 @@ namespace SharpGEDParser
             while (true)
             {
                 int startrec = linedex;
+                int startSubLine = sublinedex;
                 linedex++;
                 if (linedex > Lines.Max)
                     break;
-                while (Lines.GetLevel(linedex) > '1')
+                while (Lines.GetLevel(linedex, out sublinedex) > '1')
                     linedex++;
-                ParseSubRec(rec, startrec, linedex - 1);
+                ParseSubRec(rec, startrec, linedex - 1, startSubLine);
                 if (linedex >= Lines.Max)
                     break;
             }
@@ -68,19 +70,30 @@ namespace SharpGEDParser
             var Lines = rec.Lines;
 
             int linedex = context.Begline+1;
-            if (linedex > context.Endline)
+            if (linedex > context.Endline) // TODO empty record error?
                 return;
 
-            char startLevel = Lines.GetLevel(linedex);
+            int sublinedex;
+            char startLevel = Lines.GetLevel(linedex, out sublinedex);
+            if (startLevel < '0' || startLevel > '9')
+            {
+                var err = new UnkRec("");
+                err.Beg = linedex;
+                err.End = linedex;
+                err.Error = "Invalid or missing level; record processing stopped";
+                rec.Errors.Add(err);
+                return;
+            }
 
             while (true)
             {
                 if (linedex > context.Endline)
                     break;
                 int startrec = linedex;
-                while (Lines.GetLevel(linedex+1) > startLevel && linedex+1 <= context.Endline)
+                int startsubdex = sublinedex;
+                while (Lines.GetLevel(linedex+1, out sublinedex) > startLevel && linedex+1 <= context.Endline)
                     linedex++;
-                ParseSubRec(rec, startrec, linedex);
+                ParseSubRec(rec, startrec, linedex, startsubdex);
                 linedex++;
             }
         }
@@ -156,13 +169,13 @@ namespace SharpGEDParser
             _rec.Unknowns.Add(rec);
         }
 
-        protected void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex)
+        protected void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex, int startSubDex)
         {
             string line = rec.Lines.GetLine(startLineDex);
             string ident = "";
             string tag = "";
 
-            int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+            int nextChar = GedLineUtil.IdentAndTag(line, startSubDex+1, ref ident, ref tag);
             if (_tagSet.ContainsKey(tag))
             {
                 // TODO does this make parsing effectively single-threaded? need one context per thread?

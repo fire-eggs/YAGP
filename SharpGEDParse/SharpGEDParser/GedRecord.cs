@@ -49,15 +49,25 @@ namespace SharpGEDParser
         }
         public int Max { get { return _lines.Count; } }
 
-        public char GetLevel(int linedex)
+        /// <summary>
+        /// Determine the level value for a line.
+        /// </summary>
+        /// <param name="linedex">Index in the record for the line in question</param>
+        /// <param name="sublinedex">The index WITHIN the line for the first character. non-zero if leading spaces.</param>
+        /// <returns>Space on error; otherwise the level as a character</returns>
+        public char GetLevel(int linedex, out int sublinedex)
         {
+            sublinedex = -1;
             if (linedex >= Max)
                 return ' ';
             string line = _lines[linedex];
             int dex = GedLineUtil.FirstChar(line);
             if (dex < 0)
                 return ' '; // empty line
+            sublinedex = dex;
             return line[dex];
+
+            // TODO can level values exceed 9 ???
         }
     }
 }
