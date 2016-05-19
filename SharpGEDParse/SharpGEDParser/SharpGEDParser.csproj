@@ -58,7 +58,7 @@
     <Compile Include="KBRGedParser.cs" />
     <Compile Include="KBRGedRec.cs" />
     <Compile Include="KBRGedUnk.cs" />
-    <Compile Include="KBRGedUtil.cs" />
+    <Compile Include="GedLineUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourCitDataParse.cs" />
   </ItemGroup>

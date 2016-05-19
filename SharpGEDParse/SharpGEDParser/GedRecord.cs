@@ -54,7 +54,7 @@ namespace SharpGEDParser
             if (linedex >= Max)
                 return ' ';
             string line = _lines[linedex];
-            int dex = KBRGedUtil.FirstChar(line);
+            int dex = GedLineUtil.FirstChar(line);
             if (dex < 0)
                 return ' '; // empty line
             return line[dex];

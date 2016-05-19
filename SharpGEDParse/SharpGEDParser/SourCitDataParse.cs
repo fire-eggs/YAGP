@@ -30,7 +30,7 @@ namespace SharpGEDParser
                     string line = _rec.Lines.GetLine(i);
                     string ident = null;
                     string tag = null;
-                    int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+                    int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
                     if (tag == "CONC")
                         (_rec as GedSourCit).Text += line.Substring(nextChar+1).Trim();
                     if (tag == "CONT")

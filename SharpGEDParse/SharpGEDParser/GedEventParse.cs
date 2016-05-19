@@ -69,7 +69,7 @@ namespace SharpGEDParser
                 string line = (_rec as KBRGedEvent).Lines.GetLine(_context.Begline + 1);
                 string ident = null;
                 string tag = null;
-                int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+                int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
                 if (tag == "ADOP")
                     (_rec as KBRGedEvent).FamcAdop = line.Substring(nextChar).Trim();
                 else
@@ -87,7 +87,7 @@ namespace SharpGEDParser
                 string line = (_rec as KBRGedEvent).Lines.GetLine(_context.Begline + 1);
                 string ident = null;
                 string tag = null;
-                int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+                int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
                 if (tag == "AGE")
                     (_rec as KBRGedEvent).HusbAge = line.Substring(nextChar).Trim();
                 // TODO anything else is unknown/error
@@ -101,7 +101,7 @@ namespace SharpGEDParser
                 string line = (_rec as KBRGedEvent).Lines.GetLine(_context.Begline + 1);
                 string ident = null;
                 string tag = null;
-                int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+                int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
                 if (tag == "AGE")
                     (_rec as KBRGedEvent).WifeAge = line.Substring(nextChar).Trim();
                 // TODO anything else is unknown/error

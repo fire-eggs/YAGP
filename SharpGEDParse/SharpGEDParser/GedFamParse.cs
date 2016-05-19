@@ -45,7 +45,7 @@ namespace SharpGEDParser
         private void kidProc()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
                 (_rec as KBRGedFam).Childs.Add(ident);
             else
@@ -57,7 +57,7 @@ namespace SharpGEDParser
         private void momProc()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
                 (_rec as KBRGedFam).Mom = ident;
             else
@@ -69,7 +69,7 @@ namespace SharpGEDParser
         private void dadProc()
         {
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
                 (_rec as KBRGedFam).Dad = ident;
             else

@@ -33,14 +33,14 @@ namespace SharpGEDParser
         {
             // 1. The first line in the rec should start with '0'
             string head = rec.FirstLine();
-            int firstDex = KBRGedUtil.FirstChar(head);
+            int firstDex = GedLineUtil.FirstChar(head);
             if (head[firstDex] != '0')
                 throw new Exception("record head not zero");
 
             // 2. search for and find the tag
             string ident = "";
             string tag = "";
-            KBRGedUtil.IdentAndTag(head, firstDex + 1, ref ident, ref tag);
+            GedLineUtil.IdentAndTag(head, firstDex + 1, ref ident, ref tag);
 
             // 3. create a KBRGedRec derived class
             return GedRecFactory(rec, ident, tag);

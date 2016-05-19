@@ -122,7 +122,7 @@ namespace SharpGEDParser
 
             string embed = null;
             string ident = null;
-            int res = KBRGedUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res == -1 || string.IsNullOrWhiteSpace(ident))
             {
                 embed = _context.Line.Substring(_context.Nextchar).Trim();
@@ -162,7 +162,7 @@ namespace SharpGEDParser
             string ident = "";
             string tag = "";
 
-            int nextChar = KBRGedUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+            int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
             if (_tagSet.ContainsKey(tag))
             {
                 // TODO does this make parsing effectively single-threaded? need one context per thread?
