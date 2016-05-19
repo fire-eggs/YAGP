@@ -48,8 +48,11 @@ namespace UnitTestProject1
             // ADOP as a sub-record of PLAC is an error
             string indi = "0 INDI\n1 BIRT Y\n2 FAMC @FAM99@\n2 PLAC Sands, Oldham, Lncshr, Eng\n3 ADOP pater";
             var rec = parse<KBRGedIndi>(indi, "INDI");
-            Assert.AreNotEqual(0, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreNotEqual(0, rec.Events[0].Errors.Count);
         }
+
+        // TODO ADOP as a sub-record of AGNC, RELI, RESN, CAUS, TYPE, DATE, AGE would be error
 
         [TestMethod]
         public void BogusText()
@@ -57,14 +60,62 @@ namespace UnitTestProject1
             // NOTE the third line is missing the leading level #
             string indi = "0 INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var rec = parse<KBRGedIndi>(indi, "INDI");
-
-            Assert.AreEqual(1, rec.Attribs.Count);
-
-            // TODO where/how is the error recorded?
-            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
-            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Attribs.Count, "Attribute not parsed");
+            Assert.AreEqual(1, rec.Attribs[0].Errors.Count, "Error not recorded in attribute");
         }
 
+        [TestMethod]
+        public void EmptyLines()
+        {
+            string indi = "0 INDI\n1 DSCR attrib_value\n\n2 DATE 1774\n   \n0 TRLR"; // TODO trailing record bug
+            var rec = ReadIt(indi);
+            Assert.AreEqual(3, rec.Count); // blank lines as error "records"
+//            var rec = parse<KBRGedIndi>(indi, "INDI");
+//            Assert.AreEqual(1, rec.Attribs.Count);
+//            Assert.AreEqual(2, rec.Errors.Count, "blank line warning"); // two blank lines as warnings
+        }
+
+        [TestMethod]
+        public void LeadingSpaces()
+        {
+            string indi = "0 INDI\n     1 DSCR attrib_value\n     2 DATE 1774";
+            string indi2 = "     0 INDI\n     1 DSCR attrib_value\n     2 DATE 1774";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreEqual(1, rec.Attribs.Count);
+            rec = parse<KBRGedIndi>(indi2, "INDI");
+            Assert.AreEqual(1, rec.Attribs.Count);
+        }
+
+        [TestMethod]
+        public void LeadingTabs()
+        {
+            string indi = "0 INDI\n\t\t1 DSCR attrib_value\n\t\t2 DATE 1774";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreEqual(1, rec.Attribs.Count);
+        }
+
+        [TestMethod]
+        public void Malform()
+        {
+            // exercise infinite loop found when no '1' level line
+            string indi = "0 INDI\n2 DATE 1774";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreEqual(0, rec.Attribs.Count);
+            // TODO error? - INDI record with no data
+        }
+
+        [TestMethod]
+        public void LineTooLong()
+        {
+            // TODO how to exercise for UTF-16 ?
+            string indi = "0 INDI\n1 DSCR attrib_value"+
+            "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
+            "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
+            "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
+                          "\n2 DATE 1774\n0 TRLR";
+            var rec = ReadIt(indi);
+            Assert.AreEqual(2, rec.Count); // long lines as error "record"
+        }
     }
 }
 
