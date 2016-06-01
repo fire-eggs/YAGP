@@ -20,7 +20,7 @@ namespace SharpGEDParser
 
         private void noteProc() // TODO
         {
-            throw new NotImplementedException(); 
+            //throw new NotImplementedException(); 
         }
 
         private void quayProc()
@@ -30,7 +30,7 @@ namespace SharpGEDParser
 
         private void ignoreProc() // TODO
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void pageProc()
