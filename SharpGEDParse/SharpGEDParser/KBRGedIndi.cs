@@ -201,5 +201,69 @@ namespace SharpGEDParser
         {
             return Data.Any(dataRec => dataRec.Tag == tag);
         }
+
+        public string Birth
+        {
+            get
+            {
+                foreach (var kbrGedEvent in Events)
+                {
+                    if (kbrGedEvent.Tag == "BIRT")
+                    {
+                        string val = kbrGedEvent.Date + " " + kbrGedEvent.Place;
+                        return val;
+                    }
+                }
+                return "";
+            }
+        }
+
+        public string Death
+        {
+            get
+            {
+                foreach (var kbrGedEvent in Events)
+                {
+                    if (kbrGedEvent.Tag == "DEAT")
+                    {
+                        string val = kbrGedEvent.Date + " " + kbrGedEvent.Place;
+                        return val;
+                    }
+                }
+                return "";
+            }
+        }
+
+        public string Christening
+        {
+            get
+            {
+                foreach (var kbrGedEvent in Events)
+                {
+                    if (kbrGedEvent.Tag == "CHR")
+                    {
+                        string val = kbrGedEvent.Date + " " + kbrGedEvent.Place;
+                        return val;
+                    }
+                }
+                return "";
+            }
+        }
+
+        public string Occupation
+        {
+            get
+            {
+                foreach (var attrib in Attribs)
+                {
+                    if (attrib.Tag == "OCCU")
+                    {
+                        string val = attrib.Detail + " " + attrib.Place;
+                        return val;
+                    }
+                }
+                return "";
+            }
+        }
     }
 }

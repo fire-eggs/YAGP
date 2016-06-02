@@ -18,15 +18,21 @@ namespace DrawAnce
             cmbPerson.DataSource = _cmbItems;
         }
 
-        private void TreePerson(IndiWrap val)
+        private void ResetContext()
         {
             _ancIndi = new IndiWrap[32];
-            _ancName = new string[32];
-            _ancText = new string[32];
             _hitRect = new Rectangle[32];
+            for (int i = 0; i < 32; i++)
+            {
+                _ancIndi[i] = new IndiWrap();
+                _hitRect[i] = new Rectangle();
+            }
+        }
 
+        private void TreePerson(IndiWrap val)
+        {
+            ResetContext();
             _ancIndi[1] = val;
-            _ancName[1] = val.Indi.Names[0].ToString();
             if (_childHash.ContainsKey(val.Indi.Ident)) // Is there any ancestry?
             {
                 FamilyUnit firstFam = _childHash[val.Indi.Ident];
@@ -72,7 +78,7 @@ namespace DrawAnce
                 {
                     IndiWrap hack = _indiHash[firstFam.Husband.Ident];
                     _ancIndi[dadnum] = hack;
-                    _ancName[dadnum] = firstFam.Husband.Names[0].ToString();
+                    //_ancName[dadnum] = firstFam.Husband.Names[0].ToString();
                 }
                 if (firstFam.DadFam != null)
                     numRet = CalcAnce(firstFam.DadFam, dadnum);
@@ -85,7 +91,7 @@ namespace DrawAnce
                 {
                     IndiWrap hack = _indiHash[firstFam.Wife.Ident];
                     _ancIndi[dadnum+1] = hack;
-                    _ancName[dadnum + 1] = firstFam.Wife.Names[0].ToString();
+                    //_ancName[dadnum + 1] = firstFam.Wife.Names[0].ToString();
                 }
                 if (firstFam.MomFam != null)
                     numRet = CalcAnce(firstFam.MomFam, dadnum + 1);
@@ -117,6 +123,7 @@ namespace DrawAnce
         private void ProcessGED(string gedPath)
         {
             cmbPerson.DataSource = null;
+            cmbPerson.SelectedIndex = -1;
             _cmbItems.Clear();
             picTree.Image = null;
             Text = gedPath;
@@ -127,9 +134,7 @@ namespace DrawAnce
             fr.ReadGed(gedPath);
             BuildTree(fr.Data);
 
-            _ancIndi = new IndiWrap[32];
-            _ancName = new string[32];
-            _ancText = new string[32];
+            ResetContext();
 
             // populate combobox with individuals
             foreach (var indiId in _indiHash.Keys)
@@ -143,7 +148,7 @@ namespace DrawAnce
                     count = CalcAnce(firstFam, 1);
                 }
                 p.Ahnen = count;
-                _cmbItems.Add(new { Text=p.Indi.Names[0] + "("+count+")", Value=p });
+                _cmbItems.Add(new { Text=p.Name + "("+count+")", Value=p });
             }
             cmbPerson.DisplayMember = "Text";
             cmbPerson.DataSource = _cmbItems;
@@ -154,6 +159,41 @@ namespace DrawAnce
             public KBRGedIndi Indi;
             public int Ahnen;
             public FamilyUnit ChildOf;
+
+            public string Name
+            {
+                get { return Indi == null ? "" : Indi.Names[0].ToString(); }
+            }
+
+            public string Text
+            {
+                get
+                {
+                    if (Indi == null)
+                        return "";
+                    string val = string.IsNullOrEmpty(Indi.Birth) ? "" : "B: " + Indi.Birth + "\r\n";
+                    string val4 = string.IsNullOrEmpty(Indi.Christening) ? "" : "C: " + Indi.Christening + "\r\n";
+                    string val3 = string.IsNullOrEmpty(Marriage) ? "" : "M: " + Marriage + "\r\n";
+                    string val2 = string.IsNullOrEmpty(Indi.Death) ? "" : "D: " + Indi.Death + "\r\n";
+                    string val5 = string.IsNullOrEmpty(Indi.Occupation) ? "" : "O: " + Indi.Occupation + "\r\n";
+                    return val + val4 + val3 + val2 + val5;
+                }
+            }
+
+            public FamilyUnit SpouseIn { get; set; }
+
+            // TODO divorce?
+
+            public string Marriage
+            {
+                get
+                {
+                    if (SpouseIn == null)
+                        return "";
+                    var fam = SpouseIn.FamRec;
+                    return fam.Marriage;
+                }
+            }
         }
 
         private void BuildTree(List<KBRGedRec> gedRecs)
@@ -200,7 +240,9 @@ namespace DrawAnce
                     // TODO GEDCOM_Amssoms has a family with reference to non-existant individual. Needs to be caught by validate and 'fixed' there.
                     if (_indiHash.ContainsKey(kbrGedFam.Dad))
                     {
-                        famU.Husband = _indiHash[kbrGedFam.Dad].Indi;
+                        var iw = _indiHash[kbrGedFam.Dad];
+                        famU.Husband = iw.Indi;
+                        iw.SpouseIn = famU;
                     }
                     else
                     {
@@ -212,11 +254,16 @@ namespace DrawAnce
                         famU.Husband = hack;
                         hack0.Indi = hack;
                         hack0.Ahnen = -1;
+                        hack0.SpouseIn = famU;
                         _indiHash.Add(kbrGedFam.Dad, hack0);
                     }
                 }
                 if (kbrGedFam.Mom != null)
-                    famU.Wife = _indiHash[kbrGedFam.Mom].Indi; // TODO handle mom as non-existant individual.
+                {
+                    var iw = _indiHash[kbrGedFam.Mom];
+                    famU.Wife = iw.Indi; // TODO handle mom as non-existant individual.
+                    iw.SpouseIn = famU;
+                }
                 foreach (var child in kbrGedFam.Childs)
                 {
                     famU.Childs.Add(_indiHash[child].Indi);
@@ -267,8 +314,6 @@ namespace DrawAnce
         private const int TEXTINDENT = 2;
 
         private IndiWrap[] _ancIndi;
-        private string[] _ancName;
-        private string[] _ancText;
         private Pen _boxPen;
         private Font _nameFont;
         private Font _textFont;
@@ -280,7 +325,7 @@ namespace DrawAnce
         {
             Point boxSz0, boxSz1, boxSz2, boxSz3;
 
-            // 1. calc h/w. Assume 3 gen back. therefore, 8 boxes high plus margin. Say 3 boxes wide plus margin
+            // 1. calc h/w. Assume 3 gen back. therefore, 8 boxes high plus margin. Width is calculated based on contents.
             int maxH = 8 * BOXH + 7 * GEN3VM + 2 * OuterMargin;
             int maxW; // = 2 * OuterMargin + GEN2HM + 2 * BOXW + (int)(BOXW * 1.5);
 
@@ -336,7 +381,7 @@ namespace DrawAnce
 
                     // Does this individual have ancestors? If so, draw a marker
                     if (_ancIndi[i] != null && _ancIndi[i].Ahnen > 0)
-                        gr.DrawString(MoreGen, _nameFont, _textBrush, box3Rect.Right+2, box3Rect.Top + BOXH / 2 - 10); // TODO how to calc. location?
+                        gr.DrawString(MORE_GEN, _nameFont, _textBrush, box3Rect.Right+2, box3Rect.Top + BOXH / 2 - 10); // TODO how to calc. location?
 
                     top += BOXH + GEN3VM;
                     box3Rect.Location = new Point(left, top);
@@ -350,6 +395,7 @@ namespace DrawAnce
                 left = right - boxSz2.X;
                 int gen3top = OuterMargin;
                 Rectangle box2Rect = new Rectangle(left, top, boxSz2.X, BOXH);
+                int gen2Togen1LineLeft = left - boxSz1.X/3;
                 for (int i = 4; i <= 7; i++)
                 {
                     top = gen3top + gen3step / 2 - BOXH / 2;
@@ -358,12 +404,14 @@ namespace DrawAnce
                     // complete the connector, gen3 to gen2
                     gr.DrawLine(connPen, right, top + BOXH / 2, right + GEN2HM / 2, top + BOXH / 2);
 
-                    // partial connector, gen2 to gen1
-                    gr.DrawLine(connPen, left, top + BOXH / 2, left - boxSz1.X / 3, top + BOXH / 2);
+                    // partial connector, gen2 to gen1 [horz. line]
+                    gr.DrawLine(connPen, left, top + BOXH / 2, gen2Togen1LineLeft, top + BOXH / 2);
 
                     DrawAnc(i, gr, box2Rect);
                     gen3top += gen3step + GEN3VM;
                 }
+
+                // TODO refactor drawing gen 1: duplicated code [at least one copy-pasta error has occurred]
 
                 // 5. draw gen 1. The boxes are inset between the two boxes of
                 // gen 2.
@@ -377,9 +425,9 @@ namespace DrawAnce
                 // TODO verify there is enough vertical room? at what time?
                 Rectangle box1Rect = new Rectangle(left, top, boxSz1.X, BOXH);
                 DrawAnc(2, gr, box1Rect);
-                // complete connectors, gen2 to gen1
-                gr.DrawLine(connPen, left + boxSz1.X / 3, top1 + BOXH / 2 - 1, left + boxSz1.X / 3, top - 1);
-                gr.DrawLine(connPen, left + boxSz1.X / 3, top + BOXH + 1, left + boxSz1.X / 3, top1 + high - BOXH / 2 + 1);
+                // complete connectors, gen2 to gen1 [vertical line]
+                gr.DrawLine(connPen, gen2Togen1LineLeft, top1 + BOXH / 2 - 1, gen2Togen1LineLeft, top - 1);
+                gr.DrawLine(connPen, gen2Togen1LineLeft, top + BOXH + 1, gen2Togen1LineLeft, top1 + high - BOXH / 2 + 1);
 
                 // partial connector, gen1 to gen0
                 int conn2Y = top + BOXH / 2;
@@ -391,8 +439,8 @@ namespace DrawAnce
                 box1Rect.Location = new Point(left, top);
                 DrawAnc(3, gr, box1Rect);
                 // complete connectors, gen2 to gen1
-                gr.DrawLine(connPen, left + boxSz1.X / 3, top2 + BOXH / 2 - 1, left + boxSz1.X / 3, top - 1);
-                gr.DrawLine(connPen, left + boxSz1.X / 3, top + BOXH + 1, left + boxSz1.X / 3, top2 + high - BOXH / 2 + 1);
+                gr.DrawLine(connPen, gen2Togen1LineLeft, top2 + BOXH / 2 - 1, gen2Togen1LineLeft, top - 1);
+                gr.DrawLine(connPen, gen2Togen1LineLeft, top + BOXH + 1, gen2Togen1LineLeft, top2 + high - BOXH / 2 + 1);
 
                 // partial connector, gen1 to gen0
                 int conn3X = left - boxSz1.X / 4;
@@ -428,17 +476,13 @@ namespace DrawAnce
             int top = boxRect.Top;
 
             RectangleF textRect = boxRect;
-            //            Pen linePen = new Pen(Color.BlueViolet, 1.0f);
             var nameLoc = new PointF(left, top + 3);
             textRect.Location = nameLoc;
-            //            gr.DrawRectangle(linePen, textRect.Left, textRect.Top, textRect.Width, textRect.Height);
-            var nameSize = gr.MeasureString(_ancName[i], _nameFont);
-            //            gr.DrawString(_ancName[i], _nameFont, _textBrush, textRect, _sf);
-            gr.DrawString(_ancName[i], _nameFont, _textBrush, nameLoc);
+            var nameSize = gr.MeasureString(_ancIndi[i].Name, _nameFont);
+            gr.DrawString(_ancIndi[i].Name, _nameFont, _textBrush, nameLoc);
             var textLoc = new PointF(left + 2, top + 6 + nameSize.Height);
             textRect.Location = textLoc;
-            //gr.DrawString(_ancText[i], _textFont, _textBrush, textRect, _sf);
-            gr.DrawString(_ancText[i], _textFont, _textBrush, textLoc);
+            gr.DrawString(_ancIndi[i].Text, _textFont, _textBrush, textLoc);
         }
 
         /// <summary>
@@ -456,9 +500,9 @@ namespace DrawAnce
             int maxH = 0;
             for (int i = ancL; i <= ancH; i++)
             {
-                var nameSize = gr.MeasureString(_ancName[i], _nameFont);
+                var nameSize = gr.MeasureString(_ancIndi[i].Name, _nameFont);
                 maxW = Math.Max(maxW, (int)nameSize.Width);
-                var textSize = gr.MeasureString(_ancText[i], _textFont);
+                var textSize = gr.MeasureString(_ancIndi[i].Text, _textFont);
                 maxW = Math.Max(maxW, (int)textSize.Width + TEXTINDENT);
                 maxW = Math.Max(maxW, 150); // prevent collapsed boxes
                 int totH = (int)(nameSize.Height + textSize.Height + TEXTSTEP);
@@ -472,11 +516,16 @@ namespace DrawAnce
             Close();
         }
 
+        /// <summary>
+        /// Determine which rectangle a Point intersects.
+        /// </summary>
+        /// <param name="hit"></param>
+        /// <returns>The index within the rectangle array; -1 if no intersection.</returns>
         private int HitIndex(Point hit)
         {
             if (_hitRect == null)
                 return -1;
-            for (int i=0; i<16; i++)
+            for (int i=0; i<_hitRect.Length; i++)
                 if (_hitRect[i].Contains(hit))
                     return i;
             return -1;
@@ -562,6 +611,6 @@ namespace DrawAnce
             SaveSettings();
         }
 
-        private const string MoreGen = "►";
+        private const string MORE_GEN = "►";
     }
 }

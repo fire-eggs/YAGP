@@ -17,5 +17,20 @@ namespace SharpGEDParser
         public string Dad { get; set; } // identity string for Father
         public string Mom { get; set; } // identity string for Mother
         public List<KBRGedEvent> FamEvents { get; set; } // TODO COMMON
+
+        public string Marriage
+        {
+            get
+            {
+                foreach (var kbrGedEvent in FamEvents)
+                {
+                    if (kbrGedEvent.Tag == "MARR")
+                    {
+                        return kbrGedEvent.Date + " " + kbrGedEvent.Place;
+                    }
+                }
+                return "";
+            }
+        }
     }
 }
