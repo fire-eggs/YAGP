@@ -1,4 +1,6 @@
-﻿using BuildTree;
+﻿using System.IO;
+using System.Linq;
+using BuildTree;
 using SharpGEDParser;
 using System;
 using System.Collections.Generic;
@@ -9,13 +11,30 @@ namespace DrawAnce
 {
     public partial class Form1 : Form
     {
+        protected MruStripMenu mnuMRU;
+
         public Form1()
         {
             InitializeComponent();
-            LoadSettings();
             cmbPerson.DisplayMember = "Text";
             cmbPerson.ValueMember = "Value";
             cmbPerson.DataSource = _cmbItems;
+            mnuMRU = new MruStripMenuInline(fileToolStripMenuItem, recentFilesToolStripMenuItem, OnMRU);
+            LoadSettings(); // must go after mnuMRU init
+        }
+
+        private void OnMRU(int number, string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                mnuMRU.RemoveFile(number);
+                MessageBox.Show("The file no longer exists:" + filename);
+                return;
+            }
+
+            // TODO process could fail for some reason, in which case remove the file from the MRU list
+            mnuMRU.SetFirstFile(number);
+            ProcessGED(filename);
         }
 
         private void ResetContext()
@@ -111,7 +130,7 @@ namespace DrawAnce
             {
                 return;
             }
-            //mnuMRU.AddFile(ofd.FileName);
+            mnuMRU.AddFile(ofd.FileName);
             LastFile = ofd.FileName; // TODO invalid ged file
             ProcessGED(ofd.FileName);
         }
@@ -173,7 +192,7 @@ namespace DrawAnce
                         return "";
                     string val = string.IsNullOrEmpty(Indi.Birth) ? "" : "B: " + Indi.Birth + "\r\n";
                     string val4 = string.IsNullOrEmpty(Indi.Christening) ? "" : "C: " + Indi.Christening + "\r\n";
-                    string val3 = string.IsNullOrEmpty(Marriage) ? "" : "M: " + Marriage + "\r\n";
+                    string val3 = string.IsNullOrWhiteSpace(Marriage) ? "" : "M: " + Marriage + "\r\n";
                     string val2 = string.IsNullOrEmpty(Indi.Death) ? "" : "D: " + Indi.Death + "\r\n";
                     string val5 = string.IsNullOrEmpty(Indi.Occupation) ? "" : "O: " + Indi.Occupation + "\r\n";
                     return val + val4 + val3 + val2 + val5;
@@ -587,6 +606,9 @@ namespace DrawAnce
                 Height = _mysettings.WinHigh;
                 Width = _mysettings.WinWide;
                 _fileHistory = _mysettings.PathHistory ?? new List<string>();
+                _fileHistory.Remove(null);
+                mnuMRU.SetFiles(_fileHistory.ToArray());
+
                 LastFile = _mysettings.LastPath;
             }
         }
@@ -601,7 +623,7 @@ namespace DrawAnce
             _mysettings.WinWide = bounds.Width;
             _mysettings.Fake = false;
             _mysettings.LastPath = LastFile;
-            _mysettings.PathHistory = _fileHistory;
+            _mysettings.PathHistory = mnuMRU.GetFiles().ToList();
             _mysettings.Save();
         }
         #endregion
