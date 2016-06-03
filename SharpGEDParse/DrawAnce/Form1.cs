@@ -20,7 +20,35 @@ namespace DrawAnce
             cmbPerson.ValueMember = "Value";
             cmbPerson.DataSource = _cmbItems;
             mnuMRU = new MruStripMenuInline(fileToolStripMenuItem, recentFilesToolStripMenuItem, OnMRU);
+            LoadGed += Form1_LoadGed;
             LoadSettings(); // must go after mnuMRU init
+        }
+
+        private void Form1_LoadGed(object sender, EventArgs e)
+        {
+            var fr = new FileRead();
+            fr.ReadGed(LastFile); // this is a hack...
+            BuildTree(fr.Data);
+
+            ResetContext();
+
+            // populate combobox with individuals
+            foreach (var indiId in _indiHash.Keys)
+            {
+                IndiWrap p = _indiHash[indiId];
+                int count = 0;
+                if (_childHash.ContainsKey(p.Indi.Ident))
+                {
+                    FamilyUnit firstFam = _childHash[p.Indi.Ident];
+                    p.ChildOf = firstFam;
+                    count = CalcAnce(firstFam, 1);
+                }
+                p.Ahnen = count;
+                _cmbItems.Add(new { Text = p.Name + "(" + count + ")", Value = p });
+            }
+            cmbPerson.DisplayMember = "Text";
+            cmbPerson.DataSource = _cmbItems;
+            cmbPerson.Enabled = true;
         }
 
         private void OnMRU(int number, string filename)
@@ -33,6 +61,7 @@ namespace DrawAnce
             }
 
             // TODO process could fail for some reason, in which case remove the file from the MRU list
+            LastFile = filename;
             mnuMRU.SetFirstFile(number);
             ProcessGED(filename);
         }
@@ -139,38 +168,18 @@ namespace DrawAnce
         Dictionary<string, IndiWrap> _indiHash ;
         Dictionary<string, FamilyUnit> _childHash ;
 
+        public event EventHandler LoadGed;
+
         private void ProcessGED(string gedPath)
         {
-            cmbPerson.DataSource = null;
             cmbPerson.SelectedIndex = -1;
+            cmbPerson.DataSource = null;
+            cmbPerson.Enabled = false;
             _cmbItems.Clear();
             picTree.Image = null;
             Text = gedPath;
-
-            // TODO need to cycle events so image updates in case GED load/process takes a while
-
-            var fr = new FileRead();
-            fr.ReadGed(gedPath);
-            BuildTree(fr.Data);
-
-            ResetContext();
-
-            // populate combobox with individuals
-            foreach (var indiId in _indiHash.Keys)
-            {
-                IndiWrap p = _indiHash[indiId];
-                int count = 0;
-                if (_childHash.ContainsKey(p.Indi.Ident))
-                {
-                    FamilyUnit firstFam = _childHash[p.Indi.Ident];
-                    p.ChildOf = firstFam;
-                    count = CalcAnce(firstFam, 1);
-                }
-                p.Ahnen = count;
-                _cmbItems.Add(new { Text=p.Name + "("+count+")", Value=p });
-            }
-            cmbPerson.DisplayMember = "Text";
-            cmbPerson.DataSource = _cmbItems;
+            Application.DoEvents(); // Cycle events so image updates in case GED load/process takes a while
+            LoadGed(this, new EventArgs());
         }
 
         public class IndiWrap
