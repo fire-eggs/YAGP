@@ -27,12 +27,16 @@ namespace DrawAnce
         private void Form1_LoadGed(object sender, EventArgs e)
         {
             var fr = new FileRead();
-            fr.ReadGed(LastFile); // this is a hack...
+            fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
             BuildTree(fr.Data);
 
             ResetContext();
 
             // populate combobox with individuals
+            // www.ahnenbuch.de-AMMON has multiple individuals with the same name. Need to distinguish
+            // them somehow for the combobox.
+            // TODO is there a better way? unique thing for combobox selection?
+            HashSet<string> comboNames = new HashSet<string>();
             foreach (var indiId in _indiHash.Keys)
             {
                 IndiWrap p = _indiHash[indiId];
@@ -44,7 +48,16 @@ namespace DrawAnce
                     count = CalcAnce(firstFam, 1);
                 }
                 p.Ahnen = count;
-                _cmbItems.Add(new { Text = p.Name + "(" + count + ")", Value = p });
+                var text = p.Name + "(" + count + ")";
+                var test = text;
+                int suffix = 1;
+                while (comboNames.Contains(test))
+                {
+                    test = text + "[" + suffix + "]";
+                    suffix++;
+                }
+                comboNames.Add(test);
+                _cmbItems.Add(new { Text = test, Value = p });
             }
             cmbPerson.DisplayMember = "Text";
             cmbPerson.DataSource = _cmbItems;
