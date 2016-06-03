@@ -36,7 +36,7 @@ namespace DrawAnce
             foreach (var indiId in _indiHash.Keys)
             {
                 IndiWrap p = _indiHash[indiId];
-                int count = 0;
+                int count = 1;
                 if (_childHash.ContainsKey(p.Indi.Ident))
                 {
                     FamilyUnit firstFam = _childHash[p.Indi.Ident];
@@ -99,50 +99,45 @@ namespace DrawAnce
             TreePerson(val);
         }
 
+        /// <summary>
+        /// Determine a person's ancestry. Does two things:
+        /// 1. Populates the _ancIndi array for use when drawing the tree. Only fills in those
+        ///    entries supported by the tree limit.
+        /// 2. Drills down the entire ancestry, returning the largest Ahnen number found.
+        /// </summary>
+        /// <param name="firstFam">The root person's family unit</param>
+        /// <param name="myNum">The root person's Ahnen number</param>
+        /// <returns>The largest Ahnen number encountered</returns>
         private int CalcAnce(FamilyUnit firstFam, int myNum)
         {
             int numRet = myNum;
-
-            //if (myNum > 15)
-            //    return; // currently limited to 4 gens (Ahnen numbers 1..15)
 
             // From http://www.tamurajones.net/AhnenNumbering.xhtml : the Ahnen number 
             // of the father is double that of the current person. Mom's Ahnen number
             // is Dad's plus 1.
 
             int dadnum = myNum * 2;
-            //// Determine how many generations down the current person is.
-            //// Used at the moment for spacing, not really important.
-            //int depth = 0;
-            //while (dadnum > Math.Pow(2, depth) - 1)
-            //    depth++;
-
-            //string spacer = new string('.', depth - 1);
             if (firstFam.Husband != null)
             {
-                numRet = dadnum;
-                //Console.WriteLine("{2}{0}: Dad: {1}", dadnum, firstFam.Husband.Names[0], spacer);
+                numRet = Math.Max(numRet, dadnum);
                 if (dadnum < 16)
                 {
                     IndiWrap hack = _indiHash[firstFam.Husband.Ident];
                     _ancIndi[dadnum] = hack;
-                    //_ancName[dadnum] = firstFam.Husband.Names[0].ToString();
                 }
                 if (firstFam.DadFam != null)
-                    numRet = CalcAnce(firstFam.DadFam, dadnum);
+                    numRet = Math.Max(numRet,CalcAnce(firstFam.DadFam, dadnum));
             }
             if (firstFam.Wife != null)
             {
-                numRet = dadnum+1;
-                //Console.WriteLine("{2}{0}: Mom: {1}", dadnum + 1, firstFam.Wife.Names[0], spacer);
+                numRet = Math.Max(numRet, dadnum+1);
                 if (dadnum + 1 < 16)
                 {
                     IndiWrap hack = _indiHash[firstFam.Wife.Ident];
                     _ancIndi[dadnum+1] = hack;
-                    //_ancName[dadnum + 1] = firstFam.Wife.Names[0].ToString();
                 }
                 if (firstFam.MomFam != null)
-                    numRet = CalcAnce(firstFam.MomFam, dadnum + 1);
+                    numRet = Math.Max(numRet, CalcAnce(firstFam.MomFam, dadnum+1));
             }
             return numRet;
         }
@@ -167,6 +162,7 @@ namespace DrawAnce
         readonly List<object> _cmbItems = new List<object>();
         Dictionary<string, IndiWrap> _indiHash ;
         Dictionary<string, FamilyUnit> _childHash ;
+        private IndiWrap[] _ancIndi;
 
         public event EventHandler LoadGed;
 
@@ -224,6 +220,11 @@ namespace DrawAnce
             }
         }
 
+        /// <summary>
+        /// The GEDCOM file has been parsed. This method pieces the tree together, creating FamilyUnit
+        /// objects to contain Father/Mother/Children.
+        /// </summary>
+        /// <param name="gedRecs"></param>
         private void BuildTree(List<KBRGedRec> gedRecs)
         {
             // an indi has a FAMS or FAMC
@@ -330,6 +331,7 @@ namespace DrawAnce
             //}
         }
 
+        #region Drawing Constants
         private const int MoreGenW = 25;
 
         private const int BOXH = 80;
@@ -341,7 +343,9 @@ namespace DrawAnce
         private const int TEXTSTEP = 6;
         private const int TEXTINDENT = 2;
 
-        private IndiWrap[] _ancIndi;
+        private const string MORE_GEN = "►";
+        #endregion
+
         private Pen _boxPen;
         private Font _nameFont;
         private Font _textFont;
@@ -408,7 +412,7 @@ namespace DrawAnce
                     vLineTop = i % 2 == 0 ? top + BOXH / 2 : 0;
 
                     // Does this individual have ancestors? If so, draw a marker
-                    if (_ancIndi[i] != null && _ancIndi[i].Ahnen > 0)
+                    if (_ancIndi[i] != null && _ancIndi[i].Ahnen > 1)
                         gr.DrawString(MORE_GEN, _nameFont, _textBrush, box3Rect.Right+2, box3Rect.Top + BOXH / 2 - 10); // TODO how to calc. location?
 
                     top += BOXH + GEN3VM;
@@ -641,7 +645,5 @@ namespace DrawAnce
         {
             SaveSettings();
         }
-
-        private const string MORE_GEN = "►";
     }
 }
