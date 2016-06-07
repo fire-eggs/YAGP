@@ -3,10 +3,8 @@ using System.Drawing;
 
 namespace DrawAnce
 {
-    public class Draw4Gen : IDrawGen
+    public class Draw4Gen : DrawGen
     {
-        private const int MoreGenW = 25;
-
         private const int BOXH = 80;
         private const int GEN3VM = 15; // vertical margin between boxes for Gen 3
         private const int OuterMargin = 5;
@@ -15,25 +13,18 @@ namespace DrawAnce
         private const int TEXTSTEP = 6;
         private const int TEXTINDENT = 2;
 
-        private const string MORE_GEN = "►";
-
         private Pen _boxPen;
         private Font _nameFont;
         private Font _textFont;
         private Brush _textBrush;
         private StringFormat _sf;
-        private Rectangle[] _hitRect;
 
         public Draw4Gen()
         {
-            _hitRect = new Rectangle[32];
-            for (int i = 0; i < 32; i++)
-                _hitRect[i] = new Rectangle();
+            Init();
         }
 
-        public IndiWrap[] AncData { get; set; }
-
-        public Image MakeAncTree()
+        public override Image MakeAncTree()
         {
             Point boxSz0, boxSz1, boxSz2, boxSz3;
 
@@ -221,21 +212,5 @@ namespace DrawAnce
             }
             return new Point(maxW, maxH);
         }
-
-        /// <summary>
-        /// Determine which rectangle a Point intersects.
-        /// </summary>
-        /// <param name="hit"></param>
-        /// <returns>The index within the rectangle array; -1 if no intersection.</returns>
-        public int HitIndex(Point hit)
-        {
-            if (_hitRect == null)
-                return -1;
-            for (int i = 0; i < _hitRect.Length; i++)
-                if (_hitRect[i].Contains(hit))
-                    return i;
-            return -1;
-        }
-
     }
 }
