@@ -11,6 +11,10 @@ namespace DrawAnce
     public partial class Form1 : Form
     {
         protected MruStripMenu mnuMRU;
+        private IDrawGen draw4gen;
+        private IDrawGen draw5gen;
+        private IDrawGen drawer;
+        private int MAX_AHNEN = 32;
 
         public Form1()
         {
@@ -19,8 +23,14 @@ namespace DrawAnce
             cmbPerson.ValueMember = "Value";
             cmbPerson.DataSource = _cmbItems;
             mnuMRU = new MruStripMenuInline(fileToolStripMenuItem, recentFilesToolStripMenuItem, OnMRU);
+            mnuMRU.MaxEntries = 7;
             LoadGed += Form1_LoadGed;
             LoadSettings(); // must go after mnuMRU init
+
+            draw4gen = new Draw4Gen();
+            draw5gen = new Draw5gen();
+            rad4Gen.Checked = true;
+            drawer = draw4gen;
         }
 
         private void Form1_LoadGed(object sender, EventArgs e)
@@ -100,15 +110,12 @@ namespace DrawAnce
             DoAncTree();
         }
 
-        private IDrawGen d4;
-        private int MAX_AHNEN = 16;
-
         private void DoAncTree()
         {
-            if (d4 == null)
-                d4 = new Draw4Gen();
-            d4.AncData = _ancIndi;
-            picTree.Image = d4.MakeAncTree();
+            if (drawer == null)
+                drawer = new Draw5gen(); //Draw4Gen();
+            drawer.AncData = _ancIndi;
+            picTree.Image = drawer.MakeAncTree();
         }
 
         private void cmbPerson_SelectedIndexChanged(object sender, EventArgs e)
@@ -292,23 +299,6 @@ namespace DrawAnce
                 if (_childHash.ContainsKey(familyUnit.MomId))
                     familyUnit.MomFam = _childHash[familyUnit.MomId];
             }
-
-            //// For each person, dump their ancestry
-            //foreach (var indiId in indiHash.Keys)
-            //{
-            //    KBRGedIndi firstP = indiHash[indiId];
-            //    Console.WriteLine("First person:" + firstP.Names[0]);
-            //    if (childHash.ContainsKey(indiId))
-            //    {
-            //        FamilyUnit firstFam = childHash[indiId];
-            //        DumpAnce(firstFam, childHash, firstP, 1);
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine(" No ancestry");
-            //    }
-            //    Console.WriteLine("==========================================================");
-            //}
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -329,7 +319,7 @@ namespace DrawAnce
                 picTree.Cursor = Cursors.Arrow;
             else
             {
-                int index = d4.HitIndex(e.Location);
+                int index = drawer.HitIndex(e.Location);
 
                 picTree.Cursor = !HavePerson(index) ?
                     Cursors.Arrow :
@@ -341,7 +331,7 @@ namespace DrawAnce
         {
             if (drawer == null)
                 return;
-            int index = d4.HitIndex(e.Location);
+            int index = drawer.HitIndex(e.Location);
             if (!HavePerson(index))
                 return;
             TreePerson(_ancIndi[index]);
@@ -412,6 +402,15 @@ namespace DrawAnce
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
+        }
+
+        private void rad4Gen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rad4Gen.Checked)
+                drawer = draw4gen;
+            else
+                drawer = draw5gen;
+            this.cmbPerson_SelectedIndexChanged(null,null);
         }
     }
 }

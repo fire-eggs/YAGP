@@ -31,12 +31,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openGEDCOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recentFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPerson = new System.Windows.Forms.ComboBox();
+            this.rad4Gen = new System.Windows.Forms.RadioButton();
+            this.rad5Gen = new System.Windows.Forms.RadioButton();
             this.picTree = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -74,7 +76,7 @@
             // recentFilesToolStripMenuItem
             // 
             this.recentFilesToolStripMenuItem.Name = "recentFilesToolStripMenuItem";
-            this.recentFilesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.recentFilesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.recentFilesToolStripMenuItem.Text = "Recent Files";
             // 
             // exitToolStripMenuItem
@@ -103,6 +105,8 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.cmbPerson);
+            this.flowLayoutPanel1.Controls.Add(this.rad4Gen);
+            this.flowLayoutPanel1.Controls.Add(this.rad5Gen);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(778, 29);
@@ -126,6 +130,29 @@
             this.cmbPerson.Size = new System.Drawing.Size(243, 21);
             this.cmbPerson.TabIndex = 1;
             this.cmbPerson.SelectedIndexChanged += new System.EventHandler(this.cmbPerson_SelectedIndexChanged);
+            // 
+            // rad4Gen
+            // 
+            this.rad4Gen.AutoSize = true;
+            this.rad4Gen.Location = new System.Drawing.Point(343, 3);
+            this.rad4Gen.Name = "rad4Gen";
+            this.rad4Gen.Size = new System.Drawing.Size(54, 17);
+            this.rad4Gen.TabIndex = 2;
+            this.rad4Gen.TabStop = true;
+            this.rad4Gen.Text = "4 Gen";
+            this.rad4Gen.UseVisualStyleBackColor = true;
+            this.rad4Gen.CheckedChanged += new System.EventHandler(this.rad4Gen_CheckedChanged);
+            // 
+            // rad5Gen
+            // 
+            this.rad5Gen.AutoSize = true;
+            this.rad5Gen.Location = new System.Drawing.Point(403, 3);
+            this.rad5Gen.Name = "rad5Gen";
+            this.rad5Gen.Size = new System.Drawing.Size(54, 17);
+            this.rad5Gen.TabIndex = 3;
+            this.rad5Gen.TabStop = true;
+            this.rad5Gen.Text = "5 Gen";
+            this.rad5Gen.UseVisualStyleBackColor = true;
             // 
             // picTree
             // 
@@ -172,6 +199,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbPerson;
         private System.Windows.Forms.PictureBox picTree;
+        private System.Windows.Forms.RadioButton rad4Gen;
+        private System.Windows.Forms.RadioButton rad5Gen;
     }
 }
 
