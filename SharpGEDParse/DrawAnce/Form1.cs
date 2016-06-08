@@ -80,8 +80,8 @@ namespace DrawAnce
 
         private void ResetContext()
         {
-            _ancIndi = new IndiWrap[32];
-            for (int i = 0; i < 32; i++)
+            _ancIndi = new IndiWrap[MAX_AHNEN];
+            for (int i = 0; i < MAX_AHNEN; i++)
             {
                 _ancIndi[i] = new IndiWrap();
             }
@@ -101,6 +101,7 @@ namespace DrawAnce
         }
 
         private IDrawGen d4;
+        private int MAX_AHNEN = 16;
 
         private void DoAncTree()
         {
@@ -140,7 +141,7 @@ namespace DrawAnce
             if (firstFam.Husband != null)
             {
                 numRet = Math.Max(numRet, dadnum);
-                if (dadnum < 16)
+                if (dadnum < MAX_AHNEN)
                 {
                     IndiWrap hack = _indiHash[firstFam.Husband.Ident];
                     _ancIndi[dadnum] = hack;
@@ -151,7 +152,7 @@ namespace DrawAnce
             if (firstFam.Wife != null)
             {
                 numRet = Math.Max(numRet, dadnum+1);
-                if (dadnum + 1 < 16)
+                if (dadnum + 1 < MAX_AHNEN)
                 {
                     IndiWrap hack = _indiHash[firstFam.Wife.Ident];
                     _ancIndi[dadnum+1] = hack;
@@ -315,20 +316,33 @@ namespace DrawAnce
             Close();
         }
 
+        private bool HavePerson(int index)
+        {
+            if (index == -1 || _ancIndi[index] == null)
+                return false;
+            return !string.IsNullOrWhiteSpace(_ancIndi[index].Name);
+        }
+
         private void picTree_MouseMove(object sender, MouseEventArgs e)
         {
-            if (d4 == null || d4.HitIndex(e.Location) == -1)
+            if (drawer == null )
                 picTree.Cursor = Cursors.Arrow;
             else
-                picTree.Cursor = Cursors.Hand;
+            {
+                int index = d4.HitIndex(e.Location);
+
+                picTree.Cursor = !HavePerson(index) ?
+                    Cursors.Arrow :
+                    Cursors.Hand;
+            }
         }
 
         private void picTree_MouseClick(object sender, MouseEventArgs e)
         {
-            if (d4 == null)
+            if (drawer == null)
                 return;
             int index = d4.HitIndex(e.Location);
-            if (index == -1 || _ancIndi[index] == null)
+            if (!HavePerson(index))
                 return;
             TreePerson(_ancIndi[index]);
             cmbPerson.SelectedIndex = -1;
