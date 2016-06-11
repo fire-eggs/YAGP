@@ -37,11 +37,6 @@ namespace SharpGEDParser
             SourCitProc(_rec);
         }
 
-        private void NoteProc()
-        {
-            _rec.Notes.Add(new Tuple<int, int>(_context.Begline, _context.Endline));
-        }
-
         private void kidProc()
         {
             string ident = null;

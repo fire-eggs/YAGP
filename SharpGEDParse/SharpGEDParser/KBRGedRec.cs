@@ -9,11 +9,12 @@ namespace SharpGEDParser
 
         public KBRGedRec(GedRecord lines)
         {
+            // TODO keep null ptrs until used
             Unknowns = new List<UnkRec>();
             Errors = new List<UnkRec>();
             Sources = new List<GedSourCit>();
             Data = new List<DataRec>();
-            Notes = new List<Tuple<int, int>>();
+            Notes = new List<string>();
 
             if (lines != null && lines.LineCount < 1)
                 throw new Exception("Empty GedRecord!");
@@ -31,7 +32,7 @@ namespace SharpGEDParser
         public List<UnkRec> Errors { get; set; }
         public List<GedSourCit> Sources { get; set; }
         public List<DataRec> Data { get; set; }
-        public List<Tuple<int, int>> Notes { get; set; }
+        public List<string> Notes { get; set; } // TODO I cannot remember: should original note pointer be preserved?
         public Tuple<int, int> Change { get; set; }
     }
 }

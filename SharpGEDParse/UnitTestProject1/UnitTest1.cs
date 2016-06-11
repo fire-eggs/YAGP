@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 using System.Diagnostics;
 
@@ -62,6 +63,15 @@ namespace UnitTestProject1
             var rec = parse<KBRGedIndi>(indi, "INDI");
             Assert.AreEqual(1, rec.Attribs.Count, "Attribute not parsed");
             Assert.AreEqual(1, rec.Attribs[0].Errors.Count, "Error not recorded in attribute");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void NotZero()
+        {
+            var indi = "INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            // TODO should this have been an error record rather than an exception?
         }
 
         [TestMethod]

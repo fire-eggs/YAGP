@@ -112,6 +112,31 @@ namespace SharpGEDParser
             return eRec;
         }
 
+        protected void NoteProc()
+        {
+            // Common note processing
+            // TODO I cannot remember if it is important to store the original NOTE context or not
+            // TODO copy-pasta from SourCitDataParse\txtProc
+
+            // Can't use Remainder() here: must preserve _trailing_ spaces for CONC
+            string note = _context.Line.Substring(_context.Nextchar).TrimStart();
+            if (_context.Endline > _context.Begline)
+            {
+                for (int i = _context.Begline + 1; i <= _context.Endline; i++)
+                {
+                    string line = _rec.Lines.GetLine(i);
+                    string ident = null;
+                    string tag = null;
+                    int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
+                    if (tag == "CONC")
+                        note += line.Substring(nextChar + 1); // must keep trailing space
+                    if (tag == "CONT")
+                        note += "\n" + line.Substring(nextChar + 1); // must keep trailing space
+                }
+            }
+            _rec.Notes.Add(note);
+        }
+
         protected UnkRec ErrorRec(string reason)
         {
             var rec = new UnkRec(_context.Tag);

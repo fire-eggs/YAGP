@@ -108,12 +108,6 @@ namespace SharpGEDParser
             }
         }
 
-        private void NoteProc()
-        {
-            // Multiple notes allowed
-            (_rec as KBRGedEvent).Notes.Add(new Tuple<int, int>(_context.Begline, _context.Endline));
-        }
-
         private void SourProc()
         {
             SourCitProc(_rec);

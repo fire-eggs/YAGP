@@ -35,7 +35,7 @@ namespace SharpGEDParser
             string head = rec.FirstLine();
             int firstDex = GedLineUtil.FirstChar(head);
             if (head[firstDex] != '0')
-                throw new Exception("record head not zero");
+                throw new Exception("record head not zero"); // TODO should this be an error record instead?
 
             // 2. search for and find the tag
             string ident = "";

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Runtime.InteropServices;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 
 namespace UnitTestProject1
@@ -9,8 +10,6 @@ namespace UnitTestProject1
         // TODO missing FAM ident?
         // TODO test SOUR
         // TODO test CHAN
-        // TODO test _STAT
-        // TODO test _MREL from 'AGES'
         // TODO RIN as supported FAM tag?
         // TODO more than 1 DAD record? Error/warn/take-the-last?
         // TODO more than 1 MOM record? Error/warn/take-the-last?
@@ -101,18 +100,17 @@ namespace UnitTestProject1
             var rec = parse(fam);
             Assert.AreNotEqual(null, rec.Notes);
             Assert.AreEqual(1, rec.Notes.Count);
-            Assert.AreEqual(2, rec.Notes[0].Item1);
-            Assert.AreEqual(2, rec.Notes[0].Item2);
+            Assert.AreEqual("@N123@", rec.Notes[0]);
         }
+
         [TestMethod]
         public void TestFamNote2()
         {
-            string fam = "0 @F1@ FAM\n1 NOTE This is a family record note\n2 CONT blah blah ";
+            string fam = "0 @F1@ FAM\n1 NOTE This is a family record note\n2 CONT blah blah";
             var rec = parse(fam);
             Assert.AreNotEqual(null, rec.Notes);
             Assert.AreEqual(1, rec.Notes.Count);
-            Assert.AreEqual(1, rec.Notes[0].Item1);
-            Assert.AreEqual(2, rec.Notes[0].Item2);
+            Assert.AreEqual("This is a family record note\nblah blah", rec.Notes[0]);
         }
 
         [TestMethod]
@@ -142,5 +140,15 @@ namespace UnitTestProject1
             // TODO test actual details
         }
 
+        [TestMethod]
+        public void TestStat()
+        {
+            var fam = "0 @F1@ FAM\n1 _STAT MARRIED\n1 HUSB @I1@\n1 WIFE @I2@\n1 CHIL @I72@\n1 MARR\n2 DATE 6 JUN 1948\n2 PLAC Oak Park,Illinois";
+            var rec = parse(fam);
+            Assert.AreEqual(1, rec.Data.Count);
+        }
     }
 }
+
+// TODO test _MREL, _FREL from 'AGES'
+//0 @F17299@ FAM\n1 HUSB @I4235@\n1 WIFE @I4236@\n1 CHIL @I7431@\n2 _FREL step\n2 _MREL step\n1 CHIL @I7432@\n2 _FREL step\n2 _MREL step\n1 MARR

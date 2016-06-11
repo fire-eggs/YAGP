@@ -422,28 +422,32 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestNote()
         {
-            // TODO conc/cont
-            // TODO verify note contents
-
             var indi = "0 INDI\n1 NOTE";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Notes.Count);
-            Assert.AreEqual(1, rec.Notes[0].Item1);
-            Assert.AreEqual(1, rec.Notes[0].Item2);
+            Assert.AreEqual("", rec.Notes[0]);
 
             indi = "0 INDI\n1 NOTE notes\n2 CONT more detail";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Notes.Count);
-            Assert.AreEqual(1, rec.Notes[0].Item1);
-            Assert.AreEqual(2, rec.Notes[0].Item2);
+            Assert.AreEqual("notes\nmore detail", rec.Notes[0]);
 
             indi = "0 INDI\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
             rec = parse(indi);
             Assert.AreEqual(2, rec.Notes.Count);
-            Assert.AreEqual(1, rec.Notes[0].Item1);
-            Assert.AreEqual(2, rec.Notes[0].Item2);
-            Assert.AreEqual(4, rec.Notes[1].Item1);
-            Assert.AreEqual(4, rec.Notes[1].Item2);
+            Assert.AreEqual("notes\nmore detail", rec.Notes[0]);
+            Assert.AreEqual("notes2", rec.Notes[1]);
+
+            // trailing space must be preserved
+            indi = "0 INDI\n1 NOTE notes\n2 CONC more detail \n2 CONC yet more detail";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("notesmore detail yet more detail", rec.Notes[0]);
+
+            indi = "0 INDI\n1 NOTE notes \n2 CONC more detail \n2 CONC yet more detail ";
+            rec = parse(indi);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("notes more detail yet more detail ", rec.Notes[0]);
         }
 
         [TestMethod]

@@ -62,8 +62,9 @@ namespace SharpGEDParser
                 return ' ';
             string line = _lines[linedex];
             int dex = GedLineUtil.FirstChar(line);
-            if (dex < 0)
-                return ' '; // empty line
+            // Can't happen? empty lines stripped earlier...
+            //if (dex < 0)
+            //    return ' '; // empty line
             sublinedex = dex;
             return line[dex];
 
