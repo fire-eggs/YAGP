@@ -14,7 +14,6 @@ namespace SharpGEDParser
             _tagSet.Add("AGNC", AgncProc);
             _tagSet.Add("RELI", ReliProc);
             _tagSet.Add("RESN", ResnProc);
-            _tagSet.Add("CHAN", ChanProc);
             _tagSet.Add("SOUR", SourProc);
             _tagSet.Add("NOTE", NoteProc);
 // TODO            _tagSet.Add("OBJE", ObjeProc);
@@ -113,17 +112,6 @@ namespace SharpGEDParser
         {
             // Multiple notes allowed
             (_rec as KBRGedEvent).Notes.Add(new Tuple<int, int>(_context.Begline, _context.Endline));
-        }
-
-        private void ChanProc()
-        {
-            // GEDCOM spec says to take the FIRST
-            if ((_rec as KBRGedEvent).Change != null)
-            {
-                ErrorRec("Multiple CHAN: first one used");
-                return;
-            }
-            (_rec as KBRGedEvent).Change = new Tuple<int, int>(_context.Begline, _context.Endline);
         }
 
         private void SourProc()
