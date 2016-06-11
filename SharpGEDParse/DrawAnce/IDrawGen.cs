@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Printing;
 
 namespace DrawAnce
 {
@@ -10,17 +11,21 @@ namespace DrawAnce
 
         int HitIndex(Point hit);
 
+        PrintDocument PrintAncTree();
     }
 
     public abstract class DrawGen : IDrawGen
     {
         protected const string MORE_GEN = "►";
-        protected const int MoreGenW = 25;
+        protected int MoreGenW;
 
         protected Rectangle[] _hitRect;
 
         public IndiWrap[] AncData { get; set; }
+
         public abstract Image MakeAncTree();
+
+        public abstract PrintDocument PrintAncTree();
 
         protected void Init()
         {

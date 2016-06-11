@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Printing;
 
 namespace DrawAnce
 {
@@ -49,6 +46,9 @@ namespace DrawAnce
             Bitmap bmp = new Bitmap(maxW, maxH);
             using (Graphics gr = Graphics.FromImage(bmp))
             {
+                SizeF moreSize = gr.MeasureString(MORE_GEN, _nameFont);
+                MoreGenW = (int)moreSize.Width;
+
                 gr.Clear(Color.Cornsilk);
                 
                 // Draw gen 4 on right side
@@ -143,6 +143,11 @@ namespace DrawAnce
                 DrawAnce(1, gr, new Rectangle(left, top, boxSz0.X, boxSz0.Y));
             }
             return bmp;
+        }
+
+        public override PrintDocument PrintAncTree()
+        {
+            throw new NotImplementedException();
         }
 
         private void DrawAnce(int i, Graphics gr, Rectangle boxRect)

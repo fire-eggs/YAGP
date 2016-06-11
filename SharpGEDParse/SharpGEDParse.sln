@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildTree", "BuildTree\Buil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawAnce", "DrawAnce\DrawAnce.csproj", "{DA797AC1-522B-401B-A8EC-3292FD64D9EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintPreview", "PrintPreview\PrintPreview.csproj", "{9E8D433B-EFD1-4253-BD2C-C4E0DB0BFD0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{DA797AC1-522B-401B-A8EC-3292FD64D9EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA797AC1-522B-401B-A8EC-3292FD64D9EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA797AC1-522B-401B-A8EC-3292FD64D9EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8D433B-EFD1-4253-BD2C-C4E0DB0BFD0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8D433B-EFD1-4253-BD2C-C4E0DB0BFD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8D433B-EFD1-4253-BD2C-C4E0DB0BFD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8D433B-EFD1-4253-BD2C-C4E0DB0BFD0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

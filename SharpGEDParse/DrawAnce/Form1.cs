@@ -1,4 +1,5 @@
 ﻿using BuildTree;
+using PrintPreview;
 using SharpGEDParser;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,7 @@ namespace DrawAnce
             if (!File.Exists(filename))
             {
                 mnuMRU.RemoveFile(number);
-                MessageBox.Show("The file no longer exists:" + filename);
+                MessageBox.Show("The file no longer exists: " + filename);
                 return;
             }
 
@@ -411,6 +412,24 @@ namespace DrawAnce
             else
                 drawer = draw5gen;
             this.cmbPerson_SelectedIndexChanged(null,null);
+        }
+
+        private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EnhancedPrintPreviewDialog newPreview = new EnhancedPrintPreviewDialog();
+            newPreview.Owner = this;
+            newPreview.Document = drawer.PrintAncTree();
+            newPreview.ShowDialog();
+        }
+
+        private void printSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
