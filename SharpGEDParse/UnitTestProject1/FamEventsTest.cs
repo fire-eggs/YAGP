@@ -13,7 +13,6 @@ namespace UnitTestProject1
 
         // TODO address structure
         // TODO object
-        // TODO CHAN
 
         /*
 1 MARR
@@ -97,12 +96,29 @@ namespace UnitTestProject1
             return rec;
         }
 
+        public KBRGedFam TestEventNote(string tag)
+        {
+            string indi3 = string.Format("0 FAM\n1 {0}\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+
+            var rec = parse(indi3);
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            Assert.AreEqual(tag, rec.FamEvents[0].Tag);
+            Assert.AreEqual(null, rec.FamEvents[0].Date);
+            Assert.AreEqual(null, rec.FamEvents[0].Age);
+            Assert.AreEqual(null, rec.FamEvents[0].Type);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.FamEvents[0].Place);
+            Assert.AreEqual(1, rec.FamEvents[0].Notes.Count);
+            Assert.AreEqual("Blah blah this is a note continued on a second line.", rec.FamEvents[0].Notes[0]);
+            return rec;
+        }
+
         [TestMethod]
         public void TestMarr()
         {
             string tag = "MARR";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -112,6 +128,7 @@ namespace UnitTestProject1
             string tag = "ANUL";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -121,6 +138,7 @@ namespace UnitTestProject1
             string tag = "MARL";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -130,6 +148,7 @@ namespace UnitTestProject1
             string tag = "MARS";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -139,6 +158,7 @@ namespace UnitTestProject1
             string tag = "MARB";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -148,6 +168,7 @@ namespace UnitTestProject1
             string tag = "MARC";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -157,6 +178,7 @@ namespace UnitTestProject1
             string tag = "DIV";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -166,6 +188,7 @@ namespace UnitTestProject1
             string tag = "DIVF";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -175,6 +198,7 @@ namespace UnitTestProject1
             string tag = "ENGA";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -184,6 +208,7 @@ namespace UnitTestProject1
             string tag = "EVEN";
             TestEventTag(tag);
             TestEventTag2(tag);
+            TestEventNote(tag);
             TestEventAge(tag, "HUSB");
             TestEventAge(tag, "WIFE");
         }
@@ -221,6 +246,15 @@ namespace UnitTestProject1
             Assert.AreEqual("bloh bloh", rec.FamEvents[0].WifeDetail);
             Assert.AreEqual("23", rec.FamEvents[0].WifeAge);
             
+        }
+
+        [TestMethod]
+        public void TestAddr()
+        {
+            string fam = "0 @F33877@ FAM\n1 HUSB @I97095@\n1 WIFE @I97096@\n1 CHIL @I97091@\n1 MARR\n2 DATE 5 JUN 830\n2 PLAC Constantinople, Byzantium\n2 ADDR Hagia Sophia\n2 NOTE Even in the 9th century the church was almost 300 years old, built on t\n3 CONC he ruins of two earlier buildings and known as the Μεγάλη Ἐκκλησία (Gre\n3 CONC at Church).            ";
+            var rec = parse(fam);
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            Assert.IsNotNull(rec.FamEvents[0].Address); // TODO verify details
         }
     }
 }

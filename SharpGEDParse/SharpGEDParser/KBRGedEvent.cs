@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SharpGEDParser
 {
     public class KBRGedEvent : KBRGedRec
@@ -32,5 +27,7 @@ namespace SharpGEDParser
         // BIRT/CHR/ADOP individual event support
         public string Famc { get; set; }
         public string FamcAdop { get; set; }
+
+        public string Address { get; set; } // TODO a more detailed structure?
     }
 }

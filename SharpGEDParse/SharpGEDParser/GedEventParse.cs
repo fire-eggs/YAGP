@@ -25,6 +25,8 @@ namespace SharpGEDParser
 
             _tagSet.Add("CONC", dscrProc);
             _tagSet.Add("CONT", dscrProc);
+
+            _tagSet.Add("ADDR", addrProc);
         }
 
         private void AgeProc()
@@ -59,6 +61,11 @@ namespace SharpGEDParser
         private void ResnProc()
         {
             (_rec as KBRGedEvent).Restriction = Remainder();
+        }
+
+        private void addrProc()
+        {
+            (_rec as KBRGedEvent).Address = Remainder(); // TODO this is a punt
         }
 
         private void FAMCProc()

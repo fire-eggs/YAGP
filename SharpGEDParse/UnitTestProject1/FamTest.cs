@@ -9,7 +9,6 @@ namespace UnitTestProject1
     {
         // TODO missing FAM ident?
         // TODO test SOUR
-        // TODO test CHAN
         // TODO RIN as supported FAM tag?
         // TODO more than 1 DAD record? Error/warn/take-the-last?
         // TODO more than 1 MOM record? Error/warn/take-the-last?

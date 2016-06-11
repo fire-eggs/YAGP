@@ -67,41 +67,6 @@ namespace SharpGEDParser
         }
     }
 
-    // NOTE: also used for birth (FAMC extra); ADOP (FAMC, ADOP extra)
-    // NOTE: also used for family events (HUSB, WIFE extras)
-    public class EventRec : Rec
-    {
-        public string Detail { get; set; } // e.g. caste_name
-        public string Date { get; set; }
-        public string Place { get; set; }
-        public string Age { get; set; }
-        public string Type { get; set; } // detail, classification
-        public string Agency { get; set; }
-        public string Cause { get; set; }
-        public string Religion { get; set; }
-        public string Restriction { get; set; }
-
-        public Tuple<int, int> Change { get; set; } // TODO enforce single change
-        public Tuple<int, int> Note { get; set; } // TODO multiple notes
-        public Tuple<int, int> Source { get; set; } // TODO multiple source
-
-        // TODO OBJE tag, multiple
-
-        public EventRec(string tag)
-        {
-            Tag = tag;
-        }
-
-        public override string ToString()
-        {
-            string note = Note != null ? ",Note:" + Note : "";
-            string chan = Change != null ? ",Chan:" + Change : "";
-            string src = Source != null ? ",Sour:" + Source : "";
-            return string.Format("__{0}:When:'{1}',Where:'{2}'{3}{4}{5}", 
-                base.ToString(), Date, Place, note, chan, src);
-        }
-    }
-
     public class LDSRec : Rec
     {
         public string Date { get; set; }
