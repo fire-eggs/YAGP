@@ -15,9 +15,6 @@ namespace SharpGEDParser
             Sources = new List<GedSourCit>();
             Data = new List<DataRec>();
             Notes = new List<string>();
-
-            if (lines != null && lines.LineCount < 1)
-                throw new Exception("Empty GedRecord!");
             Lines = lines;
         }
 

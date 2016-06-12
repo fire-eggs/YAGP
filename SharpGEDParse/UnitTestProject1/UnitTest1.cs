@@ -66,6 +66,27 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void BogusText2()
+        {
+            // NOTE the third line has an invalid leading level # (value below '0')
+            // TODO which is changing how the upper level record is accumulated
+            string indi = "0 INDI\n1 BIRT attrib_value\n+ CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreEqual(1, rec.Events.Count, "Event not parsed");
+            Assert.AreEqual(1, rec.Events[0].Errors.Count, "Error not recorded");
+        }
+
+        [TestMethod]
+        public void BogusText3()
+        {
+            // NOTE the third line has an invalid leading level # (value above '9')
+            string indi = "0 INDI\n1 BIRT attrib_value\nA CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreEqual(1, rec.Events.Count, "Event not parsed");
+            Assert.AreEqual(1, rec.Events[0].Errors.Count, "Error not recorded");
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void NotZero()
         {
@@ -80,9 +101,6 @@ namespace UnitTestProject1
             string indi = "0 INDI\n1 DSCR attrib_value\n\n2 DATE 1774\n   \n0 TRLR"; // TODO trailing record bug
             var rec = ReadIt(indi);
             Assert.AreEqual(3, rec.Count); // blank lines as error "records"
-//            var rec = parse<KBRGedIndi>(indi, "INDI");
-//            Assert.AreEqual(1, rec.Attribs.Count);
-//            Assert.AreEqual(2, rec.Errors.Count, "blank line warning"); // two blank lines as warnings
         }
 
         [TestMethod]
@@ -128,6 +146,9 @@ namespace UnitTestProject1
         }
     }
 }
+
+// TODO an integer level value > 9, e.g. "10 PLAC someplace"
+// TODO invalid level value NOT in sub-record, e.g. "0 INDI\nA bogus "???
 
 // TODO xref parsing
 // From Tamura Jones:

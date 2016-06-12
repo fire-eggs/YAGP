@@ -12,15 +12,10 @@ namespace SharpGEDParser
             _tagSet.Add("ROLE", roleProc);
             _tagSet.Add("DATA", dataProc);
             _tagSet.Add("OBJE", ignoreProc);
-            _tagSet.Add("NOTE", noteProc);
+            _tagSet.Add("NOTE", NoteProc);
             _tagSet.Add("QUAY", quayProc);
 
             _tagSet.Add("_RIN", rinProc); // Non-standard
-        }
-
-        private void noteProc() // TODO
-        {
-            //throw new NotImplementedException(); 
         }
 
         private void quayProc()

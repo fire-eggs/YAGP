@@ -661,6 +661,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestSource()
         {
+            // Source citation and attributes
             var indi = "0 INDI\n1 SOUR @S331@\n2 QUAY 3";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Sources.Count);
@@ -704,5 +705,50 @@ namespace UnitTestProject1
 
             Assert.AreEqual("Trigg Street\n86 91 Claypole, Aaron, head, 59\nMyrtle C., daughter-in-law, 17, M", rec.Sources[1].Text);
         }
+
+        [TestMethod]
+        public void TestSourceNote()
+        {
+            // Source citation and attributes
+            var indi = "0 INDI\n1 SOUR @S331@\n2 QUAY 3\n2 NOTE a note on the source";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Sources.Count);
+            Assert.AreEqual(1, rec.Sources[0].Beg);
+            Assert.AreEqual(3, rec.Sources[0].End);
+            Assert.AreEqual("S331", rec.Sources[0].XRef);
+            Assert.AreEqual("3", rec.Sources[0].Quay);
+            Assert.AreEqual(1, rec.Sources[0].Notes.Count);
+        }
+        [TestMethod]
+        public void TestSourceRole()
+        {
+            // Source citation and attributes
+            var indi = "0 INDI\n1 SOUR @S331@\n2 QUAY 3\n2 ROLE out the barrel";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Sources.Count);
+            Assert.AreEqual(1, rec.Sources[0].Beg);
+            Assert.AreEqual(3, rec.Sources[0].End);
+            Assert.AreEqual("S331", rec.Sources[0].XRef);
+            Assert.AreEqual("3", rec.Sources[0].Quay);
+            Assert.AreEqual("out the barrel", rec.Sources[0].Role);
+        }
+
+        [TestMethod]
+        public void TestComplexSource()
+        {
+            // 
+            var indi = "0 INDI\n1 SOUR @SOURCE1@\n2 PAGE 55\n2 EVEN Event type cited in source\n3 ROLE Role in cited event\n2 DATA\n3 DATE 1 JAN 1900\n3 TEXT Here is some text from the source specific to this source \n4 CONC citation.\n4 CONT Here is more text but on a new line.\n2 QUAY 0\n2 OBJE\n3 TITL Multimedia link about this source\n3 FORM jpeg\n3 NOTE @N26@\n3 FILE ImgFile.JPG\n2 NOTE @N7@";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Sources.Count, "source missing");
+            Assert.AreEqual(1, rec.Sources[0].Notes.Count, "wrong notes");
+            Assert.AreNotEqual("",rec.Sources[0].Event);
+            Assert.AreNotEqual("", rec.Sources[0].Role);
+            Assert.AreNotEqual("", rec.Sources[0].Quay);
+            Assert.AreNotEqual("", rec.Sources[0].Date);
+            Assert.AreNotEqual("", rec.Sources[0].Text);
+            // TODO validate details
+        }
+
+
     }
 }
