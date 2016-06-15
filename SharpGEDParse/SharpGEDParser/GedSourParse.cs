@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SharpGEDParser
 {
@@ -21,6 +16,7 @@ namespace SharpGEDParser
             _tagSet.Add("_RIN", rinProc);
             _tagSet.Add("OBJE", ignoreProc);
             _tagSet.Add("ABBR", abbrProc);
+            _tagSet.Add("PUBL", publProc);
             // TODO source repository citation
         }
 
@@ -32,6 +28,11 @@ namespace SharpGEDParser
         private void abbrProc()
         {
             (_rec as GedSource).Abbreviation = Remainder(); // TODO validate
+        }
+        private void publProc()
+        {
+            (_rec as GedSource).Publication = Remainder(); // TODO validate
+            // TODO CONC/CONT
         }
 
         private void ChanProc() // TODO refactor to common - see GedIndiParse
