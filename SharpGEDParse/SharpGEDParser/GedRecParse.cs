@@ -147,7 +147,7 @@ namespace SharpGEDParser
             return rec;
         }
 
-        private GedParse _SourParseSingleton;
+        private GedParse _SourceCitParseSingleton;
 
         // Common Source Citation processing
         protected void SourCitProc(KBRGedRec _rec)
@@ -181,9 +181,9 @@ namespace SharpGEDParser
             sRec.XRef = ident;
             sRec.Embed = embed;
             _rec.Sources.Add(sRec);
-            if (_SourParseSingleton == null)
-                _SourParseSingleton = new GedSourCitParse();
-            _SourParseSingleton.Parse(sRec, _context);
+            if (_SourceCitParseSingleton == null)
+                _SourceCitParseSingleton = new GedSourCitParse();
+            _SourceCitParseSingleton.Parse(sRec, _context);
         }
 
         protected void UnknownTag(string tag, int startLineDex, int maxLineDex)

@@ -144,6 +144,28 @@ namespace UnitTestProject1
             var rec = ReadIt(indi);
             Assert.AreEqual(2, rec.Count); // long lines as error "record"
         }
+
+        [TestMethod]
+        public void LeadingSpacesCONT()
+        {
+            // CONC / CONT tags with leading spaces
+            var indi = "0 INDI\n1 NOTE notes\n    2 CONT more detail";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("notes\nmore detail", rec.Notes[0]);
+        }
+
+        [TestMethod]
+        public void LeadingSpacesCONC()
+        {
+            // CONC / CONT tags with leading spaces
+            var indi = "0 INDI\n1 NOTE notes \n    2 CONC more detail";
+            var rec = parse<KBRGedIndi>(indi, "INDI");
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("notes more detail", rec.Notes[0]);
+        }
+
+        // TODO where else might leading spaces be a problem? SOUR/DATA/DATE? SOUR/DATA/TEXT? SOUR/TEXT?
     }
 }
 

@@ -26,6 +26,7 @@ namespace UnitTestProject1
         public T parse<T>(string testString, string tagN) where T: class
         {
             // TODO this is a bug
+            // TODO as implemented, trailing newline in original string will cause an "empty line" error record to be generated
             // Testing kludge required: parser won't terminate w/o trailing '0' record.
             if (!testString.EndsWith("0 KLUDGE"))
                 testString += "\n0 KLUDGE";

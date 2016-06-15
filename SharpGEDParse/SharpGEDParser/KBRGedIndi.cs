@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace SharpGEDParser
@@ -12,6 +13,7 @@ namespace SharpGEDParser
 
         public string Tag { get; set; } // TODO enum?
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return string.Format("{0}({1},{2})", Tag, Beg, End);
@@ -61,6 +63,8 @@ namespace SharpGEDParser
             Tag = tag;
             XRef = xref;
         }
+
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return string.Format("{0}[{3}]({1},{2})", Tag, Beg, End, XRef);
@@ -81,6 +85,7 @@ namespace SharpGEDParser
             Tag = tag;
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             string note = Note != null ? ",Note:" + Note : "";
@@ -95,6 +100,8 @@ namespace SharpGEDParser
         public string Names { get; set; }
         public string Surname { get; set; }
         public string Suffix { get; set; }
+
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return string.Format(" {0} /{1}/ {2}", Names, Surname, Suffix).Trim();

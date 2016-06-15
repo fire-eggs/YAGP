@@ -11,18 +11,17 @@ namespace SharpGEDParser
     {
         protected override void BuildTagSet()
         {
-            // TODO many of these are wrong for a SOUR *record*
-
             _tagSet.Add("AUTH", authProc);
             _tagSet.Add("TITL", titlProc);
-            _tagSet.Add("PAGE", pageProc);
-            _tagSet.Add("DATA", ignoreProc);
-            _tagSet.Add("QUAY", quayProc);
-            _tagSet.Add("DATE", dateProc);
+            _tagSet.Add("DATA", ignoreProc); // TODO is this the same as source-citation parsing?
+            _tagSet.Add("REFN", refnProc);
             _tagSet.Add("TEXT", textProc);
-            _tagSet.Add("NOTE", noteProc);
-            _tagSet.Add("CHAN", chngProc);
+            _tagSet.Add("NOTE", NoteProc);
+            _tagSet.Add("CHAN", ChanProc);
             _tagSet.Add("_RIN", rinProc);
+            _tagSet.Add("OBJE", ignoreProc);
+            _tagSet.Add("ABBR", abbrProc);
+            // TODO source repository citation
         }
 
         private void rinProc()
@@ -30,7 +29,12 @@ namespace SharpGEDParser
             (_rec as GedSource).RIN = Remainder();
         }
 
-        private void chngProc()
+        private void abbrProc()
+        {
+            (_rec as GedSource).Abbreviation = Remainder(); // TODO validate
+        }
+
+        private void ChanProc() // TODO refactor to common - see GedIndiParse
         {
             // GEDCOM spec says only one change allowed; says to take the FIRST one
             if (_rec.Change == null)
@@ -41,45 +45,34 @@ namespace SharpGEDParser
             }
         }
 
-        private void noteProc()
-        {
-            throw new NotImplementedException();
-        }
-
         private void textProc()
         {
             (_rec as GedSource).Text = Remainder();
             // TODO CONC/CONT
         }
 
-        private void dateProc()
-        {
-            (_rec as GedSource).Date = Remainder();
-        }
-
-        private void quayProc()
-        {
-            (_rec as GedSource).Quay = Remainder();
-        }
-
         private void ignoreProc()
         {
-            // TODO do nothing?
-        }
-
-        private void pageProc()
-        {
-            (_rec as GedSource).Page = Remainder();
+            // TODO flesh out DATA, MULTIMEDIA handling
         }
 
         private void titlProc()
         {
-            throw new NotImplementedException();
+            (_rec as GedSource).Title = Remainder();
+            // TODO CONC/CONT
         }
 
         private void authProc()
         {
-            throw new NotImplementedException();
+            (_rec as GedSource).Author = Remainder();
+            // TODO CONC/CONT
         }
+
+        private void refnProc()
+        {
+            (_rec as GedSource).UserReferences.Add(Remainder());
+            // TODO 'TYPE' subtag
+        }
+
     }
 }

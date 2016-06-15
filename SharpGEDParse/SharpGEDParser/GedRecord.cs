@@ -2,6 +2,8 @@
 
 // Set of lines read from a GED file which encompass a 'record'
 // Starts with '0'
+using System.Diagnostics.CodeAnalysis;
+
 namespace SharpGEDParser
 {
     public class GedRecord
@@ -30,6 +32,7 @@ namespace SharpGEDParser
             _lines.Add(line);
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             int count = _lines.Count;

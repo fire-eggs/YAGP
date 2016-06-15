@@ -261,7 +261,7 @@ namespace SharpGEDParser
             }
         }
 
-        private void ChanProc()
+        private void ChanProc() // TODO refactor to common
         {
             // GEDCOM spec says to take the FIRST
             if (_rec.Change != null)

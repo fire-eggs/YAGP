@@ -65,9 +65,13 @@ namespace SharpGEDParser
                     data = new KBRGedFam(rec, ident);
                     return new Tuple<KBRGedRec, GedParse>(data, _FamParseSingleton);
 
+                case "SOUR":
+                    GedSource data2 = new GedSource(rec);
+                    data2.XRef = ident;
+                    return new Tuple<KBRGedRec, GedParse>(data2, _SourParseSingleton);
+
                 case "SUBM":
                 case "REPO":
-                case "SOUR":
                 case "OBJE":
                 case "NOTE":
                 case "SUBN":
