@@ -356,6 +356,8 @@ namespace PrintPreview
 
         private void PossiblePrinterChange()
         {
+            if (mDocument == null)
+                return; // not set up yet?
             printPreviewControl1.InvalidatePreview();
             Text = string.Format("Print Preview: {0} [{1}]", mDocument.DocumentName,
                 mDocument.PrinterSettings.PrinterName);

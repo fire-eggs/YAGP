@@ -25,26 +25,44 @@ namespace DrawAnce
 
         public override Image MakeAncTree()
         {
-            Point boxSz0, boxSz1, boxSz2, boxSz3, boxSz4;
+            _boxPen = new Pen(Color.Chocolate, 2.0f);
+            _nameFont = new Font("Arial", 12);
+            _textBrush = new SolidBrush(Color.Black);
+
+            // A. Calculate the actual box widths. When drawing, this requires creating a temp. bitmap
+            // and graphics context to measure against.
+            using (Bitmap tmpBmp = new Bitmap(500, 500))
+            {
+                using (Graphics gr = Graphics.FromImage(tmpBmp))
+                {
+                    CalcActualBoxWidths(gr);
+                    SizeF moreSize = gr.MeasureString(MORE_GEN, _nameFont);
+                    MoreGenW = (int)moreSize.Width;
+                }
+            }
 
             // 16 boxes high, but the boxes are short - name only
-            int maxH = 16*BOXH + 15*GEN4VM + 2*OuterMargin;
-            int maxW = 4*BOXW;
+            int maxH = 16 * BOXH + 15 * GEN4VM + 2 * OuterMargin;
+            int maxW = 4 * BOXW;
+
+            Bitmap bmp = new Bitmap(maxW, maxH);
+            using (Graphics gr = Graphics.FromImage(bmp))
+            {
+                gr.Clear(Color.Cornsilk);
+                DrawAncTree(gr, new Rectangle(0, 0, maxW, maxH));
+            }
+            return bmp;
+        }
+
+        private void DrawAncTree(Graphics gr, Rectangle bounds)
+        {
+            int maxW = bounds.Right;
 
             _boxPen = new Pen(Color.Chocolate, 2.0f);
             Pen connPen = new Pen(Color.Black, 2.0f);
             _nameFont = new Font("Arial", 12);
             _textBrush = new SolidBrush(Color.Black);
 
-            // TODO calculate actual box widths
-            boxSz0 = new Point(BOXW, BOXH);
-            boxSz1 = new Point(BOXW, BOXH);
-            boxSz2 = new Point(BOXW, BOXH);
-            boxSz3 = new Point(BOXW, BOXH);
-            boxSz4 = new Point(BOXW, BOXH);
-
-            Bitmap bmp = new Bitmap(maxW, maxH);
-            using (Graphics gr = Graphics.FromImage(bmp))
             {
                 SizeF moreSize = gr.MeasureString(MORE_GEN, _nameFont);
                 MoreGenW = (int)moreSize.Width;
@@ -53,9 +71,9 @@ namespace DrawAnce
                 
                 // Draw gen 4 on right side
                 int right = maxW - OuterMargin - MoreGenW;
-                int left = right - boxSz4.X;
-                int top = OuterMargin;
-                Rectangle box4Rect = new Rectangle(left, top, boxSz4.X, boxSz4.Y);
+                int left = right - boxSz[4].X;
+                int top = OuterMargin + bounds.Top;
+                Rectangle box4Rect = new Rectangle(left, top, boxSz[4].X, boxSz[4].Y);
                 for (int i = 16; i <= 31; i++)
                 {
                     DrawAnce(i, gr, box4Rect);
@@ -78,9 +96,9 @@ namespace DrawAnce
                 // left as a separate column to allow drawing connectors.
                 int gen4step = 2*BOXH + GEN4VM;
                 right = left - GEN3HM;
-                left = right - boxSz3.X;
-                int gen4top = OuterMargin;
-                Rectangle box3Rect = new Rectangle(left, top, boxSz3.X, boxSz3.Y);
+                left = right - boxSz[3].X;
+                int gen4top = OuterMargin + bounds.Top;
+                Rectangle box3Rect = new Rectangle(left, top, boxSz[3].X, boxSz[3].Y);
                 for (int i = 8; i <= 15; i++)
                 {
                     top = gen4top + gen4step/2 - BOXH/2;
@@ -99,11 +117,11 @@ namespace DrawAnce
                 }
 
                 // draw gen 2. the boxes are inset between the two boxes of gen 3.
-                right = left + boxSz2.X/3;
-                left = right - boxSz2.X;
-                top = OuterMargin + gen4step / 2 - BOXH / 2 + BOXH + GEN4VM;
+                right = left + boxSz[2].X/3;
+                left = right - boxSz[2].X;
+                top = bounds.Top + OuterMargin + gen4step / 2 - BOXH / 2 + BOXH + GEN4VM;
                 int gen2step = 4*BOXH + 4*GEN4VM;
-                Rectangle box2Rect = new Rectangle(left, top, boxSz2.X, boxSz2.Y);
+                Rectangle box2Rect = new Rectangle(left, top, boxSz[2].X, boxSz[2].Y);
                 for (int i = 4; i <= 7; i++)
                 {
                     DrawAnce(i, gr, box2Rect);
@@ -118,9 +136,9 @@ namespace DrawAnce
                 }
 
                 // draw gen 1.
-                left = left - boxSz1.X / 2;
-                top = OuterMargin + gen4step / 2 - BOXH / 2 + 3 * BOXH + 3 * GEN4VM;
-                Rectangle box1Rect = new Rectangle(left, top, boxSz1.X, boxSz1.Y);
+                left = left - boxSz[1].X / 2;
+                top = bounds.Top + OuterMargin + gen4step / 2 - BOXH / 2 + 3 * BOXH + 3 * GEN4VM;
+                Rectangle box1Rect = new Rectangle(left, top, boxSz[1].X, boxSz[1].Y);
                 for (int i = 2; i <= 3; i++)
                 {
                     DrawAnce(i, gr, box1Rect);
@@ -138,16 +156,53 @@ namespace DrawAnce
                 }
 
                 // draw gen 0.
-                left = left - boxSz0.X/5;
-                top = OuterMargin + 8*BOXH + 7*GEN4VM - BOXH/2;
-                DrawAnce(1, gr, new Rectangle(left, top, boxSz0.X, boxSz0.Y));
+                left = left - boxSz[0].X/5;
+                top = bounds.Top + OuterMargin + 8*BOXH + 7*GEN4VM - BOXH/2;
+                DrawAnce(1, gr, new Rectangle(left, top, boxSz[0].X, boxSz[0].Y));
             }
-            return bmp;
         }
 
         public override PrintDocument PrintAncTree()
         {
-            throw new NotImplementedException();
+            if (AncData == null || AncData[1] == null)
+                return null; // no person selected
+
+            // TODO how/when is this disposed? 
+            // TODO can this be pre-created somehow?
+
+            PrintDocument pdoc = new PrintDocument();
+            pdoc.DocumentName = AncData[1].Name;
+            pdoc.BeginPrint += BeginPrint;
+            pdoc.PrintPage += PrintPage;
+            pdoc.QueryPageSettings += QueryPageSettings;
+            pdoc.EndPrint += EndPrint;
+            return pdoc;
+        }
+
+        void BeginPrint(object sender, PrintEventArgs e)
+        {
+        }
+
+        private void EndPrint(object sender, PrintEventArgs e)
+        {
+        }
+
+        void PrintPage(object sender, PrintPageEventArgs e)
+        {
+            CalcActualBoxWidths(e.Graphics);
+            DrawAncTree(e.Graphics, e.MarginBounds);
+
+            using (Pen dashed_pen = new Pen(Color.Red, 3))
+            {
+                dashed_pen.DashPattern = new float[] { 10, 10 };
+                e.Graphics.DrawRectangle(dashed_pen, e.MarginBounds);
+            }
+
+            e.HasMorePages = false; //(Lines < LINES_TO_PRINT);
+        }
+
+        private void QueryPageSettings(object sender, QueryPageSettingsEventArgs e)
+        {
         }
 
         private void DrawAnce(int i, Graphics gr, Rectangle boxRect)
@@ -162,5 +217,32 @@ namespace DrawAnce
             textRect.Location = nameLoc;
             gr.DrawString(AncData[i].Name, _nameFont, _textBrush, nameLoc);
         }
+
+        private Point[] boxSz;
+
+        private void CalcActualBoxWidths(Graphics gr)
+        {
+            boxSz = new Point[5];
+            boxSz[0] = CalcBoxDims(gr, 1, 1);
+            boxSz[1] = CalcBoxDims(gr, 2, 3);
+            boxSz[2] = CalcBoxDims(gr, 4, 7);
+            boxSz[3] = CalcBoxDims(gr, 8, 15);
+            boxSz[4] = CalcBoxDims(gr, 16, 31);
+        }
+
+        private Point CalcBoxDims(Graphics gr, int ancL, int ancH)
+        {
+            int maxW = 0;
+            int maxH = 0;
+            for (int i = ancL; i <= ancH; i++)
+            {
+                var nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
+                maxW = Math.Max(maxW, (int)nameSize.Width);
+                maxW = Math.Max(maxW, 100); // prevent collapsed boxes
+                maxH = Math.Max(BOXH, (int)nameSize.Height);
+            }
+            return new Point(maxW, maxH);
+        }
+
     }
 }

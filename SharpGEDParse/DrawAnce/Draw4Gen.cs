@@ -193,6 +193,9 @@ namespace DrawAnce
 
         public override PrintDocument PrintAncTree()
         {
+            if (AncData == null || AncData[1] == null)
+                return null; // no person selected
+
             // TODO how/when is this disposed? 
             // TODO can this be pre-created somehow?
 
