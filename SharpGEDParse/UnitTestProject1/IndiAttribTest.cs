@@ -66,6 +66,21 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void LongDSCR2()
+        {
+            string indi = "0 INDI\n1 DSCR attrib_value \n2 CONC a big man \n2 CONT I don't know the \n2 CONC secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            KBRGedIndi rec = parse(indi);
+
+            Assert.AreEqual(1, rec.Attribs.Count);
+            Assert.AreEqual("DSCR", rec.Attribs[0].Tag);
+            Assert.AreEqual("attrib_value a big man \nI don't know the secret handshake", rec.Attribs[0].Detail);
+            Assert.AreEqual("17", rec.Attribs[0].Age);
+            Assert.AreEqual("1774", rec.Attribs[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Attribs[0].Place);
+            Assert.AreEqual("suspicious", rec.Attribs[0].Type);
+        }
+
+        [TestMethod]
         public void ErrorCont()
         {
             // NOTE: CONC/CONT invalid for any but DSCR

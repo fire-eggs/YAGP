@@ -122,6 +122,8 @@ namespace SharpGEDParser
 
         private void dscrProc()
         {
+            // TODO not quite the same as other CONC/CONT, can't use extendedText?
+
             // handling of CONC/CONT tags for DSCR
             if (_rec.Tag != "DSCR")
             {
@@ -129,12 +131,11 @@ namespace SharpGEDParser
                 return;
             }
 
-            string extra = Remainder();
+            string extra = _context.Line.Substring(_context.Nextchar).TrimStart();
             if (_context.Tag == "CONC")
-                (_rec as KBRGedEvent).Detail += extra.Trim();
+                (_rec as KBRGedEvent).Detail += extra;
             if (_context.Tag == "CONT")
-                (_rec as KBRGedEvent).Detail += "\n" + extra.TrimEnd();
-
+                (_rec as KBRGedEvent).Detail += "\n" + extra;
         }
 
         /// <summary>

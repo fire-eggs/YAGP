@@ -100,7 +100,10 @@ namespace SharpGEDParser
             // TODO push into GedEventParse
 
             var eRec = new KBRGedEvent(_rec.Lines, _context.Tag);
-            eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
+            if (_context.Tag == "DSCR") // TODO conc/cont handling, can't lose trailing spaces
+                eRec.Detail = _context.Line.Substring(_context.Nextchar);
+            else
+                eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
             if (_EventParseSingleton == null)
                 _EventParseSingleton = new GedEventParse();
             _EventParseSingleton.Parse(eRec, _context);

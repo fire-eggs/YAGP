@@ -13,6 +13,8 @@ namespace SharpGEDParser
         {
         }
 
+        public bool IsEmbedded { get { return XRef == null; } }
+
         public string XRef { get; set; }
 
         public string Quay { get; set; }

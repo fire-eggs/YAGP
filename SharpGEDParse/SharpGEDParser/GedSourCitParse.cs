@@ -48,7 +48,12 @@ namespace SharpGEDParser
 
         private void pageProc()
         {
-            (_rec as GedSourCit).Page = Remainder();
+            var rec = _rec as GedSourCit;
+            rec.Page = Remainder();
+            if (rec.IsEmbedded)
+            {
+                ErrorRec("PAGE tag used with reference source");
+            }
         }
 
         private void roleProc()
@@ -59,7 +64,12 @@ namespace SharpGEDParser
 
         private void evenProc()
         {
-            (_rec as GedSourCit).Event = Remainder();
+            var rec = _rec as GedSourCit;
+            rec.Event = Remainder();
+            if (rec.IsEmbedded)
+            {
+                ErrorRec("EVEN tag used with reference source");
+            }
         }
 
         private void rinProc()
@@ -76,7 +86,12 @@ namespace SharpGEDParser
 
         private void textProc()
         {
-            
+            GedSourCit rec = _rec as GedSourCit;
+            rec.Text = extendedText();
+            if (!rec.IsEmbedded)
+            {
+                ErrorRec("TEXT tag used with reference source");
+            }
         }
     }
 }

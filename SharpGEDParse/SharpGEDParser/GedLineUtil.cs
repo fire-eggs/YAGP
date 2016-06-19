@@ -60,6 +60,18 @@ namespace SharpGEDParser
             return -1;
         }
 
+        // a fresh line, start at the beginning, move past level, return any ident and the tag.
+        // points at the first character after the tag.
+        // used when parsing following CONC/CONT tags.
+        public static int LevelIdentAndTag(string line, ref string ident, ref string tag)
+        {
+            int max = line.Length;
+            int dex = FirstChar(line, 0, max);
+            dex = AllCharsUntil(line, max, dex, ' ');
+            dex = IdentAndTag(line, dex, ref ident, ref tag);
+            return dex;
+        }
+
         // startDex points at the first space after the level
         public static int IdentAndTag(string line, int startDex, ref string ident, ref string tag)
         {

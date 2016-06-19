@@ -43,7 +43,7 @@ namespace DrawAnce
 
             // 16 boxes high, but the boxes are short - name only
             int maxH = 16 * BOXH + 15 * GEN4VM + 2 * OuterMargin;
-            int maxW = 4 * BOXW;
+            int maxW = boxSz[0].X/2+boxSz[1].X/2+(2*boxSz[2].X/3)+boxSz[3].X+boxSz[4].X + MoreGenW;
 
             Bitmap bmp = new Bitmap(maxW, maxH);
             using (Graphics gr = Graphics.FromImage(bmp))

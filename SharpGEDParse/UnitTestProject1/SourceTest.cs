@@ -7,6 +7,8 @@ namespace UnitTestProject1
     // TODO CONC/CONT testing around AUTH, TITL, PUBL, TEXT
     // TODO TYPE sub-tag testing on REFN
 
+    // TODO 'testsubtag' and 'testsubtag2' invocations are copy-pasta
+
     [TestClass]
     public class SourceTest : GedParseTest
     {
@@ -39,35 +41,65 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestTitle()
         {
-            var txt = "0 @S1@ SOUR\n1 TITL Fred";
+            var rec = TestSubTag("TITL");
+            Assert.AreEqual("Fred", rec.Title);
+        }
+
+        private GedSource TestSubTag(string tag)
+        {
+            var txt = string.Format("0 @S1@ SOUR\n1 {0} Fred", tag);
             var rec = parse(txt);
             Assert.AreEqual("S1", rec.XRef);
-            Assert.AreEqual("Fred", rec.Title);
+            return rec;
+        }
+        private GedSource TestSubTag2(string tag)
+        {
+            var txt = string.Format("0 @S1@ SOUR\n1 {0} Fred \n2 CONC Flintstone\n2 CONT yabba dabba doo", tag);
+            var rec = parse(txt);
+            Assert.AreEqual("S1", rec.XRef);
+            return rec;
         }
 
         [TestMethod]
         public void TestPubl()
         {
-            var txt = "0 @S1@ SOUR\n1 PUBL Fred";
-            var rec = parse(txt);
-            Assert.AreEqual("S1", rec.XRef);
+            var rec = TestSubTag("PUBL");
             Assert.AreEqual("Fred", rec.Publication);
         }
+
         [TestMethod]
         public void TestAbbr()
         {
-            var txt = "0 @S1@ SOUR\n1 ABBR Fred";
-            var rec = parse(txt);
-            Assert.AreEqual("S1", rec.XRef);
+            var rec = TestSubTag("ABBR");
             Assert.AreEqual("Fred", rec.Abbreviation);
         }
+
         [TestMethod]
         public void TestAuth()
         {
-            var txt = "0 @S1@ SOUR\n1 AUTH Fred";
-            var rec = parse(txt);
-            Assert.AreEqual("S1", rec.XRef);
+            var rec = TestSubTag("AUTH");
             Assert.AreEqual("Fred", rec.Author);
+        }
+
+        [TestMethod]
+        public void TestAuth2()
+        {
+            var rec = TestSubTag2("AUTH");
+            Assert.AreEqual("Fred Flintstone\nyabba dabba doo", rec.Author);
+        }
+
+        [TestMethod]
+        public void TestTitle2()
+        {
+            var rec = TestSubTag2("TITL");
+            Assert.AreEqual("Fred Flintstone\nyabba dabba doo", rec.Title);
+        }
+
+        [TestMethod]
+        public void TestPubl2()
+        {
+            var rec = TestSubTag2("PUBL");
+            Assert.AreEqual("Fred Flintstone\nyabba dabba doo", rec.Publication);
         }
 
         [TestMethod]

@@ -31,8 +31,7 @@ namespace SharpGEDParser
         }
         private void publProc()
         {
-            (_rec as GedSource).Publication = Remainder(); // TODO validate
-            // TODO CONC/CONT
+            (_rec as GedSource).Publication = extendedText(); // TODO validate
         }
 
         private void ChanProc() // TODO refactor to common - see GedIndiParse
@@ -48,8 +47,7 @@ namespace SharpGEDParser
 
         private void textProc()
         {
-            (_rec as GedSource).Text = Remainder();
-            // TODO CONC/CONT
+            (_rec as GedSource).Text = extendedText();
         }
 
         private void ignoreProc()
@@ -59,14 +57,12 @@ namespace SharpGEDParser
 
         private void titlProc()
         {
-            (_rec as GedSource).Title = Remainder();
-            // TODO CONC/CONT
+            (_rec as GedSource).Title = extendedText();
         }
 
         private void authProc()
         {
-            (_rec as GedSource).Author = Remainder();
-            // TODO CONC/CONT
+            (_rec as GedSource).Author = extendedText();
         }
 
         private void refnProc()

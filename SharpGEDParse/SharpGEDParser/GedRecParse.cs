@@ -105,7 +105,10 @@ namespace SharpGEDParser
             // TODO somehow push into GedEventParse
 
             var eRec = new KBRGedEvent(lines, _context.Tag);
-            eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
+            if (_context.Tag == "DSCR") // TODO conc/cont support can't lose trailing spaces
+                eRec.Detail = _context.Line.Substring(_context.Nextchar).TrimStart();
+            else
+                eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
             if (_EventParseSingleton == null)
                 _EventParseSingleton = new GedEventParse();
             _EventParseSingleton.Parse(eRec, _context);
@@ -116,25 +119,8 @@ namespace SharpGEDParser
         {
             // Common note processing
             // TODO I cannot remember if it is important to store the original NOTE context or not
-            // TODO copy-pasta from SourCitDataParse\txtProc
-
-            // Can't use Remainder() here: must preserve _trailing_ spaces for CONC
-            string note = _context.Line.Substring(_context.Nextchar).TrimStart();
-            if (_context.Endline > _context.Begline)
-            {
-                for (int i = _context.Begline + 1; i <= _context.Endline; i++)
-                {
-                    string line = _rec.Lines.GetLine(i);
-                    string ident = null;
-                    string tag = null;
-                    int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
-                    if (tag == "CONC")
-                        note += line.Substring(nextChar + 1); // must keep trailing space
-                    if (tag == "CONT")
-                        note += "\n" + line.Substring(nextChar + 1); // must keep trailing space
-                }
-            }
-            _rec.Notes.Add(note);
+            var txt = extendedText();
+            _rec.Notes.Add(txt);
         }
 
         protected UnkRec ErrorRec(string reason)
@@ -163,16 +149,17 @@ namespace SharpGEDParser
             int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res == -1 || string.IsNullOrWhiteSpace(ident))
             {
-                embed = _context.Line.Substring(_context.Nextchar).Trim();
-                // possibly error
-                if (embed.Contains("@") || string.IsNullOrWhiteSpace(embed))
+                embed = extendedText();
+                if (string.IsNullOrEmpty(embed))
                 {
-                    ErrorRec("identifier error");
+                    ErrorRec("empty embedded source");
+                    embed = null;
+                }
+                if (embed != null && embed.Contains("@"))
+                {
+                    ErrorRec("Invalid source reference");
                     return;
                 }
-
-                // TODO possibly embedded text
-                // TODO CONC/CONT lines with embedded text
             }
 
             GedSourCit sRec = new GedSourCit(_rec.Lines);
@@ -225,5 +212,30 @@ namespace SharpGEDParser
             return _context.Line.Substring(_context.Nextchar).Trim();
         }
 
+        // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
+        protected string extendedText()
+        {
+            // NOTE: do NOT trim the end... trailing spaces are significant
+            string txt = _context.Line.Substring(_context.Nextchar).TrimStart(); // TODO stringbuilder?
+            if (_context.Endline > _context.Begline)
+            {
+                for (int i = _context.Begline + 1; i <= _context.Endline; i++)
+                {
+                    string line = _rec.Lines.GetLine(i);
+                    string ident = null;
+                    string tag = null;
+
+                    // TODO should be no ident!
+                    int nextChar = GedLineUtil.LevelIdentAndTag(line, ref ident, ref tag);
+                    if (tag == "CONC")
+                        txt += line.Substring(nextChar + 1); // must keep trailing space
+                    else if (tag == "CONT")
+                        txt += "\n" + line.Substring(nextChar + 1); // must keep trailing space
+                    else
+                        break; // non-CONC, non-CONT: stop!
+                }
+            }
+            return txt;
+        }
     }
 }

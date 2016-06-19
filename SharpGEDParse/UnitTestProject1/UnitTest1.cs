@@ -146,6 +146,15 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void runOnConc()
+        {
+            // a later CONC tag was picked up by a tag which took a CONC
+            var txt = "0 INDI\n1 NOTE notes \n2 CONC detail\n1 DSCR a big man\n2 CONT I don't";
+            var rec = parse<KBRGedIndi>(txt, "INDI");
+            Assert.AreEqual("notes detail", rec.Notes[0]); // i.e. do NOT pick up the CONT from DSCR
+        }
+
+        [TestMethod]
         public void LeadingSpacesCONT()
         {
             // CONC / CONT tags with leading spaces
@@ -170,6 +179,8 @@ namespace UnitTestProject1
 }
 
 // TODO an integer level value > 9, e.g. "10 PLAC someplace"
+// TODO leading spaces and an integer level value > 9, e.g. "   10 CONT continued"
+// TODO an ident within a CONC/CONT tag, e.g. "2 @3@ CONT continued"
 // TODO invalid level value NOT in sub-record, e.g. "0 INDI\nA bogus "???
 
 // TODO xref parsing
