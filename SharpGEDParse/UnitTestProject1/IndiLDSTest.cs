@@ -27,6 +27,20 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void TestBapl2()
+        {
+            var indi = "0 INDI\n1 BAPL\n2 DATE unk\n2 TEMP salt lake\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 SOUR @s1@";
+            var rec = parse(indi);
+
+            Assert.AreEqual(1, rec.LDSEvents.Count);
+            Assert.AreEqual("BAPL", rec.LDSEvents[0].Tag);
+            Assert.AreEqual("unk", rec.LDSEvents[0].Date);
+            Assert.AreEqual("salt lake", rec.LDSEvents[0].Temple);
+            Assert.AreEqual("salty", rec.LDSEvents[0].Place);
+            Assert.IsNull(rec.LDSEvents[0].Note);
+        }
+
+        [TestMethod]
         public void TestConl()
         {
             var indi = "0 INDI\n1 CONL\n2 DATE unk\n2 TEMP salt lake\n2 NOTE note1\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 NOTE note2\n2 SOUR @s1@";
@@ -90,5 +104,7 @@ namespace UnitTestProject1
         // TODO source
         // TODO multiple sources
         // TODO multiple notes
+        // TODO NOTE with CONC/CONT
+        // TODO SOUR with CONC/CONT
     }
 }

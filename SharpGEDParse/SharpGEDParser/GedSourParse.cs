@@ -13,7 +13,7 @@ namespace SharpGEDParser
             _tagSet.Add("TEXT", textProc);
             _tagSet.Add("NOTE", NoteProc);
             _tagSet.Add("CHAN", ChanProc);
-            _tagSet.Add("_RIN", rinProc);
+            _tagSet.Add("RIN", rinProc);
             _tagSet.Add("OBJE", ignoreProc);
             _tagSet.Add("ABBR", abbrProc);
             _tagSet.Add("PUBL", publProc);
@@ -22,7 +22,14 @@ namespace SharpGEDParser
 
         private void rinProc()
         {
-            (_rec as GedSource).RIN = Remainder();
+            // TODO push down to common record parsing?
+            var rec = _rec as GedSource;
+            if (rec.RIN != null)
+            {
+                ErrorRec("Multiple RIN: used first");
+                return;
+            }
+            rec.RIN = Remainder();
         }
 
         private void abbrProc()

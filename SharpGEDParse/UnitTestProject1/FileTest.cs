@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SharpGEDParser;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpGEDParser;
 
 // Exercise file behavior.
 // Create a temp file, write out a known string, read and parse the file.
@@ -13,6 +10,8 @@ using SharpGEDParser;
 // TODO encodings
 // TODO valid INDI record
 
+// TODO how to exercise charset/encoding variants, i.e.  different BOM
+ 
 namespace UnitTestProject1
 {
     [TestClass]
@@ -61,24 +60,43 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestDefault()
         {
-            // The smallest valid GED
-            var txt = "0 HEAD\n1 SOUR 0\n1 SUBM @U_A@\n1 GEDC\n2 VERS 5.5.1\n2 FORM LINEAGE-LINKED\n1 CHAR ASCII\n0 @U_A@ SUBM\n1 NAME X\n0 TRLR";
-            Encoding fileEnc = Encoding.Default;
-            var results = CommonBasic(txt, fileEnc);
-            Assert.AreEqual(2, results.Count);
+            var results = CommonEnc(Encoding.Default);
         }
 
         [TestMethod]
         public void TestUTF8()
         {
-            // The smallest valid GED
-            var txt = "0 HEAD\n1 SOUR 0\n1 SUBM @U_A@\n1 GEDC\n2 VERS 5.5.1\n2 FORM LINEAGE-LINKED\n1 CHAR ASCII\n0 @U_A@ SUBM\n1 NAME X\n0 TRLR";
-            Encoding fileEnc = Encoding.UTF8;
-            var results = CommonBasic(txt, fileEnc);
-            Assert.AreEqual(2, results.Count);
-
+            var results = CommonEnc(Encoding.UTF8);
             // TODO verify UTF8 characters
         }
 
+        [TestMethod]
+        public void TestUTF16LE()
+        {
+            var results = CommonEnc(Encoding.BigEndianUnicode);
+            // TODO verify characters
+        }
+
+        [TestMethod]
+        public void TestUTF32()
+        {
+            var results = CommonEnc(Encoding.UTF32);
+            // TODO verify characters
+        }
+
+        [TestMethod]
+        public void TestUnicode()
+        {
+            var results = CommonEnc(Encoding.Unicode);
+            // TODO verify characters
+        }
+
+        private List<KBRGedRec> CommonEnc(Encoding fileEnc)
+        {
+            var txt = "0 HEAD\n1 SOUR 0\n1 SUBM @U_A@\n1 GEDC\n2 VERS 5.5.1\n2 FORM LINEAGE-LINKED\n1 CHAR ASCII\n0 @U_A@ SUBM\n1 NAME X\n0 TRLR";
+            var results = CommonBasic(txt, fileEnc);
+            Assert.AreEqual(2, results.Count);
+            return results;
+        }
     }
 }

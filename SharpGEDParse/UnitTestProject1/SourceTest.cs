@@ -4,10 +4,10 @@ using SharpGEDParser;
 namespace UnitTestProject1
 {
     // Source Record parse testing
-    // TODO CONC/CONT testing around AUTH, TITL, PUBL, TEXT
     // TODO TYPE sub-tag testing on REFN
 
     // TODO 'testsubtag' and 'testsubtag2' invocations are copy-pasta
+    // TODO real OBJE testing
 
     [TestClass]
     public class SourceTest : GedParseTest
@@ -89,6 +89,20 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void TestText()
+        {
+            var rec = TestSubTag("TEXT");
+            Assert.AreEqual("Fred", rec.Text);
+        }
+
+        [TestMethod]
+        public void TestText2()
+        {
+            var rec = TestSubTag2("TEXT");
+            Assert.AreEqual("Fred Flintstone\nyabba dabba doo", rec.Text);
+        }
+
+        [TestMethod]
         public void TestTitle2()
         {
             var rec = TestSubTag2("TITL");
@@ -100,6 +114,23 @@ namespace UnitTestProject1
         {
             var rec = TestSubTag2("PUBL");
             Assert.AreEqual("Fred Flintstone\nyabba dabba doo", rec.Publication);
+        }
+
+        [TestMethod]
+        public void TestRIN()
+        {
+            var txt = "0 @S1@ SOUR\n1 RIN 2547\n1 RIN gibber";
+            var rec = parse(txt);
+            Assert.AreEqual("2547", rec.RIN);
+            Assert.AreEqual(1, rec.Errors.Count);
+        }
+
+        [TestMethod]
+        public void TestOBJE()
+        {
+            var txt = "0 @S1@ SOUR\n1 OBJE";
+            var rec = parse(txt);
+            // TODO real guts/validate
         }
 
         [TestMethod]
@@ -129,5 +160,13 @@ namespace UnitTestProject1
             // TODO test actual details
         }
 
+        [TestMethod]
+        public void TestData()
+        {
+            // taken from allged
+            var txt = "0 @S1@ SOUR\n1 DATA\n2 EVEN BIRT, CHR\n3 DATE FROM 1 JAN 1980 TO 1 FEB 1982\n3 PLAC Place\n2 EVEN DEAT\n3 DATE FROM 1 JAN 1980 TO 1 FEB 1982\n3 PLAC Another place\n2 AGNC Resposible agency\n2 NOTE A note about whatever\n3 CONT Note continued here. The word TE\n3 CONC ST should not be broken!";
+            var rec = parse(txt);
+            Assert.AreNotEqual(0, rec.Data.Count);
+        }
     }
 }
