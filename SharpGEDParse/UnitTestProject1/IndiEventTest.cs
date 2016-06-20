@@ -8,10 +8,6 @@ namespace UnitTestProject1
     [TestClass]
     public class IndiEventTest : GedParseTest
     {
-        // TODO AGNC
-        // TODO RELI
-        // TODO CAUS
-        // TODO RESN
         // TODO CHAN
         // TODO OBJE
         // TODO multiple NOTE, SOUR
@@ -339,5 +335,37 @@ namespace UnitTestProject1
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(1, rec.Events[0].Errors.Count);
         }
+
+        [TestMethod]
+        public void TestMultEvent()
+        {
+            string txt = "0 INDI\n1 BIRT\n2 DATE 1774\n2 NOTE this is a note\n2 PLAC Sands, Oldham, Lncshr, Eng\n1 BURI\n2 RESN locked\n2 DATE 1774\n2 PLAC who knows";
+            var rec = parse(txt);
+            Assert.AreEqual(2, rec.Events.Count);
+            var aEvent = rec.Events[0];
+            Assert.AreEqual("1774", aEvent.Date);
+            Assert.AreEqual(1, aEvent.Notes.Count);
+            Assert.AreEqual("this is a note", aEvent.Notes[0]);
+            aEvent = rec.Events[1];
+            Assert.AreEqual("1774", aEvent.Date);
+            Assert.AreEqual("locked", aEvent.Restriction);
+        }
+        [TestMethod]
+        public void TestMultEvent2()
+        {
+            string txt = "0 INDI\n1 BIRT\n2 NOTE this is a note\n2 DATE 1774\n2 CAUS fun\n2 PLAC Sands, Oldham, Lncshr, Eng\n1 BURI\n2 RELI cthulhu\n2 AGNC blunt instrument\n2 DATE 1774\n2 PLAC who knows";
+            var rec = parse(txt);
+            Assert.AreEqual(2, rec.Events.Count);
+            var aEvent = rec.Events[0];
+            Assert.AreEqual("1774", aEvent.Date);
+            Assert.AreEqual(1, aEvent.Notes.Count);
+            Assert.AreEqual("this is a note", aEvent.Notes[0]);
+            Assert.AreEqual("fun", aEvent.Cause);
+            aEvent = rec.Events[1];
+            Assert.AreEqual("1774", aEvent.Date);
+            Assert.AreEqual("cthulhu", aEvent.Religion);
+            Assert.AreEqual("blunt instrument", aEvent.Agency);
+        }
+
     }
 }

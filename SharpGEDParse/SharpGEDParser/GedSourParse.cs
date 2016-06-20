@@ -17,7 +17,8 @@ namespace SharpGEDParser
             _tagSet.Add("OBJE", ignoreProc);
             _tagSet.Add("ABBR", abbrProc);
             _tagSet.Add("PUBL", publProc);
-            // TODO source repository citation
+
+            _tagSet.Add("REPO", ignoreProc); // TODO REPO and sub-tag processing
         }
 
         private void rinProc()

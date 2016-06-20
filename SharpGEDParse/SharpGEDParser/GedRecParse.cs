@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.Collections.Generic;
 
 namespace SharpGEDParser
@@ -64,6 +64,11 @@ namespace SharpGEDParser
             }
         }
 
+        public virtual KBRGedRec Parse0(KBRGedRec rec, ParseContext context)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Parse(KBRGedRec rec, ParseContext context)
         {
             _rec = rec;
@@ -72,6 +77,9 @@ namespace SharpGEDParser
             int linedex = context.Begline+1;
             if (linedex > context.Endline) // TODO empty record error?
                 return;
+
+            // TODO context is blown after first ParseSubRec call
+            int maxLinedex = context.Endline;
 
             int sublinedex;
             char startLevel = Lines.GetLevel(linedex, out sublinedex);
@@ -87,32 +95,21 @@ namespace SharpGEDParser
 
             while (true)
             {
-                if (linedex > context.Endline)
+                if (linedex > maxLinedex)
                     break;
                 int startrec = linedex;
                 int startsubdex = sublinedex;
-                while (Lines.GetLevel(linedex+1, out sublinedex) > startLevel && linedex+1 <= context.Endline)
+                while (Lines.GetLevel(linedex+1, out sublinedex) > startLevel && linedex+1 <= maxLinedex)
                     linedex++;
                 ParseSubRec(rec, startrec, linedex, startsubdex);
                 linedex++;
             }
         }
 
-        private GedParse _EventParseSingleton;
-
         protected KBRGedEvent CommonEventProcessing(GedRecord lines)
         {
-            // TODO somehow push into GedEventParse
-
-            var eRec = new KBRGedEvent(lines, _context.Tag);
-            if (_context.Tag == "DSCR") // TODO conc/cont support can't lose trailing spaces
-                eRec.Detail = _context.Line.Substring(_context.Nextchar).TrimStart();
-            else
-                eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
-            if (_EventParseSingleton == null)
-                _EventParseSingleton = new GedEventParse();
-            _EventParseSingleton.Parse(eRec, _context);
-            return eRec;
+            var eRec = KBRGedParser.EventParser.Parse0(_rec, _context);
+            return eRec as KBRGedEvent;
         }
 
         protected void NoteProc()
@@ -133,44 +130,12 @@ namespace SharpGEDParser
             return rec;
         }
 
-        private GedParse _SourceCitParseSingleton;
-
         // Common Source Citation processing
         protected void SourCitProc(KBRGedRec _rec)
         {
-            // TODO somehow push into GedSourCitParse
-
-            // "1 SOUR @n@"
-            // "1 SOUR text"
-            // "1 SOUR text\n2 CONC text"
-
-            string embed = null;
-            string ident = null;
-            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
-            if (res == -1 || string.IsNullOrWhiteSpace(ident))
-            {
-                embed = extendedText();
-                if (string.IsNullOrEmpty(embed))
-                {
-                    ErrorRec("empty embedded source");
-                    embed = null;
-                }
-                if (embed != null && embed.Contains("@"))
-                {
-                    ErrorRec("Invalid source reference");
-                    return;
-                }
-            }
-
-            GedSourCit sRec = new GedSourCit(_rec.Lines);
-            sRec.Beg = _context.Begline;
-            sRec.End = _context.Endline;
-            sRec.XRef = ident;
-            sRec.Embed = embed;
-            _rec.Sources.Add(sRec);
-            if (_SourceCitParseSingleton == null)
-                _SourceCitParseSingleton = new GedSourCitParse();
-            _SourceCitParseSingleton.Parse(sRec, _context);
+            var scRec = KBRGedParser.SourceCitParseSingleton.Parse0(_rec, _context);
+            if (scRec != null)
+                _rec.Sources.Add(scRec as GedSourCit);
         }
 
         protected void UnknownTag(string tag, int startLineDex, int maxLineDex)

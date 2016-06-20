@@ -166,7 +166,54 @@ namespace UnitTestProject1
             // taken from allged
             var txt = "0 @S1@ SOUR\n1 DATA\n2 EVEN BIRT, CHR\n3 DATE FROM 1 JAN 1980 TO 1 FEB 1982\n3 PLAC Place\n2 EVEN DEAT\n3 DATE FROM 1 JAN 1980 TO 1 FEB 1982\n3 PLAC Another place\n2 AGNC Resposible agency\n2 NOTE A note about whatever\n3 CONT Note continued here. The word TE\n3 CONC ST should not be broken!";
             var rec = parse(txt);
-            Assert.AreNotEqual(0, rec.Data.Count);
+            Assert.AreNotEqual(0, rec.Data.Count, "DATA tag NYI");
+        }
+
+        [TestMethod]
+        public void TestReal()
+        {
+            // A real source record taken from a GED file... Note the missing trailing space in the TEXT tag!
+            var txt = "0 @S7@ SOUR\n1 ABBR Truelove-Newton, Alice\n1 TITL Ms Alice [Truelove] Newton, her info abt Lourena Vaughan\n1 TEXT Estelle Truelove's daughter--born in vacinity of New Hill/Aplex, Wake\n2 CONC Co., North Carloina";
+            var rec = parse(txt);
+            Assert.AreEqual("S7", rec.XRef);
+            Assert.IsNotNull(rec.Abbreviation);
+            Assert.IsNotNull(rec.Title);
+            Assert.IsNotNull(rec.Text);
+        }
+
+        [TestMethod]
+        public void TestReal2()
+        {
+            // Another real source record
+            var txt = "0 @S4@ SOUR\n1 ABBR Heiratsurkunde Lensahn Nr.7 09.05.1908 Gustav Christian Hahn\n1 DATA\n2 EVEN MARR\n3 DATE 9 MAY 1908\n3 PLAC Lensahn\n1 TITL Heiratsurkunde Lensahn Nr.7/1908 09.05.1908";
+            var rec = parse(txt);
+            Assert.AreEqual("S4", rec.XRef);
+            Assert.IsNotNull(rec.Abbreviation);
+            Assert.IsNotNull(rec.Title);
+            Assert.AreNotEqual(0, rec.Data.Count, "DATA tag");
+        }
+
+        [TestMethod]
+        public void TestReal3()
+        {
+            var txt = "0 @S12@ SOUR\n1 ABBR Geburtsurkunde Weinheim-Altstadt 1843 Seite 333 Anna Margaretha Haas\n1 DATA\n2 AGNC Amtsgericht Weinheim Bergstraße\n1 TITL Geburtsurkunde Weinheim-Altstadt 1843 Seite 333 Nr. 80\n1 REPO @R2@";
+            var rec = parse(txt);
+            Assert.AreEqual("S12", rec.XRef);
+            Assert.IsNotNull(rec.Abbreviation);
+            Assert.IsNotNull(rec.Title);
+            Assert.AreNotEqual(0, rec.Citations.Count, "REPO tag");
+            Assert.AreNotEqual(0, rec.Data.Count, "DATA tag");
+        }
+
+        [TestMethod]
+        public void TestReal4()
+        {
+            // note the weird tag WHEREINSOURCE - appears to be from GenoPro
+            var txt = "0 @source67329@ SOUR\n1 TITL @S0066966@\n1 WHEREINSOURCE 55\n1 DATA \n2 TEXT 3 JAN 2004";
+            var rec = parse(txt);
+            Assert.AreEqual("source67329", rec.XRef);
+            Assert.AreEqual("@S0066966@", rec.Title);
+            Assert.AreNotEqual(0, rec.Unknowns.Count);
         }
     }
 }

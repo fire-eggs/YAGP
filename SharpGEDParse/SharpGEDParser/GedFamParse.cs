@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace SharpGEDParser
 {
@@ -93,19 +92,10 @@ namespace SharpGEDParser
             _rec.Data.Add(rec);
         }
 
-        private GedParse _EventParseSingleton;
-
         private void FamEventProc()
         {
-            // TODO push into GedEventParse
-
-            var eRec = new KBRGedEvent(_rec.Lines, _context.Tag);
-            eRec.Detail = _context.Line.Substring(_context.Nextchar).Trim();
-            if (_EventParseSingleton == null)
-                _EventParseSingleton = new GedEventParse();
-            _EventParseSingleton.Parse(eRec, _context);
-
-            (_rec as KBRGedFam).FamEvents.Add(eRec);
+            var eRec = KBRGedParser.EventParser.Parse0(_rec, _context);
+            (_rec as KBRGedFam).FamEvents.Add(eRec as KBRGedEvent);
         }
 
     }

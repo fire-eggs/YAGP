@@ -4,6 +4,17 @@ namespace SharpGEDParser
 {
     public class GedEventParse : GedRecParse
     {
+        public override KBRGedRec Parse0(KBRGedRec rec, ParseContext context)
+        {
+            KBRGedEvent eRec = new KBRGedEvent(rec.Lines, context.Tag);
+            if (context.Tag == "DSCR") // TODO conc/cont support can't lose trailing spaces
+                eRec.Detail = context.Line.Substring(context.Nextchar).TrimStart();
+            else
+                eRec.Detail = context.Line.Substring(context.Nextchar).Trim();
+            Parse(eRec, context);
+            return eRec;
+        }
+
         protected override void BuildTagSet()
         {
             _tagSet.Add("AGE", AgeProc);

@@ -22,6 +22,43 @@ namespace SharpGEDParser
 
     public class GedSourCitParse : GedRecParse
     {
+        public override KBRGedRec Parse0(KBRGedRec rec, ParseContext context)
+        {
+            // TODO this is getting confusing; possibly single-threaded issue
+            _context = context;
+            _rec = rec;
+
+            // "1 SOUR @n@"
+            // "1 SOUR text"
+            // "1 SOUR text\n2 CONC text"
+
+            string embed = null;
+            string ident = null;
+            int res = GedLineUtil.Ident(context.Line, context.Max, context.Nextchar, ref ident);
+            if (res == -1 || string.IsNullOrWhiteSpace(ident))
+            {
+                embed = extendedText();
+                if (string.IsNullOrEmpty(embed))
+                {
+                    ErrorRec("empty embedded source");
+                    embed = null;
+                }
+                if (embed != null && embed.Contains("@"))
+                {
+                    ErrorRec("Invalid source reference");
+                    return null;
+                }
+            }
+
+            GedSourCit sRec = new GedSourCit(rec.Lines);
+            sRec.Beg = context.Begline;
+            sRec.End = context.Endline;
+            sRec.XRef = ident;
+            sRec.Embed = embed;
+            Parse(sRec, _context);
+            return sRec;
+        }
+
         protected override void BuildTagSet()
         {
             _tagSet.Add("PAGE", pageProc);  // "pointer to source record" specific

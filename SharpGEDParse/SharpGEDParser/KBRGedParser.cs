@@ -85,6 +85,18 @@ namespace SharpGEDParser
         private GedParse _FamParseSingleton;
         private GedParse _HeadParseSingleton;
         private GedParse _SourParseSingleton;
+        private static GedRecParse _EventParseSingleton;
+        private static GedRecParse _SourceCitParseSingleton;
+
+        public static GedRecParse EventParser
+        {
+            get { return _EventParseSingleton ?? (_EventParseSingleton = new GedEventParse()); }
+        }
+
+        public static GedRecParse SourceCitParseSingleton
+        {
+            get { return _SourceCitParseSingleton ?? (_SourceCitParseSingleton = new GedSourCitParse()); }
+        }
     }
 
     public interface GedParse
