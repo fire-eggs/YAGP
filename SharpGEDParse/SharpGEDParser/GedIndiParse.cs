@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace SharpGEDParser
 {
@@ -186,10 +184,8 @@ namespace SharpGEDParser
             rec.End = _context.Endline;
             (_rec as KBRGedIndi).FamLinks.Add(rec);
 
-            // TODO parse NOTE
-            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines, 
-                                             _context.Begline, 
-                                             _context.Endline, "NOTE") == null);
+            // TODO more than one note permitted!
+            rec.Note = GedLineUtil.ParseForMulti(_rec.Lines, _context.Begline+1, _context.Endline, "NOTE"); // TODO better implementation?
         }
 
         private void ChildLink()
@@ -207,16 +203,14 @@ namespace SharpGEDParser
             rec.End = _context.Endline;
             (_rec as KBRGedIndi).ChildLinks.Add(rec);
 
-            // TODO parse PEDI, STAT, NOTE
-            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
-                                             _context.Begline,
-                                             _context.Endline, "NOTE") == null);
-            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
-                                             _context.Begline,
-                                             _context.Endline, "PEDI") == null);
-            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
-                                             _context.Begline,
-                                             _context.Endline, "STAT") == null);
+            var lines = _rec.Lines;
+            int begline = _context.Begline;
+            int endline = _context.Endline;
+
+            // TODO more than one note permitted!
+            rec.Note = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "NOTE"); // TODO better implementation?
+            rec.Pedi = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "PEDI"); // TODO better implementation?
+            rec.Stat = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "STAT"); // TODO better implementation?
         }
 
         private void EventProc()
@@ -299,20 +293,19 @@ namespace SharpGEDParser
         {
             var rec = CommonXRefProcessing();
             if (rec != null)
+            {
                 (_rec as KBRGedIndi).Assoc.Add(rec);
 
-            // TODO parse RELA
-            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
-                                             _context.Begline,
-                                             _context.Endline, "RELA") == null);
-            // TODO parse SOUR
-            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
-                                             _context.Begline,
-                                             _context.Endline, "SOUR") == null);
-            // TODO parse NOTE
-            Debug.Assert(GedLineUtil.ParseFor(_rec.Lines,
-                                             _context.Begline,
-                                             _context.Endline, "NOTE") == null);
+                var lines = _rec.Lines;
+                var begline = _context.Begline;
+                var endline = _context.Endline;
+
+                rec.Rela = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "RELA"); // TODO better implementation?
+                // TODO more than one source permitted?
+                rec.Sour = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "SOUR"); // TODO better implementation?
+                // TODO more than one note permitted!
+                rec.Note = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "NOTE"); // TODO better implementation?
+            }
         }
 
         private void NameProc()

@@ -44,13 +44,16 @@
     <Compile Include="GedFamParse.cs" />
     <Compile Include="GedHeadParse.cs" />
     <Compile Include="GedIndiParse.cs" />
+    <Compile Include="GedNote.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
+    <Compile Include="GedRepo.cs" />
     <Compile Include="GedRepository.cs" />
     <Compile Include="GedSource.cs" />
     <Compile Include="GedSourCit.cs" />
     <Compile Include="GedSourCitParse.cs" />
     <Compile Include="GedSourParse.cs" />
+    <Compile Include="GedSubm.cs" />
     <Compile Include="KBRGedEvent.cs" />
     <Compile Include="KBRGedFam.cs" />
     <Compile Include="KBRGedHead.cs" />

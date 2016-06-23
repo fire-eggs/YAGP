@@ -25,7 +25,7 @@ namespace SharpGEDParser
                 parseSet.Item2.Parse(parseSet.Item1);
                 //parseSet.Item2.Validate(parseSet.Item1);
             }
-            Console.WriteLine(parseSet.Item1);
+            // TODO Console.WriteLine(parseSet.Item1);
             return parseSet.Item1;
         }
 
@@ -64,16 +64,20 @@ namespace SharpGEDParser
                 case "FAM":
                     data = new KBRGedFam(rec, ident);
                     return new Tuple<KBRGedRec, GedParse>(data, _FamParseSingleton);
-
                 case "SOUR":
                     GedSource data2 = new GedSource(rec);
                     data2.XRef = ident;
                     return new Tuple<KBRGedRec, GedParse>(data2, _SourParseSingleton);
-
                 case "SUBM":
+                    data = new GedSubm(rec, ident);
+                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
                 case "REPO":
-                case "OBJE":
+                    data = new GedRepo(rec, ident);
+                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
                 case "NOTE":
+                    data = new GedNote(rec, ident);
+                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
+                case "OBJE":
                 case "SUBN":
                 default:
                     data = new KBRGedUnk(rec, ident, tag);

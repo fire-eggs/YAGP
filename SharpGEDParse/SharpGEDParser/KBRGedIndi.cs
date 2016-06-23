@@ -46,6 +46,10 @@ namespace SharpGEDParser
         public ChildLinkRec(string ident) : base("FAMC", ident)
         {
         }
+
+        public Tuple<int, int> Pedi { get; set; }
+
+        public Tuple<int, int> Stat { get; set; }
     }
 
     public class FamLinkRec : XRefRec
@@ -63,6 +67,13 @@ namespace SharpGEDParser
             Tag = tag;
             XRef = xref;
         }
+
+        public Tuple<int, int> Note { get; set; }
+        public Tuple<int, int> Rela { get; set; }
+        public Tuple<int, int> Sour { get; set; }
+
+// TODO multiple notes, CONC/CONT notes
+// TODO multiple sources, sub-source-tags
 
         [ExcludeFromCodeCoverage]
         public override string ToString()
