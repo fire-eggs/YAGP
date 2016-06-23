@@ -175,6 +175,16 @@ namespace UnitTestProject1
         }
 
         // TODO where else might leading spaces be a problem? SOUR/DATA/DATE? SOUR/DATA/TEXT? SOUR/TEXT?
+
+        [TestMethod]
+        public void EmptyCONT()
+        {
+            // one GEDCOM had CONT lines with no text
+            var txt = "0 INDI\n1 NOTE blah\n2 CONT";
+            var rec = parse<KBRGedIndi>(txt, "INDI");
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("blah\n", rec.Notes[0]);
+        }
     }
 }
 

@@ -190,12 +190,16 @@ namespace SharpGEDParser
                     string ident = null;
                     string tag = null;
 
-                    // TODO should be no ident!
+                    // TODO should be no ident! but should be allowed... see Tamura Jones
                     int nextChar = GedLineUtil.LevelIdentAndTag(line, ref ident, ref tag);
                     if (tag == "CONC")
                         txt += line.Substring(nextChar + 1); // must keep trailing space
                     else if (tag == "CONT")
-                        txt += "\n" + line.Substring(nextChar + 1); // must keep trailing space
+                    {
+                        txt += "\n";
+                        if (line.Length > nextChar) // CONT line may be to force newline
+                            txt += line.Substring(nextChar + 1); // must keep trailing space
+                    }
                     else
                         break; // non-CONC, non-CONT: stop!
                 }
