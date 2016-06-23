@@ -8,20 +8,6 @@ namespace SharpGEDParser
 
     public class GedIndiParse : GedRecParse
     {
-        private void ErrorTag(string err)
-        {
-            ErrorTag(_context.Tag, _context.Begline, _context.Endline, err);
-        }
-
-        private void ErrorTag(string tag, int startLineDex, int maxLineDex, string err)
-        {
-            var rec = new UnkRec(tag);
-            rec.Beg = startLineDex;
-            rec.End = maxLineDex;
-            rec.Error = err;
-            _rec.Errors.Add(rec);
-        }
-
         protected override void BuildTagSet()
         {
             // Details
@@ -124,7 +110,7 @@ namespace SharpGEDParser
         {
             if ((_rec as KBRGedIndi).HasData(_context.Tag))
             {
-                ErrorTag(string.Format("Multiple {0}: used first", _context.Tag));
+                ErrorRec(string.Format("Multiple {0}: used first", _context.Tag));
                 return;
             }
             DataProc();
@@ -142,7 +128,7 @@ namespace SharpGEDParser
                 return rec;
             }
 
-            ErrorTag(string.Format("Missing xref for {0}", _context.Tag));
+            ErrorRec(string.Format("Missing xref for {0}", _context.Tag));
             return null;
         }
 
@@ -191,7 +177,7 @@ namespace SharpGEDParser
             int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res == -1)
             {
-                ErrorTag(string.Format("Missing xref for {0}", _context.Tag));
+                ErrorRec(string.Format("Missing xref for {0}", _context.Tag));
                 return;
             }
 
@@ -212,7 +198,7 @@ namespace SharpGEDParser
             int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
             if (res == -1)
             {
-                ErrorTag(string.Format("Missing xref for {0}", _context.Tag));
+                ErrorRec(string.Format("Missing xref for {0}", _context.Tag));
                 return;
             }
 
@@ -266,7 +252,7 @@ namespace SharpGEDParser
             // GEDCOM spec says to take the FIRST
             if (_rec.Change != null)
             {
-                ErrorTag("Multiple CHAN: first one used");
+                ErrorRec("Multiple CHAN: first one used");
                 return;
             }
             _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
