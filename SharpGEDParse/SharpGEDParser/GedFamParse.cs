@@ -16,7 +16,7 @@ namespace SharpGEDParser
             _tagSet.Add("CHAN", ChanProc);
 
             _tagSet.Add("_UID", DataProc); // TODO
-            _tagSet.Add("_STAT", DataProc); // From 'AGES' program
+            _tagSet.Add("_STAT", DataProc); // From 'AGES' program; also wiki-en.genealogy.net/GEDCOM/FAM-Tag
 
             _tagSet.Add("EVEN", FamEventProc);
             _tagSet.Add("ANUL", FamEventProc);
@@ -28,13 +28,13 @@ namespace SharpGEDParser
             _tagSet.Add("MARB", FamEventProc);
             _tagSet.Add("MARC", FamEventProc);
             _tagSet.Add("MARR", FamEventProc);
+            _tagSet.Add("CENS", FamEventProc); // TODO
 
             _tagSet.Add("RESN", DataProc); // TODO
             _tagSet.Add("NCHI", DataProc); // TODO
             _tagSet.Add("REFN", DataProc); // TODO; plus TYPE sub-tag
             _tagSet.Add("RIN", DataProc); // TODO
             _tagSet.Add("SLGS", DataProc); // TODO
-            _tagSet.Add("CENS", DataProc); // TODO
             _tagSet.Add("SUBM", DataProc); // TODO
         }
 

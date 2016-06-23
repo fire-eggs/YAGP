@@ -40,7 +40,7 @@ namespace UnitTestProject1
             Assert.AreEqual(2, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0]);
             Assert.AreEqual("p4", rec.Childs[1]);
-            Assert.AreEqual(1, rec.Unknowns.Count); // TODO RIN handling?
+            Assert.AreEqual(1, rec.Data.Count); // TODO RIN handling?
         }
 
         private KBRGedFam TestIdentErr(string dadIdent, string momIdent, string kidIdent, int expectedErrCount)
