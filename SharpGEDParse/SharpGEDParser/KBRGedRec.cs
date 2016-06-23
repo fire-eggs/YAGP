@@ -9,7 +9,8 @@ namespace SharpGEDParser
 
         public KBRGedRec(GedRecord lines)
         {
-            // TODO keep null ptrs until used
+            // TODO keep null ptrs until used?
+            Custom = new List<UnkRec>();
             Unknowns = new List<UnkRec>();
             Errors = new List<UnkRec>();
             Sources = new List<GedSourCit>();
@@ -25,8 +26,15 @@ namespace SharpGEDParser
 
         public string Ident { get; set; }
         public string Tag { get; set; }
+
+        // Unknown (i.e. not custom) tags
         public List<UnkRec> Unknowns { get; set; }
+
+        // Problems, other than 'unknown' tag
         public List<UnkRec> Errors { get; set; }
+
+        // Custom tags as defined by other genealogical applications
+        public List<UnkRec> Custom { get; set; }
         public List<GedSourCit> Sources { get; set; }
         public List<DataRec> Data { get; set; }
         public List<string> Notes { get; set; } // TODO I cannot remember: should original note pointer be preserved?

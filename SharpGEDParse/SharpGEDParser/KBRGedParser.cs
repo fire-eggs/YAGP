@@ -79,7 +79,7 @@ namespace SharpGEDParser
                     return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
                 case "OBJE":
                 case "SUBN":
-                default:
+                default:  // TODO leading underscore signals a custom record
                     data = new KBRGedUnk(rec, ident, tag);
                     return new Tuple<KBRGedRec, GedParse>(data, null);
             }

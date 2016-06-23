@@ -138,6 +138,14 @@ namespace SharpGEDParser
                 _rec.Sources.Add(scRec as GedSourCit);
         }
 
+        protected void CustomTag(string tag, int startLineDex, int maxLineDex)
+        {
+            var rec = new UnkRec(tag);
+            rec.Beg = startLineDex;
+            rec.End = maxLineDex;
+            _rec.Custom.Add(rec);
+        }
+
         protected void UnknownTag(string tag, int startLineDex, int maxLineDex)
         {
             var rec = new UnkRec(tag);
@@ -168,7 +176,10 @@ namespace SharpGEDParser
             }
             else
             {
-                UnknownTag(tag, startLineDex, maxLineDex);
+                if (tag.StartsWith("_"))
+                    CustomTag(tag, startLineDex, maxLineDex);
+                else
+                    UnknownTag(tag, startLineDex, maxLineDex);
             }
         }
 

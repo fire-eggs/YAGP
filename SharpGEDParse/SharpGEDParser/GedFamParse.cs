@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design.Serialization;
 
 namespace SharpGEDParser
 {
@@ -14,7 +15,7 @@ namespace SharpGEDParser
             _tagSet.Add("SOUR", SourProc);
             _tagSet.Add("CHAN", ChanProc);
 
-            //_tagSet.Add("_UID", DataProc); // TODO not seen?
+            _tagSet.Add("_UID", DataProc); // TODO
             _tagSet.Add("_STAT", DataProc); // From 'AGES' program
 
             _tagSet.Add("EVEN", FamEventProc);
@@ -28,7 +29,13 @@ namespace SharpGEDParser
             _tagSet.Add("MARC", FamEventProc);
             _tagSet.Add("MARR", FamEventProc);
 
-            // TODO LDS Spouse sealing? SLGS
+            _tagSet.Add("RESN", DataProc); // TODO
+            _tagSet.Add("NCHI", DataProc); // TODO
+            _tagSet.Add("REFN", DataProc); // TODO; plus TYPE sub-tag
+            _tagSet.Add("RIN", DataProc); // TODO
+            _tagSet.Add("SLGS", DataProc); // TODO
+            _tagSet.Add("CENS", DataProc); // TODO
+            _tagSet.Add("SUBM", DataProc); // TODO
         }
 
         private void SourProc()
