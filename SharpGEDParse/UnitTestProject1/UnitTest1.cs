@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 using System.Diagnostics;
@@ -99,8 +100,13 @@ namespace UnitTestProject1
         public void EmptyLines()
         {
             string indi = "0 INDI\n1 DSCR attrib_value\n\n2 DATE 1774\n   \n0 TRLR"; // TODO trailing record bug
-            var rec = ReadIt(indi);
-            Assert.AreEqual(3, rec.Count); // blank lines as error "records"
+            FileRead fr = new FileRead();
+            using (var stream = new StreamReader(ToStream(indi)))
+            {
+                fr.ReadLines(stream);
+            }
+            Assert.AreEqual(1, fr.Data.Count);
+            Assert.AreEqual(2, fr.Errors.Count); // blank lines as error "records"
         }
 
         [TestMethod]
@@ -141,8 +147,13 @@ namespace UnitTestProject1
             "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
             "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
                           "\n2 DATE 1774\n0 TRLR";
-            var rec = ReadIt(indi);
-            Assert.AreEqual(2, rec.Count); // long lines as error "record"
+            FileRead fr = new FileRead();
+            using (var stream = new StreamReader(ToStream(indi)))
+            {
+                fr.ReadLines(stream);
+            }
+            Assert.AreEqual(1, fr.Data.Count);
+            Assert.AreEqual(1, fr.Errors.Count); // long lines as error "records"
         }
 
         [TestMethod]

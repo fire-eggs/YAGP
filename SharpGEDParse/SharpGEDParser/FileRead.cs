@@ -6,9 +6,8 @@ using System.Text;
 
 namespace SharpGEDParser
 {
-    public class FileRead
+    public class FileRead : IDisposable
     {
-        private StreamReader _stream;
         private int _lineNum;
 
         public enum GedcomCharset
@@ -35,6 +34,9 @@ namespace SharpGEDParser
 
         // TODO needs to be intelligent - header/people/families/relations/etc
         public List<KBRGedRec> Data { get; set; }
+
+        // Top-level (file level) errors, such as blank lines
+        public List<UnkRec> Errors { get; set; }
 
         private GedRecord _currRec;
 
@@ -111,6 +113,7 @@ namespace SharpGEDParser
         {
             Parser = new KBRGedParser(FilePath ?? "");
             Data = new List<KBRGedRec>();
+            Errors = new List<UnkRec>();
 
             _currRec = new GedRecord();
             _lineNum = 1;
@@ -129,9 +132,9 @@ namespace SharpGEDParser
         private void ReadLines()
         {
             // TODO what happens if file doesn't exist?
-            using (_stream = new StreamReader(FilePath, FileEnc))
+            using (StreamReader stream = new StreamReader(FilePath, FileEnc))
             {
-                ReadLines(_stream);
+                ReadLines(stream);
             }
         }
 
@@ -177,12 +180,19 @@ namespace SharpGEDParser
 
         private void DoError(string msg, int lineNum)
         {
-            var rec = new KBRGedUnk(null,"","");
             var err = new UnkRec("");
             err.Error = msg;
             err.Beg = lineNum;
             err.End = lineNum;
-            Data.Add(rec);
+            Errors.Add(err);
+        }
+
+        public void Dispose()
+        {
+            // TODO any explicit disposal required?
+            Parser = null;
+            Data = null;
+            Errors = null;
         }
     }
 }
