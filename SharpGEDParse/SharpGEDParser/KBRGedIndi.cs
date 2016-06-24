@@ -128,23 +128,34 @@ namespace SharpGEDParser
         // Individual's sex
         public char Sex { get; set; }
 
-        public List<KBRGedEvent> Events { get; set; }
+        private List<KBRGedEvent> _events;
+        public List<KBRGedEvent> Events { get { return _events ?? (_events = new List<KBRGedEvent>()); }}
 
-        public List<KBRGedEvent> Attribs { get; set; }
+        private List<KBRGedEvent> _attribs;
+        public List<KBRGedEvent> Attribs { get { return _attribs ?? (_attribs = new List<KBRGedEvent>()); }}
 
-        public List<LDSRec> LDSEvents { get; set; }
+        private List<LDSRec> _ldsEvents;
+        public List<LDSRec> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSRec>()); }}
 
-        public List<NameRec> Names { get; set; }
+        private List<NameRec> _names;
+        public List<NameRec> Names { get { return _names ?? (_names = new List<NameRec>()); }}
 
-        public List<XRefRec> Alia { get; set; }
-        public List<XRefRec> Anci { get; set; }
-        public List<XRefRec> Desi { get; set; }
-        public List<XRefRec> Subm { get; set; }
-        public List<XRefRec> Assoc { get; set; }
+        private List<XRefRec> _alia;
+        public List<XRefRec> Alia { get { return _alia ?? (_alia = new List<XRefRec>()); }}
+        private List<XRefRec> _anci;
+        public List<XRefRec> Anci { get { return _anci ?? (_anci = new List<XRefRec>()); }}
+        private List<XRefRec> _desi;
+        public List<XRefRec> Desi { get { return _desi ?? (_desi = new List<XRefRec>()); }}
+        private List<XRefRec> _subm;
+        public List<XRefRec> Subm { get { return _subm ?? (_subm = new List<XRefRec>()); }}
+        private List<XRefRec> _assoc;
+        public List<XRefRec> Assoc { get { return _assoc ?? (_assoc = new List<XRefRec>()); }}
 
-        public List<ChildLinkRec> ChildLinks { get; set; }
+        private List<ChildLinkRec> _childLinks;
+        public List<ChildLinkRec> ChildLinks { get { return _childLinks ?? (_childLinks = new List<ChildLinkRec>()); }}
 
-        public List<FamLinkRec> FamLinks { get; set; }
+        private List<FamLinkRec> _famLinks;
+        public List<FamLinkRec> FamLinks { get { return _famLinks ?? (_famLinks = new List<FamLinkRec>()); }}
 
         public bool Living { get; set; }
 
@@ -153,26 +164,10 @@ namespace SharpGEDParser
             Ident = ident;
             Tag = "INDI"; // TODO use enum?
 
-            Events = new List<KBRGedEvent>();
-            Attribs = new List<KBRGedEvent>();
-            Names = new List<NameRec>();
-            LDSEvents = new List<LDSRec>();
-
-            // TODO consider tracking in a single list
-            Alia = new List<XRefRec>();
-            Anci = new List<XRefRec>();
-            Desi = new List<XRefRec>();
-            Subm = new List<XRefRec>();
-
-            ChildLinks = new List<ChildLinkRec>();
-            FamLinks = new List<FamLinkRec>();
-
-            Assoc = new List<XRefRec>();
+            // TODO consider tracking ALIA ANCI DESI SUBM in a single list
 
             Living = false;
             Sex = 'U'; // unknown until proven otherwise
-
-            // TODO can any properties, especially List<>, not be initialized until use? Efficiently?
         }
 
         public override string ToString()

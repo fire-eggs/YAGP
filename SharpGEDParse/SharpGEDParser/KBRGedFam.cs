@@ -8,15 +8,15 @@ namespace SharpGEDParser
         {
             Ident = ident;
             Tag = "FAM";
-
-            Childs = new List<string>();
-            FamEvents = new List<KBRGedEvent>();
         }
 
-        public List<string> Childs { get; set; } // identity strings for children
+        private List<string> _childs;
+        public List<string> Childs { get { return _childs ?? (_childs = new List<string>()); }}
         public string Dad { get; set; } // identity string for Father
         public string Mom { get; set; } // identity string for Mother
-        public List<KBRGedEvent> FamEvents { get; set; } // TODO COMMON
+
+        private List<KBRGedEvent> _famEvents; // TODO common?
+        public List<KBRGedEvent> FamEvents { get { return _famEvents ?? (_famEvents = new List<KBRGedEvent>()); }}
 
         public string Marriage
         {

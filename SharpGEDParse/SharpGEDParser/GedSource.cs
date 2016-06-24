@@ -10,8 +10,6 @@ namespace SharpGEDParser
             End = lines.End; // TODO hack for unit tests ???
 
             Tag = "SOUR";
-            UserReferences = new List<string>(); // TODO null until used?
-            Citations = new List<GedRepository>(); // TODO null until used?
         }
 
         // TODO XrefRec usage?
@@ -36,9 +34,11 @@ namespace SharpGEDParser
 
         public string RIN { get; set; }
 
-        public List<GedRepository> Citations { get; set; } 
+        private List<GedRepository> _citations;
+        public List<GedRepository> Citations { get { return _citations ?? (_citations = new List<GedRepository>()); }}
 
-        public List<string> UserReferences { get; set; }
+        private List<string> _userRefs;
+        public List<string> UserReferences { get { return _userRefs ?? (_userRefs = new List<string>()); }}
 
         public int Beg { get; set; } // TODO having problems
 
