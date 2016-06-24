@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace SharpGEDParser
 {
@@ -191,8 +192,9 @@ namespace SharpGEDParser
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         protected string extendedText()
         {
+            StringBuilder txt = new StringBuilder(_context.Line.Substring(_context.Nextchar).TrimStart());
+
             // NOTE: do NOT trim the end... trailing spaces are significant
-            string txt = _context.Line.Substring(_context.Nextchar).TrimStart(); // TODO stringbuilder?
             if (_context.Endline > _context.Begline)
             {
                 for (int i = _context.Begline + 1; i <= _context.Endline; i++)
@@ -204,18 +206,18 @@ namespace SharpGEDParser
                     // TODO should be no ident! but should be allowed... see Tamura Jones
                     int nextChar = GedLineUtil.LevelIdentAndTag(line, ref ident, ref tag);
                     if (tag == "CONC")
-                        txt += line.Substring(nextChar + 1); // must keep trailing space
+                        txt.Append(line.Substring(nextChar + 1)); // must keep trailing space
                     else if (tag == "CONT")
                     {
-                        txt += "\n";
-                        if (line.Length > nextChar) // CONT line may be to force newline
-                            txt += line.Substring(nextChar + 1); // must keep trailing space
+                        txt.Append("\n"); // NOTE: not appendline, which is \r\n
+                        if (line.Length > nextChar)
+                            txt.Append(line.Substring(nextChar + 1)); // must keep trailing space
                     }
                     else
                         break; // non-CONC, non-CONT: stop!
                 }
             }
-            return txt;
+            return txt.ToString();
         }
     }
 }
