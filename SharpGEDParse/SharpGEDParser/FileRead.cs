@@ -115,15 +115,28 @@ namespace SharpGEDParser
             Data = new List<KBRGedRec>();
             Errors = new List<UnkRec>();
 
-            _currRec = new GedRecord();
-            _lineNum = 1;
-            string line = instream.ReadLine(); // TODO CR, LF, CR/LF, and LF/CR must be validated?
-            while (line != null)
+            try
             {
-                ProcessLine(line, _lineNum);
+                _currRec = new GedRecord();
+                _lineNum = 1;
+                string line = instream.ReadLine(); // TODO CR, LF, CR/LF, and LF/CR must be validated?
+                while (line != null)
+                {
+                    ProcessLine(line, _lineNum);
 
-                line = instream.ReadLine();
-                _lineNum++;
+                    line = instream.ReadLine();
+                    _lineNum++;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "record head not zero")
+                    Errors.Add(new UnkRec("File doesn't start with '0 HEAD', parse fails"));
+                else
+                {
+                    Errors.Add(new UnkRec(ex.Message + "|" + ex.StackTrace));
+                    Console.WriteLine("Exception stopped processing");
+                }
             }
 
             // TODO a mal-formed file might be missing the end 0 TRLR line. If so, _currRec contains a record which as not been processed?

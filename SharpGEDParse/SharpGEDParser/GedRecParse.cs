@@ -206,7 +206,10 @@ namespace SharpGEDParser
                     // TODO should be no ident! but should be allowed... see Tamura Jones
                     int nextChar = GedLineUtil.LevelIdentAndTag(line, ref ident, ref tag);
                     if (tag == "CONC")
-                        txt.Append(line.Substring(nextChar + 1)); // must keep trailing space
+                    {
+                        if (line.Length > nextChar) // encountered empty CONC in real GED
+                            txt.Append(line.Substring(nextChar + 1)); // must keep trailing space
+                    }
                     else if (tag == "CONT")
                     {
                         txt.Append("\n"); // NOTE: not appendline, which is \r\n
