@@ -62,6 +62,7 @@
     <Compile Include="IndiEventTest.cs" />
     <Compile Include="IndiAttribTest.cs" />
     <Compile Include="FamEventsTest.cs" />
+    <Compile Include="RepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpGEDParser\SharpGEDParser.csproj">

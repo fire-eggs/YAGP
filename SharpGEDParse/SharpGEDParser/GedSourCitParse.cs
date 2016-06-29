@@ -25,7 +25,7 @@ namespace SharpGEDParser
         public override KBRGedRec Parse0(KBRGedRec rec, ParseContext context)
         {
             // TODO this is getting confusing; possibly single-threaded issue
-            _context = context;
+            ctx = context;
             _rec = rec;
 
             // "1 SOUR @n@"
@@ -55,7 +55,7 @@ namespace SharpGEDParser
             sRec.End = context.Endline;
             sRec.XRef = ident;
             sRec.Embed = embed;
-            Parse(sRec, _context);
+            Parse(sRec, ctx);
             return sRec;
         }
 
@@ -118,7 +118,7 @@ namespace SharpGEDParser
         {
             // The DATA line itself should have no relevance.
             // TODO create a singleton
-            new SourCitDataParse().Parse(_rec, _context);
+            new SourCitDataParse().Parse(_rec, ctx);
         }
 
         private void textProc()

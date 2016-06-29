@@ -11,7 +11,9 @@ namespace SharpGEDParser
 
         public int End { get; set; }
 
-        public string Tag { get; set; } // TODO enum?
+        // TODO enum?
+        public string Tag { get; set; }
+        public int LineCount { get { return End - Beg + 1; } }
 
         [ExcludeFromCodeCoverage]
         public override string ToString()
@@ -20,14 +22,15 @@ namespace SharpGEDParser
         }
     }
 
-    public class UnkRec : Rec
-    {
-        public string Error { get; set; }
-        public UnkRec(string tag)
-        {
-            Tag = tag;
-        }
-    }
+    //public class UnkRec : Rec
+    //{
+    //    public string Error { get; set; }
+
+    //    public UnkRec(string tag)
+    //    {
+    //        Tag = tag;
+    //    }
+    //}
 
     // Currently used for _UID
     public class DataRec : Rec

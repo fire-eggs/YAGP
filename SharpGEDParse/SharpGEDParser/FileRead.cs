@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using SharpGEDParser.Model;
 
 namespace SharpGEDParser
 {
@@ -33,7 +34,7 @@ namespace SharpGEDParser
         private KBRGedParser Parser { get; set; }
 
         // TODO needs to be intelligent - header/people/families/relations/etc
-        public List<KBRGedRec> Data { get; set; }
+        public List<object> Data { get; set; } // TODO temporary: KBRGedRec / GEDCommon
 
         // Top-level (file level) errors, such as blank lines
         public List<UnkRec> Errors { get; set; }
@@ -112,7 +113,7 @@ namespace SharpGEDParser
         public void ReadLines(StreamReader instream)
         {
             Parser = new KBRGedParser(FilePath ?? "");
-            Data = new List<KBRGedRec>();
+            Data = new List<object>(); // TODO temporary: KBRGedRec/GEDCommon
             Errors = new List<UnkRec>();
 
             try
@@ -131,10 +132,10 @@ namespace SharpGEDParser
             catch (Exception ex)
             {
                 if (ex.Message == "record head not zero")
-                    Errors.Add(new UnkRec("File doesn't start with '0 HEAD', parse fails"));
+                    Errors.Add(new UnkRec {Error = "File doesn't start with '0 HEAD', parse fails"});
                 else
                 {
-                    Errors.Add(new UnkRec(ex.Message + "|" + ex.StackTrace));
+                    Errors.Add(new UnkRec{ Error = ex.Message + "|" + ex.StackTrace});
                     Console.WriteLine("Exception stopped processing");
                 }
             }
@@ -193,7 +194,7 @@ namespace SharpGEDParser
 
         private void DoError(string msg, int lineNum)
         {
-            var err = new UnkRec("");
+            var err = new UnkRec();
             err.Error = msg;
             err.Beg = lineNum;
             err.End = lineNum;

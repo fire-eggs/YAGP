@@ -1,4 +1,6 @@
 ﻿using System;
+using SharpGEDParser.Model;
+using SharpGEDParser.Parser;
 
 namespace SharpGEDParser
 {
@@ -12,24 +14,26 @@ namespace SharpGEDParser
             _FamParseSingleton  = new GedFamParse();
             _HeadParseSingleton = new GedHeadParse();
             _SourParseSingleton = new GedSourParse();
+            _RepoParseSingleton = new GedRepoParse();
         }
 
-        public KBRGedRec Parse(GedRecord rec)
+        public object Parse(GedRecord rec)
         {
             // Given a glop of lines which represent a 'record', parse it into GED data (HEAD/INDI/FAM/etc)
-            Tuple<KBRGedRec, GedParse> parseSet = Make(rec);
+            Tuple<object, GedParse> parseSet = Make(rec);
 
             // TODO execute in parallel
             if (parseSet.Item2 != null)
             {
-                parseSet.Item2.Parse(parseSet.Item1);
-                //parseSet.Item2.Validate(parseSet.Item1);
+                if (parseSet.Item1 is KBRGedRec)
+                    parseSet.Item2.Parse(parseSet.Item1 as KBRGedRec);
+                else
+                    parseSet.Item2.Parse(parseSet.Item1 as GEDCommon, rec);
             }
-            // TODO Console.WriteLine(parseSet.Item1);
             return parseSet.Item1;
         }
 
-        private Tuple<KBRGedRec, GedParse> Make(GedRecord rec)
+        private Tuple<object, GedParse> Make(GedRecord rec)
         {
             // 1. The first line in the rec should start with '0'
             string head = rec.FirstLine();
@@ -46,7 +50,7 @@ namespace SharpGEDParser
             return GedRecFactory(rec, ident, tag);
         }
 
-        private Tuple<KBRGedRec, GedParse> GedRecFactory(GedRecord rec, string ident, string tag)
+        private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag)
         {
             // Parse 'top level' records. Parsing of some record types (e.g. NOTE, SOUR, etc) are likely to be in 'common' with sub-record parsing
 
@@ -57,31 +61,33 @@ namespace SharpGEDParser
             {
                 case "HEAD":
                     data = new KBRGedHead(rec, ident);
-                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton);
+                    return new Tuple<object, GedParse>(data, _HeadParseSingleton);
                 case "INDI":
                     data = new KBRGedIndi(rec, ident);
-                    return new Tuple<KBRGedRec, GedParse>(data, _IndiParseSingleton);
+                    return new Tuple<object, GedParse>(data, _IndiParseSingleton);
                 case "FAM":
                     data = new KBRGedFam(rec, ident);
-                    return new Tuple<KBRGedRec, GedParse>(data, _FamParseSingleton);
+                    return new Tuple<object, GedParse>(data, _FamParseSingleton);
                 case "SOUR":
                     GedSource data2 = new GedSource(rec);
                     data2.XRef = ident;
-                    return new Tuple<KBRGedRec, GedParse>(data2, _SourParseSingleton);
+                    return new Tuple<object, GedParse>(data2, _SourParseSingleton);
                 case "SUBM":
                     data = new GedSubm(rec, ident);
-                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
+                    return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
                 case "REPO":
-                    data = new GedRepo(rec, ident);
-                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
+                {
+                    var foo = new GedRepository(rec, ident);
+                    return new Tuple<object, GedParse>(foo, _RepoParseSingleton);
+                }
                 case "NOTE":
                     data = new GedNote(rec, ident);
-                    return new Tuple<KBRGedRec, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
+                    return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
                 case "OBJE":
                 case "SUBN":
                 default:  // TODO leading underscore signals a custom record
                     data = new KBRGedUnk(rec, ident, tag);
-                    return new Tuple<KBRGedRec, GedParse>(data, null);
+                    return new Tuple<object, GedParse>(data, null);
             }
         }
 
@@ -89,6 +95,7 @@ namespace SharpGEDParser
         private GedParse _FamParseSingleton;
         private GedParse _HeadParseSingleton;
         private GedParse _SourParseSingleton;
+        private GedParse _RepoParseSingleton;
         private static GedRecParse _EventParseSingleton;
         private static GedRecParse _SourceCitParseSingleton;
 
@@ -108,6 +115,8 @@ namespace SharpGEDParser
         void Parse(KBRGedRec rec);
 
         void Parse(KBRGedRec rec, GedRecParse.ParseContext context);
+
+        void Parse(GEDCommon rec, GedRecord Lines);
     }
 }
 

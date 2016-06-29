@@ -88,7 +88,7 @@ namespace SharpGEDParser
 
         private void RestrictProc()
         {
-            string data = _context.Line.Substring(_context.Nextchar);
+            string data = ctx.Line.Substring(ctx.Nextchar);
             if (string.IsNullOrWhiteSpace(data))
                 return;
             (_rec as KBRGedIndi).Restriction = data.Trim();
@@ -96,19 +96,19 @@ namespace SharpGEDParser
 
         private void DataProc()
         {
-            string data = _context.Line.Substring(_context.Nextchar);
-            var rec = new DataRec(_context.Tag, data.Trim());
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            string data = ctx.Line.Substring(ctx.Nextchar);
+            var rec = new DataRec(ctx.Tag, data.Trim());
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
             _rec.Data.Add(rec);
         }
 
         // GEDCOM standard states only one of these allowed, take the first
         private void OneDataProc()
         {
-            if ((_rec as KBRGedIndi).HasData(_context.Tag))
+            if ((_rec as KBRGedIndi).HasData(ctx.Tag))
             {
-                ErrorRec(string.Format("Multiple {0}: used first", _context.Tag));
+                ErrorRec(string.Format("Multiple {0}: used first", ctx.Tag));
                 return;
             }
             DataProc();
@@ -117,16 +117,16 @@ namespace SharpGEDParser
         private XRefRec CommonXRefProcessing()
         {
             string ident = null;
-            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(ctx.Line, ctx.Max, ctx.Nextchar, ref ident);
             if (res != -1)
             {
-                var rec = new XRefRec(_context.Tag, ident);
-                rec.Beg = _context.Begline;
-                rec.End = _context.Endline;
+                var rec = new XRefRec(ctx.Tag, ident);
+                rec.Beg = ctx.Begline;
+                rec.End = ctx.Endline;
                 return rec;
             }
 
-            ErrorRec(string.Format("Missing xref for {0}", _context.Tag));
+            ErrorRec(string.Format("Missing xref for {0}", ctx.Tag));
             return null;
         }
 
@@ -148,10 +148,10 @@ namespace SharpGEDParser
         private void AliasProc()
         {
             // TODO some samples have slashes; others names + /surname/
-            string ident = _context.Line.Substring(_context.Nextchar).Trim();
-            var rec = new XRefRec(_context.Tag, ident);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            string ident = ctx.Line.Substring(ctx.Nextchar).Trim();
+            var rec = new XRefRec(ctx.Tag, ident);
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
             (_rec as KBRGedIndi).Alia.Add(rec);
         }
 
@@ -172,40 +172,40 @@ namespace SharpGEDParser
         private void SpouseLink()
         {
             string ident = null;
-            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(ctx.Line, ctx.Max, ctx.Nextchar, ref ident);
             if (res == -1)
             {
-                ErrorRec(string.Format("Missing xref for {0}", _context.Tag));
+                ErrorRec(string.Format("Missing xref for {0}", ctx.Tag));
                 return;
             }
 
             var rec = new FamLinkRec(ident);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
             (_rec as KBRGedIndi).FamLinks.Add(rec);
 
             // TODO more than one note permitted!
-            rec.Note = GedLineUtil.ParseForMulti(_rec.Lines, _context.Begline+1, _context.Endline, "NOTE"); // TODO better implementation?
+            rec.Note = GedLineUtil.ParseForMulti(_rec.Lines, ctx.Begline+1, ctx.Endline, "NOTE"); // TODO better implementation?
         }
 
         private void ChildLink()
         {
             string ident = null;
-            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(ctx.Line, ctx.Max, ctx.Nextchar, ref ident);
             if (res == -1)
             {
-                ErrorRec(string.Format("Missing xref for {0}", _context.Tag));
+                ErrorRec(string.Format("Missing xref for {0}", ctx.Tag));
                 return;
             }
 
             var rec = new ChildLinkRec(ident);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
             (_rec as KBRGedIndi).ChildLinks.Add(rec);
 
             var lines = _rec.Lines;
-            int begline = _context.Begline;
-            int endline = _context.Endline;
+            int begline = ctx.Begline;
+            int endline = ctx.Endline;
 
             // TODO more than one note permitted!
             rec.Note = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "NOTE"); // TODO better implementation?
@@ -232,10 +232,10 @@ namespace SharpGEDParser
         private void SexProc()
         {
             // TODO log unknown value as warn?
-            int sexDex = GedLineUtil.FirstChar(_context.Line, _context.Nextchar, _context.Max);
+            int sexDex = GedLineUtil.FirstChar(ctx.Line, ctx.Nextchar, ctx.Max);
             if (sexDex > 0)
             {
-                (_rec as KBRGedIndi).Sex = _context.Line[sexDex];
+                (_rec as KBRGedIndi).Sex = ctx.Line[sexDex];
                 if (!"MFU".Contains((_rec as KBRGedIndi).Sex.ToString().ToUpper()))
                     (_rec as KBRGedIndi).Sex = 'U';
             }
@@ -249,17 +249,17 @@ namespace SharpGEDParser
                 ErrorRec("Multiple CHAN: first one used");
                 return;
             }
-            _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
+            _rec.Change = new Tuple<int, int>(ctx.Begline, ctx.Endline);
         }
 
         private void LdsOrdProc()
         {
             // TODO these all parse similarly except SLGC which requires a FAMC tag
             var lines = _rec.Lines;
-            int begline = _context.Begline;
-            int endline = _context.Endline;
+            int begline = ctx.Begline;
+            int endline = ctx.Endline;
 
-            var rec = new LDSRec(_context.Tag);
+            var rec = new LDSRec(ctx.Tag);
             rec.Beg = begline;
             rec.End = endline;
 
@@ -297,8 +297,8 @@ namespace SharpGEDParser
                 (_rec as KBRGedIndi).Assoc.Add(rec);
 
                 var lines = _rec.Lines;
-                var begline = _context.Begline;
-                var endline = _context.Endline;
+                var begline = ctx.Begline;
+                var endline = ctx.Endline;
 
                 rec.Rela = GedLineUtil.ParseForMulti(lines, begline + 1, endline, "RELA"); // TODO better implementation?
                 // TODO more than one source permitted?
@@ -310,8 +310,8 @@ namespace SharpGEDParser
 
         private void NameProc()
         {
-            string line = _context.Line;
-            int nextchar = _context.Nextchar;
+            string line = ctx.Line;
+            int nextchar = ctx.Nextchar;
 
             int max = line.Length;
             int startName = GedLineUtil.FirstChar(line, nextchar, max);
@@ -324,8 +324,8 @@ namespace SharpGEDParser
                 suffix = line.Substring(endSur+1).Trim();
 
             var rec = new NameRec();
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
 
             rec.Names = line.Substring(startName, startSur - startName).Trim();
             rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces

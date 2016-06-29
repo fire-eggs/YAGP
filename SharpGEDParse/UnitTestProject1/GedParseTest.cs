@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 using System.Collections.Generic;
 using System.IO;
@@ -20,7 +21,7 @@ namespace UnitTestProject1
             {
                 fr.ReadLines(stream);
             }
-            return fr.Data;
+            return fr.Data.Select(o => o as KBRGedRec).ToList();
         }
 
         public T parse<T>(string testString, string tagN) where T: class

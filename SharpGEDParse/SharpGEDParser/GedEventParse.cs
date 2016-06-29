@@ -1,4 +1,5 @@
 ﻿using System;
+using SharpGEDParser.Model;
 
 namespace SharpGEDParser
 {
@@ -82,9 +83,9 @@ namespace SharpGEDParser
         private void FAMCProc()
         {
             (_rec as KBRGedEvent).Famc = Remainder();
-            if (_context.Endline > _context.Begline)
+            if (ctx.Endline > ctx.Begline)
             {
-                string line = (_rec as KBRGedEvent).Lines.GetLine(_context.Begline + 1);
+                string line = (_rec as KBRGedEvent).Lines.GetLine(ctx.Begline + 1);
                 string ident = null;
                 string tag = null;
                 int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
@@ -100,9 +101,9 @@ namespace SharpGEDParser
         private void HusbProc()
         {
             (_rec as KBRGedEvent).HusbDetail = Remainder();
-            if (_context.Endline > _context.Begline)
+            if (ctx.Endline > ctx.Begline)
             {
-                string line = (_rec as KBRGedEvent).Lines.GetLine(_context.Begline + 1);
+                string line = (_rec as KBRGedEvent).Lines.GetLine(ctx.Begline + 1);
                 string ident = null;
                 string tag = null;
                 int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
@@ -114,9 +115,9 @@ namespace SharpGEDParser
         private void WifeProc()
         {
             (_rec as KBRGedEvent).WifeDetail = Remainder();
-            if (_context.Endline > _context.Begline)
+            if (ctx.Endline > ctx.Begline)
             {
-                string line = (_rec as KBRGedEvent).Lines.GetLine(_context.Begline + 1);
+                string line = (_rec as KBRGedEvent).Lines.GetLine(ctx.Begline + 1);
                 string ident = null;
                 string tag = null;
                 int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
@@ -142,10 +143,10 @@ namespace SharpGEDParser
                 return;
             }
 
-            string extra = _context.Line.Substring(_context.Nextchar).TrimStart();
-            if (_context.Tag == "CONC")
+            string extra = ctx.Line.Substring(ctx.Nextchar).TrimStart();
+            if (ctx.Tag == "CONC")
                 (_rec as KBRGedEvent).Detail += extra;
-            if (_context.Tag == "CONT")
+            if (ctx.Tag == "CONT")
                 (_rec as KBRGedEvent).Detail += "\n" + extra;
         }
 
@@ -154,11 +155,12 @@ namespace SharpGEDParser
         /// </summary>
         private void CheckForExtra()
         {
-            if (_context.Endline <= _context.Begline) 
+            if (ctx.Endline <= ctx.Begline) 
                 return;
-            var rec = new UnkRec(_context.Tag);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            var rec = new UnkRec();
+            rec.Tag = ctx.Tag;
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
             rec.Error = "Extra line(s) found and ignored";
             _rec.Errors.Add(rec);
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SharpGEDParser.Model;
 
 namespace SharpGEDParser
 {
@@ -12,6 +13,9 @@ namespace SharpGEDParser
 
         protected readonly Dictionary<string, TagProc> _tagSet = new Dictionary<string, TagProc>();
 
+        protected delegate void TagProc2(ParseContext2 context);
+        protected readonly Dictionary<string, TagProc2> _tagSet2 = new Dictionary<string, TagProc2>();
+
         public class ParseContext
         {
             public string Line;
@@ -22,16 +26,26 @@ namespace SharpGEDParser
             public int Nextchar;
         }
 
+        public class ParseContext2
+        {
+            public GedRecord Lines;
+            public GEDCommon Parent;
+            public string Remain;
+            public char Level;
+            public int Begline; // index of first line for this 'record'
+            public int Endline; // index of last line FOUND for this 'record'
+        }
+
         public GedRecParse()
         {
             BuildTagSet();
-            _context = new ParseContext();
+            ctx = new ParseContext();
         }
 
         protected abstract void BuildTagSet();
 
         // TODO does this make parsing effectively single-threaded? need one context per thread?
-        internal ParseContext _context;
+        internal ParseContext ctx;
 
         // Common parsing logic for all record types
         public void Parse(KBRGedRec rec)
@@ -86,7 +100,7 @@ namespace SharpGEDParser
             char startLevel = Lines.GetLevel(linedex, out sublinedex);
             if (startLevel < '0' || startLevel > '9')
             {
-                var err = new UnkRec("");
+                var err = new UnkRec();
                 err.Beg = linedex;
                 err.End = linedex;
                 err.Error = "Invalid or missing level; record processing stopped";
@@ -107,9 +121,59 @@ namespace SharpGEDParser
             }
         }
 
+        public void Parse(GEDCommon rec, GedRecord Lines)
+        {
+            ParseContext2 ctx = new ParseContext2();
+            ctx.Lines = Lines;
+            ctx.Parent = rec;
+
+            for (int i = 1; i < Lines.Max; i++)
+            {
+                string line = Lines.GetLine(i);
+                string tag = null;
+                string ident = null;
+                ctx.Begline = i;
+                ctx.Endline = i; // assume it is one line long, parser might change it
+                GedLineUtil.LevelTagAndRemain(line, ref ctx.Level, ref ident, ref tag, ref ctx.Remain);
+                if (_tagSet2.ContainsKey(tag))
+                {
+                    _tagSet2[tag](ctx);
+                }
+                else
+                {
+                    UnkRec foo = new UnkRec();
+                    foo.Tag = tag;
+                    LookAhead(ctx);
+                    foo.Beg = ctx.Begline;
+                    foo.End = ctx.Endline;
+                    if (tag.StartsWith("_"))
+                        rec.Custom.Add(foo);
+                    else
+                        rec.Unknowns.Add(foo);
+                }
+                i = ctx.Endline;
+            }
+        }
+
+        // Find the end of this 'record'.
+        protected void LookAhead(ParseContext2 ctx)
+        {
+            if (ctx.Begline == ctx.Lines.LineCount)
+            {
+                ctx.Endline = ctx.Begline;
+                return; // Nothing to do: already at last line
+            }
+            int linedex = ctx.Begline;
+            int sublinedex;
+            while (ctx.Lines.GetLevel(linedex + 1, out sublinedex) > ctx.Level && 
+                   linedex + 1 <= ctx.Lines.LineCount)
+                linedex++;
+            ctx.Endline = linedex;
+        }
+
         protected KBRGedEvent CommonEventProcessing(GedRecord lines)
         {
-            var eRec = KBRGedParser.EventParser.Parse0(_rec, _context);
+            var eRec = KBRGedParser.EventParser.Parse0(_rec, ctx);
             return eRec as KBRGedEvent;
         }
 
@@ -123,10 +187,11 @@ namespace SharpGEDParser
 
         protected UnkRec ErrorRec(string reason)
         {
-            var rec = new UnkRec(_context.Tag);
+            var rec = new UnkRec();
+            rec.Tag = ctx.Tag;
             rec.Error = reason;
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
             _rec.Errors.Add(rec);
             return rec;
         }
@@ -134,14 +199,15 @@ namespace SharpGEDParser
         // Common Source Citation processing
         protected void SourCitProc(KBRGedRec _rec)
         {
-            var scRec = KBRGedParser.SourceCitParseSingleton.Parse0(_rec, _context);
+            var scRec = KBRGedParser.SourceCitParseSingleton.Parse0(_rec, ctx);
             if (scRec != null)
                 _rec.Sources.Add(scRec as GedSourCit);
         }
 
         protected void CustomTag(string tag, int startLineDex, int maxLineDex)
         {
-            var rec = new UnkRec(tag);
+            var rec = new UnkRec();
+            rec.Tag = tag;
             rec.Beg = startLineDex;
             rec.End = maxLineDex;
             _rec.Custom.Add(rec);
@@ -149,7 +215,8 @@ namespace SharpGEDParser
 
         protected void UnknownTag(string tag, int startLineDex, int maxLineDex)
         {
-            var rec = new UnkRec(tag);
+            var rec = new UnkRec();
+            rec.Tag = tag;
             rec.Beg = startLineDex;
             rec.End = maxLineDex;
             _rec.Unknowns.Add(rec);
@@ -165,12 +232,12 @@ namespace SharpGEDParser
             if (_tagSet.ContainsKey(tag))
             {
                 // TODO does this make parsing effectively single-threaded? need one context per thread?
-                _context.Line = line;
-                _context.Max = line.Length;
-                _context.Tag = tag;
-                _context.Begline = startLineDex;
-                _context.Endline = maxLineDex;
-                _context.Nextchar = nextChar;
+                ctx.Line = line;
+                ctx.Max = line.Length;
+                ctx.Tag = tag;
+                ctx.Begline = startLineDex;
+                ctx.Endline = maxLineDex;
+                ctx.Nextchar = nextChar;
                 _rec = rec;
 
                 _tagSet[tag]();
@@ -186,18 +253,18 @@ namespace SharpGEDParser
 
         protected string Remainder()
         {
-            return _context.Line.Substring(_context.Nextchar).Trim();
+            return ctx.Line.Substring(ctx.Nextchar).Trim();
         }
 
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         protected string extendedText()
         {
-            StringBuilder txt = new StringBuilder(_context.Line.Substring(_context.Nextchar).TrimStart());
+            StringBuilder txt = new StringBuilder(ctx.Line.Substring(ctx.Nextchar).TrimStart());
 
             // NOTE: do NOT trim the end... trailing spaces are significant
-            if (_context.Endline > _context.Begline)
+            if (ctx.Endline > ctx.Begline)
             {
-                for (int i = _context.Begline + 1; i <= _context.Endline; i++)
+                for (int i = ctx.Begline + 1; i <= ctx.Endline; i++)
                 {
                     string line = _rec.Lines.GetLine(i);
                     string ident = null;

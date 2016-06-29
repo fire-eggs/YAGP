@@ -46,7 +46,7 @@ namespace SharpGEDParser
         private void kidProc()
         {
             string ident = null;
-            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(ctx.Line, ctx.Max, ctx.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
                 (_rec as KBRGedFam).Childs.Add(ident);
             else
@@ -58,7 +58,7 @@ namespace SharpGEDParser
         private void momProc()
         {
             string ident = null;
-            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(ctx.Line, ctx.Max, ctx.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
                 (_rec as KBRGedFam).Mom = ident;
             else
@@ -70,7 +70,7 @@ namespace SharpGEDParser
         private void dadProc()
         {
             string ident = null;
-            int res = GedLineUtil.Ident(_context.Line, _context.Max, _context.Nextchar, ref ident);
+            int res = GedLineUtil.Ident(ctx.Line, ctx.Max, ctx.Nextchar, ref ident);
             if (res != -1 && !string.IsNullOrEmpty(ident))
                 (_rec as KBRGedFam).Dad = ident;
             else
@@ -83,7 +83,7 @@ namespace SharpGEDParser
         {
             // GEDCOM spec says only one change allowed; says to take the FIRST one
             if (_rec.Change == null)
-                _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
+                _rec.Change = new Tuple<int, int>(ctx.Begline, ctx.Endline);
             else
             {
                 ErrorRec("More than one change record");
@@ -93,15 +93,15 @@ namespace SharpGEDParser
         private void DataProc()
         {
             string data = Remainder();
-            var rec = new DataRec(_context.Tag, data);
-            rec.Beg = _context.Begline;
-            rec.End = _context.Endline;
+            var rec = new DataRec(ctx.Tag, data);
+            rec.Beg = ctx.Begline;
+            rec.End = ctx.Endline;
             _rec.Data.Add(rec);
         }
 
         private void FamEventProc()
         {
-            var eRec = KBRGedParser.EventParser.Parse0(_rec, _context);
+            var eRec = KBRGedParser.EventParser.Parse0(_rec, ctx);
             (_rec as KBRGedFam).FamEvents.Add(eRec as KBRGedEvent);
         }
 

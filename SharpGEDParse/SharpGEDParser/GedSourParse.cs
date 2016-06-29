@@ -46,7 +46,7 @@ namespace SharpGEDParser
         {
             // GEDCOM spec says only one change allowed; says to take the FIRST one
             if (_rec.Change == null)
-                _rec.Change = new Tuple<int, int>(_context.Begline, _context.Endline);
+                _rec.Change = new Tuple<int, int>(ctx.Begline, ctx.Endline);
             else
             {
                 ErrorRec("More than one change record");
