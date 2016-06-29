@@ -48,7 +48,8 @@
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
     <Compile Include="GedRepo.cs" />
-    <Compile Include="GedRepository.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\GedRepository.cs" />
     <Compile Include="GedSource.cs" />
     <Compile Include="GedSourCit.cs" />
     <Compile Include="GedSourCitParse.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="KBRGedRec.cs" />
     <Compile Include="KBRGedUnk.cs" />
     <Compile Include="GedLineUtil.cs" />
+    <Compile Include="Model\GEDCommon.cs" />
+    <Compile Include="Parser\GedRepoParse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourCitDataParse.cs" />
   </ItemGroup>
