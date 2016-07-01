@@ -1,11 +1,11 @@
-﻿using SharpGEDParser.Model;
+﻿using System;
+using System.Data.Common;
+using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
     public class GedRepoParse : GedRecParse
     {
-        protected new GedRepository _rec; // TODO push to common/GEDCommon
-
         protected override void BuildTagSet()
         {
             _tagSet2.Add("NAME", nameproc);
@@ -28,7 +28,7 @@ namespace SharpGEDParser.Parser
 
         private void addrproc(ParseContext2 ctx)
         {
-            ParseAddress(_rec.Addr);
+            ParseAddress((ctx.Parent as GedRepository).Addr);
         }
 
         private void RinProc(ParseContext2 ctx) // TODO push to common/GEDCommon
@@ -38,11 +38,69 @@ namespace SharpGEDParser.Parser
 
         private void ChanProc(ParseContext2 ctx) // TODO push to common/GEDCommon
         {
-            if (ctx.Parent.CHAN.Date != null)
+            ChangeRec chan = ctx.Parent.CHAN;
+            if (chan.Date != null)
             {
-                ErrorRec("More than one change record");
+                UnkRec err = new UnkRec();
+                err.Error = "More than one change record";
+                LookAhead(ctx);
+                err.Beg = ctx.Begline;
+                err.End = ctx.Endline;
+                ctx.Parent.Errors.Add(err);
+                return;
             }
-            // TODO parse CHAN sub-fields... is the context set up properly?
+
+            int i = ctx.Begline + 1;
+            if (i > ctx.Lines.Max)
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing required data for CHAN";
+                LookAhead(ctx);
+                err.Beg = ctx.Begline;
+                err.End = ctx.Endline;
+                ctx.Parent.Errors.Add(err);
+                return;
+            }
+
+            char level = ' ';
+            string ident = null;
+            string tag = null;
+            string remain = null;
+            for (; i < ctx.Lines.Max; i++)
+            {
+                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
+                if (level <= ctx.Level)
+                    break; // end of sub-record
+                switch (tag)
+                {
+                    case "DATE":
+                        DateTime res;
+                        if (DateTime.TryParse(remain, out res))
+                            chan.Date = res;
+                        break;
+                    case "NOTE":
+                        NoteProc(ctx); // TODO need new context: Parent is CHAN record, lines are out of whack
+                        break;
+                    default:
+                        LineSet extra = new LineSet();
+                        ctx.Begline = i;
+                        LookAhead(ctx);
+                        extra.Beg = ctx.Begline;
+                        extra.End = ctx.Endline;
+                        chan.OtherLines.Add(extra);
+                        i = ctx.Endline;
+                        break;
+                }
+            }
+            ctx.Endline = i-1;
+
+            if (chan.Date == null)
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing required data for CHAN"; 
+                // TODO missing line numbers
+                ctx.Parent.Errors.Add(err);
+            }
         }
 
         private void RefnProc(ParseContext2 ctx) // TODO push to common/GEDCommon

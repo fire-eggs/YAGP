@@ -81,8 +81,8 @@ namespace SharpGEDParser.Model
         public LinkHold Links { get { return _links ?? (_links = new LinkHold()); } }
 
         // All other lines (typically custom/unknown)
-        private List<string> _other;
-        public List<string> OtherLines { get { return _other ?? (_other = new List<string>()); } }
+        private List<LineSet> _other;
+        public List<LineSet> OtherLines { get { return _other ?? (_other = new List<LineSet>()); } }
     }
 
     public class IdHold
