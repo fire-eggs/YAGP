@@ -46,9 +46,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestSexM()
         {
-            var indiU1 = "0 INDI\n1 NAME kludge\n1 SEX M\n0TestKludge";
-            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Masculine\n0TestKludge";
-            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Male\n0TestKludge";
+            var indiU1 = "0 INDI\n1 NAME kludge\n1 SEX M";
+            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Masculine";
+            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Male";
 
             var rec = parse(indiU1);
             Assert.AreEqual('M', rec.Sex);
@@ -63,9 +63,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestSexF()
         {
-            var indiU1 = "0 INDI\n1 NAME kludge\n1 SEX F\n0TestKludge";
-            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Feminine\n0TestKludge";
-            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Female\n0TestKludge";
+            var indiU1 = "0 INDI\n1 NAME kludge\n1 SEX F";
+            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Feminine";
+            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Female";
 
             var rec = parse(indiU1);
             Assert.AreEqual('F', rec.Sex);

@@ -172,18 +172,25 @@ namespace SharpGEDParser
                 // proceed anyway
             }
 
+            char level = line[dex];
+            if (level < '0' || level > '9')
+            {
+                DoError("Invalid record level", lineNum);
+                return; // cannot proceed
+            }
+
             // NOTE: do NOT warn about leading spaces "GEDCOM readers should ignore it when it occurs".
 
-            if (line[dex] == '0')
+            if (level == '0' && _currRec.LineCount > 0)
             {
-                if (_currRec.LineCount > 1) // TODO should warn about a mal-formed record [single '0' line]
-                {
-                    // start of a new record. deal with the previous record first
+                if (_currRec.LineCount == 1)
+                    Errors.Add(new UnkRec { Error = "Empty (single line) top-level record" });
 
-                    // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
-                    var parsed = Parser.Parse(_currRec);
-                    Data.Add(parsed);
-                }
+                // start of a new record. deal with the previous record first
+
+                // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
+                var parsed = Parser.Parse(_currRec);
+                Data.Add(parsed);
                 _currRec = new GedRecord(lineNum, line);
             }
             else

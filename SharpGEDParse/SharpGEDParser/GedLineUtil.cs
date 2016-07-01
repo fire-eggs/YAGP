@@ -141,7 +141,8 @@ namespace SharpGEDParser
             level = line[dex];
             dex = AllCharsUntil(line, max, dex, ' ');
             dex = IdentAndTag(line, dex, ref ident, ref tag);
-            remain = line.Substring(dex+1); // TODO check for nothing remaining
+            if (dex < max)
+                remain = line.Substring(dex+1); // TODO check for nothing remaining
             return dex;
         }
 
