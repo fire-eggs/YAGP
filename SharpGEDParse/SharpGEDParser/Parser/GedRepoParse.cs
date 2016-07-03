@@ -18,8 +18,55 @@ namespace SharpGEDParser.Parser
 
         private void NoteProc(ParseContext2 ctx)
         {
-            // TODO
+            var note = NoteStructParse.NoteParser(ctx);
+            (ctx.Parent as GedRepository).Notes.Add(note);
         }
+
+        //private Note SuperNoteProc(ParseContext2 ctx)
+        //{
+        //    Note note = new Note();
+        //    if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
+        //    {
+        //        note.Xref = ctx.Remain.Trim(new char[] {'@'});
+        //    }
+        //    else
+        //    {
+        //        note.Text = ctx.Remain;
+        //    }
+
+        //    int i = ctx.Begline + 1;
+
+        //    char level = ' ';
+        //    string ident = null;
+        //    string tag = null;
+        //    string remain = null;
+        //    for (; i < ctx.Lines.Max; i++)
+        //    {
+        //        GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
+        //        if (level <= ctx.Level)
+        //            break; // end of sub-record
+        //        switch (tag)
+        //        {
+        //            case "CONC":
+        //                note.Text += remain;
+        //                break;
+        //            case "CONT":
+        //                note.Text += "\n" + remain;
+        //                break;
+        //            default:
+        //                LineSet extra = new LineSet();
+        //                ctx.Begline = i;
+        //                LookAhead(ctx);
+        //                extra.Beg = ctx.Begline;
+        //                extra.End = ctx.Endline;
+        //                note.OtherLines.Add(extra);
+        //                i = ctx.Endline;
+        //                break;
+        //        }
+        //    }
+        //    ctx.Endline = i - 1;
+        //    return note;
+        //}
 
         private void nameproc(ParseContext2 ctx)
         {
@@ -28,7 +75,8 @@ namespace SharpGEDParser.Parser
 
         private void addrproc(ParseContext2 ctx)
         {
-            ParseAddress((ctx.Parent as GedRepository).Addr);
+            var addr = AddrStructParse.AddrParse(ctx);
+            (ctx.Parent as GedRepository).Addr = addr;
         }
 
         private void RinProc(ParseContext2 ctx) // TODO push to common/GEDCommon
@@ -79,7 +127,8 @@ namespace SharpGEDParser.Parser
                             chan.Date = res;
                         break;
                     case "NOTE":
-                        NoteProc(ctx); // TODO need new context: Parent is CHAN record, lines are out of whack
+                        var note = NoteStructParse.NoteSubParse(ctx, level, remain, ref i);
+                        chan.Notes.Add(note);
                         break;
                     default:
                         LineSet extra = new LineSet();
@@ -116,11 +165,6 @@ namespace SharpGEDParser.Parser
             sp.Extra.Beg = ctx.Begline + 1;
             sp.Extra.End = ctx.Endline;
             return sp;
-        }
-
-        private void ParseAddress(Address _addr)
-        {
-            // TODO is our context set up properly?
         }
     }
 }

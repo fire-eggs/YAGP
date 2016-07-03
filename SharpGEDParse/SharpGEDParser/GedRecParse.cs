@@ -156,7 +156,7 @@ namespace SharpGEDParser
         }
 
         // Find the end of this 'record'.
-        protected void LookAhead(ParseContext2 ctx)
+        public static void LookAhead(ParseContext2 ctx)
         {
             if (ctx.Begline == ctx.Lines.LineCount)
             {

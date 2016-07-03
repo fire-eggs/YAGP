@@ -58,10 +58,6 @@ namespace SharpGEDParser.Model
         private List<UnkRec> _custom;
         public List<UnkRec> Custom { get { return _custom ?? (_custom = new List<UnkRec>()); } }
 
-        // Container for links (source citations; note links; obje links; repos links)
-        private LinkHold _links;
-        public LinkHold Links { get { return _links ?? (_links = new LinkHold()); } }
-
         // Container for other ids (REFN, UID)
         // NOTE: RIN is not here because used by > 50% of records
         private IdHold _ids;
@@ -69,16 +65,16 @@ namespace SharpGEDParser.Model
 
         // TODO consider a REFN accessor to Ids?
         // TODO consider a UID accessor to Ids?
-        // TODO consider srcs/notes/obje/repo accessors to Links?
     }
 
     public class ChangeRec
     {
         public DateTime? Date { get; set; }
 
-        // Container for links (source citations; note links; obje links; repos links)
-        private LinkHold _links;
-        public LinkHold Links { get { return _links ?? (_links = new LinkHold()); } }
+        // TODO somehow make this on-demand
+        private NoteHold _noteHold = new NoteHold();
+
+        public List<Note> Notes { get { return _noteHold.Notes; } }
 
         // All other lines (typically custom/unknown)
         private List<LineSet> _other;
@@ -91,12 +87,6 @@ namespace SharpGEDParser.Model
         public List<StringPlus> REFNs { get { return _refns ?? (_refns = new List<StringPlus>()); } }
 
         public string RIN { get; set; }
-    }
-
-    public class LinkHold
-
-    {
-
     }
 
     public class StringPlus

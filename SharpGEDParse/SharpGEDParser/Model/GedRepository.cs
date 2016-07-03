@@ -18,6 +18,9 @@
 2 CTRY England (UK)
 
 */
+
+using System.Collections.Generic;
+
 namespace SharpGEDParser.Model
 {
     public class GedRepository : GEDCommon
@@ -26,8 +29,11 @@ namespace SharpGEDParser.Model
 
         public string Name { get; set; }
 
-        private Address _addr;
-        public Address Addr { get { return _addr ?? (_addr = new Address()); } }
+        public Address Addr { get; set; }
+
+        private NoteHold _noteHold = new NoteHold();
+
+        public List<Note> Notes { get { return _noteHold.Notes; } }
 
         public GedRepository(GedRecord lines, string ident)
         {
@@ -38,7 +44,7 @@ namespace SharpGEDParser.Model
             if (string.IsNullOrWhiteSpace(ident))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one
+                err.Error = "Missing identifier"; // TODO assign one?
                 err.Beg = err.End = lines.Beg;
                 err.Tag = Tag;
                 Errors.Add(err);

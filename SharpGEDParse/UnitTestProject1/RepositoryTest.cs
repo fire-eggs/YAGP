@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpGEDParser;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 // ReSharper disable InconsistentNaming
 
@@ -224,7 +222,7 @@ namespace UnitTestProject1
         public void TestChan5()
         {
             // extra
-            var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n1 NAME fumbar\n0 KLUDGE";
+            var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n1 NAME fumbar";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             GedRepository rec = res[0] as GedRepository;
@@ -239,7 +237,7 @@ namespace UnitTestProject1
         public void TestChan6()
         {
             // multi line extra
-            var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 NAME fumbar\n0 KLUDGE";
+            var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 NAME fumbar";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             GedRepository rec = res[0] as GedRepository;
@@ -255,7 +253,7 @@ namespace UnitTestProject1
         public void TestChan7()
         {
             // multiple CHAN
-            var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 MAR 2000\n1 NAME fumbar\n1 CHAN\n0 KLUDGE";
+            var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 MAR 2000\n1 NAME fumbar\n1 CHAN";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             GedRepository rec = res[0] as GedRepository;
@@ -264,6 +262,131 @@ namespace UnitTestProject1
             Assert.AreEqual(0, rec.Unknowns.Count);
             Assert.AreEqual("fumbar", rec.Name);
             Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
+        }
+
+        [TestMethod]
+        public void TestNote1()
+        {
+            // simple note
+            var txt = "0 @R1@ REPO\n1 NOTE @N1@\n1 REFN 001\n1 NAME fumbar";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.AreEqual("fumbar", rec.Name);
+            Assert.AreEqual(1, rec.Ids.REFNs.Count);
+            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("N1", rec.Notes[0].Xref);
+        }
+        [TestMethod]
+        public void TestNote2()
+        {
+            // simple note
+            var txt = "0 @R1@ REPO\n1 NOTE blah blah blah\n1 REFN 001\n1 NAME fumbar";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.AreEqual("fumbar", rec.Name);
+            Assert.AreEqual(1, rec.Ids.REFNs.Count);
+            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("blah blah blah", rec.Notes[0].Text);
+        }
+
+        [TestMethod]
+        public void TestNote()
+        {
+            var indi = "0 REPO @R1@\n1 NOTE";
+            var res = ReadIt(indi);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.IsNull(rec.Notes[0].Text);
+
+            indi = "0 REPO @R1@\n1 NOTE notes\n2 CONT more detail";
+            res = ReadIt(indi);
+            Assert.AreEqual(1, res.Count);
+            rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
+
+            indi = "0 REPO @R1@\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
+            res = ReadIt(indi);
+            Assert.AreEqual(1, res.Count);
+            rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(2, rec.Notes.Count);
+            Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
+            Assert.AreEqual("notes2", rec.Notes[1].Text);
+
+            // trailing space must be preserved
+            indi = "0 REPO @R1@\n1 NOTE notes\n2 CONC more detail \n2 CONC yet more detail";
+            res = ReadIt(indi);
+            Assert.AreEqual(1, res.Count);
+            rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("notesmore detail yet more detail", rec.Notes[0].Text);
+
+            indi = "0 REPO @R1@\n1 NOTE notes \n2 CONC more detail \n2 CONC yet more detail ";
+            res = ReadIt(indi);
+            Assert.AreEqual(1, res.Count);
+            rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("notes more detail yet more detail ", rec.Notes[0].Text);
+        }
+
+        [TestMethod]
+        public void TestChanNote()
+        {
+            var txt = "0 @R1@ REPO\n1 CHAN\n2 NOTE @N1@\n2 DATE 1 APR 2000";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            var res2 = rec.CHAN;
+            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
+            Assert.AreEqual(1, res2.Notes.Count);
+            Assert.AreEqual("N1", res2.Notes[0].Xref);
+
+            txt = "0 REPO @R1@\n1 CHAN\n2 NOTE notes\n3 CONT more detail\n2 DATE 1 APR 2000";
+            res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            res2 = rec.CHAN;
+            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
+            Assert.AreEqual(1, res2.Notes.Count);
+            Assert.AreEqual("notes\nmore detail", res2.Notes[0].Text);
+
+        }
+
+        [TestMethod]
+        public void TestAddr()
+        {
+            // Real REPO record taken from a downloaded GED
+            var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR1 York Register Office\n2 ADR2 56 Bootham\n2 CITY York,\n2 POST YO30 7DA\n2 CTRY England (UK)";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.AreEqual("Superintendent Registrar (York)", rec.Name);
+            Assert.IsNotNull(rec.Addr);
+            Assert.AreEqual("York Register Office\n56 Bootham\nYork,,  YO30 7DA\nEngland (UK)", rec.Addr.Adr);
+            Assert.AreEqual("York Register Office", rec.Addr.Adr1);
+            Assert.AreEqual("York,", rec.Addr.City);
+            Assert.AreEqual("YO30 7DA", rec.Addr.Post);
         }
     }
 }
