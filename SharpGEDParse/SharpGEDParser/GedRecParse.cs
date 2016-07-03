@@ -146,10 +146,8 @@ namespace SharpGEDParser
                     LookAhead(ctx);
                     foo.Beg = ctx.Begline;
                     foo.End = ctx.Endline;
-                    if (tag.StartsWith("_"))
-                        rec.Custom.Add(foo);
-                    else
-                        rec.Unknowns.Add(foo);
+                    // Custom and invalid treated as 'unknowns': let the consumer figure it out
+                    rec.Unknowns.Add(foo);
                 }
                 i = ctx.Endline;
             }

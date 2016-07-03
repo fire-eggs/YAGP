@@ -99,7 +99,7 @@ namespace SharpGEDParser.Parser
             }
 
             int i = ctx.Begline + 1;
-            if (i > ctx.Lines.Max)
+            if (i >= ctx.Lines.Max)
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Missing required data for CHAN";

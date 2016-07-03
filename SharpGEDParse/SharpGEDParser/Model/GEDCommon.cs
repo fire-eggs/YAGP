@@ -46,17 +46,13 @@ namespace SharpGEDParser.Model
             get { return _chan ?? (_chan = new ChangeRec()); }
         }
 
-        // Unknown (i.e. not custom) tags encountered at this level
+        // Unknown and custom tags encountered at this level
         private List<UnkRec> _unknowns;
         public List<UnkRec> Unknowns { get { return _unknowns ?? (_unknowns = new List<UnkRec>()); } }
 
         // Problems, other than 'unknown'/'custom' tags at this _or_children_ level
         private List<UnkRec> _errors;
         public List<UnkRec> Errors { get { return _errors ?? (_errors = new List<UnkRec>()); } }
-
-        // Custom tags as defined by other genealogical applications
-        private List<UnkRec> _custom;
-        public List<UnkRec> Custom { get { return _custom ?? (_custom = new List<UnkRec>()); } }
 
         // Container for other ids (REFN, UID)
         // NOTE: RIN is not here because used by > 50% of records

@@ -47,7 +47,6 @@
     <Compile Include="GedNote.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
-    <Compile Include="GedRepo.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\GedRepository.cs" />
     <Compile Include="GedSource.cs" />

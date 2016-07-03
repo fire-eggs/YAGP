@@ -51,9 +51,8 @@ namespace UnitTestProject1
             GedRepository rec = res[0] as GedRepository;
             Assert.IsNotNull(rec);
             Assert.AreEqual(0, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Custom.Count);
-            Assert.AreEqual(1, rec.Custom[0].LineCount);
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(1, rec.Unknowns[0].LineCount);
             Assert.AreEqual("fumbar", rec.Name);
             Assert.AreEqual("R1", rec.Ident);
         }
@@ -68,9 +67,24 @@ namespace UnitTestProject1
             GedRepository rec = res[0] as GedRepository;
             Assert.IsNotNull(rec);
             Assert.AreEqual(0, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Custom.Count);
-            Assert.AreEqual(2, rec.Custom[0].LineCount);
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(2, rec.Unknowns[0].LineCount);
+            Assert.AreEqual("fumbar", rec.Name);
+            Assert.AreEqual("R1", rec.Ident);
+        }
+
+        [TestMethod]
+        public void TestCust3()
+        {
+            // custom tag at the end of the record
+            var txt = "0 @R1@ REPO\n1 NAME fumbar\n1 _CUST foobar";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(1, rec.Unknowns[0].LineCount);
             Assert.AreEqual("fumbar", rec.Name);
             Assert.AreEqual("R1", rec.Ident);
         }
@@ -181,7 +195,7 @@ namespace UnitTestProject1
         public void TestChan2()
         {
             // no date for chan
-            var txt = "0 @R1@ REPO\n1 CHAN\n0 KLUDGE";
+            var txt = "0 @R1@ REPO\n1 CHAN";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             GedRepository rec = res[0] as GedRepository;
@@ -346,6 +360,20 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void TestNoteOther()
+        {
+            // exercise other lines
+            var indi = "0 REPO @R1@\n1 NOTE\n2 OTHR gibber";
+            var res = ReadIt(indi);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.IsNull(rec.Notes[0].Text);
+            Assert.AreEqual(1, rec.Notes[0].OtherLines.Count);
+        }
+
+        [TestMethod]
         public void TestChanNote()
         {
             var txt = "0 @R1@ REPO\n1 CHAN\n2 NOTE @N1@\n2 DATE 1 APR 2000";
@@ -387,6 +415,68 @@ namespace UnitTestProject1
             Assert.AreEqual("York Register Office", rec.Addr.Adr1);
             Assert.AreEqual("York,", rec.Addr.City);
             Assert.AreEqual("YO30 7DA", rec.Addr.Post);
+        }
+
+        [TestMethod]
+        public void TestAddrOther()
+        {
+            // other lines
+            var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR1 York Register Office\n2 ADR2 56 Bootham\n2 CITY York,\n2 POST YO30 7DA\n2 CTRY England (UK)\n3 OTHR gibber";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.AreEqual("Superintendent Registrar (York)", rec.Name);
+            Assert.IsNotNull(rec.Addr);
+            Assert.AreEqual("York Register Office\n56 Bootham\nYork,,  YO30 7DA\nEngland (UK)", rec.Addr.Adr);
+            Assert.AreEqual("York Register Office", rec.Addr.Adr1);
+            Assert.AreEqual("York,", rec.Addr.City);
+            Assert.AreEqual("YO30 7DA", rec.Addr.Post);
+            Assert.AreEqual(1, rec.Addr.OtherLines.Count);
+        }
+
+        [TestMethod]
+        public void TestAddr2()
+        {
+            // ADDR _not_ the last sub-record
+            var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR1 York Register Office\n2 ADR2 56 Bootham\n2 CITY York,\n2 POST YO30 7DA\n2 CTRY England (UK)\n1 NOTE blah blah";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("Superintendent Registrar (York)", rec.Name);
+            Assert.IsNotNull(rec.Addr);
+            Assert.AreEqual("York Register Office\n56 Bootham\nYork,,  YO30 7DA\nEngland (UK)", rec.Addr.Adr);
+            Assert.AreEqual("York Register Office", rec.Addr.Adr1);
+            Assert.AreEqual("York,", rec.Addr.City);
+            Assert.AreEqual("YO30 7DA", rec.Addr.Post);
+        }
+        [TestMethod]
+        public void TestAddr3()
+        {
+            // additional ADDR sub-tags
+            var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR3 York Register Office\n2 ADR2 56 Bootham\n2 STAE York,\n2 PHON YO30 7DA\n2 FAX blah\n2 EMAIL blah\n2 WWW blah\n2 CTRY England (UK)\n1 NOTE blah blah";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual("Superintendent Registrar (York)", rec.Name);
+            Assert.IsNotNull(rec.Addr);
+            Assert.AreEqual("56 Bootham", rec.Addr.Adr2);
+            Assert.AreEqual("York Register Office", rec.Addr.Adr3);
+            Assert.AreEqual("York,", rec.Addr.Stae);
+            Assert.AreEqual("YO30 7DA", rec.Addr.Phon);
+            Assert.AreEqual("blah", rec.Addr.Fax);
+            Assert.AreEqual("blah", rec.Addr.Email);
+            Assert.AreEqual("blah", rec.Addr.WWW);
         }
     }
 }
