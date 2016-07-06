@@ -12,7 +12,7 @@ namespace UnitTestProject1
     public class RepositoryTest : GedParseTest
     {
         // TODO this is temporary until GEDCommon replaces KBRGedRec
-        public static List<GEDCommon> ReadIt(string testString)
+        public new static List<GEDCommon> ReadIt(string testString)
         {
             var fr = ReadItHigher(testString);
             return fr.Data.Select(o => o as GEDCommon).ToList();
