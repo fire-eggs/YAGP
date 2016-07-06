@@ -478,5 +478,7 @@ namespace UnitTestProject1
             Assert.AreEqual("blah", rec.Addr.Email);
             Assert.AreEqual("blah", rec.Addr.WWW);
         }
+
+        // TODO REPO+ADDR+NOTE+CHAN+CHAN-NOTE
     }
 }

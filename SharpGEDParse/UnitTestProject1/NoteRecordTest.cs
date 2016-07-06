@@ -6,7 +6,6 @@ using SharpGEDParser.Model;
 
 // TODO note text CONC
 // TODO note text CONT
-// TODO source citation
 // TODO CHAN-NOTE _and_ CONC/CONT
 
 namespace UnitTestProject1
@@ -282,6 +281,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestChanNote()
         {
+            // CHAN with NOTE
             var txt = "0 @N1@ NOTE\n1 CHAN\n2 NOTE @N1@\n2 DATE 1 APR 2000";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
@@ -291,18 +291,180 @@ namespace UnitTestProject1
             Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
             Assert.AreEqual(1, res2.Notes.Count);
             Assert.AreEqual("N1", res2.Notes[0].Xref);
+        }
 
-            txt = "0 NOTE @N1@\n1 CHAN\n2 NOTE notes\n3 CONT more detail\n2 DATE 1 APR 2000";
+        [TestMethod]
+        public void TestChanNote2()
+        {
+            // CHAN with multi-line note
+            var txt = "0 NOTE @N1@\n1 CHAN\n2 NOTE notes\n3 CONT more detail\n2 DATE 1 APR 2000";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+            var res2 = rec.CHAN;
+            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
+            Assert.AreEqual(1, res2.Notes.Count);
+            Assert.AreEqual("notes\nmore detail", res2.Notes[0].Text);
+        }
+
+        [TestMethod]
+        public void TestNoteSrc()
+        {
+            // simple reference source cit
+            var txt = "0 @N1@ NOTE blah blah\n1 SOUR @S1@\n2 PAGE 42\n2 QUAY wha?\n1 CHAN\n2 DATE 1 APR 2000\n1 RIN foobar";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual("N1", rec.Ident);
+            var res2 = rec.CHAN;
+            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
+            Assert.AreEqual("foobar", rec.RIN);
+            Assert.AreEqual("blah blah", rec.Text);
+            Assert.AreEqual("S1", rec.Cits.Xref); // TODO should be multiple
+            Assert.AreEqual("42", rec.Cits.Page); // TODO should be multiple
+        }
+
+        [TestMethod]
+        public void TestNoteSrc2()
+        {
+            // embedded source cit; changed order of lines
+            var txt = "0 @N1@ NOTE blah blah\n1 CHAN\n2 DATE 1 APR 2000\n1 RIN foobar\n1 SOUR description\n2 PAGE 42\n2 QUAY wha?";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual("N1", rec.Ident);
+            var res2 = rec.CHAN;
+            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
+            Assert.AreEqual("foobar", rec.RIN);
+            Assert.AreEqual("blah blah", rec.Text);
+            Assert.AreEqual("description", rec.Cits.Desc); // TODO should be multiple
+            Assert.AreEqual("42", rec.Cits.Page); // TODO should be multiple
+            Assert.AreEqual("wha?",rec.Cits.Quay);
+        }
+
+        [TestMethod]
+        public void TestInvalidXref()
+        {
+            string txt = "0 @N1@ NOTE\n1 SOUR @ @";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Errors.Count);
+
+            txt = "0 INDI\n1 SOUR @@@";
             res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             rec = res[0] as GedNote;
             Assert.IsNotNull(rec);
-            res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-            Assert.AreEqual(1, res2.Notes.Count);
-            Assert.AreEqual("notes\nmore detail", res2.Notes[0].Text);
-
+            Assert.AreEqual(1, rec.Errors.Count);
         }
 
+        [TestMethod]
+        public void TestEmbSour2()
+        {
+            // Embedded SOUR cit with CONC/CONT
+            var txt = "0 @N1@ NOTE\n1 SOUR this is a source \n2 CONC with extension";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual("this is a source with extension", rec.Cits.Desc);
+            Assert.IsNull(rec.Cits.Xref);
+        }
+
+        [TestMethod]
+        public void TestEmbSour3()
+        {
+            // Embedded SOUR cit with CONC/CONT; multi source cit
+            var txt = "0 @N1@ NOTE\n1 SOUR this is a source\n2 CONT extended to next line\n1 SOUR this is another";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual("this is a source\nextended to next line", rec.Cits.Desc);
+            Assert.IsNull(rec.Cits.Xref);
+        }
+
+        [TestMethod]
+        public void TestEmbSourText()
+        {
+            var txt = "0 @N1@ NOTE\n1 SOUR embedded source\n2 NOTE a note\n2 TEXT this is text";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual(null, rec.Cits.Xref);
+            Assert.AreEqual("embedded source", rec.Cits.Desc);
+            Assert.AreEqual("this is text", rec.Cits.Text);
+        }
+
+        [TestMethod]
+        public void TestEmbSourText2()
+        {
+            var txt = "0 @N1@ NOTE\n1 SOUR embedded source\n2 NOTE a note\n2 TEXT this is text ex\n3 CONC tended";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual(null, rec.Cits.Xref);
+            Assert.AreEqual("embedded source", rec.Cits.Desc);
+            Assert.AreEqual("this is text extended", rec.Cits.Text);
+        }
+
+        [TestMethod]
+        public void TestSourCitErr()
+        {
+            // TEXT tag for reference source is error
+            string txt = "0 @N1@ NOTE\n1 SOUR @p1@\n2 TEXT this is error";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("p1", rec.Cits.Xref);
+            Assert.AreEqual(1, res[0].Errors.Count, "No error");
+        }
+
+        [TestMethod]
+        public void TestSourCitErr2()
+        {
+            // PAGE tag for embedded source is error
+            string txt = "0 @N1@ NOTE\n1 SOUR inbed\n2 PAGE this is error";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("p1", rec.Cits.Xref);
+            Assert.AreEqual(1, res[0].Errors.Count, "No error");
+        }
+
+        [TestMethod]
+        public void TestSourCitErr3()
+        {
+            // EVEN tag for embedded source is error
+            string txt = "0 @N1@ NOTE\n1 SOUR inbed\n2 EVEN this is error";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+
+            Assert.IsNull(rec.Cits.Xref);
+            Assert.AreEqual(1, res[0].Errors.Count, "No error");
+        }
+
+        // TODO NOTE+SOUR+EVEN+ROLE
+        // TODO NOTE+SOUR+DATA+DATE+TEXT
+        // TODO NOTE+SOUR+OBJE
+        // TODO NOTE+SOUR+NOTE+...
+
+
+        // TODO test complex nested structs  0INDI+1ASSOC+2SOUR+3TEXT; 0NOTE+1SOUR+2DATA+3TEXT
     }
 }

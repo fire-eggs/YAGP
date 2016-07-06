@@ -64,6 +64,7 @@
     <Compile Include="GedLineUtil.cs" />
     <Compile Include="Model\GEDCommon.cs" />
     <Compile Include="Model\NoteHold.cs" />
+    <Compile Include="Model\SourceCit.cs" />
     <Compile Include="Model\StructCommon.cs" />
     <Compile Include="Parser\AddrStructParse.cs" />
     <Compile Include="Parser\GedNoteParse.cs" />

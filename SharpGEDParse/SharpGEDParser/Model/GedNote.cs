@@ -11,6 +11,8 @@ namespace SharpGEDParser.Model
         // Submitter text
         public string Text { get; set; }
 
+        public SourceCit Cits { get; set; } // TODO multiple
+
         public GedNote(GedRecord lines, string ident, string remain)
         {
             Text = remain;
