@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SharpGEDParser.Model;
+using SharpGEDParser.Parser;
 
 namespace SharpGEDParser
 {
@@ -286,6 +287,31 @@ namespace SharpGEDParser
                 }
             }
             return txt.ToString();
+        }
+
+        protected void RinProc(ParseContext2 ctx)
+        {
+            (ctx.Parent as GEDCommon).RIN = ctx.Remain;
+        }
+
+        protected void ChanProc(ParseContext2 ctx)
+        {
+            ParseChanStruct.ChanProc(ctx);
+        }
+
+        protected void RefnProc(ParseContext2 ctx)
+        {
+            (ctx.Parent as GEDCommon).Ids.REFNs.Add(ParseREFN(ctx));
+        }
+
+        private StringPlus ParseREFN(ParseContext2 ctx)
+        {
+            var sp = new StringPlus();
+            sp.Value = ctx.Remain;
+            LookAhead(ctx);
+            sp.Extra.Beg = ctx.Begline + 1;
+            sp.Extra.End = ctx.Endline;
+            return sp;
         }
     }
 }

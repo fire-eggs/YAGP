@@ -68,6 +68,7 @@
     <Compile Include="Parser\GedNoteParse.cs" />
     <Compile Include="Parser\GedRepoParse.cs" />
     <Compile Include="Parser\NoteStructParse.cs" />
+    <Compile Include="Parser\ParseChanStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourCitDataParse.cs" />
   </ItemGroup>
