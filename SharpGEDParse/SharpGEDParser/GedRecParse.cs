@@ -296,7 +296,7 @@ namespace SharpGEDParser
 
         protected void ChanProc(ParseContext2 ctx)
         {
-            ParseChanStruct.ChanProc(ctx);
+            ChanStructParse.ChanProc(ctx);
         }
 
         protected void RefnProc(ParseContext2 ctx)

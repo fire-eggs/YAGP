@@ -1,13 +1,33 @@
 ﻿using SharpGEDParser.Model;
+using System.Collections.Generic;
 
 namespace SharpGEDParser.Parser
 {
     // Parse a set of lines for a Note structure
-    public class NoteStructParse
+    public class NoteStructParse : StructParser
     {
+        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        {
+            {"CONC", concProc},
+            {"CONT", contProc}
+        };
+
+        private static void contProc(StructParseContext context, int linedex)
+        {
+            Note note = (context.Parent as Note);
+            note.Text += "\n" + context.Remain;
+        }
+
+        private static void concProc(StructParseContext context, int linedex)
+        {
+            Note note = (context.Parent as Note);
+            note.Text += context.Remain;
+        }
+
         public static Note NoteParser(GedRecParse.ParseContext2 ctx)
         {
             Note note = new Note();
+            StructParseContext ctx2 = new StructParseContext(ctx, note);
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
                 note.Xref = ctx.Remain.Trim(new char[] { '@' });
@@ -17,37 +37,26 @@ namespace SharpGEDParser.Parser
                 note.Text = ctx.Remain;
             }
 
-            int i = ctx.Begline + 1;
+            StructParse(ctx2, tagDict);
+            ctx.Endline = ctx2.Endline;
+            return note;
+        }
 
-            char level = ' ';
-            string ident = null;
-            string tag = null;
-            string remain = null;
-            for (; i < ctx.Lines.Max; i++)
+        public static Note NoteParser(StructParseContext ctx, int linedex)
+        {
+            Note note = new Note();
+            StructParseContext ctx2 = new StructParseContext(ctx, linedex, note);
+            if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
-                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
-                if (level <= ctx.Level)
-                    break; // end of sub-record
-                switch (tag)
-                {
-                    case "CONC":
-                        note.Text += remain;
-                        break;
-                    case "CONT":
-                        note.Text += "\n" + remain;
-                        break;
-                    default:
-                        LineSet extra = new LineSet();
-                        ctx.Begline = i;
-                        GedRecParse.LookAhead(ctx);
-                        extra.Beg = ctx.Begline;
-                        extra.End = ctx.Endline;
-                        note.OtherLines.Add(extra);
-                        i = ctx.Endline;
-                        break;
-                }
+                note.Xref = ctx.Remain.Trim(new char[] { '@' });
             }
-            ctx.Endline = i - 1;
+            else
+            {
+                note.Text = ctx.Remain;
+            }
+
+            StructParse(ctx2, tagDict);
+            ctx.Endline = ctx2.Endline - 1;
             return note;
         }
 

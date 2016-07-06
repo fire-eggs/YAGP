@@ -1,79 +1,97 @@
-﻿using SharpGEDParser.Model;
+﻿using System.Collections.Generic;
+using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
     // TODO what common/custom tags from programs?
 
-    public class AddrStructParse
+    public class AddrStructParse : StructParser
     {
+        // TODO could reflection be used to replace these copy-pasta methods? Would it be better?
+
+        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        {
+            {"CONT", contProc},
+            {"ADR1", adr1Proc},
+            {"ADR2", adr2Proc},
+            {"ADR3", adr3Proc},
+            {"CITY", cityProc},
+            {"STAE", staeProc},
+            {"POST", postProc},
+            {"CTRY", ctryProc},
+            {"PHON", phonProc},
+            {"FAX", faxProc},
+            {"EMAIL", emailProc},
+            {"WWW", wwwProc}
+        };
+
+        private static void wwwProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).WWW = context.Remain;
+        }
+
+        private static void emailProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Email = context.Remain;
+        }
+
+        private static void faxProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Fax = context.Remain;
+        }
+
+        private static void phonProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Phon = context.Remain;
+        }
+
+        private static void ctryProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Ctry = context.Remain;
+        }
+
+        private static void postProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Post = context.Remain;
+        }
+
+        private static void staeProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Stae = context.Remain;
+        }
+
+        private static void cityProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).City = context.Remain;
+        }
+
+        private static void adr1Proc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Adr1 = context.Remain;
+        }
+
+        private static void adr2Proc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Adr2 = context.Remain;
+        }
+
+        private static void adr3Proc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Adr3 = context.Remain;
+        }
+
+        private static void contProc(StructParseContext context, int linedex)
+        {
+            (context.Parent as Address).Adr += "\n" + context.Remain;
+        }
+
         public static Address AddrParse(GedRecParse.ParseContext2 ctx)
         {
             Address addr = new Address();
-
+            StructParseContext ctx2 = new StructParseContext(ctx, addr);
             addr.Adr += ctx.Remain;
-
-            int i = ctx.Begline + 1;
-
-            char level = ' ';
-            string ident = null;
-            string tag = null;
-            string remain = null;
-            for (; i < ctx.Lines.Max; i++)
-            {
-                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
-                if (level <= ctx.Level)
-                    break; // end of sub-record
-                switch (tag)
-                {
-                    case "CONT":
-                        addr.Adr += "\n" + remain;
-                        break;
-                    case "ADR1":
-                        addr.Adr1 = remain;
-                        break;
-                    case "ADR2":
-                        addr.Adr2 = remain;
-                        break;
-                    case "ADR3":
-                        addr.Adr3 = remain;
-                        break;
-                    case "CITY":
-                        addr.City = remain;
-                        break;
-                    case "STAE":
-                        addr.Stae = remain;
-                        break;
-                    case "POST":
-                        addr.Post = remain;
-                        break;
-                    case "CTRY":
-                        addr.Ctry = remain;
-                        break;
-                    case "PHON":
-                        addr.Phon = remain;
-                        break;
-                    case "EMAIL":
-                        addr.Email = remain;
-                        break;
-                    case "FAX":
-                        addr.Fax = remain;
-                        break;
-                    case "WWW":
-                        addr.WWW = remain;
-                        break;
-
-                    default:
-                        LineSet extra = new LineSet();
-                        ctx.Begline = i;
-                        GedRecParse.LookAhead(ctx);
-                        extra.Beg = ctx.Begline;
-                        extra.End = ctx.Endline;
-                        addr.OtherLines.Add(extra);
-                        i = ctx.Endline;
-                        break;
-                }
-            }
-            ctx.Endline = i - 1;
+            StructParse(ctx2, tagDict);
+            ctx.Endline = ctx2.Endline;
             return addr;
         }
     }

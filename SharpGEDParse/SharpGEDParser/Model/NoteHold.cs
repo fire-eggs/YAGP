@@ -2,15 +2,11 @@
 
 namespace SharpGEDParser.Model
 {
-    public class Note
+    public class Note : StructCommon
     {
         public string Xref { get; set; }
 
         public string Text { get; set; }
-
-        // All other lines (typically custom/unknown)
-        private List<LineSet> _other;
-        public List<LineSet> OtherLines { get { return _other ?? (_other = new List<LineSet>()); } }
     }
 
     public class NoteHold

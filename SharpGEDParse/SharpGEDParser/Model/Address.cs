@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace SharpGEDParser.Model
+﻿namespace SharpGEDParser.Model
 {
-    public class Address
+    public class Address : StructCommon
     {
         public string Adr { get; set; }
         public string Adr1 { get; set; }
@@ -16,9 +14,5 @@ namespace SharpGEDParser.Model
         public string Email { get; set; }
         public string Fax { get; set; }
         public string WWW { get; set; }
-
-        // All other lines (typically custom/unknown)
-        private List<LineSet> _other;
-        public List<LineSet> OtherLines { get { return _other ?? (_other = new List<LineSet>()); } }
     }
 }
