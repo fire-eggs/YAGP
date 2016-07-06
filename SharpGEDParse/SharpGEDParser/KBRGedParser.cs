@@ -15,6 +15,7 @@ namespace SharpGEDParser
             _HeadParseSingleton = new GedHeadParse();
             _SourParseSingleton = new GedSourParse();
             _RepoParseSingleton = new GedRepoParse();
+            _NoteParseSingleton = new GedNoteParse();
         }
 
         public object Parse(GedRecord rec)
@@ -44,13 +45,16 @@ namespace SharpGEDParser
             // 2. search for and find the tag
             string ident = "";
             string tag = "";
-            GedLineUtil.IdentAndTag(head, firstDex + 1, ref ident, ref tag);
+            string remain = "";
+            char level = ' ';
+            GedLineUtil.LevelTagAndRemain(head, ref level, ref ident, ref tag, ref remain);
+            //GedLineUtil.IdentAndTag(head, firstDex + 1, ref ident, ref tag);
 
             // 3. create a KBRGedRec derived class
-            return GedRecFactory(rec, ident, tag);
+            return GedRecFactory(rec, ident, tag, remain);
         }
 
-        private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag)
+        private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)
         {
             // Parse 'top level' records. Parsing of some record types (e.g. NOTE, SOUR, etc) are likely to be in 'common' with sub-record parsing
 
@@ -81,8 +85,10 @@ namespace SharpGEDParser
                     return new Tuple<object, GedParse>(foo, _RepoParseSingleton);
                 }
                 case "NOTE":
-                    data = new GedNote(rec, ident);
-                    return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
+                {
+                    var foo = new GedNote(rec, ident, remain);
+                    return new Tuple<object, GedParse>(foo, _NoteParseSingleton);
+                }
                 case "OBJE":
                 case "SUBN":
                 default:  // TODO leading underscore signals a custom record
@@ -96,6 +102,7 @@ namespace SharpGEDParser
         private GedParse _HeadParseSingleton;
         private GedParse _SourParseSingleton;
         private GedParse _RepoParseSingleton;
+        private GedParse _NoteParseSingleton;
         private static GedRecParse _EventParseSingleton;
         private static GedRecParse _SourceCitParseSingleton;
 

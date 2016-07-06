@@ -44,7 +44,7 @@
     <Compile Include="GedFamParse.cs" />
     <Compile Include="GedHeadParse.cs" />
     <Compile Include="GedIndiParse.cs" />
-    <Compile Include="GedNote.cs" />
+    <Compile Include="Model\GedNote.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
     <Compile Include="Model\Address.cs" />
@@ -65,6 +65,7 @@
     <Compile Include="Model\GEDCommon.cs" />
     <Compile Include="Model\NoteHold.cs" />
     <Compile Include="Parser\AddrStructParse.cs" />
+    <Compile Include="Parser\GedNoteParse.cs" />
     <Compile Include="Parser\GedRepoParse.cs" />
     <Compile Include="Parser\NoteStructParse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

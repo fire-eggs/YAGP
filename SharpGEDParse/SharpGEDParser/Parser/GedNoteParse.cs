@@ -3,38 +3,52 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
-    public class GedRepoParse : GedRecParse
+    public class GedNoteParse : GedRecParse
     {
         protected override void BuildTagSet()
         {
-            _tagSet2.Add("NAME", nameproc);
-            _tagSet2.Add("ADDR", addrproc);
-            _tagSet2.Add("NOTE", NoteProc);
             _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN",  RinProc);
+            _tagSet2.Add("RIN", RinProc);
             _tagSet2.Add("CHAN", ChanProc);
+            _tagSet2.Add("SOUR", sourCitProc);
+            _tagSet2.Add("CONC", concProc);
+            _tagSet2.Add("CONT", contProc);
         }
 
-        private void NoteProc(ParseContext2 ctx)
+        // TODO switch to StringBuilder for parse
+        private void contProc(ParseContext2 ctx)
         {
-            var note = NoteStructParse.NoteParser(ctx);
-            (ctx.Parent as GedRepository).Notes.Add(note);
+            (ctx.Parent as GedNote).Text += "\n";
+            concProc(ctx);
         }
 
-        private void nameproc(ParseContext2 ctx)
+        // TODO switch to StringBuilder for parse
+        private void concProc(ParseContext2 ctx)
         {
-            (ctx.Parent as GedRepository).Name = ctx.Remain;
+            (ctx.Parent as GedNote).Text += ctx.Remain;
         }
 
-        private void addrproc(ParseContext2 ctx)
+        private void sourCitProc(ParseContext2 ctx)
         {
-            var addr = AddrStructParse.AddrParse(ctx);
-            (ctx.Parent as GedRepository).Addr = addr;
+            
         }
 
         private void RinProc(ParseContext2 ctx) // TODO push to common/GEDCommon
         {
             ctx.Parent.RIN = ctx.Remain;
+        }
+        private void RefnProc(ParseContext2 ctx) // TODO push to common/GEDCommon
+        {
+            ctx.Parent.Ids.REFNs.Add(ParseREFN(ctx));
+        }
+        private StringPlus ParseREFN(ParseContext2 ctx)
+        {
+            var sp = new StringPlus();
+            sp.Value = ctx.Remain;
+            LookAhead(ctx);
+            sp.Extra.Beg = ctx.Begline + 1;
+            sp.Extra.End = ctx.Endline;
+            return sp;
         }
 
         private void ChanProc(ParseContext2 ctx) // TODO push to common/GEDCommon
@@ -94,30 +108,16 @@ namespace SharpGEDParser.Parser
                         break;
                 }
             }
-            ctx.Endline = i-1;
+            ctx.Endline = i - 1;
 
             if (chan.Date == null)
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing required data for CHAN"; 
+                err.Error = "Missing required data for CHAN";
                 // TODO missing line numbers
                 ctx.Parent.Errors.Add(err);
             }
         }
 
-        private void RefnProc(ParseContext2 ctx) // TODO push to common/GEDCommon
-        {
-            ctx.Parent.Ids.REFNs.Add(ParseREFN(ctx));
-        }
-
-        private StringPlus ParseREFN(ParseContext2 ctx)
-        {
-            var sp = new StringPlus();
-            sp.Value = ctx.Remain;
-            LookAhead(ctx);
-            sp.Extra.Beg = ctx.Begline + 1;
-            sp.Extra.End = ctx.Endline;
-            return sp;
-        }
     }
 }
