@@ -2,6 +2,8 @@
 
 // TODO refactor common logic in ctor
 
+using System.Collections.Generic;
+
 namespace SharpGEDParser.Model
 {
     public class GedNote : GEDCommon
@@ -11,7 +13,8 @@ namespace SharpGEDParser.Model
         // Submitter text
         public string Text { get; set; }
 
-        public SourceCit Cits { get; set; } // TODO multiple
+        private List<SourceCit> _cits;
+        public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); }}
 
         public GedNote(GedRecord lines, string ident, string remain)
         {

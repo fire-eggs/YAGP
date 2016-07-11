@@ -25,62 +25,62 @@ namespace SharpGEDParser.Parser
             {"WWW", wwwProc}
         };
 
-        private static void wwwProc(StructParseContext context, int linedex)
+        private static void wwwProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).WWW = context.Remain;
         }
 
-        private static void emailProc(StructParseContext context, int linedex)
+        private static void emailProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Email = context.Remain;
         }
 
-        private static void faxProc(StructParseContext context, int linedex)
+        private static void faxProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Fax = context.Remain;
         }
 
-        private static void phonProc(StructParseContext context, int linedex)
+        private static void phonProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Phon = context.Remain;
         }
 
-        private static void ctryProc(StructParseContext context, int linedex)
+        private static void ctryProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Ctry = context.Remain;
         }
 
-        private static void postProc(StructParseContext context, int linedex)
+        private static void postProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Post = context.Remain;
         }
 
-        private static void staeProc(StructParseContext context, int linedex)
+        private static void staeProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Stae = context.Remain;
         }
 
-        private static void cityProc(StructParseContext context, int linedex)
+        private static void cityProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).City = context.Remain;
         }
 
-        private static void adr1Proc(StructParseContext context, int linedex)
+        private static void adr1Proc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Adr1 = context.Remain;
         }
 
-        private static void adr2Proc(StructParseContext context, int linedex)
+        private static void adr2Proc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Adr2 = context.Remain;
         }
 
-        private static void adr3Proc(StructParseContext context, int linedex)
+        private static void adr3Proc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Adr3 = context.Remain;
         }
 
-        private static void contProc(StructParseContext context, int linedex)
+        private static void contProc(StructParseContext context, int linedex, char level)
         {
             (context.Parent as Address).Adr += "\n" + context.Remain;
         }

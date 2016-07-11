@@ -142,7 +142,9 @@ namespace SharpGEDParser
             dex = AllCharsUntil(line, max, dex, ' ');
             dex = IdentAndTag(line, dex, ref ident, ref tag);
             if (dex < max)
-                remain = line.Substring(dex+1); // TODO check for nothing remaining
+                remain = line.Substring(dex + 1);
+            else
+                remain = "";
             return dex;
         }
 

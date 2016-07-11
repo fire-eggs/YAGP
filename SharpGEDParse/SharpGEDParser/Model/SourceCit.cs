@@ -6,7 +6,7 @@ namespace SharpGEDParser.Model
     // Source Citation record
     public class SourceCit : StructCommon
     {
-        public string Xref { get; set; }
+        public string Xref { get; set; } // will be empty if an embedded citation
 
         public string Desc { get; set; }
 
@@ -18,9 +18,14 @@ namespace SharpGEDParser.Model
 
         public string Quay { get; set; }
 
-        public DateTime? Date { get; set; }
+        public bool Data { get; set; } // was the DATA tag encountered
 
-        public string Text { get; set; } // TODO this can be multiple
+        public DateTime? Date { get; set; } // will be null if an embedded citation
+
+        private List<string> _text;
+        public List<string> Text { get { return _text ?? (_text = new List<string>()); }}
+
+        public bool AnyText { get { return _text != null; } } // Don't force allocation of List during verify
 
         private NoteHold _noteHold = new NoteHold();
         public List<Note> Notes { get { return _noteHold.Notes; } }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using SharpGEDParser.Model;
 using System.Collections.Generic;
 
@@ -37,7 +38,7 @@ namespace SharpGEDParser.Parser
             }
         }
 
-        protected delegate void TagProc(StructParseContext context, int linedex);
+        protected delegate void TagProc(StructParseContext context, int linedex, char level);
 
         protected static void StructParse(StructParseContext ctx, Dictionary<string, TagProc> tagSet)
         {
@@ -53,7 +54,8 @@ namespace SharpGEDParser.Parser
                     break; // end of sub-record
                 if (tagSet.ContainsKey(tag))
                 {
-                    tagSet[tag](ctx, i);
+                    ctx.Begline = i;
+                    tagSet[tag](ctx, i, level);
                 }
                 else
                 {
@@ -82,6 +84,37 @@ namespace SharpGEDParser.Parser
                    linedex + 1 <= ctx.Lines.LineCount)
                 linedex++;
             ctx.Endline = linedex;
+        }
+
+        // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
+        protected static string extendedText(StructParseContext ctx)
+        {
+            StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
+
+            int i = ctx.Begline + 1;
+            char level = ' ';
+            string ident = null;
+            string tag = null;
+            string remain = null;
+            for (; i < ctx.Lines.Max; i++)
+            {
+                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
+                if (level <= ctx.Level)
+                    break; // end of sub-record
+                if (tag == "CONC")
+                {
+                    txt.Append(remain); // must keep trailing space
+                }
+                else if (tag == "CONT")
+                {
+                    txt.Append("\n"); // NOTE: not appendline, which is \r\n
+                    txt.Append(remain); // must keep trailing space
+                }
+                else
+                    break; // non-CONC, non-CONT: stop!
+            }
+            ctx.Endline = i - 1;
+            return txt.ToString();
         }
 
     }

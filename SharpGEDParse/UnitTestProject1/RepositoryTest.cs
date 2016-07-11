@@ -322,7 +322,7 @@ namespace UnitTestProject1
             GedRepository rec = res[0] as GedRepository;
             Assert.IsNotNull(rec);
             Assert.AreEqual(1, rec.Notes.Count);
-            Assert.IsNull(rec.Notes[0].Text);
+            Assert.AreEqual("", rec.Notes[0].Text);
 
             indi = "0 REPO @R1@\n1 NOTE notes\n2 CONT more detail";
             res = ReadIt(indi);
@@ -369,7 +369,7 @@ namespace UnitTestProject1
             GedRepository rec = res[0] as GedRepository;
             Assert.IsNotNull(rec);
             Assert.AreEqual(1, rec.Notes.Count);
-            Assert.IsNull(rec.Notes[0].Text);
+            Assert.AreEqual("", rec.Notes[0].Text);
             Assert.AreEqual(1, rec.Notes[0].OtherLines.Count);
         }
 
