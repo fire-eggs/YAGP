@@ -1,6 +1,8 @@
 ﻿using System;
 using SharpGEDParser.Model;
 
+// TODO consider dropping Ged prefix ???
+
 namespace SharpGEDParser.Parser
 {
     public class GedNoteParse : GedRecParse

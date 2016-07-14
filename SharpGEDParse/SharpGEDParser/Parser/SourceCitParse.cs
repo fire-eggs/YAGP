@@ -31,7 +31,9 @@ namespace SharpGEDParser.Parser
 
         private static void objeProc(StructParseContext context, int linedex, char level)
         {
-            throw new NotImplementedException();
+            MediaLink mlink = MediaStructParse.MediaParser(context, linedex, level);
+            SourceCit cit = (context.Parent as SourceCit);
+            cit.Media.Add(mlink);
         }
 
         private static void quayProc(StructParseContext context, int linedex, char level)

@@ -503,6 +503,8 @@ namespace UnitTestProject1
             Assert.AreEqual("embedded source", rec.Cits[0].Desc);
         }
 
+// TODO move all source citation tests elsewhere?
+
         [TestMethod]
         public void TestSourCitErr()
         {
@@ -702,9 +704,85 @@ namespace UnitTestProject1
             Assert.AreEqual("yup", rec.Cits[1].Quay);
         }
 
+        [TestMethod]
+        public void TestSourCitObje1()
+        {
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n2 OBJE\n3 FILE fileref1\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("rin_tin_tin", rec.RIN);
+
+            Assert.AreEqual(2, rec.Cits.Count);
+
+            Assert.AreEqual("out of bed", rec.Cits[0].Desc);
+            Assert.AreEqual(1, rec.Cits[0].Text.Count);
+            Assert.AreEqual("fumbar extended", rec.Cits[0].Text[0]);
+            Assert.AreEqual("nope", rec.Cits[0].Quay);
+            Assert.AreEqual(1, rec.Cits[0].Media.Count);
+            var media = rec.Cits[0].Media[0];
+            Assert.AreEqual(2, media.Files.Count);
+            Assert.AreEqual("fileref1", media.Files[0].FileRefn);
+            Assert.AreEqual("fileref2", media.Files[1].FileRefn);
+
+            Assert.AreEqual("inbed", rec.Cits[1].Desc);
+            Assert.AreEqual(1, rec.Cits[1].Text.Count);
+            Assert.AreEqual("foebar extended", rec.Cits[1].Text[0]);
+            Assert.AreEqual("yup", rec.Cits[1].Quay);
+            Assert.AreEqual(2, rec.Cits[1].Media.Count);
+            media = rec.Cits[1].Media[0];
+            Assert.AreEqual("mref2", media.Xref);
+            media = rec.Cits[1].Media[1];
+            Assert.AreEqual("filerefn", media.Files[0].FileRefn);
+
+        }
+
+        [TestMethod]
+        public void TestSourCitObje2()
+        {
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n\n2 OBJE\n3 TITL title\n2 OBJE\n3 FILE\n3 FORM format2\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as GedNote;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("rin_tin_tin", rec.RIN);
+
+            Assert.AreEqual(2, rec.Cits.Count);
+
+            Assert.AreEqual("out of bed", rec.Cits[0].Desc);
+            Assert.AreEqual(1, rec.Cits[0].Text.Count);
+            Assert.AreEqual("fumbar extended", rec.Cits[0].Text[0]);
+            Assert.AreEqual("nope", rec.Cits[0].Quay);
+            Assert.AreEqual(2, rec.Cits[0].Media.Count);
+
+            var media = rec.Cits[0].Media[0];
+            Assert.AreEqual(0, media.Files.Count);
+            Assert.AreEqual("title", media.Title);
+
+            media = rec.Cits[0].Media[1];
+            Assert.AreEqual(2, media.Files.Count);
+            Assert.AreEqual("", media.Files[0].FileRefn);
+            Assert.AreEqual("format2", media.Files[0].Form);
+            Assert.AreEqual("fileref2", media.Files[1].FileRefn);
+            Assert.AreEqual("format1", media.Files[1].Form);
+
+            Assert.AreEqual("inbed", rec.Cits[1].Desc);
+            Assert.AreEqual(1, rec.Cits[1].Text.Count);
+            Assert.AreEqual("foebar extended", rec.Cits[1].Text[0]);
+            Assert.AreEqual("yup", rec.Cits[1].Quay);
+            Assert.AreEqual(2, rec.Cits[1].Media.Count);
+            media = rec.Cits[1].Media[0];
+            Assert.AreEqual("mref2", media.Xref);
+            media = rec.Cits[1].Media[1];
+            Assert.AreEqual("filerefn", media.Files[0].FileRefn);
+        }
+
         // TODO NOTE+SOUR+EVEN+ROLE
         // TODO NOTE+SOUR+DATA+DATE+TEXT
-        // TODO NOTE+SOUR+OBJE
+        // TODO NOTE+SOUR+OBJE - other lines, error scenarios
         // TODO NOTE+SOUR+NOTE+...
 
         /*
