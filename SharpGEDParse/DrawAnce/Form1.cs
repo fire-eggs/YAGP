@@ -34,13 +34,27 @@ namespace DrawAnce
             drawer = draw4gen;
         }
 
+        private int tick;
+        private void logit(string msg, bool first = false)
+        {
+            int delta = 0;
+            if (first)
+                tick = Environment.TickCount;
+            else
+                delta = Environment.TickCount - tick;
+            Console.WriteLine(msg + "|" + delta);
+        }
+
         private void Form1_LoadGed(object sender, EventArgs e)
         {
+            logit("LoadGed 1", true);
             var fr = new FileRead();
             fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
-            BuildTree(fr.Data);
+            logit("LoadGed 2");
+            BuildTree(fr.Data.Select(o => o as KBRGedRec).ToList());
 
             ResetContext();
+            logit("LoadGed 3");
 
             // populate combobox with individuals
             // www.ahnenbuch.de-AMMON has multiple individuals with the same name. Need to distinguish
@@ -72,6 +86,7 @@ namespace DrawAnce
             cmbPerson.DisplayMember = "Text";
             cmbPerson.DataSource = _cmbItems;
             cmbPerson.Enabled = true;
+            logit("LoadGed 4");
         }
 
         private void OnMRU(int number, string filename)
@@ -175,7 +190,7 @@ namespace DrawAnce
         {
             var ofd = new OpenFileDialog();
             ofd.Multiselect = false;
-            ofd.Filter = "GEDCOM files (*.ged)|*.ged";
+			ofd.Filter = "GEDCOM files|*.ged;*.GED";
             ofd.FilterIndex = 1;
             ofd.DefaultExt = "ged";
             ofd.CheckFileExists = true;
