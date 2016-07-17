@@ -1,10 +1,10 @@
-﻿using NUnit.Framework;
-using System;
-using SharpGEDParser.Model;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
+using SharpGEDParser.Model;
 
-namespace SharpGEDParser
+namespace SharpGEDParser.Tests
 {
 	[TestFixture ()]
 	public class RepositoryTest : GedParseTest

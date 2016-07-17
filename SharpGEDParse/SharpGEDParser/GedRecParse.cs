@@ -313,5 +313,11 @@ namespace SharpGEDParser
             sp.Extra.End = ctx.Endline;
             return sp;
         }
+
+        protected void sourCitProc(ParseContext2 ctx)
+        {
+            var cit = SourceCitParse.SourceCitParser(ctx);
+            (ctx.Parent as GedNote).Cits.Add(cit);
+        }
     }
 }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
+    // multimedia link parsing. [Not to be confused with Multimedia Record]
+    // Multimedia links are referenced from:
+    // Records: SUBMITTER, SOURCE, INDI, FAM
+    // Structures: EVENT_DETAIL, SOURCE_CITATION
+    //
     // There are two variants of Multimedia links
     // "1 OBJE\n2 FILE <refn>\n3 FORM <form>\n4 MEDI <type>"
     // "1 OBJE\n2 FILE\n2 FORM <form>\n3 MEDI <type>"

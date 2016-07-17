@@ -16,6 +16,7 @@ namespace SharpGEDParser
             _SourParseSingleton = new GedSourParse();
             _RepoParseSingleton = new GedRepoParse();
             _NoteParseSingleton = new GedNoteParse();
+            _MediaParseSingleton = new MediaParse();
         }
 
         public object Parse(GedRecord rec)
@@ -90,6 +91,10 @@ namespace SharpGEDParser
                     return new Tuple<object, GedParse>(foo, _NoteParseSingleton);
                 }
                 case "OBJE":
+                {
+                    var foo = new MediaRecord(rec, ident, remain);
+                    return new Tuple<object, GedParse>(foo, _MediaParseSingleton);
+                }
                 case "SUBN":
                 default:  // TODO leading underscore signals a custom record
                     data = new KBRGedUnk(rec, ident, tag);
@@ -103,6 +108,7 @@ namespace SharpGEDParser
         private GedParse _SourParseSingleton;
         private GedParse _RepoParseSingleton;
         private GedParse _NoteParseSingleton;
+        private GedParse _MediaParseSingleton;
         private static GedRecParse _EventParseSingleton;
         private static GedRecParse _SourceCitParseSingleton;
 

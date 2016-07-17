@@ -12,6 +12,8 @@ namespace SharpGEDParser.Model
         public string Form { get; set; }
 
         public string Type { get; set; }
+
+        public string Title { get; set; }
     }
 
     public class MediaLink : StructCommon

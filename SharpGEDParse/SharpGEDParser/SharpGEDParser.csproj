@@ -65,12 +65,14 @@
     <Compile Include="GedLineUtil.cs" />
     <Compile Include="Model\GEDCommon.cs" />
     <Compile Include="Model\MediaLink.cs" />
+    <Compile Include="Model\MediaRecord.cs" />
     <Compile Include="Model\NoteHold.cs" />
     <Compile Include="Model\SourceCit.cs" />
     <Compile Include="Model\StructCommon.cs" />
     <Compile Include="Parser\AddrStructParse.cs" />
     <Compile Include="Parser\GedNoteParse.cs" />
     <Compile Include="Parser\GedRepoParse.cs" />
+    <Compile Include="Parser\MediaParse.cs" />
     <Compile Include="Parser\MediaStructParse.cs" />
     <Compile Include="Parser\NoteStructParse.cs" />
     <Compile Include="Parser\ChanStructParse.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Parser\StructParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourCitDataParse.cs" />
+    <Compile Include="Tests\MediaTest.cs" />
     <Compile Include="Tests\RepositoryTest.cs" />
     <Compile Include="Tests\GedParseTest.cs" />
   </ItemGroup>

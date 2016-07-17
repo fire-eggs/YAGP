@@ -1,5 +1,4 @@
-﻿using System;
-using SharpGEDParser.Model;
+﻿using SharpGEDParser.Model;
 
 // TODO consider dropping Ged prefix ???
 
@@ -28,12 +27,6 @@ namespace SharpGEDParser.Parser
         private void concProc(ParseContext2 ctx)
         {
             (ctx.Parent as GedNote).Text += ctx.Remain;
-        }
-
-        private void sourCitProc(ParseContext2 ctx)
-        {
-            var cit = SourceCitParse.SourceCitParser(ctx);
-            (ctx.Parent as GedNote).Cits.Add(cit);
         }
     }
 }
