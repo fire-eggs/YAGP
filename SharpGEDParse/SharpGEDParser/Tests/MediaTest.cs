@@ -12,6 +12,7 @@ using System.Linq;
 // Testing for Media (OBJE) Records
 // Unless specifically mentioned, the syntax for these records is GEDCOM 5.5.1
 
+// TODO actually exercise record tags FILE/FORM/TYPE/TITL
 // TODO a FILE is required
 // TODO a FORM is required per FILE
 // TODO an XREF is required
