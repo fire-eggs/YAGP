@@ -40,6 +40,19 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("R1", rec.Ident);
 		}
 
+	    [Test()]
+	    public void TestMissingName()
+	    {
+	        // NAME record is required
+	        var txt = "0 @R1@ REPO";
+	        var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            GedRepository rec = res[0] as GedRepository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual("R1", rec.Ident);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO error details
+        }
+
 		[Test ()]
 		public void TestCust1()
 		{
@@ -157,11 +170,11 @@ namespace SharpGEDParser.Tests
 		public void TestMissingId()
 		{
 			// empty record; missing id
-			var txt = "0 REPO\n0 KLUDGE";
+			var txt = "0 REPO";
 			var res = ReadItHigher(txt);
 			Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
 			Assert.AreEqual(1, res.Data.Count);
-			Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+			Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count);
 		}
 
 		[Test ()]
@@ -193,7 +206,7 @@ namespace SharpGEDParser.Tests
 		public void TestChan2()
 		{
 			// no date for chan
-			var txt = "0 @R1@ REPO\n1 CHAN";
+            var txt = "0 @R1@ REPO\n1 CHAN\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			GedRepository rec = res[0] as GedRepository;

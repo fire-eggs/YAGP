@@ -28,5 +28,13 @@ namespace SharpGEDParser.Parser
         {
             (ctx.Parent as GedNote).Text += ctx.Remain;
         }
+
+        // TODO don't have a 'source citation container' base class
+        protected void sourCitProc(ParseContext2 ctx)
+        {
+            var cit = SourceCitParse.SourceCitParser(ctx);
+            (ctx.Parent as GedNote).Cits.Add(cit);
+        }
+
     }
 }

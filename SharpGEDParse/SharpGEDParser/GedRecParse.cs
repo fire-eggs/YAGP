@@ -152,6 +152,8 @@ namespace SharpGEDParser
                 }
                 i = ctx.Endline;
             }
+
+            PostCheck(ctx.Parent); // post parse error checking
         }
 
         // Find the end of this 'record'.
@@ -314,10 +316,9 @@ namespace SharpGEDParser
             return sp;
         }
 
-        protected void sourCitProc(ParseContext2 ctx)
+        public virtual void PostCheck(GEDCommon rec)
         {
-            var cit = SourceCitParse.SourceCitParser(ctx);
-            (ctx.Parent as GedNote).Cits.Add(cit);
+            // post parse checking
         }
     }
 }

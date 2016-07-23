@@ -30,5 +30,19 @@ namespace SharpGEDParser.Parser
             var addr = AddrStructParse.AddrParse(ctx);
             (ctx.Parent as GedRepository).Addr = addr;
         }
+
+        public override void PostCheck(GEDCommon rec)
+        {
+            GedRepository me = rec as GedRepository;
+
+            // A NAME record is required
+            if (string.IsNullOrWhiteSpace(me.Name))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing NAME";
+                me.Errors.Add(err);
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using SharpGEDParser.Model;
+﻿using System.Linq;
+using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
@@ -49,11 +50,24 @@ namespace SharpGEDParser.Parser
             return file;
         }
 
+        private static string[] SourceMediaTypes = 
+        {
+            "audio", "book", "card", "electronic", "fiche", "film", "magazine", "manuscript", "map", "newspaper", "photo",
+            "tombstone", "video"
+        };
+
         private void typeProc(ParseContext2 context)
         {
             // TODO 5.5: needs a warning
             var file = GetFile(context);
             file.Type = context.Remain;
+
+            if (!SourceMediaTypes.Contains(file.Type.ToLower()))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = string.Format("Non-standard media type '{0}'", file.Type);
+                context.Parent.Errors.Add(err); // TODO lines
+            }
         }
 
         private void titlProc(ParseContext2 context)
@@ -62,10 +76,20 @@ namespace SharpGEDParser.Parser
             file.Title = context.Remain;
         }
 
+        private static string[] MultimediaFormats = {"bmp", "gif", "jpg", "ole", "pcx", "tif", "wav"};
+
         private void formProc(ParseContext2 context)
         {
             var file = GetFile(context);
             file.Form = context.Remain;
+
+            if (!MultimediaFormats.Contains(file.Form.ToLower()))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = string.Format("Non-standard media format '{0}'", file.Form);
+                context.Parent.Errors.Add(err); // TODO lines
+            }
+
         }
 
         private void fileProc(ParseContext2 context)
@@ -75,11 +99,42 @@ namespace SharpGEDParser.Parser
             (context.Parent as MediaRecord).Files.Add(file);
         }
 
+        // TODO don't have a "note container" base class
         private void NoteProc(ParseContext2 ctx)
         {
             var note = NoteStructParse.NoteParser(ctx);
             (ctx.Parent as MediaRecord).Notes.Add(note);
         }
 
+        // TODO don't have a 'source citation container' base class
+        protected void sourCitProc(ParseContext2 ctx)
+        {
+            var cit = SourceCitParse.SourceCitParser(ctx);
+            (ctx.Parent as MediaRecord).Cits.Add(cit);
+        }
+
+        public override void PostCheck(GEDCommon rec)
+        {
+            MediaRecord me = rec as MediaRecord;
+
+            // A FILE record is required
+            if (me.Files.Count < 1)
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing FILE";
+                me.Errors.Add(err);
+            }
+
+            // Each FILE record must have a FORM
+            foreach (var mediaFile in me.Files)
+            {
+                if (string.IsNullOrWhiteSpace(mediaFile.Form))
+                {
+                    UnkRec err = new UnkRec();
+                    err.Error = "Missing FORM";
+                    me.Errors.Add(err);
+                }
+            }
+        }
     }
 }
