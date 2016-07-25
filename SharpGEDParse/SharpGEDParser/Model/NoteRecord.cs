@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
-    public class GedNote : GEDCommon
+    public class NoteRecord : GEDCommon
     {
         public static string Tag = "NOTE";
 
@@ -16,7 +16,7 @@ namespace SharpGEDParser.Model
         private List<SourceCit> _cits;
         public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); }}
 
-        public GedNote(GedRecord lines, string ident, string remain)
+        public NoteRecord(GedRecord lines, string ident, string remain)
         {
             Text = remain;
 

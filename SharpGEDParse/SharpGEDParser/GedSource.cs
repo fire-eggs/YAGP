@@ -35,8 +35,8 @@ namespace SharpGEDParser
 
         public string RIN { get; set; }
 
-        private List<GedRepository> _citations;
-        public List<GedRepository> Citations { get { return _citations ?? (_citations = new List<GedRepository>()); }}
+        private List<Repository> _citations;
+        public List<Repository> Citations { get { return _citations ?? (_citations = new List<Repository>()); }}
 
         private List<string> _userRefs;
         public List<string> UserReferences { get { return _userRefs ?? (_userRefs = new List<string>()); }}

@@ -2,7 +2,7 @@
 
 namespace SharpGEDParser.Parser
 {
-    public class GedRepoParse : GedRecParse
+    public class RepoParse : GedRecParse
     {
         protected override void BuildTagSet()
         {
@@ -17,23 +17,23 @@ namespace SharpGEDParser.Parser
         private void NoteProc(ParseContext2 ctx)
         {
             var note = NoteStructParse.NoteParser(ctx);
-            (ctx.Parent as GedRepository).Notes.Add(note);
+            (ctx.Parent as Repository).Notes.Add(note);
         }
 
         private void nameproc(ParseContext2 ctx)
         {
-            (ctx.Parent as GedRepository).Name = ctx.Remain;
+            (ctx.Parent as Repository).Name = ctx.Remain;
         }
 
         private void addrproc(ParseContext2 ctx)
         {
             var addr = AddrStructParse.AddrParse(ctx);
-            (ctx.Parent as GedRepository).Addr = addr;
+            (ctx.Parent as Repository).Addr = addr;
         }
 
         public override void PostCheck(GEDCommon rec)
         {
-            GedRepository me = rec as GedRepository;
+            Repository me = rec as Repository;
 
             // A NAME record is required
             if (string.IsNullOrWhiteSpace(me.Name))

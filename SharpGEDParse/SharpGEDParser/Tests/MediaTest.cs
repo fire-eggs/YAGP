@@ -16,7 +16,7 @@ using System.Linq;
 
 // TODO exercise all sub-records with multiple FILE? mixed?
 // TODO how thorough to test source citation? tested elsewhere?
-// TODO exercise deep record - OBJE+SOUR+NOTE ; OBJE+NOTE+CHAN+NOTE
+// TODO exercise deep record - OBJE+SOUR+NOTE ; OBJE+NOTE+CHAN+NOTE; OBJE+SOUR+NOTE+CHAN+NOTE
 // TODO consider refactoring large portions of copy-pasta test code?
 // TODO error details
 

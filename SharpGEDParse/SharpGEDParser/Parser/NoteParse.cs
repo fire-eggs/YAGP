@@ -1,10 +1,8 @@
 ﻿using SharpGEDParser.Model;
 
-// TODO consider dropping Ged prefix ???
-
 namespace SharpGEDParser.Parser
 {
-    public class GedNoteParse : GedRecParse
+    public class NoteParse : GedRecParse
     {
         protected override void BuildTagSet()
         {
@@ -19,21 +17,21 @@ namespace SharpGEDParser.Parser
         // TODO switch to StringBuilder for parse
         private void contProc(ParseContext2 ctx)
         {
-            (ctx.Parent as GedNote).Text += "\n";
+            (ctx.Parent as NoteRecord).Text += "\n";
             concProc(ctx);
         }
 
         // TODO switch to StringBuilder for parse
         private void concProc(ParseContext2 ctx)
         {
-            (ctx.Parent as GedNote).Text += ctx.Remain;
+            (ctx.Parent as NoteRecord).Text += ctx.Remain;
         }
 
         // TODO don't have a 'source citation container' base class
         protected void sourCitProc(ParseContext2 ctx)
         {
             var cit = SourceCitParse.SourceCitParser(ctx);
-            (ctx.Parent as GedNote).Cits.Add(cit);
+            (ctx.Parent as NoteRecord).Cits.Add(cit);
         }
 
     }

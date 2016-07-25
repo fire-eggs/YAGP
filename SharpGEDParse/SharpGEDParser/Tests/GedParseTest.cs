@@ -6,13 +6,8 @@ using System.Text;
 
 namespace SharpGEDParser.Tests
 {
-	[TestFixture ()]
 	public class GedParseTest
 	{
-		[Test ()]
-		public void TestCase ()
-		{
-		}
 		public static Stream ToStream(string str)
 		{
 			return new MemoryStream(Encoding.UTF8.GetBytes(str ?? ""));

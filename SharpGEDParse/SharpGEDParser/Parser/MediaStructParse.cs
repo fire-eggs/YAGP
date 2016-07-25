@@ -63,7 +63,7 @@ namespace SharpGEDParser.Parser
             }
             else
             {
-                // TODO need an error mechanism here: non-xref for OBJE link
+                // TODO need an error mechanism here: non-xref for OBJE link [parent object doesn't have an Errors container]
             }
 
             StructParse(ctx2, tagDict);

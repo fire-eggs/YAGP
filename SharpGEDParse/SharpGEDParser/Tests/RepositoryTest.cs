@@ -22,7 +22,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 NAME foobar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual("foobar", rec.Name);
 			Assert.AreEqual("R1", rec.Ident);
@@ -34,7 +34,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 RIN foobar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual("foobar", rec.RIN);
 			Assert.AreEqual("R1", rec.Ident);
@@ -47,7 +47,7 @@ namespace SharpGEDParser.Tests
 	        var txt = "0 @R1@ REPO";
 	        var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
-            GedRepository rec = res[0] as GedRepository;
+            Repository rec = res[0] as Repository;
             Assert.IsNotNull(rec);
             Assert.AreEqual("R1", rec.Ident);
             Assert.AreEqual(1, rec.Errors.Count); // TODO error details
@@ -59,7 +59,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 _CUST foobar\n1 NAME fumbar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(1, rec.Unknowns.Count);
@@ -75,7 +75,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 _CUST foobar\n2 CONC foobar2\n1 NAME fumbar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(1, rec.Unknowns.Count);
@@ -91,7 +91,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 NAME fumbar\n1 _CUST foobar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(1, rec.Unknowns.Count);
@@ -107,7 +107,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 REFN 001\n1 NAME fumbar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -122,7 +122,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 REFN 001\n1 NAME fumbar\n1 REFN 002\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -139,7 +139,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 REFN 001\n2 TYPE blah\n1 NAME fumbar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -156,7 +156,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 REFN 001\n2 TYPE blah\n3 _CUST foo\n1 NAME fumbar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -185,7 +185,7 @@ namespace SharpGEDParser.Tests
 			var res = ReadItHigher(txt);
 			Assert.AreEqual(0, res.Errors.Count);
 			Assert.AreEqual(1, res.Data.Count);
-			GedRepository rec = res.Data[0] as GedRepository;
+			Repository rec = res.Data[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual("foobar", rec.Name);
 		}
@@ -196,7 +196,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 APR 2000\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			var res2 = rec.CHAN;
 			Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
@@ -209,7 +209,7 @@ namespace SharpGEDParser.Tests
             var txt = "0 @R1@ REPO\n1 CHAN\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Errors.Count);
 		}
@@ -220,7 +220,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 APR 2000\n1 NAME fumbar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -236,7 +236,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE\n1 NAME fumbar\n0 KLUDGE";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -250,7 +250,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -265,7 +265,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -281,7 +281,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 MAR 2000\n1 NAME fumbar\n1 CHAN";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -296,7 +296,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 NOTE @N1@\n1 REFN 001\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -313,7 +313,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 NOTE blah blah blah\n1 REFN 001\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -330,7 +330,7 @@ namespace SharpGEDParser.Tests
 			var indi = "0 REPO @R1@\n1 NOTE";
 			var res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("", rec.Notes[0].Text);
@@ -338,7 +338,7 @@ namespace SharpGEDParser.Tests
 			indi = "0 REPO @R1@\n1 NOTE notes\n2 CONT more detail";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
-			rec = res[0] as GedRepository;
+			rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
@@ -346,7 +346,7 @@ namespace SharpGEDParser.Tests
 			indi = "0 REPO @R1@\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
-			rec = res[0] as GedRepository;
+			rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(2, rec.Notes.Count);
 			Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
@@ -356,7 +356,7 @@ namespace SharpGEDParser.Tests
 			indi = "0 REPO @R1@\n1 NOTE notes\n2 CONC more detail \n2 CONC yet more detail";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
-			rec = res[0] as GedRepository;
+			rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("notesmore detail yet more detail", rec.Notes[0].Text);
@@ -364,7 +364,7 @@ namespace SharpGEDParser.Tests
 			indi = "0 REPO @R1@\n1 NOTE notes \n2 CONC more detail \n2 CONC yet more detail ";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
-			rec = res[0] as GedRepository;
+			rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("notes more detail yet more detail ", rec.Notes[0].Text);
@@ -377,7 +377,7 @@ namespace SharpGEDParser.Tests
 			var indi = "0 REPO @R1@\n1 NOTE\n2 OTHR gibber";
 			var res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("", rec.Notes[0].Text);
@@ -390,7 +390,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R1@ REPO\n1 CHAN\n2 NOTE @N1@\n2 DATE 1 APR 2000";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			var res2 = rec.CHAN;
 			Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
@@ -400,7 +400,7 @@ namespace SharpGEDParser.Tests
 			txt = "0 REPO @R1@\n1 CHAN\n2 NOTE notes\n3 CONT more detail\n2 DATE 1 APR 2000";
 			res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			rec = res[0] as GedRepository;
+			rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			res2 = rec.CHAN;
 			Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
@@ -416,7 +416,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR1 York Register Office\n2 ADR2 56 Bootham\n2 CITY York,\n2 POST YO30 7DA\n2 CTRY England (UK)";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -435,7 +435,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR1 York Register Office\n2 ADR2 56 Bootham\n2 CITY York,\n2 POST YO30 7DA\n2 CTRY England (UK)\n3 OTHR gibber";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -455,7 +455,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR1 York Register Office\n2 ADR2 56 Bootham\n2 CITY York,\n2 POST YO30 7DA\n2 CTRY England (UK)\n1 NOTE blah blah";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
@@ -474,7 +474,7 @@ namespace SharpGEDParser.Tests
 			var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR3 York Register Office\n2 ADR2 56 Bootham\n2 STAE York,\n2 PHON YO30 7DA\n2 FAX blah\n2 EMAIL blah\n2 WWW blah\n2 CTRY England (UK)\n1 NOTE blah blah";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
-			GedRepository rec = res[0] as GedRepository;
+			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
