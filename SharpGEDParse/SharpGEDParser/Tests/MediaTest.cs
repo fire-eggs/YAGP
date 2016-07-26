@@ -22,7 +22,7 @@ using System.Linq;
 
 namespace SharpGEDParser.Tests
 {
-    [TestFixture()]
+    [TestFixture]
     public class MediaTest : GedParseTest
     {
         // TODO this is temporary until GEDCommon replaces KBRGedRec
@@ -32,7 +32,7 @@ namespace SharpGEDParser.Tests
             return fr.Data.Select(o => o as GEDCommon).ToList();
         }
 
-        [Test()]
+        [Test]
         public void TestSimple1()
         {
             var txt = "0 @M1@ OBJE\n1 FILE reference\n2 FORM gif";
@@ -48,7 +48,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
         }
 
-        [Test()]
+        [Test]
         public void TestBasic1()
         {
             // file, form, title
@@ -66,7 +66,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
         }
 
-        [Test()]
+        [Test]
         public void TestMulti1()
         {
             // 3 files, form, title; interspersed with other tags
@@ -102,7 +102,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("title3", rec.Files[2].Title);
         }
 
-        [Test()]
+        [Test]
         public void TestRin()
         {
             var txt = "0 @M1@ OBJE\n1 RIN foobar\n1 FILE reference\n2 FORM blah";
@@ -118,7 +118,7 @@ namespace SharpGEDParser.Tests
         }
 
         #region Errors
-        [Test()]
+        [Test]
         public void TestMissingId1()
         {
             // empty record; missing id
@@ -129,7 +129,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count); // TODO Missing FILE, what else? validate details
         }
 
-        [Test()]
+        [Test]
         public void TestMissingId2()
         {
             // missing id
@@ -144,7 +144,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("blah", rec.Files[0].Form);
         }
 
-        [Test()]
+        [Test]
         public void TestMissingFile()
         {
             var txt = "0 @M1@ OBJE";
@@ -156,7 +156,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count, "Missing FILE");
         }
 
-        [Test()]
+        [Test]
         public void TestMissingForm()
         {
             var txt = "0 @M1@ OBJE\n1 FILE reference";
@@ -170,7 +170,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count, "Missing FORM");
         }
 
-        [Test()]
+        [Test]
         public void InvalidForm()
         {
             var txt = "0 @M1@ OBJE\n1 FILE ref\n2 FORM blah";
@@ -184,7 +184,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count, "Invalid FORM");
         }
 
-        [Test()]
+        [Test]
         public void InvalidType()
         {
             var txt = "0 @M1@ OBJE\n1 FILE ref\n2 FORM gif\n3 TYPE blah";
@@ -202,7 +202,7 @@ namespace SharpGEDParser.Tests
         #endregion
 
         #region Custom
-        [Test()]
+        [Test]
         public void TestCust1()
         {
             var txt = "0 @M1@ OBJE\n1 _CUST foobar\n1 FILE reference\n2 FORM gif";
@@ -219,7 +219,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Unknowns[0].LineCount);
         }
 
-        [Test()]
+        [Test]
         public void TestCust2()
         {
             // multi-line custom tag
@@ -239,7 +239,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(2, rec.Unknowns[0].LineCount);
         }
 
-        [Test()]
+        [Test]
         public void TestFileCust()
         {
             var txt = "0 @M1@ OBJE\n1 FILE reference\n2 _CUST foobar\n2 FORM gif";
@@ -256,7 +256,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Unknowns[0].LineCount);
         }
 
-        [Test()]
+        [Test]
         public void TestFileCust2()
         {
             var txt = "0 @M1@ OBJE\n1 _CUST fumbar\n1 FILE reference\n2 _CUST foobar\n2 FORM gif";
@@ -276,7 +276,7 @@ namespace SharpGEDParser.Tests
         #endregion
 
         #region REFN
-        [Test()]
+        [Test]
         public void TestREFN()
         {
             // single REFN
@@ -297,7 +297,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
         }
 
-        [Test()]
+        [Test]
         public void TestREFNs()
         {
             // multiple REFNs
@@ -319,7 +319,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("002", rec.Ids.REFNs[1].Value);
         }
 
-        [Test()]
+        [Test]
         public void TestREFNExtra()
         {
             // extra on REFN
@@ -341,7 +341,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Ids.REFNs[0].Extra.LineCount);
         }
 
-        [Test()]
+        [Test]
         public void TestREFNExtra2()
         {
             // multi-line extra on REFN
@@ -364,146 +364,8 @@ namespace SharpGEDParser.Tests
         }
         #endregion
 
-        #region CHAN
-
-        [Test()]
-        public void TestChan()
-        {
-            var txt = "0 @M1@ OBJE\n1 CHAN\n2 DATE 1 APR 2000";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-        }
-
-        [Test()]
-        public void TestChan2()
-        {
-            // no date for chan
-            var txt = "0 @M1@ OBJE\n1 FILE reference\n2 FORM gif\n1 CHAN";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-        }
-
-        [Test()]
-        public void TestChan3()
-        {
-            var txt = "0 @M1@ OBJE\n1 CHAN\n2 DATE 1 APR 2000\n1 FILE reference\n2 FORM wav";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(0, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Files.Count);
-            Assert.AreEqual("reference", rec.Files[0].FileRefn);
-            Assert.AreEqual("wav", rec.Files[0].Form);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-        }
-
-        [Test()]
-        public void TestChan4()
-        {
-            // no date value
-            var txt = "0 @M1@ OBJE\n1 CHAN\n2 DATE\n1 FILE reference\n2 FORM ole";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Files.Count);
-            Assert.AreEqual("reference", rec.Files[0].FileRefn);
-            Assert.AreEqual("ole", rec.Files[0].Form);
-        }
-
-        [Test()]
-        public void TestChan5()
-        {
-            // extra
-            var txt = "0 @M1@ OBJE\n1 CHAN\n2 CUSTOM foo\n1 FILE reference\n2 FORM pcx";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Files.Count);
-            Assert.AreEqual("reference", rec.Files[0].FileRefn);
-            Assert.AreEqual("pcx", rec.Files[0].Form);
-            ChangeRec chan = rec.CHAN;
-            Assert.AreEqual(1, chan.OtherLines.Count);
-        }
-
-        [Test()]
-        public void TestChan6()
-        {
-            // multi line extra
-            var txt = "0 @M1@ OBJE\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 FILE reference\n2 FORM tif";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Files.Count);
-            Assert.AreEqual("reference", rec.Files[0].FileRefn);
-            Assert.AreEqual("tif", rec.Files[0].Form);
-            ChangeRec chan = rec.CHAN;
-            Assert.AreEqual(1, chan.OtherLines.Count);
-        }
-
-        [Test()]
-        public void TestChan7()
-        {
-            // multiple CHAN
-            var txt = "0 @M1@ OBJE\n1 CHAN\n2 DATE 1 MAR 2000\n1 FILE reference\n2 FORM bmp\n1 CHAN";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Files.Count);
-            Assert.AreEqual("reference", rec.Files[0].FileRefn);
-            Assert.AreEqual("bmp", rec.Files[0].Form);
-            Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
-        }
-
-        [Test()]
-        public void TestChanNote()
-        {
-            var txt = "0 @M1@ OBJE\n1 CHAN\n2 NOTE @N1@\n2 DATE 1 APR 2000";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-            Assert.AreEqual(1, res2.Notes.Count);
-            Assert.AreEqual("N1", res2.Notes[0].Xref);
-
-            txt = "0 @M1@ OBJE\n1 CHAN\n2 NOTE notes\n3 CONT more detail\n2 DATE 1 APR 2000";
-            res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-            Assert.AreEqual(1, res2.Notes.Count);
-            Assert.AreEqual("notes\nmore detail", res2.Notes[0].Text);
-        }
-
-        #endregion
-
         #region NOTE
-        [Test()]
+        [Test]
         public void TestNote1()
         {
             // simple note
@@ -522,7 +384,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("N1", rec.Notes[0].Xref);
         }
-        [Test()]
+        [Test]
         public void TestNote2()
         {
             // simple note
@@ -542,7 +404,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("blah blah blah", rec.Notes[0].Text);
         }
 
-        [Test()]
+        [Test]
         public void TestNote()
         {
             var indi = "0 @M1@ OBJE\n1 NOTE";
@@ -591,7 +453,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("notes more detail yet more detail ", rec.Notes[0].Text);
         }
 
-        [Test()]
+        [Test]
         public void TestNoteOther()
         {
             // exercise other lines
@@ -607,7 +469,7 @@ namespace SharpGEDParser.Tests
 
         #endregion
 
-        [Test()]
+        [Test]
         public void TestSimpleSour()
         {
             string txt = "0 @M1@ OBJE\n1 SOUR @S1@\n1 FILE blah\n2 FORM gif";
@@ -625,7 +487,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("S1", rec.Cits[0].Xref);
         }
 
-        [Test()]
+        [Test]
         public void TestMultSourCit()
         {
             var txt = "0 @M1@ OBJE\n1 SOUR out of bed\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 FILE reference\n2 FORM gif\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 QUAY yup";

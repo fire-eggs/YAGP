@@ -4,10 +4,13 @@ using System.Linq;
 using NUnit.Framework;
 using SharpGEDParser.Model;
 
+// ReSharper disable ConvertToConstant.Local
+// ReSharper disable InconsistentNaming
+
 namespace SharpGEDParser.Tests
 {
     // Testing for NOTE records
-    [TestFixture()]
+    [TestFixture]
     class NoteTest : GedParseTest
     {
 
@@ -25,7 +28,7 @@ namespace SharpGEDParser.Tests
             return fr.Data.Select(o => o as GEDCommon).ToList();
         }
 
-        [Test ()]
+        [Test]
         public void TestSimple1()
         {
             var txt = "0 @N1@ NOTE blah blah blah";
@@ -37,7 +40,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("N1", rec.Ident);
         }
 
-        [Test ()]
+        [Test]
         public void TestSimple2()
         {
             var txt = "0 @N1@ NOTE blah blah blah\n1 RIN foobar";
@@ -49,7 +52,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("N1", rec.Ident);
         }
 
-        [Test ()]
+        [Test]
         public void TestNoteConc()
         {
             var txt = "0 @N1@ NOTE text\n1 CONC continued\n1 RIN foobar";
@@ -61,7 +64,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("textcontinued", rec.Text);
         }
 
-        [Test ()]
+        [Test]
         public void TestNoteCont()
         {
             var txt = "0 @N1@ NOTE text\n1 CONT continued\n1 RIN foobar";
@@ -74,7 +77,7 @@ namespace SharpGEDParser.Tests
         }
 
         #region Custom
-        [Test ()]
+        [Test]
         public void TestCust1()
         {
             var txt = "0 @N1@ NOTE blah blah blah\n1 _CUST foobar\n1 RIN foobar";
@@ -88,7 +91,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("N1", rec.Ident);
         }
 
-        [Test ()]
+        [Test]
         public void TestCust2()
         {
             // multi-line custom tag
@@ -103,7 +106,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("N1", rec.Ident);
         }
 
-        [Test ()]
+        [Test]
         public void TestCust3()
         {
             // custom tag at the end of the record
@@ -121,7 +124,7 @@ namespace SharpGEDParser.Tests
         #endregion
 
         #region REFN
-        [Test ()]
+        [Test]
         public void TestREFN()
         {
             // single REFN
@@ -136,7 +139,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
             Assert.AreEqual("fumbar", rec.Text);
         }
-        [Test ()]
+        [Test]
         public void TestREFNs()
         {
             // multiple REFNs
@@ -153,7 +156,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("fumbar", rec.Text);
         }
 
-        [Test ()]
+        [Test]
         public void TestREFNExtra()
         {
             // extra on REFN
@@ -170,7 +173,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("fumbar", rec.Text);
         }
 
-        [Test ()]
+        [Test]
         public void TestREFNExtra2()
         {
             // multi-line extra on REFN
@@ -188,7 +191,7 @@ namespace SharpGEDParser.Tests
         }
         #endregion REFN
 
-        [Test ()]
+        [Test]
         public void TestMissingId()
         {
             // empty record; missing id
@@ -199,7 +202,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
         }
 
-        [Test ()]
+        [Test]
         public void TestMissingId2()
         {
             // missing id
@@ -211,7 +214,7 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec);
         }
 
-        [Test()]
+        [Test]
         public void TestInvalidXref()
         {
             string txt = "0 @N1@ NOTE\n1 SOUR @ @";
@@ -229,157 +232,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count);
         }
 
-        #region CHAN
-        [Test ()]
-        public void TestChan()
-        {
-            var txt = "0 @N1@ NOTE\n1 CHAN\n2 DATE 1 APR 2000\n0 KLUDGE";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-        }
-
-        [Test ()]
-        public void TestChan2()
-        {
-            // no date for chan
-            var txt = "0 @N1@ NOTE\n1 CHAN";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-        }
-
-        [Test ()]
-        public void TestChan3()
-        {
-            var txt = "0 @N1@ NOTE\n1 CHAN\n2 DATE 1 APR 2000\n1 CONC fumbar";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(0, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-            Assert.AreEqual("fumbar", rec.Text);
-        }
-
-        [Test ()]
-        public void TestChan4()
-        {
-            // no date value
-            var txt = "0 @N1@ NOTE\n1 CHAN\n2 DATE\n1 CONC fumbar";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual("fumbar", rec.Text);
-        }
-
-        [Test ()]
-        public void TestChan5()
-        {
-            // extra
-            var txt = "0 @N1@ NOTE\n1 CHAN\n2 CUSTOM foo\n1 CONC fumbar";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            ChangeRec chan = rec.CHAN;
-            Assert.AreEqual(1, chan.OtherLines.Count);
-            Assert.AreEqual("fumbar", rec.Text);
-        }
-
-        [Test ()]
-        public void TestChan6()
-        {
-            // multi line extra
-            var txt = "0 @N1@ NOTE\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 CONC fumbar";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            ChangeRec chan = rec.CHAN;
-            Assert.AreEqual(1, chan.OtherLines.Count);
-            Assert.AreEqual("fumbar", rec.Text);
-        }
-
-        [Test ()]
-        public void TestChan7()
-        {
-            // multiple CHAN
-            var txt = "0 @N1@ NOTE\n1 CHAN\n2 DATE 1 MAR 2000\n1 CONC fumbar\n1 CHAN";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
-            Assert.AreEqual("fumbar", rec.Text);
-        }
-        #endregion
-
-        #region CHAN+NOTE
-        [Test ()]
-        public void TestChanNote()
-        {
-            // CHAN with NOTE
-            var txt = "0 @N1@ NOTE\n1 CHAN\n2 NOTE @N1@\n2 DATE 1 APR 2000";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-            Assert.AreEqual(1, res2.Notes.Count);
-            Assert.AreEqual("N1", res2.Notes[0].Xref);
-        }
-
-        [Test ()]
-        public void TestChanNote2()
-        {
-            // CHAN with multi-line note
-            var txt = "0 NOTE @N1@\n1 CHAN\n2 NOTE notes\n3 CONT more detail\n2 DATE 1 APR 2000";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-            Assert.AreEqual(1, res2.Notes.Count);
-            Assert.AreEqual("notes\nmore detail", res2.Notes[0].Text);
-        }
-
-        [Test ()]
-        public void TestChanNote3()
-        {
-            // CHAN with multi-line note
-            var txt = "0 NOTE @N1@\n1 CHAN\n2 NOTE notes \n3 CONC more detail\n2 DATE 1 APR 2000";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as NoteRecord;
-            Assert.IsNotNull(rec);
-            var res2 = rec.CHAN;
-            Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-            Assert.AreEqual(1, res2.Notes.Count);
-            Assert.AreEqual("notes more detail", res2.Notes[0].Text);
-        }
-        #endregion
-
         #region Source Citation
-        [Test ()]
+        [Test]
         public void TestNoteSrc()
         {
             // simple reference source cit
@@ -398,7 +252,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("42", rec.Cits[0].Page);
         }
 
-        [Test ()]
+        [Test]
         public void TestNoteSrc2()
         {
             // embedded source cit; changed order of lines
@@ -419,7 +273,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("wha?", rec.Cits[0].Quay);
         }
 
-        [Test ()]
+        [Test]
         public void TestSimpleSour()
         {
             string txt = "0 @N1@ NOTE\n1 SOUR ";
@@ -431,7 +285,7 @@ namespace SharpGEDParser.Tests
             // TODO should there be an error? e.g. "no description"?
         }
 
-        [Test ()]
+        [Test]
         public void TestEmbSour2()
         {
             // Embedded SOUR cit with CONC/CONT
@@ -446,7 +300,7 @@ namespace SharpGEDParser.Tests
             Assert.IsNull(rec.Cits[0].Xref);
         }
 
-        [Test ()]
+        [Test]
         public void TestEmbSour3()
         {
             // Embedded SOUR cit with CONC/CONT; multi source cit
@@ -463,7 +317,7 @@ namespace SharpGEDParser.Tests
             Assert.IsNull(rec.Cits[1].Xref);
         }
 
-        [Test ()]
+        [Test]
         public void TestEmbSourText()
         {
             var txt = "0 @N1@ NOTE\n1 SOUR embedded source\n2 NOTE a note\n2 TEXT this is text";
@@ -479,7 +333,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("this is text", rec.Cits[0].Text[0]);
         }
 
-        [Test ()]
+        [Test]
         public void TestEmbSourText2()
         {
             // A valid tag following a NOTE within the SOUR
@@ -498,7 +352,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("embedded source", rec.Cits[0].Desc);
         }
 
-        [Test ()]
+        [Test]
         public void TestEmbSourText2A()
         {
             // A valid tag following a NOTE within the SOUR
@@ -517,7 +371,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("embedded source", rec.Cits[0].Desc);
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitErr()
         {
             // TEXT tag for reference source is error
@@ -532,7 +386,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, res[0].Errors.Count, "No error");
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitErrA()
         {
             // TEXT tag with DATA for reference source is valid
@@ -547,7 +401,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, res[0].Errors.Count, "error");
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitErr2()
         {
             // PAGE tag for embedded source is error
@@ -562,7 +416,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, res[0].Errors.Count, "No error");
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitErr3()
         {
             // EVEN tag for embedded source is error
@@ -577,7 +431,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, res[0].Errors.Count, "No error");
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitText()
         {
             string txt = "0 @N1@ NOTE fiebar\n1 SOUR inbed\n2 TEXT foebar";
@@ -592,7 +446,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foebar", rec.Cits[0].Text[0]);
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitText2()
         {
             // empty CONC
@@ -608,7 +462,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foebar", rec.Cits[0].Text[0]);
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitText2A()
         {
             // empty CONC
@@ -624,7 +478,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foebarex", rec.Cits[0].Text[0]);
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitText3()
         {
             // empty CONT
@@ -640,7 +494,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foebar\n", rec.Cits[0].Text[0]);
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitText4()
         {
             // no space
@@ -656,7 +510,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foebar extended", rec.Cits[0].Text[0]);
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitText5()
         {
             // keep trailing space
@@ -672,7 +526,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foebar extended", rec.Cits[0].Text[0]);
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitText6()
         {
             // valid tag after TEXT
@@ -689,7 +543,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("yup", rec.Cits[0].Quay);
         }
 
-        [Test ()]
+        [Test]
         public void TestMultSourCit()
         {
             // more than one source citation
@@ -715,7 +569,7 @@ namespace SharpGEDParser.Tests
         }
         #endregion
 
-        [Test ()]
+        [Test]
         public void TestSourCitObje1()
         {
             string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n2 OBJE\n3 FILE fileref1\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
@@ -750,7 +604,7 @@ namespace SharpGEDParser.Tests
 
         }
 
-        [Test ()]
+        [Test]
         public void TestSourCitObje2()
         {
             string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n\n2 OBJE\n3 TITL title\n2 OBJE\n3 FILE\n3 FORM format2\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
@@ -791,7 +645,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("filerefn", media.Files[0].FileRefn);
         }
 
-        [Test()]
+        [Test]
         public void TestSourCitObje3()
         {
             // Make sure OBJE\FILE\FORM\MEDI variant is exercised

@@ -6,7 +6,7 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
 {
-	[TestFixture ()]
+	[TestFixture]
 	public class RepositoryTest : GedParseTest
 	{
 		// TODO this is temporary until GEDCommon replaces KBRGedRec
@@ -16,7 +16,7 @@ namespace SharpGEDParser.Tests
 			return fr.Data.Select(o => o as GEDCommon).ToList();
 		}
 
-		[Test ()]
+		[Test]
 		public void TestSimple1()
 		{
 			var txt = "0 @R1@ REPO\n1 NAME foobar\n0 KLUDGE";
@@ -28,7 +28,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("R1", rec.Ident);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestSimple2()
 		{
 			var txt = "0 @R1@ REPO\n1 RIN foobar\n0 KLUDGE";
@@ -40,7 +40,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("R1", rec.Ident);
 		}
 
-	    [Test()]
+	    [Test]
 	    public void TestMissingName()
 	    {
 	        // NAME record is required
@@ -53,7 +53,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count); // TODO error details
         }
 
-		[Test ()]
+		[Test]
 		public void TestCust1()
 		{
 			var txt = "0 @R1@ REPO\n1 _CUST foobar\n1 NAME fumbar\n0 KLUDGE";
@@ -68,7 +68,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("R1", rec.Ident);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestCust2()
 		{
 			// multi-line custom tag
@@ -84,7 +84,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("R1", rec.Ident);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestCust3()
 		{
 			// custom tag at the end of the record
@@ -100,7 +100,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("R1", rec.Ident);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestREFN()
 		{
 			// single REFN
@@ -115,7 +115,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(1, rec.Ids.REFNs.Count);
 			Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
 		}
-		[Test ()]
+		[Test]
 		public void TestREFNs()
 		{
 			// multiple REFNs
@@ -132,7 +132,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("002", rec.Ids.REFNs[1].Value);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestREFNExtra()
 		{
 			// extra on REFN
@@ -149,7 +149,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(1, rec.Ids.REFNs[0].Extra.LineCount);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestREFNExtra2()
 		{
 			// multi-line extra on REFN
@@ -166,7 +166,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(2, rec.Ids.REFNs[0].Extra.LineCount);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestMissingId()
 		{
 			// empty record; missing id
@@ -177,7 +177,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestMissingId2()
 		{
 			// missing id
@@ -190,106 +190,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("foobar", rec.Name);
 		}
 
-		[Test ()]
-		public void TestChan()
-		{
-			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 APR 2000\n0 KLUDGE";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			var res2 = rec.CHAN;
-			Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-		}
-
-		[Test ()]
-		public void TestChan2()
-		{
-			// no date for chan
-            var txt = "0 @R1@ REPO\n1 CHAN\n1 NAME fumbar";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			Assert.AreEqual(1, rec.Errors.Count);
-		}
-
-		[Test ()]
-		public void TestChan3()
-		{
-			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 APR 2000\n1 NAME fumbar\n0 KLUDGE";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			Assert.AreEqual(0, rec.Errors.Count);
-			Assert.AreEqual(0, rec.Unknowns.Count);
-			Assert.AreEqual("fumbar", rec.Name);
-			var res2 = rec.CHAN;
-			Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-		}
-
-		[Test ()]
-		public void TestChan4()
-		{
-			// no date value
-			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE\n1 NAME fumbar\n0 KLUDGE";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			Assert.AreEqual(1, rec.Errors.Count);
-			Assert.AreEqual(0, rec.Unknowns.Count);
-			Assert.AreEqual("fumbar", rec.Name);
-		}
-
-		[Test ()]
-		public void TestChan5()
-		{
-			// extra
-			var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n1 NAME fumbar";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			Assert.AreEqual(1, rec.Errors.Count);
-			Assert.AreEqual(0, rec.Unknowns.Count);
-			Assert.AreEqual("fumbar", rec.Name);
-			ChangeRec chan = rec.CHAN;
-			Assert.AreEqual(1, chan.OtherLines.Count);
-		}
-		[Test ()]
-		public void TestChan6()
-		{
-			// multi line extra
-			var txt = "0 @R1@ REPO\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 NAME fumbar";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			Assert.AreEqual(1, rec.Errors.Count);
-			Assert.AreEqual(0, rec.Unknowns.Count);
-			Assert.AreEqual("fumbar", rec.Name);
-			ChangeRec chan = rec.CHAN;
-			Assert.AreEqual(1, chan.OtherLines.Count);
-		}
-
-		[Test ()]
-		public void TestChan7()
-		{
-			// multiple CHAN
-			var txt = "0 @R1@ REPO\n1 CHAN\n2 DATE 1 MAR 2000\n1 NAME fumbar\n1 CHAN";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			Assert.AreEqual(1, rec.Errors.Count);
-			Assert.AreEqual(0, rec.Unknowns.Count);
-			Assert.AreEqual("fumbar", rec.Name);
-			Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
-		}
-
-		[Test ()]
+		[Test]
 		public void TestNote1()
 		{
 			// simple note
@@ -306,7 +207,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("N1", rec.Notes[0].Xref);
 		}
-		[Test ()]
+		[Test]
 		public void TestNote2()
 		{
 			// simple note
@@ -324,7 +225,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("blah blah blah", rec.Notes[0].Text);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestNote()
 		{
 			var indi = "0 REPO @R1@\n1 NOTE";
@@ -370,7 +271,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("notes more detail yet more detail ", rec.Notes[0].Text);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestNoteOther()
 		{
 			// exercise other lines
@@ -384,32 +285,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(1, rec.Notes[0].OtherLines.Count);
 		}
 
-		[Test ()]
-		public void TestChanNote()
-		{
-			var txt = "0 @R1@ REPO\n1 CHAN\n2 NOTE @N1@\n2 DATE 1 APR 2000";
-			var res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			Repository rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			var res2 = rec.CHAN;
-			Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-			Assert.AreEqual(1, res2.Notes.Count);
-			Assert.AreEqual("N1", res2.Notes[0].Xref);
-
-			txt = "0 REPO @R1@\n1 CHAN\n2 NOTE notes\n3 CONT more detail\n2 DATE 1 APR 2000";
-			res = ReadIt(txt);
-			Assert.AreEqual(1, res.Count);
-			rec = res[0] as Repository;
-			Assert.IsNotNull(rec);
-			res2 = rec.CHAN;
-			Assert.IsTrue(Equals(new DateTime(2000, 4, 1), res2.Date));
-			Assert.AreEqual(1, res2.Notes.Count);
-			Assert.AreEqual("notes\nmore detail", res2.Notes[0].Text);
-
-		}
-
-		[Test ()]
+		[Test]
 		public void TestAddr()
 		{
 			// Real REPO record taken from a downloaded GED
@@ -428,7 +304,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("YO30 7DA", rec.Addr.Post);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestAddrOther()
 		{
 			// other lines
@@ -448,7 +324,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(1, rec.Addr.OtherLines.Count);
 		}
 
-		[Test ()]
+		[Test]
 		public void TestAddr2()
 		{
 			// ADDR _not_ the last sub-record
@@ -467,7 +343,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("York,", rec.Addr.City);
 			Assert.AreEqual("YO30 7DA", rec.Addr.Post);
 		}
-		[Test ()]
+		[Test]
 		public void TestAddr3()
 		{
 			// additional ADDR sub-tags
