@@ -10,7 +10,7 @@ namespace SharpGEDParser.Tests
 	{
 		public static Stream ToStream(string str)
 		{
-			return new MemoryStream(Encoding.UTF8.GetBytes(str ?? ""));
+			return new MemoryStream(Encoding.UTF8.GetBytes(str));
 		}
 
 		// For those tests which need to verify errors at the topmost level
@@ -29,21 +29,21 @@ namespace SharpGEDParser.Tests
 			return fr;
 		}
 
-		public static List<KBRGedRec> ReadIt(string testString)
-		{
-			var fr = ReadItHigher(testString);
-			return fr.Data.Select(o => o as KBRGedRec).ToList();
-		}
+        //public static List<KBRGedRec> ReadIt(string testString)
+        //{
+        //    var fr = ReadItHigher(testString);
+        //    return fr.Data.Select(o => o as KBRGedRec).ToList();
+        //}
 
-		public T parse<T>(string testString, string tagN) where T: class
-		{
-			var res = ReadIt(testString);
-			Assert.AreEqual(1, res.Count, "record count");
-			Assert.AreEqual(tagN, res[0].Tag, "Tag:"+tagN);
-			var rec = res[0] as T;
-			Assert.AreNotEqual(null, rec, "wrong record type:"+tagN);
-			return rec;
-		}
+        //public T parse<T>(string testString, string tagN) where T: class
+        //{
+        //    var res = ReadIt(testString);
+        //    Assert.AreEqual(1, res.Count, "record count");
+        //    Assert.AreEqual(tagN, res[0].Tag, "Tag:"+tagN);
+        //    var rec = res[0] as T;
+        //    Assert.AreNotEqual(null, rec, "wrong record type:"+tagN);
+        //    return rec;
+        //}
 
 	}
 }

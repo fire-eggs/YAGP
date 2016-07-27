@@ -320,5 +320,36 @@ namespace SharpGEDParser
         {
             // post parse checking
         }
+
+        // TODO copy-pasta from StructParser
+        protected static string extendedText(ParseContext2 ctx)
+        {
+            StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
+            int i = ctx.Begline + 1;
+            char level = ' ';
+            string ident = null;
+            string tag = null;
+            string remain = null;
+            for (; i < ctx.Lines.Max; i++)
+            {
+                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
+                if (level <= ctx.Level)
+                    break; // end of sub-record
+                if (tag == "CONC")
+                {
+                    txt.Append(remain); // must keep trailing space
+                }
+                else if (tag == "CONT")
+                {
+                    txt.Append("\n"); // NOTE: not appendline, which is \r\n
+                    txt.Append(remain); // must keep trailing space
+                }
+                else
+                    break; // non-CONC, non-CONT: stop!
+            }
+            ctx.Endline = i - 1;
+            return txt.ToString();
+        }
+
     }
 }

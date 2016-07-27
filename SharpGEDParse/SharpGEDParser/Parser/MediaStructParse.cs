@@ -70,5 +70,10 @@ namespace SharpGEDParser.Parser
             ctx.Endline = ctx2.Endline;
             return mlink;
         }
+
+        public static MediaLink MediaParser(GedRecParse.ParseContext2 ctx)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

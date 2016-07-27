@@ -13,7 +13,8 @@ namespace SharpGEDParser
             _IndiParseSingleton = new GedIndiParse();
             _FamParseSingleton  = new GedFamParse();
             _HeadParseSingleton = new GedHeadParse();
-            _SourParseSingleton = new GedSourParse();
+
+            _SourParseSingleton = new SourceRecParse();
             _RepoParseSingleton = new RepoParse();
             _NoteParseSingleton = new NoteParse();
             _MediaParseSingleton = new MediaParse();
@@ -73,13 +74,14 @@ namespace SharpGEDParser
                 case "FAM":
                     data = new KBRGedFam(rec, ident);
                     return new Tuple<object, GedParse>(data, _FamParseSingleton);
-                case "SOUR":
-                    GedSource data2 = new GedSource(rec);
-                    data2.XRef = ident;
-                    return new Tuple<object, GedParse>(data2, _SourParseSingleton);
                 case "SUBM":
                     data = new GedSubm(rec, ident);
                     return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
+                case "SOUR":
+                {
+                    var foo = new SourceRecord(rec, ident);
+                    return new Tuple<object, GedParse>(foo, _SourParseSingleton);
+                }
                 case "REPO":
                 {
                     var foo = new Repository(rec, ident);
