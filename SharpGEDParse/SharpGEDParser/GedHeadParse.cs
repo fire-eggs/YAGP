@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using SharpGEDParser.Model;
+﻿using SharpGEDParser.Model;
 
 namespace SharpGEDParser
 {
@@ -10,12 +9,12 @@ namespace SharpGEDParser
             
         }
 
-        public void Parse(KBRGedRec rec)
+        public new void Parse(KBRGedRec rec)
         {
 //            Debug.Assert(false);
         }
 
-        public void Parse(KBRGedRec rec, GedRecParse.ParseContext context)
+        public new void Parse(KBRGedRec rec, GedRecParse.ParseContext context)
         {
             throw new System.NotImplementedException();
         }

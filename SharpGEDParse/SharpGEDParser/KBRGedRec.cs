@@ -13,10 +13,10 @@ namespace SharpGEDParser
             Lines = lines;
         }
 
-        public override string ToString()
-        {
-            return string.Format("KBRGedRec:{0}:{1}:{2}", Tag, Ident, Lines);
-        }
+        //public override string ToString()
+        //{
+        //    return string.Format("KBRGedRec:{0}:{1}:{2}", Tag, Ident, Lines);
+        //}
 
         public string Ident { get; set; }
         public string Tag { get; set; }

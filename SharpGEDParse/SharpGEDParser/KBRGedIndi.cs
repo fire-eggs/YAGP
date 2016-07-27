@@ -173,78 +173,14 @@ namespace SharpGEDParser
             Sex = 'U'; // unknown until proven otherwise
         }
 
-        public override string ToString()
-        {
-            return string.Format("{0}({1}):{2}", Tag, Ident, Lines);
-        }
+        //public override string ToString()
+        //{
+        //    return string.Format("{0}({1}):{2}", Tag, Ident, Lines);
+        //}
 
         public bool HasData(string tag)
         {
             return Data.Any(dataRec => dataRec.Tag == tag);
-        }
-
-        public string Birth
-        {
-            get
-            {
-                foreach (var kbrGedEvent in Events)
-                {
-                    if (kbrGedEvent.Tag == "BIRT")
-                    {
-                        string val = kbrGedEvent.Date + " " + kbrGedEvent.Place;
-                        return val;
-                    }
-                }
-                return "";
-            }
-        }
-
-        public string Death
-        {
-            get
-            {
-                foreach (var kbrGedEvent in Events)
-                {
-                    if (kbrGedEvent.Tag == "DEAT")
-                    {
-                        string val = kbrGedEvent.Date + " " + kbrGedEvent.Place;
-                        return val;
-                    }
-                }
-                return "";
-            }
-        }
-
-        public string Christening
-        {
-            get
-            {
-                foreach (var kbrGedEvent in Events)
-                {
-                    if (kbrGedEvent.Tag == "CHR")
-                    {
-                        string val = kbrGedEvent.Date + " " + kbrGedEvent.Place;
-                        return val;
-                    }
-                }
-                return "";
-            }
-        }
-
-        public string Occupation
-        {
-            get
-            {
-                foreach (var attrib in Attribs)
-                {
-                    if (attrib.Tag == "OCCU")
-                    {
-                        string val = attrib.Detail + " " + attrib.Place;
-                        return val;
-                    }
-                }
-                return "";
-            }
         }
     }
 }

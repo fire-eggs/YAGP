@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BuildTree;
+﻿using BuildTree;
 using SharpGEDParser;
 
 namespace DrawAnce
@@ -25,12 +20,12 @@ namespace DrawAnce
             {
                 if (Indi == null)
                     return "";
-                string val = string.IsNullOrEmpty(Indi.Birth) ? "" : "B: " + Indi.Birth + "\r\n";
-                string val4 = string.IsNullOrEmpty(Indi.Christening) ? "" : "C: " + Indi.Christening + "\r\n";
+                string val1 = GetShowString("BIRT", "B: ");
+                string val2 = GetShowString("DEAT", "D: ");
                 string val3 = string.IsNullOrWhiteSpace(Marriage) ? "" : "M: " + Marriage + "\r\n";
-                string val2 = string.IsNullOrEmpty(Indi.Death) ? "" : "D: " + Indi.Death + "\r\n";
-                string val5 = string.IsNullOrEmpty(Indi.Occupation) ? "" : "O: " + Indi.Occupation + "\r\n";
-                return val + val4 + val3 + val2 + val5;
+                string val4 = GetShowString("CHR", "C: ");
+                string val5 = GetShowString2("OCCU", "O: ");
+                return val1 + val4 + val3 + val2 + val5;
             }
         }
 
@@ -47,6 +42,56 @@ namespace DrawAnce
                 var fam = SpouseIn.FamRec;
                 return fam.Marriage;
             }
+        }
+
+        private KBRGedEvent GetEvent(string tag)
+        {
+            foreach (var kbrGedEvent in Indi.Events)
+            {
+                if (kbrGedEvent.Tag == tag)
+                {
+                    return kbrGedEvent;
+                }
+            }
+            return null;
+        }
+
+        private KBRGedEvent GetAttrib(string tag)
+        {
+            foreach (var kbrGedEvent in Indi.Attribs)
+            {
+                if (kbrGedEvent.Tag == tag)
+                {
+                    return kbrGedEvent;
+                }
+            }
+            return null;
+        }
+
+        private string GetShowString(string tag, string prefix)
+        {
+            KBRGedEvent even = GetEvent(tag);
+            if (even == null)
+                return "";
+
+            string val = even.Date + " " + even.Place;
+            if (string.IsNullOrWhiteSpace(val))
+                return "";
+
+            return prefix + val + "\r\n";
+        }
+
+        private string GetShowString2(string tag, string prefix)
+        {
+            KBRGedEvent even = GetAttrib(tag);
+            if (even == null)
+                return "";
+
+            string val = even.Detail + " " + even.Place;
+            if (string.IsNullOrWhiteSpace(val))
+                return "";
+
+            return prefix + val + "\r\n";
         }
     }
 }
