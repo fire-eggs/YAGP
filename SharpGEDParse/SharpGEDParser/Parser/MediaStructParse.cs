@@ -73,7 +73,20 @@ namespace SharpGEDParser.Parser
 
         public static MediaLink MediaParser(GedRecParse.ParseContext2 ctx)
         {
-            throw new System.NotImplementedException();
+            MediaLink mlink = new MediaLink();
+            StructParseContext ctx2 = new StructParseContext(ctx, mlink);
+            if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
+            {
+                mlink.Xref = ctx.Remain.Trim(new char[] { '@' });
+            }
+            else
+            {
+                // TODO need an error mechanism here: non-xref for OBJE link [parent object doesn't have an Errors container]
+            }
+
+            StructParse(ctx2, tagDict);
+            ctx.Endline = ctx2.Endline;
+            return mlink;
         }
     }
 }

@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
     // Repository Citation from SOURCE record
-    public class RepoCit
+    public class RepoCit : StructCommon
     {
+        public class CallNum
+        {
+            public string Number { get; set; }
+            public string Media { get; set; }
+        }
+
         public string Xref { get; set; }
 
-        public string CallNum { get; set; }
+        private List<CallNum> _callNums;
+        public List<CallNum> CallNums { get { return _callNums ?? (_callNums = new List<CallNum>()); }}
 
         public string Media { get; set; }
 
-        private NoteHold _noteHold = new NoteHold();
+        private List<Note> _notes;
 
-        public List<Note> Notes { get { return _noteHold.Notes; } }
-
-        // TODO unknowns
+        public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
     }
 }

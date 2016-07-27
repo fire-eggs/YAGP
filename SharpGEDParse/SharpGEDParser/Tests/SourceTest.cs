@@ -6,26 +6,32 @@ using System.Linq;
 using NUnit.Framework;
 using SharpGEDParser.Model;
 
+// ReSharper disable ConvertToConstant.Local
+
+
 namespace SharpGEDParser.Tests
 {
-    // TODO custom under sub-tag (DATA, OBJE, NOTE, REPO, TEXT, TITL, PUBL, ABBR)
     // TODO DATA/EVEN/DATE requires additional parsing/validation
+    // TODO REPO/CALN/MEDI requires additional parsing/validation
+
     // TODO extra text "0 @S1@ SOUR\n1 DATA blah blah\n"
+    // TODO extra text "0 @S1@ SOUR\n1 REPO blah blah blah\n"
     
     // TODO missing newline confused parsing: a legit, necessary test
+    // TODO : var txt = "0 @S1@ SOUR\n1 OBJE @obje1\n1 AUTH Fred\n1 OBJE @obje2@"; : missing trailing '@', was not caught?
 
-    // TODO source repository citation(s)
-    // TODO multiple EVEN
-    // TODO multimedia link(s)
+    // TODO multimedia link(s) - 5.5 syntax
 
-    // TODO deep test: SOUR, DATA+NOTE, NOTE, REPO+NOTE, NOTE, CHAN+NOTE, NOTE
+    // TODO? xref style note?
+
+    // TODO "0 @S1@ SOUR\n1 REPO\n2 MEDI blah" will crash
 
     // Testing for SOURCE records
     [TestFixture]
     class SourceTest : GedParseTest
     {
         // TODO this is temporary until GEDCommon replaces KBRGedRec
-        public new static List<GEDCommon> ReadIt(string testString)
+        public static List<GEDCommon> ReadIt(string testString)
         {
             var fr = ReadItHigher(testString);
             return fr.Data.Select(o => o as GEDCommon).ToList();
@@ -33,6 +39,7 @@ namespace SharpGEDParser.Tests
 
         public static SourceRecord ReadOne(string teststring)
         {
+            // Read and parse a SourceRecord; validate one and only one record
             var res = ReadIt(teststring);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as SourceRecord;
@@ -218,14 +225,6 @@ namespace SharpGEDParser.Tests
         }
         #endregion REFN
 
-        // DATA/EVEN/EVEN
-        // DATA/NOTE/NOTE
-        // DATA/EVEN/NOTE/EVEN/NOTE
-        // SOUR/NOTE
-        // SOUR/OBJE
-        // SOUR/1 DATA/NOTE/1 NOTE/1 OBJE
-        // SOUR/1 DATA/NOTE/1 NOTE/1 OBJE/1 NOTE/1 OBJE/1 CHAN/2 NOTE
-
         [Test]
         public void TestData()
         {
@@ -253,7 +252,8 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestDataEvent2()
         {
-            var txt = "0 @S1@ SOUR\n1 DATA\n2 EVEN things happened\n2 EVEN more happenings\n1 TEXT Use your loaf";
+            // multi events; multi data notes
+            var txt = "0 @S1@ SOUR\n1 DATA\n2 EVEN things happened\n2 NOTE a note\n2 EVEN more happenings\n2 NOTE another\n1 TEXT Use your loaf";
             var rec = ReadOne(txt);
 
             Assert.AreEqual("S1", rec.Ident);
@@ -262,6 +262,9 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(2, rec.Data.Events.Count);
             Assert.AreEqual("things happened", rec.Data.Events[0].Text);
             Assert.AreEqual("more happenings", rec.Data.Events[1].Text);
+            Assert.AreEqual(2, rec.Data.Notes.Count);
+            Assert.AreEqual("a note", rec.Data.Notes[0].Text);
+            Assert.AreEqual("another", rec.Data.Notes[1].Text);
         }
 
         [Test]
@@ -316,6 +319,20 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec.Data);
             Assert.AreEqual(1, rec.Data.Notes.Count);
             Assert.AreEqual("A note\ncontinued - the word TEST not busted", rec.Data.Notes[0].Text);
+        }
+
+        [Test]
+        public void TestDataNote2()
+        {
+            var txt = "0 @S1@ SOUR\n1 DATA\n2 NOTE A note\n3 CONT continued - the word TE\n3 CONC ST not busted\n2 NOTE another\n1 TEXT blah blah";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("blah blah", rec.Text);
+            Assert.IsNotNull(rec.Data);
+            Assert.AreEqual(2, rec.Data.Notes.Count);
+            Assert.AreEqual("A note\ncontinued - the word TEST not busted", rec.Data.Notes[0].Text);
+            Assert.AreEqual("another", rec.Data.Notes[1].Text);
         }
 
         [Test]
@@ -466,6 +483,215 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Note two on source\ncontinued - the word TEST not broken", rec.Notes[1].Text);
             Assert.AreEqual("Note three on source\ncontinued - the word TEST not broken", rec.Notes[2].Text);
 
+        }
+
+        // SOUR/1 DATA/NOTE/1 NOTE/1 OBJE/1 NOTE/1 REPO/2 NOTE/1 NOTE/1 CHAN/2 NOTE
+
+        #region Multimedia link
+        [Test]
+        public void Obje1()
+        {
+            // basic OBJE - taken from ALLGED.GED (5.5.1 syntax)
+            var txt = "0 @S1@ SOUR\n1 OBJE\n2 FILE file name.bmp\n3 FORM bmp\n2 TITL A bmp picture\n2 NOTE A note\n3 CONT Note continued here. The word TE\n3 CONC ST should not be broken!";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual(1, rec.Media.Count);
+            var med = rec.Media[0];
+            Assert.AreEqual("A bmp picture", med.Title);
+            Assert.AreEqual(1, med.Files.Count);
+            var fil = med.Files[0];
+            Assert.AreEqual("file name.bmp", fil.FileRefn);
+            Assert.AreEqual("bmp", fil.Form);
+
+            // TODO ALLGED.GED implies a NOTE is possible on a OBJE sub-tag; not according to GED standard?
+        }
+
+        [Test]
+        public void Obje2()
+        {
+            // Simple xref multimedia links; multiple
+            var txt = "0 @S1@ SOUR\n1 OBJE @obje1@\n1 AUTH Fred\n1 OBJE @obje2@\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(2, rec.Media.Count);
+            Assert.AreEqual("obje1", rec.Media[0].Xref);
+            Assert.AreEqual("obje2", rec.Media[1].Xref);
+        }
+
+        [Test]
+        public void Obje3()
+        {
+            // Embedded multimedia links; multiple
+            var txt = "0 @S1@ SOUR\n1 OBJE\n2 FILE blah\n3 FORM wav\n2 FILE flint\n3 FORM bmp\n1 AUTH Fred\n1 OBJE\n2 FILE foe\n3 FORM jpg\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(2, rec.Media.Count);
+            var med = rec.Media[0];
+
+            Assert.AreEqual(2, med.Files.Count);
+            var fil = med.Files[0];
+            Assert.AreEqual("blah", fil.FileRefn);
+            Assert.AreEqual("wav", fil.Form);
+            fil = med.Files[1];
+            Assert.AreEqual("flint", fil.FileRefn);
+            Assert.AreEqual("bmp", fil.Form);
+
+            med = rec.Media[1];
+            Assert.AreEqual(1, med.Files.Count);
+            fil = med.Files[0];
+            Assert.AreEqual("foe", fil.FileRefn);
+            Assert.AreEqual("jpg", fil.Form);
+
+        }
+        #endregion
+
+        #region Repository Citation
+
+        [Test]
+        public void RepoBasic()
+        {
+            // simple repo xref, interspersed
+            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO @R1@\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("R1", rec.Cits[0].Xref);
+        }
+
+        [Test]
+        public void RepoBasic2()
+        {
+            // two simple repo xref, interspersed
+            var txt = "0 @S1@ SOUR\n1 REPO @R2@\n1 AUTH Fred\n1 REPO @R1@\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(2, rec.Cits.Count);
+            Assert.AreEqual("R2", rec.Cits[0].Xref);
+            Assert.AreEqual("R1", rec.Cits[1].Xref);
+        }
+
+        [Test]
+        public void RepoEmbed()
+        {
+            // simple embedded repo, interspersed
+            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO\n2 CALN number\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("number", rec.Cits[0].CallNums[0].Number);
+        }
+
+        [Test]
+        public void RepoEmbed2()
+        {
+            // simple embedded repo, interspersed
+            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO\n2 CALN number\n3 MEDI type\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("number", rec.Cits[0].CallNums[0].Number);
+            Assert.AreEqual("type", rec.Cits[0].CallNums[0].Media);
+        }
+
+        [Test]
+        public void Repos2()
+        {
+            // two repo, interspersed
+            var txt = "0 @S1@ SOUR\n1 REPO @R1@\n1 AUTH Fred\n1 REPO\n2 CALN number\n3 MEDI type\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(2, rec.Cits.Count);
+            Assert.AreEqual("R1", rec.Cits[0].Xref);
+            Assert.AreEqual("number", rec.Cits[1].CallNums[0].Number);
+            Assert.AreEqual("type", rec.Cits[1].CallNums[0].Media);
+        }
+
+        [Test]
+        public void RepoNote()
+        {
+            // two repo with notes, interspersed
+            var txt = "0 @S1@ SOUR\n1 REPO @R1@\n" +
+                      "2 NOTE A note\n3 CONT continued - the word TE\n3 CONC ST not broken\n" +
+                      "1 AUTH Fred\n1 REPO\n2 CALN number\n3 MEDI type\n" +
+                      "2 NOTE Note two\n3 CONT continued - the word TE\n3 CONC ST not borked\n" +
+                      "1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(2, rec.Cits.Count);
+
+            Assert.AreEqual("R1", rec.Cits[0].Xref);
+            Assert.AreEqual(1, rec.Cits[0].Notes.Count);
+            Assert.AreEqual("A note\ncontinued - the word TEST not broken", rec.Cits[0].Notes[0].Text);
+
+            Assert.AreEqual("number", rec.Cits[1].CallNums[0].Number);
+            Assert.AreEqual("type", rec.Cits[1].CallNums[0].Media);
+            Assert.AreEqual(1, rec.Cits[1].Notes.Count);
+            Assert.AreEqual("Note two\ncontinued - the word TEST not borked", rec.Cits[1].Notes[0].Text);
+        }
+
+        [Test]
+        public void RepoCustom()
+        {
+            // simple repo xref, interspersed
+            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO @R1@\n2 _CUST custom\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("R1", rec.Cits[0].Xref);
+            Assert.AreEqual(1, rec.Cits[0].OtherLines.Count);
+        }
+
+        #endregion
+
+        [Test]
+        public void InvalidRepoId()
+        {
+            var txt = "0 @S1@ SOUR\n1 REPO @ @";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
+
+            txt = "0 @S1@ SOUR\n1 REPO @@@";
+            rec = ReadOne(txt);
+
+            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
         }
     }
 }
