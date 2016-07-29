@@ -13,10 +13,10 @@ namespace SharpGEDParser.Parser
         {
             public GedRecord Lines;
             public StructCommon Parent;
-            public string Remain;
-            public char Level;
             public int Begline; // index of first line for this 'record'
             public int Endline; // index of last line FOUND for this 'record'
+            public char Level;
+            public string Remain;
 
             public StructParseContext(GedRecParse.ParseContext2 ctx, StructCommon parent)
             {
@@ -44,18 +44,16 @@ namespace SharpGEDParser.Parser
         {
             int i = ctx.Begline + 1;
 
-            char level = ' ';
-            string ident = null;
-            string tag = null;
             for (; i < ctx.Lines.Max; i++)
             {
-                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref ctx.Remain);
-                if (level <= ctx.Level)
+                LineUtil.LineData ld = LineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i));
+                if (ld.Level <= ctx.Level)
                     break; // end of sub-record
-                if (tagSet.ContainsKey(tag))
+                ctx.Remain = ld.Remain;
+                if (tagSet.ContainsKey(ld.Tag))
                 {
                     ctx.Begline = i;
-                    tagSet[tag](ctx, i, level);
+                    tagSet[ld.Tag](ctx, i, ld.Level);
                 }
                 else
                 {
@@ -92,23 +90,19 @@ namespace SharpGEDParser.Parser
             StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
 
             int i = ctx.Begline + 1;
-            char level = ' ';
-            string ident = null;
-            string tag = null;
-            string remain = null;
             for (; i < ctx.Lines.Max; i++)
             {
-                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
-                if (level <= ctx.Level)
+                LineUtil.LineData ld = LineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i));
+                if (ld.Level <= ctx.Level)
                     break; // end of sub-record
-                if (tag == "CONC")
+                if (ld.Tag == "CONC")
                 {
-                    txt.Append(remain); // must keep trailing space
+                    txt.Append(ld.Remain); // must keep trailing space
                 }
-                else if (tag == "CONT")
+                else if (ld.Tag == "CONT")
                 {
                     txt.Append("\n"); // NOTE: not appendline, which is \r\n
-                    txt.Append(remain); // must keep trailing space
+                    txt.Append(ld.Remain); // must keep trailing space
                 }
                 else
                     break; // non-CONC, non-CONT: stop!

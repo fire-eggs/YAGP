@@ -72,6 +72,7 @@
     <Compile Include="Model\SourEvent.cs" />
     <Compile Include="Model\StructCommon.cs" />
     <Compile Include="Parser\AddrStructParse.cs" />
+    <Compile Include="Parser\LineUtil.cs" />
     <Compile Include="Parser\NoteParse.cs" />
     <Compile Include="Parser\RepoCitParse.cs" />
     <Compile Include="Parser\RepoParse.cs" />
