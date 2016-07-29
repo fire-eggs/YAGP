@@ -36,6 +36,10 @@ namespace SharpGEDParser.Model
                 Errors.Add(err);
             }
         }
-    
+
+        public override string ToString()
+        {
+            return Tag;
+        }
     }
 }
