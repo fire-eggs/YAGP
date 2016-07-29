@@ -82,6 +82,9 @@ namespace SharpGEDParser
 
             // Get to either ident or tag
             startDex = FirstChar(line, startDex, max);
+            if (startDex < 0) // TODO raganfam.ged has garbage lines consisting only of a number, no tag; invalid line breaks, etc
+                return startDex; 
+
             if (line[startDex] == '@')
             {
                 // get ident

@@ -316,23 +316,27 @@ namespace SharpGEDParser
             int max = line.Length;
             int startName = GedLineUtil.FirstChar(line, nextchar, max);
 
-            int startSur = GedLineUtil.AllCharsUntil(line, max, startName, '/');
-            int endSur = GedLineUtil.AllCharsUntil(line, max, startSur + 1, '/');
-
-            var suffix = "";
-            if (endSur+1 < max)
-                suffix = line.Substring(endSur+1).Trim();
-
             var rec = new NameRec();
             rec.Beg = ctx.Begline;
             rec.End = ctx.Endline;
 
-            rec.Names = line.Substring(startName, startSur - startName).Trim();
-            rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
-            if (startSur < max) // e.g. "1 NAME LIVING"
-                rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1);
-            if (suffix.Length > 0)
-                rec.Suffix = suffix;
+            // BOULDER_CEM_02212009b.GED had a "1 NAME" with nothing else
+            if (startName >= 0)
+            {
+                int startSur = GedLineUtil.AllCharsUntil(line, max, startName, '/');
+                int endSur = GedLineUtil.AllCharsUntil(line, max, startSur + 1, '/');
+
+                var suffix = "";
+                if (endSur+1 < max)
+                    suffix = line.Substring(endSur+1).Trim();
+
+                rec.Names = line.Substring(startName, startSur - startName).Trim();
+                rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
+                if (startSur < max) // e.g. "1 NAME LIVING"
+                    rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1);
+                if (suffix.Length > 0)
+                    rec.Suffix = suffix;
+            }
 
             (_rec as KBRGedIndi).Names.Add(rec);
 

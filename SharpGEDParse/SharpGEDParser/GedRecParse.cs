@@ -136,14 +136,15 @@ namespace SharpGEDParser
                 ctx.Begline = i;
                 ctx.Endline = i; // assume it is one line long, parser might change it
                 GedLineUtil.LevelTagAndRemain(line, ref ctx.Level, ref ident, ref tag, ref ctx.Remain);
-                if (_tagSet2.ContainsKey(tag))
+                if (tag != null && _tagSet2.ContainsKey(tag))
                 {
                     _tagSet2[tag](ctx);
                 }
                 else
                 {
+                    // TODO gedr5419_blood_type_events.ged has garbage characters in SOUR/ABBR tags: incorrect line terminator, blank lines etc.
                     UnkRec foo = new UnkRec();
-                    foo.Tag = tag;
+                    foo.Tag = tag ?? "<unexpected>";
                     LookAhead(ctx);
                     foo.Beg = ctx.Begline;
                     foo.End = ctx.Endline;
