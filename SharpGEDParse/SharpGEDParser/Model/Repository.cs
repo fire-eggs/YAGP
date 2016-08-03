@@ -23,7 +23,7 @@ using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
-    public class Repository : GEDCommon
+    public class Repository : GEDCommon, NoteHold
     {
         public static string Tag = "REPO";
 
@@ -31,9 +31,9 @@ namespace SharpGEDParser.Model
 
         public Address Addr { get; set; }
 
-        private NoteHold _noteHold = new NoteHold();
+        private List<Note> _notes;
 
-        public List<Note> Notes { get { return _noteHold.Notes; } }
+        public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
         public Repository(GedRecord lines, string ident)
         {

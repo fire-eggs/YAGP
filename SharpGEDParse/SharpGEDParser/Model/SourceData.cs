@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
     // Container for DATA within a SOURCE record
-    public class SourceData : StructCommon
+    public class SourceData : StructCommon, NoteHold
     {
         private List<SourEvent> _events;
 

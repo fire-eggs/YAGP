@@ -20,7 +20,7 @@ namespace SharpGEDParser.Tests
     // TODO missing newline confused parsing: a legit, necessary test
     // TODO : var txt = "0 @S1@ SOUR\n1 OBJE @obje1\n1 AUTH Fred\n1 OBJE @obje2@"; : missing trailing '@', was not caught?
 
-    // TODO multimedia link(s) - 5.5 syntax
+    // TODO multimedia link(s) - 5.5 syntax [also NOTEs]
 
     // TODO? xref style note?
 
@@ -494,15 +494,18 @@ namespace SharpGEDParser.Tests
             var rec = ReadOne(txt);
 
             Assert.AreEqual("S1", rec.Ident);
-            Assert.AreEqual(1, rec.Media.Count);
-            var med = rec.Media[0];
+
+            var rec2 = rec as MediaHold;  // TODO useful for common media link parsing - SOUR, FAM, INDI records; Event, SOUR sub-records
+            Assert.AreEqual(1, rec2.Media.Count);
+            var med = rec2.Media[0];
+
             Assert.AreEqual("A bmp picture", med.Title);
             Assert.AreEqual(1, med.Files.Count);
             var fil = med.Files[0];
             Assert.AreEqual("file name.bmp", fil.FileRefn);
             Assert.AreEqual("bmp", fil.Form);
 
-            // TODO ALLGED.GED implies a NOTE is possible on a OBJE sub-tag; not according to GED standard?
+            // TODO ALLGED.GED implies a NOTE is possible on a OBJE sub-tag; not according to GED standard? YES: GEDCOM 5.5
         }
 
         [Test]

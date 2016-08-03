@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using SharpGEDParser.Model;
-using System;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 
 // TODO any post-parse validation?
@@ -38,13 +36,6 @@ namespace SharpGEDParser.Parser
             RepoCit cit = (context.Parent as RepoCit);
             cit.CallNums.Add(new RepoCit.CallNum());
             cit.CallNums[cit.CallNums.Count-1].Number = context.Remain;
-        }
-
-        private static void noteProc(StructParseContext ctx, int linedex, char level)
-        {
-            var note = NoteStructParse.NoteParser(ctx, linedex, level);
-            RepoCit cit = (ctx.Parent as RepoCit);
-            cit.Notes.Add(note);
         }
 
         public static RepoCit CitParser(GedRecParse.ParseContext2 ctx)

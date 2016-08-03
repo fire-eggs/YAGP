@@ -5,13 +5,13 @@ namespace SharpGEDParser.Model
     // NOTE: the Gedcom 5.5 BLOB record is treated as an 'unknown'. 99% of
     // documented GED files don't use BLOB
 
-    public class MediaRecord : GEDCommon
+    public class MediaRecord : GEDCommon, NoteHold
     {
         public static string Tag = "OBJE";
 
-        private NoteHold _notes = new NoteHold();
+        private List<Note> _notes;
 
-        public List<Note> Notes { get { return _notes.Notes; } }
+        public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
         private List<SourceCit> _cits;
         public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }

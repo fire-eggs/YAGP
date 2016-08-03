@@ -222,7 +222,7 @@ namespace GedScan
                     Console.WriteLine("\t\tError:{0}", unkRec.Error);
                 }
             }
-            Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}\n\tCustom: {8}\n\tUnknown: {2}\n\tOther: {3}\n\t*Errors: {4}", inds, fams, unks, oths, errs, src, repo, note, custom);
+            Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}\n\tCustom: {8}\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}", inds, fams, unks, oths, errs, src, repo, note, custom, media);
         }
 
     }

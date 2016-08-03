@@ -12,13 +12,6 @@ namespace SharpGEDParser.Parser
             {"NOTE", noteProc}
         };
 
-        private static void noteProc(StructParseContext ctx, int linedex, char level)
-        {
-            var chan = ctx.Parent as ChangeRec;
-            var note = NoteStructParse.NoteParser(ctx, linedex, level);
-            chan.Notes.Add(note);
-        }
-
         private static void dateProc(StructParseContext ctx, int linedex, char level)
         {
             var chan = ctx.Parent as ChangeRec;

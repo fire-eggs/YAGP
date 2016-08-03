@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace SharpGEDParser.Model
 {
     // Source Citation record
-    public class SourceCit : StructCommon
+    public class SourceCit : StructCommon, NoteHold, MediaHold
     {
         public string Xref { get; set; } // will be empty if an embedded citation
 
@@ -27,10 +27,11 @@ namespace SharpGEDParser.Model
 
         public bool AnyText { get { return _text != null; } } // Don't force allocation of List during verify
 
-        private NoteHold _noteHold = new NoteHold();
-        public List<Note> Notes { get { return _noteHold.Notes; } }
+        private List<Note> _notes;
 
-        private MediaHold _mediaHold = new MediaHold();
-        public List<MediaLink> Media { get { return _mediaHold.Media; } }
+        public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
+
+        private List<MediaLink> _media;
+        public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
     }
 }

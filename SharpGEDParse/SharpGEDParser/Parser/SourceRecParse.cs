@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharpGEDParser.Model;
+﻿using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
@@ -46,7 +41,7 @@ namespace SharpGEDParser.Parser
             // TODO validate multiple DATA records
         }
 
-        private void noteProc(ParseContext2 ctx)
+        private void noteProc(ParseContext2 ctx) // TODO push down using NoteHold
         {
             var note = NoteStructParse.NoteParser(ctx);
             (ctx.Parent as SourceRecord).Notes.Add(note);

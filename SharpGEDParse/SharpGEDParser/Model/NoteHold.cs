@@ -9,10 +9,8 @@ namespace SharpGEDParser.Model
         public string Text { get; set; }
     }
 
-    public class NoteHold
+    public interface NoteHold
     {
-        private List<Note> _notes;
-
-        public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
+        List<Note> Notes { get; }
     }
 }

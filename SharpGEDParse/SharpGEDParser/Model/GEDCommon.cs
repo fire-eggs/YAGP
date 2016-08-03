@@ -63,14 +63,13 @@ namespace SharpGEDParser.Model
         // TODO consider a UID accessor to Ids?
     }
 
-    public class ChangeRec : StructCommon
+    public class ChangeRec : StructCommon, NoteHold
     {
         public DateTime? Date { get; set; }
 
-        // TODO somehow make this on-demand
-        private NoteHold _noteHold = new NoteHold();
+        private List<Note> _notes;
 
-        public List<Note> Notes { get { return _noteHold.Notes; } }
+        public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
     }
 
     public class IdHold

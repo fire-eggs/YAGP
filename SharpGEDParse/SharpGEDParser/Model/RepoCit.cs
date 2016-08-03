@@ -3,7 +3,7 @@
 namespace SharpGEDParser.Model
 {
     // Repository Citation from SOURCE record
-    public class RepoCit : StructCommon
+    public class RepoCit : StructCommon, NoteHold
     {
         public class CallNum
         {

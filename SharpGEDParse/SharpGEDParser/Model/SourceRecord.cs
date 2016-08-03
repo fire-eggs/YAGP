@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
-    public class SourceRecord : GEDCommon
+    public class SourceRecord : GEDCommon, MediaHold, NoteHold
     {
         public static string Tag = "SOUR";
 

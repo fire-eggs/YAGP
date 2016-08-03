@@ -111,5 +111,13 @@ namespace SharpGEDParser.Parser
             return txt.ToString();
         }
 
+        // Common Note sub-structure parsing
+        protected static void noteProc(StructParseContext ctx, int linedex, char level)
+        {
+            NoteHold dad = (ctx.Parent as NoteHold);
+            var note = NoteStructParse.NoteParser(ctx, linedex, level);
+            dad.Notes.Add(note);
+        }
+
     }
 }

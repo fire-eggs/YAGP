@@ -749,6 +749,19 @@ namespace UnitTestProject1
             // TODO validate details
         }
 
+        [TestMethod]
+        public void EmptyName()
+        {
+            // Downloaded file BOULDER_CEM_09212009b.GED had a line "1 NAME"
+            var txt = "0 INDI\n1 NAME\n1 RIN blah";
+            var rec = parse(txt);
+            Assert.AreEqual(1, rec.Data.Count);
+            Assert.AreEqual("RIN", rec.Data[0].Tag);
+            Assert.AreEqual("blah", rec.Data[0].Data);
+
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.IsNull(rec.Names[0].Surname);
+        }
 
     }
 }

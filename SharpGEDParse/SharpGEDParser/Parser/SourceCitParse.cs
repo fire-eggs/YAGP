@@ -60,13 +60,6 @@ namespace SharpGEDParser.Parser
             cit.Data = true;
         }
 
-        private static void noteProc(StructParseContext ctx, int linedex, char level)
-        {
-            SourceCit cit = (ctx.Parent as SourceCit);
-            var note = NoteStructParse.NoteParser(ctx, linedex, level);
-            cit.Notes.Add(note);
-        }
-
         private static void contProc(StructParseContext context, int linedex, char level)
         {
             SourceCit cit = (context.Parent as SourceCit);

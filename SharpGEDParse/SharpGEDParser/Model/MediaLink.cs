@@ -16,7 +16,7 @@ namespace SharpGEDParser.Model
         public string Title { get; set; }
     }
 
-    public class MediaLink : StructCommon
+    public class MediaLink : StructCommon, NoteHold
     {
         public string Xref { get; set; }
 
@@ -25,12 +25,13 @@ namespace SharpGEDParser.Model
         public List<MediaFile> Files { get { return _files ?? (_files = new List<MediaFile>()); }}
 
         public string Title { get; set; }
+
+        private List<Note> _notes; // Notes are possible with GEDCOM 5.5.
+        public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
     }
 
-    public class MediaHold
+    public interface MediaHold
     {
-        private List<MediaLink> _media;
-
-        public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
+        List<MediaLink> Media { get; }
     }
 }

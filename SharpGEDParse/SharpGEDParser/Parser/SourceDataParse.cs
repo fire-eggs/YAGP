@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
@@ -39,13 +35,6 @@ namespace SharpGEDParser.Parser
         {
             SourceData data = (context.Parent as SourceData);
             data.Agency = context.Remain;
-        }
-
-        private static void noteProc(StructParseContext ctx, int linedex, char level)
-        {
-            var note = NoteStructParse.NoteParser(ctx, linedex, level);
-            var dad = (ctx.Parent as SourceData);
-            dad.Notes.Add(note);
         }
 
         private static void placProc(StructParseContext context, int linedex, char level)

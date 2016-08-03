@@ -19,7 +19,8 @@ namespace SharpGEDParser.Parser
             {"FILE", fileProc},
             {"FORM", formProc},
             {"TITL", titlProc},
-            {"MEDI", mediProc}
+            {"MEDI", mediProc},
+            {"NOTE", noteProc}
         };
 
         private static void fileProc(StructParseContext ctx, int linedex, char level)
