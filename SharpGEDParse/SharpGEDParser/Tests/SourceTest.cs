@@ -24,8 +24,6 @@ namespace SharpGEDParser.Tests
 
     // TODO? xref style note?
 
-    // TODO "0 @S1@ SOUR\n1 REPO\n2 MEDI blah" will crash
-
     // Testing for SOURCE records
     [TestFixture]
     class SourceTest : GedParseTest
@@ -692,6 +690,20 @@ namespace SharpGEDParser.Tests
             rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
+        }
+
+        [Test]
+        public void Crash()
+        {
+            // MEDI without a CALN - would crash at one point
+            var txt = "0 @S1@ SOUR\n1 REPO\n2 MEDI blah";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(1, rec.Cits[0].CallNums.Count);
+            Assert.AreEqual("blah", rec.Cits[0].CallNums[0].Media);
+
+            // TODO should this be an error? (MEDI without CALN)
         }
     }
 }

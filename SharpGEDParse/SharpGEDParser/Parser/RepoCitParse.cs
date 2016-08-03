@@ -16,11 +16,21 @@ namespace SharpGEDParser.Parser
             {"NOTE", noteProc},
         };
 
+        private static RepoCit.CallNum GetCallNum(RepoCit dad)
+        {
+            if (dad.CallNums.Count == 0)
+            {
+                dad.CallNums.Add(new RepoCit.CallNum());
+            }
+            return dad.CallNums[dad.CallNums.Count - 1];
+        }
+
         private static void mediProc(StructParseContext context, int linedex, char level)
         {
-            // HACK apply this to the last CALN entry
+            // HACK apply this to the last CALN entry - error if more than one?
             RepoCit cit = (context.Parent as RepoCit);
-            cit.CallNums[cit.CallNums.Count - 1].Media = context.Remain;
+            var callN = GetCallNum(cit);
+            callN.Media = context.Remain;
         }
 
         private static void calnProc(StructParseContext context, int linedex, char level)
