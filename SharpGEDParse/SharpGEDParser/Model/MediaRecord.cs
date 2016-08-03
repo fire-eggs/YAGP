@@ -2,6 +2,9 @@
 
 namespace SharpGEDParser.Model
 {
+    // NOTE: the Gedcom 5.5 BLOB record is treated as an 'unknown'. 99% of
+    // documented GED files don't use BLOB
+
     public class MediaRecord : GEDCommon
     {
         public static string Tag = "OBJE";
@@ -14,8 +17,6 @@ namespace SharpGEDParser.Model
         public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }
 
         public List<MediaFile> _files;
-
-        public UnkRec Blob { get; set; } // GEDCOM 5.5 standard
 
         public List<MediaFile> Files { get { return _files ?? (_files = new List<MediaFile>()); } }
 

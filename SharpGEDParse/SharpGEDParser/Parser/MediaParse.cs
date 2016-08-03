@@ -4,13 +4,18 @@ using SharpGEDParser.Model;
 namespace SharpGEDParser.Parser
 {
     // Parsing for Media Record [not Media link]
+    // NOTE: the use of the OBJE *record* is extremely rare. Few of the various
+    // programs actually export OBJE records. As a result, I'm not attempting
+    // to fully parse OBJE tags.
+
     // The 5.5 and 5.5.1 standards are a bit different.
     // 5.5: no FILE tag, make sure a MediaFile exists to assign FORM/TITL to
     // 5.5.1: multiple FILEs
     // 5.5.1: no BLOB tag
-    // 5.5: possibly no SOUR tags TODO: confirm
+    // 5.5: no SOUR tags
     // 5.5: no TYPE tag
-    // 5.5.1: OBJE chaining TODO punt?
+    // 5.5: OBJE chaining - treating as unknown
+    // 5.5: BLOB tag - treating as unknown
 
     public class MediaParse : GedRecParse
     {
@@ -25,17 +30,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("FORM", formProc);
             _tagSet2.Add("TITL", titlProc);
             _tagSet2.Add("TYPE", typeProc); // GEDCOM 5.5.1
-            _tagSet2.Add("BLOB", blobProc); // GEDCOM 5.5
-            //_tagSet2.Add("OBJE", objeProc); // GEDCOM 5.5
-        }
-
-        private void blobProc(ParseContext2 context)
-        {
-            UnkRec foo = new UnkRec();
-            LookAhead(context);
-            foo.Beg = context.Begline;
-            foo.End = context.Endline;
-            (context.Parent as MediaRecord).Blob = foo;
+            //_tagSet2.Add("BLOB", blobProc); // GEDCOM 5.5 - delibrately treated as unknown
+            //_tagSet2.Add("OBJE", objeProc); // GEDCOM 5.5 - delibrately treated as unknown
         }
 
         private MediaFile GetFile(ParseContext2 context)
