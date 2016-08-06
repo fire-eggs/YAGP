@@ -18,6 +18,8 @@ namespace SharpGEDParser.Parser
             DateTime res;
             if (DateTime.TryParse(ctx.Remain, out res))
                 chan.Date = res;
+
+            // NOTE: could not parse date: will be caught by 'missing data' check
         }
 
         public static void ChanParse(GedRecParse.ParseContext2 ctx, ChangeRec chan)
@@ -29,8 +31,7 @@ namespace SharpGEDParser.Parser
 
         public static void ChanProc(GedRecParse.ParseContext2 ctx)
         {
-            var Parent = (ctx.Parent as GEDCommon);
-            ChangeRec chan = Parent.CHAN;
+            ChangeRec chan = ctx.Parent.CHAN;
             if (chan.Date != null)
             {
                 UnkRec err = new UnkRec();
@@ -38,7 +39,7 @@ namespace SharpGEDParser.Parser
                 GedRecParse.LookAhead(ctx);
                 err.Beg = ctx.Begline;
                 err.End = ctx.Endline;
-                Parent.Errors.Add(err);
+                ctx.Parent.Errors.Add(err);
                 return;
             }
 
@@ -46,9 +47,10 @@ namespace SharpGEDParser.Parser
             if (chan.Date == null)
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing required data for CHAN";
-                // TODO missing line numbers
-                Parent.Errors.Add(err);
+                err.Error = "Missing/invalid date for CHAN";
+                err.Beg = ctx.Begline;
+                err.End = ctx.Endline;
+                ctx.Parent.Errors.Add(err);
             }
         }
 

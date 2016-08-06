@@ -66,6 +66,9 @@ namespace SharpGEDParser.Tests
             TestNoDateM(txt, "REPO");
             TestNoDateM(txt, "SOUR");
             TestNoDateM(txt, "OBJE");
+            //            TestChanM(txt, "INDI");
+            //            TestChanM(txt, "FAM");
+            //            TestChanM(txt, "HEAD");
         }
 
         private GEDCommon TestAfterM(string teststring, string tag)
@@ -89,6 +92,9 @@ namespace SharpGEDParser.Tests
             TestAfterM(txt, "SOUR");
             TestAfterM(txt, "REPO");
             TestAfterM(txt, "OBJE");
+            //            TestChanM(txt, "INDI");
+            //            TestChanM(txt, "FAM");
+            //            TestChanM(txt, "HEAD");
         }
 
         private GEDCommon NoDateFollowM(string teststring, string tag)
@@ -110,6 +116,9 @@ namespace SharpGEDParser.Tests
             NoDateFollowM(txt, "REPO");
             NoDateFollowM(txt, "SOUR");
             NoDateFollowM(txt, "NOTE");
+            //            TestChanM(txt, "INDI");
+            //            TestChanM(txt, "FAM");
+            //            TestChanM(txt, "HEAD");
         }
 
         private GEDCommon ChanExtraM(string teststring, string tag)
@@ -132,10 +141,13 @@ namespace SharpGEDParser.Tests
             ChanExtraM(txt, "NOTE");
             ChanExtraM(txt, "SOUR");
             ChanExtraM(txt, "OBJE");
+            //            TestChanM(txt, "INDI");
+            //            TestChanM(txt, "FAM");
+            //            TestChanM(txt, "HEAD");
         }
 
         [Test]
-        public void TestChan6()
+        public void TestChan6() // TODO test all supported records?
         {
             // multi line extra
             var txt = "0 @N1@ SOUR\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 RIN fumbar";
@@ -149,7 +161,7 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
-        public void TestChan7()
+        public void TestChan7() // TODO test all supported records?
         {
             // multiple CHAN
             var txt = "0 @N1@ SOUR\n1 CHAN\n2 DATE 1 MAR 2000\n1 RIN fumbar\n1 CHAN";
@@ -158,6 +170,44 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(0, rec.Unknowns.Count);
             Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
+            Assert.AreEqual("fumbar", rec.RIN);
+        }
+
+        [Test]
+        public void OtherDateFormat1()
+        {
+            // TODO ambiguous date - depends on locale
+            var txt = "0 @N1@ SOUR\n1 CHAN\n2 DATE 03/01/2000\n1 RIN fumbar";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
+            Assert.AreEqual("fumbar", rec.RIN);
+        }
+
+        [Test]
+        public void OtherDateFormat2()
+        {
+            var txt = "0 @N1@ SOUR\n1 CHAN\n2 DATE 20000301\n1 RIN fumbar";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.AreEqual("fumbar", rec.RIN);
+        }
+
+        [Test]
+        public void TimeRec() // TODO test with all supported record types?
+        {
+            // TIME record treated as 'other'
+            var txt = "0 @N1@ SOUR\n1 CHAN\n2 DATE 1 MAR 2000\n3 TIME 13:24\n1 RIN fumbar";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+            Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
+            Assert.AreEqual(1, rec.CHAN.OtherLines.Count);
             Assert.AreEqual("fumbar", rec.RIN);
         }
 
