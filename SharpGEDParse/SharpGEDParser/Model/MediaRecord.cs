@@ -21,12 +21,9 @@ namespace SharpGEDParser.Model
         public List<MediaFile> Files { get { return _files ?? (_files = new List<MediaFile>()); } }
 
         public MediaRecord(GedRecord lines, string ident, string remain)
+            : base(lines, ident)
         {
             // Text = remain; // TODO what to do with extra?
-
-            BegLine = lines.Beg;
-            EndLine = lines.End;
-            Ident = ident;
 
             if (string.IsNullOrWhiteSpace(ident))
             {

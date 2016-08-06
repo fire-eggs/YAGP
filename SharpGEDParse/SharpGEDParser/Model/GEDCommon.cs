@@ -61,6 +61,13 @@ namespace SharpGEDParser.Model
 
         // TODO consider a REFN accessor to Ids?
         // TODO consider a UID accessor to Ids?
+
+        public GEDCommon(GedRecord lines, string ident)
+        {
+            BegLine = lines.Beg;
+            EndLine = lines.End;
+            Ident = ident;
+        }
     }
 
     public class ChangeRec : StructCommon, NoteHold

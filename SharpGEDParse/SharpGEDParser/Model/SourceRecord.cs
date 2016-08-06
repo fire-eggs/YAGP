@@ -28,10 +28,16 @@ namespace SharpGEDParser.Model
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
         public SourceRecord(GedRecord lines, string ident)
+            : base(lines, ident)
         {
-            BegLine = lines.Beg;
-            EndLine = lines.End;
-            Ident = ident;
+            if (string.IsNullOrWhiteSpace(ident))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing identifier"; // TODO assign one?
+                err.Beg = err.End = lines.Beg;
+                err.Tag = Tag;
+                Errors.Add(err);
+            }
         }
 
         public override string ToString()
