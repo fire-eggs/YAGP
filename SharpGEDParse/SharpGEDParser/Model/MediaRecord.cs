@@ -5,7 +5,7 @@ namespace SharpGEDParser.Model
     // NOTE: the Gedcom 5.5 BLOB record is treated as an 'unknown'. 99% of
     // documented GED files don't use BLOB
 
-    public class MediaRecord : GEDCommon, NoteHold
+    public class MediaRecord : GEDCommon, NoteHold, SourceCitHold
     {
         public static string Tag = "OBJE";
 

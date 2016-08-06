@@ -7,31 +7,35 @@ namespace SharpGEDParser.Parser
         protected override void BuildTagSet()
         {
             _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN", RinProc);
+            _tagSet2.Add("RIN",  RinProc);
             _tagSet2.Add("CHAN", ChanProc);
-            _tagSet2.Add("SOUR", sourCitProc);
+            _tagSet2.Add("SOUR", SourCitProc);
             _tagSet2.Add("CONC", concProc);
             _tagSet2.Add("CONT", contProc);
         }
 
-        // TODO switch to StringBuilder for parse
         private void contProc(ParseContext2 ctx)
         {
-            (ctx.Parent as NoteRecord).Text += "\n";
-            concProc(ctx);
+            //(ctx.Parent as NoteRecord).Text += "\n";
+            //concProc(ctx);
+            var dad = ctx.Parent as NoteRecord;
+            dad.Builder.Append("\n");
+            dad.Builder.Append(ctx.Remain);
         }
 
-        // TODO switch to StringBuilder for parse
         private void concProc(ParseContext2 ctx)
         {
-            (ctx.Parent as NoteRecord).Text += ctx.Remain;
+            //(ctx.Parent as NoteRecord).Text += ctx.Remain;
+            var dad = ctx.Parent as NoteRecord;
+            dad.Builder.Append(ctx.Remain);
         }
 
-        // TODO don't have a 'source citation container' base class
-        protected void sourCitProc(ParseContext2 ctx)
+        public override void PostCheck(GEDCommon rec)
         {
-            var cit = SourceCitParse.SourceCitParser(ctx);
-            (ctx.Parent as NoteRecord).Cits.Add(cit);
+            // Not really a post-check here, more of a 'finalize'
+            var dad = rec as NoteRecord;
+            dad.Text = dad.Builder.ToString();
+            dad.Builder = null;
         }
 
     }

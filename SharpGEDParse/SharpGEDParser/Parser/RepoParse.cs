@@ -14,12 +14,6 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("CHAN", ChanProc);
         }
 
-        private void NoteProc(ParseContext2 ctx)
-        {
-            var note = NoteStructParse.NoteParser(ctx);
-            (ctx.Parent as Repository).Notes.Add(note);
-        }
-
         private void nameproc(ParseContext2 ctx)
         {
             (ctx.Parent as Repository).Name = ctx.Remain;

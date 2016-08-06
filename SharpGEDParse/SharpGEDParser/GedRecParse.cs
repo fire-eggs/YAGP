@@ -294,32 +294,51 @@ namespace SharpGEDParser
 
         protected void RinProc(ParseContext2 ctx)
         {
-            (ctx.Parent as GEDCommon).RIN = ctx.Remain;
+            // Common RIN processing
+            ctx.Parent.RIN = ctx.Remain;
         }
 
         protected void ChanProc(ParseContext2 ctx)
         {
+            // Common CHAN processing
             ChanStructParse.ChanProc(ctx);
+        }
+
+        protected void SourCitProc(ParseContext2 ctx)
+        {
+            // Common source citation processing
+            var cit = SourceCitParse.SourceCitParser(ctx);
+            (ctx.Parent as SourceCitHold).Cits.Add(cit);
+        }
+
+        protected void NoteProc(ParseContext2 ctx)
+        {
+            // Common note processing
+            var note = NoteStructParse.NoteParser(ctx);
+            (ctx.Parent as NoteHold).Notes.Add(note);
+        }
+
+        protected static void ObjeProc(ParseContext2 ctx)
+        {
+            MediaLink mlink = MediaStructParse.MediaParser(ctx);
+            (ctx.Parent as MediaHold).Media.Add(mlink);
         }
 
         protected void RefnProc(ParseContext2 ctx)
         {
-            (ctx.Parent as GEDCommon).Ids.REFNs.Add(ParseREFN(ctx));
-        }
-
-        private StringPlus ParseREFN(ParseContext2 ctx)
-        {
+            // Common REFN processing
             var sp = new StringPlus();
             sp.Value = ctx.Remain;
             LookAhead(ctx);
             sp.Extra.Beg = ctx.Begline + 1;
             sp.Extra.End = ctx.Endline;
-            return sp;
+
+            ctx.Parent.Ids.REFNs.Add(sp);
         }
 
         public virtual void PostCheck(GEDCommon rec)
         {
-            // post parse checking
+            // post parse checking; each record parser should overload
         }
 
         // TODO copy-pasta from StructParser

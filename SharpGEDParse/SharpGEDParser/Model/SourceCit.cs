@@ -34,4 +34,9 @@ namespace SharpGEDParser.Model
         private List<MediaLink> _media;
         public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
     }
+
+    public interface SourceCitHold
+    {
+        List<SourceCit> Cits { get; }
+    }
 }

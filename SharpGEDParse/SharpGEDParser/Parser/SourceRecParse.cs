@@ -14,67 +14,55 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("ABBR", abbrProc);
             _tagSet2.Add("AUTH", authProc);
             _tagSet2.Add("DATA", dataProc);
-            _tagSet2.Add("NOTE", noteProc);
-            _tagSet2.Add("OBJE", objeProc);
+            _tagSet2.Add("NOTE", NoteProc);
+            _tagSet2.Add("OBJE", ObjeProc);
             _tagSet2.Add("PUBL", publProc);
             _tagSet2.Add("REPO", repoProc);
             _tagSet2.Add("TEXT", textProc);
             _tagSet2.Add("TITL", titlProc);
         }
 
-        private void abbrProc(ParseContext2 ctx)
+        private void abbrProc(ParseContext2 context)
         {
-            (ctx.Parent as SourceRecord).Abbreviation = ctx.Remain;
+            (context.Parent as SourceRecord).Abbreviation = context.Remain;
         }
 
-        private void authProc(ParseContext2 ctx)
+        private void authProc(ParseContext2 context)
         {
-            string val = extendedText(ctx);
-            (ctx.Parent as SourceRecord).Author = val;
+            string val = extendedText(context);
+            (context.Parent as SourceRecord).Author = val;
         }
 
-        private void dataProc(ParseContext2 ctx)
+        private void dataProc(ParseContext2 context)
         {
-            var data = SourceDataParse.DataParser(ctx);
-            (ctx.Parent as SourceRecord).Data = data;
+            var data = SourceDataParse.DataParser(context);
+            (context.Parent as SourceRecord).Data = data;
 
             // TODO validate multiple DATA records
         }
 
-        private void noteProc(ParseContext2 ctx) // TODO push down using NoteHold
+        private void publProc(ParseContext2 context)
         {
-            var note = NoteStructParse.NoteParser(ctx);
-            (ctx.Parent as SourceRecord).Notes.Add(note);
+            string val = extendedText(context);
+            (context.Parent as SourceRecord).Publication = val;
         }
 
-        private static void objeProc(ParseContext2 ctx)
+        private void repoProc(ParseContext2 context)
         {
-            MediaLink mlink = MediaStructParse.MediaParser(ctx);
-            (ctx.Parent as SourceRecord).Media.Add(mlink);
+            RepoCit cit = RepoCitParse.CitParser(context);
+            (context.Parent as SourceRecord).Cits.Add(cit);
         }
 
-        private void publProc(ParseContext2 ctx)
+        private void textProc(ParseContext2 context)
         {
-            string val = extendedText(ctx);
-            (ctx.Parent as SourceRecord).Publication = val;
+            string val = extendedText(context);
+            (context.Parent as SourceRecord).Text = val;
         }
 
-        private void repoProc(ParseContext2 ctx)
+        private void titlProc(ParseContext2 context)
         {
-            RepoCit cit = RepoCitParse.CitParser(ctx);
-            (ctx.Parent as SourceRecord).Cits.Add(cit);
-        }
-
-        private void textProc(ParseContext2 ctx)
-        {
-            string val = extendedText(ctx);
-            (ctx.Parent as SourceRecord).Text = val;
-        }
-
-        private void titlProc(ParseContext2 ctx)
-        {
-            string val = extendedText(ctx);
-            (ctx.Parent as SourceRecord).Title = val;
+            string val = extendedText(context);
+            (context.Parent as SourceRecord).Title = val;
         }
 
         public override void PostCheck(GEDCommon rec)

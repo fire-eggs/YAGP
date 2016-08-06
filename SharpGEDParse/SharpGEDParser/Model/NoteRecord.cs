@@ -3,12 +3,16 @@
 // TODO refactor common logic in ctor
 
 using System.Collections.Generic;
+using System.Text;
 
 namespace SharpGEDParser.Model
 {
-    public class NoteRecord : GEDCommon
+    public class NoteRecord : GEDCommon, SourceCitHold
     {
         public static string Tag = "NOTE";
+
+        // Submitter text during parse
+        public StringBuilder Builder { get; set; }
 
         // Submitter text
         public string Text { get; set; }
@@ -18,7 +22,7 @@ namespace SharpGEDParser.Model
 
         public NoteRecord(GedRecord lines, string ident, string remain)
         {
-            Text = remain;
+            Builder = new StringBuilder(remain);
 
             BegLine = lines.Beg;
             EndLine = lines.End;

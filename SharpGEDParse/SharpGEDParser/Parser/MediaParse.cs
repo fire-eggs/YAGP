@@ -22,16 +22,16 @@ namespace SharpGEDParser.Parser
         protected override void BuildTagSet()
         {
             _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN", RinProc);
+            _tagSet2.Add("RIN",  RinProc);
             _tagSet2.Add("CHAN", ChanProc);
             _tagSet2.Add("NOTE", NoteProc);
-            _tagSet2.Add("SOUR", sourCitProc); // GEDCOM 5.5.1 ?
+            _tagSet2.Add("SOUR", SourCitProc); // GEDCOM 5.5.1
             _tagSet2.Add("FILE", fileProc); // GEDCOM 5.5.1
             _tagSet2.Add("FORM", formProc);
             _tagSet2.Add("TITL", titlProc);
             _tagSet2.Add("TYPE", typeProc); // GEDCOM 5.5.1
-            //_tagSet2.Add("BLOB", blobProc); // GEDCOM 5.5 - delibrately treated as unknown
-            //_tagSet2.Add("OBJE", objeProc); // GEDCOM 5.5 - delibrately treated as unknown
+            //_tagSet2.Add("BLOB", blobProc); // GEDCOM 5.5 - intentionally treated as unknown
+            //_tagSet2.Add("OBJE", objeProc); // GEDCOM 5.5 - intentionally treated as unknown
         }
 
         private MediaFile GetFile(ParseContext2 context)
@@ -85,7 +85,6 @@ namespace SharpGEDParser.Parser
                 err.Error = string.Format("Non-standard media format '{0}'", file.Form);
                 context.Parent.Errors.Add(err); // TODO lines
             }
-
         }
 
         private void fileProc(ParseContext2 context)
@@ -93,20 +92,6 @@ namespace SharpGEDParser.Parser
             MediaFile file = new MediaFile();
             file.FileRefn = context.Remain;
             (context.Parent as MediaRecord).Files.Add(file);
-        }
-
-        // TODO don't have a "note container" base class
-        private void NoteProc(ParseContext2 ctx)
-        {
-            var note = NoteStructParse.NoteParser(ctx);
-            (ctx.Parent as MediaRecord).Notes.Add(note);
-        }
-
-        // TODO don't have a 'source citation container' base class
-        protected void sourCitProc(ParseContext2 ctx)
-        {
-            var cit = SourceCitParse.SourceCitParser(ctx);
-            (ctx.Parent as MediaRecord).Cits.Add(cit);
         }
 
         public override void PostCheck(GEDCommon rec)
