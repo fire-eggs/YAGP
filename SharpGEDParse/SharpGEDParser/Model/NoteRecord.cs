@@ -21,15 +21,6 @@ namespace SharpGEDParser.Model
         public NoteRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
         {
             Builder = new StringBuilder(remain);
-
-            if (string.IsNullOrWhiteSpace(ident))
-            {
-                UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one?
-                err.Beg = err.End = lines.Beg;
-                err.Tag = Tag;
-                Errors.Add(err);
-            }
         }
 
         public override string ToString()

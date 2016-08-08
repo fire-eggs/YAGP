@@ -3,7 +3,8 @@
 namespace SharpGEDParser.Model
 {
     // An OBJE link
-    // There are two variants: a simple Xref, and a non-Xref. TODO: consider forcing to simple Xref
+    // There are two variants: a simple Xref, and a non-Xref. 
+    // The OBJE *record* is not used by almost all applications, so the simple Xref variant isn't useful?
 
     public class MediaFile
     {

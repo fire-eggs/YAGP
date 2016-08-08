@@ -126,7 +126,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestCust1()
         {
-            var txt = "0 @N1@ SOUR blah blah blah\n1 _CUST foobar\n1 RIN foobar";
+            var txt = "0 @N1@ SOUR\n1 _CUST foobar\n1 RIN foobar";
             var rec = ReadOne(txt);
 
             Assert.AreEqual(0, rec.Errors.Count);
@@ -484,6 +484,17 @@ namespace SharpGEDParser.Tests
         }
 
         // SOUR/1 DATA/NOTE/1 NOTE/1 OBJE/1 NOTE/1 REPO/2 NOTE/1 NOTE/1 CHAN/2 NOTE
+
+        [Test]
+        public void ExtraText1()
+        {
+            var txt = "0 @S1@ SOUR blah blah blah\n1 AUTH Fred";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+        }
 
         #region Multimedia link
         [Test]

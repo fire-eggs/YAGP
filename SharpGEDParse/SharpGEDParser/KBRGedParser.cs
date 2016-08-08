@@ -79,12 +79,12 @@ namespace SharpGEDParser
                     return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
                 case "SOUR":
                 {
-                    var foo = new SourceRecord(rec, ident);
+                    var foo = new SourceRecord(rec, ident, remain);
                     return new Tuple<object, GedParse>(foo, _SourParseSingleton);
                 }
                 case "REPO":
                 {
-                    var foo = new Repository(rec, ident);
+                    var foo = new Repository(rec, ident, remain);
                     return new Tuple<object, GedParse>(foo, _RepoParseSingleton);
                 }
                 case "NOTE":

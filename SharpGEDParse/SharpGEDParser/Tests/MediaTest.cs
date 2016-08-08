@@ -516,5 +516,21 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("yup", rec.Cits[1].Quay);
 
         }
+
+        [Test]
+        public void ExtraText()
+        {
+            var txt = "0 @M1@ OBJE blah blah blah\n1 FILE reference\n2 FORM gif";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            MediaRecord rec = res[0] as MediaRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual("M1", rec.Ident);
+            Assert.AreEqual(1, rec.Files.Count);
+            Assert.AreEqual("reference", rec.Files[0].FileRefn);
+            Assert.AreEqual("gif", rec.Files[0].Form);
+        }
+
     }
 }

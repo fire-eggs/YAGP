@@ -53,6 +53,19 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count); // TODO error details
         }
 
+	    [Test]
+	    public void ExtraText()
+	    {
+            var txt = "0 @R1@ REPO supercalifrag\n1 RIN foobar\n0 KLUDGE";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            Repository rec = res[0] as Repository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual("foobar", rec.RIN);
+            Assert.AreEqual("R1", rec.Ident);
+        }
+
 		[Test]
 		public void TestCust1()
 		{

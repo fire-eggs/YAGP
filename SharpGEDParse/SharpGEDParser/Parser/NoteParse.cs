@@ -32,10 +32,18 @@ namespace SharpGEDParser.Parser
 
         public override void PostCheck(GEDCommon rec)
         {
-            // Not really a post-check here, more of a 'finalize'
-            var dad = rec as NoteRecord;
-            dad.Text = dad.Builder.ToString();
-            dad.Builder = null;
+            var me = rec as NoteRecord;
+
+            if (string.IsNullOrWhiteSpace(me.Ident))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing identifier"; // TODO assign one?
+                err.Beg = err.End = me.BegLine;
+                me.Errors.Add(err);
+            }
+
+            me.Text = me.Builder.ToString();
+            me.Builder = null;
         }
 
     }

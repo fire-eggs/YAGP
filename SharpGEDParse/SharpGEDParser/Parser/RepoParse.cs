@@ -29,6 +29,14 @@ namespace SharpGEDParser.Parser
         {
             Repository me = rec as Repository;
 
+            if (string.IsNullOrWhiteSpace(me.Ident))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing identifier"; // TODO assign one?
+                err.Beg = err.End = me.BegLine;
+                me.Errors.Add(err);
+            }
+
             // A NAME record is required
             if (string.IsNullOrWhiteSpace(me.Name))
             {

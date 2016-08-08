@@ -98,6 +98,14 @@ namespace SharpGEDParser.Parser
         {
             MediaRecord me = rec as MediaRecord;
 
+            if (string.IsNullOrWhiteSpace(me.Ident))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing identifier"; // TODO assign one?
+                err.Beg = err.End = me.BegLine;
+                me.Errors.Add(err);
+            }
+
             // A FILE record is required
             if (me.Files.Count < 1)
             {

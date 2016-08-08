@@ -8,10 +8,13 @@ namespace SharpGEDParser.Parser
     // Records: SUBMITTER, SOURCE, INDI, FAM
     // Structures: EVENT_DETAIL, SOURCE_CITATION
     //
-    // There are two variants of Multimedia links
-    // "1 OBJE\n2 FILE <refn>\n3 FORM <form>\n4 MEDI <type>"
-    // "1 OBJE\n2 FILE\n2 FORM <form>\n3 MEDI <type>"
+    // There are these variants of Multimedia links:
+    // "1 OBJE @<xref>@                                       (either version; hardly ever used [see OBJE record])
+    // "1 OBJE\n2 FILE <refn>\n3 FORM <form>\n4 MEDI <type>"  (5.5.1 syntax)
+    // "1 OBJE\n2 FILE\n2 FORM <form>\n3 MEDI <type>"         (5.5 syntax)
 
+    // TODO some sort of post-parse checking: a) missing Xref w/ no FILE; b) use of FILE with xref; c) 5.5 variant w/ 5.5.1 file and visa-versa
+    
     public class MediaStructParse : StructParser
     {
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
@@ -62,10 +65,6 @@ namespace SharpGEDParser.Parser
             {
                 mlink.Xref = ctx.Remain.Trim(new char[] { '@' });
             }
-            else
-            {
-                // TODO need an error mechanism here: non-xref for OBJE link [parent object doesn't have an Errors container]
-            }
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
@@ -79,10 +78,6 @@ namespace SharpGEDParser.Parser
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
                 mlink.Xref = ctx.Remain.Trim(new char[] { '@' });
-            }
-            else
-            {
-                // TODO need an error mechanism here: non-xref for OBJE link [parent object doesn't have an Errors container]
             }
 
             StructParse(ctx2, tagDict);

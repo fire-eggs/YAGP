@@ -27,15 +27,14 @@ namespace SharpGEDParser.Model
         private List<Note> _notes;
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
-        public SourceRecord(GedRecord lines, string ident)
+        public SourceRecord(GedRecord lines, string ident, string remain)
             : base(lines, ident)
         {
-            if (string.IsNullOrWhiteSpace(ident))
+            if (!string.IsNullOrWhiteSpace(remain)) // TODO save as a NOTE
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one?
-                err.Beg = err.End = lines.Beg;
-                err.Tag = Tag;
+                err.Beg = err.End = BegLine;
+                err.Error = string.Format("Non-standard extra text with tag: '{0}'", remain);
                 Errors.Add(err);
             }
         }

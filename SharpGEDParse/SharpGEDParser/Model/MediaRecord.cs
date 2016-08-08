@@ -23,14 +23,11 @@ namespace SharpGEDParser.Model
         public MediaRecord(GedRecord lines, string ident, string remain)
             : base(lines, ident)
         {
-            // Text = remain; // TODO what to do with extra?
-
-            if (string.IsNullOrWhiteSpace(ident))
+            if (!string.IsNullOrWhiteSpace(remain))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one?
-                err.Beg = err.End = lines.Beg;
-                err.Tag = Tag;
+                err.Beg = err.End = BegLine;
+                err.Error = string.Format("Non-standard extra text with tag: '{0}'", remain);
                 Errors.Add(err);
             }
         }
