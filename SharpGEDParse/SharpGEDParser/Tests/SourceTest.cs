@@ -1,4 +1,4 @@
-﻿// TODO common testing CHAN, REFN, RIN ... should move to own test, exercised for all records
+﻿// TODO common testing REFN, RIN ... should move to own test, exercised for all records
 
 using System;
 using System.Collections.Generic;
@@ -597,6 +597,31 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("jpg", fil.Form);
 
         }
+
+        [Test]
+        public void Obje4()
+        {
+            // basic object - taken from ALLGED.GED - 5.5 syntax. Note in particular that the FORM tag *precedes* the FILE tag.
+            var txt = "0 @S1@ SOUR\n1 OBJE\n2 FORM bmp\n2 TITL A bmp picture\n2 FILE file name.bmp\n2 NOTE A note\n3 CONT Note continued here. The word TE\n3 CONC ST should not be broken!";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+
+            var rec2 = rec as MediaHold;  // TODO useful for common media link parsing - SOUR, FAM, INDI records; Event, SOUR sub-records
+            Assert.AreEqual(1, rec2.Media.Count);
+            var med = rec2.Media[0];
+
+            Assert.AreEqual("A bmp picture", med.Title);
+            Assert.AreEqual(1, med.Files.Count);
+            var fil = med.Files[0];
+            Assert.AreEqual("file name.bmp", fil.FileRefn);
+            Assert.AreEqual("bmp", fil.Form);
+
+            Assert.AreEqual(1, med.Notes.Count);
+        }
+
+        // TODO multi-OBJE testing - 5.5.1 syntax, 5.5 syntax
+
         #endregion
 
         #region Repository Citation

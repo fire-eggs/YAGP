@@ -17,6 +17,8 @@ namespace SharpGEDParser.Parser
     // 5.5: OBJE chaining - treating as unknown
     // 5.5: BLOB tag - treating as unknown
 
+    // NOTE: no validation of the media FORMAT or TYPE: the standard lists only a very small subset of possible values
+
     public class MediaParse : GedRecParse
     {
         protected override void BuildTagSet()
@@ -46,24 +48,11 @@ namespace SharpGEDParser.Parser
             return file;
         }
 
-        private static string[] SourceMediaTypes = 
-        {
-            "audio", "book", "card", "electronic", "fiche", "film", "magazine", "manuscript", "map", "newspaper", "photo",
-            "tombstone", "video"
-        };
-
         private void typeProc(ParseContext2 context)
         {
             // TODO 5.5: needs a warning
             var file = GetFile(context);
             file.Type = context.Remain;
-
-            if (!SourceMediaTypes.Contains(file.Type.ToLower()))
-            {
-                UnkRec err = new UnkRec();
-                err.Error = string.Format("Non-standard media type '{0}'", file.Type);
-                context.Parent.Errors.Add(err); // TODO lines
-            }
         }
 
         private void titlProc(ParseContext2 context)
@@ -72,19 +61,10 @@ namespace SharpGEDParser.Parser
             file.Title = context.Remain;
         }
 
-        private static string[] MultimediaFormats = {"bmp", "gif", "jpg", "ole", "pcx", "tif", "wav"};
-
         private void formProc(ParseContext2 context)
         {
             var file = GetFile(context);
             file.Form = context.Remain;
-
-            if (!MultimediaFormats.Contains(file.Form.ToLower()))
-            {
-                UnkRec err = new UnkRec();
-                err.Error = string.Format("Non-standard media format '{0}'", file.Form);
-                context.Parent.Errors.Add(err); // TODO lines
-            }
         }
 
         private void fileProc(ParseContext2 context)

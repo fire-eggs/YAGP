@@ -607,7 +607,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSourCitObje2()
         {
-            string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n\n2 OBJE\n3 TITL title\n2 OBJE\n3 FILE\n3 FORM format2\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n\n2 OBJE\n3 TITL title\n2 OBJE\n3 FILE fileref1\n3 FORM format2\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;
@@ -629,7 +629,7 @@ namespace SharpGEDParser.Tests
 
             media = rec.Cits[0].Media[1];
             Assert.AreEqual(2, media.Files.Count);
-            Assert.AreEqual("", media.Files[0].FileRefn);
+            Assert.AreEqual("fileref1", media.Files[0].FileRefn);
             Assert.AreEqual("format2", media.Files[0].Form);
             Assert.AreEqual("fileref2", media.Files[1].FileRefn);
             Assert.AreEqual("format1", media.Files[1].Form);
@@ -649,7 +649,7 @@ namespace SharpGEDParser.Tests
         public void TestSourCitObje3()
         {
             // Make sure OBJE\FILE\FORM\MEDI variant is exercised
-            string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n\n2 OBJE\n3 TITL title\n2 OBJE\n3 FILE\n3 FORM format2\n4 MEDI type\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR out of bed\n\n2 OBJE\n3 TITL title\n2 OBJE\n3 FILE fileref1\n3 FORM format2\n4 MEDI type\n3 FILE fileref2\n4 FORM format1\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;
@@ -674,7 +674,7 @@ namespace SharpGEDParser.Tests
 
             media = rec.Cits[0].Media[1];
             Assert.AreEqual(2, media.Files.Count);
-            Assert.AreEqual("", media.Files[0].FileRefn);
+            Assert.AreEqual("fileref1", media.Files[0].FileRefn);
             Assert.AreEqual("format2", media.Files[0].Form);
             Assert.AreEqual("type", media.Files[0].Type);
 

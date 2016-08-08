@@ -170,35 +170,6 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count, "Missing FORM");
         }
 
-        [Test]
-        public void InvalidForm()
-        {
-            var txt = "0 @M1@ OBJE\n1 FILE ref\n2 FORM blah";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual("M1", rec.Ident);
-            Assert.AreEqual(1, rec.Files.Count);
-            Assert.AreEqual("ref", rec.Files[0].FileRefn);
-            Assert.AreEqual(1, rec.Errors.Count, "Invalid FORM");
-        }
-
-        [Test]
-        public void InvalidType()
-        {
-            var txt = "0 @M1@ OBJE\n1 FILE ref\n2 FORM gif\n3 TYPE blah";
-            var res = ReadIt(txt);
-            Assert.AreEqual(1, res.Count);
-            MediaRecord rec = res[0] as MediaRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual("M1", rec.Ident);
-            Assert.AreEqual(1, rec.Files.Count);
-            Assert.AreEqual("ref", rec.Files[0].FileRefn);
-            Assert.AreEqual("gif", rec.Files[0].Form);
-            Assert.AreEqual(1, rec.Errors.Count, "Invalid TYPE");
-        }
-
         #endregion
 
         #region Custom

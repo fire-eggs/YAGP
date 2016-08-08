@@ -11,7 +11,7 @@ namespace SharpGEDParser.Parser
     // There are these variants of Multimedia links:
     // "1 OBJE @<xref>@                                       (either version; hardly ever used [see OBJE record])
     // "1 OBJE\n2 FILE <refn>\n3 FORM <form>\n4 MEDI <type>"  (5.5.1 syntax)
-    // "1 OBJE\n2 FILE\n2 FORM <form>\n3 MEDI <type>"         (5.5 syntax)
+    // "1 OBJE\n2 FORM <form>\n2 FILE <refn>"                 (5.5 syntax from 5.5 standard; note that FILE may appear first!)
 
     // TODO some sort of post-parse checking: a) missing Xref w/ no FILE; b) use of FILE with xref; c) 5.5 variant w/ 5.5.1 file and visa-versa
     
@@ -26,19 +26,38 @@ namespace SharpGEDParser.Parser
             {"NOTE", noteProc}
         };
 
+        private static MediaFile getFile(MediaLink dad)
+        {
+            if (dad.Files.Count == 0)
+                dad.Files.Add(new MediaFile());
+            return dad.Files[dad.Files.Count - 1];
+        }
+
         private static void fileProc(StructParseContext ctx, int linedex, char level)
         {
             MediaLink mlink = (ctx.Parent as MediaLink);
-            MediaFile file = new MediaFile();
-            file.FileRefn = ctx.Remain;
-            mlink.Files.Add(file);
+            MediaFile file = getFile(mlink);
+
+            // TODO handle the 5.5.1 FILE sub-sub-structure as a separate parse?
+            // TODO missing file reference
+            // Attempt to deal with the 5.5/5.5.1 difference: if there is no reference but is a form, apply to the *current*.
+            if (string.IsNullOrEmpty(file.FileRefn))
+            {
+                file.FileRefn = ctx.Remain;
+            }
+            else
+            {
+                file = new MediaFile();
+                mlink.Files.Add(file);
+                file.FileRefn = ctx.Remain;
+            }
         }
 
         private static void formProc(StructParseContext ctx, int linedex, char level)
         {
-            // HACK assuming here the FORM tag follows a FILE tag, using the last FILE object
+            // FORM may or may not follow an owning FILE tag
             MediaLink mlink = (ctx.Parent as MediaLink);
-            MediaFile file = mlink.Files[mlink.Files.Count - 1];
+            MediaFile file = getFile(mlink);
             file.Form = ctx.Remain;
         }
 
