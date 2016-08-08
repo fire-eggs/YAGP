@@ -184,7 +184,7 @@ namespace SharpGEDParser
             if (level == '0' && _currRec.LineCount > 0)
             {
                 if (_currRec.LineCount == 1)
-                    Errors.Add(new UnkRec { Error = "Empty (single line) top-level record" });
+                    Errors.Add(new UnkRec { Error = "Empty (single line) top-level record", Beg = lineNum});
 
                 // start of a new record. deal with the previous record first
 

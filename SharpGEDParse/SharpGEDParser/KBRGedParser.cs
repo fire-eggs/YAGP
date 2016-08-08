@@ -65,18 +65,12 @@ namespace SharpGEDParser
             // TODO Very much brute force. If/until this is found to be optimizable
             switch (tag.ToUpper())
             {
-                case "HEAD":
-                    data = new KBRGedHead(rec, ident);
-                    return new Tuple<object, GedParse>(data, _HeadParseSingleton);
                 case "INDI":
                     data = new KBRGedIndi(rec, ident);
                     return new Tuple<object, GedParse>(data, _IndiParseSingleton);
                 case "FAM":
                     data = new KBRGedFam(rec, ident);
                     return new Tuple<object, GedParse>(data, _FamParseSingleton);
-                case "SUBM":
-                    data = new GedSubm(rec, ident);
-                    return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
                 case "SOUR":
                 {
                     var foo = new SourceRecord(rec, ident, remain);
@@ -97,6 +91,12 @@ namespace SharpGEDParser
                     var foo = new MediaRecord(rec, ident, remain);
                     return new Tuple<object, GedParse>(foo, _MediaParseSingleton);
                 }
+                case "SUBM":
+                //data = new GedSubm(rec, ident);
+                //return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
+                case "HEAD":
+                //data = new KBRGedHead(rec, ident);
+                //return new Tuple<object, GedParse>(data, _HeadParseSingleton);
                 case "SUBN":
                 default:  // TODO leading underscore signals a custom record
                     data = new KBRGedUnk(rec, ident, tag);

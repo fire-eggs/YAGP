@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.Design.Serialization;
 
 namespace SharpGEDParser
 {
@@ -36,6 +35,8 @@ namespace SharpGEDParser
             _tagSet.Add("RIN", DataProc); // TODO
             _tagSet.Add("SLGS", DataProc); // TODO
             _tagSet.Add("SUBM", DataProc); // TODO
+
+            _tagSet.Add("OBJE", DataProc); // TODO temporary
         }
 
         private void SourProc()

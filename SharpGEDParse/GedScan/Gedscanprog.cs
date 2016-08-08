@@ -136,7 +136,6 @@ namespace GedScan
 
                 if (gedRec != null && !(gedRec is KBRGedHead || gedRec is GedSubm)) // TODO skip head and subm for now
                 {
-                    custom += gedRec.Custom.Count;
                     errs += gedRec.Errors.Count; // TODO errors in sub-records
 
                     if (gedRec.Errors.Count > 0 && showErrors)
@@ -171,7 +170,7 @@ namespace GedScan
                     {
                         foreach (var errRec in gedRec2.Unknowns)
                         {
-                            Console.WriteLine("\t\tUnknown:{0} in {1}", errRec.Tag, gedRec2);
+                            Console.WriteLine("\t\tUnknown:{0} at line {2} in {1}", errRec.Tag, gedRec2, errRec.Beg);
                         }
                     }
                 }

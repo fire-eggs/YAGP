@@ -142,14 +142,10 @@ namespace SharpGEDParser
                 }
                 else
                 {
-                    // TODO gedr5419_blood_type_events.ged has garbage characters in SOUR/ABBR tags: incorrect line terminator, blank lines etc.
-                    UnkRec foo = new UnkRec();
-                    foo.Tag = tag ?? "<unexpected>";
-                    LookAhead(ctx);
-                    foo.Beg = ctx.Begline;
-                    foo.End = ctx.Endline;
                     // Custom and invalid treated as 'unknowns': let the consumer figure it out
-                    rec.Unknowns.Add(foo);
+                    // TODO gedr5419_blood_type_events.ged has garbage characters in SOUR/ABBR tags: incorrect line terminator, blank lines etc.
+                    rec.Unknowns.Add( new UnkRec(tag, Lines.Beg + ctx.Begline, Lines.Beg + ctx.Endline));
+                    LookAhead(ctx);
                 }
                 i = ctx.Endline;
             }
@@ -190,11 +186,8 @@ namespace SharpGEDParser
 
         protected UnkRec ErrorRec(string reason)
         {
-            var rec = new UnkRec();
-            rec.Tag = ctx.Tag;
+            var rec = new UnkRec(ctx.Tag, ctx.Begline, ctx.Endline);
             rec.Error = reason;
-            rec.Beg = ctx.Begline;
-            rec.End = ctx.Endline;
             _rec.Errors.Add(rec);
             return rec;
         }
@@ -207,22 +200,12 @@ namespace SharpGEDParser
                 _rec.Sources.Add(scRec as GedSourCit);
         }
 
-        protected void CustomTag(string tag, int startLineDex, int maxLineDex)
-        {
-            var rec = new UnkRec();
-            rec.Tag = tag;
-            rec.Beg = startLineDex;
-            rec.End = maxLineDex;
-            _rec.Custom.Add(rec);
-        }
-
         protected void UnknownTag(string tag, int startLineDex, int maxLineDex)
         {
-            var rec = new UnkRec();
-            rec.Tag = tag;
-            rec.Beg = startLineDex;
-            rec.End = maxLineDex;
+            var rec = new UnkRec(tag, startLineDex, maxLineDex);
             _rec.Unknowns.Add(rec);
+
+            Console.WriteLine("Uknown:{0}[{1}:{2}]", tag, startLineDex, maxLineDex);
         }
 
         protected void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex, int startSubDex)
@@ -247,10 +230,9 @@ namespace SharpGEDParser
             }
             else
             {
-                if (tag.StartsWith("_"))
-                    CustomTag(tag, startLineDex, maxLineDex);
-                else
-                    UnknownTag(tag, startLineDex, maxLineDex);
+                int start = rec.Lines.Beg + startLineDex;
+                int end = rec.Lines.Beg + maxLineDex;
+                UnknownTag(tag, start, end);
             }
         }
 
