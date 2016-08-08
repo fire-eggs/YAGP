@@ -14,7 +14,5 @@ namespace SharpGEDParser.Model
         private List<Note> _notes;
 
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
-
-        // TODO unknowns
     }
 }

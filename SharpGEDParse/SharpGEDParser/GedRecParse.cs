@@ -154,6 +154,7 @@ namespace SharpGEDParser
                 i = ctx.Endline;
             }
 
+            // TODO post parse error checking on sub-structures
             PostCheck(ctx.Parent); // post parse error checking
         }
 

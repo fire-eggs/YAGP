@@ -57,7 +57,10 @@ namespace SharpGEDParser.Parser
             SourceData data = new SourceData();
             StructParseContext ctx2 = new StructParseContext(ctx, data);
 
-            // TODO any text after DATA tag - keep but warn
+            if (!string.IsNullOrWhiteSpace(ctx.Remain))
+            {
+                addNote(data, ctx.Remain);
+            }
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;

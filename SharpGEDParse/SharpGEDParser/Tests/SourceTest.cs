@@ -13,16 +13,18 @@ namespace SharpGEDParser.Tests
 {
     // TODO DATA/EVEN/DATE requires additional parsing/validation
     // TODO REPO/CALN/MEDI requires additional parsing/validation
-
-    // TODO extra text "0 @S1@ SOUR\n1 DATA blah blah\n"
-    // TODO extra text "0 @S1@ SOUR\n1 REPO blah blah blah\n"
     
     // TODO missing newline confused parsing: a legit, necessary test
     // TODO : var txt = "0 @S1@ SOUR\n1 OBJE @obje1\n1 AUTH Fred\n1 OBJE @obje2@"; : missing trailing '@', was not caught?
 
     // TODO multimedia link(s) - 5.5 syntax [also NOTEs]
 
-    // TODO? xref style note?
+    // TODO xref style note
+    // 0 @S1@ SOUR\n1 NOTE @
+    // 0 @S1@ SOUR\n1 NOTE @ @
+    // 0 @S1@ SOUR\n1 NOTE @@@
+
+
 
     // Testing for SOURCE records
     [TestFixture]
@@ -496,6 +498,37 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Fred", rec.Author);
         }
 
+        [Test]
+        public void ExtraDataText1()
+        {
+            var txt = "0 @S1@ SOUR\n1 DATA blah blah blah\n1 TEXT Use your loaf";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("Use your loaf", rec.Text);
+            Assert.IsNotNull(rec.Data);
+            Assert.AreEqual(0, rec.Data.Events.Count);
+            Assert.AreEqual(1, rec.Data.Notes.Count);
+            Assert.AreEqual("blah blah blah", rec.Data.Notes[0].Text);
+        }
+
+        [Test]
+        public void ExtraRepoText1()
+        {
+            // simple repo xref, interspersed
+            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO @R1@ no more\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("R1", rec.Cits[0].Xref);
+
+            Assert.AreEqual(1, rec.Cits[0].Notes.Count);
+            Assert.AreEqual(" no more", rec.Cits[0].Notes[0].Text);
+        }
+
         #region Multimedia link
         [Test]
         public void Obje1()
@@ -704,6 +737,12 @@ namespace SharpGEDParser.Tests
             rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
+
+            txt = "0 @S1@ SOUR\n1 REPO @ gibberish";
+            rec = ReadOne(txt);
+
+            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
+
         }
 
         [Test]

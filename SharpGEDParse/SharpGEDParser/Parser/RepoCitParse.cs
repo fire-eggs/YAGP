@@ -1,8 +1,6 @@
 ﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 
-// TODO any post-parse validation?
-
 namespace SharpGEDParser.Parser
 {
     public class RepoCitParse : StructParser
@@ -43,17 +41,18 @@ namespace SharpGEDParser.Parser
             RepoCit cit = new RepoCit();
             StructParseContext ctx2 = new StructParseContext(ctx, cit);
 
-            if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
+            string extra;
+            string xref;
+            parseXrefExtra(ctx.Remain, out xref, out extra);
+
+            cit.Xref = xref;
+            if (xref != null && (xref.Trim().Length == 0 || cit.Xref.Contains("@"))) // NOTE: missing xref is valid, but NOT empty one!
             {
-                cit.Xref = ctx.Remain.Trim(new char[] { '@' });
-                if (string.IsNullOrWhiteSpace(cit.Xref) || cit.Xref.Contains("@"))
-                {
-                    ctx.Parent.Errors.Add(new UnkRec() { Error = "Invalid repository citation xref id" });
-                }
+                ctx.Parent.Errors.Add(new UnkRec { Error = "Invalid repository citation xref id" });
             }
-            else
+            if (!string.IsNullOrEmpty(extra))
             {
-                // TODO missing xref is valid; need a way to store 'extra' text?
+                addNote(cit, extra);
             }
 
             StructParse(ctx2, tagDict);

@@ -119,5 +119,46 @@ namespace SharpGEDParser.Parser
             dad.Notes.Add(note);
         }
 
+        protected static void addNote(NoteHold dad, string txt)
+        {
+            // save some unexpected text as a note
+            Note note = new Note();
+            note.Text = txt;
+            dad.Notes.Add(note);
+        }
+
+        public static void parseXrefExtra(string txt, out string xref, out string extra)
+        {
+            // parse remainder text which ideall is of form "@R1@", but handle error cases:
+            // "@R@1@"
+            // "blah blah"
+            // "@R1@ blah blah
+            // TODO consider string.split() on '@' ?
+            // Used by repo cit, sour cit
+            // TODO consider using for FAM refs? - HUSB/WIFE/CHIL/SUBM
+
+            if (txt.Length < 1 || txt[0] != '@') // No xref specified
+            {
+                xref = null;
+                extra = txt;
+                return;
+            }
+
+            // find LAST instance of '@' sign
+            int dex = txt.Length - 1;
+            while (dex >= 0 && txt[dex] != '@')
+                dex--;
+
+            if (dex == 0) // TODO should this be treated as an unterminated xref?
+            {
+                xref = ""; // xref specified but empty?
+                extra = txt;
+                return;
+            }
+
+            xref = txt.Substring(1, dex - 1);
+            extra = txt.Substring(dex + 1);
+        }
+
     }
 }

@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
+
+// ReSharper disable InconsistentNaming
 
 namespace SharpGEDParser.Parser
 {
@@ -9,7 +10,7 @@ namespace SharpGEDParser.Parser
  
     public class SourceCitParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
         {
             {"CONC", concProc}, // embedded citation
             {"CONT", contProc}, // embedded citation
@@ -77,17 +78,18 @@ namespace SharpGEDParser.Parser
             SourceCit cit = new SourceCit();
             StructParseContext ctx2 = new StructParseContext(ctx, cit);
 
-            if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
+            string extra;
+            string xref;
+            parseXrefExtra(ctx.Remain, out xref, out extra);
+
+            cit.Xref = xref;
+            if (xref != null && (xref.Trim().Length == 0 || cit.Xref.Contains("@")))  // No xref is valid but not if empty/illegal
             {
-                cit.Xref = ctx.Remain.Trim(new char[] { '@' });
-                if (string.IsNullOrWhiteSpace(cit.Xref) || cit.Xref.Contains("@"))
-                {
-                    ctx.Parent.Errors.Add(new UnkRec() {Error="Invalid source citation xref id"});
-                }
+                ctx.Parent.Errors.Add(new UnkRec { Error = "Invalid source citation xref id" });
             }
-            else
+            if (!string.IsNullOrEmpty(extra))
             {
-                cit.Desc = ctx.Remain;
+                cit.Desc = extra;
             }
 
             StructParse(ctx2, tagDict);
