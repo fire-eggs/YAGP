@@ -356,11 +356,16 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("York,", rec.Addr.City);
 			Assert.AreEqual("YO30 7DA", rec.Addr.Post);
 		}
+
+        // TODO use of PHON/EMAIL/WWW/FAX without the required ADDR tag
+        // TODO up to 3 instances of PHON/EMAIL/FAX/WWW allowed
+
 		[Test]
 		public void TestAddr3()
 		{
 			// additional ADDR sub-tags
-			var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR3 York Register Office\n2 ADR2 56 Bootham\n2 STAE York,\n2 PHON YO30 7DA\n2 FAX blah\n2 EMAIL blah\n2 WWW blah\n2 CTRY England (UK)\n1 NOTE blah blah";
+            // NOTE: PHON/EMAIL/WWW/FAX tags are NOT subordinate to the ADDR tag!
+			var txt = "0 @R29@ REPO\n1 NAME Superintendent Registrar (York)\n1 ADDR York Register Office\n2 CONT 56 Bootham\n2 CONT York,,  YO30 7DA\n2 CONT England (UK)\n2 ADR3 York Register Office\n2 ADR2 56 Bootham\n2 STAE York,\n1 PHON YO30 7DA\n1 FAX blah\n1 EMAIL blah\n1 WWW blah\n2 CTRY England (UK)\n1 NOTE blah blah";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
