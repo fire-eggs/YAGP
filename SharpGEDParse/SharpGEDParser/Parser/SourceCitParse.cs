@@ -15,12 +15,13 @@ namespace SharpGEDParser.Parser
             {"CONC", concProc}, // embedded citation
             {"CONT", contProc}, // embedded citation
             {"DATA", dataProc}, // reference citation
+            {"DATE", dateProc}, // reference citation
             {"NOTE", noteProc},
             {"EVEN", eventProc}, // reference citation
             {"PAGE", pageProc}, // reference citation
-            {"QUAY", quayProc}, // reference citation
+            {"QUAY", quayProc}, 
             {"OBJE", objeProc},
-            {"TEXT", textProc}  // embedded citation
+            {"TEXT", textProc}  
         };
 
         private static void textProc(StructParseContext context, int linedex, char level)
@@ -59,6 +60,12 @@ namespace SharpGEDParser.Parser
         {
             SourceCit cit = (context.Parent as SourceCit);
             cit.Data = true;
+        }
+
+        private static void dateProc(StructParseContext context, int linedex, char level)
+        {
+            SourceCit cit = (context.Parent as SourceCit);
+            cit.Date = context.Remain;
         }
 
         private static void contProc(StructParseContext context, int linedex, char level)

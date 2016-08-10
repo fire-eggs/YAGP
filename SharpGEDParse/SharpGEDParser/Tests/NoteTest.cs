@@ -692,6 +692,44 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("filerefn", media.Files[0].FileRefn);
         }
 
+        [Test]
+        public void SourceCitErr()
+        {
+            // Testing with TGC55C.ged found major problems with DATA under source citation and lookahead
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR inbed\n2 DATA\n3 DATE 1 JUN 1945\n3 TEXT source text\n2 QUAY yup";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("inbed", rec.Cits[0].Desc);
+            Assert.AreEqual("yup", rec.Cits[0].Quay);
+
+            Assert.AreEqual("1 JUN 1945", rec.Cits[0].Date);
+            Assert.AreEqual(1, rec.Cits[0].Text.Count);
+            Assert.AreEqual("source text", rec.Cits[0].Text[0]);
+        }
+
+        [Test]
+        public void SourceCitErr2()
+        {
+            // Testing with TGC55C.ged found major problems with DATA under source citation and lookahead
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR inbed\n2 _CUST\n3 DATE 1 JUN 1945\n3 TEXT source text\n2 QUAY yup";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("inbed", rec.Cits[0].Desc);
+            Assert.AreEqual("yup", rec.Cits[0].Quay);
+
+            Assert.AreEqual("1 JUN 1945", rec.Cits[0].Date);
+            Assert.AreEqual(1, rec.Cits[0].Text.Count);
+            Assert.AreEqual("source text", rec.Cits[0].Text[0]);
+        }
+
         // TODO NOTE+SOUR+EVEN+ROLE
         // TODO NOTE+SOUR+DATA+DATE+TEXT
         // TODO NOTE+SOUR+OBJE - other lines, error scenarios

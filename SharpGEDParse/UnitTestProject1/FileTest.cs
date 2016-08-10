@@ -99,5 +99,39 @@ namespace UnitTestProject1
             Assert.AreEqual(2, results.Count);
             return results;
         }
+
+        public void DoFile(string path)
+        {
+            FileRead fr = new FileRead();
+            fr.ReadGed(path);
+            var results = fr.Data;
+
+            int indi = 0;
+            int fam = 0;
+            foreach (var result in results)
+            {
+                if ((result as KBRGedIndi) != null)
+                    indi++;
+                if ((result as KBRGedFam) != null)
+                    fam++;
+            }
+
+            Assert.AreNotEqual(0, indi);
+            Assert.AreNotEqual(0, fam);
+        }
+
+        [TestMethod]
+        public void AllGed()
+        {
+            var path = @"E:\projects\YAGP\Sample GED\allged.ged"; // TODO project-relative path
+            DoFile(path);
+        }
+
+        [TestMethod]
+        public void TGC55()
+        {
+            var path = @"E:\projects\YAGP\Sample GED\tgc55c.ged"; // TODO project-relative path
+            DoFile(path);
+        }
     }
 }

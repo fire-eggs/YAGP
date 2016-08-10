@@ -85,7 +85,7 @@ namespace SharpGEDParser.Tests
 		public void TestCust2()
 		{
 			// multi-line custom tag
-			var txt = "0 @R1@ REPO\n1 _CUST foobar\n2 CONC foobar2\n1 NAME fumbar\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 _CUST foobar\n2 CONC foobar2\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;

@@ -20,7 +20,8 @@ namespace SharpGEDParser.Model
 
         public bool Data { get; set; } // was the DATA tag encountered
 
-        public DateTime? Date { get; set; } // will be null if an embedded citation
+        // TODO additional parsing/validation for date
+        public string Date { get; set; } // will be null if an embedded citation
 
         private List<string> _text;
         public List<string> Text { get { return _text ?? (_text = new List<string>()); }}

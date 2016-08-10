@@ -144,8 +144,8 @@ namespace SharpGEDParser
                 {
                     // Custom and invalid treated as 'unknowns': let the consumer figure it out
                     // TODO gedr5419_blood_type_events.ged has garbage characters in SOUR/ABBR tags: incorrect line terminator, blank lines etc.
-                    rec.Unknowns.Add( new UnkRec(tag, Lines.Beg + ctx.Begline, Lines.Beg + ctx.Endline));
                     LookAhead(ctx);
+                    rec.Unknowns.Add(new UnkRec(tag, Lines.Beg + ctx.Begline, Lines.Beg + ctx.Endline));
                 }
                 i = ctx.Endline;
             }
