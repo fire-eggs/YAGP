@@ -12,6 +12,12 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("REFN", RefnProc);
             _tagSet2.Add("RIN",  RinProc);
             _tagSet2.Add("CHAN", ChanProc);
+
+            // Unfortunately the spec does NOT have these as subordinate to ADDR
+            _tagSet2.Add("PHON", phonProc); 
+            _tagSet2.Add("WWW",  webProc);
+            _tagSet2.Add("EMAIL", emailProc);
+            _tagSet2.Add("FAX", faxProc);
         }
 
         private void nameproc(ParseContext2 ctx)
@@ -23,6 +29,29 @@ namespace SharpGEDParser.Parser
         {
             var addr = AddrStructParse.AddrParse(ctx);
             (ctx.Parent as Repository).Addr = addr;
+        }
+
+        private void commonAddr2(ParseContext2 ctx, string tag)
+        {
+            var dad = (ctx.Parent as Repository);
+            dad.Addr = AddrStructParse.OtherTag(ctx, tag, dad.Addr);
+        }
+
+        private void phonProc(ParseContext2 ctx)
+        {
+            commonAddr2(ctx, "PHON");
+        }
+        private void webProc(ParseContext2 ctx)
+        {
+            commonAddr2(ctx, "WWW");
+        }
+        private void emailProc(ParseContext2 ctx)
+        {
+            commonAddr2(ctx, "EMAIL");
+        }
+        private void faxProc(ParseContext2 ctx)
+        {
+            commonAddr2(ctx, "FAX");
         }
 
         public override void PostCheck(GEDCommon rec)

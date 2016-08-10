@@ -371,17 +371,17 @@ namespace SharpGEDParser.Tests
 			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
 			Assert.AreEqual(0, rec.Errors.Count);
-			Assert.AreEqual(0, rec.Unknowns.Count);
+			Assert.AreEqual(1, rec.Unknowns.Count); // trailing CTRY tag 
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("Superintendent Registrar (York)", rec.Name);
 			Assert.IsNotNull(rec.Addr);
 			Assert.AreEqual("56 Bootham", rec.Addr.Adr2);
 			Assert.AreEqual("York Register Office", rec.Addr.Adr3);
 			Assert.AreEqual("York,", rec.Addr.Stae);
-			Assert.AreEqual("YO30 7DA", rec.Addr.Phon);
-			Assert.AreEqual("blah", rec.Addr.Fax);
-			Assert.AreEqual("blah", rec.Addr.Email);
-			Assert.AreEqual("blah", rec.Addr.WWW);
+			Assert.AreEqual("YO30 7DA", rec.Addr.Phon[0]);
+			Assert.AreEqual("blah", rec.Addr.Fax[0]);
+			Assert.AreEqual("blah", rec.Addr.Email[0]);
+			Assert.AreEqual("blah", rec.Addr.WWW[0]);
 		}
 
 	}
