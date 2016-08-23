@@ -129,7 +129,7 @@ namespace SharpGEDParser.Parser
 
         public static void parseXrefExtra(string txt, out string xref, out string extra)
         {
-            // parse remainder text which ideall is of form "@R1@", but handle error cases:
+            // parse remainder text which ideally is of form "@R1@", but handle error cases:
             // "@R@1@"
             // "blah blah"
             // "@R1@ blah blah
