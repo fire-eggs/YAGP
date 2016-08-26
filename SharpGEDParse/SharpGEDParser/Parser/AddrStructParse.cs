@@ -6,6 +6,7 @@ using SharpGEDParser.Model;
 namespace SharpGEDParser.Parser
 {
     // TODO what common/custom tags from programs?
+    // RootsMagic ADDR.MAP, ADDR.MAP.LATI, ADDR.MAP.LONG
 
     public class AddrStructParse : StructParser
     {
@@ -97,7 +98,18 @@ namespace SharpGEDParser.Parser
             return addr;
         }
 
-        public static Address OtherTag(GedRecParse.ParseContext2 ctx, string Tag, Address exist)
+        public static Address AddrParse(StructParseContext ctx, int linedex, char level)
+        {
+            Address addr = new Address();
+            StructParseContext ctx2 = new StructParseContext(ctx, linedex, addr);
+            ctx2.Level = level;
+            addr.Adr += ctx.Remain;
+            StructParse(ctx2, tagDict);
+            ctx.Endline = ctx2.Endline;
+            return addr;
+        }
+
+        public static Address OtherTag(GedRecParse.ParseContextCommon ctx, string Tag, Address exist)
         {
             // These tags are not subordinate to the ADDR struct. Strictly speaking,
             // the ADDR tag is required, but allow it not to exist.

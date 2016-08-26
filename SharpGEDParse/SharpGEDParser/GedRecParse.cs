@@ -27,15 +27,32 @@ namespace SharpGEDParser
             public int Nextchar;
         }
 
-        public class ParseContext2
+        public class ParseContextCommon
         {
             public GedRecord Lines;
-            public GEDCommon Parent;
-            public string Remain;
-            public char Level;
             public int Begline; // index of first line for this 'record'
             public int Endline; // index of last line FOUND for this 'record'
+            public char Level;
+            public string Remain;
             public string Tag;
+
+            public ParseContextCommon()
+            {
+            }
+
+            public ParseContextCommon(ParseContextCommon ctx)
+            {
+                Lines = ctx.Lines;
+                Begline = ctx.Begline;
+                Endline = ctx.Endline;
+                Level = ctx.Level;
+                Remain = ctx.Remain;
+            }
+        }
+
+        public class ParseContext2 : ParseContextCommon
+        {
+            public GEDCommon Parent;
         }
 
         public GedRecParse()

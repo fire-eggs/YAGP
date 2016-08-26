@@ -1,7 +1,7 @@
-﻿using System;
-using System.Text;
-using SharpGEDParser.Model;
+﻿using SharpGEDParser.Model;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 // Common support / logic when parsing GED 'structures'. E.g. CHAN, NOTE-structure, Source-Citation, ADDR, etc
 
@@ -9,32 +9,27 @@ namespace SharpGEDParser.Parser
 {
     public class StructParser
     {
-        public class StructParseContext
+        public class StructParseContext : GedRecParse.ParseContextCommon
         {
-            public GedRecord Lines;
             public StructCommon Parent;
-            public int Begline; // index of first line for this 'record'
-            public int Endline; // index of last line FOUND for this 'record'
-            public char Level;
-            public string Remain;
+
+            public StructParseContext()
+            {
+                throw new Exception(); // don't be calling me!
+            }
 
             public StructParseContext(GedRecParse.ParseContext2 ctx, StructCommon parent)
+                : base (ctx)
             {
                 Parent = parent;
-                Lines = ctx.Lines;
-                Begline = ctx.Begline;
-                Endline = ctx.Endline;
-                Level = ctx.Level;
-                Remain = ctx.Remain;
             }
+
             public StructParseContext(StructParseContext ctx, int linedex, StructCommon parent)
+                : base (ctx)
             {
                 Parent = parent;
-                Lines = ctx.Lines;
                 Begline = linedex;
                 Endline = linedex;
-                Level = ctx.Level;
-                Remain = ctx.Remain;
             }
         }
 
