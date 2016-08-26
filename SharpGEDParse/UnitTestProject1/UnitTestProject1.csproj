@@ -50,7 +50,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="FamTest.cs" />
     <Compile Include="FileTest.cs" />
     <Compile Include="GedParseTest.cs" />
     <Compile Include="IndiLDSTest.cs" />

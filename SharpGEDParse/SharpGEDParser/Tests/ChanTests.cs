@@ -45,7 +45,7 @@ namespace SharpGEDParser.Tests
             TestChanM(txt, "REPO");
             TestChanM(txt, "OBJE");
 //            TestChanM(txt, "INDI");
-//            TestChanM(txt, "FAM");
+            TestChanM(txt, "FAM");
 //            TestChanM(txt, "HEAD");
         }
 
@@ -66,9 +66,9 @@ namespace SharpGEDParser.Tests
             TestNoDateM(txt, "REPO");
             TestNoDateM(txt, "SOUR");
             TestNoDateM(txt, "OBJE");
-            //            TestChanM(txt, "INDI");
-            //            TestChanM(txt, "FAM");
-            //            TestChanM(txt, "HEAD");
+            //            TestNoDateM(txt, "INDI");
+            TestNoDateM(txt, "FAM");
+            //            TestNoDateM(txt, "HEAD");
         }
 
         private GEDCommon TestAfterM(string teststring, string tag)
@@ -92,9 +92,9 @@ namespace SharpGEDParser.Tests
             TestAfterM(txt, "SOUR");
             TestAfterM(txt, "REPO");
             TestAfterM(txt, "OBJE");
-            //            TestChanM(txt, "INDI");
-            //            TestChanM(txt, "FAM");
-            //            TestChanM(txt, "HEAD");
+            //            TestAfterM(txt, "INDI");
+            TestAfterM(txt, "FAM");
+            //            TestAfterM(txt, "HEAD");
         }
 
         private GEDCommon NoDateFollowM(string teststring, string tag)
@@ -116,8 +116,8 @@ namespace SharpGEDParser.Tests
             NoDateFollowM(txt, "REPO");
             NoDateFollowM(txt, "SOUR");
             NoDateFollowM(txt, "NOTE");
-            //            TestChanM(txt, "INDI");
-            //            TestChanM(txt, "FAM");
+            //            NoDateFollowM(txt, "INDI");
+            NoDateFollowM(txt, "FAM");
             //            TestChanM(txt, "HEAD");
         }
 
@@ -141,9 +141,9 @@ namespace SharpGEDParser.Tests
             ChanExtraM(txt, "NOTE");
             ChanExtraM(txt, "SOUR");
             ChanExtraM(txt, "OBJE");
-            //            TestChanM(txt, "INDI");
-            //            TestChanM(txt, "FAM");
-            //            TestChanM(txt, "HEAD");
+            //            ChanExtraM(txt, "INDI");
+            ChanExtraM(txt, "FAM");
+            //            ChanExtraM(txt, "HEAD");
         }
 
         [Test]
@@ -232,6 +232,7 @@ namespace SharpGEDParser.Tests
             ChanNoteM(txt, "SOUR");
             ChanNoteM(txt, "OBJE");
             ChanNoteM(txt, "REPO");
+            ChanNoteM(txt, "FAM");
         }
 
         private GEDCommon MultiNoteM(string teststring, string tag)
@@ -253,6 +254,7 @@ namespace SharpGEDParser.Tests
             MultiNoteM(txt, "OBJE");
             MultiNoteM(txt, "SOUR");
             MultiNoteM(txt, "NOTE");
+            MultiNoteM(txt, "FAM");
         }
 
         public GEDCommon MultiNote2M(string teststring, string tag)
@@ -280,6 +282,8 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec as Repository);
             rec = MultiNote2M(txt, "OBJE");
             Assert.IsNotNull(rec as MediaRecord);
+            rec = MultiNote2M(txt, "FAM");
+            Assert.IsNotNull(rec as FamRecord);
         }
         #endregion
     }

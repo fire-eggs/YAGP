@@ -11,9 +11,10 @@ namespace SharpGEDParser
             // TODO dunno yet if the path to the GED is useful
 
             _IndiParseSingleton = new GedIndiParse();
-            _FamParseSingleton  = new GedFamParse();
+            //_FamParseSingleton  = new GedFamParse();
             _HeadParseSingleton = new GedHeadParse();
 
+            _FamParseSingleton = new FamParse();
             _SourParseSingleton = new SourceRecParse();
             _RepoParseSingleton = new RepoParse();
             _NoteParseSingleton = new NoteParse();
@@ -69,8 +70,12 @@ namespace SharpGEDParser
                     data = new KBRGedIndi(rec, ident);
                     return new Tuple<object, GedParse>(data, _IndiParseSingleton);
                 case "FAM":
-                    data = new KBRGedFam(rec, ident);
-                    return new Tuple<object, GedParse>(data, _FamParseSingleton);
+                {
+                    var foo = new FamRecord(rec, ident);
+                    return new Tuple<object, GedParse>(foo, _FamParseSingleton);
+                }
+                    //data = new KBRGedFam(rec, ident);
+                    //return new Tuple<object, GedParse>(data, _FamParseSingleton);
                 case "SOUR":
                 {
                     var foo = new SourceRecord(rec, ident, remain);
