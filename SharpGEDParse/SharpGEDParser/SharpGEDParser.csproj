@@ -45,10 +45,14 @@
     <Compile Include="GedFamParse.cs" />
     <Compile Include="GedHeadParse.cs" />
     <Compile Include="GedIndiParse.cs" />
+    <Compile Include="Model\EventCommon.cs" />
+    <Compile Include="Model\FamilyEvent.cs" />
+    <Compile Include="Model\FamRecord.cs" />
     <Compile Include="Model\NoteRecord.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
     <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Place.cs" />
     <Compile Include="Model\RepoCit.cs" />
     <Compile Include="Model\Repository.cs" />
     <Compile Include="GedSourCit.cs" />
@@ -72,6 +76,8 @@
     <Compile Include="Model\SourEvent.cs" />
     <Compile Include="Model\StructCommon.cs" />
     <Compile Include="Parser\AddrStructParse.cs" />
+    <Compile Include="Parser\FamilyEventParse.cs" />
+    <Compile Include="Parser\FamParse.cs" />
     <Compile Include="Parser\LineUtil.cs" />
     <Compile Include="Parser\NoteParse.cs" />
     <Compile Include="Parser\RepoCitParse.cs" />
@@ -87,6 +93,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourCitDataParse.cs" />
     <Compile Include="Tests\ChanTests.cs" />
+    <Compile Include="Tests\FamEventTest1.cs" />
+    <Compile Include="Tests\FamTest1.cs" />
     <Compile Include="Tests\Media55Test.cs" />
     <Compile Include="Tests\MediaTest.cs" />
     <Compile Include="Tests\NoteTest.cs" />

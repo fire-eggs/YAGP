@@ -12,7 +12,8 @@ using System.Text;
 // TODO valid INDI record
 
 // TODO how to exercise charset/encoding variants, i.e.  different BOM
- 
+using SharpGEDParser.Model;
+
 namespace UnitTestProject1
 {
     [TestClass]
@@ -112,7 +113,7 @@ namespace UnitTestProject1
             {
                 if ((result as KBRGedIndi) != null)
                     indi++;
-                if ((result as KBRGedFam) != null)
+                if ((result as FamRecord) != null)
                     fam++;
             }
 

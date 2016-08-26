@@ -178,7 +178,7 @@ namespace GedScan
                 // TODO this is awkward
                 if (gedRec is KBRGedIndi)
                     inds++;
-                else if (gedRec is KBRGedFam)
+                else if (gedRec2 is FamRecord) //KBRGedFam)
                     fams++;
                 else if (gedRec2 is SourceRecord)
                     src++;

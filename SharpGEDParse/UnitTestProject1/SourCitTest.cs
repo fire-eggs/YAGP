@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 
 // SOURCE_CITATION testing
@@ -14,15 +15,18 @@ using SharpGEDParser;
 // FAM_RECORD
 
 // TODO all sub-tags
+using SharpGEDParser.Model;
 
 namespace UnitTestProject1
 {
     [TestClass]
     public class SourCitTest : GedParseTest
     {
-        private KBRGedFam parseFam(string val)
+        private FamRecord parseFam(string val)
         {
-            return parse<KBRGedFam>(val, "FAM");
+            var fr = ReadItHigher(val);
+            var res = fr.Data.Select(o => o as FamRecord).ToList();
+            return res[0];
         }
 
         private KBRGedIndi parseInd(string val)
@@ -67,13 +71,13 @@ namespace UnitTestProject1
             // SOUR record on the FAM
             string fam = "0 @F1@ FAM\n1 SOUR @p1@";
             var rec = parseFam(fam);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual("p1", rec.Sources[0].XRef);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("p1", rec.Cits[0].Xref);
             string fam2 = "0 @F1@ FAM\n1 SOUR @p1@\n1 SOUR @p2@";
-            var rec2 = parseFam(fam2);
-            Assert.AreEqual(2, rec2.Sources.Count);
-            Assert.AreEqual("p1", rec2.Sources[0].XRef);
-            Assert.AreEqual("p2", rec2.Sources[1].XRef);
+            rec = parseFam(fam2);
+            Assert.AreEqual(2, rec.Cits.Count);
+            Assert.AreEqual("p1", rec.Cits[0].Xref);
+            Assert.AreEqual("p2", rec.Cits[1].Xref);
         }
 
         [TestMethod]
@@ -118,16 +122,16 @@ namespace UnitTestProject1
             // Embedded SOUR record on the FAM
             string fam = "0 @F1@ FAM\n1 SOUR this is a source";
             var rec = parseFam(fam);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual(null, rec.Sources[0].XRef);
-            Assert.AreEqual("this is a source", rec.Sources[0].Embed);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual("this is a source", rec.Cits[0].Desc);
             string fam2 = "0 @F1@ FAM\n1 SOUR this is one source\n1 SOUR this is another";
             var rec2 = parseFam(fam2);
-            Assert.AreEqual(2, rec2.Sources.Count);
-            Assert.AreEqual(null, rec2.Sources[0].XRef);
-            Assert.AreEqual(null, rec2.Sources[1].XRef);
-            Assert.AreEqual("this is one source", rec2.Sources[0].Embed);
-            Assert.AreEqual("this is another", rec2.Sources[1].Embed);
+            Assert.AreEqual(2, rec2.Cits.Count);
+            Assert.AreEqual(null, rec2.Cits[0].Xref);
+            Assert.AreEqual(null, rec2.Cits[1].Xref);
+            Assert.AreEqual("this is one source", rec2.Cits[0].Desc);
+            Assert.AreEqual("this is another", rec2.Cits[1].Desc);
         }
 
         [TestMethod]
@@ -190,9 +194,9 @@ namespace UnitTestProject1
             // TEXT tag for reference source is error
             string fam = "0 @F1@ FAM\n1 SOUR @p1@\n2 TEXT this is error";
             var rec = parseFam(fam);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual("p1", rec.Sources[0].XRef);
-            Assert.AreEqual(1, rec.Sources[0].Errors.Count, "No error");
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("p1", rec.Cits[0].Xref);
+            Assert.AreEqual(1, rec.Errors.Count, "No error"); // TODO validate details
         }
 
         [TestMethod]
@@ -201,9 +205,9 @@ namespace UnitTestProject1
             // PAGE tag for embedded source is error
             string fam = "0 @F1@ FAM\n1 SOUR inbed\n2 PAGE this is error";
             var rec = parseFam(fam);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual(null, rec.Sources[0].XRef);
-            Assert.AreEqual(1, rec.Sources[0].Errors.Count, "No error");
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual(1, rec.Errors.Count, "No error");
         }
 
         [TestMethod]
@@ -212,9 +216,9 @@ namespace UnitTestProject1
             // EVEN tag for embedded source is error
             string fam = "0 @F1@ FAM\n1 SOUR inbed\n2 EVEN this is error";
             var rec = parseFam(fam);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual(null, rec.Sources[0].XRef);
-            Assert.AreEqual(1, rec.Sources[0].Errors.Count, "No error");
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual(1, rec.Errors.Count, "No error");
         }
     }
 }
