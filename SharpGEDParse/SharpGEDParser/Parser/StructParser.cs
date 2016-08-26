@@ -53,6 +53,7 @@ namespace SharpGEDParser.Parser
                 if (tagSet.ContainsKey(ld.Tag))
                 {
                     ctx.Begline = i;
+                    ctx.Tag = ld.Tag;
                     tagSet[ld.Tag](ctx, i, ld.Level);
                 }
                 else

@@ -35,6 +35,7 @@ namespace SharpGEDParser
             public char Level;
             public int Begline; // index of first line for this 'record'
             public int Endline; // index of last line FOUND for this 'record'
+            public string Tag;
         }
 
         public GedRecParse()
@@ -131,21 +132,20 @@ namespace SharpGEDParser
             for (int i = 1; i < Lines.Max; i++)
             {
                 string line = Lines.GetLine(i);
-                string tag = null;
                 string ident = null;
                 ctx.Begline = i;
                 ctx.Endline = i; // assume it is one line long, parser might change it
-                GedLineUtil.LevelTagAndRemain(line, ref ctx.Level, ref ident, ref tag, ref ctx.Remain);
-                if (tag != null && _tagSet2.ContainsKey(tag))
+                GedLineUtil.LevelTagAndRemain(line, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
+                if (ctx.Tag != null && _tagSet2.ContainsKey(ctx.Tag))
                 {
-                    _tagSet2[tag](ctx);
+                    _tagSet2[ctx.Tag](ctx);
                 }
                 else
                 {
                     // Custom and invalid treated as 'unknowns': let the consumer figure it out
                     // TODO gedr5419_blood_type_events.ged has garbage characters in SOUR/ABBR tags: incorrect line terminator, blank lines etc.
                     LookAhead(ctx);
-                    rec.Unknowns.Add(new UnkRec(tag, Lines.Beg + ctx.Begline, Lines.Beg + ctx.Endline));
+                    rec.Unknowns.Add(new UnkRec(ctx.Tag, Lines.Beg + ctx.Begline, Lines.Beg + ctx.Endline));
                 }
                 i = ctx.Endline;
             }
