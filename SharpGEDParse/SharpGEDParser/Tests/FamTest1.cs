@@ -179,5 +179,34 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(-1, rec.ChildCount);
             Assert.AreEqual(1, rec.Errors.Count); // TODO error details
         }
+
+        [Test]
+        public void TestSimpleSour()
+        {
+            string txt = "0 @F1@ FAM\n1 SOUR @S1@\n1 NCHI 1";
+            var rec = parse(txt);
+            Assert.AreEqual("F1", rec.Ident);
+            Assert.AreEqual(1, rec.ChildCount);
+
+            Assert.AreEqual(0, rec.Errors.Count, "No error");
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("S1", rec.Cits[0].Xref);
+        }
+
+        [Test]
+        public void TestSimpleSourErr()
+        {
+            string txt = "0 @F1@ FAM\n1 SOUR @S1@\n2 TEXT 3\n1 NCHI 1";
+            var rec = parse(txt);
+            Assert.AreEqual("F1", rec.Ident);
+            Assert.AreEqual(1, rec.ChildCount);
+
+            Assert.AreEqual(1, rec.Errors.Count, "Error expected");
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("S1", rec.Cits[0].Xref);
+        }
+
     }
 }

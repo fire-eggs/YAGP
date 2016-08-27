@@ -459,6 +459,24 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void TestSimpleSourErr()
+        {
+            string txt = "0 @M1@ OBJE\n1 SOUR @S1@\n2 TEXT blah\n1 FILE blah\n2 FORM gif";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as MediaRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual(1, res[0].Errors.Count, "Error expected");
+
+            Assert.AreEqual("M1", rec.Ident);
+            Assert.AreEqual(1, rec.Files.Count);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("S1", rec.Cits[0].Xref);
+        }
+
+        [Test]
         public void TestMultSourCit()
         {
             var txt = "0 @M1@ OBJE\n1 SOUR out of bed\n2 TEXT fumbar ex\n2 CONC tended\n2 QUAY nope\n1 FILE reference\n2 FORM gif\n1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 QUAY yup";

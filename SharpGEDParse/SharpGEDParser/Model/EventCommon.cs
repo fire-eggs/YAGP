@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharpGEDParser.Model
 {
-    public class EventCommon : StructCommon, NoteHold
+    public class EventCommon : StructCommon, NoteHold, SourceCitHold
     {
         public string Tag { get; set; }
 
@@ -26,5 +26,9 @@ namespace SharpGEDParser.Model
 
         private List<Note> _notes;
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
+
+        private List<SourceCit> _cits;
+        public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }
+
     }
 }

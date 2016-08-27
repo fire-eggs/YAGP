@@ -31,6 +31,15 @@ namespace SharpGEDParser.Parser
                 Begline = linedex;
                 Endline = linedex;
             }
+
+            public StructParseContext(GedRecParse.ParseContextCommon ctx, int linedex, char level, StructCommon parent)
+                : base (ctx)
+            {
+                Parent = parent;
+                Begline = linedex;
+                Endline = linedex;
+                Level = level;
+            }
         }
 
         protected delegate void TagProc(StructParseContext context, int linedex, char level);

@@ -80,10 +80,10 @@ namespace SharpGEDParser.Parser
             cit.Desc += context.Remain;
         }
 
-        public static SourceCit SourceCitParser(GedRecParse.ParseContext2 ctx)
+        private static SourceCit CommonParser(GedRecParse.ParseContextCommon ctx, int linedex, char level, List<UnkRec> errs )
         {
             SourceCit cit = new SourceCit();
-            StructParseContext ctx2 = new StructParseContext(ctx, cit);
+            StructParseContext ctx2 = new StructParseContext(ctx, linedex, level, cit);
 
             string extra;
             string xref;
@@ -92,7 +92,7 @@ namespace SharpGEDParser.Parser
             cit.Xref = xref;
             if (xref != null && (xref.Trim().Length == 0 || cit.Xref.Contains("@")))  // No xref is valid but not if empty/illegal
             {
-                ctx.Parent.Errors.Add(new UnkRec { Error = "Invalid source citation xref id" });
+                errs.Add(new UnkRec { Error = "Invalid source citation xref id" });
             }
             if (!string.IsNullOrEmpty(extra))
             {
@@ -104,16 +104,33 @@ namespace SharpGEDParser.Parser
 
             if (!cit.Data && cit.Xref != null && cit.AnyText)
             {
-                ctx.Parent.Errors.Add(new UnkRec() { Error = "TEXT tag used for reference source citation" });
+                errs.Add(new UnkRec() { Error = "TEXT tag used for reference source citation" });
             }
             if (cit.Xref == null && cit.Event != null)
             {
-                ctx.Parent.Errors.Add(new UnkRec() { Error = "EVEN tag used for embedded source citation" });
+                errs.Add(new UnkRec() { Error = "EVEN tag used for embedded source citation" });
             }
             if (cit.Xref == null && cit.Page != null)
             {
-                ctx.Parent.Errors.Add(new UnkRec() { Error = "PAGE tag used for embedded source citation" });
+                errs.Add(new UnkRec() { Error = "PAGE tag used for embedded source citation" });
             }
+            return cit;
+        }
+
+        public static SourceCit SourceCitParser(StructParseContext ctx, int linedex, char level)
+        {
+            List<UnkRec> errs = new List<UnkRec>();
+            var cit = CommonParser(ctx, linedex, level, errs);
+            // TODO where can the errors go?
+
+            return cit;
+        }
+
+        public static SourceCit SourceCitParser(GedRecParse.ParseContext2 ctx)
+        {
+            List<UnkRec> errs = new List<UnkRec>();
+            var cit = CommonParser(ctx, ctx.Begline, ctx.Level, errs);
+            ctx.Parent.Errors.AddRange(errs);
             return cit;
         }
     }
