@@ -41,7 +41,11 @@ namespace SharpGEDParser.Parser
 
         private static void ageProc(StructParseContext context, int linedex, char level)
         {
-            throw new NotImplementedException();
+            var det = EventAgeParse.AgeParser(context, linedex, level);
+            if (context.Tag == "HUSB")
+                (context.Parent as FamilyEvent).HusbDetail = det;
+            else
+                (context.Parent as FamilyEvent).WifeDetail = det;
         }
 
         private static void sourProc(StructParseContext context, int linedex, char level)

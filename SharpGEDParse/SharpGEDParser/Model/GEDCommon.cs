@@ -36,6 +36,8 @@ namespace SharpGEDParser.Model
     //
     public class GEDCommon
     {
+        //public virtual string Tag { get { return ""; } }
+
         // The record's id
         public string Ident { get; set; }
 
