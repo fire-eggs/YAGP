@@ -3,14 +3,11 @@ using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.Linq;
 
-// TODO SUBM
 // TODO RESN variations
 // TODO specifying HUSB, WIFE more than once
 // TODO specifying NCHI more than once
 // TODO specifying RESN more than once
 // TODO SLGS
-
-// TODO ident errors at FAM level
 
 // TODO REFN -> common testing
 // TODO NOTE -> common testing
@@ -207,6 +204,84 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.AreEqual("S1", rec.Cits[0].Xref);
         }
+
+        [Test]
+        public void TestFamSubm()
+        {
+            string fam = "0 @F1@ FAM\n1 SUBM @p1@\n1 WIFE @p2@";
+            var rec = parse(fam);
+            Assert.AreEqual("p1", rec.FamSubm[0]);
+            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual(0, rec.Childs.Count);
+
+            fam = "0 @F1@ FAM\n1 SUBM @s1@\n1 WIFE @w2@\n1 SUBM @s2@";
+            rec = parse(fam);
+            Assert.AreEqual("s1", rec.FamSubm[0]);
+            Assert.AreEqual("s2", rec.FamSubm[1]);
+            Assert.AreEqual("w2", rec.Mom);
+            Assert.AreEqual(0, rec.Childs.Count);
+        }
+
+        [Test]
+        public void TestErrorId()
+        {
+            var txt = "0 @ @ FAM\n1 HUSB @h1@";
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(0, res.Errors.Count);
+            Assert.AreEqual(1, res.Data.Count);
+            var rec = res.Data[0] as FamRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+        }
+
+        [Test]
+        public void TestErrorId2()
+        {
+            var txt = "0 @@ FAM\n1 HUSB @h1@";
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(0, res.Errors.Count);
+            Assert.AreEqual(1, res.Data.Count);
+            var rec = res.Data[0] as FamRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+        }
+
+        [Test]
+        public void TestErrorId3()
+        {
+            // Nested '@' breaking ident parsing
+            var txt = "0 @@@ FAM\n1 HUSB @h1@";
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(0, res.Errors.Count);
+            Assert.AreEqual(1, res.Data.Count);
+            var rec = res.Data[0] as FamRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+        }
+
+        [Test]
+        public void TestMissingId()
+        {
+            // empty record; missing id
+            var txt = "0 FAM";
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
+            Assert.AreEqual(1, res.Data.Count);
+            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+        }
+
+        [Test]
+        public void TestMissingId2()
+        {
+            // missing id
+            var txt = "0 FAM\n1 HUSB @h1@";
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(0, res.Errors.Count);
+            Assert.AreEqual(1, res.Data.Count);
+            var rec = res.Data[0] as FamRecord;
+            Assert.IsNotNull(rec);
+        }
+
 
     }
 }

@@ -115,5 +115,19 @@ namespace SharpGEDParser.Parser
             var fam = (context.Parent as FamRecord);
             fam.FamEvents.Add(famEvent);
         }
+
+        public override void PostCheck(GEDCommon rec)
+        {
+            var me = rec as FamRecord;
+
+            if (string.IsNullOrWhiteSpace(me.Ident))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing identifier"; // TODO assign one?
+                err.Beg = err.End = me.BegLine;
+                me.Errors.Add(err);
+            }
+        }
+
     }
 }

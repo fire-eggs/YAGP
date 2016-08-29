@@ -215,6 +215,30 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void TestErrorId()
+        {
+            var txt = "0 @ @ NOTE\n1 CONC foobar";
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(0, res.Errors.Count);
+            Assert.AreEqual(1, res.Data.Count);
+            var rec = res.Data[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+        }
+
+        [Test]
+        public void TestErrorId2()
+        {
+            var txt = "0 @@ NOTE\n1 CONC foobar";
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(0, res.Errors.Count);
+            Assert.AreEqual(1, res.Data.Count);
+            var rec = res.Data[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+        }
+
+        [Test]
         public void TestInvalidXref()
         {
             string txt = "0 @N1@ NOTE\n1 SOUR @ @";
@@ -715,7 +739,7 @@ namespace SharpGEDParser.Tests
         public void SourceCitErr2()
         {
             // Testing with TGC55C.ged found major problems with DATA under source citation and lookahead
-            string txt = "0 @N1@ NOTE fiebar\n1 SOUR inbed\n2 _CUST\n3 DATE 1 JUN 1945\n3 TEXT source text\n2 QUAY yup";
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR inbed\n2 _CUST\n3 EXTRA more custom\n2 DATE 1 JUN 1945\n2 TEXT source text\n2 QUAY yup";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;
@@ -728,6 +752,32 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("1 JUN 1945", rec.Cits[0].Date);
             Assert.AreEqual(1, rec.Cits[0].Text.Count);
             Assert.AreEqual("source text", rec.Cits[0].Text[0]);
+
+            Assert.AreEqual(1, rec.Cits[0].OtherLines.Count);
+            Assert.AreEqual(2, rec.Cits[0].OtherLines[0].LineCount);
+        }
+
+        [Test]
+        public void SourceCitErr3()
+        {
+            // Same as SourceCitErr2 but with a single-line custom tag
+            // Testing with TGC55C.ged found major problems with DATA under source citation and lookahead
+            string txt = "0 @N1@ NOTE fiebar\n1 SOUR inbed\n2 _CUST\n2 DATE 1 JUN 1945\n2 TEXT source text\n2 QUAY yup";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("inbed", rec.Cits[0].Desc);
+            Assert.AreEqual("yup", rec.Cits[0].Quay);
+
+            Assert.AreEqual("1 JUN 1945", rec.Cits[0].Date);
+            Assert.AreEqual(1, rec.Cits[0].Text.Count);
+            Assert.AreEqual("source text", rec.Cits[0].Text[0]);
+
+            Assert.AreEqual(1, rec.Cits[0].OtherLines.Count);
+            Assert.AreEqual(1, rec.Cits[0].OtherLines[0].LineCount);
         }
 
         // TODO NOTE+SOUR+EVEN+ROLE

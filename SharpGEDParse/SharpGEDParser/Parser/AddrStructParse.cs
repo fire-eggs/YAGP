@@ -22,31 +22,7 @@ namespace SharpGEDParser.Parser
             {"STAE", staeProc},
             {"POST", postProc},
             {"CTRY", ctryProc},
-            {"PHON", phonProc}, // technically illegal
-            {"FAX", faxProc}, // technically illegal
-            {"EMAIL", emailProc}, // technically illegal
-            {"WWW", wwwProc} // technically illegal
         };
-
-        private static void wwwProc(StructParseContext context, int linedex, char level)
-        {
-            (context.Parent as Address).WWW.Add(context.Remain);
-        }
-
-        private static void emailProc(StructParseContext context, int linedex, char level)
-        {
-            (context.Parent as Address).Email.Add(context.Remain);
-        }
-
-        private static void faxProc(StructParseContext context, int linedex, char level)
-        {
-            (context.Parent as Address).Fax.Add(context.Remain);
-        }
-
-        private static void phonProc(StructParseContext context, int linedex, char level)
-        {
-            (context.Parent as Address).Phon.Add(context.Remain);
-        }
 
         private static void ctryProc(StructParseContext context, int linedex, char level)
         {

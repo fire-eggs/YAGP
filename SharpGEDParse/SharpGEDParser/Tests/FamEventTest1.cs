@@ -144,8 +144,6 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("F1", rec.Ident, tag);
             Assert.AreEqual(1, rec.FamEvents.Count, tag);
 
-            Assert.AreEqual(1, rec.Errors.Count, "Error expected " + tag);
-
             var evt = rec.FamEvents[0];
             Assert.AreEqual(tag, rec.FamEvents[0].Tag, tag);
             Assert.AreEqual(null, rec.FamEvents[0].Date, tag);
@@ -155,6 +153,8 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", evt.Place, tag);
             Assert.AreEqual("Blah blah this is a note continued on a second line.", evt.Notes[0].Text);
+
+            Assert.AreEqual(1, rec.Errors.Count, "Error expected " + tag);
 
         }
 
