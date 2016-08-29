@@ -56,7 +56,8 @@ namespace SharpGEDParser.Parser
 
         private static void objeProc(StructParseContext context, int linedex, char level)
         {
-            throw new NotImplementedException();
+            var med = MediaStructParse.MediaParser(context, linedex, level);
+            (context.Parent as MediaHold).Media.Add(med);
         }
 
         private static void placProc(StructParseContext context, int linedex, char level)

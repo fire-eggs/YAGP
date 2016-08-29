@@ -346,5 +346,74 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec.FamEvents[0].Address); // TODO verify details
         }
 
+        [Test]
+        public void TestObje1()
+        {
+            // media object on the event
+            string txt = "0 @F1@ FAM fiebar\n" +
+                         "1 MARR Y\n" +
+                         "2 OBJE\n3 FILE fileref1\n3 FILE fileref2\n4 FORM format1\n1 RIN rin_tin_tin";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as FamRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("rin_tin_tin", rec.RIN);
+
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            var evt = rec.FamEvents[0];
+            Assert.AreEqual(1, evt.Media.Count);
+
+            var media = evt.Media[0];
+            Assert.AreEqual(2, media.Files.Count);
+            Assert.AreEqual("fileref1", media.Files[0].FileRefn);
+            Assert.AreEqual("fileref2", media.Files[1].FileRefn);
+        }
+
+        [Test]
+        public void TestSourCitObje1()
+        {
+            // Source citation on the event
+            string txt = "0 @F1@ FAM fiebar\n" +
+                         "1 MARR Y\n" +
+                         "2 SOUR out of bed\n" +
+                         "3 OBJE\n4 FILE fileref1\n4 FILE fileref2\n5 FORM format1\n" + 
+                         "3 TEXT fumbar ex\n3 CONC tended\n3 QUAY nope\n"+
+                         "1 RIN rin_tin_tin\n1 SOUR inbed\n2 TEXT foebar \n2 CONC extended\n2 OBJE @mref2@\n2 OBJE\n3 FILE filerefn\n2 QUAY yup";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as FamRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("rin_tin_tin", rec.RIN);
+
+            Assert.AreEqual(1, rec.FamEvents.Count);
+            var evt = rec.FamEvents[0];
+
+            Assert.AreEqual(1, evt.Cits.Count);
+
+            // event source citation
+            Assert.AreEqual("out of bed", evt.Cits[0].Desc);
+            Assert.AreEqual(1, evt.Cits[0].Text.Count);
+            Assert.AreEqual("fumbar extended", evt.Cits[0].Text[0]);
+            Assert.AreEqual("nope", evt.Cits[0].Quay);
+            Assert.AreEqual(1, evt.Cits[0].Media.Count);
+            var media = evt.Cits[0].Media[0];
+            Assert.AreEqual(2, media.Files.Count);
+            Assert.AreEqual("fileref1", media.Files[0].FileRefn);
+            Assert.AreEqual("fileref2", media.Files[1].FileRefn);
+
+            // record source citation
+            Assert.AreEqual("inbed", rec.Cits[0].Desc);
+            Assert.AreEqual(1, rec.Cits[0].Text.Count);
+            Assert.AreEqual("foebar extended", rec.Cits[0].Text[0]);
+            Assert.AreEqual("yup", rec.Cits[0].Quay);
+            Assert.AreEqual(2, rec.Cits[0].Media.Count);
+            media = rec.Cits[0].Media[0];
+            Assert.AreEqual("mref2", media.Xref);
+            media = rec.Cits[0].Media[1];
+            Assert.AreEqual("filerefn", media.Files[0].FileRefn);
+        }
+
     }
 }

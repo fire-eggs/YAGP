@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
-    public class EventCommon : StructCommon, NoteHold, SourceCitHold
+    public class EventCommon : StructCommon, NoteHold, SourceCitHold, MediaHold
     {
         public string Tag { get; set; }
 
@@ -29,6 +25,9 @@ namespace SharpGEDParser.Model
 
         private List<SourceCit> _cits;
         public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }
+
+        private List<MediaLink> _media;
+        public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
 
     }
 }
