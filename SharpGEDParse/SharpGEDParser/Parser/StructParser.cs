@@ -63,11 +63,14 @@ namespace SharpGEDParser.Parser
                 else
                 {
                     LineSet extra = new LineSet();
+                    char oldLevel = ctx.Level;
                     ctx.Begline = i;
+                    ctx.Level = ld.Level;
                     LookAhead(ctx);
                     extra.Beg = ctx.Begline;
                     extra.End = ctx.Endline;
                     ctx.Parent.OtherLines.Add(extra);
+                    ctx.Level = oldLevel;
                 }
                 i = Math.Max(ctx.Endline,i);
             }
