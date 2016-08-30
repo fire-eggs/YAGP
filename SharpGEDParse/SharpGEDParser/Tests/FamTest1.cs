@@ -7,7 +7,7 @@ using System.Linq;
 // TODO specifying HUSB, WIFE more than once
 // TODO specifying NCHI more than once
 // TODO specifying RESN more than once
-// TODO SLGS
+// TODO SLGS: note, source cite, STAT.DATE
 
 // TODO REFN -> common testing
 // TODO NOTE -> common testing
@@ -282,6 +282,19 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec);
         }
 
-
+        [Test]
+        public void FamSLGS()
+        {
+            // Simple - no note, source citation or STAT.DATE
+            var txt = "0 @F1@ FAM\n1 SLGS\n2 DATE Bogus\n2 TEMP temple\n2 PLAC the place\n2 STAT status";
+            var rec = parse(txt);
+            Assert.AreEqual("F1", rec.Ident);
+            Assert.AreEqual(1, rec.LDSEvents.Count);
+            var evt = rec.LDSEvents[0];
+            Assert.AreEqual("Bogus", evt.Date);
+            Assert.AreEqual("temple", evt.Temple);
+            Assert.AreEqual("the place", evt.Place);
+            Assert.AreEqual("status", evt.Status);
+        }
     }
 }

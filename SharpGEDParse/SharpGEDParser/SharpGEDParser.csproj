@@ -49,6 +49,7 @@
     <Compile Include="Model\EventCommon.cs" />
     <Compile Include="Model\FamilyEvent.cs" />
     <Compile Include="Model\FamRecord.cs" />
+    <Compile Include="Model\LDSEvent.cs" />
     <Compile Include="Model\NoteRecord.cs" />
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Parser\EventAgeParse.cs" />
     <Compile Include="Parser\FamilyEventParse.cs" />
     <Compile Include="Parser\FamParse.cs" />
+    <Compile Include="Parser\LDSEventParse.cs" />
     <Compile Include="Parser\LineUtil.cs" />
     <Compile Include="Parser\NoteParse.cs" />
     <Compile Include="Parser\RepoCitParse.cs" />

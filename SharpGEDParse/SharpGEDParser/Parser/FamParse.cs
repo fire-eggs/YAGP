@@ -43,7 +43,9 @@ namespace SharpGEDParser.Parser
 
         private void ldsSpouseSeal(ParseContext2 context)
         {
-            throw new NotImplementedException();
+            LDSEvent evt = LDSEventParse.Parse(context);
+            var fam = (context.Parent as FamRecord);
+            fam.LDSEvents.Add(evt);
         }
 
         private void nchiProc(ParseContext2 context)

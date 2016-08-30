@@ -9,10 +9,12 @@ namespace SharpGEDParser.Model
         private List<Note> _notes;
         private List<SourceCit> _cits;
         private List<MediaLink> _media;
+        private List<LDSEvent> _ldsEvents; // TODO common?
 
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
         public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }
         public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
+        public List<LDSEvent> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSEvent>()); } }
 
         // Identity strings for children
         private List<string> _childs;
