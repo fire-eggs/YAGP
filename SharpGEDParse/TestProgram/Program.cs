@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using SharpGEDParser;
+using SharpGEDParser.Model;
 
 namespace TestProgram
 {
@@ -12,18 +13,18 @@ namespace TestProgram
 //            string fpath = args[0];
             //            new FileRead().ReadGed(fpath);
 
-            string apath = @"E:\TestGeds";
-            var files = Directory.GetFiles(apath, "*.ged");
-            foreach (var afile in files)
-            {
-                Console.WriteLine(afile);
-                var fr = new FileRead();
-                fr.ReadGed(afile);
-                dump(fr.Data);
-            }
+            //string apath = @"E:\TestGeds";
+            //var files = Directory.GetFiles(apath, "*.ged");
+            //foreach (var afile in files)
+            //{
+            //    Console.WriteLine(afile);
+            //    var fr = new FileRead();
+            //    fr.ReadGed(afile);
+            //    dump(fr.Data);
+            //}
         }
 
-        private static void dump(List<KBRGedRec> kbrGedRecs)
+        private static void dump(List<object> kbrGedRecs)
         {
             int errs = 0;
             int inds = 0;
@@ -32,10 +33,14 @@ namespace TestProgram
             int oths = 0;
             foreach (var gedRec in kbrGedRecs)
             {
-                errs += gedRec.Errors.Count; // TODO errors in sub-records
+                if (gedRec is KBRGedRec)
+                    errs += (gedRec as KBRGedRec).Errors.Count; // TODO errors in sub-records
+                else if (gedRec is GEDCommon)
+                    errs += (gedRec as GEDCommon).Errors.Count;
+
                 if (gedRec is KBRGedIndi)
                     inds++;
-                else if (gedRec is KBRGedFam)
+                else if (gedRec is FamRecord)
                     fams++;
                 else if (gedRec is KBRGedUnk)
                     unks++;

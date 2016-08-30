@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 using System.Diagnostics;
+using SharpGEDParser.Model;
 
 // ReSharper disable ConvertToConstant.Local
 
@@ -33,14 +34,15 @@ namespace UnitTestProject1
                 "2 PLAC death place\n2 DATE 31 DEC 1990\n1 FAMS @FAMILY@\n0 @CHILD@ INDI\n1 NAME /Child/\n1 BIRT\n2 PLAC birth place\n" +
                 "2 DATE 31 JUL 1950\n1 DEAT\n2 PLAC death place\n2 DATE 29 FEB 2000\n1 FAMC @FAMILY@\n0 @FAMILY@ FAM\n1 MARR\n" +
                 "2 PLAC marriage place\n2 DATE 1 APR 1950\n1 HUSB @FATHER@\n1 WIFE @MOTHER@\n1 CHIL @CHILD@\n0 TRLR";
-            var res = ReadIt(testString);
+            var fr = ReadItHigher(testString);
+            var res = fr.Data;
 
             Assert.AreEqual(6, res.Count);
-            Assert.AreEqual("HEAD", res[0].Tag);
-            Assert.AreEqual("INDI", res[2].Tag);
-            Assert.AreEqual("INDI", res[3].Tag);
-            Assert.AreEqual("INDI", res[4].Tag);
-            Assert.AreEqual("FAM",  res[5].Tag);
+            Assert.AreEqual("HEAD", (res[0] as KBRGedRec).Tag);
+            Assert.AreEqual("INDI", (res[2] as KBRGedRec).Tag);
+            Assert.AreEqual("INDI", (res[3] as KBRGedRec).Tag);
+            Assert.AreEqual("INDI", (res[4] as KBRGedRec).Tag);
+            Assert.IsNotNull(res[5] as FamRecord); // TODO GedCommon doesn't expose Tag property
         }
 
         [TestMethod]

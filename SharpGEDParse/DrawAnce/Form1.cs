@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using SharpGEDParser.Model;
 
 namespace DrawAnce
 {
@@ -51,7 +52,7 @@ namespace DrawAnce
             var fr = new FileRead();
             fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
             logit("LoadGed 2");
-            BuildTree(fr.Data.Select(o => o as KBRGedRec).ToList());
+            BuildTree(fr.Data.ToList());
 
             ResetContext();
             logit("LoadGed 3");
@@ -228,7 +229,7 @@ namespace DrawAnce
         /// objects to contain Father/Mother/Children.
         /// </summary>
         /// <param name="gedRecs"></param>
-        private void BuildTree(List<KBRGedRec> gedRecs)
+        private void BuildTree(List<object> gedRecs)
         {
             // an indi has a FAMS or FAMC
             // a FAM has HUSB WIFE CHIL
@@ -238,24 +239,30 @@ namespace DrawAnce
             // Build a hash of Indi ids
             // Build a hash of family ids
             _indiHash = new Dictionary<string, IndiWrap>();
-            var famHash = new Dictionary<string, KBRGedFam>();
+            var famHash = new Dictionary<string, FamRecord>();
             string first = null;
             foreach (var kbrGedRec in gedRecs)
             {
                 if (kbrGedRec is KBRGedIndi)
                 {
+                    var ident = (kbrGedRec as KBRGedIndi).Ident;
+
                     IndiWrap iw = new IndiWrap();
                     iw.Indi = kbrGedRec as KBRGedIndi;
                     iw.Ahnen = 0;
                     iw.ChildOf = null;
-                    _indiHash.Add(kbrGedRec.Ident, iw);
+                    _indiHash.Add(ident, iw);
 
                     if (first == null)
-                        first = kbrGedRec.Ident;
+                        first = ident;
                 }
                 // TODO GEDCOM_Amssoms.ged has a duplicate family "X0". Needs to be caught by validate, flag as error, and not reach here.
-                if (kbrGedRec is KBRGedFam && !famHash.ContainsKey(kbrGedRec.Ident))
-                    famHash.Add(kbrGedRec.Ident, kbrGedRec as KBRGedFam);
+                if (kbrGedRec is FamRecord)
+                {
+                    var ident = (kbrGedRec as FamRecord).Ident;
+                    if (!famHash.ContainsKey(ident))
+                        famHash.Add(ident, kbrGedRec as FamRecord);
+                }
             }
 
             // hash: child ids -> familyunit

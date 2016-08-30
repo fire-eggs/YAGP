@@ -1,5 +1,6 @@
 ﻿using SharpGEDParser;
 using System.Collections.Generic;
+using SharpGEDParser.Model;
 
 namespace BuildTree
 {
@@ -8,12 +9,12 @@ namespace BuildTree
         public KBRGedIndi Husband;
         public KBRGedIndi Wife;
         public List<KBRGedIndi> Childs;
-        public KBRGedFam FamRec;
+        public FamRecord FamRec;
 
         public FamilyUnit DadFam;
         public FamilyUnit MomFam;
 
-        public FamilyUnit(KBRGedFam _fam)
+        public FamilyUnit(FamRecord _fam)
         {
             FamRec = _fam;
             Husband = null;

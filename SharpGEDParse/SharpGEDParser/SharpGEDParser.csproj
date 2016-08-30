@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="FileRead.cs" />
     <Compile Include="GedEventParse.cs" />
-    <Compile Include="GedFamParse.cs" />
     <Compile Include="GedHeadParse.cs" />
     <Compile Include="GedIndiParse.cs" />
     <Compile Include="Model\AgeDetail.cs" />
@@ -61,7 +60,6 @@
     <Compile Include="GedSourCitParse.cs" />
     <Compile Include="GedSubm.cs" />
     <Compile Include="KBRGedEvent.cs" />
-    <Compile Include="KBRGedFam.cs" />
     <Compile Include="KBRGedHead.cs" />
     <Compile Include="KBRGedIndi.cs" />
     <Compile Include="KBRGedParser.cs" />
