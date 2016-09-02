@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 
@@ -19,6 +20,8 @@ using SharpGEDParser.Model;
 
 namespace UnitTestProject1
 {
+
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class SourCitTest : GedParseTest
     {

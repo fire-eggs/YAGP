@@ -13,7 +13,7 @@ namespace SharpGEDParser
 
         // TODO enum?
         public string Tag { get; set; }
-        public int LineCount { get { return End - Beg + 1; } }
+//        public int LineCount { get { return End - Beg + 1; } }
 
         [ExcludeFromCodeCoverage]
         public override string ToString()

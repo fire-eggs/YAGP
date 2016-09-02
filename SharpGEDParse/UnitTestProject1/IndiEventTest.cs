@@ -1,10 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 
 // ReSharper disable InconsistentNaming
 
 namespace UnitTestProject1
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class IndiEventTest : GedParseTest
     {

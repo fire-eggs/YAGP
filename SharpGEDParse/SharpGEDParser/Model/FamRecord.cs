@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SharpGEDParser.Model
 {
@@ -35,11 +36,13 @@ namespace SharpGEDParser.Model
             _childCount = -1;
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return Tag;
         }
 
+        [ExcludeFromCodeCoverage]
         public string Marriage
         {
             get

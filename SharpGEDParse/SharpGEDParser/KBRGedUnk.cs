@@ -1,4 +1,6 @@
-﻿namespace SharpGEDParser
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace SharpGEDParser
 {
     public class KBRGedUnk : KBRGedRec
     {
@@ -9,6 +11,7 @@
             Tag = tag;
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return string.Format("{0}({1}):{2}", Tag, Ident, Lines);

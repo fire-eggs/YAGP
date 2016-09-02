@@ -30,9 +30,6 @@ namespace SharpGEDParser
             _tagSet.Add("NOTE", NoteProc);
 // TODO            _tagSet.Add("OBJE", ObjeProc);
 
-            _tagSet.Add("HUSB", HusbProc); // Family event support
-            _tagSet.Add("WIFE", WifeProc); // Family event support
-
             _tagSet.Add("FAMC", FAMCProc); // BIRT / CHR / ADOP support
 
             _tagSet.Add("CONC", dscrProc);
@@ -95,35 +92,6 @@ namespace SharpGEDParser
                 {
                     ErrorRec(string.Format("Unknown FAMC subordinate tag {0}", tag));
                 }
-            }
-        }
-
-        private void HusbProc()
-        {
-            (_rec as KBRGedEvent).HusbDetail = Remainder();
-            if (ctx.Endline > ctx.Begline)
-            {
-                string line = (_rec as KBRGedEvent).Lines.GetLine(ctx.Begline + 1);
-                string ident = null;
-                string tag = null;
-                int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
-                if (tag == "AGE")
-                    (_rec as KBRGedEvent).HusbAge = line.Substring(nextChar).Trim();
-                // TODO anything else is unknown/error
-            }
-        }
-        private void WifeProc()
-        {
-            (_rec as KBRGedEvent).WifeDetail = Remainder();
-            if (ctx.Endline > ctx.Begline)
-            {
-                string line = (_rec as KBRGedEvent).Lines.GetLine(ctx.Begline + 1);
-                string ident = null;
-                string tag = null;
-                int nextChar = GedLineUtil.IdentAndTag(line, 1, ref ident, ref tag); //HACK assuming no leading spaces
-                if (tag == "AGE")
-                    (_rec as KBRGedEvent).WifeAge = line.Substring(nextChar).Trim();
-                // TODO anything else is unknown/error
             }
         }
 

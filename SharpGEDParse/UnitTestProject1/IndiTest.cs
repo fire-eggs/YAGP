@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 
 // ReSharper disable ConvertToConstant.Local
@@ -6,6 +7,7 @@ using SharpGEDParser;
 
 namespace UnitTestProject1
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class IndiTest : GedParseTest
     {

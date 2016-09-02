@@ -149,6 +149,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestChan6() // TODO test all supported records?
         {
+            // TODO sub-struct parsing breaking when one trailing line 20160901
             // multi line extra
             var txt = "0 @N1@ SOUR\n1 CHAN\n2 CUSTOM foo\n3 _BLAH bar\n1 RIN fumbar";
             var rec = ReadOne(txt);
@@ -156,8 +157,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(0, rec.Unknowns.Count);
             ChangeRec chan = rec.CHAN;
-            Assert.AreEqual(1, chan.OtherLines.Count);
             Assert.AreEqual("fumbar", rec.RIN);
+            Assert.AreEqual(2, chan.OtherLines.Count);
         }
 
         [Test]

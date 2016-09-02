@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SharpGEDParser.Model
 {
@@ -39,6 +40,7 @@ namespace SharpGEDParser.Model
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return string.Format("{0}({1}):[{2}:{3}]", Tag, Ident, BegLine, EndLine);

@@ -20,6 +20,7 @@
 */
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SharpGEDParser.Model
 {
@@ -46,6 +47,7 @@ namespace SharpGEDParser.Model
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return Tag;

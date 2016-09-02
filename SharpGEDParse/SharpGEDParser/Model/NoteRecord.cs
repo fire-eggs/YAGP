@@ -1,6 +1,7 @@
 ﻿// Top-level note record "0 @R1@ NOTE"
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace SharpGEDParser.Model
@@ -23,6 +24,7 @@ namespace SharpGEDParser.Model
             Builder = new StringBuilder(remain);
         }
 
+        [ExcludeFromCodeCoverage]
         public override string ToString()
         {
             return Tag;

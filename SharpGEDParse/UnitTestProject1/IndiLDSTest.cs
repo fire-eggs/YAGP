@@ -1,8 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpGEDParser;
 
 namespace UnitTestProject1
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class IndiLDSTest : GedParseTest
     {

@@ -139,7 +139,7 @@ namespace SharpGEDParser
 
         private void AnciProc()
         {
-            // TODO one GED has 'HIGH', 'LOW' and 'MEDIUM'...
+            // TODO one GED has 'HIGH', 'LOW' and 'MEDIUM'... "Legacy"
             var rec = CommonXRefProcessing();
             if (rec != null)
                 (_rec as KBRGedIndi).Anci.Add(rec);

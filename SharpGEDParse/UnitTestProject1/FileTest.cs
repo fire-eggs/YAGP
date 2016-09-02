@@ -117,8 +117,8 @@ namespace UnitTestProject1
                     fam++;
             }
 
-            Assert.AreNotEqual(0, indi);
-            Assert.AreNotEqual(0, fam);
+            Assert.AreNotEqual(0, indi, path);
+            Assert.AreNotEqual(0, fam, path);
         }
 
         [TestMethod]
