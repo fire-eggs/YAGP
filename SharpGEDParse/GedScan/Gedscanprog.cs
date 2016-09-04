@@ -99,8 +99,16 @@ namespace GedScan
                 Console.WriteLine("\t===Memory:{0}", (afterMem-beforeMem));
         }
 
+        struct errBucket
+        {
+            public int count;
+            public object firstOne;
+        }
+
         private static void dump(List<object> kbrGedRecs, List<UnkRec> errors, bool showErrors)
         {
+            Dictionary<string, errBucket> errCounts = new Dictionary<string, errBucket>();
+
             // TODO showErrors and errors list
 
             int errs = errors.Count;
@@ -142,7 +150,20 @@ namespace GedScan
                     {
                         foreach (var errRec in gedRec.Errors)
                         {
-                            Console.WriteLine("\t\tError:{0}", errRec.Error);
+                            if (errCounts.ContainsKey(errRec.Error))
+                            {
+                                var bucket = errCounts[errRec.Error];
+                                bucket.count++;
+                                errCounts[errRec.Error] = bucket;
+                            }
+                            else
+                            {
+                                var bucket = new errBucket();
+                                bucket.count = 1;
+                                bucket.firstOne = errRec;
+                                errCounts.Add(errRec.Error, bucket);
+                            }
+                            //Console.WriteLine("\t\tError:{0} [{1}]", errRec.Error, errRec.Beg);
                         }
                     }
                     unks += gedRec.Unknowns.Count;
@@ -150,7 +171,7 @@ namespace GedScan
                     {
                         foreach (var errRec in gedRec.Unknowns)
                         {
-                            Console.WriteLine("\t\tUnknown:{0} in {1}", errRec.Tag, gedRec);
+                            Console.WriteLine("\t\tUnknown:{0} at [{1}]", errRec.Tag, errRec.Beg);
                         }
                     }
                 }
@@ -216,6 +237,12 @@ namespace GedScan
 
             if (showErrors)
             {
+                foreach (var err in errCounts.Keys)
+                {
+                    var bucket = errCounts[err];
+                    Console.WriteLine("\t\tError:{0} Count:{1} First:{2}", err, bucket.count, (bucket.firstOne as UnkRec).Beg);
+                }
+
                 foreach (var unkRec in errors)
                 {
                     Console.WriteLine("\t\tError:{0}", unkRec.Error);

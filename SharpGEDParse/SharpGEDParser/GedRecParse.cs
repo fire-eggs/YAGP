@@ -169,6 +169,8 @@ namespace SharpGEDParser
 
             // TODO post parse error checking on sub-structures
             PostCheck(ctx.Parent); // post parse error checking
+
+            ctx = null;
         }
 
         // Find the end of this 'record'.
@@ -203,7 +205,7 @@ namespace SharpGEDParser
 
         protected UnkRec ErrorRec(string reason)
         {
-            var rec = new UnkRec(ctx.Tag, ctx.Begline, ctx.Endline);
+            var rec = new UnkRec(ctx.Tag, ctx.Begline+_rec.Lines.Beg, ctx.Endline+_rec.Lines.Beg);
             rec.Error = reason;
             _rec.Errors.Add(rec);
             return rec;
@@ -222,7 +224,7 @@ namespace SharpGEDParser
             var rec = new UnkRec(tag, startLineDex, maxLineDex);
             _rec.Unknowns.Add(rec);
 
-            Console.WriteLine("Uknown:{0}[{1}:{2}]", tag, startLineDex, maxLineDex);
+//            Console.WriteLine("Uknown:{0}[{1}:{2}]", tag, startLineDex, maxLineDex);
         }
 
         protected void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex, int startSubDex)

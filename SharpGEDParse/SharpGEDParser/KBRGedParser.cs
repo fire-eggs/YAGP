@@ -29,10 +29,17 @@ namespace SharpGEDParser
             // TODO execute in parallel
             if (parseSet.Item2 != null)
             {
-                if (parseSet.Item1 is KBRGedRec)
-                    parseSet.Item2.Parse(parseSet.Item1 as KBRGedRec);
+                KBRGedRec recC1 = parseSet.Item1 as KBRGedRec;
+                if (recC1 != null)
+                {
+                    parseSet.Item2.Parse(recC1);
+                    recC1.Lines = null; // Free memory
+                }
                 else
-                    parseSet.Item2.Parse(parseSet.Item1 as GEDCommon, rec);
+                {
+                    GEDCommon recC2 = parseSet.Item1 as GEDCommon;
+                    parseSet.Item2.Parse(recC2, rec);
+                }
             }
             return parseSet.Item1;
         }

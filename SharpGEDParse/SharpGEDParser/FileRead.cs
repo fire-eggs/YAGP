@@ -183,14 +183,17 @@ namespace SharpGEDParser
 
             if (level == '0' && _currRec.LineCount > 0)
             {
-                if (_currRec.LineCount == 1)
-                    Errors.Add(new UnkRec { Error = "Empty (single line) top-level record", Beg = lineNum});
+                // TODO this may not be a reasonable error: 58000.GED has a large number of single line NOTE records
+                //if (_currRec.LineCount == 1)
+                //    Errors.Add(new UnkRec { Error = "Empty (single line) top-level record", Beg = lineNum});
 
                 // start of a new record. deal with the previous record first
 
                 // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
                 var parsed = Parser.Parse(_currRec);
                 Data.Add(parsed);
+                //if (Data.Count % 10000 == 0) // TODO force garbage collection every few records: major performance hit
+                //    GC.Collect();
                 _currRec = new GedRecord(lineNum, line);
             }
             else
