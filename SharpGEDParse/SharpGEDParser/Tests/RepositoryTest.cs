@@ -288,7 +288,7 @@ namespace SharpGEDParser.Tests
 		public void TestNoteOther()
 		{
 			// exercise other lines
-			var indi = "0 REPO @R1@\n1 NOTE\n2 OTHR gibber";
+            var indi = "0 @R1@ REPO\n1 NOTE\n2 OTHR gibber";
 			var res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;

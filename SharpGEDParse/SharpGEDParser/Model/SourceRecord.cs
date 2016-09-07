@@ -26,18 +26,11 @@ namespace SharpGEDParser.Model
         public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
 
         private List<Note> _notes;
+
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
-        public SourceRecord(GedRecord lines, string ident, string remain)
-            : base(lines, ident)
+        public SourceRecord(GedRecord lines, string ident) : base(lines, ident)
         {
-            if (!string.IsNullOrWhiteSpace(remain)) // TODO save as a NOTE
-            {
-                UnkRec err = new UnkRec();
-                err.Beg = err.End = BegLine;
-                err.Error = string.Format("Non-standard extra text with tag: '{0}'", remain);
-                Errors.Add(err);
-            }
         }
 
         [ExcludeFromCodeCoverage]

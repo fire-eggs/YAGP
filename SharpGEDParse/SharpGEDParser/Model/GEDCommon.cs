@@ -94,8 +94,6 @@ namespace SharpGEDParser.Model
     {
         private List<StringPlus> _refns;
         public List<StringPlus> REFNs { get { return _refns ?? (_refns = new List<StringPlus>()); } }
-
-        public string RIN { get; set; }
     }
 
     public class StringPlus

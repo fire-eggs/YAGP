@@ -21,16 +21,8 @@ namespace SharpGEDParser.Model
 
         public List<MediaFile> Files { get { return _files ?? (_files = new List<MediaFile>()); } }
 
-        public MediaRecord(GedRecord lines, string ident, string remain)
-            : base(lines, ident)
+        public MediaRecord(GedRecord lines, string ident) : base(lines, ident)
         {
-            if (!string.IsNullOrWhiteSpace(remain))
-            {
-                UnkRec err = new UnkRec();
-                err.Beg = err.End = BegLine;
-                err.Error = string.Format("Non-standard extra text with tag: '{0}'", remain);
-                Errors.Add(err);
-            }
         }
 
         [ExcludeFromCodeCoverage]

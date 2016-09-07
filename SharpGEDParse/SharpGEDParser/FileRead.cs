@@ -1,9 +1,8 @@
-﻿using System;
+﻿using SharpGEDParser.Model;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
-using SharpGEDParser.Model;
 
 namespace SharpGEDParser
 {
@@ -11,6 +10,7 @@ namespace SharpGEDParser
     {
         private int _lineNum;
 
+        // ReSharper disable InconsistentNaming
         public enum GedcomCharset
         {
             Unknown,
@@ -24,6 +24,7 @@ namespace SharpGEDParser
             UTF32LE,
             UnSupported
         };
+        // ReSharper restore InconsistentNaming
 
         private GedcomCharset Charset { get; set; }
 
@@ -33,7 +34,6 @@ namespace SharpGEDParser
 
         private KBRGedParser Parser { get; set; }
 
-        // TODO needs to be intelligent - header/people/families/relations/etc
         public List<object> Data { get; set; } // TODO temporary: KBRGedRec / GEDCommon
 
         // Top-level (file level) errors, such as blank lines
@@ -43,15 +43,28 @@ namespace SharpGEDParser
 
         public void ReadGed(string gedPath)
         {
-            FilePath = gedPath;
-            GetEncoding(gedPath);
-            ReadLines();
+            _lineNum = 0;
+            Errors = new List<UnkRec>();
+
+            try
+            {
+                FilePath = gedPath;
+                GetEncoding(gedPath);
+                using (StreamReader stream = new StreamReader(FilePath, FileEnc))
+                {
+                    ReadLines(stream);
+                }
+            }
+            catch (Exception ex)
+            {
+                UnkRec err = new UnkRec();
+                err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+                Errors.Add(err);
+            }
         }
 
         private void GetEncoding(string gedPath)
         {
-            // TODO exception handling (e.g. file might not exist)
-
             FileEnc = Encoding.Default;
             Charset = GedcomCharset.Unknown;
 
@@ -114,7 +127,8 @@ namespace SharpGEDParser
         {
             Parser = new KBRGedParser(FilePath ?? "");
             Data = new List<object>(); // TODO temporary: KBRGedRec/GEDCommon
-            Errors = new List<UnkRec>();
+            if (Errors == null)
+                Errors = new List<UnkRec>();
 
             try
             {
@@ -128,6 +142,7 @@ namespace SharpGEDParser
                     line = instream.ReadLine();
                     _lineNum++;
                 }
+                EndOfFile();
             }
             catch (Exception ex)
             {
@@ -135,20 +150,10 @@ namespace SharpGEDParser
                     Errors.Add(new UnkRec {Error = "File doesn't start with '0 HEAD', parse fails"});
                 else
                 {
-                    Errors.Add(new UnkRec{ Error = ex.Message + "|" + ex.StackTrace});
-                    Console.WriteLine("Exception stopped processing");
+                    var err = new UnkRec();
+                    err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+                    Errors.Add(err);
                 }
-            }
-
-            // TODO a mal-formed file might be missing the end 0 TRLR line. If so, _currRec contains a record which as not been processed?
-        }
-
-        private void ReadLines()
-        {
-            // TODO what happens if file doesn't exist?
-            using (StreamReader stream = new StreamReader(FilePath, FileEnc))
-            {
-                ReadLines(stream);
             }
         }
 
@@ -200,6 +205,15 @@ namespace SharpGEDParser
             {
                 _currRec.AddLine(line);
             }
+        }
+
+        private void EndOfFile()
+        {
+            // A mal-formed file might be missing the end 0 TRLR line. If so, _currRec might contain a record which has not been processed
+            if (_currRec.LineCount < 2)
+                return;
+            var parsed = Parser.Parse(_currRec);
+            Data.Add(parsed);
         }
 
         private void DoError(string msg, int lineNum)

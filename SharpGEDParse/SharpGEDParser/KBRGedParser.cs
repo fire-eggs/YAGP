@@ -79,18 +79,19 @@ namespace SharpGEDParser
                 case "FAM":
                 {
                     var foo = new FamRecord(rec, ident);
+                    NonStandardRemain(remain, foo);
                     return new Tuple<object, GedParse>(foo, _FamParseSingleton);
                 }
-                    //data = new KBRGedFam(rec, ident);
-                    //return new Tuple<object, GedParse>(data, _FamParseSingleton);
                 case "SOUR":
                 {
-                    var foo = new SourceRecord(rec, ident, remain);
+                    var foo = new SourceRecord(rec, ident);
+                    NonStandardRemain(remain, foo);
                     return new Tuple<object, GedParse>(foo, _SourParseSingleton);
                 }
                 case "REPO":
                 {
-                    var foo = new Repository(rec, ident, remain);
+                    var foo = new Repository(rec, ident);
+                    NonStandardRemain(remain, foo);
                     return new Tuple<object, GedParse>(foo, _RepoParseSingleton);
                 }
                 case "NOTE":
@@ -100,7 +101,8 @@ namespace SharpGEDParser
                 }
                 case "OBJE":
                 {
-                    var foo = new MediaRecord(rec, ident, remain);
+                    var foo = new MediaRecord(rec, ident);
+                    NonStandardRemain(remain, foo);
                     return new Tuple<object, GedParse>(foo, _MediaParseSingleton);
                 }
                 case "SUBM":
@@ -134,6 +136,27 @@ namespace SharpGEDParser
         public static GedRecParse SourceCitParseSingleton
         {
             get { return _SourceCitParseSingleton ?? (_SourceCitParseSingleton = new GedSourCitParse()); }
+        }
+
+        private void NonStandardRemain(string remain, GEDCommon rec)
+        {
+            // Extra text on the record line (e.g. "0 @R1@ REPO blah blah blah") is not standard for
+            // most record types. Preserve it as a note if possible.
+            if (!string.IsNullOrWhiteSpace(remain))
+            {
+                UnkRec err = new UnkRec();
+                err.Beg = err.End = rec.BegLine;
+                err.Error = string.Format("Non-standard extra text: '{0}'", remain);
+                rec.Errors.Add(err);
+
+                if (rec is NoteHold)
+                {
+                    Note not = new Note();
+                    not.Text = remain;
+                    (rec as NoteHold).Notes.Add(not);
+                }
+            }
+            
         }
     }
 

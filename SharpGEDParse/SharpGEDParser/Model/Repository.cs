@@ -36,15 +36,8 @@ namespace SharpGEDParser.Model
 
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
-        public Repository(GedRecord lines, string ident, string remain)
-            : base(lines, ident)
+        public Repository(GedRecord lines, string ident) : base(lines, ident)
         {
-            if (!string.IsNullOrWhiteSpace(remain))
-            {
-                UnkRec err = new UnkRec();
-                err.Beg = err.End = BegLine;
-                err.Error = string.Format("Non-standard extra text with tag: '{0}'", remain);
-            }
         }
 
         [ExcludeFromCodeCoverage]
