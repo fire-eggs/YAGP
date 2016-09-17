@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SharpGEDParser.Parser
 {
     // TODO one LineUtil instance per parsing thread
@@ -16,8 +11,6 @@ namespace SharpGEDParser.Parser
             public string Ident;
             public string Remain;
         }
-
-        public static LineData _data = new LineData();         // TODO this forces single-threaded!
 
         private static int FirstChar(string line, int dex, int max)
         {
@@ -38,7 +31,7 @@ namespace SharpGEDParser.Parser
         }
 
         // startDex points at the first space after the level
-        public static int IdentAndTag(string line, int startDex)
+        public static int IdentAndTag(LineData data, string line, int startDex)
         {
             // "0 @I1@ INDI"
             int max = line.Length;
@@ -52,36 +45,36 @@ namespace SharpGEDParser.Parser
                 // get ident
                 int endIdent = CharsUntil(line, max, startDex + 1, '@');
                 // endIdent now points at the trailing '@' or ' '
-                _data.Ident = line.Substring(startDex + 1, endIdent - startDex - 1);
+                data.Ident = line.Substring(startDex + 1, endIdent - startDex - 1);
                 startDex = FirstChar(line, endIdent + 1, max);
 
                 int endTag = CharsUntil(line, max, startDex, ' ');
-                _data.Tag = line.Substring(startDex, endTag - startDex);
+                data.Tag = line.Substring(startDex, endTag - startDex);
                 return endTag;
             }
             else
             {
                 // startdex points at 'H' ("0 HEAD")
                 int endTag = CharsUntil(line, max, startDex + 1, ' ');
-                _data.Tag = line.Substring(startDex, endTag - startDex);
+                data.Tag = line.Substring(startDex, endTag - startDex);
                 return endTag;
             }
         }
 
-        public static LineData LevelTagAndRemain(string line)
+        public static LineData LevelTagAndRemain(LineData data, string line)
         {
             int max = line.Length;
 
             // Move past level
             int dex = FirstChar(line, 0, max);
-            _data.Level = line[dex];
+            data.Level = line[dex];
             dex = CharsUntil(line, max, dex, ' ');
-            dex = IdentAndTag(line, dex);
+            dex = IdentAndTag(data, line, dex);
             if (dex < max)
-                _data.Remain = line.Substring(dex + 1);
+                data.Remain = line.Substring(dex + 1);
             else
-                _data.Remain = "";
-            return _data;
+                data.Remain = "";
+            return data;
         }
     }
 }

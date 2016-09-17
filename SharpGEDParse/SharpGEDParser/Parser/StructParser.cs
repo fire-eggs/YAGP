@@ -46,11 +46,13 @@ namespace SharpGEDParser.Parser
 
         protected static void StructParse(StructParseContext ctx, Dictionary<string, TagProc> tagSet)
         {
+            LineUtil.LineData ld = new LineUtil.LineData();
+
             int i = ctx.Begline + 1;
 
             for (; i < ctx.Lines.Max; i++)
             {
-                LineUtil.LineData ld = LineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i));
+                LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
                 if (ld.Level <= ctx.Level)
                     break; // end of sub-record
                 ctx.Remain = ld.Remain;
@@ -95,12 +97,14 @@ namespace SharpGEDParser.Parser
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         protected static string extendedText(StructParseContext ctx)
         {
+            LineUtil.LineData lineData = new LineUtil.LineData();
+
             StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
 
             int i = ctx.Begline + 1;
             for (; i < ctx.Lines.Max; i++)
             {
-                LineUtil.LineData ld = LineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i));
+                LineUtil.LineData ld = LineUtil.LevelTagAndRemain(lineData, ctx.Lines.GetLine(i));
                 if (ld.Level <= ctx.Level)
                     break; // end of sub-record
                 if (ld.Tag == "CONC")

@@ -63,7 +63,7 @@ namespace SharpGEDParser
 
         protected abstract void BuildTagSet();
 
-        // TODO does this make parsing effectively single-threaded? need one context per thread?
+        // TODO does this make parsing effectively single-threaded? need one context per thread? YES
         internal ParseContext ctx;
 
         // Common parsing logic for all record types

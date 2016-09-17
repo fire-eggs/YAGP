@@ -155,6 +155,8 @@ namespace SharpGEDParser
                     Errors.Add(err);
                 }
             }
+
+            Parser.Wrap();
         }
 
         /// <summary>

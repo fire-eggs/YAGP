@@ -1,6 +1,10 @@
 ﻿using System;
 using SharpGEDParser.Model;
 using SharpGEDParser.Parser;
+#if PARALLEL
+using System.Collections.Generic;
+using System.Threading.Tasks;
+#endif
 
 namespace SharpGEDParser
 {
@@ -21,24 +25,41 @@ namespace SharpGEDParser
             _MediaParseSingleton = new MediaParse();
         }
 
+#if PARALLEL
+        public List<Task> _allTasks = new List<Task>();
+#endif
+
+        public void Wrap()
+        {
+#if PARALLEL
+            Task.WaitAll(_allTasks.ToArray());
+#endif
+        }
+
         public object Parse(GedRecord rec)
         {
             // Given a glop of lines which represent a 'record', parse it into GED data (HEAD/INDI/FAM/etc)
             Tuple<object, GedParse> parseSet = Make(rec);
 
-            // TODO execute in parallel
             if (parseSet.Item2 != null)
             {
                 KBRGedRec recC1 = parseSet.Item1 as KBRGedRec;
                 if (recC1 != null)
                 {
+// TODO cannot parse INDI in parallel until redone as GEDCommon
+                    //_allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC1)));
                     parseSet.Item2.Parse(recC1);
                     recC1.Lines = null; // Free memory
+                    //_allRecs.Add(parseSet.Item1);
                 }
                 else
                 {
                     GEDCommon recC2 = parseSet.Item1 as GEDCommon;
+#if PARALLEL
+                    _allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC2, rec)));
+#else
                     parseSet.Item2.Parse(recC2, rec);
+#endif
                 }
             }
             return parseSet.Item1;
