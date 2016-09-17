@@ -155,6 +155,9 @@ namespace DrawAnce
         /// <returns>The largest Ahnen number encountered</returns>
         private int CalcAnce(FamilyUnit firstFam, int myNum)
         {
+            if (myNum >= MAX_AHNEN)
+                return -1;
+
             int numRet = myNum;
 
             // From http://www.tamurajones.net/AhnenNumbering.xhtml : the Ahnen number 
