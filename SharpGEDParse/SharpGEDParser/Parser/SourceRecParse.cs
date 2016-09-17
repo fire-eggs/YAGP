@@ -69,11 +69,10 @@ namespace SharpGEDParser.Parser
         {
             SourceRecord me = rec as SourceRecord;
 
-            if (string.IsNullOrWhiteSpace(me.Ident))
+            if (string.IsNullOrWhiteSpace(me.Ident)) // TODO common?
             {
-                UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one?
-                err.Tag = SourceRecord.Tag;
+                UnkRec err = new UnkRec {Error = "Missing identifier"};
+                err.Beg = err.End = rec.BegLine;
                 me.Errors.Add(err);
             }
 
