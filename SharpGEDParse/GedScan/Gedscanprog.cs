@@ -1,6 +1,5 @@
 ﻿// A q&d program to scan GEDCOM files and report statistics
 
-using System.Diagnostics;
 using System.Linq;
 using SharpGEDParser;
 using System;
