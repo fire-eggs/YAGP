@@ -1,8 +1,9 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using NUnit.Framework;
+using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
 {
@@ -16,11 +17,7 @@ namespace SharpGEDParser.Tests
 		// For those tests which need to verify errors at the topmost level
 		public static FileRead ReadItHigher(string testString)
 		{
-			// TODO this is a bug
 			// TODO as implemented, trailing newline in original string will cause an "empty line" error record to be generated
-			// Testing kludge required: parser won't terminate w/o trailing '0' record.
-			if (!testString.EndsWith("\n0 KLUDGE") && !testString.EndsWith("\n0 TRLR"))
-				testString += "\n0 KLUDGE";
 			FileRead fr = new FileRead();
 			using (var stream = new StreamReader(ToStream(testString)))
 			{
@@ -29,21 +26,27 @@ namespace SharpGEDParser.Tests
 			return fr;
 		}
 
-        //public static List<KBRGedRec> ReadIt(string testString)
-        //{
-        //    var fr = ReadItHigher(testString);
-        //    return fr.Data.Select(o => o as KBRGedRec).ToList();
-        //}
+        public static List<GEDCommon> ReadIt(string testString)
+        {
+            var fr = ReadItHigher(testString);
+            return fr.Data.Select(o => o as GEDCommon).ToList();
+        }
 
-        //public T parse<T>(string testString, string tagN) where T: class
-        //{
-        //    var res = ReadIt(testString);
-        //    Assert.AreEqual(1, res.Count, "record count");
-        //    Assert.AreEqual(tagN, res[0].Tag, "Tag:"+tagN);
-        //    var rec = res[0] as T;
-        //    Assert.AreNotEqual(null, rec, "wrong record type:"+tagN);
-        //    return rec;
-        //}
+	    public static T parse<T>(string val) where T:class
+	    {
+            var res = ReadIt(val);
+            Assert.AreEqual(1, res.Count);
+            T rec = res[0] as T;
+            Assert.IsNotNull(rec);
+            return rec;       
+	    }
+
+        public static GEDCommon ReadOne(string teststring)
+        {
+            var res = ReadIt(teststring);
+            Assert.AreEqual(1, res.Count);
+            return res[0];
+        }
 
 	}
 }

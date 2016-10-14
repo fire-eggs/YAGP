@@ -128,7 +128,7 @@ namespace SharpGEDParser.Tests
         public void TestREFN()
         {
             // single REFN
-            var txt = "0 @N1@ NOTE\n1 REFN 001\n1 CONC fumbar\n0 KLUDGE";
+            var txt = "0 @N1@ NOTE\n1 REFN 001\n1 CONC fumbar";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;
@@ -143,7 +143,7 @@ namespace SharpGEDParser.Tests
         public void TestREFNs()
         {
             // multiple REFNs
-            var txt = "0 @N1@ NOTE\n1 REFN 001\n1 CONC fumbar\n1 REFN 002\n0 KLUDGE";
+            var txt = "0 @N1@ NOTE\n1 REFN 001\n1 CONC fumbar\n1 REFN 002";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;
@@ -195,7 +195,7 @@ namespace SharpGEDParser.Tests
         public void TestMissingId()
         {
             // empty record; missing id
-            var txt = "0 NOTE\n0 KLUDGE";
+            var txt = "0 NOTE";
             var res = ReadItHigher(txt);
             Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
             Assert.AreEqual(1, res.Data.Count);
@@ -206,7 +206,7 @@ namespace SharpGEDParser.Tests
         public void TestMissingId2()
         {
             // missing id
-            var txt = "0 NOTE\n1 CONC foobar\n0 KLUDGE";
+            var txt = "0 NOTE\n1 CONC foobar";
             var res = ReadItHigher(txt);
             Assert.AreEqual(0, res.Errors.Count);
             Assert.AreEqual(1, res.Data.Count);

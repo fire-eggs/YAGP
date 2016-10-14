@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PARALLEL</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -67,6 +67,8 @@
     <Compile Include="Model\EventCommon.cs" />
     <Compile Include="Model\FamilyEvent.cs" />
     <Compile Include="Model\FamRecord.cs" />
+    <Compile Include="Model\IndiEvent.cs" />
+    <Compile Include="Model\IndiRecord.cs" />
     <Compile Include="Model\LDSEvent.cs" />
     <Compile Include="Model\NoteRecord.cs" />
     <Compile Include="GedRecord.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Parser\EventAgeParse.cs" />
     <Compile Include="Parser\FamilyEventParse.cs" />
     <Compile Include="Parser\FamParse.cs" />
+    <Compile Include="Parser\IndiParse.cs" />
     <Compile Include="Parser\LDSEventParse.cs" />
     <Compile Include="Parser\LineUtil.cs" />
     <Compile Include="Parser\NoteParse.cs" />
@@ -116,6 +119,9 @@
     <Compile Include="Tests\ChanTests.cs" />
     <Compile Include="Tests\FamEventTest1.cs" />
     <Compile Include="Tests\FamTest1.cs" />
+    <Compile Include="Tests\IndiAttrib.cs" />
+    <Compile Include="Tests\IndiEvents.cs" />
+    <Compile Include="Tests\IndiTest1.cs" />
     <Compile Include="Tests\Media55Test.cs" />
     <Compile Include="Tests\MediaTest.cs" />
     <Compile Include="Tests\NoteTest.cs" />

@@ -27,20 +27,9 @@ namespace SharpGEDParser.Tests
     [TestFixture]
     class FamTest1 : GedParseTest
     {
-        // TODO this is temporary until GEDCommon replaces KBRGedRec
-        public static List<GEDCommon> ReadIt(string testString)
-        {
-            var fr = ReadItHigher(testString);
-            return fr.Data.Select(o => o as GEDCommon).ToList();
-        }
-
         private FamRecord parse(string val)
         {
-            var res = ReadIt(val);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as FamRecord;
-            Assert.IsNotNull(rec);
-            return rec;
+            return parse<FamRecord>(val);
         }
 
         [Test]

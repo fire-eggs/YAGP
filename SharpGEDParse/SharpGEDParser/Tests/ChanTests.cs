@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SharpGEDParser.Model;
+using System;
 
 // ReSharper disable UnusedMethodReturnValue.Local
 // ReSharper disable ConvertToConstant.Local
@@ -13,19 +11,6 @@ namespace SharpGEDParser.Tests
     [TestFixture]
     public class ChanTests : GedParseTest
     {
-        public static List<GEDCommon> ReadIt(string testString)
-        {
-            var fr = ReadItHigher(testString);
-            return fr.Data.Select(o => o as GEDCommon).ToList();
-        }
-
-        private GEDCommon ReadOne(string teststring)
-        {
-            var res = ReadIt(teststring);
-            Assert.AreEqual(1, res.Count);
-            return res[0];
-        }
-
         // Simple CHAN test for a given record
         private GEDCommon TestChanM(string teststring, string tag)
         {
@@ -44,7 +29,7 @@ namespace SharpGEDParser.Tests
             TestChanM(txt, "SOUR");
             TestChanM(txt, "REPO");
             TestChanM(txt, "OBJE");
-//            TestChanM(txt, "INDI");
+            TestChanM(txt, "INDI");
             TestChanM(txt, "FAM");
 //            TestChanM(txt, "HEAD");
         }
@@ -66,7 +51,7 @@ namespace SharpGEDParser.Tests
             TestNoDateM(txt, "REPO");
             TestNoDateM(txt, "SOUR");
             TestNoDateM(txt, "OBJE");
-            //            TestNoDateM(txt, "INDI");
+            TestNoDateM(txt, "INDI");
             TestNoDateM(txt, "FAM");
             //            TestNoDateM(txt, "HEAD");
         }
@@ -92,7 +77,7 @@ namespace SharpGEDParser.Tests
             TestAfterM(txt, "SOUR");
             TestAfterM(txt, "REPO");
             TestAfterM(txt, "OBJE");
-            //            TestAfterM(txt, "INDI");
+            TestAfterM(txt, "INDI");
             TestAfterM(txt, "FAM");
             //            TestAfterM(txt, "HEAD");
         }
@@ -116,7 +101,7 @@ namespace SharpGEDParser.Tests
             NoDateFollowM(txt, "REPO");
             NoDateFollowM(txt, "SOUR");
             NoDateFollowM(txt, "NOTE");
-            //            NoDateFollowM(txt, "INDI");
+            NoDateFollowM(txt, "INDI");
             NoDateFollowM(txt, "FAM");
             //            TestChanM(txt, "HEAD");
         }
@@ -141,7 +126,7 @@ namespace SharpGEDParser.Tests
             ChanExtraM(txt, "NOTE");
             ChanExtraM(txt, "SOUR");
             ChanExtraM(txt, "OBJE");
-            //            ChanExtraM(txt, "INDI");
+            ChanExtraM(txt, "INDI");
             ChanExtraM(txt, "FAM");
             //            ChanExtraM(txt, "HEAD");
         }
@@ -234,6 +219,7 @@ namespace SharpGEDParser.Tests
             ChanNoteM(txt, "OBJE");
             ChanNoteM(txt, "REPO");
             ChanNoteM(txt, "FAM");
+            ChanNoteM(txt, "INDI");
         }
 
         private GEDCommon MultiNoteM(string teststring, string tag)
@@ -256,6 +242,7 @@ namespace SharpGEDParser.Tests
             MultiNoteM(txt, "SOUR");
             MultiNoteM(txt, "NOTE");
             MultiNoteM(txt, "FAM");
+            MultiNoteM(txt, "INDI");
         }
 
         public GEDCommon MultiNote2M(string teststring, string tag)
@@ -285,6 +272,8 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec as MediaRecord);
             rec = MultiNote2M(txt, "FAM");
             Assert.IsNotNull(rec as FamRecord);
+            rec = MultiNote2M(txt, "INDI");
+            Assert.IsNotNull(rec as IndiRecord);
         }
         #endregion
     }

@@ -32,9 +32,9 @@ namespace UnitTestProject1
             return res[0];
         }
 
-        private KBRGedIndi parseInd(string val)
+        private IndiRecord parseInd(string val)
         {
-            return parse<KBRGedIndi>(val, "INDI");
+            return parse<IndiRecord>(val, "INDI");
         }
 
         [TestMethod]
@@ -42,14 +42,14 @@ namespace UnitTestProject1
         {
             // SOUR record on the INDI
             var indi1 = "0 INDI\n1 SOUR @p1@";
-            KBRGedIndi rec = parseInd(indi1);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual("p1", rec.Sources[0].XRef);
+            IndiRecord rec = parseInd(indi1);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("p1", rec.Cits[0].Xref);
             var indi2 = "0 INDI\n1 SOUR @p1@\n1 SOUR @p2@";
-            KBRGedIndi rec2 = parseInd(indi2);
-            Assert.AreEqual(2, rec2.Sources.Count);
-            Assert.AreEqual("p1", rec2.Sources[0].XRef);
-            Assert.AreEqual("p2", rec2.Sources[1].XRef);
+            IndiRecord rec2 = parseInd(indi2);
+            Assert.AreEqual(2, rec2.Cits.Count);
+            Assert.AreEqual("p1", rec2.Cits[0].Xref);
+            Assert.AreEqual("p2", rec2.Cits[1].Xref);
         }
 
         [TestMethod]
@@ -57,15 +57,15 @@ namespace UnitTestProject1
         {
             // SOUR record on the event
             string indi1 = "0 INDI\n1 BIRT\n2 DATE 1774\n2 SOUR @p1@";
-            KBRGedIndi rec = parseInd(indi1);
-            Assert.AreEqual(1, rec.Events[0].Sources.Count);
-            Assert.AreEqual("p1", rec.Events[0].Sources[0].XRef);
+            var rec = parseInd(indi1);
+            Assert.AreEqual(1, rec.Events[0].Cits.Count);
+            Assert.AreEqual("p1", rec.Events[0].Cits[0].Xref);
 
             string indi2 = "0 INDI\n1 BIRT\n2 SOUR @p1@\n2 DATE 1774\n2 SOUR @p2@";
-            KBRGedIndi rec2 = parseInd(indi2);
-            Assert.AreEqual(2, rec2.Events[0].Sources.Count);
-            Assert.AreEqual("p1", rec2.Events[0].Sources[0].XRef);
-            Assert.AreEqual("p2", rec2.Events[0].Sources[1].XRef);
+            var rec2 = parseInd(indi2);
+            Assert.AreEqual(2, rec2.Events[0].Cits.Count);
+            Assert.AreEqual("p1", rec2.Events[0].Cits[0].Xref);
+            Assert.AreEqual("p2", rec2.Events[0].Cits[1].Xref);
         }
 
         [TestMethod]
@@ -88,17 +88,17 @@ namespace UnitTestProject1
         {
             // Embedded SOUR record on the INDI
             var indi1 = "0 INDI\n1 SOUR this is a source";
-            KBRGedIndi rec = parseInd(indi1);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual(null, rec.Sources[0].XRef);
-            Assert.AreEqual("this is a source", rec.Sources[0].Embed);
+            var rec = parseInd(indi1);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual("this is a source", rec.Cits[0].Desc);
             var indi2 = "0 INDI\n1 SOUR this is a source\n1 SOUR this is another";
-            KBRGedIndi rec2 = parseInd(indi2);
-            Assert.AreEqual(2, rec2.Sources.Count);
-            Assert.AreEqual(null, rec2.Sources[0].XRef);
-            Assert.AreEqual(null, rec2.Sources[1].XRef);
-            Assert.AreEqual("this is a source", rec2.Sources[0].Embed);
-            Assert.AreEqual("this is another", rec2.Sources[1].Embed);
+            var rec2 = parseInd(indi2);
+            Assert.AreEqual(2, rec2.Cits.Count);
+            Assert.AreEqual(null, rec2.Cits[0].Xref);
+            Assert.AreEqual(null, rec2.Cits[1].Xref);
+            Assert.AreEqual("this is a source", rec2.Cits[0].Desc);
+            Assert.AreEqual("this is another", rec2.Cits[1].Desc);
         }
 
         [TestMethod]
@@ -106,17 +106,17 @@ namespace UnitTestProject1
         {
             // Embedded SOUR record on the INDI event
             var indi1 = "0 INDI\n1 BIRT\n2 SOUR this is a source";
-            KBRGedIndi rec = parseInd(indi1);
-            Assert.AreEqual(1, rec.Events[0].Sources.Count);
-            Assert.AreEqual(null, rec.Events[0].Sources[0].XRef);
-            Assert.AreEqual("this is a source", rec.Events[0].Sources[0].Embed);
+            var rec = parseInd(indi1);
+            Assert.AreEqual(1, rec.Events[0].Cits.Count);
+            Assert.AreEqual(null, rec.Events[0].Cits[0].Xref);
+            Assert.AreEqual("this is a source", rec.Events[0].Cits[0].Desc);
             var indi2 = "0 INDI\n1 BIRT\n2 SOUR this is a source\n2 SOUR this is another";
-            KBRGedIndi rec2 = parseInd(indi2);
-            Assert.AreEqual(2, rec2.Events[0].Sources.Count);
-            Assert.AreEqual(null, rec2.Events[0].Sources[0].XRef);
-            Assert.AreEqual(null, rec2.Events[0].Sources[1].XRef);
-            Assert.AreEqual("this is a source", rec2.Events[0].Sources[0].Embed);
-            Assert.AreEqual("this is another", rec2.Events[0].Sources[1].Embed);
+            var rec2 = parseInd(indi2);
+            Assert.AreEqual(2, rec2.Events[0].Cits.Count);
+            Assert.AreEqual(null, rec2.Events[0].Cits[0].Xref);
+            Assert.AreEqual(null, rec2.Events[0].Cits[1].Xref);
+            Assert.AreEqual("this is a source", rec2.Events[0].Cits[0].Desc);
+            Assert.AreEqual("this is another", rec2.Events[0].Cits[1].Desc);
         }
 
         [TestMethod]
@@ -140,14 +140,14 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestInvalidXref()
         {
-            string txt = "0 INDI\n1 SOUR @ @";
+            string txt = "0 @I1@ INDI\n1 SOUR @ @";
             var rec = parseInd(txt);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Sources.Count);
-            txt = "0 INDI\n1 SOUR @@@";
+            Assert.AreEqual(1, rec.Cits.Count);
+            txt = "0 @I1@ INDI\n1 SOUR @@@";
             rec = parseInd(txt);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.Sources.Count);
+            Assert.AreEqual(1, rec.Cits.Count);
         }
 
         [TestMethod]
@@ -155,17 +155,17 @@ namespace UnitTestProject1
         {
             // Embedded SOUR record on the INDI with CONC/CONT
             var indi1 = "0 INDI\n1 SOUR this is a source \n2 CONC with extension";
-            KBRGedIndi rec = parseInd(indi1);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual(null, rec.Sources[0].XRef);
-            Assert.AreEqual("this is a source with extension", rec.Sources[0].Embed);
+            var rec = parseInd(indi1);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual("this is a source with extension", rec.Cits[0].Desc);
             var indi2 = "0 INDI\n1 SOUR this is a source\n2 CONT extended to next line\n1 SOUR this is another";
-            KBRGedIndi rec2 = parseInd(indi2);
-            Assert.AreEqual(2, rec2.Sources.Count);
-            Assert.AreEqual(null, rec2.Sources[0].XRef);
-            Assert.AreEqual(null, rec2.Sources[1].XRef);
-            Assert.AreEqual("this is a source\nextended to next line", rec2.Sources[0].Embed);
-            Assert.AreEqual("this is another", rec2.Sources[1].Embed);
+            var rec2 = parseInd(indi2);
+            Assert.AreEqual(2, rec2.Cits.Count);
+            Assert.AreEqual(null, rec2.Cits[0].Xref);
+            Assert.AreEqual(null, rec2.Cits[1].Xref);
+            Assert.AreEqual("this is a source\nextended to next line", rec2.Cits[0].Desc);
+            Assert.AreEqual("this is another", rec2.Cits[1].Desc);
         }
 
         [TestMethod]
@@ -173,22 +173,22 @@ namespace UnitTestProject1
         {
             var txt = "0 INDI\n1 SOUR embedded source\n2 NOTE a note\n2 TEXT this is text";
             var rec = parseInd(txt);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual(1, rec.Sources[0].Notes.Count);
-            Assert.AreEqual(null, rec.Sources[0].XRef);
-            Assert.AreEqual("embedded source", rec.Sources[0].Embed);
-            Assert.AreEqual("this is text", rec.Sources[0].Text);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(1, rec.Cits[0].Notes.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual("embedded source", rec.Cits[0].Desc);
+            Assert.AreEqual("this is text", rec.Cits[0].Text[0]);
         }
         [TestMethod]
         public void TestEmbSourText2()
         {
             var txt = "0 INDI\n1 SOUR embedded source\n2 NOTE a note\n2 TEXT this is text ex\n3 CONC tended";
             var rec = parseInd(txt);
-            Assert.AreEqual(1, rec.Sources.Count);
-            Assert.AreEqual(1, rec.Sources[0].Notes.Count);
-            Assert.AreEqual(null, rec.Sources[0].XRef);
-            Assert.AreEqual("embedded source", rec.Sources[0].Embed);
-            Assert.AreEqual("this is text extended", rec.Sources[0].Text);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(1, rec.Cits[0].Notes.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual("embedded source", rec.Cits[0].Desc);
+            Assert.AreEqual("this is text extended", rec.Cits[0].Text[0]);
         }
 
         [TestMethod]

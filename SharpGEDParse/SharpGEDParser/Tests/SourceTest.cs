@@ -1,13 +1,10 @@
-﻿// TODO common testing REFN, RIN ... should move to own test, exercised for all records
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SharpGEDParser.Model;
+using System;
+
+// TODO common testing REFN, RIN ... should move to own test, exercised for all records
 
 // ReSharper disable ConvertToConstant.Local
-
 
 namespace SharpGEDParser.Tests
 {
@@ -30,21 +27,9 @@ namespace SharpGEDParser.Tests
     [TestFixture]
     class SourceTest : GedParseTest
     {
-        // TODO this is temporary until GEDCommon replaces KBRGedRec
-        public static List<GEDCommon> ReadIt(string testString)
+        public new static SourceRecord ReadOne(string teststring)
         {
-            var fr = ReadItHigher(testString);
-            return fr.Data.Select(o => o as GEDCommon).ToList();
-        }
-
-        public static SourceRecord ReadOne(string teststring)
-        {
-            // Read and parse a SourceRecord; validate one and only one record
-            var res = ReadIt(teststring);
-            Assert.AreEqual(1, res.Count);
-            var rec = res[0] as SourceRecord;
-            Assert.IsNotNull(rec);
-            return rec;
+            return parse<SourceRecord>(teststring);
         }
 
         [Test]

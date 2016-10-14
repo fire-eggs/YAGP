@@ -212,7 +212,7 @@ namespace SharpGEDParser
         private void EndOfFile()
         {
             // A mal-formed file might be missing the end 0 TRLR line. If so, _currRec might contain a record which has not been processed
-            if (_currRec.LineCount < 2)
+            if (_currRec.LineCount < 1)
                 return;
             var parsed = Parser.Parse(_currRec);
             Data.Add(parsed);

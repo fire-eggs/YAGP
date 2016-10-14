@@ -111,7 +111,7 @@ namespace UnitTestProject1
             int fam = 0;
             foreach (var result in results)
             {
-                if ((result as KBRGedIndi) != null)
+                if ((result as IndiRecord) != null)
                     indi++;
                 if ((result as FamRecord) != null)
                     fam++;
@@ -133,6 +133,23 @@ namespace UnitTestProject1
         {
             var path = @"E:\projects\YAGP\Sample GED\tgc55c.ged"; // TODO project-relative path
             DoFile(path);
+        }
+
+        [TestMethod]
+        public void DoSpecial()
+        {
+            string path = @"Z:\HOST_E\projects\GED\GED files\5.5.1\index7_kbr.ged";
+            DoFile(path);
+        }
+
+        [TestMethod]
+        public void DoAll551()
+        {
+            var path = @"Z:\HOST_E\projects\GED\GED files\5.5.1";
+            foreach (var file in Directory.GetFiles(path))
+            {
+                DoFile(file);
+            }
         }
     }
 }

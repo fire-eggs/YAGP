@@ -28,9 +28,44 @@ namespace SharpGEDParser.Parser
 
             {"NOTE", noteProc},
             {"OBJE", objeProc},
-            {"SOUR", sourProc}
+            {"SOUR", sourProc},
 
+            {"FAMC", famcProc}, // ADOP, BIRT, CHR
+            {"ADOP", adopProc}, // ADOP
+            {"AGE",  ageProc},   // INDI attributes
+
+            {"CONT", dscrProc},
+            {"CONC", dscrProc}
         };
+
+        private static void dscrProc(StructParseContext ctx, int linedex, char level)
+        {
+            // handling of CONC/CONT tags for DSCR
+            // TODO not quite the same as other CONC/CONT, can't use extendedText?
+
+            var own = ctx.Parent as FamilyEvent;
+            if (own.Tag != "DSCR")
+            {
+                // TODO ErrorRec(string.Format("Invalid CONC/CONT for {0}", own.Tag));
+                return;
+            }
+
+            string extra = ctx.Remain.TrimStart();
+            if (ctx.Tag == "CONC")
+                own.Descriptor += extra;
+            if (ctx.Tag == "CONT")
+                own.Descriptor += "\n" + extra;
+        }
+
+        private static void adopProc(StructParseContext context, int linedex, char level)
+        {
+            (context.Parent as FamilyEvent).FamcAdop = context.Remain;
+        }
+
+        private static void famcProc(StructParseContext context, int linedex, char level)
+        {
+            (context.Parent as FamilyEvent).Famc = context.Remain;
+        }
 
         private static void dateProc(StructParseContext context, int linedex, char level)
         {
@@ -41,11 +76,22 @@ namespace SharpGEDParser.Parser
 
         private static void ageProc(StructParseContext context, int linedex, char level)
         {
-            var det = EventAgeParse.AgeParser(context, linedex, level);
-            if (context.Tag == "HUSB")
-                (context.Parent as FamilyEvent).HusbDetail = det;
+            if (context.Tag == "AGE")
+                (context.Parent as FamilyEvent).Age = context.Remain;
             else
-                (context.Parent as FamilyEvent).WifeDetail = det;
+            {
+                var det = EventAgeParse.AgeParser(context, linedex, level);
+                switch (context.Tag)
+                {
+                    case "HUSB":
+                    default: // TODO when might this happen?
+                        (context.Parent as FamilyEvent).HusbDetail = det;
+                        break;
+                    case "WIFE":
+                        (context.Parent as FamilyEvent).WifeDetail = det;
+                        break;
+                }
+            }
         }
 
         private static void sourProc(StructParseContext context, int linedex, char level)

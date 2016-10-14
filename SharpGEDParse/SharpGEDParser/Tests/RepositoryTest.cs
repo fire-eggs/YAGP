@@ -19,7 +19,7 @@ namespace SharpGEDParser.Tests
 		[Test]
 		public void TestSimple1()
 		{
-			var txt = "0 @R1@ REPO\n1 NAME foobar\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 NAME foobar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
@@ -31,7 +31,7 @@ namespace SharpGEDParser.Tests
 		[Test]
 		public void TestSimple2()
 		{
-			var txt = "0 @R1@ REPO\n1 RIN foobar\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 RIN foobar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
@@ -56,7 +56,7 @@ namespace SharpGEDParser.Tests
 	    [Test]
 	    public void ExtraText()
 	    {
-            var txt = "0 @R1@ REPO supercalifrag\n1 RIN foobar\n0 KLUDGE";
+            var txt = "0 @R1@ REPO supercalifrag\n1 RIN foobar";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             Repository rec = res[0] as Repository;
@@ -69,7 +69,7 @@ namespace SharpGEDParser.Tests
 		[Test]
 		public void TestCust1()
 		{
-			var txt = "0 @R1@ REPO\n1 _CUST foobar\n1 NAME fumbar\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 _CUST foobar\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
@@ -117,7 +117,7 @@ namespace SharpGEDParser.Tests
 		public void TestREFN()
 		{
 			// single REFN
-			var txt = "0 @R1@ REPO\n1 REFN 001\n1 NAME fumbar\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 REFN 001\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
@@ -132,7 +132,7 @@ namespace SharpGEDParser.Tests
 		public void TestREFNs()
 		{
 			// multiple REFNs
-			var txt = "0 @R1@ REPO\n1 REFN 001\n1 NAME fumbar\n1 REFN 002\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 REFN 001\n1 NAME fumbar\n1 REFN 002";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
@@ -149,7 +149,7 @@ namespace SharpGEDParser.Tests
 		public void TestREFNExtra()
 		{
 			// extra on REFN
-			var txt = "0 @R1@ REPO\n1 REFN 001\n2 TYPE blah\n1 NAME fumbar\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 REFN 001\n2 TYPE blah\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
@@ -166,7 +166,7 @@ namespace SharpGEDParser.Tests
 		public void TestREFNExtra2()
 		{
 			// multi-line extra on REFN
-			var txt = "0 @R1@ REPO\n1 REFN 001\n2 TYPE blah\n3 _CUST foo\n1 NAME fumbar\n0 KLUDGE";
+			var txt = "0 @R1@ REPO\n1 REFN 001\n2 TYPE blah\n3 _CUST foo\n1 NAME fumbar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
@@ -194,7 +194,7 @@ namespace SharpGEDParser.Tests
 		public void TestMissingId2()
 		{
 			// missing id
-			var txt = "0 REPO\n1 NAME foobar\n0 KLUDGE";
+			var txt = "0 REPO\n1 NAME foobar";
 			var res = ReadItHigher(txt);
 			Assert.AreEqual(0, res.Errors.Count);
 			Assert.AreEqual(1, res.Data.Count);
