@@ -246,12 +246,12 @@ namespace DrawAnce
             string first = null;
             foreach (var kbrGedRec in gedRecs)
             {
-                if (kbrGedRec is KBRGedIndi)
+                if (kbrGedRec is IndiRecord)
                 {
-                    var ident = (kbrGedRec as KBRGedIndi).Ident;
+                    var ident = (kbrGedRec as IndiRecord).Ident;
 
                     IndiWrap iw = new IndiWrap();
-                    iw.Indi = kbrGedRec as KBRGedIndi;
+                    iw.Indi = kbrGedRec as IndiRecord;
                     iw.Ahnen = 0;
                     iw.ChildOf = null;
                     _indiHash.Add(ident, iw);
@@ -289,7 +289,7 @@ namespace DrawAnce
                     else
                     {
                         IndiWrap hack0 = new IndiWrap();
-                        KBRGedIndi hack = new KBRGedIndi(null,kbrGedFam.Dad);
+                        IndiRecord hack = new IndiRecord(null,kbrGedFam.Dad);
                         NameRec hack2 = new NameRec();
                         hack2.Surname = "Missing";
                         hack.Names.Add(hack2);

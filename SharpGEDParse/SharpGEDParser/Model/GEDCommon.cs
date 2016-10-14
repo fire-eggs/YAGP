@@ -75,9 +75,11 @@ namespace SharpGEDParser.Model
 
         public GEDCommon(GedRecord lines, string ident)
         {
+            Ident = ident;
+            if (lines == null) // DrawAnce creating INDI on-the-fly
+                return;
             BegLine = lines.Beg;
             EndLine = lines.End;
-            Ident = ident;
         }
     }
 

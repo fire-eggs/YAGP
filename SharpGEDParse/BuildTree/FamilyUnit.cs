@@ -1,25 +1,24 @@
-﻿using SharpGEDParser;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
 
 namespace BuildTree
 {
     public class FamilyUnit
     {
-        public KBRGedIndi Husband;
-        public KBRGedIndi Wife;
-        public List<KBRGedIndi> Childs;
+        public IndiRecord Husband;
+        public IndiRecord Wife;
+        public List<IndiRecord> Childs;
         public FamRecord FamRec;
 
         public FamilyUnit DadFam;
         public FamilyUnit MomFam;
 
-        public FamilyUnit(FamRecord _fam)
+        public FamilyUnit(FamRecord fam)
         {
-            FamRec = _fam;
+            FamRec = fam;
             Husband = null;
             Wife = null;
-            Childs = new List<KBRGedIndi>();
+            Childs = new List<IndiRecord>();
 
             DadFam = null;
             MomFam = null;

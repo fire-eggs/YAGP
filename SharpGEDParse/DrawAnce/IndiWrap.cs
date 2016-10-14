@@ -1,11 +1,12 @@
 ﻿using BuildTree;
 using SharpGEDParser;
+using SharpGEDParser.Model;
 
 namespace DrawAnce
 {
     public class IndiWrap
     {
-        public KBRGedIndi Indi;
+        public IndiRecord Indi;
         public int Ahnen;
         public FamilyUnit ChildOf;
 
@@ -44,7 +45,7 @@ namespace DrawAnce
             }
         }
 
-        private KBRGedEvent GetEvent(string tag)
+        private FamilyEvent GetEvent(string tag)
         {
             foreach (var kbrGedEvent in Indi.Events)
             {
@@ -56,7 +57,7 @@ namespace DrawAnce
             return null;
         }
 
-        private KBRGedEvent GetAttrib(string tag)
+        private FamilyEvent GetAttrib(string tag)
         {
             foreach (var kbrGedEvent in Indi.Attribs)
             {
@@ -70,7 +71,7 @@ namespace DrawAnce
 
         private string GetShowString(string tag, string prefix)
         {
-            KBRGedEvent even = GetEvent(tag);
+            var even = GetEvent(tag);
             if (even == null)
                 return "";
 
@@ -83,15 +84,15 @@ namespace DrawAnce
 
         private string GetShowString2(string tag, string prefix)
         {
-            KBRGedEvent even = GetAttrib(tag);
+            var even = GetAttrib(tag);
             if (even == null)
                 return "";
 
-            string val = even.Detail + " " + even.Place;
+            string val = even.Descriptor + " " + even.Place;
             if (string.IsNullOrWhiteSpace(val))
                 return "";
 
-            return prefix + val + "\r\n";
+            return prefix + val.Trim() + "\r\n";
         }
     }
 }
