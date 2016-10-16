@@ -24,7 +24,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("DESI", DesiProc);
 
             _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("RFN",  rfnProc);
+            _tagSet2.Add("UID", UidProc);
+            _tagSet2.Add("RFN", rfnProc);
             _tagSet2.Add("AFN", afnProc);
 
             // Events
@@ -93,17 +94,17 @@ namespace SharpGEDParser.Parser
 
         private void afnProc(ParseContext2 context)
         {
-            throw new NotImplementedException();
+            DataProc(context, false);
         }
 
         private void rfnProc(ParseContext2 context)
         {
-            throw new NotImplementedException();
+            DataProc(context, false);
         }
 
         private void UidProc(ParseContext2 context)
         {
-            throw new NotImplementedException();
+            DataProc(context, false);
         }
 
         private void DesiProc(ParseContext2 context)

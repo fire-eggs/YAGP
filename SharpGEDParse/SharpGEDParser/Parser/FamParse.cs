@@ -39,6 +39,9 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("MARL", eventProc);
             _tagSet2.Add("MARS", eventProc);
             _tagSet2.Add("RESI", eventProc);
+
+            _tagSet2.Add("_UID", UidProc);
+            _tagSet2.Add("UID", UidProc);
         }
 
         private void ldsSpouseSeal(ParseContext2 context)
@@ -116,6 +119,11 @@ namespace SharpGEDParser.Parser
             var famEvent = FamilyEventParse.Parse(context);
             var fam = (context.Parent as FamRecord);
             fam.FamEvents.Add(famEvent);
+        }
+
+        private void UidProc(ParseContext2 context)
+        {
+            DataProc(context, false);
         }
 
         public override void PostCheck(GEDCommon rec)

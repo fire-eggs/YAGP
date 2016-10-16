@@ -65,7 +65,7 @@ namespace SharpGEDParser.Model
         private List<UnkRec> _errors;
         public List<UnkRec> Errors { get { return _errors ?? (_errors = new List<UnkRec>()); } }
 
-        // Container for other ids (REFN, UID)
+        // Container for other ids (REFN, UID, AFN, RFN)
         // NOTE: RIN is not here because used by > 50% of records
         private IdHold _ids;
         public IdHold Ids { get { return _ids ?? (_ids = new IdHold()); } }
@@ -96,6 +96,19 @@ namespace SharpGEDParser.Model
     {
         private List<StringPlus> _refns;
         public List<StringPlus> REFNs { get { return _refns ?? (_refns = new List<StringPlus>()); } }
+
+        private Dictionary<string, StringPlus> _other;
+        public Dictionary<string, StringPlus> Others { get { return _other ?? (_other = new Dictionary<string, StringPlus>()); } }
+
+        public bool HasId(string tag)
+        {
+            return Others.ContainsKey(tag);
+        }
+
+        public void Add(string tag, StringPlus sp)
+        {
+            Others.Add(tag, sp);
+        }
     }
 
     public class StringPlus

@@ -203,6 +203,14 @@ namespace SharpGEDParser
             _rec.Notes.Add(txt);
         }
 
+        protected UnkRec ErrorRec(ParseContext2 ctx, string reason)
+        {
+            var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+            rec.Error = reason;
+            ctx.Parent.Errors.Add(rec);
+            return rec;
+        }
+
         protected UnkRec ErrorRec(string reason)
         {
             var rec = new UnkRec(ctx.Tag, ctx.Begline+_rec.Lines.Beg, ctx.Endline+_rec.Lines.Beg);
@@ -326,16 +334,30 @@ namespace SharpGEDParser
             (ctx.Parent as MediaHold).Media.Add(mlink);
         }
 
-        protected void RefnProc(ParseContext2 ctx)
+        protected void DataProc(ParseContext2 ctx, bool multipleOK)
         {
-            // Common REFN processing
+            // Common processing for UID, RFN, AFN
+            bool isRefn = ctx.Tag.Equals("REFN");
+            if (!isRefn && !multipleOK && ctx.Parent.Ids.HasId(ctx.Tag))
+            {
+                ErrorRec(ctx, string.Format("Multiple {0} encountered; keeping only the first", ctx.Tag));
+                // TODO what to do: we're throwing away data!
+                return;
+            }
             var sp = new StringPlus();
             sp.Value = ctx.Remain;
             LookAhead(ctx);
             sp.Extra.Beg = ctx.Begline + 1;
             sp.Extra.End = ctx.Endline;
+            if (isRefn)
+                ctx.Parent.Ids.REFNs.Add(sp);
+            else
+                ctx.Parent.Ids.Add(ctx.Tag, sp);
+        }
 
-            ctx.Parent.Ids.REFNs.Add(sp);
+        protected void RefnProc(ParseContext2 ctx)
+        {
+            DataProc(ctx, true);
         }
 
         public virtual void PostCheck(GEDCommon rec)

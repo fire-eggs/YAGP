@@ -124,6 +124,7 @@
     <Compile Include="Tests\IndiTest1.cs" />
     <Compile Include="Tests\Media55Test.cs" />
     <Compile Include="Tests\MediaTest.cs" />
+    <Compile Include="Tests\MiscIdTests.cs" />
     <Compile Include="Tests\NoteTest.cs" />
     <Compile Include="Tests\RepositoryTest.cs" />
     <Compile Include="Tests\GedParseTest.cs" />
