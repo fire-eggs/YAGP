@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="FileTest.cs" />
     <Compile Include="GedParseTest.cs" />
-    <Compile Include="IndiLDSTest.cs" />
     <Compile Include="SourCitTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

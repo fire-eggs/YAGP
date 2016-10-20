@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
@@ -9,13 +6,6 @@ namespace SharpGEDParser.Tests
 	[TestFixture]
 	public class RepositoryTest : GedParseTest
 	{
-		// TODO this is temporary until GEDCommon replaces KBRGedRec
-		public static List<GEDCommon> ReadIt(string testString)
-		{
-			var fr = ReadItHigher(testString);
-			return fr.Data.Select(o => o as GEDCommon).ToList();
-		}
-
 		[Test]
 		public void TestSimple1()
 		{

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SharpGEDParser.Model;
+using System;
 
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable InconsistentNaming
@@ -20,13 +18,6 @@ namespace SharpGEDParser.Tests
 
         // TODO move all source citation tests elsewhere?
         // TODO more than one source citation text
-
-        // TODO this is temporary until GEDCommon replaces KBRGedRec
-        public static List<GEDCommon> ReadIt(string testString)
-        {
-            var fr = ReadItHigher(testString);
-            return fr.Data.Select(o => o as GEDCommon).ToList();
-        }
 
         [Test]
         public void TestSimple1()
@@ -199,6 +190,7 @@ namespace SharpGEDParser.Tests
             var res = ReadItHigher(txt);
             Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
             Assert.AreEqual(1, res.Data.Count);
+            Assert.IsNotNull(res.Data[0] as GEDCommon);
             Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
         }
 

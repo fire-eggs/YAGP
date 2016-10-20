@@ -3,16 +3,12 @@
 // record data needs to be validated as well. Doing so caught some issues
 // where parsing of secondary structures made primary record data vanish.
 
-using System;
 using NUnit.Framework;
 using SharpGEDParser.Model;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 
 // Testing for Media (OBJE) Records
 // Unless specifically mentioned, the syntax for these records is GEDCOM 5.5.1
-
-// TODO GEDCOM 5.5 syntax -> separate test file
 
 // TODO exercise all sub-records with multiple FILE? mixed?
 // TODO how thorough to test source citation? tested elsewhere?
@@ -25,13 +21,6 @@ namespace SharpGEDParser.Tests
     [TestFixture]
     public class MediaTest : GedParseTest
     {
-        // TODO this is temporary until GEDCommon replaces KBRGedRec
-        public static List<GEDCommon> ReadIt(string testString)
-        {
-            var fr = ReadItHigher(testString);
-            return fr.Data.Select(o => o as GEDCommon).ToList();
-        }
-
         [Test]
         public void TestSimple1()
         {

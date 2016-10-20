@@ -162,7 +162,9 @@ namespace SharpGEDParser.Parser
 
         private void LdsOrdProc(ParseContext2 context)
         {
-            throw new NotImplementedException();
+            LDSEvent evt = LDSEventParse.Parse(context);
+            var indi = (context.Parent as IndiRecord);
+            indi.LDSEvents.Add(evt);
         }
 
         private void AttribProc(ParseContext2 context)

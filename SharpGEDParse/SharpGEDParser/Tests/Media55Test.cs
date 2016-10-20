@@ -1,9 +1,4 @@
-﻿using System;
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
 
 // Testing for Media (OBJE) records - using 5.5 syntax
 using SharpGEDParser.Model;
@@ -13,12 +8,6 @@ namespace SharpGEDParser.Tests
     [TestFixture]
     public class Media55Test : GedParseTest
     {
-        public static List<GEDCommon> ReadIt(string testString)
-        {
-            var fr = ReadItHigher(testString);
-            return fr.Data.Select(o => o as GEDCommon).ToList();
-        }
-
         [Test]
         public void TestSimple1()
         {

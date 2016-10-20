@@ -18,10 +18,32 @@ namespace SharpGEDParser.Parser
             {"PLAC", remainProc},
             {"STAT", remainProc},
             {"TEMP", remainProc},
+            {"FAMC", xrefproc}, // INDI-SLGC support
 
             {"NOTE", noteProc},
             {"SOUR", sourProc}
         };
+
+        private static void xrefproc(StructParseContext context, int linedex, char level)
+        {
+            var me = (context.Parent as LDSEvent);
+
+            // TODO copy-pasta from IndiParse
+            string xref;
+            string extra;
+            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
+            if (string.IsNullOrEmpty(xref))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing/unterminated identifier: " + context.Tag;
+                err.Beg = err.End = context.Begline;
+                // me.Errors.Add(err); // TODO no place to store errors: move to post-processing?
+            }
+            else
+            {
+                me.FamilyXref = xref;
+            }
+        }
 
         private static void remainProc(StructParseContext context, int linedex, char level)
         {
