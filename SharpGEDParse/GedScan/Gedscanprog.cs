@@ -196,7 +196,7 @@ namespace GedScan
                 }
 
                 // TODO this is awkward
-                if (gedRec is KBRGedIndi)
+                if (gedRec2 is IndiRecord)
                     inds++;
                 else if (gedRec2 is FamRecord) //KBRGedFam)
                     fams++;

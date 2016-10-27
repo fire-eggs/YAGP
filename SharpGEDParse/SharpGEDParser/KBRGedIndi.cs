@@ -122,7 +122,7 @@ namespace SharpGEDParser
         }
     }
 
-    public class KBRGedIndi : KBRGedRec
+    class KBRGedIndi : KBRGedRec
     {
         // TODO track this via Data instead?
         // Restriction notice

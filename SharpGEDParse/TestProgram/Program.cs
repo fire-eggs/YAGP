@@ -38,7 +38,7 @@ namespace TestProgram
                 else if (gedRec is GEDCommon)
                     errs += (gedRec as GEDCommon).Errors.Count;
 
-                if (gedRec is KBRGedIndi)
+                if (gedRec is IndiRecord)
                     inds++;
                 else if (gedRec is FamRecord)
                     fams++;

@@ -63,7 +63,7 @@ namespace SharpGEDParser.Parser
                     me.Temple = context.Remain;
                     break;
                 default:
-                    throw new NotSupportedException();
+                    throw new NotSupportedException(); // NOTE: this will be thrown if a tag is added to tagDict but no case added here
             }
         }
 
