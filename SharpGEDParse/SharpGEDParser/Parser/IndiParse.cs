@@ -19,9 +19,9 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("SEX",  SexProc);
             _tagSet2.Add("SUBM", xrefProc);
             _tagSet2.Add("ASSO", AssocProc);
-            _tagSet2.Add("ALIA", AliasProc);
-            _tagSet2.Add("ANCI", AnciProc);
-            _tagSet2.Add("DESI", DesiProc);
+            _tagSet2.Add("ALIA", xrefProc);
+            _tagSet2.Add("ANCI", xrefProc);
+            _tagSet2.Add("DESI", xrefProc);
 
             _tagSet2.Add("_UID", UidProc);
             _tagSet2.Add("UID", UidProc);
@@ -107,21 +107,6 @@ namespace SharpGEDParser.Parser
             DataProc(context, false);
         }
 
-        private void DesiProc(ParseContext2 context)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AnciProc(ParseContext2 context)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AliasProc(ParseContext2 context)
-        {
-            throw new NotImplementedException();
-        }
-
         private void AssocProc(ParseContext2 context)
         {
             throw new NotImplementedException();
@@ -185,6 +170,8 @@ namespace SharpGEDParser.Parser
         private void xrefProc(ParseContext2 context)
         {
             var indi = (context.Parent as IndiRecord);
+            if (indi == null)
+                return; // TODO throw exception?
 
             string xref;
             string extra;
@@ -207,8 +194,19 @@ namespace SharpGEDParser.Parser
                         indi.ChildLinks.Add(xref);
                         break;
                     case "SUBM":
-                        indi.FamSubm.Add(xref);
+                        indi.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
                         break;
+                    case "ALIA":
+                        throw new NotImplementedException();
+                        break;
+                    case "DESI":
+                        indi.AddSubmitter(IndiRecord.Submitter.DESI, xref);
+                        break;
+                    case "ANCI":
+                        indi.AddSubmitter(IndiRecord.Submitter.ANCI, xref);
+                        break;
+                    default:
+                        throw new NotSupportedException(); // NOTE: this will be thrown if a tag is added to tagDict but no case added here
                 }
             }
         }

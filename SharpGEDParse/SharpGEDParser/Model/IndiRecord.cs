@@ -17,8 +17,8 @@ namespace SharpGEDParser.Model
         public List<LDSEvent> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSEvent>()); } }
 
         // Identity strings for submitters
-        private List<string> _famSubm; // TODO common?
-        public List<string> FamSubm { get { return _famSubm ?? (_famSubm = new List<string>()); } }
+        private List<Submitter> _submit; // TODO common?
+        public List<Submitter> Submitters { get { return _submit ?? (_submit = new List<Submitter>()); } }
 
         private List<FamilyEvent> _events; // TODO is an INDI specific event necessary?
         public List<FamilyEvent> Events { get { return _events ?? (_events = new List<FamilyEvent>()); } }
@@ -51,6 +51,21 @@ namespace SharpGEDParser.Model
 
         public IndiRecord(GedRecord lines, string ident) : base(lines, ident)
         {          
+        }
+
+        public class Submitter
+        {
+            public static int SUBM = 0;
+            public static int DESI = 1;
+            public static int ANCI = 2;
+            public int SubmitterType;
+            public string Xref;
+        }
+
+        public void AddSubmitter(int submType, string ident)
+        {
+            Submitters.Add(new Submitter {SubmitterType = submType, Xref = ident});
+            // TODO at later time must validate the specified xref exists
         }
     }
 }
