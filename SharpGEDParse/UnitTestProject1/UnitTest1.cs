@@ -15,10 +15,8 @@ namespace UnitTestProject1
             string testString = "0 HEAD\n1 SOUR TJ\n2 NAME Tamura Jones\n2 VERS 1.0\n1 DATE 9 Sep 2013\n1 FILE IdentCONT.GED\n1 NOTE Test File: CONT line with identifier.\n1 GEDC\n2 VERS 5.5.1\n2 FORM LINEAGE-LINKED\n1 CHAR UTF-8\n1 LANG English\n1 SUBM @U1@\n0 @U1@ SUBM\n1 NAME Name\n0 @I1@ INDI\n1 NAME One /Note/\n2 SURN Note\n2 GIVN One\n1 NOTE First line of a note.\n2 @IDENT@ CONT Second line of a note.\n2 CONT Third line of a note.\n0 TRLR";
             var res = ReadIt(testString);
             
-            Assert.AreEqual(3, res.Count);
-            // TODO
-            //Assert.AreEqual("HEAD", res[0].Tag);
-            //Assert.AreEqual("INDI", res[2].Tag);
+            Assert.AreEqual(4, res.Count);
+            Assert.IsNotNull(res[2] as IndiRecord);
         }
 
         [TestMethod]
@@ -35,12 +33,13 @@ namespace UnitTestProject1
             var fr = ReadItHigher(testString);
             var res = fr.Data;
 
-            Assert.AreEqual(6, res.Count);
-            Assert.AreEqual("HEAD", (res[0] as KBRGedRec).Tag);
-            Assert.AreEqual("INDI", (res[2] as KBRGedRec).Tag);
-            Assert.AreEqual("INDI", (res[3] as KBRGedRec).Tag);
-            Assert.AreEqual("INDI", (res[4] as KBRGedRec).Tag);
-            Assert.IsNotNull(res[5] as FamRecord); // TODO GedCommon doesn't expose Tag property
+            Assert.AreEqual(7, res.Count);
+            //Assert.AreEqual("HEAD", (res[0] as KBRGedRec).Tag);
+            // TODO GedCommon doesn't expose Tag property
+            Assert.IsNotNull(res[2] as IndiRecord);
+            Assert.IsNotNull(res[3] as IndiRecord);
+            Assert.IsNotNull(res[4] as IndiRecord);
+            Assert.IsNotNull(res[5] as FamRecord); 
         }
 
         [TestMethod]
@@ -161,7 +160,7 @@ namespace UnitTestProject1
             // a later CONC tag was picked up by a tag which took a CONC
             var txt = "0 INDI\n1 NOTE notes \n2 CONC detail\n1 DSCR a big man\n2 CONT I don't";
             var rec = parse<IndiRecord>(txt, "INDI");
-            Assert.AreEqual("notes detail", rec.Notes[0]); // i.e. do NOT pick up the CONT from DSCR
+            Assert.AreEqual("notes detail", rec.Notes[0].Text); // i.e. do NOT pick up the CONT from DSCR
         }
 
         [TestMethod]
@@ -171,7 +170,7 @@ namespace UnitTestProject1
             var indi = "0 INDI\n1 NOTE notes\n    2 CONT more detail";
             var rec = parse<IndiRecord>(indi, "INDI");
             Assert.AreEqual(1, rec.Notes.Count);
-            Assert.AreEqual("notes\nmore detail", rec.Notes[0]);
+            Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
         }
 
         [TestMethod]

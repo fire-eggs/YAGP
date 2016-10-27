@@ -1,6 +1,9 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser.Model;
 
+// ReSharper disable ConvertToConstant.Local
+// ReSharper disable InconsistentNaming
+
 namespace SharpGEDParser.Tests
 {
 	[TestFixture]
@@ -21,11 +24,12 @@ namespace SharpGEDParser.Tests
 		[Test]
 		public void TestSimple2()
 		{
-			var txt = "0 @R1@ REPO\n1 RIN foobar";
+			var txt = "0 @R1@ REPO\n1 NAME fumbar\n1 RIN foobar";
 			var res = ReadIt(txt);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
+            Assert.AreEqual("fumbar", rec.Name);
 			Assert.AreEqual("foobar", rec.RIN);
 			Assert.AreEqual("R1", rec.Ident);
 		}
@@ -46,7 +50,7 @@ namespace SharpGEDParser.Tests
 	    [Test]
 	    public void ExtraText()
 	    {
-            var txt = "0 @R1@ REPO supercalifrag\n1 RIN foobar";
+            var txt = "0 @R1@ REPO supercalifrag\n1 RIN foobar\n1 NAME fumbar";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             Repository rec = res[0] as Repository;
@@ -175,6 +179,7 @@ namespace SharpGEDParser.Tests
 			// empty record; missing id
 			var txt = "0 REPO";
 			var res = ReadItHigher(txt);
+            // TODO 'empty record' no longer occurring. Valid?
 			Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
 			Assert.AreEqual(1, res.Data.Count);
 			Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count);
@@ -231,33 +236,36 @@ namespace SharpGEDParser.Tests
 		[Test]
 		public void TestNote()
 		{
-			var indi = "0 REPO @R1@\n1 NOTE";
+            var indi = "0 @R1@ REPO\n1 NAME fumbar\n1 NOTE";
 			var res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
+            Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("", rec.Notes[0].Text);
 
-			indi = "0 REPO @R1@\n1 NOTE notes\n2 CONT more detail";
+            indi = "0 @R1@ REPO\n1 NAME fumbar\n1 NOTE notes\n2 CONT more detail";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
 			rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
-			Assert.AreEqual(1, rec.Notes.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
 
-			indi = "0 REPO @R1@\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
+            indi = "0 @R1@ REPO\n1 NAME fumbar\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
 			rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
-			Assert.AreEqual(2, rec.Notes.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(2, rec.Notes.Count);
 			Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
 			Assert.AreEqual("notes2", rec.Notes[1].Text);
 
 			// trailing space must be preserved
-			indi = "0 REPO @R1@\n1 NOTE notes\n2 CONC more detail \n2 CONC yet more detail";
+            indi = "0 @R1@ REPO\n1 NAME fumbar\n1 NOTE notes\n2 CONC more detail \n2 CONC yet more detail";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
 			rec = res[0] as Repository;
@@ -265,7 +273,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("notesmore detail yet more detail", rec.Notes[0].Text);
 
-			indi = "0 REPO @R1@\n1 NOTE notes \n2 CONC more detail \n2 CONC yet more detail ";
+            indi = "0 @R1@ REPO\n1 NAME fumbar\n1 NOTE notes \n2 CONC more detail \n2 CONC yet more detail ";
 			res = ReadIt(indi);
 			Assert.AreEqual(1, res.Count);
 			rec = res[0] as Repository;

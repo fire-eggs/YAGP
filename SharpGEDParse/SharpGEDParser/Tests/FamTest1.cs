@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser.Model;
-using System.Collections.Generic;
-using System.Linq;
+
+// ReSharper disable ConvertToConstant.Local
 
 // TODO RESN variations
 // TODO specifying HUSB, WIFE more than once
@@ -254,6 +254,7 @@ namespace SharpGEDParser.Tests
             // empty record; missing id
             var txt = "0 FAM";
             var res = ReadItHigher(txt);
+            // TODO 'empty record' disabled intentionally: valid?
             Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
             Assert.AreEqual(1, res.Data.Count);
             Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);

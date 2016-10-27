@@ -56,7 +56,7 @@ namespace UnitTestProject1
 
             File.Delete(tmppath);
 
-            Assert.AreEqual(2, results.Count);
+            Assert.AreEqual(3, results.Count);
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@ namespace UnitTestProject1
         {
             var txt = "0 HEAD\n1 SOUR 0\n1 SUBM @U_A@\n1 GEDC\n2 VERS 5.5.1\n2 FORM LINEAGE-LINKED\n1 CHAR ASCII\n0 @U_A@ SUBM\n1 NAME X\n0 TRLR";
             var results = CommonBasic(txt, fileEnc);
-            Assert.AreEqual(2, results.Count);
+            Assert.AreEqual(3, results.Count);
             return results;
         }
 
