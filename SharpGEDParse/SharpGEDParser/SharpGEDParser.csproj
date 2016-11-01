@@ -122,6 +122,7 @@
     <Compile Include="Tests\IndiAttrib.cs" />
     <Compile Include="Tests\IndiEvents.cs" />
     <Compile Include="Tests\IndiLDSEvents.cs" />
+    <Compile Include="Tests\IndiNames.cs" />
     <Compile Include="Tests\IndiSubmit.cs" />
     <Compile Include="Tests\IndiTest1.cs" />
     <Compile Include="Tests\Media55Test.cs" />
