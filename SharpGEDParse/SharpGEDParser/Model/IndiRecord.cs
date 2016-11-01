@@ -34,6 +34,11 @@ namespace SharpGEDParser.Model
         private List<string> _spouses;
         public List<string> FamLinks { get { return _spouses ?? (_spouses = new List<string>()); } }
 
+        // xref strings for aliases [pointer to record which may be the same person]
+        // TODO at later point must validate the referenced record exists
+        private List<string> _aliases;
+        public List<string> AliasLinks { get { return _aliases ?? (_aliases = new List<string>()); } }
+
         private string _restriction;
         public string Restriction
         {

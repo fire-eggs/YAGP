@@ -221,7 +221,7 @@ namespace SharpGEDParser.Parser
                         indi.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
                         break;
                     case "ALIA":
-                        throw new NotImplementedException();
+                        indi.AliasLinks.Add(xref);
                         break;
                     case "DESI":
                         indi.AddSubmitter(IndiRecord.Submitter.DESI, xref);

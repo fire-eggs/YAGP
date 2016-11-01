@@ -225,5 +225,13 @@ namespace SharpGEDParser.Tests
             Assert.IsTrue(rec.Living);
         }
 
+        [Test]
+        public void Alias()
+        {
+            var indi = "0 @I1@ INDI\n1 ALIA @I2@";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.AliasLinks.Count);
+            Assert.AreEqual("I2", rec.AliasLinks[0]);
+        }
     }
 }
