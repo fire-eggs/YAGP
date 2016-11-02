@@ -109,7 +109,9 @@ namespace SharpGEDParser.Parser
 
         private void AssocProc(ParseContext2 context)
         {
-            throw new NotImplementedException();
+            var res = IndiAssoParse.AssoParse(context);
+            var own = (context.Parent as IndiRecord);
+            own.Assocs.Add(res);
         }
 
         private void SexProc(ParseContext2 context)

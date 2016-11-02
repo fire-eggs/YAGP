@@ -168,9 +168,14 @@ namespace SharpGEDParser.Parser
                 return;
             }
 
-            xref = txt.Substring(1, dex - 1);
+            xref = txt.Substring(1, dex - 1).Trim();
             extra = txt.Substring(dex + 1);
         }
 
+        protected static void sourProc(StructParseContext context, int linedex, char level)
+        {
+            var cit = SourceCitParse.SourceCitParser(context, linedex, level);
+            (context.Parent as SourceCitHold).Cits.Add(cit);
+        }
     }
 }

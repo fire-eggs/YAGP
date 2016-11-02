@@ -64,6 +64,7 @@
     <Compile Include="GedHeadParse.cs" />
     <Compile Include="GedIndiParse.cs" />
     <Compile Include="Model\AgeDetail.cs" />
+    <Compile Include="Model\AssoRec.cs" />
     <Compile Include="Model\EventCommon.cs" />
     <Compile Include="Model\FamilyEvent.cs" />
     <Compile Include="Model\FamRecord.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Parser\EventAgeParse.cs" />
     <Compile Include="Parser\FamilyEventParse.cs" />
     <Compile Include="Parser\FamParse.cs" />
+    <Compile Include="Parser\IndiAssoParse.cs" />
     <Compile Include="Parser\IndiParse.cs" />
     <Compile Include="Parser\LDSEventParse.cs" />
     <Compile Include="Parser\LineUtil.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Tests\ChanTests.cs" />
     <Compile Include="Tests\FamEventTest1.cs" />
     <Compile Include="Tests\FamTest1.cs" />
+    <Compile Include="Tests\IndiAssocs.cs" />
     <Compile Include="Tests\IndiAttrib.cs" />
     <Compile Include="Tests\IndiEvents.cs" />
     <Compile Include="Tests\IndiLDSEvents.cs" />

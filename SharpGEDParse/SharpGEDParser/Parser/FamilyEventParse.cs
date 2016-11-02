@@ -94,12 +94,6 @@ namespace SharpGEDParser.Parser
             }
         }
 
-        private static void sourProc(StructParseContext context, int linedex, char level)
-        {
-            var cit = SourceCitParse.SourceCitParser(context, linedex, level);
-            (context.Parent as SourceCitHold).Cits.Add(cit);
-        }
-
         private static void objeProc(StructParseContext context, int linedex, char level)
         {
             var med = MediaStructParse.MediaParser(context, linedex, level);

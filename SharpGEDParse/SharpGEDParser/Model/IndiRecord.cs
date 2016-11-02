@@ -39,6 +39,9 @@ namespace SharpGEDParser.Model
         private List<string> _aliases;
         public List<string> AliasLinks { get { return _aliases ?? (_aliases = new List<string>()); } }
 
+        private List<AssoRec> _assoc;
+        public List<AssoRec> Assocs { get { return _assoc ?? (_assoc = new List<AssoRec>()); } }
+
         private string _restriction;
         public string Restriction
         {
