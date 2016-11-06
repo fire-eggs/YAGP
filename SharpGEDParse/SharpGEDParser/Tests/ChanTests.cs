@@ -7,7 +7,7 @@ using System;
 
 namespace SharpGEDParser.Tests
 {
-    // Common testing for CHAN
+    // Common testing for CHAN - applies to all 'top-level' records with the same syntax
     [TestFixture]
     public class ChanTests : GedParseTest
     {
@@ -32,6 +32,8 @@ namespace SharpGEDParser.Tests
             TestChanM(txt, "INDI");
             TestChanM(txt, "FAM");
 //            TestChanM(txt, "HEAD");
+//            TestChanM(txt, "SUBM");
+//            TestChanM(txt, "SUBN");
         }
 
         // No date test for a given record

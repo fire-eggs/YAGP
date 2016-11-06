@@ -189,12 +189,6 @@ namespace SharpGEDParser
             ctx.Endline = linedex;
         }
 
-        protected KBRGedEvent CommonEventProcessing(GedRecord lines)
-        {
-            var eRec = KBRGedParser.EventParser.Parse0(_rec, ctx);
-            return eRec as KBRGedEvent;
-        }
-
         protected void NoteProc()
         {
             // Common note processing

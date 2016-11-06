@@ -60,9 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileRead.cs" />
-    <Compile Include="GedEventParse.cs" />
     <Compile Include="GedHeadParse.cs" />
-    <Compile Include="GedIndiParse.cs" />
     <Compile Include="Model\AgeDetail.cs" />
     <Compile Include="Model\AssoRec.cs" />
     <Compile Include="Model\EventCommon.cs" />
@@ -81,9 +79,7 @@
     <Compile Include="GedSourCit.cs" />
     <Compile Include="GedSourCitParse.cs" />
     <Compile Include="GedSubm.cs" />
-    <Compile Include="KBRGedEvent.cs" />
     <Compile Include="KBRGedHead.cs" />
-    <Compile Include="KBRGedIndi.cs" />
     <Compile Include="KBRGedParser.cs" />
     <Compile Include="KBRGedRec.cs" />
     <Compile Include="KBRGedUnk.cs" />
@@ -131,6 +127,7 @@
     <Compile Include="Tests\Media55Test.cs" />
     <Compile Include="Tests\MediaTest.cs" />
     <Compile Include="Tests\MiscIdTests.cs" />
+    <Compile Include="Tests\NoteLevel1.cs" />
     <Compile Include="Tests\NoteTest.cs" />
     <Compile Include="Tests\RepositoryTest.cs" />
     <Compile Include="Tests\GedParseTest.cs" />

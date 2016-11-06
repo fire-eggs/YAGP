@@ -7,7 +7,7 @@ using System;
 
 namespace SharpGEDParser.Tests
 {
-    // Testing for NOTE records
+    // Testing for NOTE top-level records - not NOTE sub-records
     [TestFixture]
     class NoteTest : GedParseTest
     {

@@ -1,9 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using SharpGEDParser.Model;
 
 namespace SharpGEDParser
 {
+    public class Rec
+    {
+        public int Beg { get; set; }
+
+        public int End { get; set; }
+
+        // TODO enum?
+        public string Tag { get; set; }
+        //        public int LineCount { get { return End - Beg + 1; } }
+
+        [ExcludeFromCodeCoverage]
+        public override string ToString()
+        {
+            return string.Format("{0}({1},{2})", Tag, Beg, End);
+        }
+    }
+
+    // Currently used for _UID
+    public class DataRec : Rec
+    {
+        public string Data { get; set; }
+
+        public DataRec(string tag, string data)
+        {
+            Tag = tag;
+            Data = data;
+        }
+    }
+
+    public class NameRec : Rec
+    {
+        public string Names { get; set; }
+        public string Surname { get; set; }
+        public string Suffix { get; set; }
+
+        [ExcludeFromCodeCoverage]
+        public override string ToString()
+        {
+            return string.Format(" {0} /{1}/ {2}", Names, Surname, Suffix).Trim();
+        }
+    }
+
     public class KBRGedRec
     {
         public GedRecord Lines { get; set; }

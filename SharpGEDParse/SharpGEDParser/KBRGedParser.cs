@@ -150,13 +150,7 @@ namespace SharpGEDParser
         private GedParse _RepoParseSingleton;
         private GedParse _NoteParseSingleton;
         private GedParse _MediaParseSingleton;
-        private static GedRecParse _EventParseSingleton;
         private static GedRecParse _SourceCitParseSingleton;
-
-        public static GedRecParse EventParser
-        {
-            get { return _EventParseSingleton ?? (_EventParseSingleton = new GedEventParse()); }
-        }
 
         public static GedRecParse SourceCitParseSingleton
         {

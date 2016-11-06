@@ -5,8 +5,8 @@ using SharpGEDParser.Model;
 // TODO test NOTE details
 // TODO test SOUR
 // TODO test SOUR details
-// TODO test CHAN
-// TODO test CHAN details
+// TODO test OBJE
+// TODO test OBJE details
 // TODO test multiple, mixed attributes
 
 // ReSharper disable InconsistentNaming
