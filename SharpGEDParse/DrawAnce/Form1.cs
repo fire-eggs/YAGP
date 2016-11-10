@@ -289,8 +289,10 @@ namespace DrawAnce
                     else
                     {
                         IndiWrap hack0 = new IndiWrap();
+
+                        // TODO need a library method to do this!!!
                         IndiRecord hack = new IndiRecord(null,kbrGedFam.Dad);
-                        NameRec hack2 = new NameRec();
+                        var hack2 = new SharpGEDParser.Model.NameRec();
                         hack2.Surname = "Missing";
                         hack.Names.Add(hack2);
                         famU.Husband = hack;

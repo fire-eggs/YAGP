@@ -132,9 +132,9 @@ namespace SharpGEDParser.Parser
 
         private void NameProc(ParseContext2 ctx)
         {
-            var rec = new NameRec();
-            rec.Beg = ctx.Begline;
-            rec.End = ctx.Endline;
+            var rec = new Model.NameRec();
+            //rec.Beg = ctx.Begline;
+            //rec.End = ctx.Endline;
 
             string line = ctx.Remain;
             int max = line.Length;

@@ -147,7 +147,7 @@ namespace SharpGEDParser.Parser
  */
         }
 
-        public static FamilyEvent Parse(GedRecParse.ParseContext2 ctx)
+        public static FamilyEvent Parse(ParseContext2 ctx)
         {
             var gedEvent = new FamilyEvent();
             StructParseContext ctx2 = new StructParseContext(ctx, gedEvent);

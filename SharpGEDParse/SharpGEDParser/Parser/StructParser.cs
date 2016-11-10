@@ -9,39 +9,6 @@ namespace SharpGEDParser.Parser
 {
     public class StructParser
     {
-        public class StructParseContext : GedRecParse.ParseContextCommon
-        {
-            public StructCommon Parent;
-
-            public StructParseContext()
-            {
-                throw new Exception(); // don't be calling me!
-            }
-
-            public StructParseContext(GedRecParse.ParseContext2 ctx, StructCommon parent)
-                : base (ctx)
-            {
-                Parent = parent;
-            }
-
-            public StructParseContext(StructParseContext ctx, int linedex, StructCommon parent)
-                : base (ctx)
-            {
-                Parent = parent;
-                Begline = linedex;
-                Endline = linedex;
-            }
-
-            public StructParseContext(GedRecParse.ParseContextCommon ctx, int linedex, char level, StructCommon parent)
-                : base (ctx)
-            {
-                Parent = parent;
-                Begline = linedex;
-                Endline = linedex;
-                Level = level;
-            }
-        }
-
         protected delegate void TagProc(StructParseContext context, int linedex, char level);
 
         protected static void StructParse(StructParseContext ctx, Dictionary<string, TagProc> tagSet)

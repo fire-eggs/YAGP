@@ -19,7 +19,7 @@ namespace UnitTestProject1
     [TestClass]
     public class FileTest : GedParseTest
     {
-        public List<KBRGedRec> CommonBasic(string txt, Encoding fileEnc)
+        public List<GEDCommon> CommonBasic(string txt, Encoding fileEnc)
         {
             // Exercise a file encoding
             
@@ -35,7 +35,7 @@ namespace UnitTestProject1
             FileRead fr = new FileRead();
             fr.ReadGed(tmppath);
             File.Delete(tmppath);
-            return fr.Data.Select(o => o as KBRGedRec).ToList();
+            return fr.Data.Select(o => o as GEDCommon).ToList();
         }
 
         [TestMethod]
@@ -93,7 +93,7 @@ namespace UnitTestProject1
             // TODO verify characters
         }
 
-        private List<KBRGedRec> CommonEnc(Encoding fileEnc)
+        private List<GEDCommon> CommonEnc(Encoding fileEnc)
         {
             var txt = "0 HEAD\n1 SOUR 0\n1 SUBM @U_A@\n1 GEDC\n2 VERS 5.5.1\n2 FORM LINEAGE-LINKED\n1 CHAR ASCII\n0 @U_A@ SUBM\n1 NAME X\n0 TRLR";
             var results = CommonBasic(txt, fileEnc);

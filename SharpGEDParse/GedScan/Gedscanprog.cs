@@ -7,6 +7,11 @@ using System.Collections.Generic;
 using System.IO;
 using SharpGEDParser.Model;
 
+// TODO errors in sub-records
+// TODO lost track of 'custom' records/sub-records?
+// TODO Need to pull unknown text from original file?
+// TODO don't repeat the same error more than once
+
 namespace GedScan
 {
     class Gedscanprog
@@ -98,18 +103,14 @@ namespace GedScan
                 Console.WriteLine("\t===Memory:{0}", (afterMem-beforeMem));
         }
 
-        struct errBucket
-        {
-            public int count;
-            public object firstOne;
-        }
+        //struct errBucket
+        //{
+        //    public int count;
+        //    public object firstOne;
+        //}
 
         private static void dump(List<object> kbrGedRecs, List<UnkRec> errors, bool showErrors)
         {
-            Dictionary<string, errBucket> errCounts = new Dictionary<string, errBucket>();
-
-            // TODO showErrors and errors list
-
             int errs = errors.Count;
             int inds = 0;
             int fams = 0;
@@ -118,80 +119,32 @@ namespace GedScan
             int src = 0;
             int repo = 0;
             int note = 0;
-            int custom = 0;
             int media = 0;
 
-            KBRGedRec gedRec;
-            GEDCommon gedRec2 = null;
-            int index = 0;
+            // int index = 0; // testing
             foreach (var gedRec0 in kbrGedRecs)
             {
                 //if (index == 52790) // wemightbekin testing
                 //    Debugger.Break();
 
-                gedRec = gedRec0 as KBRGedRec;
-                if (gedRec == null)
-                {
-                    gedRec2 = gedRec0 as GEDCommon;
-                    if (gedRec2 == null)
-                        continue;
-                }
-                else
-                {
-                    gedRec2 = null;
-                }
+                GEDCommon gedRec2 = gedRec0 as GEDCommon;
+                if (gedRec2 == null)
+                    continue;
 
-                if (gedRec != null && !(gedRec is KBRGedHead || gedRec is GedSubm)) // TODO skip head and subm for now
+                errs += gedRec2.Errors.Count; // TODO errors in sub-records
+                if (gedRec2.Errors.Count > 0 && showErrors)
                 {
-                    errs += gedRec.Errors.Count; // TODO errors in sub-records
-
-                    if (gedRec.Errors.Count > 0 && showErrors)
+                    foreach (var errRec in gedRec2.Errors)
                     {
-                        foreach (var errRec in gedRec.Errors)
-                        {
-                            if (errCounts.ContainsKey(errRec.Error))
-                            {
-                                var bucket = errCounts[errRec.Error];
-                                bucket.count++;
-                                errCounts[errRec.Error] = bucket;
-                            }
-                            else
-                            {
-                                var bucket = new errBucket();
-                                bucket.count = 1;
-                                bucket.firstOne = errRec;
-                                errCounts.Add(errRec.Error, bucket);
-                            }
-                            //Console.WriteLine("\t\tError:{0} [{1}]", errRec.Error, errRec.Beg);
-                        }
-                    }
-                    unks += gedRec.Unknowns.Count;
-                    if (gedRec.Unknowns.Count > 0 && showErrors)
-                    {
-                        foreach (var errRec in gedRec.Unknowns)
-                        {
-                            Console.WriteLine("\t\tUnknown:{0} at [{1}]", errRec.Tag, errRec.Beg);
-                        }
+                        Console.WriteLine("\t\tError:{0}", errRec.Error);
                     }
                 }
-
-                if (gedRec2 != null)
+                unks += gedRec2.Unknowns.Count;
+                if (gedRec2.Unknowns.Count > 0 && showErrors)
                 {
-                    errs += gedRec2.Errors.Count; // TODO errors in sub-records
-                    if (gedRec2.Errors.Count > 0 && showErrors)
+                    foreach (var errRec in gedRec2.Unknowns)
                     {
-                        foreach (var errRec in gedRec2.Errors)
-                        {
-                            Console.WriteLine("\t\tError:{0}", errRec.Error);
-                        }
-                    }
-                    unks += gedRec2.Unknowns.Count;
-                    if (gedRec2.Unknowns.Count > 0 && showErrors)
-                    {
-                        foreach (var errRec in gedRec2.Unknowns)
-                        {
-                            Console.WriteLine("\t\tUnknown:{0} at line {2} in {1}", errRec.Tag, gedRec2, errRec.Beg);
-                        }
+                        Console.WriteLine("\t\tUnknown:{0} at line {2} in {1}", errRec.Tag, gedRec2, errRec.Beg);
                     }
                 }
 
@@ -202,52 +155,47 @@ namespace GedScan
                     fams++;
                 else if (gedRec2 is SourceRecord)
                     src++;
-                else if (gedRec2 is Repository) // TODO ????
+                else if (gedRec2 is Repository)
                     repo++;
-                else if (gedRec2 is NoteRecord) // TODO ????
+                else if (gedRec2 is NoteRecord)
                     note++;
                 else if (gedRec2 is MediaRecord)
                     media++;
-                else if (gedRec is KBRGedUnk)
+                else if (gedRec2 is Unknown)
                 {
                     if (showErrors)
                     {
-                        if (gedRec.Lines == null)
-                            Console.WriteLine("Empty record!");
-                        else
-                            Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", gedRec.Lines.FirstLine(), gedRec.Lines.Beg, gedRec.Lines.End);
+                        //if (gedRec2.Unknowns.  .Lines == null)
+                        //    Console.WriteLine("Empty record!");
+                        //else
+                            Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", "<need to pull from original file>", gedRec2.BegLine, gedRec2.EndLine);
                     }
                     unks++;
-                }
-                else if (gedRec is KBRGedHead ||
-                         gedRec is GedSubm)
-                {
-                    // ignore
                 }
                 else
                 {
                     if (showErrors)
-                        Console.WriteLine("\t\tOther:{0}", gedRec);
+                        Console.WriteLine("\t\tOther:{0}", gedRec2);
                     oths++;
                 }
 
-                index++;
+                // index++; // testing
             }
 
             if (showErrors)
             {
-                foreach (var err in errCounts.Keys)
-                {
-                    var bucket = errCounts[err];
-                    Console.WriteLine("\t\tError:{0} Count:{1} First:{2}", err, bucket.count, (bucket.firstOne as UnkRec).Beg);
-                }
+                //foreach (var err in errCounts.Keys)
+                //{
+                //    var bucket = errCounts[err];
+                //    Console.WriteLine("\t\tError:{0} Count:{1} First:{2}", err, bucket.count, (bucket.firstOne as UnkRec).Beg);
+                //}
 
                 foreach (var unkRec in errors)
                 {
                     Console.WriteLine("\t\tError:{0}", unkRec.Error);
                 }
             }
-            Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}\n\tCustom: {8}\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}", inds, fams, unks, oths, errs, src, repo, note, custom, media);
+            Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}", inds, fams, unks, oths, errs, src, repo, note, 0, media);
         }
 
     }

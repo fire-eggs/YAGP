@@ -80,7 +80,7 @@ namespace SharpGEDParser.Parser
             cit.Desc += context.Remain;
         }
 
-        private static SourceCit CommonParser(GedRecParse.ParseContextCommon ctx, int linedex, char level, List<UnkRec> errs )
+        private static SourceCit CommonParser(ParseContextCommon ctx, int linedex, char level, List<UnkRec> errs )
         {
             SourceCit cit = new SourceCit();
             StructParseContext ctx2 = new StructParseContext(ctx, linedex, level, cit);
@@ -126,7 +126,7 @@ namespace SharpGEDParser.Parser
             return cit;
         }
 
-        public static SourceCit SourceCitParser(GedRecParse.ParseContext2 ctx)
+        public static SourceCit SourceCitParser(ParseContext2 ctx)
         {
             List<UnkRec> errs = new List<UnkRec>();
             var cit = CommonParser(ctx, ctx.Begline, ctx.Level, errs);

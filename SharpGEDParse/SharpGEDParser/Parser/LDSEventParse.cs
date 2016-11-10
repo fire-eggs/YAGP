@@ -73,18 +73,7 @@ namespace SharpGEDParser.Parser
             (context.Parent as SourceCitHold).Cits.Add(cit);
         }
 
-        //public static LDSEvent Parse(StructParseContext ctx, int linedex, char level)
-        //{
-        //    LDSEvent evt = new LDSEvent();
-        //    evt.Tag = ctx.Tag;
-        //    StructParseContext ctx2 = new StructParseContext(ctx, linedex, evt);
-        //    ctx2.Level = level;
-        //    StructParse(ctx2, tagDict);
-        //    ctx.Endline = ctx2.Endline;
-        //    return evt;
-        //}
-
-        public static LDSEvent Parse(GedRecParse.ParseContext2 ctx)
+        public static LDSEvent Parse(ParseContext2 ctx)
         {
             LDSEvent evt = new LDSEvent();
             evt.Tag = ctx.Tag;

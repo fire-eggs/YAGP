@@ -90,7 +90,7 @@ namespace SharpGEDParser.Parser
             return mlink;
         }
 
-        public static MediaLink MediaParser(GedRecParse.ParseContext2 ctx)
+        public static MediaLink MediaParser(ParseContext2 ctx)
         {
             MediaLink mlink = new MediaLink();
             StructParseContext ctx2 = new StructParseContext(ctx, mlink);

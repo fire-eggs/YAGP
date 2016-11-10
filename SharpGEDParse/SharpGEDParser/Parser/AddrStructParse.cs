@@ -64,7 +64,7 @@ namespace SharpGEDParser.Parser
             (context.Parent as Address).Adr += "\n" + context.Remain;
         }
 
-        public static Address AddrParse(GedRecParse.ParseContext2 ctx)
+        public static Address AddrParse(ParseContext2 ctx)
         {
             Address addr = new Address();
             StructParseContext ctx2 = new StructParseContext(ctx, addr);
@@ -85,7 +85,7 @@ namespace SharpGEDParser.Parser
             return addr;
         }
 
-        public static Address OtherTag(GedRecParse.ParseContextCommon ctx, string Tag, Address exist)
+        public static Address OtherTag(ParseContextCommon ctx, string Tag, Address exist)
         {
             // These tags are not subordinate to the ADDR struct. Strictly speaking,
             // the ADDR tag is required, but allow it not to exist.

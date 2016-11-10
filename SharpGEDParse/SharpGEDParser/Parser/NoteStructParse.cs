@@ -24,7 +24,7 @@ namespace SharpGEDParser.Parser
             note.Text += context.Remain;
         }
 
-        public static Note NoteParser(GedRecParse.ParseContext2 ctx)
+        public static Note NoteParser(ParseContext2 ctx)
         {
             Note note = new Note();
             StructParseContext ctx2 = new StructParseContext(ctx, note);

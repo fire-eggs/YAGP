@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using SharpGEDParser.Model;
 using SharpGEDParser.Parser;
@@ -8,8 +7,6 @@ namespace SharpGEDParser
 {
     public abstract class GedRecParse : GedParse
     {
-        protected KBRGedRec _rec;
-
         protected delegate void TagProc();
 
         protected readonly Dictionary<string, TagProc> _tagSet = new Dictionary<string, TagProc>();
@@ -17,128 +14,12 @@ namespace SharpGEDParser
         protected delegate void TagProc2(ParseContext2 context);
         protected readonly Dictionary<string, TagProc2> _tagSet2 = new Dictionary<string, TagProc2>();
 
-        public class ParseContext
-        {
-            public string Line;
-            public int Max; // length of Line
-            public string Tag;
-            public int Begline;
-            public int Endline;
-            public int Nextchar;
-        }
-
-        public class ParseContextCommon
-        {
-            public GedRecord Lines;
-            public int Begline; // index of first line for this 'record'
-            public int Endline; // index of last line FOUND for this 'record'
-            public char Level;
-            public string Remain;
-            public string Tag;
-
-            public ParseContextCommon()
-            {
-            }
-
-            public ParseContextCommon(ParseContextCommon ctx)
-            {
-                Lines = ctx.Lines;
-                Begline = ctx.Begline;
-                Endline = ctx.Endline;
-                Level = ctx.Level;
-                Remain = ctx.Remain;
-            }
-        }
-
-        public class ParseContext2 : ParseContextCommon
-        {
-            public GEDCommon Parent;
-        }
-
-        public GedRecParse()
+        protected GedRecParse()
         {
             BuildTagSet();
-            ctx = new ParseContext();
         }
 
         protected abstract void BuildTagSet();
-
-        // TODO does this make parsing effectively single-threaded? need one context per thread? YES
-        internal ParseContext ctx;
-
-        // Common parsing logic for all record types
-        public void Parse(KBRGedRec rec)
-        {
-            _rec = rec;
-
-            // At this point we know the record 'type' and its ident.
-            // TODO any trailing data after the keyword?
-
-            var Lines = rec.Lines;
-
-            int sublinedex;
-            int linedex = 1;
-            while (Lines.GetLevel(linedex, out sublinedex) != '1' && linedex <= Lines.Max)
-                linedex++;
-            if (linedex > Lines.Max)
-                return;
-
-            while (true)
-            {
-                int startrec = linedex;
-                int startSubLine = sublinedex;
-                linedex++;
-                if (linedex > Lines.Max)
-                    break;
-                while (Lines.GetLevel(linedex, out sublinedex) > '1')
-                    linedex++;
-                ParseSubRec(rec, startrec, linedex - 1, startSubLine);
-                if (linedex >= Lines.Max)
-                    break;
-            }
-        }
-
-        public virtual KBRGedRec Parse0(KBRGedRec rec, ParseContext context)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Parse(KBRGedRec rec, ParseContext context)
-        {
-            _rec = rec;
-            var Lines = rec.Lines;
-
-            int linedex = context.Begline+1;
-            if (linedex > context.Endline) // TODO empty record error?
-                return;
-
-            // TODO context is blown after first ParseSubRec call
-            int maxLinedex = context.Endline;
-
-            int sublinedex;
-            char startLevel = Lines.GetLevel(linedex, out sublinedex);
-            if (startLevel < '0' || startLevel > '9')
-            {
-                var err = new UnkRec();
-                err.Beg = linedex;
-                err.End = linedex;
-                err.Error = "Invalid or missing level; record processing stopped";
-                rec.Errors.Add(err);
-                return;
-            }
-
-            while (true)
-            {
-                if (linedex > maxLinedex)
-                    break;
-                int startrec = linedex;
-                int startsubdex = sublinedex;
-                while (Lines.GetLevel(linedex+1, out sublinedex) > startLevel && linedex+1 <= maxLinedex)
-                    linedex++;
-                ParseSubRec(rec, startrec, linedex, startsubdex);
-                linedex++;
-            }
-        }
 
         public void Parse(GEDCommon rec, GedRecord Lines)
         {
@@ -189,111 +70,12 @@ namespace SharpGEDParser
             ctx.Endline = linedex;
         }
 
-        protected void NoteProc()
-        {
-            // Common note processing
-            // TODO I cannot remember if it is important to store the original NOTE context or not
-            var txt = extendedText();
-            _rec.Notes.Add(txt);
-        }
-
         protected UnkRec ErrorRec(ParseContext2 ctx, string reason)
         {
             var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
             rec.Error = reason;
             ctx.Parent.Errors.Add(rec);
             return rec;
-        }
-
-        protected UnkRec ErrorRec(string reason)
-        {
-            var rec = new UnkRec(ctx.Tag, ctx.Begline+_rec.Lines.Beg, ctx.Endline+_rec.Lines.Beg);
-            rec.Error = reason;
-            _rec.Errors.Add(rec);
-            return rec;
-        }
-
-        // Common Source Citation processing
-        protected void SourCitProc(KBRGedRec _rec)
-        {
-            var scRec = KBRGedParser.SourceCitParseSingleton.Parse0(_rec, ctx);
-            if (scRec != null)
-                _rec.Sources.Add(scRec as GedSourCit);
-        }
-
-        protected void UnknownTag(string tag, int startLineDex, int maxLineDex)
-        {
-            var rec = new UnkRec(tag, startLineDex, maxLineDex);
-            _rec.Unknowns.Add(rec);
-
-//            Console.WriteLine("Uknown:{0}[{1}:{2}]", tag, startLineDex, maxLineDex);
-        }
-
-        protected void ParseSubRec(KBRGedRec rec, int startLineDex, int maxLineDex, int startSubDex)
-        {
-            string line = rec.Lines.GetLine(startLineDex);
-            string ident = "";
-            string tag = "";
-
-            int nextChar = GedLineUtil.IdentAndTag(line, startSubDex+1, ref ident, ref tag);
-            if (_tagSet.ContainsKey(tag))
-            {
-                // TODO does this make parsing effectively single-threaded? need one context per thread?
-                ctx.Line = line;
-                ctx.Max = line.Length;
-                ctx.Tag = tag;
-                ctx.Begline = startLineDex;
-                ctx.Endline = maxLineDex;
-                ctx.Nextchar = nextChar;
-                _rec = rec;
-
-                _tagSet[tag]();
-            }
-            else
-            {
-                int start = rec.Lines.Beg + startLineDex;
-                int end = rec.Lines.Beg + maxLineDex;
-                UnknownTag(tag, start, end);
-            }
-        }
-
-        protected string Remainder()
-        {
-            return ctx.Line.Substring(ctx.Nextchar).Trim();
-        }
-
-        // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
-        protected string extendedText()
-        {
-            StringBuilder txt = new StringBuilder(ctx.Line.Substring(ctx.Nextchar).TrimStart());
-
-            // NOTE: do NOT trim the end... trailing spaces are significant
-            if (ctx.Endline > ctx.Begline)
-            {
-                for (int i = ctx.Begline + 1; i <= ctx.Endline; i++)
-                {
-                    string line = _rec.Lines.GetLine(i);
-                    string ident = null;
-                    string tag = null;
-
-                    // TODO should be no ident! but should be allowed... see Tamura Jones
-                    int nextChar = GedLineUtil.LevelIdentAndTag(line, ref ident, ref tag);
-                    if (tag == "CONC")
-                    {
-                        if (line.Length > nextChar) // encountered empty CONC in real GED
-                            txt.Append(line.Substring(nextChar + 1)); // must keep trailing space
-                    }
-                    else if (tag == "CONT")
-                    {
-                        txt.Append("\n"); // NOTE: not appendline, which is \r\n
-                        if (line.Length > nextChar)
-                            txt.Append(line.Substring(nextChar + 1)); // must keep trailing space
-                    }
-                    else
-                        break; // non-CONC, non-CONT: stop!
-                }
-            }
-            return txt.ToString();
         }
 
         protected void RinProc(ParseContext2 ctx)

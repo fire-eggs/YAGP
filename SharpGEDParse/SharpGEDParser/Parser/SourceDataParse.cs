@@ -52,7 +52,7 @@ namespace SharpGEDParser.Parser
             data.Events.Add(thing);
         }
 
-        public static SourceData DataParser(GedRecParse.ParseContext2 ctx)
+        public static SourceData DataParser(ParseContext2 ctx)
         {
             SourceData data = new SourceData();
             StructParseContext ctx2 = new StructParseContext(ctx, data);

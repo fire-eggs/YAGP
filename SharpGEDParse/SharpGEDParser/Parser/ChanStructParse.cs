@@ -22,14 +22,14 @@ namespace SharpGEDParser.Parser
             // NOTE: could not parse date: will be caught by 'missing data' check
         }
 
-        public static void ChanParse(GedRecParse.ParseContext2 ctx, ChangeRec chan)
+        public static void ChanParse(ParseContext2 ctx, ChangeRec chan)
         {
             StructParseContext ctx2 = new StructParseContext(ctx, chan);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
         }
 
-        public static void ChanProc(GedRecParse.ParseContext2 ctx)
+        public static void ChanProc(ParseContext2 ctx)
         {
             ChangeRec chan = ctx.Parent.CHAN;
             if (chan.Date != null)

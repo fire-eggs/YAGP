@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 #endif
 
+// ReSharper disable InconsistentNaming
+
 namespace SharpGEDParser
 {
     public class KBRGedParser
@@ -15,7 +17,7 @@ namespace SharpGEDParser
             // TODO dunno yet if the path to the GED is useful
 
             _IndiParseSingleton = new IndiParse();
-            _HeadParseSingleton = new GedHeadParse();
+            // TODO GEDCommon based Head record _HeadParseSingleton = new GedHeadParse();
 
             _FamParseSingleton = new FamParse();
             _SourParseSingleton = new SourceRecParse();
@@ -37,30 +39,17 @@ namespace SharpGEDParser
 
         public object Parse(GedRecord rec)
         {
-            // Given a glop of lines which represent a 'record', parse it into GED data (HEAD/INDI/FAM/etc)
+            // Given a glop of lines which represent a 'record', parse it into GED data (INDI/FAM/NOTE/OBJE/REPO/SOUR/etc)
             Tuple<object, GedParse> parseSet = Make(rec);
 
-            if (parseSet.Item2 != null)
-            {
-                KBRGedRec recC1 = parseSet.Item1 as KBRGedRec;
-                if (recC1 != null)
-                {
-// TODO cannot parse INDI in parallel until redone as GEDCommon
-                    //_allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC1)));
-                    parseSet.Item2.Parse(recC1);
-                    recC1.Lines = null; // Free memory
-                    //_allRecs.Add(parseSet.Item1);
-                }
-                else
-                {
-                    GEDCommon recC2 = parseSet.Item1 as GEDCommon;
+            if (parseSet.Item2 == null) 
+                return parseSet.Item1;
+            GEDCommon recC2 = parseSet.Item1 as GEDCommon;
 #if PARALLEL
-                    _allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC2, rec)));
+            _allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC2, rec)));
 #else
-                    parseSet.Item2.Parse(recC2, rec);
+            parseSet.Item2.Parse(recC2, rec);
 #endif
-                }
-            }
             return parseSet.Item1;
         }
 
@@ -87,8 +76,6 @@ namespace SharpGEDParser
         private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)
         {
             // Parse 'top level' records. Parsing of some record types (e.g. NOTE, SOUR, etc) are likely to be in 'common' with sub-record parsing
-
-            KBRGedRec data;
 
             // TODO Very much brute force. If/until this is found to be optimizable
             switch (tag.ToUpper())
@@ -130,32 +117,24 @@ namespace SharpGEDParser
                     NonStandardRemain(remain, foo);
                     return new Tuple<object, GedParse>(foo, _MediaParseSingleton);
                 }
-                case "SUBM":
-                //data = new GedSubm(rec, ident);
-                //return new Tuple<object, GedParse>(data, _HeadParseSingleton); // TODO temporary 'ignore' parsing
-                case "HEAD":
-                //data = new KBRGedHead(rec, ident);
-                //return new Tuple<object, GedParse>(data, _HeadParseSingleton);
-                case "SUBN":
+                case "SUBM": // TODO temp ignore
+                case "HEAD": // TODO temp ignore
+                case "SUBN": // TODO temp ignore
                 default:  // TODO leading underscore signals a custom record
-                    data = new KBRGedUnk(rec, ident, tag);
-                    return new Tuple<object, GedParse>(data, null);
+                {
+                    var foo = new Unknown(rec, ident);
+                    return new Tuple<object, GedParse>(foo, null);
+                }
             }
         }
 
-        private GedParse _IndiParseSingleton;
-        private GedParse _FamParseSingleton;
-        private GedParse _HeadParseSingleton;
-        private GedParse _SourParseSingleton;
-        private GedParse _RepoParseSingleton;
-        private GedParse _NoteParseSingleton;
-        private GedParse _MediaParseSingleton;
-        private static GedRecParse _SourceCitParseSingleton;
-
-        public static GedRecParse SourceCitParseSingleton
-        {
-            get { return _SourceCitParseSingleton ?? (_SourceCitParseSingleton = new GedSourCitParse()); }
-        }
+        private readonly GedParse _IndiParseSingleton;
+        private readonly GedParse _FamParseSingleton;
+        // TODO gedcommon based HEAD parsing private GedParse _HeadParseSingleton;
+        private readonly GedParse _SourParseSingleton;
+        private readonly GedParse _RepoParseSingleton;
+        private readonly GedParse _NoteParseSingleton;
+        private readonly GedParse _MediaParseSingleton;
 
         private void NonStandardRemain(string remain, GEDCommon rec)
         {
@@ -181,10 +160,6 @@ namespace SharpGEDParser
 
     public interface GedParse
     {
-        void Parse(KBRGedRec rec);
-
-        void Parse(KBRGedRec rec, GedRecParse.ParseContext context);
-
         void Parse(GEDCommon rec, GedRecord Lines);
     }
 }

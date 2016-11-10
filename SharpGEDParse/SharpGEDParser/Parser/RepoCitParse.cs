@@ -36,7 +36,7 @@ namespace SharpGEDParser.Parser
             cit.CallNums[cit.CallNums.Count-1].Number = context.Remain;
         }
 
-        public static RepoCit CitParser(GedRecParse.ParseContext2 ctx)
+        public static RepoCit CitParser(ParseContext2 ctx)
         {
             RepoCit cit = new RepoCit();
             StructParseContext ctx2 = new StructParseContext(ctx, cit);

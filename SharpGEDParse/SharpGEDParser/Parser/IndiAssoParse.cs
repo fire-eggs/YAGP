@@ -18,7 +18,7 @@ namespace SharpGEDParser.Parser
             rec.Relation = context.Remain;
         }
 
-        public static AssoRec AssoParse(GedRecParse.ParseContext2 ctx)
+        public static AssoRec AssoParse(ParseContext2 ctx)
         {
             var asso = new AssoRec();
 
