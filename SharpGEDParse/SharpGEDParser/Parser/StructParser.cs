@@ -114,7 +114,7 @@ namespace SharpGEDParser.Parser
             // "@R1@ blah blah
             // TODO consider string.split() on '@' ?
             // Used by repo cit, sour cit
-            // TODO consider using for FAM refs? - HUSB/WIFE/CHIL/SUBM
+            // TODO xref is not permitted to start with '#'. Use of '!' and ':' are reserved?
 
             if (txt.Length < 1 || txt[0] != '@') // No xref specified
             {

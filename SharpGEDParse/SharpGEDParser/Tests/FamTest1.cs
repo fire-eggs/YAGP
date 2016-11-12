@@ -4,8 +4,6 @@ using SharpGEDParser.Model;
 // ReSharper disable ConvertToConstant.Local
 
 // TODO RESN variations
-// TODO specifying HUSB, WIFE more than once
-// TODO specifying NCHI more than once
 // TODO specifying RESN more than once
 // TODO SLGS: note, source cite, STAT.DATE
 
@@ -285,6 +283,53 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("temple", evt.Temple);
             Assert.AreEqual("the place", evt.Place);
             Assert.AreEqual("status", evt.Status);
+        }
+
+        [Test]
+        public void TestMultHusb()
+        {
+            string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 HUSB @p2@";
+            var rec = parse(fam);
+            Assert.AreEqual("p1", rec.Dad);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO validate error details
+        }
+        [Test]
+        public void TestMultWife()
+        {
+            string fam = "0 @F1@ FAM\n1 WIFE @p1@\n1 WIFE @p2@";
+            var rec = parse(fam);
+            Assert.AreEqual("p1", rec.Mom);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO validate error details
+        }
+
+        [Test]
+        public void FamNChild0()
+        {
+            string fam = "0 @F1@ FAM\n1 NCHI 0";
+            var rec = parse(fam);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.ChildCount);
+        }
+        [Test]
+        public void FamMultNChild()
+        {
+            string fam = "0 @F1@ FAM\n1 NCHI 1\n1 NCHI 2";
+            var rec = parse(fam);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO error details
+            Assert.AreEqual(1, rec.ChildCount);
+        }
+
+        [Test]
+        public void FamChildDuplicate()
+        {
+            // same child ident used more than once
+            string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 WIFE @p2@\n1 CHIL @p3@\n1 CHIL @p3@";
+            var rec = parse(fam);
+            Assert.AreEqual("p1", rec.Dad);
+            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual(1, rec.Childs.Count);
+            Assert.AreEqual("p3", rec.Childs[0]);
+            Assert.AreEqual(1, rec.Errors.Count);
         }
     }
 }

@@ -1,11 +1,10 @@
-﻿using System;
-using SharpGEDParser.Model;
+﻿using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
     // Parsing for the FAM (family) record.
 
-    // TODO copy-pasta: subm, chil, husb, wife processing
+    // TODO validate that HUSB, WIFE, SUBM, CHIL idents actually exist [final post-process stage]
 
     public class FamParse : GedRecParse
     {
@@ -63,6 +62,13 @@ namespace SharpGEDParser.Parser
                 err.Beg = err.End = context.Begline;
                 fam.Errors.Add(err);
             }
+            else if (fam.ChildCount != -1) // has been specified once already
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Child count specified more than once";
+                err.Beg = err.End = context.Begline;
+                fam.Errors.Add(err);
+            }
             else
             {
                 fam.ChildCount = childCount;
@@ -70,7 +76,6 @@ namespace SharpGEDParser.Parser
         }
 
         // Common processing for SUBM, HUSB, WIFE, CHIL
-        // TODO what additional error handling?
         private void xrefProc(ParseContext2 context)
         {
             var fam = (context.Parent as FamRecord);
@@ -90,16 +95,43 @@ namespace SharpGEDParser.Parser
                 switch (context.Tag)
                 {
                     case "HUSB":
-                        fam.Dad = xref; // TODO check for HUSB already specified
+                        if (fam.Dad != null) // HUSB already specified
+                        {
+                            UnkRec err = new UnkRec();
+                            err.Error = "HUSB line used more than once";
+                            err.Beg = err.End = context.Begline;
+                            fam.Errors.Add(err);
+                        }
+                        else
+                            fam.Dad = xref;
                         break;
                     case "WIFE":
-                        fam.Mom = xref; // TODO check for WIFE already specified
+                        if (fam.Mom != null) // HUSB already specified
+                        {
+                            UnkRec err = new UnkRec();
+                            err.Error = "WIFE line used more than once";
+                            err.Beg = err.End = context.Begline;
+                            fam.Errors.Add(err);
+                        }
+                        else
+                            fam.Mom = xref;
                         break;
                     case "CHIL":
+                        foreach (var child in fam.Childs)
+                        {
+                            if (child == xref)
+                            {
+                                UnkRec err = new UnkRec();
+                                err.Error = "CHIL ident used more than once (one person cannot be two children)";
+                                err.Beg = err.End = context.Begline;
+                                fam.Errors.Add(err);
+                                return;
+                            }
+                        }
                         fam.Childs.Add(xref);
                         break;
                     case "SUBM":
-                        fam.FamSubm.Add(xref);
+                        fam.FamSubm.Add(xref); // TODO check if xref specified more than once
                         break;
                 }
             }
@@ -137,6 +169,8 @@ namespace SharpGEDParser.Parser
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }
+
+            // TODO NCHI value doesn't match # of CHIL refs?
         }
 
     }
