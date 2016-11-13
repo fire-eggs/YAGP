@@ -171,5 +171,25 @@ namespace SharpGEDParser
             return txt.ToString();
         }
 
+        public void CheckRestriction(GEDCommon rec, string restrict)
+        {
+            // Common post-processing restriction checking
+            if (string.IsNullOrWhiteSpace(restrict)) // nothing specified, nothing to do
+                return;
+            switch (restrict.ToLowerInvariant())
+            {
+                case "confidential":
+                case "locked":
+                case "privacy":
+                    break;
+                default:
+                    UnkRec err = new UnkRec();
+                    err.Error = "Non-standard Restriction value";
+                    err.Beg = err.End = rec.BegLine;
+                    rec.Errors.Add(err);
+                    break;
+            }
+        }
+
     }
 }

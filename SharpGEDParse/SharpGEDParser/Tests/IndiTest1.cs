@@ -150,13 +150,27 @@ namespace SharpGEDParser.Tests
             rec = parse(indi);
             Assert.AreEqual("locked", rec.Restriction);
 
-            indi = "0 INDI\n1 RESN gibber";
-            rec = parse(indi);
-            Assert.AreEqual("gibber", rec.Restriction);
-
             indi = "0 INDI\n1 RESN       privacy     ";
             rec = parse(indi);
             Assert.AreEqual("privacy", rec.Restriction);
+        }
+
+        [Test]
+        public void IndiResnErr()
+        {
+            var indi = "0 @I1@ INDI\n1 RESN gibber";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO validate details
+            Assert.AreEqual("gibber", rec.Restriction);
+        }
+
+        [Test]
+        public void IndiResnMulti()
+        {
+            var indi = "0 @I1@ INDI\n1 RESN locked\n1 RESN gibber";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO validate details
+            Assert.AreEqual("locked", rec.Restriction);
         }
 
         [Test]

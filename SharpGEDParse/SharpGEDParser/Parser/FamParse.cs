@@ -140,7 +140,17 @@ namespace SharpGEDParser.Parser
         private void resnProc(ParseContext2 context)
         {
             var fam = (context.Parent as FamRecord);
-            fam.Restriction = context.Remain; // TODO post-evaluate for correctness
+            if (string.IsNullOrEmpty(fam.Restriction))
+            {
+                fam.Restriction = context.Remain.Trim();
+            }
+            else
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "RESN specified more than once";
+                err.Beg = err.End = context.Begline;
+                fam.Errors.Add(err);
+            }
         }
 
         private void eventProc(ParseContext2 context)
@@ -171,6 +181,10 @@ namespace SharpGEDParser.Parser
             }
 
             // TODO NCHI value doesn't match # of CHIL refs?
+
+            CheckRestriction(me, me.Restriction);
+
+            // TODO check restriction value on events
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
@@ -187,8 +188,18 @@ namespace SharpGEDParser.Parser
 
         private void resnProc(ParseContext2 context)
         {
-            var fam = (context.Parent as IndiRecord);
-            fam.Restriction = context.Remain.Trim(); // TODO post-evaluate for correctness
+            var indi = (context.Parent as IndiRecord);
+            if (string.IsNullOrEmpty(indi.Restriction))
+            {
+                indi.Restriction = context.Remain.Trim();
+            }
+            else
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "RESN specified more than once";
+                err.Beg = err.End = context.Begline;
+                indi.Errors.Add(err);
+            }
         }
 
         // Common processing for SUBM, FAMC, FAMS
@@ -196,8 +207,6 @@ namespace SharpGEDParser.Parser
         private void xrefProc(ParseContext2 context)
         {
             var indi = (context.Parent as IndiRecord);
-            if (indi == null)
-                return; // TODO throw exception?
 
             string xref;
             string extra;
@@ -250,8 +259,19 @@ namespace SharpGEDParser.Parser
             }
 
             // Make sure sex is set
-            if (!"MFU".Contains(me.Sex.ToString().ToUpper()))
+            if (!"MFU".Contains(me.Sex.ToString(CultureInfo.InvariantCulture).ToUpper()))
+            {
                 me.Sex = 'U'; // TODO warning
+
+                UnkRec err = new UnkRec();
+                err.Error = "Non-standard SEX value corrected to U";
+                err.Beg = err.End = me.BegLine;
+                me.Errors.Add(err);
+            }
+
+            CheckRestriction(me, me.Restriction);
+
+            // TODO check restriction value on events
 
         }
 

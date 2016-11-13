@@ -143,6 +143,35 @@ namespace SharpGEDParser.Tests
         {
             string fam = "0 @F1@ FAM\n1 RESN locked";
             var rec = parse(fam);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual("locked", rec.Restriction);
+
+            fam = "0 @F1@ FAM\n1 RESN ";
+            rec = parse(fam);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual("", rec.Restriction);
+
+            fam = "0 @F1@ FAM\n1 RESN       privacy     ";
+            rec = parse(fam);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual("privacy", rec.Restriction);
+        }
+
+        [Test]
+        public void FamResnErr()
+        {
+            string fam = "0 @F1@ FAM\n1 RESN blah";
+            var rec = parse(fam);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO validate details
+            Assert.AreEqual("blah", rec.Restriction);
+        }
+
+        [Test]
+        public void FamResnMulti()
+        {
+            string fam = "0 @F1@ FAM\n1 RESN locked\n1 RESN blah";
+            var rec = parse(fam);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO validate details
             Assert.AreEqual("locked", rec.Restriction);
         }
 

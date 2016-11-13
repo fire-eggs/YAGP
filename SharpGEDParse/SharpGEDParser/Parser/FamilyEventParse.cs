@@ -76,8 +76,9 @@ namespace SharpGEDParser.Parser
 
         private static void ageProc(StructParseContext context, int linedex, char level)
         {
+            var evt = context.Parent as FamilyEvent;
             if (context.Tag == "AGE")
-                (context.Parent as FamilyEvent).Age = context.Remain;
+                evt.Age = context.Remain;
             else
             {
                 var det = EventAgeParse.AgeParser(context, linedex, level);
@@ -85,10 +86,10 @@ namespace SharpGEDParser.Parser
                 {
                     case "HUSB":
                     default: // TODO when might this happen?
-                        (context.Parent as FamilyEvent).HusbDetail = det;
+                        evt.HusbDetail = det;
                         break;
                     case "WIFE":
-                        (context.Parent as FamilyEvent).WifeDetail = det;
+                        evt.WifeDetail = det;
                         break;
                 }
             }

@@ -58,7 +58,8 @@ namespace SharpGEDParser.Model
         public List<NameRec> Names { get { return _names ?? (_names = new List<NameRec>()); } }
 
         public IndiRecord(GedRecord lines, string ident) : base(lines, ident)
-        {          
+        {
+            Sex = 'U'; // TODO is this the best thing to do?
         }
 
         public class Submitter
