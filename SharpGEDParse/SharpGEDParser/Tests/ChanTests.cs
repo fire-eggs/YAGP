@@ -156,6 +156,9 @@ namespace SharpGEDParser.Tests
             var rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);
+            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // Mutation testing
+            Assert.AreNotEqual(-1, rec.Errors[0].Beg); // Mutation testing
+            Assert.AreNotEqual(-1, rec.Errors[0].End); // Mutation testing
             Assert.AreEqual(0, rec.Unknowns.Count);
             Assert.IsTrue(Equals(new DateTime(2000, 3, 1), rec.CHAN.Date));
             Assert.AreEqual("fumbar", rec.RIN);
@@ -181,6 +184,9 @@ namespace SharpGEDParser.Tests
             var rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);
+            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // Mutation testing
+            Assert.AreNotEqual(-1, rec.Errors[0].Beg); // Mutation testing
+            Assert.AreNotEqual(-1, rec.Errors[0].End); // Mutation testing
             Assert.AreEqual(0, rec.Unknowns.Count);
             Assert.AreEqual("fumbar", rec.RIN);
         }

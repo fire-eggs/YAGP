@@ -124,9 +124,11 @@
     <Compile Include="Tests\MiscIdTests.cs" />
     <Compile Include="Tests\NoteLevel1.cs" />
     <Compile Include="Tests\NoteTest.cs" />
+    <Compile Include="Tests\RefnTests.cs" />
     <Compile Include="Tests\RepositoryTest.cs" />
     <Compile Include="Tests\GedParseTest.cs" />
     <Compile Include="Tests\SourceTest.cs" />
+    <Compile Include="Tests\SourCit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

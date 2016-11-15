@@ -4,7 +4,6 @@ using SharpGEDParser.Model;
 // ReSharper disable ConvertToConstant.Local
 
 // TODO RESN variations
-// TODO specifying RESN more than once
 // TODO SLGS: note, source cite, STAT.DATE
 
 // TODO REFN -> common testing

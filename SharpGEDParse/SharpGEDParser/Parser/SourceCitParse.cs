@@ -102,6 +102,8 @@ namespace SharpGEDParser.Parser
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
 
+            // TODO errors don't have line #s!
+
             if (!cit.Data && cit.Xref != null && cit.AnyText)
             {
                 errs.Add(new UnkRec() { Error = "TEXT tag used for reference source citation" });

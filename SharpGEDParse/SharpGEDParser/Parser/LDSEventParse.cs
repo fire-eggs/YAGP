@@ -67,12 +67,6 @@ namespace SharpGEDParser.Parser
             }
         }
 
-        private static void sourProc(StructParseContext context, int linedex, char level)
-        {
-            var cit = SourceCitParse.SourceCitParser(context, linedex, level);
-            (context.Parent as SourceCitHold).Cits.Add(cit);
-        }
-
         public static LDSEvent Parse(ParseContext2 ctx)
         {
             LDSEvent evt = new LDSEvent();

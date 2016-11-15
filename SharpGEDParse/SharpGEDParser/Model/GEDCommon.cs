@@ -16,7 +16,10 @@ namespace SharpGEDParser.Model
     // Attributes about an unknown tag - custom or not
     public class UnkRec : LineSet
     {
-        public UnkRec() { }
+        public UnkRec()
+        {
+            Beg = End = -1;
+        }
 
         public UnkRec(string tag, int beg, int end)
         {
