@@ -618,6 +618,8 @@ namespace SharpGEDParser.Tests
             var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO @R1@\n1 RIN rin-chan";
             var rec = ReadOne(txt);
 
+            Assert.AreEqual(0, rec.Errors.Count);
+
             Assert.AreEqual("S1", rec.Ident);
             Assert.AreEqual("Fred", rec.Author);
             Assert.AreEqual("rin-chan", rec.RIN);
@@ -632,6 +634,8 @@ namespace SharpGEDParser.Tests
             // two simple repo xref, interspersed
             var txt = "0 @S1@ SOUR\n1 REPO @R2@\n1 AUTH Fred\n1 REPO @R1@\n1 RIN rin-chan";
             var rec = ReadOne(txt);
+
+            Assert.AreEqual(0, rec.Errors.Count);
 
             Assert.AreEqual("S1", rec.Ident);
             Assert.AreEqual("Fred", rec.Author);
@@ -738,21 +742,33 @@ namespace SharpGEDParser.Tests
         [Test]
         public void InvalidRepoId()
         {
-            var txt = "0 @S1@ SOUR\n1 REPO @ @";
+            var txt = "0 @S1@ SOUR\n1 REPO @   @";
             var rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
-
-            txt = "0 @S1@ SOUR\n1 REPO @@@";
-            rec = ReadOne(txt);
-
-            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
+            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // from mutation test
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.IsNullOrEmpty(rec.Cits[0].Xref);
 
             txt = "0 @S1@ SOUR\n1 REPO @ gibberish";
             rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
+            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // from mutation test
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.IsNullOrEmpty(rec.Cits[0].Xref);
+        }
 
+        [Test]
+        public void InvalidRepoId2()
+        {
+            var txt = "0 @S1@ SOUR\n1 REPO @@@";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
+            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // from mutation test
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual("@", rec.Cits[0].Xref); // TODO is this correct???
         }
 
         [Test]
@@ -762,11 +778,55 @@ namespace SharpGEDParser.Tests
             var txt = "0 @S1@ SOUR\n1 REPO\n2 MEDI blah";
             var rec = ReadOne(txt);
 
+            Assert.AreEqual(0, rec.Errors.Count);
+
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.AreEqual(1, rec.Cits[0].CallNums.Count);
             Assert.AreEqual("blah", rec.Cits[0].CallNums[0].Media);
 
             // TODO should this be an error? (MEDI without CALN)
+        }
+
+        [Test]
+        public void MultMedi()
+        {
+            // MEDI without a CALN - would crash at one point
+            var txt = "0 @S1@ SOUR\n1 REPO\n2 MEDI blah\n2 MEDI foo";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(1, rec.Cits[0].CallNums.Count);
+
+            // TODO should this be an error - last one 'wins'
+            Assert.AreEqual("foo", rec.Cits[0].CallNums[0].Media);
+
+            // TODO should this be an error? (MEDI without CALN)
+        }
+
+        [Test]
+        public void MultCaln()
+        {
+            // multiple CALN (issues from mutation testing)
+            var txt = "0 @S1@ SOUR\n1 REPO @R1@\n1 AUTH Fred\n1 REPO\n2 CALN number1\n3 MEDI type\n2 NOTE repo note\n2 CALN number2\n2 CALN number3\n1 RIN rin-chan";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Fred", rec.Author);
+            Assert.AreEqual("rin-chan", rec.RIN);
+
+            Assert.AreEqual(2, rec.Cits.Count);
+            Assert.AreEqual("R1", rec.Cits[0].Xref);
+            Assert.AreEqual(0, rec.Cits[0].CallNums.Count);
+            Assert.AreEqual(3, rec.Cits[1].CallNums.Count);
+            Assert.AreEqual("number1", rec.Cits[1].CallNums[0].Number);
+            Assert.AreEqual("type", rec.Cits[1].CallNums[0].Media);
+            Assert.AreEqual("number2", rec.Cits[1].CallNums[1].Number);
+            Assert.IsNullOrEmpty(rec.Cits[1].CallNums[1].Media);
+            Assert.AreEqual("number3", rec.Cits[1].CallNums[2].Number);
+            Assert.IsNullOrEmpty(rec.Cits[1].CallNums[2].Media);
+            Assert.AreEqual(1, rec.Cits[1].Notes.Count);
+            Assert.AreEqual("repo note", rec.Cits[1].Notes[0].Text);
         }
     }
 }
