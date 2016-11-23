@@ -12,7 +12,7 @@ namespace DrawAnce
 
         public string Name
         {
-            get { return Indi == null ? "" : Indi.Names[0].ToString(); }
+            get { return Indi == null ? "" : Indi.Names[0].Names + " " + Indi.Names[0].Surname; } // TODO need a better accessor? restore ToString?
         }
 
         public string Text
