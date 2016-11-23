@@ -247,5 +247,47 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.AliasLinks.Count);
             Assert.AreEqual("I2", rec.AliasLinks[0]);
         }
+
+        [Test]
+        public void ObjeXref()
+        {
+            var indi = "0 @I1@ INDI\n1 OBJE @o1@\n1 SEX U";
+            var rec = parse(indi);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Media.Count);
+            Assert.AreEqual("o1", rec.Media[0].Xref);
+            Assert.IsNullOrEmpty(rec.Media[0].Title);
+        }
+
+        [Test]
+        public void ObjeXref2()
+        {
+            // TODO this should be an error: invalid xref id
+            var indi = "0 @I1@ INDI\n1 OBJE gibber\n1 SEX U";
+            var rec = parse(indi);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Media.Count);
+            Assert.IsNullOrEmpty(rec.Media[0].Xref);
+            Assert.IsNullOrEmpty(rec.Media[0].Title);
+        }
+
+        [Test]
+        public void ObjeXref3()
+        {
+            // TODO this should be an error: invalid xref id
+            var indi = "0 @I1@ INDI\n1 OBJE @gibber\n1 SEX U";
+            var rec = parse(indi);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Media.Count);
+            Assert.AreEqual("gibber", rec.Media[0].Xref);
+            Assert.IsNullOrEmpty(rec.Media[0].Title);
+        }
+
     }
 }
