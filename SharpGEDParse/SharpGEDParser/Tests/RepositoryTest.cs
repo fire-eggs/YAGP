@@ -180,10 +180,10 @@ namespace SharpGEDParser.Tests
 			var txt = "0 REPO";
 			var res = ReadItHigher(txt);
             // TODO 'empty record' no longer occurring. Valid?
-			Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
+			Assert.AreEqual(0, res.Errors.Count);
 			Assert.AreEqual(1, res.Data.Count);
-			Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count);
-		}
+			Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count); // TODO validate error details
+        }
 
 		[Test]
 		public void TestMissingId2()

@@ -188,10 +188,10 @@ namespace SharpGEDParser.Tests
             // empty record; missing id
             var txt = "0 NOTE";
             var res = ReadItHigher(txt);
-            Assert.AreEqual(1, res.Errors.Count); // TODO validate error details
+            Assert.AreEqual(0, res.Errors.Count);
             Assert.AreEqual(1, res.Data.Count);
             Assert.IsNotNull(res.Data[0] as GEDCommon);
-            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count); // TODO validate error details
         }
 
         [Test]
