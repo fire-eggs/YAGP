@@ -110,7 +110,7 @@ namespace DrawAnce
             _ancIndi = new IndiWrap[MAX_AHNEN];
             for (int i = 0; i < MAX_AHNEN; i++)
             {
-                _ancIndi[i] = new IndiWrap();
+                _ancIndi[i] = new IndiWrap(); // make sure each box is populated; TODO consider on-the-fly instead
             }
         }
 
@@ -132,7 +132,11 @@ namespace DrawAnce
             if (drawer == null)
                 drawer = new Draw5gen(); //Draw4Gen();
             drawer.AncData = _ancIndi;
+            var oldImage = picTree.Image;
             picTree.Image = drawer.MakeAncTree();
+            if (oldImage != null)
+                oldImage.Dispose();
+            drawer.AncData = null;
         }
 
         private void cmbPerson_SelectedIndexChanged(object sender, EventArgs e)
@@ -327,6 +331,9 @@ namespace DrawAnce
                 if (_childHash.ContainsKey(familyUnit.MomId))
                     familyUnit.MomFam = _childHash[familyUnit.MomId];
             }
+
+            famHash = null;
+            families = null;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
