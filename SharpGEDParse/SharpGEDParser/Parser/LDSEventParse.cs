@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SharpGEDParser.Model;
 
-// TODO sourProc to common
 // TODO -.-.<lds>.STAT.DATE
+// TODO revisit: child-level errors (INDI.SLGS.FAMC where xref is in error)
 
 namespace SharpGEDParser.Parser
 {
@@ -37,7 +34,7 @@ namespace SharpGEDParser.Parser
                 UnkRec err = new UnkRec();
                 err.Error = "Missing/unterminated identifier: " + context.Tag;
                 err.Beg = err.End = context.Begline;
-                // me.Errors.Add(err); // TODO no place to store errors: move to post-processing?
+                me.Errors.Add(err); // TODO do I really want to add another field to the child record?
             }
             else
             {
