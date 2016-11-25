@@ -7,10 +7,6 @@ namespace SharpGEDParser
 {
     public abstract class GedRecParse : GedParse
     {
-        protected delegate void TagProc();
-
-        protected readonly Dictionary<string, TagProc> _tagSet = new Dictionary<string, TagProc>();
-
         protected delegate void TagProc2(ParseContext2 context);
         protected readonly Dictionary<string, TagProc2> _tagSet2 = new Dictionary<string, TagProc2>();
 

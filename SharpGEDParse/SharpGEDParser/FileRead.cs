@@ -157,6 +157,7 @@ namespace SharpGEDParser
             }
 
             Parser.Wrap();
+            _currRec = null;
         }
 
         /// <summary>
