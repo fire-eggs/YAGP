@@ -157,6 +157,62 @@ namespace SharpGEDParser.Tests
             string tag = "FACT";
             TestAttrib1(tag);
         }
-    }
 
+        [Test]
+        public void AttribObjeEmbed()
+        {
+            // multimedia reference off an attribute
+            string indi = "0 @I1@ INDI\n1 FACT attrib_value\n2 DATE 1774\n2 OBJE gibber\n3 FILE refn\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            var rec = parse(indi);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+
+            Assert.AreEqual(1, rec.Attribs.Count);
+
+            Assert.AreEqual(0, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);  // From mutation testing: verify sub-record parsing
+
+            Assert.AreEqual("FACT", rec.Attribs[0].Tag);
+            Assert.AreEqual("attrib_value", rec.Attribs[0].Descriptor);
+            Assert.AreEqual("17", rec.Attribs[0].Age);
+            Assert.AreEqual("1774", rec.Attribs[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Attribs[0].Place);
+            Assert.AreEqual("suspicious", rec.Attribs[0].Type);
+
+            Assert.AreEqual(1, rec.Attribs[0].Media.Count);
+            Assert.AreEqual(1, rec.Attribs[0].Media[0].Files.Count);
+            Assert.AreEqual("refn", rec.Attribs[0].Media[0].Files[0].FileRefn);
+            Assert.IsNullOrEmpty(rec.Attribs[0].Media[0].Xref);
+        }
+
+        [Test]
+        public void AttribObjeXref()
+        {
+            // multimedia reference off an attribute
+            string indi = "0 @I1@ INDI\n1 FACT attrib_value\n2 DATE 1774\n2 OBJE @O1@\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            var rec = parse(indi);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+
+            Assert.AreEqual(1, rec.Attribs.Count);
+
+            Assert.AreEqual(0, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);  // From mutation testing: verify sub-record parsing
+
+            Assert.AreEqual("FACT", rec.Attribs[0].Tag);
+            Assert.AreEqual("attrib_value", rec.Attribs[0].Descriptor);
+            Assert.AreEqual("17", rec.Attribs[0].Age);
+            Assert.AreEqual("1774", rec.Attribs[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Attribs[0].Place);
+            Assert.AreEqual("suspicious", rec.Attribs[0].Type);
+
+            Assert.AreEqual(1, rec.Attribs[0].Media.Count);
+            Assert.AreEqual("O1", rec.Attribs[0].Media[0].Xref);
+            Assert.AreEqual(0, rec.Attribs[0].Media[0].Files.Count);
+        }
+
+    }
 }
+

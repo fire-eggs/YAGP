@@ -289,5 +289,43 @@ namespace SharpGEDParser.Tests
             Assert.IsNullOrEmpty(rec.Media[0].Title);
         }
 
+        [Test]
+        public void ObjeEmbed()
+        {
+            // Mutation testing: verify structure sub-parsing correctly
+            var indi = "0 @I1@ INDI\n1 OBJE gibber\n2 FILE refn\n1 SEX U";
+            var rec = parse(indi);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Media.Count);
+            // TODO what happened w/ the extra? Assert.AreEqual("gibber", rec.Media[0].Xref);
+            Assert.IsNullOrEmpty(rec.Media[0].Title);
+            Assert.AreEqual(1, rec.Media[0].Files.Count);
+            Assert.AreEqual("refn", rec.Media[0].Files[0].FileRefn);
+        }
+
+        [Test]
+        public void ObjeMultFile()
+        {
+            // Mutation testing: verify structure sub-parsing correctly
+            var indi = "0 @I1@ INDI\n1 OBJE gibber\n2 FILE refn\n2 FILE refn2\n2 FILE refn3\n1 SEX U";
+            var rec = parse(indi);
+
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Unknowns.Count);
+
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Media.Count);
+            // TODO what happened w/ the extra? Assert.AreEqual("gibber", rec.Media[0].Xref);
+            Assert.IsNullOrEmpty(rec.Media[0].Title);
+            Assert.AreEqual(3, rec.Media[0].Files.Count);
+            Assert.AreEqual("refn", rec.Media[0].Files[0].FileRefn);
+            Assert.AreEqual("refn2", rec.Media[0].Files[1].FileRefn);
+            Assert.AreEqual("refn3", rec.Media[0].Files[2].FileRefn);
+        }
+
     }
 }
