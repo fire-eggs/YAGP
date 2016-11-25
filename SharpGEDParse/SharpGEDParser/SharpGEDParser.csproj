@@ -112,6 +112,7 @@
     <Compile Include="Tests\ChanTests.cs" />
     <Compile Include="Tests\FamEventTest1.cs" />
     <Compile Include="Tests\FamTest1.cs" />
+    <Compile Include="Tests\FileTest.cs" />
     <Compile Include="Tests\IndiAssocs.cs" />
     <Compile Include="Tests\IndiAttrib.cs" />
     <Compile Include="Tests\IndiEvents.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Tests\Media55Test.cs" />
     <Compile Include="Tests\MediaTest.cs" />
     <Compile Include="Tests\MiscIdTests.cs" />
+    <Compile Include="Tests\MiscTest.cs" />
     <Compile Include="Tests\NoteLevel1.cs" />
     <Compile Include="Tests\NoteTest.cs" />
     <Compile Include="Tests\RefnTests.cs" />

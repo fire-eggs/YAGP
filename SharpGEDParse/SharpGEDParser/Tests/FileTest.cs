@@ -1,28 +1,31 @@
-﻿using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpGEDParser;
+﻿using NUnit.Framework;
+using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
-// Exercise file behavior.
-// Create a temp file, write out a known string, read and parse the file.
+// ReSharper disable UnusedMethodReturnValue.Local
+// ReSharper disable ConvertToConstant.Local
+// ReSharper disable InconsistentNaming
 
-// TODO encodings
-// TODO valid INDI record
-
-// TODO how to exercise charset/encoding variants, i.e.  different BOM
-using SharpGEDParser.Model;
-
-namespace UnitTestProject1
+namespace SharpGEDParser.Tests
 {
-    [TestClass]
+    // Exercise file behavior.
+    // Create a temp file, write out a known string, read and parse the file.
+
+    // TODO encodings
+    // TODO valid INDI record
+
+    // TODO how to exercise charset/encoding variants, i.e.  different BOM
+
+    [TestFixture]
     public class FileTest : GedParseTest
     {
         public List<GEDCommon> CommonBasic(string txt, Encoding fileEnc)
         {
             // Exercise a file encoding
-            
+
             var tmppath = Path.GetTempFileName();
             using (FileStream fStream = new FileStream(tmppath, FileMode.Create))
             {
@@ -38,7 +41,7 @@ namespace UnitTestProject1
             return fr.Data.Select(o => o as GEDCommon).ToList();
         }
 
-        [TestMethod]
+        [Test]
         public void TestBasic()
         {
             // The smallest valid GED
@@ -59,34 +62,34 @@ namespace UnitTestProject1
             Assert.AreEqual(3, results.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void TestDefault()
         {
             var results = CommonEnc(Encoding.Default);
         }
 
-        [TestMethod]
+        [Test]
         public void TestUTF8()
         {
             var results = CommonEnc(Encoding.UTF8);
             // TODO verify UTF8 characters
         }
 
-        [TestMethod]
+        [Test]
         public void TestUTF16LE()
         {
             var results = CommonEnc(Encoding.BigEndianUnicode);
             // TODO verify characters
         }
 
-        [TestMethod]
+        [Test]
         public void TestUTF32()
         {
             var results = CommonEnc(Encoding.UTF32);
             // TODO verify characters
         }
 
-        [TestMethod]
+        [Test]
         public void TestUnicode()
         {
             var results = CommonEnc(Encoding.Unicode);
@@ -121,28 +124,28 @@ namespace UnitTestProject1
             Assert.AreNotEqual(0, fam, path);
         }
 
-        [TestMethod]
+        [Test]
         public void AllGed()
         {
             var path = @"E:\projects\YAGP\Sample GED\allged.ged"; // TODO project-relative path
             DoFile(path);
         }
 
-        [TestMethod]
+        [Test]
         public void TGC55()
         {
             var path = @"E:\projects\YAGP\Sample GED\tgc55c.ged"; // TODO project-relative path
             DoFile(path);
         }
 
-        [TestMethod]
+        [Test]
         public void DoSpecial()
         {
             string path = @"Z:\HOST_E\projects\GED\GED files\5.5.1\index7_kbr.ged";
             DoFile(path);
         }
 
-        [TestMethod]
+        [Test]
         public void DoAll551()
         {
             var path = @"Z:\HOST_E\projects\GED\GED files\5.5.1";
