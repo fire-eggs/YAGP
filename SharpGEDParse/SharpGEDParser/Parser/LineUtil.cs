@@ -68,6 +68,8 @@ namespace SharpGEDParser.Parser
             // Move past level
             int dex = FirstChar(line, 0, max);
             data.Level = line[dex];
+            data.Tag = ""; // in case of error
+            data.Remain = ""; // in case of error
             dex = CharsUntil(line, max, dex, ' ');
             dex = IdentAndTag(data, line, dex);
             if (dex < max)

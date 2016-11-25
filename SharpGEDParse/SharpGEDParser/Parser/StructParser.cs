@@ -19,7 +19,19 @@ namespace SharpGEDParser.Parser
 
             for (; i < ctx.Lines.Max; i++)
             {
-                LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
+                try
+                {
+                    LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
+                }
+                catch (Exception)
+                {
+                    UnkRec exc = new UnkRec();
+                    exc.Beg = exc.End = i;
+                    exc.Error = "Exception during parse, skipping line";
+                    ctx.Parent.Errors.Add(exc);
+                    continue;
+                }
+
                 if (ld.Level <= ctx.Level)
                     break; // end of sub-record
                 ctx.Remain = ld.Remain;

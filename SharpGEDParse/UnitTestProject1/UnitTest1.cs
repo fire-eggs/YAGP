@@ -141,6 +141,67 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void NoTagSub()
+        {
+            // allefamilierelationer.ged had a line with no tag "1  ". Error was flagged on wrong line and stopped parsing.
+            var indi = "0 @I1@ INDI\n1 DSCR attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2  \n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious\n1 NAME /Father/\n1 SEX M";
+            var rec = parse<IndiRecord>(indi, "INDI");
+
+            Assert.AreEqual(0, rec.Errors.Count);
+
+            Assert.AreEqual("I1", rec.Ident);
+            Assert.AreEqual('M', rec.Sex);
+
+            // The error here is on the sub-structure
+            Assert.AreEqual(1, rec.Attribs.Count);
+            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(5, rec.Attribs[0].Errors[0].Beg);
+            Assert.IsNotNull(rec.Attribs[0].Errors[0].Error);
+        }
+
+        [TestMethod]
+        public void NoTagSub2()
+        {
+            // allefamilierelationer.ged had a line with no tag "1  ". Error was flagged on wrong line and stopped parsing.
+            var indi = "0 @I1@ INDI\n1 DSCR attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious\n1  \n1 NAME /Father/\n1 SEX M";
+            var rec = parse<IndiRecord>(indi, "INDI");
+
+            Assert.AreEqual(0, rec.Errors.Count);
+
+            Assert.AreEqual("I1", rec.Ident);
+            Assert.AreEqual('M', rec.Sex);
+
+            // TODO this feels wrong - the error line has specified the level, so should have been treated as outside the sub-record. Part of the record sub-parsing problem
+
+            // The error has been recorded on the sub-structure
+            Assert.AreEqual(1, rec.Attribs.Count);
+            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(9, rec.Attribs[0].Errors[0].Beg);
+            Assert.IsNotNull(rec.Attribs[0].Errors[0].Error);
+        }
+
+        //[TestMethod]
+        //public void NoTagProb()
+        //{
+        //    // allefamilierelationer.ged had a line with no tag "1  ". Error was flagged on wrong line and stopped parsing.
+        //    var indi = "0 @I1@ INDI\n1 DSCR attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious\n1 SEX M\n1  \n1 NAME /Father/";
+        //    var rec = parse<IndiRecord>(indi, "INDI");
+
+        //    // TODO The bogus line is being treated as a 'SEX' line???
+        //    Assert.AreEqual('M', rec.Sex);
+
+        //    Assert.AreEqual(1, rec.Errors.Count);
+
+        //    Assert.AreEqual("I1", rec.Ident);
+
+        //    // The error has been recorded on the sub-structure
+        //    Assert.AreEqual(1, rec.Attribs.Count);
+        //    Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
+        //    Assert.AreEqual(9, rec.Attribs[0].Errors[0].Beg);
+        //    Assert.IsNotNull(rec.Attribs[0].Errors[0].Error);
+        //}
+
+        [TestMethod]
         public void LineTooLong()
         {
             // TODO how to exercise for UTF-16 ?
