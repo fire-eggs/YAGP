@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
@@ -27,12 +28,19 @@ namespace SharpGEDParser.Tests
             // Exercise a file encoding
 
             var tmppath = Path.GetTempFileName();
-            using (FileStream fStream = new FileStream(tmppath, FileMode.Create))
+            FileStream fStream = null;
+            try
             {
+                fStream = new FileStream(tmppath, FileMode.Create); // Code analysis claims fStream will be disposed twice if 'using'
                 using (StreamWriter stream = new StreamWriter(fStream, fileEnc))
                 {
                     stream.Write(txt);
                 }
+            }
+            finally
+            {
+                if (fStream != null)                
+                    fStream.Dispose();
             }
 
             FileRead fr = new FileRead();

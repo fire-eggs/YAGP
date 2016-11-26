@@ -45,6 +45,7 @@ namespace DrawAnce
             int maxW = bounds.Right;
 
             using (Pen connPen = new Pen(Color.Black, 2.0f))
+            using (_sf = new StringFormat())
             {
                 //Pen linePen = new Pen(Color.Blue, 1.0f);
 
@@ -53,7 +54,6 @@ namespace DrawAnce
                 //    gr.DrawLine(linePen, bounds.Left, mid, bounds.Right, mid);
                 //}
 
-                _sf = new StringFormat();
                 //                _sf.Trimming = StringTrimming.EllipsisCharacter;
                 _sf.FormatFlags = StringFormatFlags.NoWrap | StringFormatFlags.NoClip;
 
