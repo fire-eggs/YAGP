@@ -126,8 +126,10 @@ namespace SharpGEDParser.Tests
 
         public void EventSimpleSourErr(string tag)
         {
+            // TEXT sub-tag for an xref SOUR is an error
             string txt = string.Format("0 @F1@ FAM\n1 {0}\n2 SOUR @S1@\n3 TEXT blah\n" +
-                                       "2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
+                                       "2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n"+
+                                       "2 PLAC Sands, Oldham, Lncshr, Eng", 
                 tag);
             var rec = parse(txt);
             Assert.AreEqual("F1", rec.Ident, tag);
@@ -143,8 +145,9 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", evt.Place, tag);
             Assert.AreEqual("Blah blah this is a note continued on a second line.", evt.Notes[0].Text);
 
-            Assert.AreEqual(1, rec.Errors.Count, "Error expected " + tag);
-
+            // relying on an error container within the sub-record
+            Assert.AreEqual(1, evt.Errors.Count, "Error expected " + tag);
+            Assert.IsNotNullOrEmpty(evt.Errors[0].Error);
         }
 
         // TODO trailing 'Y' for MARR
@@ -152,7 +155,6 @@ namespace SharpGEDParser.Tests
         [Test]
         public void EventSourErr()
         {
-            // TODO don't have a container for errors when parsing structure+SOUR
             EventSimpleSourErr("MARR");
         }
 

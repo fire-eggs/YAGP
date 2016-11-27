@@ -123,8 +123,7 @@ namespace SharpGEDParser.Parser
         {
             List<UnkRec> errs = new List<UnkRec>();
             var cit = CommonParser(ctx, linedex, level, errs);
-            // TODO where can the errors go?
-
+            ctx.Parent.Errors.AddRange(errs);
             return cit;
         }
 

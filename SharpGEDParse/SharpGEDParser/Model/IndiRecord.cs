@@ -20,10 +20,10 @@ namespace SharpGEDParser.Model
         private List<Submitter> _submit; // TODO common?
         public List<Submitter> Submitters { get { return _submit ?? (_submit = new List<Submitter>()); } }
 
-        private List<FamilyEvent> _events; // TODO is an INDI specific event necessary?
+        private List<FamilyEvent> _events;
         public List<FamilyEvent> Events { get { return _events ?? (_events = new List<FamilyEvent>()); } }
 
-        private List<FamilyEvent> _attribs; // TODO is an INDI specific event necessary?
+        private List<FamilyEvent> _attribs;
         public List<FamilyEvent> Attribs { get { return _attribs ?? (_attribs = new List<FamilyEvent>()); } }
 
         // xref strings for children
