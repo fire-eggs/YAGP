@@ -123,6 +123,9 @@ namespace SharpGEDParser.Parser
         {
             List<UnkRec> errs = new List<UnkRec>();
             var cit = CommonParser(ctx, linedex, level, errs);
+
+            // TODO errors actually should go in the Cit??
+
             ctx.Parent.Errors.AddRange(errs);
             return cit;
         }
@@ -131,6 +134,9 @@ namespace SharpGEDParser.Parser
         {
             List<UnkRec> errs = new List<UnkRec>();
             var cit = CommonParser(ctx, ctx.Begline, ctx.Level, errs);
+
+            // TODO errors actually should go in the Cit??
+
             ctx.Parent.Errors.AddRange(errs);
             return cit;
         }

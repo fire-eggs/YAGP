@@ -141,6 +141,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, evt.Cits.Count, tag);
             Assert.AreEqual("S1", evt.Cits[0].Xref, tag);
+            Assert.AreEqual("blah", evt.Cits[0].Text[0]); // error but saved
 
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", evt.Place, tag);
             Assert.AreEqual("Blah blah this is a note continued on a second line.", evt.Notes[0].Text);
@@ -150,12 +151,58 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNullOrEmpty(evt.Errors[0].Error);
         }
 
+        public void EventSimpleSourErr2(string tag)
+        {
+            // EVEN sub-tag for an embedded SOUR is an error
+            // PAGE sub-tag for an embedded SOUR is an error
+            string txt = string.Format("0 @F1@ FAM\n1 {0}\n2 SOUR description\n3 TEXT blah\n" +
+                                       "3 PAGE foo\n3 EVEN type\n" +
+                                       "2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n" +
+                                       "2 PLAC Sands, Oldham, Lncshr, Eng",
+                tag);
+            var rec = parse(txt);
+            Assert.AreEqual("F1", rec.Ident, tag);
+            Assert.AreEqual(1, rec.FamEvents.Count, tag);
+
+            var evt = rec.FamEvents[0];
+            Assert.AreEqual(tag, rec.FamEvents[0].Tag, tag);
+            Assert.AreEqual(null, rec.FamEvents[0].Date, tag);
+
+            Assert.AreEqual(1, evt.Cits.Count, tag);
+            Assert.IsNullOrEmpty(evt.Cits[0].Xref, tag);
+            Assert.AreEqual("description", evt.Cits[0].Desc);
+            Assert.AreEqual("blah", evt.Cits[0].Text[0], tag);
+            Assert.AreEqual("foo", evt.Cits[0].Page);
+            Assert.AreEqual("type", evt.Cits[0].Event);
+
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", evt.Place, tag);
+            Assert.AreEqual("Blah blah this is a note continued on a second line.", evt.Notes[0].Text);
+
+            // relying on an error container within the sub-record
+            Assert.AreEqual(2, evt.Errors.Count, "2 Errors expected " + tag);
+            Assert.IsNotNullOrEmpty(evt.Errors[0].Error);
+        }
+
         // TODO trailing 'Y' for MARR
 
         [Test]
-        public void EventSourErr()
+        public void EventXrefSourErr()
         {
-            EventSimpleSourErr("MARR");
+            // error in source citation from all events
+            foreach (var eventTag in AllEventTags)
+            {
+                EventSimpleSourErr(eventTag);
+            }
+        }
+
+        [Test]
+        public void EventEmbedSourErr()
+        {
+            // error in source citation from all events
+            foreach (var eventTag in AllEventTags)
+            {
+                EventSimpleSourErr2(eventTag);
+            }
         }
 
         public FamRecord TestEventTag(string tag)
