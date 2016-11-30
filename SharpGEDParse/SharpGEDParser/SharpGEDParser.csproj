@@ -65,7 +65,6 @@
     <Compile Include="Model\EventCommon.cs" />
     <Compile Include="Model\FamilyEvent.cs" />
     <Compile Include="Model\FamRecord.cs" />
-    <Compile Include="Model\IndiEvent.cs" />
     <Compile Include="Model\IndiRecord.cs" />
     <Compile Include="Model\LDSEvent.cs" />
     <Compile Include="Model\NameRec.cs" />

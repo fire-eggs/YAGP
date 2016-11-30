@@ -37,20 +37,20 @@ namespace SharpGEDParser
 #endif
         }
 
-        public object Parse(GedRecord rec)
+        public GEDCommon Parse(GedRecord rec)
         {
             // Given a glop of lines which represent a 'record', parse it into GED data (INDI/FAM/NOTE/OBJE/REPO/SOUR/etc)
             Tuple<object, GedParse> parseSet = Make(rec);
 
             if (parseSet.Item2 == null) 
-                return parseSet.Item1;
+                return parseSet.Item1 as GEDCommon;
             GEDCommon recC2 = parseSet.Item1 as GEDCommon;
 #if PARALLEL
             _allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC2, rec)));
 #else
             parseSet.Item2.Parse(recC2, rec);
 #endif
-            return parseSet.Item1;
+            return parseSet.Item1 as GEDCommon;
         }
 
         private Tuple<object, GedParse> Make(GedRecord rec)

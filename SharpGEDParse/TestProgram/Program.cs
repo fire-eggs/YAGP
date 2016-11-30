@@ -24,7 +24,7 @@ namespace TestProgram
             }
         }
 
-        private static void dump(List<object> kbrGedRecs)
+        private static void dump(IEnumerable<GEDCommon> kbrGedRecs)
         {
             int errs = 0;
             int inds = 0;
@@ -33,8 +33,7 @@ namespace TestProgram
             int oths = 0;
             foreach (var gedRec in kbrGedRecs)
             {
-                if (gedRec is GEDCommon)
-                    errs += (gedRec as GEDCommon).Errors.Count;
+                errs += gedRec.Errors.Count;
                 if (gedRec is IndiRecord)
                     inds++;
                 else if (gedRec is FamRecord)

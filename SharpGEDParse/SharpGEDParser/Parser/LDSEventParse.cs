@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SharpGEDParser.Model;
 
+// ReSharper disable InconsistentNaming
+
 // TODO -.-.<lds>.STAT.DATE
 // TODO revisit: child-level errors (INDI.SLGS.FAMC where xref is in error)
 

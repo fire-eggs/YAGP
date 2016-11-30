@@ -2,6 +2,8 @@
 using System.Globalization;
 using SharpGEDParser.Model;
 
+// ReSharper disable InconsistentNaming
+
 namespace SharpGEDParser.Parser
 {
     public class IndiParse : GedRecParse
@@ -204,7 +206,7 @@ namespace SharpGEDParser.Parser
 
         // Common processing for SUBM, FAMC, FAMS
         // TODO what additional error handling?
-        private void xrefProc(ParseContext2 context)
+        private static void xrefProc(ParseContext2 context)
         {
             var indi = (context.Parent as IndiRecord);
 

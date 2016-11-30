@@ -236,7 +236,7 @@ namespace DrawAnce
         /// objects to contain Father/Mother/Children.
         /// </summary>
         /// <param name="gedRecs"></param>
-        private void BuildTree(List<object> gedRecs)
+        private void BuildTree(IEnumerable<GEDCommon> gedRecs)
         {
             // an indi has a FAMS or FAMC
             // a FAM has HUSB WIFE CHIL

@@ -34,7 +34,7 @@ namespace SharpGEDParser
 
         private KBRGedParser Parser { get; set; }
 
-        public List<object> Data { get; set; } // TODO temporary: KBRGedRec / GEDCommon
+        public List<GEDCommon> Data { get; set; }
 
         // Top-level (file level) errors, such as blank lines
         public List<UnkRec> Errors { get; set; }
@@ -126,7 +126,7 @@ namespace SharpGEDParser
         public void ReadLines(StreamReader instream)
         {
             Parser = new KBRGedParser(FilePath ?? "");
-            Data = new List<object>(); // TODO temporary: KBRGedRec/GEDCommon
+            Data = new List<GEDCommon>();
             if (Errors == null)
                 Errors = new List<UnkRec>();
 
@@ -234,6 +234,7 @@ namespace SharpGEDParser
             Parser = null;
             Data = null;
             Errors = null;
+            _currRec = null;
         }
     }
 }

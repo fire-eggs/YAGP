@@ -109,7 +109,7 @@ namespace GedScan
         //    public object firstOne;
         //}
 
-        private static void dump(List<object> kbrGedRecs, List<UnkRec> errors, bool showErrors)
+        private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, bool showErrors)
         {
             int errs = errors.Count;
             int inds = 0;
@@ -122,14 +122,10 @@ namespace GedScan
             int media = 0;
 
             // int index = 0; // testing
-            foreach (var gedRec0 in kbrGedRecs)
+            foreach (var gedRec2 in kbrGedRecs)
             {
                 //if (index == 52790) // wemightbekin testing
                 //    Debugger.Break();
-
-                GEDCommon gedRec2 = gedRec0 as GEDCommon;
-                if (gedRec2 == null)
-                    continue;
 
                 errs += gedRec2.Errors.Count; // TODO errors in sub-records
                 if (gedRec2.Errors.Count > 0 && showErrors)
