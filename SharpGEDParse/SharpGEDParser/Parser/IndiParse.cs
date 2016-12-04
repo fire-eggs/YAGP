@@ -82,8 +82,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("SLGS", LdsOrdProc);
 
             // Family association
-            _tagSet2.Add("FAMC", xrefProc);
-            _tagSet2.Add("FAMS", xrefProc);
+            _tagSet2.Add("FAMC", famLink);
+            _tagSet2.Add("FAMS", famLink);
 
             // Non-standard tags
             _tagSet2.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
@@ -204,6 +204,13 @@ namespace SharpGEDParser.Parser
             }
         }
 
+        private static void famLink(ParseContext2 context)
+        {
+            var res = IndiLinkParse.LinkParse(context);
+            var own = (context.Parent as IndiRecord);
+            own.Links.Add(res);
+        }
+
         // Common processing for SUBM, FAMC, FAMS
         // TODO what additional error handling?
         private static void xrefProc(ParseContext2 context)
@@ -224,12 +231,6 @@ namespace SharpGEDParser.Parser
             {
                 switch (context.Tag)
                 {
-                    case "FAMS":
-                        indi.FamLinks.Add(xref);
-                        break;
-                    case "FAMC":
-                        indi.ChildLinks.Add(xref);
-                        break;
                     case "SUBM":
                         indi.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
                         break;

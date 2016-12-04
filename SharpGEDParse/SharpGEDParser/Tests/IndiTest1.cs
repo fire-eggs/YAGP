@@ -2,6 +2,7 @@
 using SharpGEDParser.Model;
 
 // TODO a surname with space? e.g. "von neumann"? extra spaces?
+// TODO saving of extra, see IndiLinkParse
 
 // ReSharper disable ConvertToConstant.Local
 
@@ -20,12 +21,15 @@ namespace SharpGEDParser.Tests
         {
             var indi2 = "0 @PERSON3@ INDI\n1 FAMS @FAMILY2@\n1 NAME /Child 1/\n1 FAMC @FAMILY1@\n1 FAMS @FAMILY3@\n1 FAMC @FAMILY4@";
             var rec = parse(indi2);
-            Assert.AreEqual(2, rec.ChildLinks.Count);
-            Assert.AreEqual("FAMILY1", rec.ChildLinks[0]);
-            Assert.AreEqual("FAMILY4", rec.ChildLinks[1]);
-            Assert.AreEqual(2, rec.FamLinks.Count);
-            Assert.AreEqual("FAMILY2", rec.FamLinks[0]);
-            Assert.AreEqual("FAMILY3", rec.FamLinks[1]);
+            Assert.AreEqual(4, rec.Links.Count);
+            Assert.AreEqual("FAMILY2", rec.Links[0].Xref);
+            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual("FAMILY1", rec.Links[1].Xref);
+            Assert.AreEqual("FAMC", rec.Links[1].Tag);
+            Assert.AreEqual("FAMILY3", rec.Links[2].Xref);
+            Assert.AreEqual("FAMS", rec.Links[2].Tag);
+            Assert.AreEqual("FAMILY4", rec.Links[3].Xref);
+            Assert.AreEqual("FAMC", rec.Links[3].Tag);
         }
 
         [Test]
@@ -107,17 +111,25 @@ namespace SharpGEDParser.Tests
             var indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.ChildLinks.Count);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.IsNullOrEmpty(rec.Links[0].Xref);
 
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah";
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.ChildLinks.Count);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            Assert.AreEqual("blah", rec.Links[0].Extra);
 
-            indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah @@";
+            indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC @@";
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(0, rec.ChildLinks.Count);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            Assert.IsNullOrEmpty(rec.Links[0].Extra);
         }
 
         [Test]
@@ -125,18 +137,27 @@ namespace SharpGEDParser.Tests
         {
             var indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS";
             var rec = parse(indi);
-            Assert.AreEqual(0, rec.FamLinks.Count);
             Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            Assert.IsNullOrEmpty(rec.Links[0].Extra);
 
             indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS blah";
             rec = parse(indi);
-            Assert.AreEqual(0, rec.FamLinks.Count);
             Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            Assert.AreEqual("blah", rec.Links[0].Extra);
 
             indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS @@";
             rec = parse(indi);
-            Assert.AreEqual(0, rec.FamLinks.Count);
             Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            Assert.IsNullOrEmpty(rec.Links[0].Extra);
         }
 
         [Test]

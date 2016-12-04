@@ -26,13 +26,10 @@ namespace SharpGEDParser.Model
         private List<FamilyEvent> _attribs;
         public List<FamilyEvent> Attribs { get { return _attribs ?? (_attribs = new List<FamilyEvent>()); } }
 
-        // xref strings for children
-        private List<string> _childs;
-        public List<string> ChildLinks { get { return _childs ?? (_childs = new List<string>()); } }
-
-        // xref strings for spouses
-        private List<string> _spouses;
-        public List<string> FamLinks { get { return _spouses ?? (_spouses = new List<string>()); } }
+        // Family xref links
+        // TODO xref-only accessors for children, spouses
+        private List<IndiLink> _famLinks;
+        public List<IndiLink> Links { get { return _famLinks ?? (_famLinks = new List<IndiLink>()); } }
 
         // xref strings for aliases [pointer to record which may be the same person]
         // TODO at later point must validate the referenced record exists

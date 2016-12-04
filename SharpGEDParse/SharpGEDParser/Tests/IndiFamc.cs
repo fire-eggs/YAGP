@@ -20,8 +20,13 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("I1", rec.Ident);
             Assert.AreEqual("blah",rec.RIN);
 
-            Assert.AreEqual(1, rec.ChildLinks.Count);
-            Assert.AreEqual("F1", rec.ChildLinks[0]);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("F1", rec.Links[0].Xref);
+            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.AreEqual(0, rec.Links[0].OtherLines.Count);
+            Assert.AreEqual(1, rec.Links[0].Notes.Count);
+            Assert.AreEqual("foster", rec.Links[0].Pedi);
+            Assert.AreEqual("disproven", rec.Links[0].Stat);
 
             Assert.AreEqual(0, rec.Unknowns.Count); // PEDI/STAT first treated as unknown
             Assert.AreEqual(0, rec.Notes.Count);    // FAMC-NOTE treated as INDI-NOTE
@@ -41,8 +46,11 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("I1", rec.Ident);
             Assert.AreEqual("blah", rec.RIN);
 
-            Assert.AreEqual(1, rec.ChildLinks.Count);
-            Assert.AreEqual("F1", rec.ChildLinks[0]);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("F1", rec.Links[0].Xref);
+            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.AreEqual(2, rec.Links[0].OtherLines.Count);
+            Assert.AreEqual(1, rec.Links[0].Notes.Count);
 
             Assert.AreEqual(0, rec.Unknowns.Count); // PEDI/STAT first treated as unknown
             Assert.AreEqual(0, rec.Notes.Count);    // FAMC-NOTE treated as INDI-NOTE
@@ -62,8 +70,11 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("I1", rec.Ident);
             Assert.AreEqual("blah", rec.RIN);
 
-            Assert.AreEqual(1, rec.FamLinks.Count);
-            Assert.AreEqual("F1", rec.FamLinks[0]);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("F1", rec.Links[0].Xref);
+            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(0, rec.Links[0].OtherLines.Count);
+            Assert.AreEqual(1, rec.Links[0].Notes.Count);
 
             Assert.AreEqual(0, rec.Unknowns.Count);
             Assert.AreEqual(0, rec.Notes.Count);    // FAMS-NOTE treated as INDI-NOTE
@@ -82,8 +93,11 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("I1", rec.Ident);
             Assert.AreEqual("blah", rec.RIN);
 
-            Assert.AreEqual(1, rec.FamLinks.Count);
-            Assert.AreEqual("F1", rec.FamLinks[0]);
+            Assert.AreEqual(1, rec.Links.Count);
+            Assert.AreEqual("F1", rec.Links[0].Xref);
+            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(1, rec.Links[0].OtherLines.Count);
+            Assert.AreEqual(1, rec.Links[0].Notes.Count);
 
             Assert.AreEqual(0, rec.Unknowns.Count);
             Assert.AreEqual(0, rec.Notes.Count);    // FAMS-NOTE treated as INDI-NOTE
