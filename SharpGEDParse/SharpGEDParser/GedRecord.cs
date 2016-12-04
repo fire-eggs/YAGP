@@ -3,6 +3,7 @@
 // Set of lines read from a GED file which encompass a 'record'
 // Starts with '0'
 using System.Diagnostics.CodeAnalysis;
+using SharpGEDParser.Parser;
 
 namespace SharpGEDParser
 {
@@ -64,7 +65,7 @@ namespace SharpGEDParser
             if (linedex >= Max)
                 return ' ';
             string line = _lines[linedex];
-            int dex = GedLineUtil.FirstChar(line);
+            int dex = LineUtil.FirstChar(line);
             // Can't happen? empty lines stripped earlier...
             //if (dex < 0)
             //    return ' '; // empty line

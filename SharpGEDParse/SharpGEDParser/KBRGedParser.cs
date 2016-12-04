@@ -57,20 +57,21 @@ namespace SharpGEDParser
         {
             // 1. The first line in the rec should start with '0'
             string head = rec.FirstLine();
-            int firstDex = GedLineUtil.FirstChar(head);
+            int firstDex = LineUtil.FirstChar(head);
             if (head[firstDex] != '0')
                 throw new Exception("record head not zero"); // TODO should this be an error record instead?
 
             // 2. search for and find the tag
-            string ident = "";
-            string tag = "";
-            string remain = "";
-            char level = ' ';
-            GedLineUtil.LevelTagAndRemain(head, ref level, ref ident, ref tag, ref remain);
+            //string ident = "";
+            //string tag = "";
+            //string remain = "";
+            //char level = ' ';
+            LineUtil.LineData ld = new LineUtil.LineData(); // TODO static?
+            LineUtil.LevelTagAndRemain(ld, head); //, ref level, ref ident, ref tag, ref remain);
             //GedLineUtil.IdentAndTag(head, firstDex + 1, ref ident, ref tag);
 
             // 3. create a KBRGedRec derived class
-            return GedRecFactory(rec, ident, tag, remain);
+            return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain); //ident, tag, remain);
         }
 
         private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)

@@ -12,12 +12,26 @@ namespace SharpGEDParser.Parser
             public string Remain;
         }
 
-        private static int FirstChar(string line, int dex, int max)
+        public static int FirstChar(string line)
+        {
+            return FirstChar(line, 0, line.Length);
+        }
+
+        internal static int FirstChar(string line, int dex, int max)
         {
             while (dex < max && (line[dex] == ' ' || line[dex] == '\t'))
                 dex++;
             if (dex >= max) // empty line
                 return -1;
+            return dex;
+        }
+
+        public static int AllCharsUntil(string line, int max, int dex, char target)
+        {
+            while (dex < max && line[dex] != target)
+                dex++;
+            if (dex >= max) // target not found
+                return max; // TODO is this correct???
             return dex;
         }
 
@@ -40,10 +54,13 @@ namespace SharpGEDParser.Parser
 
             // Get to either ident or tag
             startDex = FirstChar(line, startDex, max);
+            if (startDex < 0) // TODO raganfam.ged has garbage lines consisting only of a number, no tag; invalid line breaks, etc
+                return startDex; 
+
             if (line[startDex] == '@')
             {
                 // get ident
-                int endIdent = CharsUntil(line, max, startDex + 1, '@');
+                int endIdent = AllCharsUntil(line, max, startDex + 1, '@');
                 // endIdent now points at the trailing '@' or ' '
                 data.Ident = line.Substring(startDex + 1, endIdent - startDex - 1);
                 startDex = FirstChar(line, endIdent + 1, max);
@@ -70,7 +87,7 @@ namespace SharpGEDParser.Parser
             data.Level = line[dex];
             data.Tag = ""; // in case of error
             data.Remain = ""; // in case of error
-            dex = CharsUntil(line, max, dex, ' ');
+            dex = AllCharsUntil(line, max, dex, ' ');
             dex = IdentAndTag(data, line, dex);
             if (dex < max)
                 data.Remain = line.Substring(dex + 1);

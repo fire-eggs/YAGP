@@ -26,10 +26,10 @@ namespace SharpGEDParser
             for (int i = 1; i < Lines.Max; i++)
             {
                 string line = Lines.GetLine(i);
-                string ident = null;
                 ctx.Begline = i;
                 ctx.Endline = i; // assume it is one line long, parser might change it
-                GedLineUtil.LevelTagAndRemain(line, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
+
+                LineUtil.LevelTagAndRemain(ctx, line); //, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
                 if (ctx.Tag != null && _tagSet2.ContainsKey(ctx.Tag))
                 {
                     _tagSet2[ctx.Tag](ctx);
@@ -142,23 +142,20 @@ namespace SharpGEDParser
         {
             StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
             int i = ctx.Begline + 1;
-            char level = ' ';
-            string ident = null;
-            string tag = null;
-            string remain = null;
+            LineUtil.LineData ld = new LineUtil.LineData();
             for (; i < ctx.Lines.Max; i++)
             {
-                GedLineUtil.LevelTagAndRemain(ctx.Lines.GetLine(i), ref level, ref ident, ref tag, ref remain);
-                if (level <= ctx.Level)
+                LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
+                if (ld.Level <= ctx.Level)
                     break; // end of sub-record
-                if (tag == "CONC")
+                if (ld.Tag == "CONC")
                 {
-                    txt.Append(remain); // must keep trailing space
+                    txt.Append(ld.Remain); // must keep trailing space
                 }
-                else if (tag == "CONT")
+                else if (ld.Tag == "CONT")
                 {
                     txt.Append("\n"); // NOTE: not appendline, which is \r\n
-                    txt.Append(remain); // must keep trailing space
+                    txt.Append(ld.Remain); // must keep trailing space
                 }
                 else
                     break; // non-CONC, non-CONT: stop!

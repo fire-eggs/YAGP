@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using SharpGEDParser.Parser;
 
 namespace SharpGEDParser
 {
@@ -168,7 +169,7 @@ namespace SharpGEDParser
         /// <param name="lineNum"></param>
         private void ProcessLine(string line, int lineNum)
         {
-            int dex = GedLineUtil.FirstChar(line);
+            int dex = LineUtil.FirstChar(line);
             if (dex < 0)
             {
                 DoError("Empty line", lineNum);

@@ -5,14 +5,11 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
-    public class ParseContextCommon
+    public class ParseContextCommon : LineUtil.LineData
     {
         public GedRecord Lines;
         public int Begline; // index of first line for this 'record'
         public int Endline; // index of last line FOUND for this 'record'
-        public char Level;
-        public string Remain;
-        public string Tag;
 
         public ParseContextCommon()
         {

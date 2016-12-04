@@ -143,11 +143,11 @@ namespace SharpGEDParser.Parser
             int max = line.Length;
 
             // BOULDER_CEM_02212009b.GED had a "1 NAME" with nothing else
-            int startName = GedLineUtil.FirstChar(line, 0, max);
+            int startName = LineUtil.FirstChar(line, 0, max);
             if (startName >= 0)
             {
-                int startSur = GedLineUtil.AllCharsUntil(line, max, startName, '/');
-                int endSur = GedLineUtil.AllCharsUntil(line, max, startSur + 1, '/');
+                int startSur = LineUtil.AllCharsUntil(line, max, startName, '/');
+                int endSur   = LineUtil.AllCharsUntil(line, max, startSur + 1, '/');
 
                 var suffix = "";
                 if (endSur + 1 < max)

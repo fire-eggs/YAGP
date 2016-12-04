@@ -154,11 +154,11 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("I1", rec.Ident);
             Assert.AreEqual('M', rec.Sex);
 
-            // The error here is on the sub-structure
+            // The 'other line' here is on the sub-structure
             Assert.AreEqual(1, rec.Attribs.Count);
-            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
-            Assert.AreEqual(5, rec.Attribs[0].Errors[0].Beg);
-            Assert.IsNotNull(rec.Attribs[0].Errors[0].Error);
+            Assert.AreEqual(0, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(1, rec.Attribs[0].OtherLines.Count);
+            Assert.AreEqual(5, rec.Attribs[0].OtherLines[0].Beg);
         }
 
         [Test]
@@ -173,13 +173,13 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("I1", rec.Ident);
             Assert.AreEqual('M', rec.Sex);
 
-            // TODO this feels wrong - the error line has specified the level, so should have been treated as outside the sub-record. Part of the record sub-parsing problem
-
-            // The error has been recorded on the sub-structure
             Assert.AreEqual(1, rec.Attribs.Count);
-            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
-            Assert.AreEqual(9, rec.Attribs[0].Errors[0].Beg);
-            Assert.IsNotNull(rec.Attribs[0].Errors[0].Error);
+            Assert.AreEqual(0, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);
+
+            // The 'unknown' line has been recorded in the parent record
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(9, rec.Unknowns[0].Beg);
         }
 
         //[Test]
