@@ -51,7 +51,7 @@ namespace SharpGEDParser
         }
 
         // Find the end of this 'record'.
-        public static void LookAhead(ParseContext2 ctx)
+        public static void LookAhead(ParseContextCommon ctx)
         {
             if (ctx.Begline == ctx.Lines.LineCount)
             {
@@ -137,8 +137,8 @@ namespace SharpGEDParser
             // post parse checking; each record parser should overload
         }
 
-        // TODO copy-pasta from StructParser
-        protected static string extendedText(ParseContext2 ctx)
+        // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
+        public static string extendedText(ParseContextCommon ctx)
         {
             StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
             int i = ctx.Begline + 1;

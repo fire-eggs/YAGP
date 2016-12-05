@@ -26,7 +26,7 @@ namespace SharpGEDParser.Parser
 
         private static void textProc(StructParseContext context, int linedex, char level)
         {
-            string val = extendedText(context);
+            string val = GedRecParse.extendedText(context);
             SourceCit cit = (context.Parent as SourceCit);
             cit.Text.Add(val);
         }

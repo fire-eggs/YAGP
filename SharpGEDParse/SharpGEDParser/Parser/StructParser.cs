@@ -47,7 +47,7 @@ namespace SharpGEDParser.Parser
                     char oldLevel = ctx.Level;
                     ctx.Begline = i;
                     ctx.Level = ld.Level;
-                    LookAhead(ctx);
+                    GedRecParse.LookAhead(ctx);
                     extra.Beg = ctx.Begline;
                     extra.End = ctx.Endline;
                     ctx.Parent.OtherLines.Add(extra);
@@ -56,50 +56,6 @@ namespace SharpGEDParser.Parser
                 i = Math.Max(ctx.Endline,i);
             }
             ctx.Endline = i - 1;           
-        }
-
-        protected static void LookAhead(StructParseContext ctx) // TODO copy-pasta from GedRecParse
-        {
-            if (ctx.Begline == ctx.Lines.LineCount)
-            {
-                ctx.Endline = ctx.Begline;
-                return; // Nothing to do: already at last line
-            }
-            int linedex = ctx.Begline;
-            int sublinedex;
-            while (ctx.Lines.GetLevel(linedex + 1, out sublinedex) > ctx.Level &&
-                   linedex + 1 <= ctx.Lines.LineCount)
-                linedex++;
-            ctx.Endline = linedex;
-        }
-
-        // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
-        protected static string extendedText(StructParseContext ctx)
-        {
-            LineUtil.LineData lineData = new LineUtil.LineData();
-
-            StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
-
-            int i = ctx.Begline + 1;
-            for (; i < ctx.Lines.Max; i++)
-            {
-                LineUtil.LineData ld = LineUtil.LevelTagAndRemain(lineData, ctx.Lines.GetLine(i));
-                if (ld.Level <= ctx.Level)
-                    break; // end of sub-record
-                if (ld.Tag == "CONC")
-                {
-                    txt.Append(ld.Remain); // must keep trailing space
-                }
-                else if (ld.Tag == "CONT")
-                {
-                    txt.Append("\n"); // NOTE: not appendline, which is \r\n
-                    txt.Append(ld.Remain); // must keep trailing space
-                }
-                else
-                    break; // non-CONC, non-CONT: stop!
-            }
-            ctx.Endline = i - 1;
-            return txt.ToString();
         }
 
         // Common Note sub-structure parsing
