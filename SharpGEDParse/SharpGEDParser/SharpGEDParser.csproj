@@ -112,7 +112,7 @@
     <Compile Include="Tests\ChanTests.cs" />
     <Compile Include="Tests\FamEventTest1.cs" />
     <Compile Include="Tests\FamTest1.cs" />
-    <Compile Include="Tests\FileTest.cs" />
+    <Compile Include="Tests\zFileTest.cs" />
     <Compile Include="Tests\IndiAssocs.cs" />
     <Compile Include="Tests\IndiAttrib.cs" />
     <Compile Include="Tests\IndiEvents.cs" />

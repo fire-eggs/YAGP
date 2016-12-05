@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
@@ -21,7 +20,7 @@ namespace SharpGEDParser.Tests
     // TODO how to exercise charset/encoding variants, i.e.  different BOM
 
     [TestFixture]
-    public class FileTest : GedParseTest
+    public class zFileTest : GedParseTest
     {
         public List<GEDCommon> CommonBasic(string txt, Encoding fileEnc)
         {
@@ -154,13 +153,65 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
-        public void DoAll551()
+        public void zDoAll551()
         {
             var path = @"Z:\HOST_E\projects\GED\GED files\5.5.1";
             foreach (var file in Directory.GetFiles(path))
             {
                 DoFile(file);
             }
+        }
+
+        [Test]
+        public void SimpleGed()
+        {
+            var path = @"E:\projects\YAGP\Sample GED\export_ged_919.ged";// TODO project-relative path
+
+            FileRead fr = new FileRead();
+            fr.ReadGed(path);
+            var results = fr.Data;
+
+            Assert.AreEqual(0, fr.Errors.Count);
+
+            var indis = fr.Indi;
+            Assert.AreEqual(2, indis.Count);
+
+            var indi = fr.FindIndi("I919");
+            Assert.IsNotNull(indi);
+
+            Assert.AreEqual('M', indi.Sex);
+            Assert.IsNotNull(indi.CHAN.Date);
+            Assert.AreEqual(1, indi.Names.Count);
+
+        }
+
+        [Test]
+        public void SimpleGed2()
+        {
+            var path = @"E:\projects\YAGP\Sample GED\ege.ged"; // TODO project-relative path
+            FileRead fr = new FileRead();
+            fr.ReadGed(path);
+            var results = fr.Data;
+
+            Assert.AreEqual(0, fr.Errors.Count);
+
+            var indi = fr.FindIndi("I26");
+            Assert.IsNotNull(indi);
+
+        }
+        [Test]
+        public void SimpleGed3()
+        {
+            var path = @"Z:\HOST_E\projects\GED\GED files\01small\pallanezf.ged"; // TODO project-relative path
+            FileRead fr = new FileRead();
+            fr.ReadGed(path);
+            var results = fr.Data;
+
+            Assert.AreEqual(0, fr.Errors.Count);
+
+            var indis = fr.Indi;
+            var indi = fr.FindIndi("I30");
+
         }
     }
 }
