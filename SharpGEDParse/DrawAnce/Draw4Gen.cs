@@ -12,9 +12,9 @@ namespace DrawAnce
         private const int GEN3VM = 15; // vertical margin between boxes for Gen 3
         private const int OuterMargin = 5;
         private const int GEN2HM = 46;
-        //private const int GEN2HM = 75;
 
-        private const int TEXTSTEP = 6;
+        private const int NAME_V_MARGIN = 3; // change when the boxPen thickness changes
+        private const int TEXTSTEP = 4;
         private const int TEXTINDENT = 2;
 
         private Pen _boxPen;
@@ -229,11 +229,11 @@ namespace DrawAnce
             int top = boxRect.Top;
 
             RectangleF textRect = boxRect;
-            var nameLoc = new PointF(left, top + 3);
+            var nameLoc = new PointF(left, top + NAME_V_MARGIN);
             textRect.Location = nameLoc;
             var nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
             gr.DrawString(AncData[i].Name, _nameFont, _textBrush, nameLoc);
-            var textLoc = new PointF(left + 2, top + 6 + nameSize.Height);
+            var textLoc = new PointF(left + 2, nameLoc.Y + TEXTSTEP + (float)Math.Ceiling(nameSize.Height));
             textRect.Location = textLoc;
             gr.DrawString(AncData[i].Text, _textFont, _textBrush, textLoc);
         }
@@ -249,16 +249,24 @@ namespace DrawAnce
         /// <returns></returns>
         private Point CalcBoxDims(Graphics gr, int ancL, int ancH)
         {
+            int penW = (int) Math.Ceiling(_boxPen.Width); // take the box pen into account, otherwise draws over right text margin
             int maxW = 0;
             int maxH = 0;
             for (int i = ancL; i <= ancH; i++)
             {
-                var nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
-                maxW = Math.Max(maxW, (int)nameSize.Width);
-                var textSize = gr.MeasureString(AncData[i].Text, _textFont);
-                maxW = Math.Max(maxW, (int)textSize.Width + TEXTINDENT);
+                int h2;
+                int h1 = h2 = 25;
+                if (!string.IsNullOrEmpty(AncData[i].Name))
+                {
+                    SizeF nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
+                    maxW = Math.Max(maxW, (int) Math.Ceiling(nameSize.Width) + penW); // round up: text margin too small
+                    var textSize = gr.MeasureString(AncData[i].Text, _textFont);
+                    maxW = Math.Max(maxW, (int) textSize.Width + TEXTINDENT);
+                    h1 = (int)Math.Ceiling(nameSize.Height);
+                    h2 = (int)Math.Ceiling(textSize.Height);
+                }
                 maxW = Math.Max(maxW, 150); // prevent collapsed boxes
-                int totH = (int)(nameSize.Height + textSize.Height + TEXTSTEP);
+                int totH = h1 + h2 + TEXTSTEP + 2 * NAME_V_MARGIN;
                 maxH = Math.Max(maxH, totH);
             }
             return new Point(maxW, maxH);

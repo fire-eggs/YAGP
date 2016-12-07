@@ -233,12 +233,13 @@ namespace DrawAnce
 
         private Point CalcBoxDims(Graphics gr, int ancL, int ancH)
         {
+            int penW = (int)Math.Ceiling(_boxPen.Width); // take the box pen into account, otherwise draws over right text margin
             int maxW = 0;
             int maxH = 0;
             for (int i = ancL; i <= ancH; i++)
             {
                 var nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
-                maxW = Math.Max(maxW, (int)nameSize.Width);
+                maxW = Math.Max(maxW, (int)Math.Ceiling(nameSize.Width) + penW); // round up: text margin too small
                 maxW = Math.Max(maxW, 100); // prevent collapsed boxes
                 maxH = Math.Max(BOXH, (int)nameSize.Height);
             }
