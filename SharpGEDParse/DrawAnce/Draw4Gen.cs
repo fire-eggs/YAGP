@@ -292,8 +292,14 @@ namespace DrawAnce
             //    e.Graphics.DrawRectangle(dashed_pen, e.MarginBounds);
             //}
 
-            CalcActualBoxWidths(e.Graphics);
-            DrawAncTree(e.Graphics, e.MarginBounds);
+            using (_boxPen = new Pen(Color.Chocolate, 2.0f))
+            using (_nameFont = new Font("Arial", 12))
+            using (_textFont = new Font("Arial", 9))
+            using (_textBrush = new SolidBrush(Color.Black))
+            {
+                CalcActualBoxWidths(e.Graphics);
+                DrawAncTree(e.Graphics, e.MarginBounds);
+            }
 
             e.HasMorePages = false; //(Lines < LINES_TO_PRINT);
         }

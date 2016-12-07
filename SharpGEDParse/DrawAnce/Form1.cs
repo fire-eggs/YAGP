@@ -450,10 +450,12 @@ namespace DrawAnce
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            drawer.AncData = _ancIndi;
             EnhancedPrintPreviewDialog newPreview = new EnhancedPrintPreviewDialog();
             newPreview.Owner = this;
             newPreview.Document = drawer.PrintAncTree();
             newPreview.ShowDialog();
+            drawer.AncData = null;
         }
 
         private void printSettingsToolStripMenuItem_Click(object sender, EventArgs e)

@@ -190,8 +190,13 @@ namespace DrawAnce
 
         void PrintPage(object sender, PrintPageEventArgs e)
         {
-            CalcActualBoxWidths(e.Graphics);
-            DrawAncTree(e.Graphics, e.MarginBounds);
+            using (_boxPen = new Pen(Color.Chocolate, 2.0f))
+            using (_nameFont = new Font("Arial", 12))
+            using (_textBrush = new SolidBrush(Color.Black))
+            {
+                CalcActualBoxWidths(e.Graphics);
+                DrawAncTree(e.Graphics, e.MarginBounds);
+            }
 
             using (Pen dashed_pen = new Pen(Color.Red, 3))
             {
