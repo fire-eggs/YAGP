@@ -8,7 +8,6 @@ namespace DrawAnce
 {
     public class Draw4Gen : DrawGen
     {
-        private const int BOXH = 80;
         private const int GEN3VM = 15; // vertical margin between boxes for Gen 3
         private const int OuterMargin = 5;
         private const int GEN2HM = 46;
@@ -29,6 +28,7 @@ namespace DrawAnce
         }
 
         private Point[] boxSz;
+        private int BOXH;
 
         private void CalcActualBoxWidths(Graphics gr)
         {
@@ -37,6 +37,14 @@ namespace DrawAnce
             boxSz[1] = CalcBoxDims(gr, 2, 3);
             boxSz[2] = CalcBoxDims(gr, 4, 7);
             boxSz[3] = CalcBoxDims(gr, 8, 15);
+
+            // Take the tallest content height into account. For reasons I don't get yet,
+            // drawing only works well if the boxes are all the same height.
+            BOXH = 80;
+            foreach (var point in boxSz)
+            {
+                BOXH = Math.Max(BOXH, point.Y);
+            }
         }
 
         private void DrawAncTree(Graphics gr, Rectangle bounds)
