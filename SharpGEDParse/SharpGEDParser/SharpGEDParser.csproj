@@ -76,7 +76,7 @@
     <Compile Include="Model\Place.cs" />
     <Compile Include="Model\RepoCit.cs" />
     <Compile Include="Model\Repository.cs" />
-    <Compile Include="KBRGedParser.cs" />
+    <Compile Include="GedParser.cs" />
     <Compile Include="Model\GEDCommon.cs" />
     <Compile Include="Model\MediaLink.cs" />
     <Compile Include="Model\MediaRecord.cs" />

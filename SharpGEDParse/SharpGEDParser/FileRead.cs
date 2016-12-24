@@ -33,7 +33,7 @@ namespace SharpGEDParser
 
         private string FilePath { get; set; }
 
-        private KBRGedParser Parser { get; set; }
+        private GedParser Parser { get; set; }
 
         public List<GEDCommon> Data { get; set; }
 
@@ -126,7 +126,7 @@ namespace SharpGEDParser
         /// <param name="instream"></param>
         public void ReadLines(StreamReader instream)
         {
-            Parser = new KBRGedParser(FilePath ?? "");
+            Parser = new GedParser(FilePath ?? "");
             Data = new List<GEDCommon>();
             if (Errors == null)
                 Errors = new List<UnkRec>();
