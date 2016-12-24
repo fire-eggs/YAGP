@@ -30,8 +30,9 @@ namespace SharpGEDParser
         public List<Task> _allTasks = new List<Task>();
 #endif
 
-        public void Wrap()
+        public void FinishUp()
         {
+            // If running multi-process, need to let all tasks finish before records can be accessed
 #if PARALLEL
             Task.WaitAll(_allTasks.ToArray());
 #endif
@@ -43,7 +44,8 @@ namespace SharpGEDParser
             Tuple<object, GedParse> parseSet = Make(rec);
 
             if (parseSet.Item2 == null) 
-                return parseSet.Item1 as GEDCommon;
+                return parseSet.Item1 as GEDCommon; // unknown or NYI record type
+
             GEDCommon recC2 = parseSet.Item1 as GEDCommon;
 #if PARALLEL
             _allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC2, rec)));
@@ -65,7 +67,7 @@ namespace SharpGEDParser
             LineUtil.LineData ld = new LineUtil.LineData(); // TODO static?
             LineUtil.LevelTagAndRemain(ld, head);
 
-            // 3. create a KBRGedRec derived class
+            // 3. create a GedCommon derived class
             return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain);
         }
 
@@ -97,7 +99,7 @@ namespace SharpGEDParser
                 case "SUBM": // TODO temp ignore
                 case "HEAD": // TODO temp ignore
                 case "SUBN": // TODO temp ignore
-                default:  // TODO leading underscore signals a custom record
+                default:
                 {
                     var foo = new Unknown(rec, ident);
                     return new Tuple<object, GedParse>(foo, null);
