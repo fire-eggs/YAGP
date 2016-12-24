@@ -30,9 +30,10 @@ namespace SharpGEDParser.Model
         private List<string> _famSubm; // TODO common?
         public List<string> FamSubm { get { return _famSubm ?? (_famSubm = new List<string>()); } }
 
-        public FamRecord(GedRecord lines, string ident) : base(lines, ident)
+        public FamRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
         {
             _childCount = -1;
+            GedRecParse.NonStandardRemain(remain, this);
         }
 
         [ExcludeFromCodeCoverage]

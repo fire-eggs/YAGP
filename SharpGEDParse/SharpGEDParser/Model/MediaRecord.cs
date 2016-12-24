@@ -17,12 +17,13 @@ namespace SharpGEDParser.Model
         private List<SourceCit> _cits;
         public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }
 
-        public List<MediaFile> _files;
+        private List<MediaFile> _files;
 
         public List<MediaFile> Files { get { return _files ?? (_files = new List<MediaFile>()); } }
 
-        public MediaRecord(GedRecord lines, string ident) : base(lines, ident)
+        public MediaRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
         {
+            GedRecParse.NonStandardRemain(remain, this);
         }
 
         [ExcludeFromCodeCoverage]

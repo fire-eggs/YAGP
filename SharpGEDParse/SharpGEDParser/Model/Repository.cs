@@ -36,8 +36,9 @@ namespace SharpGEDParser.Model
 
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
-        public Repository(GedRecord lines, string ident) : base(lines, ident)
+        public Repository(GedRecord lines, string ident, string remain) : base(lines, ident)
         {
+            GedRecParse.NonStandardRemain(remain, this);
         }
 
         [ExcludeFromCodeCoverage]

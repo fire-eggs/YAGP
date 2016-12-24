@@ -62,16 +62,11 @@ namespace SharpGEDParser
                 throw new Exception("record head not zero"); // TODO should this be an error record instead?
 
             // 2. search for and find the tag
-            //string ident = "";
-            //string tag = "";
-            //string remain = "";
-            //char level = ' ';
             LineUtil.LineData ld = new LineUtil.LineData(); // TODO static?
-            LineUtil.LevelTagAndRemain(ld, head); //, ref level, ref ident, ref tag, ref remain);
-            //GedLineUtil.IdentAndTag(head, firstDex + 1, ref ident, ref tag);
+            LineUtil.LevelTagAndRemain(ld, head);
 
             // 3. create a KBRGedRec derived class
-            return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain); //ident, tag, remain);
+            return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain);
         }
 
         private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)
@@ -82,42 +77,23 @@ namespace SharpGEDParser
             switch (tag.ToUpper())
             {
                 case "INDI":
-                {
-                    var foo = new IndiRecord(rec, ident);
-                    NonStandardRemain(remain, foo);
-                    return new Tuple<object, GedParse>(foo, _IndiParseSingleton);
-                }
-                    //data = new KBRGedIndi(rec, ident);
-                    //return new Tuple<object, GedParse>(data, _IndiParseSingleton);
+                    return new Tuple<object, GedParse>(new IndiRecord(rec, ident, remain), _IndiParseSingleton);
+
                 case "FAM":
-                {
-                    var foo = new FamRecord(rec, ident);
-                    NonStandardRemain(remain, foo);
-                    return new Tuple<object, GedParse>(foo, _FamParseSingleton);
-                }
+                    return new Tuple<object, GedParse>(new FamRecord(rec, ident, remain), _FamParseSingleton);
+
                 case "SOUR":
-                {
-                    var foo = new SourceRecord(rec, ident);
-                    NonStandardRemain(remain, foo);
-                    return new Tuple<object, GedParse>(foo, _SourParseSingleton);
-                }
+                    return new Tuple<object, GedParse>(new SourceRecord(rec, ident, remain), _SourParseSingleton);
+
                 case "REPO":
-                {
-                    var foo = new Repository(rec, ident);
-                    NonStandardRemain(remain, foo);
-                    return new Tuple<object, GedParse>(foo, _RepoParseSingleton);
-                }
+                    return new Tuple<object, GedParse>(new Repository(rec, ident, remain), _RepoParseSingleton);
+
                 case "NOTE":
-                {
-                    var foo = new NoteRecord(rec, ident, remain);
-                    return new Tuple<object, GedParse>(foo, _NoteParseSingleton);
-                }
+                    return new Tuple<object, GedParse>(new NoteRecord(rec, ident, remain), _NoteParseSingleton);
+
                 case "OBJE":
-                {
-                    var foo = new MediaRecord(rec, ident);
-                    NonStandardRemain(remain, foo);
-                    return new Tuple<object, GedParse>(foo, _MediaParseSingleton);
-                }
+                    return new Tuple<object, GedParse>(new MediaRecord(rec, ident, remain), _MediaParseSingleton);
+
                 case "SUBM": // TODO temp ignore
                 case "HEAD": // TODO temp ignore
                 case "SUBN": // TODO temp ignore
@@ -136,27 +112,6 @@ namespace SharpGEDParser
         private readonly GedParse _RepoParseSingleton;
         private readonly GedParse _NoteParseSingleton;
         private readonly GedParse _MediaParseSingleton;
-
-        private void NonStandardRemain(string remain, GEDCommon rec)
-        {
-            // Extra text on the record line (e.g. "0 @R1@ REPO blah blah blah") is not standard for
-            // most record types. Preserve it as a note if possible.
-            if (!string.IsNullOrWhiteSpace(remain))
-            {
-                UnkRec err = new UnkRec();
-                err.Beg = err.End = rec.BegLine;
-                err.Error = string.Format("Non-standard extra text: '{0}'", remain);
-                rec.Errors.Add(err);
-
-                if (rec is NoteHold)
-                {
-                    Note not = new Note();
-                    not.Text = remain;
-                    (rec as NoteHold).Notes.Add(not);
-                }
-            }
-            
-        }
     }
 
     public interface GedParse

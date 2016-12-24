@@ -140,7 +140,7 @@ namespace SharpGEDParser
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         public static string extendedText(ParseContextCommon ctx)
         {
-            StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart());
+            StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart(),1024);
             int i = ctx.Begline + 1;
             LineUtil.LineData ld = new LineUtil.LineData();
             for (; i < ctx.Lines.Max; i++)
@@ -182,6 +182,27 @@ namespace SharpGEDParser
                     rec.Errors.Add(err);
                     break;
             }
+        }
+
+        public static void NonStandardRemain(string remain, GEDCommon rec)
+        {
+            // Extra text on the record line (e.g. "0 @R1@ REPO blah blah blah") is not standard for
+            // most record types. Preserve it as a note if possible.
+            if (!string.IsNullOrWhiteSpace(remain))
+            {
+                UnkRec err = new UnkRec();
+                err.Beg = err.End = rec.BegLine;
+                err.Error = string.Format("Non-standard extra text: '{0}'", remain);
+                rec.Errors.Add(err);
+
+                if (rec is NoteHold)
+                {
+                    Note not = new Note();
+                    not.Text = remain;
+                    (rec as NoteHold).Notes.Add(not);
+                }
+            }
+
         }
 
     }

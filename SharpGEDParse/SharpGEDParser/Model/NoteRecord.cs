@@ -21,7 +21,7 @@ namespace SharpGEDParser.Model
 
         public NoteRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
         {
-            Builder = new StringBuilder(remain);
+            Builder = new StringBuilder(remain, 1024);
         }
 
         [ExcludeFromCodeCoverage]
