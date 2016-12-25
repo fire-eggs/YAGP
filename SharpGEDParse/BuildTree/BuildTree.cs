@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using SharpGEDParser.Model;
 
-// 01\00001.ged has one person I0009 who is in more than one family
+// 20161225 01\00005.ged is an example of inconsistancy between the INDI.FAMC
+// and the FAM.CHIL linkages. From my reading, the INDI.FAMC links are the 
+// "master". The first version of this code was working from the FAM.CHIL links.
 
 namespace BuildTree
 {
@@ -18,6 +20,9 @@ namespace BuildTree
 
         private IndiWrap MakeFillerIndi(string ident, out IndiRecord hack)
         {
+            // There is a reference to an individual who doesn't exist in
+            // the GEDCOM. Create a placeholder.
+
             IndiWrap hack0 = new IndiWrap();
 
             // TODO need a library method to do this!!!
@@ -33,14 +38,14 @@ namespace BuildTree
         public void BuildTree(IEnumerable<GEDCommon> gedRecs)
         {
             // an indi has a FAMS or FAMC
-            // a FAM has HUSB WIFE CHIL
+            // a FAM has HUSB WIFE CHIL but the CHIL are being ignored
 
             List<FamilyUnit> families = new List<FamilyUnit>();
 
             // Build a hash of Indi ids
             // Build a hash of family ids
-            _indiHash = new Dictionary<string, IndiWrap>();
-            var famHash = new Dictionary<string, FamRecord>();
+            _indiHash = new Dictionary<string, IndiWrap>();    // indiIdent -> IndiRecord
+            var famHash = new Dictionary<string, FamilyUnit>(); // familyIdent -> FamRecord
             string first = null;
             foreach (var gedCommon in gedRecs) // TODO really need 'INDI', 'FAM' accessors
             {
@@ -62,10 +67,10 @@ namespace BuildTree
                 {
                     var ident = (gedCommon as FamRecord).Ident;
                     if (!famHash.ContainsKey(ident))
-                        famHash.Add(ident, gedCommon as FamRecord);
+                        famHash.Add(ident, new FamilyUnit(gedCommon as FamRecord));
                     else
                     {
-                        Console.WriteLine("duplicate family");
+                        Console.WriteLine("duplicate family '{0}'", ident);
                     }
                 }
             }
@@ -73,6 +78,58 @@ namespace BuildTree
             // hash: child ids -> familyunit
             _childHash = new Dictionary<string, FamilyUnit>();
 
+            // Iterate through the indi records.
+            // For each FAMS, identify the husb/wife relation
+            // For each FAMC, add to childhash
+            foreach (var indiWrap in _indiHash.Values)
+            {
+                var indiId = indiWrap.Indi.Ident;
+                foreach (var indiLink in indiWrap.Indi.Links) // TODO wow this is awkward
+                {
+                    FamilyUnit fu;
+                    var id = indiLink.Xref;
+                    switch (indiLink.Tag)
+                    {
+                        case "FAMS":
+                            if (famHash.TryGetValue(id, out fu))
+                            {
+                                indiWrap.SpouseIn.Add(fu);
+                                if (fu.FamRec.Dad == indiId)
+                                    fu.Husband = indiWrap.Indi;
+                                else if (fu.FamRec.Mom == indiId)
+                                    fu.Wife = indiWrap.Indi;
+                                else
+                                {
+                                    Console.WriteLine("Could not identify spouse connection from FAM {0} to INDI {1}", indiLink.Xref, indiId);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("INDI {0} has missing FAMS link {1}", indiId, id);
+                            }
+                            break;
+                        case "FAMC":
+                            if (famHash.TryGetValue(id, out fu))
+                            {
+                                if (_childHash.ContainsKey(indiId))
+                                {
+                                    Console.WriteLine("indi {0} a child of more than one family", indiId);
+                                }
+                                else
+                                {
+                                    fu.Childs.Add(indiWrap.Indi);
+                                    _childHash.Add(indiId, fu);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("INDI {0} has missing FAMC link {1}", indiId, id);
+                            }
+                            break;
+                    }
+                }
+            }
+#if false
             // Accumulate family units
             // TODO indi with no fam
             // TODO indi with fams/famc only : see GEDCOM_Amssoms
@@ -142,9 +199,10 @@ namespace BuildTree
                 }
                 families.Add(famU);
             }
+#endif
 
             // Connect family units
-            foreach (var familyUnit in families)
+            foreach (var familyUnit in famHash.Values)
             {
                 if (_childHash.ContainsKey(familyUnit.DadId))
                     familyUnit.DadFam = _childHash[familyUnit.DadId];

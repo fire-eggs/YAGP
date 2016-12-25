@@ -49,14 +49,14 @@ namespace DrawAnce
 
         private void Form1_LoadGed(object sender, EventArgs e)
         {
-            logit("LoadGed 1", true);
+            //logit("LoadGed 1", true);
             var fr = new FileRead();
             fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
-            logit("LoadGed 2");
+            //logit("LoadGed 2");
             _treeBuild.BuildTree(fr.Data.ToList());
 
             ResetContext();
-            logit("LoadGed 3");
+            //logit("LoadGed 3");
 
             // populate combobox with individuals
             // www.ahnenbuch.de-AMMON has multiple individuals with the same name. Need to distinguish
@@ -88,7 +88,7 @@ namespace DrawAnce
             cmbPerson.DisplayMember = "Text";
             cmbPerson.DataSource = _cmbItems;
             cmbPerson.Enabled = true;
-            logit("LoadGed 4");
+            //logit("LoadGed 4");
         }
 
         private void OnMRU(int number, string filename)
