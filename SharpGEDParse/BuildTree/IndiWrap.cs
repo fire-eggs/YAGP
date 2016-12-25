@@ -1,14 +1,20 @@
-﻿using BuildTree;
+﻿using System.Collections.Generic;
+using BuildTree;
 using SharpGEDParser;
 using SharpGEDParser.Model;
 
-namespace DrawAnce
+namespace BuildTree
 {
     public class IndiWrap
     {
         public IndiRecord Indi;
         public int Ahnen;
-        public FamilyUnit ChildOf;
+        //public FamilyUnit ChildOf;
+        public int tree = -1;
+
+        // Person may be spouse in more than one family unit
+        List<FamilyUnit> _spouseIn = new List<FamilyUnit>();
+        public List<FamilyUnit> SpouseIn { get { return _spouseIn; } }
 
         public string Name
         {
@@ -30,17 +36,13 @@ namespace DrawAnce
             }
         }
 
-        public FamilyUnit SpouseIn { get; set; }
-
-        // TODO divorce?
-
         public string Marriage
         {
             get
             {
-                if (SpouseIn == null)
+                if (SpouseIn.Count < 1)
                     return "";
-                var fam = SpouseIn.FamRec;
+                var fam = SpouseIn[0].FamRec; // TODO 'first' one only
                 return fam.Marriage;
             }
         }

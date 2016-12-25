@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using SharpGEDParser.Model;
 
 namespace DrawAnce
 {
@@ -28,6 +27,8 @@ namespace DrawAnce
             mnuMRU.MaxEntries = 7;
             LoadGed += Form1_LoadGed;
             LoadSettings(); // must go after mnuMRU init
+
+            _treeBuild = new FamilyTreeBuild();
 
             draw4gen = new Draw4Gen();
             draw5gen = new Draw5gen();
@@ -52,7 +53,7 @@ namespace DrawAnce
             var fr = new FileRead();
             fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
             logit("LoadGed 2");
-            BuildTree(fr.Data.ToList());
+            _treeBuild.BuildTree(fr.Data.ToList());
 
             ResetContext();
             logit("LoadGed 3");
@@ -62,27 +63,27 @@ namespace DrawAnce
             // them somehow for the combobox.
             // TODO is there a better way? unique thing for combobox selection?
             HashSet<string> comboNames = new HashSet<string>();
-            foreach (var indiId in _indiHash.Keys)
+            foreach (var indiId in _treeBuild.IndiIds)
             {
-                IndiWrap p = _indiHash[indiId];
-                int count = 1;
-                if (_childHash.ContainsKey(p.Indi.Ident))
-                {
-                    FamilyUnit firstFam = _childHash[p.Indi.Ident];
-                    p.ChildOf = firstFam;
-                    count = CalcAnce(firstFam, 1);
-                }
+                IndiWrap p = _treeBuild.IndiFromId(indiId);
+                FamilyUnit firstFam = _treeBuild.FamFromIndi(p.Indi.Ident);
+                //p.ChildOf = firstFam; // TODO perform in _treebuild?
+
+                int count = CalcAnce(firstFam, 1);
                 p.Ahnen = count;
-                var text = p.Name + "(" + count + ")";
-                var test = text;
-                int suffix = 1;
-                while (comboNames.Contains(test))
-                {
-                    test = text + "[" + suffix + "]";
-                    suffix++;
-                }
-                comboNames.Add(test);
-                _cmbItems.Add(new { Text = test, Value = p });
+                var text = string.Format("{0}[{1}]({2})", p.Name, indiId, count);
+                comboNames.Add(text);
+                _cmbItems.Add(new { Text=text, Value=p } );
+                //var text = p.Name + "(" + count + ")";
+                //var test = text;
+                //int suffix = 1;
+                //while (comboNames.Contains(test))
+                //{
+                //    test = text + "[" + suffix + "]";
+                //    suffix++;
+                //}
+                //comboNames.Add(test);
+                //_cmbItems.Add(new { Text = test, Value = p });
             }
             cmbPerson.DisplayMember = "Text";
             cmbPerson.DataSource = _cmbItems;
@@ -118,12 +119,9 @@ namespace DrawAnce
         {
             ResetContext();
             _ancIndi[1] = val;
-            if (_childHash.ContainsKey(val.Indi.Ident)) // Is there any ancestry?
-            {
-                FamilyUnit firstFam = _childHash[val.Indi.Ident];
-                CalcAnce(firstFam, 1);
-            }
 
+            FamilyUnit firstFam = _treeBuild.FamFromIndi(val.Indi.Ident);
+            CalcAnce(firstFam, 1);
             DoAncTree();
         }
 
@@ -159,10 +157,14 @@ namespace DrawAnce
         /// <returns>The largest Ahnen number encountered</returns>
         private int CalcAnce(FamilyUnit firstFam, int myNum)
         {
+            // TODO move to BuildTree, taking a MAX parameter and returning a list<IndiWrap> in Ahnen order
+
             if (myNum >= MAX_AHNEN)
                 return -1;
 
             int numRet = myNum;
+            if (firstFam == null)
+                return numRet;
 
             // From http://www.tamurajones.net/AhnenNumbering.xhtml : the Ahnen number 
             // of the father is double that of the current person. Mom's Ahnen number
@@ -174,7 +176,7 @@ namespace DrawAnce
                 numRet = Math.Max(numRet, dadnum);
                 if (dadnum < MAX_AHNEN)
                 {
-                    IndiWrap hack = _indiHash[firstFam.Husband.Ident];
+                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Husband.Ident); // _indiHash[firstFam.Husband.Ident];
                     _ancIndi[dadnum] = hack;
                 }
                 if (firstFam.DadFam != null)
@@ -185,7 +187,7 @@ namespace DrawAnce
                 numRet = Math.Max(numRet, dadnum+1);
                 if (dadnum + 1 < MAX_AHNEN)
                 {
-                    IndiWrap hack = _indiHash[firstFam.Wife.Ident];
+                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Wife.Ident); // _indiHash[firstFam.Wife.Ident];
                     _ancIndi[dadnum+1] = hack;
                 }
                 if (firstFam.MomFam != null)
@@ -212,9 +214,9 @@ namespace DrawAnce
         }
 
         readonly List<object> _cmbItems = new List<object>();
-        Dictionary<string, IndiWrap> _indiHash ;
-        Dictionary<string, FamilyUnit> _childHash ;
         private IndiWrap[] _ancIndi;
+
+        private readonly FamilyTreeBuild _treeBuild;
 
         public event EventHandler LoadGed;
 
@@ -230,7 +232,7 @@ namespace DrawAnce
             LoadGed(this, new EventArgs());
         }
 
-
+#if false
         /// <summary>
         /// The GEDCOM file has been parsed. This method pieces the tree together, creating FamilyUnit
         /// objects to contain Father/Mother/Children.
@@ -335,6 +337,7 @@ namespace DrawAnce
             famHash = null;
             families = null;
         }
+#endif
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

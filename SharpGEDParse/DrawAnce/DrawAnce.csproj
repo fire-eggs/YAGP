@@ -45,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\BuildTree\BuildTree.cs">
+      <Link>BuildTree.cs</Link>
+    </Compile>
     <Compile Include="..\BuildTree\FamilyUnit.cs">
       <Link>FamilyUnit.cs</Link>
+    </Compile>
+    <Compile Include="..\BuildTree\IndiWrap.cs">
+      <Link>IndiWrap.cs</Link>
     </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Draw4Gen.cs" />
@@ -58,7 +64,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IDrawGen.cs" />
-    <Compile Include="IndiWrap.cs" />
     <Compile Include="MruStripMenu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
