@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintPreview", "PrintPrevie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GedScan", "GedScan\GedScan.csproj", "{7478248A-1C08-4BE1-8860-114EDA56432E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTrees", "CheckTrees\CheckTrees.csproj", "{68AEAED4-9D50-4D69-90DB-46CB528B198D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{7478248A-1C08-4BE1-8860-114EDA56432E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7478248A-1C08-4BE1-8860-114EDA56432E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7478248A-1C08-4BE1-8860-114EDA56432E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68AEAED4-9D50-4D69-90DB-46CB528B198D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68AEAED4-9D50-4D69-90DB-46CB528B198D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68AEAED4-9D50-4D69-90DB-46CB528B198D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68AEAED4-9D50-4D69-90DB-46CB528B198D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
