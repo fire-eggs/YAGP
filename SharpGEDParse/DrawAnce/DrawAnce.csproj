@@ -54,6 +54,9 @@
     <Compile Include="..\BuildTree\IndiWrap.cs">
       <Link>IndiWrap.cs</Link>
     </Compile>
+    <Compile Include="..\BuildTree\Multimap.cs">
+      <Link>Multimap.cs</Link>
+    </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Draw4Gen.cs" />
     <Compile Include="Draw5gen.cs" />

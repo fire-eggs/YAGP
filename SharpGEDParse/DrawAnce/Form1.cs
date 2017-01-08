@@ -53,7 +53,7 @@ namespace DrawAnce
             var fr = new FileRead();
             fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
             //logit("LoadGed 2");
-            _treeBuild.BuildTree(fr.Data.ToList());
+            _treeBuild.BuildTree(fr.Data.ToList(), false, false);
 
             ResetContext();
             //logit("LoadGed 3");
@@ -66,7 +66,8 @@ namespace DrawAnce
             foreach (var indiId in _treeBuild.IndiIds)
             {
                 IndiWrap p = _treeBuild.IndiFromId(indiId);
-                FamilyUnit firstFam = _treeBuild.FamFromIndi(p.Indi.Ident);
+                List<FamilyUnit> fams = _treeBuild.FamFromIndi(p.Indi.Ident); // TODO use p.ChildIn
+                FamilyUnit firstFam = fams == null ? null : fams[0];  // TODO support more than one family
                 //p.ChildOf = firstFam; // TODO perform in _treebuild?
 
                 int count = CalcAnce(firstFam, 1);
@@ -120,7 +121,8 @@ namespace DrawAnce
             ResetContext();
             _ancIndi[1] = val;
 
-            FamilyUnit firstFam = _treeBuild.FamFromIndi(val.Indi.Ident);
+            List<FamilyUnit> fams = _treeBuild.FamFromIndi(val.Indi.Ident); // TODO use val.ChildIn
+            FamilyUnit firstFam = fams == null ? null : fams[0]; // TODO support more than one family
             CalcAnce(firstFam, 1);
             DoAncTree();
         }

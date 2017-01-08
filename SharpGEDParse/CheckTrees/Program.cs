@@ -12,44 +12,6 @@ using System.IO;
 
 namespace CheckTrees
 {
-    public class MultiMap<T,V>
-    {
-        readonly Dictionary<T, List<V>> _dictionary = new Dictionary<T, List<V>>();
-
-        public void Add(T key, V value)
-        {
-            List<V> list;
-            if (_dictionary.TryGetValue(key, out list))
-            {
-                // 2A.
-                list.Add(value);
-            }
-            else
-            {
-                // 2B.
-                list = new List<V>();
-                list.Add(value);
-                _dictionary[key] = list;
-            }
-        }
-
-        public IEnumerable<T> Keys { get { return _dictionary.Keys; } }
-
-        public List<V> this[T key]
-        {
-            get
-            {
-                List<V> list;
-                if (!_dictionary.TryGetValue(key, out list))
-                {
-                    list = new List<V>();
-                    _dictionary[key] = list;
-                }
-                return list;
-            }
-        }
-    }
-
     class Program
     {
         private static void AllInFamily(FamilyUnit fu)
@@ -98,7 +60,11 @@ namespace CheckTrees
                     AllInFamily(familyUnit);
                 }
                 // everybody where this person is a child
-                AllInFamily(_treeBuild.FamFromIndi(iw.Indi.Ident)); // TODO replace with iw.ChildIn when BuildTree() supports
+                foreach (var familyUnit in iw.ChildIn)
+                {
+                    AllInFamily(familyUnit);
+                }
+//                AllInFamily(_treeBuild.FamFromIndi(iw.Indi.Ident)); // TODO replace with iw.ChildIn when BuildTree() supports
             }
         }
 
@@ -154,7 +120,7 @@ namespace CheckTrees
                     break;
             }
 
-            Console.WriteLine("Total number of trees:{0}", treenum);
+            Console.WriteLine("Total number of trees:{0}", treenum-1);
             if (_treeBuild.ErrorsCount > 0)
                 Console.WriteLine("Total number of errors: {0}", _treeBuild.ErrorsCount);
             if (_checkCHIL && _treeBuild.ChilErrorsCount > 0)

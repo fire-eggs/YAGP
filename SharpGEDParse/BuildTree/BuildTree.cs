@@ -7,6 +7,11 @@ using SharpGEDParser.Model;
 // and the FAM.CHIL linkages. From my reading, the INDI.FAMC links are the 
 // "master". The first version of this code was working from the FAM.CHIL links.
 
+// 201701?? BuildTree2() is a variant where the FAM.CHIL links are the "master".
+
+// 20170108 Handle "child in more than one family" by replacing child hash with a MultiMap. The FamilyUnit
+// connections to "Dad's family" and "Mom's family" are now a problem because there could be more than one link.
+
 namespace BuildTree
 {
     public class FamilyTreeBuild
@@ -14,7 +19,7 @@ namespace BuildTree
         private int _CHILErrorsCount;
         private int errorsCount;
         private Dictionary<string, IndiWrap> _indiHash;
-        private Dictionary<string, FamilyUnit> _childHash;
+        private MultiMap<string, FamilyUnit> _childsIn;
 
         public IEnumerable<string> IndiIds
         {
@@ -100,7 +105,7 @@ namespace BuildTree
             }
 
             // hash: child ids -> familyunit
-            _childHash = new Dictionary<string, FamilyUnit>();
+            _childsIn  = new MultiMap<string, FamilyUnit>();
 
             // Iterate through the indi records.
             // For each FAMS, identify the husb/wife relation
@@ -146,17 +151,9 @@ namespace BuildTree
                         case "FAMC":
                             if (famHash.TryGetValue(id, out fu))
                             {
-                                if (_childHash.ContainsKey(indiId))
-                                {
-                                    if (showErrors)
-                                        Console.WriteLine("Error: indi {0} a child of more than one family", indiId);
-                                    errorsCount += 1;
-                                }
-                                else
-                                {
-                                    fu.Childs.Add(indiWrap.Indi);
-                                    _childHash.Add(indiId, fu);
-                                }
+                                _childsIn.Add(indiId, fu);
+                                fu.Childs.Add(indiWrap.Indi);
+                                indiWrap.ChildIn.Add(fu);
                             }
                             else
                             {
@@ -173,10 +170,31 @@ namespace BuildTree
             // Also check if HUSB/WIFE links are to valid people
             foreach (var familyUnit in famHash.Values)
             {
-                if (_childHash.ContainsKey(familyUnit.DadId))
-                    familyUnit.DadFam = _childHash[familyUnit.DadId];
-                if (_childHash.ContainsKey(familyUnit.MomId))
-                    familyUnit.MomFam = _childHash[familyUnit.MomId];
+                if (familyUnit.Husband != null)
+                { 
+                    var dadFams = _childsIn[familyUnit.DadId];
+                    if (dadFams != null && dadFams.Count > 0)
+                    {
+                        familyUnit.DadFam = dadFams[0];
+                        if (dadFams.Count > 1)
+                        {
+                            Console.WriteLine("Warn: ambiguous dad connection for family {0}", familyUnit.FamRec.Ident);
+                        }
+                    }
+                }
+
+                if (familyUnit.Wife != null)
+                { 
+                    var momFams = _childsIn[familyUnit.MomId];
+                    if (momFams != null && momFams.Count > 0)
+                    {
+                        familyUnit.MomFam = momFams[0];
+                        if (momFams.Count > 1)
+                        {
+                            Console.WriteLine("Warn: ambiguous mom connection for family {0}", familyUnit.FamRec.Ident);
+                        }
+                    }
+                }
 
                 var husbId = familyUnit.FamRec.Dad;
                 if (husbId != null && !_indiHash.ContainsKey(husbId))
@@ -250,10 +268,9 @@ namespace BuildTree
             return _indiHash[indiId];
         }
 
-        public FamilyUnit FamFromIndi(string ident)
+        public List<FamilyUnit> FamFromIndi(string ident)
         {
-            FamilyUnit fu;
-            return _childHash.TryGetValue(ident, out fu) ? fu : null;
+            return _childsIn[ident];
         }
 
         public void BuildTree2(IEnumerable<GEDCommon> gedRecs, bool showErrors, bool checkCHIL)
@@ -321,7 +338,7 @@ namespace BuildTree
             }
 
             // hash: child ids -> familyunit
-            _childHash = new Dictionary<string, FamilyUnit>();
+            _childsIn = new MultiMap<string, FamilyUnit>();
 
             // Iterate through the family records
             // For each HUSB/WIFE, connect to INDI
@@ -370,16 +387,7 @@ namespace BuildTree
                     {
                         childWrap.ChildIn.Add(familyUnit);
                         familyUnit.Childs.Add(childWrap.Indi);  // TODO shouldn't this be IndiWrap?
-                        if (_childHash.ContainsKey(childId))
-                        {
-                            if (showErrors)
-                                Console.WriteLine("Error: indi {0} a child of more than one family", childId);
-                            errorsCount += 1;
-                        }
-                        else
-                        {
-                            _childHash[childId] = familyUnit;
-                        }
+                        _childsIn.Add(childId, familyUnit);
                     }
                     else
                     {
@@ -394,10 +402,31 @@ namespace BuildTree
             // Connect family units
             foreach (var familyUnit in famHash.Values)
             {
-                if (_childHash.ContainsKey(familyUnit.DadId))
-                    familyUnit.DadFam = _childHash[familyUnit.DadId];
-                if (_childHash.ContainsKey(familyUnit.MomId))
-                    familyUnit.MomFam = _childHash[familyUnit.MomId];
+                if (familyUnit.Husband != null)
+                {
+                    var dadFams = _childsIn[familyUnit.DadId];
+                    if (dadFams != null && dadFams.Count > 0)
+                    {
+                        familyUnit.DadFam = dadFams[0];
+                        if (dadFams.Count > 1)
+                        {
+                            Console.WriteLine("Warn: ambiguous dad connection for family {0}", familyUnit.FamRec.Ident);
+                        }
+                    }
+                }
+
+                if (familyUnit.Wife != null)
+                {
+                    var momFams = _childsIn[familyUnit.MomId];
+                    if (momFams != null && momFams.Count > 0)
+                    {
+                        familyUnit.MomFam = momFams[0];
+                        if (momFams.Count > 1)
+                        {
+                            Console.WriteLine("Warn: ambiguous mom connection for family {0}", familyUnit.FamRec.Ident);
+                        }
+                    }
+                }
             }
 
             // verify if INDI.FAMC have matching FAM.CHIL
