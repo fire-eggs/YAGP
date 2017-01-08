@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using SharpGEDParser.Model;
 
 // 20161225 01\00005.ged is an example of inconsistancy between the INDI.FAMC
@@ -10,6 +11,8 @@ namespace BuildTree
 {
     public class FamilyTreeBuild
     {
+        private int _CHILErrorsCount;
+        private int errorsCount;
         private Dictionary<string, IndiWrap> _indiHash;
         private Dictionary<string, FamilyUnit> _childHash;
 
@@ -35,10 +38,12 @@ namespace BuildTree
             return hack0;
         }
 
-        public void BuildTree(IEnumerable<GEDCommon> gedRecs)
+        public void BuildTree(IEnumerable<GEDCommon> gedRecs, bool showErrors, bool checkCHIL)
         {
             // an indi has a FAMS or FAMC
             // a FAM has HUSB WIFE CHIL but the CHIL are being ignored
+
+            errorsCount = 0;
 
             List<FamilyUnit> families = new List<FamilyUnit>();
 
@@ -53,24 +58,43 @@ namespace BuildTree
                 {
                     var ident = (gedCommon as IndiRecord).Ident;
 
-                    IndiWrap iw = new IndiWrap();
-                    iw.Indi = gedCommon as IndiRecord;
-                    iw.Ahnen = 0;
-                    //iw.ChildOf = null;
-                    _indiHash.Add(ident, iw);
+                    if (_indiHash.ContainsKey(ident))
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: Duplicate INDI ident {0}", ident);
+                        errorsCount += 1;
+                    }
+                    else
+                    {
+                        IndiWrap iw = new IndiWrap();
+                        iw.Indi = gedCommon as IndiRecord;
+                        iw.Ahnen = 0;
+                        //iw.ChildOf = null;
+                        _indiHash.Add(ident, iw);
 
-                    if (first == null)
-                        first = ident;
+                        if (first == null)
+                            first = ident;
+                    }
                 }
                 // TODO GEDCOM_Amssoms.ged has a duplicate family "X0". Needs to be caught by validate, flag as error, and not reach here.
                 if (gedCommon is FamRecord)
                 {
-                    var ident = (gedCommon as FamRecord).Ident;
+                    var fam = gedCommon as FamRecord;
+                    var ident = fam.Ident;
+                    if (string.IsNullOrEmpty(ident))
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: Missing FAM id at/near line {0}", fam.BegLine);
+                        errorsCount += 1;
+                        continue;
+                    }
                     if (!famHash.ContainsKey(ident))
-                        famHash.Add(ident, new FamilyUnit(gedCommon as FamRecord));
+                        famHash.Add(ident, new FamilyUnit(fam));
                     else
                     {
-                        Console.WriteLine("duplicate family '{0}'", ident);
+                        if (showErrors)
+                            Console.WriteLine("Error: Duplicate family '{0}'", ident);
+                        errorsCount += 1;
                     }
                 }
             }
@@ -88,6 +112,13 @@ namespace BuildTree
                 {
                     FamilyUnit fu;
                     var id = indiLink.Xref;
+                    if (string.IsNullOrEmpty(id))
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: Empty link xref id for INDI {0}", indiId);
+                        errorsCount += 1;
+                        continue;
+                    }
                     switch (indiLink.Tag)
                     {
                         case "FAMS":
@@ -100,12 +131,16 @@ namespace BuildTree
                                     fu.Wife = indiWrap.Indi;
                                 else
                                 {
-                                    Console.WriteLine("Could not identify spouse connection from FAM {0} to INDI {1}", indiLink.Xref, indiId);
+                                    if (showErrors)
+                                        Console.WriteLine("Error: Could not identify spouse connection from FAM {0} to INDI {1}", indiLink.Xref, indiId);
+                                    errorsCount += 1;
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("INDI {0} has missing FAMS link {1}", indiId, id);
+                                if (showErrors)
+                                    Console.WriteLine("Error: INDI {0} has FAMS link {1} to non-existing family", indiId, id);
+                                errorsCount += 1;
                             }
                             break;
                         case "FAMC":
@@ -113,7 +148,9 @@ namespace BuildTree
                             {
                                 if (_childHash.ContainsKey(indiId))
                                 {
-                                    Console.WriteLine("indi {0} a child of more than one family", indiId);
+                                    if (showErrors)
+                                        Console.WriteLine("Error: indi {0} a child of more than one family", indiId);
+                                    errorsCount += 1;
                                 }
                                 else
                                 {
@@ -123,95 +160,89 @@ namespace BuildTree
                             }
                             else
                             {
-                                Console.WriteLine("INDI {0} has missing FAMC link {1}", indiId, id);
+                                if (showErrors)
+                                    Console.WriteLine("Error: INDI {0} has FAMC link {1} to non-existing family", indiId, id);
+                                errorsCount += 1;
                             }
                             break;
                     }
                 }
             }
-#if false
-            // Accumulate family units
-            // TODO indi with no fam
-            // TODO indi with fams/famc only : see GEDCOM_Amssoms
-            foreach (var famRecord in famHash.Values)
-            {
-                var famU = new FamilyUnit(famRecord);
-                if (famRecord.Dad != null)
-                {
-                    // TODO GEDCOM_Amssoms has a family with reference to non-existant individual. Needs to be caught by validate and 'fixed' there.
-                    if (_indiHash.ContainsKey(famRecord.Dad))
-                    {
-                        var iw = _indiHash[famRecord.Dad];
-                        famU.Husband = iw.Indi;
-                        iw.SpouseIn.Add(famU);
-                    }
-                    else
-                    {
-                        IndiRecord hack;
-                        var hack0 = MakeFillerIndi(famRecord.Dad, out hack);
-                        famU.Husband = hack;
-                        _indiHash.Add(famRecord.Dad, hack0);
-                        hack0.SpouseIn.Add(famU);
 
-                        //IndiWrap hack0 = new IndiWrap();
-
-                        //// TODO need a library method to do this!!!
-                        //IndiRecord hack = new IndiRecord(null, famRecord.Dad, null);
-                        //var hack2 = new NameRec();
-                        //hack2.Surname = "Missing";
-                        //hack.Names.Add(hack2);
-                        //famU.Husband = hack;
-                        //hack0.Indi = hack;
-                        //hack0.Ahnen = -1;
-                        //hack0.SpouseIn.Add(famU);
-                        //_indiHash.Add(famRecord.Dad, hack0);
-                    }
-                }
-                if (famRecord.Mom != null)
-                {
-                    if (_indiHash.ContainsKey(famRecord.Mom))
-                    {
-                        var iw = _indiHash[famRecord.Mom];
-                        famU.Wife = iw.Indi; // TODO handle mom as non-existant individual.
-                        iw.SpouseIn.Add(famU);
-                    }
-                    else
-                    {
-                        // 11tp.ged, 16334-rlb.ged, 5nhj.ged : missing mom
-                        IndiRecord hack;
-                        var hack0 = MakeFillerIndi(famRecord.Mom, out hack);
-                        famU.Wife = hack;
-                        _indiHash.Add(famRecord.Mom, hack0);
-                        hack0.SpouseIn.Add(famU);
-                    }
-                }
-                foreach (var child in famRecord.Childs)
-                {
-                    famU.Childs.Add(_indiHash[child].Indi);
-
-                    // TODO punting on adoption where a child could be part of more than one family see allged.ged
-                    if (!_childHash.ContainsKey(child))
-                        _childHash.Add(child, famU);
-                    else
-                    {
-                        Console.WriteLine("indi {0} a child of more than one family",child);
-                    }
-                }
-                families.Add(famU);
-            }
-#endif
-
-            // Connect family units
+            // Try to determine each spouse's family [the family they were born into]
+            // Also check if HUSB/WIFE links are to valid people
             foreach (var familyUnit in famHash.Values)
             {
                 if (_childHash.ContainsKey(familyUnit.DadId))
                     familyUnit.DadFam = _childHash[familyUnit.DadId];
                 if (_childHash.ContainsKey(familyUnit.MomId))
                     familyUnit.MomFam = _childHash[familyUnit.MomId];
+
+                var husbId = familyUnit.FamRec.Dad;
+                if (husbId != null && !_indiHash.ContainsKey(husbId))
+                {
+                    if (showErrors)
+                        Console.WriteLine("Error: family {0} has HUSB link {1} to non-existing INDI", familyUnit.FamRec.Ident, husbId);
+                    errorsCount += 1;
+                }
+                var wifeId = familyUnit.FamRec.Mom;
+                if (wifeId != null && !_indiHash.ContainsKey(wifeId))
+                {
+                    if (showErrors)
+                        Console.WriteLine("Error: family {0} has WIFE link {1} to non-existing INDI", familyUnit.FamRec.Ident, wifeId);
+                    errorsCount += 1;
+                }
+            }
+
+            // verify if FAM.CHIL have matching INDI.FAMC
+            if (checkCHIL)
+            {
+                _CHILErrorsCount = 0;
+                foreach (var fam in famHash.Values)
+                {
+                    foreach (var child in fam.FamRec.Childs)
+                    {
+                        var id = child;
+                        if (_indiHash.ContainsKey(id))
+                        {
+                            var indi = _indiHash[id];
+                            bool found = false;
+                            foreach (var link in indi.Indi.Links)
+                            {
+                                if (link.Tag == "FAMC")
+                                {
+                                    if (link.Xref == fam.FamRec.Ident)
+                                        found = true;
+                                }
+                            }
+                            if (!found)
+                            {
+                                if (showErrors)
+                                    Console.WriteLine("Error: FAM {0} with CHIL link to {1} and no matching FAMC", fam.FamRec.Ident, id);
+                                _CHILErrorsCount += 1;
+                            }
+                        }
+                        else
+                        {
+                            if (showErrors)
+                                Console.WriteLine("Error: FAM {0} has CHIL link {1} to non-existing INDI", fam.FamRec.Ident, id);
+                        }
+                    }
+                }
             }
 
             famHash = null;
             families = null;
+        }
+
+        public int ChilErrorsCount
+        {
+            get { return _CHILErrorsCount; }
+        }
+
+        public int ErrorsCount
+        {
+            get { return errorsCount; }
         }
 
         public IndiWrap IndiFromId(string indiId)
@@ -224,6 +255,189 @@ namespace BuildTree
             FamilyUnit fu;
             return _childHash.TryGetValue(ident, out fu) ? fu : null;
         }
+
+        public void BuildTree2(IEnumerable<GEDCommon> gedRecs, bool showErrors, bool checkCHIL)
+        {
+            // an indi has a FAMS or FAMC
+            // a FAM has HUSB WIFE CHIL
+            // This variant of BuildTree believes the CHIL links are correct
+
+            // TODO how, if at all, is the tree check impacted?
+
+            errorsCount = 0;
+
+            List<FamilyUnit> families = new List<FamilyUnit>();
+
+            // Build a hash of Indi ids
+            // Build a hash of family ids
+            _indiHash = new Dictionary<string, IndiWrap>();    // indiIdent -> IndiRecord
+            var famHash = new Dictionary<string, FamilyUnit>(); // familyIdent -> FamRecord
+            string first = null;
+            foreach (var gedCommon in gedRecs) // TODO really need 'INDI', 'FAM' accessors
+            {
+                if (gedCommon is IndiRecord)
+                {
+                    var ident = (gedCommon as IndiRecord).Ident;
+
+                    if (_indiHash.ContainsKey(ident))
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: Duplicate INDI ident {0}", ident);
+                        errorsCount += 1;
+                    }
+                    else
+                    {
+                        IndiWrap iw = new IndiWrap();
+                        iw.Indi = gedCommon as IndiRecord;
+                        iw.Ahnen = 0;
+                        //iw.ChildOf = null;
+                        _indiHash.Add(ident, iw);
+
+                        if (first == null)
+                            first = ident;
+                    }
+                }
+                // TODO GEDCOM_Amssoms.ged has a duplicate family "X0". Needs to be caught by validate, flag as error, and not reach here.
+                if (gedCommon is FamRecord)
+                {
+                    var fam = gedCommon as FamRecord;
+                    var ident = fam.Ident;
+                    if (string.IsNullOrEmpty(ident))
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: Missing FAM id at/near line {0}", fam.BegLine);
+                        errorsCount += 1;
+                        continue;
+                    }
+                    if (!famHash.ContainsKey(ident))
+                        famHash.Add(ident, new FamilyUnit(fam));
+                    else
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: Duplicate family {0}", ident);
+                        errorsCount += 1;
+                    }
+                }
+            }
+
+            // hash: child ids -> familyunit
+            _childHash = new Dictionary<string, FamilyUnit>();
+
+            // Iterate through the family records
+            // For each HUSB/WIFE, connect to INDI
+            // For each CHIL, connect to INDI
+            foreach (var familyUnit in famHash.Values)
+            {
+                var famId = familyUnit.FamRec.Ident;
+                var dadId = familyUnit.FamRec.Dad;
+                if (dadId != null) // TODO mark as error?
+                {
+                    IndiWrap dadWrap;
+                    if (_indiHash.TryGetValue(dadId, out dadWrap))
+                    {
+                        dadWrap.SpouseIn.Add(familyUnit); // TODO verify dadWrap has matching FAMS
+                        familyUnit.Husband = dadWrap.Indi;
+                    }
+                    else
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: family {0} has HUSB link {1} to non-existing INDI", famId, dadId);
+                        errorsCount += 1;
+                    }
+                }
+                var momId = familyUnit.FamRec.Mom;
+                if (momId != null) // TODO mark as error?
+                {
+                    IndiWrap momWrap;
+                    if (_indiHash.TryGetValue(momId, out momWrap))
+                    {
+                        momWrap.SpouseIn.Add(familyUnit); // TODO verify momWrap has matching FAMS
+                        familyUnit.Wife = momWrap.Indi;
+                    }
+                    else
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: family {0} has WIFE link {1} to non-existing INDI", famId, momId);
+                        errorsCount += 1;
+                    }
+                }
+                foreach (var childId in familyUnit.FamRec.Childs)
+                {
+                    // does childId exist in _indiHash: if yes, add to familyUnit.Childs
+                    // if no, error
+                    IndiWrap childWrap;
+                    if (_indiHash.TryGetValue(childId, out childWrap))
+                    {
+                        childWrap.ChildIn.Add(familyUnit);
+                        familyUnit.Childs.Add(childWrap.Indi);  // TODO shouldn't this be IndiWrap?
+                        if (_childHash.ContainsKey(childId))
+                        {
+                            if (showErrors)
+                                Console.WriteLine("Error: indi {0} a child of more than one family", childId);
+                            errorsCount += 1;
+                        }
+                        else
+                        {
+                            _childHash[childId] = familyUnit;
+                        }
+                    }
+                    else
+                    {
+                        if (showErrors)
+                            Console.WriteLine("Error: family {0} has CHIL link {1} to non-existing INDI", famId, childId);
+                        errorsCount += 1;
+                    }
+                }
+                
+            }
+
+            // Connect family units
+            foreach (var familyUnit in famHash.Values)
+            {
+                if (_childHash.ContainsKey(familyUnit.DadId))
+                    familyUnit.DadFam = _childHash[familyUnit.DadId];
+                if (_childHash.ContainsKey(familyUnit.MomId))
+                    familyUnit.MomFam = _childHash[familyUnit.MomId];
+            }
+
+            // verify if INDI.FAMC have matching FAM.CHIL
+            if (checkCHIL)
+            {
+                _CHILErrorsCount = 0;
+                foreach (var indi in _indiHash.Values)
+                {
+                    foreach (var link in indi.Indi.Links)
+                    {
+                        if (link.Tag == "FAMC")
+                        {
+                            bool found = indi.ChildIn.Any(familyUnit => link.Xref == familyUnit.FamRec.Ident);
+                            if (!found)
+                            {
+                                if (showErrors)
+                                    Console.WriteLine("Error: INDI {0} with FAMC link to {1} and no matching CHIL", indi.Indi.Ident, link.Xref);
+                                _CHILErrorsCount += 1;
+                            }
+                        }
+                        if (link.Tag == "FAMS") // TODO inaccurate to check INDI.FAMS inside "child check"
+                        {
+                            bool found = indi.SpouseIn.Any(familyUnit => link.Xref == familyUnit.FamRec.Ident);
+                            if (!found)
+                            {
+                                if (showErrors)
+                                    Console.WriteLine("Error: INDI {0} has FAMS link {1} to non-existing family", indi.Indi.Ident, link.Xref);
+                                errorsCount += 1;  // NOTE: not CHIL error!
+                            }
+                        }
+                    }
+                }
+
+                // TODO are FAMC links to non-existing FAM being skipped?
+            }
+
+            famHash = null;
+            families = null;
+        }
+
     }
 
 }

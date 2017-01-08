@@ -16,6 +16,10 @@ namespace BuildTree
         List<FamilyUnit> _spouseIn = new List<FamilyUnit>();
         public List<FamilyUnit> SpouseIn { get { return _spouseIn; } }
 
+        // Person may be child in more than one family unit
+        List<FamilyUnit> _childIn = new List<FamilyUnit>();
+        public List<FamilyUnit> ChildIn { get { return _childIn; } }
+
         public string Name
         {
             get { return Indi == null ? "" : Indi.Names[0].Names + " " + Indi.Names[0].Surname; } // TODO need a better accessor? restore ToString?

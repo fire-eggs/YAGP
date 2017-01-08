@@ -14,14 +14,12 @@ namespace CheckTrees
 {
     public class MultiMap<T,V>
     {
-        // 1
         readonly Dictionary<T, List<V>> _dictionary = new Dictionary<T, List<V>>();
 
-        // 2
         public void Add(T key, V value)
         {
             List<V> list;
-            if (this._dictionary.TryGetValue(key, out list))
+            if (_dictionary.TryGetValue(key, out list))
             {
                 // 2A.
                 list.Add(value);
@@ -31,29 +29,21 @@ namespace CheckTrees
                 // 2B.
                 list = new List<V>();
                 list.Add(value);
-                this._dictionary[key] = list;
+                _dictionary[key] = list;
             }
         }
 
-        // 3
-        public IEnumerable<T> Keys
-        {
-            get
-            {
-                return this._dictionary.Keys;
-            }
-        }
+        public IEnumerable<T> Keys { get { return _dictionary.Keys; } }
 
-        // 4
         public List<V> this[T key]
         {
             get
             {
                 List<V> list;
-                if (!this._dictionary.TryGetValue(key, out list))
+                if (!_dictionary.TryGetValue(key, out list))
                 {
                     list = new List<V>();
-                    this._dictionary[key] = list;
+                    _dictionary[key] = list;
                 }
                 return list;
             }
@@ -91,6 +81,8 @@ namespace CheckTrees
             }
         }
 
+        // stack-based list of individuals to mark - eliminate recursion due to deep
+        // trees resulting in stack overflow (at depth 15,700+).
         private static Stack<IndiWrap> treeStack = new Stack<IndiWrap>();
 
         private static void MakeTree(int treenum)
@@ -106,7 +98,7 @@ namespace CheckTrees
                     AllInFamily(familyUnit);
                 }
                 // everybody where this person is a child
-                AllInFamily(_treeBuild.FamFromIndi(iw.Indi.Ident));
+                AllInFamily(_treeBuild.FamFromIndi(iw.Indi.Ident)); // TODO replace with iw.ChildIn when BuildTree() supports
             }
         }
 
@@ -148,6 +140,7 @@ namespace CheckTrees
             // iterate through the list of tree-counts in REVERSE order. largest to smallest.
             // for each tree count, show how many people are in the trees with that count.
             // This is useful for comparing against the GEDCOM errors report from Genealogica Grafica.
+            int j = 1;
             for (int i = counts.Count - 1; i >= 0; i--)
             {
                 int countVal = counts[i];
@@ -156,25 +149,19 @@ namespace CheckTrees
                 {
                     Console.WriteLine("People in tree {0}:{1}" + (countVal == 1 ? " ['{2}']" : ""), tree, _treeCount[tree], aTreePerson[tree]);
                 }
+                j += 1;
+                if (_summaryOnly && j == 3) // only show first three in summary mode
+                    break;
             }
 
-            //for (int i = 1; i < treenum; i++)
-            //{
-            //    if (_treeCount[i] == 1)
-            //    {
-            //        foreach (var indiId in _treeBuild.IndiIds) // TODO we're re-scanning; build a hash of 1-person-trees earlier
-            //        {
-            //            var iw = _treeBuild.IndiFromId(indiId);
-            //            if (iw.tree == i)
-            //            {
-            //                Console.WriteLine("People in tree {0}:{1} ['{2}']", i, _treeCount[i], indiId);
-            //                break;
-            //            }
-            //        }
-            //    }
-            //    else
-            //        Console.WriteLine("People in tree {0}:{1}", i, _treeCount[i]);
-            //}
+            Console.WriteLine("Total number of trees:{0}", treenum);
+            if (_treeBuild.ErrorsCount > 0)
+                Console.WriteLine("Total number of errors: {0}", _treeBuild.ErrorsCount);
+            if (_checkCHIL && _treeBuild.ChilErrorsCount > 0)
+                if (_driverIsCHIL)
+                    Console.WriteLine("FAM.CHIL reference errors: {0}", _treeBuild.ChilErrorsCount);
+                else
+                    Console.WriteLine("INDI.FAMC reference errors: {0}", _treeBuild.ChilErrorsCount);
         }
 
         private static void parseFile(string path)
@@ -182,7 +169,10 @@ namespace CheckTrees
             using (var fr = new FileRead())
             {
                 fr.ReadGed(path);
-                _treeBuild.BuildTree(fr.Data);
+                if (!_driverIsCHIL)
+                    _treeBuild.BuildTree(fr.Data, _showErrors, _checkCHIL); // INDI.FAMC is driver
+                else
+                    _treeBuild.BuildTree2(fr.Data, _showErrors, _checkCHIL); // FAM.CHIL is driver
             }
 
             CalcTrees();
@@ -190,9 +180,29 @@ namespace CheckTrees
 
         private static FamilyTreeBuild _treeBuild;
         private static int[] _treeCount;
+        private static bool _summaryOnly;
+        private static bool _showErrors;
+        private static bool _checkCHIL;
+        private static bool _driverIsCHIL;
 
         static void Main(string[] args)
         {
+            if (args.Length < 1)
+            {
+                Console.WriteLine("Usage: checktrees [-s] [-e] [-c] [-i] <.ged file>");
+                Console.WriteLine("Specify a .GED file");
+                Console.WriteLine("-s : summary - show few details");
+                Console.WriteLine("-e : show error details");
+                Console.WriteLine("-c : verify FAM.CHIL vs INDI.FAMC");
+                Console.WriteLine("-i : if specified, INDI.FAMC is master, otherwise FAM.CHIL is master");
+                return;
+            }
+
+            _summaryOnly = args.FirstOrDefault(s => s == "-s") != null;
+            _showErrors = args.FirstOrDefault(s => s == "-e") != null;
+            _checkCHIL = args.FirstOrDefault(s => s == "-c") != null;
+            _driverIsCHIL = args.FirstOrDefault(s => s == "-i") == null; // NOTE: reverse logic!
+
             int lastarg = args.Length - 1;
             if (File.Exists(args[lastarg]))
             {
