@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 namespace SharpGEDParser.Model
 {
@@ -7,6 +8,13 @@ namespace SharpGEDParser.Model
         public string Xref { get; set; }
 
         public string Text { get; set; }
+
+        public StringBuilder Builder { get; set; } // Accumulate text during parse
+
+        public Note()
+        {
+            Builder = new StringBuilder(1024);
+        }
     }
 
     public interface NoteHold

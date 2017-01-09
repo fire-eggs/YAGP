@@ -15,13 +15,16 @@ namespace SharpGEDParser.Parser
         private static void contProc(StructParseContext context, int linedex, char level)
         {
             Note note = (context.Parent as Note);
-            note.Text += "\n" + context.Remain;
+            note.Builder.Append("\n");
+            note.Builder.Append(context.Remain);
+            //note.Text += "\n" + context.Remain;
         }
 
         private static void concProc(StructParseContext context, int linedex, char level)
         {
             Note note = (context.Parent as Note);
-            note.Text += context.Remain;
+            note.Builder.Append(context.Remain);
+            //note.Text += context.Remain;
         }
 
         public static Note NoteParser(ParseContext2 ctx)
@@ -34,10 +37,13 @@ namespace SharpGEDParser.Parser
             }
             else
             {
-                note.Text = ctx.Remain;
+                note.Builder.Append(ctx.Remain);
+                //note.Text = ctx.Remain;
             }
 
             StructParse(ctx2, tagDict);
+            note.Text = note.Builder.ToString();
+            note.Builder = null;
             ctx.Endline = ctx2.Endline;
             return note;
         }
@@ -53,10 +59,13 @@ namespace SharpGEDParser.Parser
             }
             else
             {
-                note.Text = ctx.Remain;
+                note.Builder.Append(ctx.Remain);
+                //note.Text = ctx.Remain;
             }
 
             StructParse(ctx2, tagDict);
+            note.Text = note.Builder.ToString();
+            note.Builder = null;
             ctx.Endline = ctx2.Endline;
             return note;
         }
