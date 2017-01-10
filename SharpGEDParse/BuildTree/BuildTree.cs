@@ -131,9 +131,9 @@ namespace BuildTree
                             {
                                 indiWrap.SpouseIn.Add(fu);
                                 if (fu.FamRec.Dad == indiId)
-                                    fu.Husband = indiWrap.Indi;
+                                    fu.Husband = indiWrap;
                                 else if (fu.FamRec.Mom == indiId)
-                                    fu.Wife = indiWrap.Indi;
+                                    fu.Wife = indiWrap;
                                 else
                                 {
                                     if (showErrors)
@@ -152,7 +152,7 @@ namespace BuildTree
                             if (famHash.TryGetValue(id, out fu))
                             {
                                 _childsIn.Add(indiId, fu);
-                                fu.Childs.Add(indiWrap.Indi);
+                                fu.Childs.Add(indiWrap);
                                 indiWrap.ChildIn.Add(fu);
                             }
                             else
@@ -353,7 +353,7 @@ namespace BuildTree
                     if (_indiHash.TryGetValue(dadId, out dadWrap))
                     {
                         dadWrap.SpouseIn.Add(familyUnit); // TODO verify dadWrap has matching FAMS
-                        familyUnit.Husband = dadWrap.Indi;
+                        familyUnit.Husband = dadWrap;
                     }
                     else
                     {
@@ -369,7 +369,7 @@ namespace BuildTree
                     if (_indiHash.TryGetValue(momId, out momWrap))
                     {
                         momWrap.SpouseIn.Add(familyUnit); // TODO verify momWrap has matching FAMS
-                        familyUnit.Wife = momWrap.Indi;
+                        familyUnit.Wife = momWrap;
                     }
                     else
                     {
@@ -386,7 +386,7 @@ namespace BuildTree
                     if (_indiHash.TryGetValue(childId, out childWrap))
                     {
                         childWrap.ChildIn.Add(familyUnit);
-                        familyUnit.Childs.Add(childWrap.Indi);  // TODO shouldn't this be IndiWrap?
+                        familyUnit.Childs.Add(childWrap);  // TODO shouldn't this be IndiWrap?
                         _childsIn.Add(childId, familyUnit);
                     }
                     else

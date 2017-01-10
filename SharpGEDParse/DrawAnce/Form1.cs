@@ -178,7 +178,7 @@ namespace DrawAnce
                 numRet = Math.Max(numRet, dadnum);
                 if (dadnum < MAX_AHNEN)
                 {
-                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Husband.Ident); // _indiHash[firstFam.Husband.Ident];
+                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Husband.Indi.Ident); // _indiHash[firstFam.Husband.Ident];
                     _ancIndi[dadnum] = hack;
                 }
                 if (firstFam.DadFam != null)
@@ -189,7 +189,7 @@ namespace DrawAnce
                 numRet = Math.Max(numRet, dadnum+1);
                 if (dadnum + 1 < MAX_AHNEN)
                 {
-                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Wife.Ident); // _indiHash[firstFam.Wife.Ident];
+                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Wife.Indi.Ident); // _indiHash[firstFam.Wife.Ident];
                     _ancIndi[dadnum+1] = hack;
                 }
                 if (firstFam.MomFam != null)

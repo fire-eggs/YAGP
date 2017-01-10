@@ -5,9 +5,9 @@ namespace BuildTree
 {
     public class FamilyUnit
     {
-        public IndiRecord Husband;
-        public IndiRecord Wife;
-        public List<IndiRecord> Childs;
+        public IndiWrap Husband;
+        public IndiWrap Wife;
+        public List<IndiWrap> Childs;
         public FamRecord FamRec;
 
         public FamilyUnit DadFam;
@@ -18,14 +18,14 @@ namespace BuildTree
             FamRec = fam;
             Husband = null;
             Wife = null;
-            Childs = new List<IndiRecord>();
+            Childs = new List<IndiWrap>();
 
             DadFam = null;
             MomFam = null;
         }
 
-        public string DadId { get { return Husband == null ? "" : Husband.Ident; } }
+        public string DadId { get { return Husband == null ? "" : Husband.Indi.Ident; } }
 
-        public string MomId { get { return Wife == null ? "" : Wife.Ident; } }
+        public string MomId { get { return Wife == null ? "" : Wife.Indi.Ident; } }
     }
 }

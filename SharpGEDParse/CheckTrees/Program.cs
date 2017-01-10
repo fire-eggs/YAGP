@@ -21,23 +21,19 @@ namespace CheckTrees
                 return;
             if (fu.Husband != null)
             {
-                var id = fu.Husband.Ident;
-                var iw2 = _treeBuild.IndiFromId(id);
+                var iw2 = fu.Husband;
                 if (iw2.tree == -1)
                     treeStack.Push(iw2);
             }
             if (fu.Wife != null)
             {
-                var id = fu.Wife.Ident;
-                var iw2 = _treeBuild.IndiFromId(id);
+                var iw2 = fu.Wife;
                 if (iw2.tree == -1)
                     treeStack.Push(iw2);
             }
 
-            foreach (var indiRecord in fu.Childs)
+            foreach (var iw2 in fu.Childs)
             {
-                var id = indiRecord.Ident;
-                var iw2 = _treeBuild.IndiFromId(id);
                 if (iw2.tree == -1)
                     treeStack.Push(iw2);
             }
