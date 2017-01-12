@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileRead.cs" />
+    <Compile Include="Issue.cs" />
     <Compile Include="Model\AgeDetail.cs" />
     <Compile Include="Model\AssoRec.cs" />
     <Compile Include="Model\EventCommon.cs" />

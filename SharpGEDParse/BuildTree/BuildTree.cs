@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SharpGEDParser;
 using SharpGEDParser.Model;
 
 // 20161225 01\00005.ged is an example of inconsistancy between the INDI.FAMC
@@ -18,8 +19,12 @@ namespace BuildTree
     {
         private int _CHILErrorsCount;
         private int errorsCount;
-        private Dictionary<string, IndiWrap> _indiHash;
-        private MultiMap<string, FamilyUnit> _childsIn;
+
+        private Dictionary<string, IndiWrap> _indiHash;  // INDI ident -> INDI record
+        private Dictionary<string, FamilyUnit> _famHash; // FAM  ident -> FAM  record
+        private MultiMap<string, FamilyUnit> _childsIn;  // INDI ident -> multi FAM
+        private List<Issue> _issues;
+        private string _firstPerson; // "First" person in tree - default initial person
 
         public IEnumerable<string> IndiIds
         {
@@ -43,20 +48,21 @@ namespace BuildTree
             return hack0;
         }
 
-        public void BuildTree(IEnumerable<GEDCommon> gedRecs, bool showErrors, bool checkCHIL)
+        private void MakeError(Issue.IssueCode code, object evidence)
         {
-            // an indi has a FAMS or FAMC
-            // a FAM has HUSB WIFE CHIL but the CHIL are being ignored
+            Issue err = new Issue(code, evidence);
+            _issues.Add(err);
+        }
 
-            errorsCount = 0;
+        private void Pass1(IEnumerable<GEDCommon> gedRecs)
+        {
+            // Wrap INDI and FAM records, collect into hashes
 
-            List<FamilyUnit> families = new List<FamilyUnit>();
+            _indiHash = new Dictionary<string, IndiWrap>();
+            _famHash = new Dictionary<string, FamilyUnit>();
+            _childsIn = new MultiMap<string, FamilyUnit>();
+            _issues = new List<Issue>();
 
-            // Build a hash of Indi ids
-            // Build a hash of family ids
-            _indiHash = new Dictionary<string, IndiWrap>();    // indiIdent -> IndiRecord
-            var famHash = new Dictionary<string, FamilyUnit>(); // familyIdent -> FamRecord
-            string first = null;
             foreach (var gedCommon in gedRecs) // TODO really need 'INDI', 'FAM' accessors
             {
                 if (gedCommon is IndiRecord)
@@ -65,22 +71,20 @@ namespace BuildTree
 
                     if (_indiHash.ContainsKey(ident))
                     {
-                        if (showErrors)
-                            Console.WriteLine("Error: Duplicate INDI ident {0}", ident);
-                        errorsCount += 1;
+                        MakeError(Issue.IssueCode.DUPL_INDI, ident);
                     }
                     else
                     {
                         IndiWrap iw = new IndiWrap();
                         iw.Indi = gedCommon as IndiRecord;
                         iw.Ahnen = 0;
-                        //iw.ChildOf = null;
                         _indiHash.Add(ident, iw);
 
-                        if (first == null)
-                            first = ident;
+                        if (_firstPerson == null)
+                            _firstPerson = ident;
                     }
                 }
+
                 // TODO GEDCOM_Amssoms.ged has a duplicate family "X0". Needs to be caught by validate, flag as error, and not reach here.
                 if (gedCommon is FamRecord)
                 {
@@ -88,24 +92,35 @@ namespace BuildTree
                     var ident = fam.Ident;
                     if (string.IsNullOrEmpty(ident))
                     {
-                        if (showErrors)
-                            Console.WriteLine("Error: Missing FAM id at/near line {0}", fam.BegLine);
-                        errorsCount += 1;
+                        MakeError(Issue.IssueCode.MISS_FAMID, fam.BegLine);
                         continue;
                     }
-                    if (!famHash.ContainsKey(ident))
-                        famHash.Add(ident, new FamilyUnit(fam));
+                    if (!_famHash.ContainsKey(ident))
+                        _famHash.Add(ident, new FamilyUnit(fam));
                     else
                     {
-                        if (showErrors)
-                            Console.WriteLine("Error: Duplicate family '{0}'", ident);
-                        errorsCount += 1;
+                        MakeError(Issue.IssueCode.DUPL_FAM, ident);
                     }
                 }
             }
 
-            // hash: child ids -> familyunit
-            _childsIn  = new MultiMap<string, FamilyUnit>();
+        }
+
+        public void BuildTree(IEnumerable<GEDCommon> gedRecs, bool showErrors, bool checkCHIL)
+        {
+            // an indi has a FAMS or FAMC
+            // a FAM has HUSB WIFE CHIL but the CHIL are being ignored
+
+            Pass1(gedRecs);
+
+            errorsCount = _issues.Count;
+            if (showErrors)
+            {
+                foreach (var issue in _issues)
+                {
+                    Console.WriteLine(issue.Message());
+                }
+            }
 
             // Iterate through the indi records.
             // For each FAMS, identify the husb/wife relation
@@ -127,7 +142,7 @@ namespace BuildTree
                     switch (indiLink.Tag)
                     {
                         case "FAMS":
-                            if (famHash.TryGetValue(id, out fu))
+                            if (_famHash.TryGetValue(id, out fu))
                             {
                                 indiWrap.SpouseIn.Add(fu);
                                 if (fu.FamRec.Dad == indiId)
@@ -149,7 +164,7 @@ namespace BuildTree
                             }
                             break;
                         case "FAMC":
-                            if (famHash.TryGetValue(id, out fu))
+                            if (_famHash.TryGetValue(id, out fu))
                             {
                                 _childsIn.Add(indiId, fu);
                                 fu.Childs.Add(indiWrap);
@@ -168,7 +183,7 @@ namespace BuildTree
 
             // Try to determine each spouse's family [the family they were born into]
             // Also check if HUSB/WIFE links are to valid people
-            foreach (var familyUnit in famHash.Values)
+            foreach (var familyUnit in _famHash.Values)
             {
                 if (familyUnit.Husband != null)
                 { 
@@ -216,7 +231,7 @@ namespace BuildTree
             if (checkCHIL)
             {
                 _CHILErrorsCount = 0;
-                foreach (var fam in famHash.Values)
+                foreach (var fam in _famHash.Values)
                 {
                     foreach (var child in fam.FamRec.Childs)
                     {
@@ -248,9 +263,6 @@ namespace BuildTree
                     }
                 }
             }
-
-            famHash = null;
-            families = null;
         }
 
         public int ChilErrorsCount
@@ -279,71 +291,23 @@ namespace BuildTree
             // a FAM has HUSB WIFE CHIL
             // This variant of BuildTree believes the CHIL links are correct
 
+            Pass1(gedRecs);
+
             // TODO how, if at all, is the tree check impacted?
 
-            errorsCount = 0;
-
-            List<FamilyUnit> families = new List<FamilyUnit>();
-
-            // Build a hash of Indi ids
-            // Build a hash of family ids
-            _indiHash = new Dictionary<string, IndiWrap>();    // indiIdent -> IndiRecord
-            var famHash = new Dictionary<string, FamilyUnit>(); // familyIdent -> FamRecord
-            string first = null;
-            foreach (var gedCommon in gedRecs) // TODO really need 'INDI', 'FAM' accessors
+            errorsCount = _issues.Count;
+            if (showErrors)
             {
-                if (gedCommon is IndiRecord)
+                foreach (var issue in _issues)
                 {
-                    var ident = (gedCommon as IndiRecord).Ident;
-
-                    if (_indiHash.ContainsKey(ident))
-                    {
-                        if (showErrors)
-                            Console.WriteLine("Error: Duplicate INDI ident {0}", ident);
-                        errorsCount += 1;
-                    }
-                    else
-                    {
-                        IndiWrap iw = new IndiWrap();
-                        iw.Indi = gedCommon as IndiRecord;
-                        iw.Ahnen = 0;
-                        //iw.ChildOf = null;
-                        _indiHash.Add(ident, iw);
-
-                        if (first == null)
-                            first = ident;
-                    }
-                }
-                // TODO GEDCOM_Amssoms.ged has a duplicate family "X0". Needs to be caught by validate, flag as error, and not reach here.
-                if (gedCommon is FamRecord)
-                {
-                    var fam = gedCommon as FamRecord;
-                    var ident = fam.Ident;
-                    if (string.IsNullOrEmpty(ident))
-                    {
-                        if (showErrors)
-                            Console.WriteLine("Error: Missing FAM id at/near line {0}", fam.BegLine);
-                        errorsCount += 1;
-                        continue;
-                    }
-                    if (!famHash.ContainsKey(ident))
-                        famHash.Add(ident, new FamilyUnit(fam));
-                    else
-                    {
-                        if (showErrors)
-                            Console.WriteLine("Error: Duplicate family {0}", ident);
-                        errorsCount += 1;
-                    }
+                    Console.WriteLine(issue.Message());
                 }
             }
-
-            // hash: child ids -> familyunit
-            _childsIn = new MultiMap<string, FamilyUnit>();
 
             // Iterate through the family records
             // For each HUSB/WIFE, connect to INDI
             // For each CHIL, connect to INDI
-            foreach (var familyUnit in famHash.Values)
+            foreach (var familyUnit in _famHash.Values)
             {
                 var famId = familyUnit.FamRec.Ident;
                 var dadId = familyUnit.FamRec.Dad;
@@ -400,7 +364,7 @@ namespace BuildTree
             }
 
             // Connect family units
-            foreach (var familyUnit in famHash.Values)
+            foreach (var familyUnit in _famHash.Values)
             {
                 if (familyUnit.Husband != null)
                 {
@@ -462,9 +426,6 @@ namespace BuildTree
 
                 // TODO are FAMC links to non-existing FAM being skipped?
             }
-
-            famHash = null;
-            families = null;
         }
 
     }
