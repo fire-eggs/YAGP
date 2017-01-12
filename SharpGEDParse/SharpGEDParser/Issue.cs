@@ -24,7 +24,13 @@ namespace SharpGEDParser
         {
             DUPL_INDI = 0,
             MISS_FAMID,
-            DUPL_FAM
+            DUPL_FAM,
+            MISS_XREFID,
+            SPOUSE_CONN,
+            FAMS_MISSING,
+            FAMC_MISSING,
+            AMB_CONN,
+            SPOUSE_CONN2
         };
 
         // TODO warn/error prefix is temporary for unit testing
@@ -32,7 +38,13 @@ namespace SharpGEDParser
         {
             "Error: Duplicate INDI ident {0}",
             "Error: Missing FAM id at/near line {0}",
-            "Error: Duplicate family '{0}'"
+            "Error: Duplicate family {0}",
+            "Error: Empty link {1} xref id for INDI {0}",
+            "Error: Could not identify spouse connection from FAM {0} to INDI {1}",
+            "Error: INDI {0} has FAMS link {1} to non-existing family",
+            "Error: INDI {0} has FAMC link {1} to non-existing family",
+            "Warn: ambiguous {0} connection for family {1}", // {0} is 'dad'/'mom' // TODO L10N problem
+            "Error: family {0} has {2} link {1} to non-existing INDI", // {2} is 'HUSB'/'WIFE' // TODO L10N problem
         };
 
         public Issue(IssueCode code, params object[] evidence)

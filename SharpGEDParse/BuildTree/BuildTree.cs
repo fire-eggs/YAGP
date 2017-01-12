@@ -48,7 +48,7 @@ namespace BuildTree
             return hack0;
         }
 
-        private void MakeError(Issue.IssueCode code, object evidence)
+        private void MakeError(Issue.IssueCode code, params object[] evidence)
         {
             Issue err = new Issue(code, evidence);
             _issues.Add(err);
@@ -106,21 +106,58 @@ namespace BuildTree
 
         }
 
+        private void Pass3()
+        {
+            // Try to determine each spouse's family [the family they were born into]
+            // TODO currently of dubious value because dad/mom may be adopted and currently keeping only the 'first' family connection
+            // Also check if HUSB/WIFE links are to valid people
+            foreach (var familyUnit in _famHash.Values)
+            {
+                if (familyUnit.Husband != null)
+                {
+                    var dadFams = _childsIn[familyUnit.DadId];
+                    if (dadFams != null && dadFams.Count > 0)
+                    {
+                        familyUnit.DadFam = dadFams[0];
+                        if (dadFams.Count > 1)
+                        {
+                            MakeError(Issue.IssueCode.AMB_CONN, "dad", familyUnit.FamRec.Ident);
+                        }
+                    }
+                }
+
+                if (familyUnit.Wife != null)
+                {
+                    var momFams = _childsIn[familyUnit.MomId];
+                    if (momFams != null && momFams.Count > 0)
+                    {
+                        familyUnit.MomFam = momFams[0];
+                        if (momFams.Count > 1)
+                        {
+                            MakeError(Issue.IssueCode.AMB_CONN, "mom", familyUnit.FamRec.Ident);
+                        }
+                    }
+                }
+
+                var husbId = familyUnit.FamRec.Dad;
+                if (husbId != null && !_indiHash.ContainsKey(husbId))
+                {
+                    MakeError(Issue.IssueCode.SPOUSE_CONN2, familyUnit.FamRec.Ident, husbId, "HUSB");
+                }
+                var wifeId = familyUnit.FamRec.Mom;
+                if (wifeId != null && !_indiHash.ContainsKey(wifeId))
+                {
+                    MakeError(Issue.IssueCode.SPOUSE_CONN2, familyUnit.FamRec.Ident, wifeId, "WIFE");
+                }
+            }
+            
+        }
         public void BuildTree(IEnumerable<GEDCommon> gedRecs, bool showErrors, bool checkCHIL)
         {
             // an indi has a FAMS or FAMC
             // a FAM has HUSB WIFE CHIL but the CHIL are being ignored
 
             Pass1(gedRecs);
-
-            errorsCount = _issues.Count;
-            if (showErrors)
-            {
-                foreach (var issue in _issues)
-                {
-                    Console.WriteLine(issue.Message());
-                }
-            }
 
             // Iterate through the indi records.
             // For each FAMS, identify the husb/wife relation
@@ -134,9 +171,7 @@ namespace BuildTree
                     var id = indiLink.Xref;
                     if (string.IsNullOrEmpty(id))
                     {
-                        if (showErrors)
-                            Console.WriteLine("Error: Empty link xref id for INDI {0}", indiId);
-                        errorsCount += 1;
+                        MakeError(Issue.IssueCode.MISS_XREFID, indiId, indiLink.Tag);
                         continue;
                     }
                     switch (indiLink.Tag)
@@ -151,16 +186,12 @@ namespace BuildTree
                                     fu.Wife = indiWrap;
                                 else
                                 {
-                                    if (showErrors)
-                                        Console.WriteLine("Error: Could not identify spouse connection from FAM {0} to INDI {1}", indiLink.Xref, indiId);
-                                    errorsCount += 1;
+                                    MakeError(Issue.IssueCode.SPOUSE_CONN, indiLink.Xref, indiId);
                                 }
                             }
                             else
                             {
-                                if (showErrors)
-                                    Console.WriteLine("Error: INDI {0} has FAMS link {1} to non-existing family", indiId, id);
-                                errorsCount += 1;
+                                MakeError(Issue.IssueCode.FAMS_MISSING, indiId, id);
                             }
                             break;
                         case "FAMC":
@@ -172,59 +203,23 @@ namespace BuildTree
                             }
                             else
                             {
-                                if (showErrors)
-                                    Console.WriteLine("Error: INDI {0} has FAMC link {1} to non-existing family", indiId, id);
-                                errorsCount += 1;
+                                MakeError(Issue.IssueCode.FAMC_MISSING, indiId, id);
                             }
                             break;
                     }
                 }
             }
 
-            // Try to determine each spouse's family [the family they were born into]
-            // Also check if HUSB/WIFE links are to valid people
-            foreach (var familyUnit in _famHash.Values)
+            Pass3();
+
+            errorsCount = 0;
+            foreach (var issue in _issues)
             {
-                if (familyUnit.Husband != null)
-                { 
-                    var dadFams = _childsIn[familyUnit.DadId];
-                    if (dadFams != null && dadFams.Count > 0)
-                    {
-                        familyUnit.DadFam = dadFams[0];
-                        if (dadFams.Count > 1)
-                        {
-                            Console.WriteLine("Warn: ambiguous dad connection for family {0}", familyUnit.FamRec.Ident);
-                        }
-                    }
-                }
-
-                if (familyUnit.Wife != null)
-                { 
-                    var momFams = _childsIn[familyUnit.MomId];
-                    if (momFams != null && momFams.Count > 0)
-                    {
-                        familyUnit.MomFam = momFams[0];
-                        if (momFams.Count > 1)
-                        {
-                            Console.WriteLine("Warn: ambiguous mom connection for family {0}", familyUnit.FamRec.Ident);
-                        }
-                    }
-                }
-
-                var husbId = familyUnit.FamRec.Dad;
-                if (husbId != null && !_indiHash.ContainsKey(husbId))
-                {
-                    if (showErrors)
-                        Console.WriteLine("Error: family {0} has HUSB link {1} to non-existing INDI", familyUnit.FamRec.Ident, husbId);
-                    errorsCount += 1;
-                }
-                var wifeId = familyUnit.FamRec.Mom;
-                if (wifeId != null && !_indiHash.ContainsKey(wifeId))
-                {
-                    if (showErrors)
-                        Console.WriteLine("Error: family {0} has WIFE link {1} to non-existing INDI", familyUnit.FamRec.Ident, wifeId);
-                    errorsCount += 1;
-                }
+                var msg = issue.Message();
+                if (msg.StartsWith("Error:")) // TODO unit testing
+                    errorsCount++;
+                if (showErrors)
+                    Console.WriteLine(msg);
             }
 
             // verify if FAM.CHIL have matching INDI.FAMC
@@ -293,16 +288,9 @@ namespace BuildTree
 
             Pass1(gedRecs);
 
-            // TODO how, if at all, is the tree check impacted?
+            errorsCount = 0;
 
-            errorsCount = _issues.Count;
-            if (showErrors)
-            {
-                foreach (var issue in _issues)
-                {
-                    Console.WriteLine(issue.Message());
-                }
-            }
+            // TODO how, if at all, is the tree check impacted?
 
             // Iterate through the family records
             // For each HUSB/WIFE, connect to INDI
@@ -321,9 +309,10 @@ namespace BuildTree
                     }
                     else
                     {
-                        if (showErrors)
-                            Console.WriteLine("Error: family {0} has HUSB link {1} to non-existing INDI", famId, dadId);
-                        errorsCount += 1;
+                        // TODO duplicated in Pass3
+                        //if (showErrors)
+                        //    Console.WriteLine("Error: family {0} has HUSB link {1} to non-existing INDI", famId, dadId);
+                        //errorsCount += 1;
                     }
                 }
                 var momId = familyUnit.FamRec.Mom;
@@ -337,9 +326,10 @@ namespace BuildTree
                     }
                     else
                     {
-                        if (showErrors)
-                            Console.WriteLine("Error: family {0} has WIFE link {1} to non-existing INDI", famId, momId);
-                        errorsCount += 1;
+                        // TODO duplicated in Pass3
+                        //if (showErrors)
+                        //    Console.WriteLine("Error: family {0} has WIFE link {1} to non-existing INDI", famId, momId);
+                        //errorsCount += 1;
                     }
                 }
                 foreach (var childId in familyUnit.FamRec.Childs)
@@ -363,34 +353,15 @@ namespace BuildTree
                 
             }
 
-            // Connect family units
-            foreach (var familyUnit in _famHash.Values)
-            {
-                if (familyUnit.Husband != null)
-                {
-                    var dadFams = _childsIn[familyUnit.DadId];
-                    if (dadFams != null && dadFams.Count > 0)
-                    {
-                        familyUnit.DadFam = dadFams[0];
-                        if (dadFams.Count > 1)
-                        {
-                            Console.WriteLine("Warn: ambiguous dad connection for family {0}", familyUnit.FamRec.Ident);
-                        }
-                    }
-                }
+            Pass3();
 
-                if (familyUnit.Wife != null)
-                {
-                    var momFams = _childsIn[familyUnit.MomId];
-                    if (momFams != null && momFams.Count > 0)
-                    {
-                        familyUnit.MomFam = momFams[0];
-                        if (momFams.Count > 1)
-                        {
-                            Console.WriteLine("Warn: ambiguous mom connection for family {0}", familyUnit.FamRec.Ident);
-                        }
-                    }
-                }
+            foreach (var issue in _issues)
+            {
+                var msg = issue.Message();
+                if (msg.StartsWith("Error:")) // TODO unit testing
+                    errorsCount ++;
+                if (showErrors)
+                    Console.WriteLine(msg);
             }
 
             // verify if INDI.FAMC have matching FAM.CHIL
