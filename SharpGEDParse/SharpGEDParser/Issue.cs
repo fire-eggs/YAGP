@@ -30,7 +30,9 @@ namespace SharpGEDParser
             FAMS_MISSING,
             FAMC_MISSING,
             AMB_CONN,
-            SPOUSE_CONN2
+            SPOUSE_CONN2,
+            CHIL_MISS,
+            CHIL_NOTMATCH
         };
 
         // TODO warn/error prefix is temporary for unit testing
@@ -45,6 +47,8 @@ namespace SharpGEDParser
             "Error: INDI {0} has FAMC link {1} to non-existing family",
             "Warn: ambiguous {0} connection for family {1}", // {0} is 'dad'/'mom' // TODO L10N problem
             "Error: family {0} has {2} link {1} to non-existing INDI", // {2} is 'HUSB'/'WIFE' // TODO L10N problem
+            "Error: family {0} has CHIL link {1} to non-existing INDI",
+            "Error: family {0} has CHIL link {1} with no matching FAMC",
         };
 
         public Issue(IssueCode code, params object[] evidence)

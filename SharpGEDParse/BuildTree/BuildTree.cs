@@ -110,9 +110,14 @@ namespace BuildTree
         {
             // Try to determine each spouse's family [the family they were born into]
             // TODO currently of dubious value because dad/mom may be adopted and currently keeping only the 'first' family connection
+
             // Also check if HUSB/WIFE links are to valid people
+            // Also check if CHIL links are valid (exist and matched)
+
             foreach (var familyUnit in _famHash.Values)
             {
+                var famIdent = familyUnit.FamRec.Ident;
+
                 if (familyUnit.Husband != null)
                 {
                     var dadFams = _childsIn[familyUnit.DadId];
@@ -121,7 +126,7 @@ namespace BuildTree
                         familyUnit.DadFam = dadFams[0];
                         if (dadFams.Count > 1)
                         {
-                            MakeError(Issue.IssueCode.AMB_CONN, "dad", familyUnit.FamRec.Ident);
+                            MakeError(Issue.IssueCode.AMB_CONN, "dad", famIdent);
                         }
                     }
                 }
@@ -134,20 +139,46 @@ namespace BuildTree
                         familyUnit.MomFam = momFams[0];
                         if (momFams.Count > 1)
                         {
-                            MakeError(Issue.IssueCode.AMB_CONN, "mom", familyUnit.FamRec.Ident);
+                            MakeError(Issue.IssueCode.AMB_CONN, "mom", famIdent);
                         }
                     }
                 }
 
+                // TODO what happens in parse if more than one HUSB/WIFE specified?
+
                 var husbId = familyUnit.FamRec.Dad;
                 if (husbId != null && !_indiHash.ContainsKey(husbId))
                 {
-                    MakeError(Issue.IssueCode.SPOUSE_CONN2, familyUnit.FamRec.Ident, husbId, "HUSB");
+                    MakeError(Issue.IssueCode.SPOUSE_CONN2, famIdent, husbId, "HUSB");
                 }
                 var wifeId = familyUnit.FamRec.Mom;
                 if (wifeId != null && !_indiHash.ContainsKey(wifeId))
                 {
-                    MakeError(Issue.IssueCode.SPOUSE_CONN2, familyUnit.FamRec.Ident, wifeId, "WIFE");
+                    MakeError(Issue.IssueCode.SPOUSE_CONN2, famIdent, wifeId, "WIFE");
+                }
+
+                foreach (var childId in familyUnit.FamRec.Childs)
+                {
+                    if (childId == null) 
+                        continue;
+
+                    IndiWrap indi;
+                    if (!_indiHash.TryGetValue(childId, out indi))
+                    {
+                        MakeError(Issue.IssueCode.CHIL_MISS, famIdent, childId);
+                    }
+                    else
+                    {
+                        // TODO need a simple FAMC link accessor
+                        bool found = false;
+                        foreach (var link in indi.Indi.Links)
+                        {
+                            if (link.Tag == "FAMC" && link.Xref == famIdent)
+                                found = true;
+                        }
+                        if (!found)
+                            MakeError(Issue.IssueCode.CHIL_NOTMATCH, famIdent, childId);
+                    }
                 }
             }
             
@@ -245,15 +276,17 @@ namespace BuildTree
                             }
                             if (!found)
                             {
-                                if (showErrors)
-                                    Console.WriteLine("Error: FAM {0} with CHIL link to {1} and no matching FAMC", fam.FamRec.Ident, id);
-                                _CHILErrorsCount += 1;
+                                // TODO duplicated in Pass3
+                                //if (showErrors)
+                                //    Console.WriteLine("Error: FAM {0} with CHIL link to {1} and no matching FAMC", fam.FamRec.Ident, id);
+                                //_CHILErrorsCount += 1;
                             }
                         }
                         else
                         {
-                            if (showErrors)
-                                Console.WriteLine("Error: FAM {0} has CHIL link {1} to non-existing INDI", fam.FamRec.Ident, id);
+                            // TODO duplicated in Pass3
+                            //if (showErrors)
+                            //    Console.WriteLine("Error: FAM {0} has CHIL link {1} to non-existing INDI", fam.FamRec.Ident, id);
                         }
                     }
                 }
@@ -345,9 +378,10 @@ namespace BuildTree
                     }
                     else
                     {
-                        if (showErrors)
-                            Console.WriteLine("Error: family {0} has CHIL link {1} to non-existing INDI", famId, childId);
-                        errorsCount += 1;
+                        // TODO now duplicate in Pass3
+                        //if (showErrors)
+                        //    Console.WriteLine("Error: family {0} has CHIL link {1} to non-existing INDI", famId, childId);
+                        //errorsCount += 1;
                     }
                 }
                 
