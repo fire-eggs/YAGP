@@ -67,7 +67,7 @@ namespace DrawAnce
             {
                 IndiWrap p = _treeBuild.IndiFromId(indiId);
                 List<FamilyUnit> fams = _treeBuild.FamFromIndi(p.Indi.Ident); // TODO use p.ChildIn
-                FamilyUnit firstFam = fams == null ? null : fams[0];  // TODO support more than one family
+                FamilyUnit firstFam = (fams == null || fams.Count < 1) ? null : fams[0];  // TODO support more than one family
                 //p.ChildOf = firstFam; // TODO perform in _treebuild?
 
                 int count = CalcAnce(firstFam, 1);
@@ -116,15 +116,40 @@ namespace DrawAnce
             }
         }
 
+        private void UpdatePedigreeList(Pedigrees p)
+        {
+            int count = p.PedigreeCount;
+            if (count < 2)
+            {
+                cmbPedigree.Enabled = false;
+                cmbPedigree.DataSource = null;
+                _ancIndi = _pedigrees.GetPedigree(0);
+                DoAncTree();
+            }
+            else
+            {
+                // Establish list of pedigrees
+                _cmbPedItems.Clear();
+                for (int i = 1; i <= count; i++)
+                {
+                    string text = string.Format("Pedigree {0}", i);
+                    _cmbPedItems.Add(new { Text=text, Value=(i-1) } );
+                }
+                cmbPedigree.DisplayMember = "Text";
+                cmbPedigree.ValueMember = "Value";
+                cmbPedigree.DataSource = _cmbPedItems;
+                cmbPedigree.Enabled = true;
+            }
+        }
+
         private void TreePerson(IndiWrap val)
         {
             ResetContext();
-            _ancIndi[1] = val;
 
-            List<FamilyUnit> fams = _treeBuild.FamFromIndi(val.Indi.Ident); // TODO use val.ChildIn
-            FamilyUnit firstFam = fams == null ? null : fams[0]; // TODO support more than one family
-            CalcAnce(firstFam, 1);
-            DoAncTree();
+            _pedigrees = new Pedigrees(val, _treeBuild);
+            UpdatePedigreeList(_pedigrees);
+            //_ancIndi = _pedigrees.GetPedigree(0);
+            //DoAncTree();
         }
 
         private void DoAncTree()
@@ -198,6 +223,7 @@ namespace DrawAnce
             return numRet;
         }
 
+
         private void openGEDCOMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
@@ -216,6 +242,9 @@ namespace DrawAnce
         }
 
         readonly List<object> _cmbItems = new List<object>();
+        readonly List<object> _cmbPedItems = new List<object>();
+
+        private Pedigrees _pedigrees;
         private IndiWrap[] _ancIndi;
 
         private readonly FamilyTreeBuild _treeBuild;
@@ -471,6 +500,17 @@ namespace DrawAnce
         private void printToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbPedigree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPedigree.SelectedIndex < 0)
+                return;
+            int val = (int) cmbPedigree.SelectedValue;
+            if (val < 0 || val >= _pedigrees.PedigreeCount)
+                return;
+            _ancIndi = _pedigrees.GetPedigree(val);
+            DoAncTree();
         }
     }
 }

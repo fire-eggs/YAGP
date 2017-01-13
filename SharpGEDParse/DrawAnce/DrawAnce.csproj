@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="IDrawGen.cs" />
     <Compile Include="MruStripMenu.cs" />
+    <Compile Include="Pedigree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

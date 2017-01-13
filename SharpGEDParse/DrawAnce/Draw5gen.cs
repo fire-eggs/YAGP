@@ -15,6 +15,7 @@ namespace DrawAnce
         private const int HCONNLEN = GEN3HM/2;
 
         private Pen _boxPen;
+        private Pen _boxPen2; // TODO indicates person who is child in > 1 family
         private Font _nameFont;
         private Brush _textBrush;
 
@@ -25,6 +26,7 @@ namespace DrawAnce
 
         public override Image MakeAncTree()
         {
+            using (_boxPen2 = new Pen(Color.Chartreuse, 2.0f))
             using (_boxPen = new Pen(Color.Chocolate, 2.0f))
             using (_nameFont = new Font("Arial", 12))
             using (_textBrush = new SolidBrush(Color.Black))
@@ -214,14 +216,18 @@ namespace DrawAnce
         private void DrawAnce(int i, Graphics gr, Rectangle boxRect)
         {
             _hitRect[i] = boxRect;
-            gr.DrawRectangle(_boxPen, boxRect);
+            if (AncData[i] != null && AncData[i].ChildIn.Count > 1)
+                gr.DrawRectangle(_boxPen2, boxRect);
+            else
+                gr.DrawRectangle(_boxPen, boxRect);
             int left = boxRect.Left;
             int top = boxRect.Top;
 
             RectangleF textRect = boxRect;
             var nameLoc = new PointF(left, top + 3);
             textRect.Location = nameLoc;
-            gr.DrawString(AncData[i].Name, _nameFont, _textBrush, nameLoc);
+            if (AncData[i] != null)
+                gr.DrawString(AncData[i].Name, _nameFont, _textBrush, nameLoc);
         }
 
         private Point[] boxSz;
@@ -236,6 +242,8 @@ namespace DrawAnce
             boxSz[4] = CalcBoxDims(gr, 16, 31);
         }
 
+        private static readonly Size empty = new Size(0,0);
+
         private Point CalcBoxDims(Graphics gr, int ancL, int ancH)
         {
             int penW = (int)Math.Ceiling(_boxPen.Width); // take the box pen into account, otherwise draws over right text margin
@@ -243,7 +251,7 @@ namespace DrawAnce
             int maxH = 0;
             for (int i = ancL; i <= ancH; i++)
             {
-                var nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
+                var nameSize = (AncData[i] == null) ? empty : gr.MeasureString(AncData[i].Name, _nameFont);
                 maxW = Math.Max(maxW, (int)Math.Ceiling(nameSize.Width) + penW); // round up: text margin too small
                 maxW = Math.Max(maxW, 100); // prevent collapsed boxes
                 maxH = Math.Max(BOXH, (int)nameSize.Height);

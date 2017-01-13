@@ -236,6 +236,9 @@ namespace DrawAnce
             int left = boxRect.Left;
             int top = boxRect.Top;
 
+            if (AncData[i] == null || string.IsNullOrWhiteSpace(AncData[i].Name))
+                return;
+
             RectangleF textRect = boxRect;
             var nameLoc = new PointF(left, top + NAME_V_MARGIN);
             textRect.Location = nameLoc;
@@ -264,7 +267,7 @@ namespace DrawAnce
             {
                 int h2;
                 int h1 = h2 = 25;
-                if (!string.IsNullOrEmpty(AncData[i].Name))
+                if (AncData[i] != null && !string.IsNullOrEmpty(AncData[i].Name))
                 {
                     SizeF nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
                     maxW = Math.Max(maxW, (int) Math.Ceiling(nameSize.Width) + penW); // round up: text margin too small
