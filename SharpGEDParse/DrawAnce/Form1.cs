@@ -1,4 +1,5 @@
-﻿using BuildTree;
+﻿using System.Diagnostics;
+using BuildTree;
 using PrintPreview;
 using SharpGEDParser;
 using System;
@@ -66,13 +67,21 @@ namespace DrawAnce
             foreach (var indiId in _treeBuild.IndiIds)
             {
                 IndiWrap p = _treeBuild.IndiFromId(indiId);
-                List<FamilyUnit> fams = _treeBuild.FamFromIndi(p.Indi.Ident); // TODO use p.ChildIn
-                FamilyUnit firstFam = (fams == null || fams.Count < 1) ? null : fams[0];  // TODO support more than one family
-                //p.ChildOf = firstFam; // TODO perform in _treebuild?
 
-                int count = CalcAnce(firstFam, 1);
-                p.Ahnen = count;
-                var text = string.Format("{0}[{1}]({2})", p.Name, indiId, count);
+                // for each person, show the # of individuals available in (first) pedigree
+                Pedigrees pd = new Pedigrees(p,_treeBuild, firstOnly:true);
+                p.Ahnen = pd.GetPedigreeMax(0);
+
+                //List<FamilyUnit> fams = _treeBuild.FamFromIndi(p.Indi.Ident); // TODO use p.ChildIn
+                //FamilyUnit firstFam = (fams == null || fams.Count < 1) ? null : fams[0];  // TODO support more than one family
+                ////p.ChildOf = firstFam; // TODO perform in _treebuild?
+
+                //int count = CalcAnce(firstFam, 1);
+                //p.Ahnen = count;
+
+                //Debug.Assert(count == max);
+
+                var text = string.Format("{0} [{1}] ({2})", p.Name, indiId, p.Ahnen);
                 comboNames.Add(text);
                 _cmbItems.Add(new { Text=text, Value=p } );
                 //var text = p.Name + "(" + count + ")";
@@ -146,7 +155,7 @@ namespace DrawAnce
         {
             ResetContext();
 
-            _pedigrees = new Pedigrees(val, _treeBuild);
+            _pedigrees = new Pedigrees(val, _treeBuild, firstOnly:false);
             UpdatePedigreeList(_pedigrees);
             //_ancIndi = _pedigrees.GetPedigree(0);
             //DoAncTree();

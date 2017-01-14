@@ -100,5 +100,10 @@ namespace BuildTree
 
             return prefix + val.Trim() + "\r\n";
         }
+
+        public override string ToString()
+        {
+            return Indi.Ident + ":" + Name;
+        }
     }
 }
