@@ -16,7 +16,19 @@ namespace DrawAnce
         private IDrawGen draw4gen;
         private IDrawGen draw5gen;
         private IDrawGen drawer;
-        private int MAX_AHNEN = 32;
+        private const int MAX_AHNEN = 32;
+
+        readonly List<object> _cmbItems = new List<object>();
+        readonly List<object> _cmbPedItems = new List<object>();
+
+        private Pedigrees _pedigrees;
+        private IndiWrap[] _ancIndi;
+
+        private readonly FamilyTreeBuild _treeBuild;
+
+        public event EventHandler LoadGed;
+
+        private bool _noUpdate;  // TODO stupid GUI hack: sometimes the pedigree combo update causes a redraw, and sometimes it doesn't
 
         public Form1()
         {
@@ -55,8 +67,6 @@ namespace DrawAnce
             fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
             //logit("LoadGed 2");
             _treeBuild.BuildTree(fr.Data.ToList(), false, false);
-
-            ResetContext();
             //logit("LoadGed 3");
 
             // populate combobox with individuals
@@ -69,31 +79,12 @@ namespace DrawAnce
                 IndiWrap p = _treeBuild.IndiFromId(indiId);
 
                 // for each person, show the # of individuals available in (first) pedigree
-                Pedigrees pd = new Pedigrees(p,_treeBuild, firstOnly:true);
+                Pedigrees pd = new Pedigrees(p, firstOnly:true);
                 p.Ahnen = pd.GetPedigreeMax(0);
-
-                //List<FamilyUnit> fams = _treeBuild.FamFromIndi(p.Indi.Ident); // TODO use p.ChildIn
-                //FamilyUnit firstFam = (fams == null || fams.Count < 1) ? null : fams[0];  // TODO support more than one family
-                ////p.ChildOf = firstFam; // TODO perform in _treebuild?
-
-                //int count = CalcAnce(firstFam, 1);
-                //p.Ahnen = count;
-
-                //Debug.Assert(count == max);
 
                 var text = string.Format("{0} [{1}] ({2})", p.Name, indiId, p.Ahnen);
                 comboNames.Add(text);
                 _cmbItems.Add(new { Text=text, Value=p } );
-                //var text = p.Name + "(" + count + ")";
-                //var test = text;
-                //int suffix = 1;
-                //while (comboNames.Contains(test))
-                //{
-                //    test = text + "[" + suffix + "]";
-                //    suffix++;
-                //}
-                //comboNames.Add(test);
-                //_cmbItems.Add(new { Text = test, Value = p });
             }
             cmbPerson.DisplayMember = "Text";
             cmbPerson.DataSource = _cmbItems;
@@ -116,24 +107,14 @@ namespace DrawAnce
             ProcessGED(filename);
         }
 
-        private void ResetContext()
+        private void updatePedigreeList(Pedigrees p)
         {
-            _ancIndi = new IndiWrap[MAX_AHNEN];
-            for (int i = 0; i < MAX_AHNEN; i++)
-            {
-                _ancIndi[i] = new IndiWrap(); // make sure each box is populated; TODO consider on-the-fly instead
-            }
-        }
-
-        private void UpdatePedigreeList(Pedigrees p)
-        {
+            _noUpdate = true;
             int count = p.PedigreeCount;
+            cmbPedigree.DataSource = null; // force rebuild when pedigree count changes
             if (count < 2)
             {
                 cmbPedigree.Enabled = false;
-                cmbPedigree.DataSource = null;
-                _ancIndi = _pedigrees.GetPedigree(0);
-                DoAncTree();
             }
             else
             {
@@ -147,24 +128,24 @@ namespace DrawAnce
                 cmbPedigree.DisplayMember = "Text";
                 cmbPedigree.ValueMember = "Value";
                 cmbPedigree.DataSource = _cmbPedItems;
+                cmbPedigree.SelectedIndex = 0;
                 cmbPedigree.Enabled = true;
             }
+            _noUpdate = false;
         }
 
         private void TreePerson(IndiWrap val)
         {
-            ResetContext();
-
-            _pedigrees = new Pedigrees(val, _treeBuild, firstOnly:false);
-            UpdatePedigreeList(_pedigrees);
-            //_ancIndi = _pedigrees.GetPedigree(0);
-            //DoAncTree();
+            _pedigrees = new Pedigrees(val, firstOnly:false); // TODO currently re-calculating - any benefit from caching these?
+            updatePedigreeList(_pedigrees);
+            _ancIndi = _pedigrees.GetPedigree(0);
+            DoAncTree();
         }
 
         private void DoAncTree()
         {
             if (drawer == null)
-                drawer = new Draw5gen(); //Draw4Gen();
+                drawer = new Draw5gen();
             drawer.AncData = _ancIndi;
             var oldImage = picTree.Image;
             picTree.Image = drawer.MakeAncTree();
@@ -175,63 +156,11 @@ namespace DrawAnce
 
         private void cmbPerson_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //var item = cmbPerson.SelectedItem;
             var val = cmbPerson.SelectedValue as IndiWrap;
             if (val == null)
                 return;
             TreePerson(val);
         }
-
-        /// <summary>
-        /// Determine a person's ancestry. Does two things:
-        /// 1. Populates the _ancIndi array for use when drawing the tree. Only fills in those
-        ///    entries supported by the tree limit.
-        /// 2. Drills down the entire ancestry, returning the largest Ahnen number found.
-        /// </summary>
-        /// <param name="firstFam">The root person's family unit</param>
-        /// <param name="myNum">The root person's Ahnen number</param>
-        /// <returns>The largest Ahnen number encountered</returns>
-        private int CalcAnce(FamilyUnit firstFam, int myNum)
-        {
-            // TODO move to BuildTree, taking a MAX parameter and returning a list<IndiWrap> in Ahnen order
-
-            if (myNum >= MAX_AHNEN)
-                return -1;
-
-            int numRet = myNum;
-            if (firstFam == null)
-                return numRet;
-
-            // From http://www.tamurajones.net/AhnenNumbering.xhtml : the Ahnen number 
-            // of the father is double that of the current person. Mom's Ahnen number
-            // is Dad's plus 1.
-
-            int dadnum = myNum * 2;
-            if (firstFam.Husband != null)
-            {
-                numRet = Math.Max(numRet, dadnum);
-                if (dadnum < MAX_AHNEN)
-                {
-                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Husband.Indi.Ident); // _indiHash[firstFam.Husband.Ident];
-                    _ancIndi[dadnum] = hack;
-                }
-                if (firstFam.DadFam != null)
-                    numRet = Math.Max(numRet,CalcAnce(firstFam.DadFam, dadnum));
-            }
-            if (firstFam.Wife != null)
-            {
-                numRet = Math.Max(numRet, dadnum+1);
-                if (dadnum + 1 < MAX_AHNEN)
-                {
-                    IndiWrap hack = _treeBuild.IndiFromId(firstFam.Wife.Indi.Ident); // _indiHash[firstFam.Wife.Ident];
-                    _ancIndi[dadnum+1] = hack;
-                }
-                if (firstFam.MomFam != null)
-                    numRet = Math.Max(numRet, CalcAnce(firstFam.MomFam, dadnum+1));
-            }
-            return numRet;
-        }
-
 
         private void openGEDCOMToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -249,16 +178,6 @@ namespace DrawAnce
             LastFile = ofd.FileName; // TODO invalid ged file
             ProcessGED(ofd.FileName);
         }
-
-        readonly List<object> _cmbItems = new List<object>();
-        readonly List<object> _cmbPedItems = new List<object>();
-
-        private Pedigrees _pedigrees;
-        private IndiWrap[] _ancIndi;
-
-        private readonly FamilyTreeBuild _treeBuild;
-
-        public event EventHandler LoadGed;
 
         private void ProcessGED(string gedPath)
         {
@@ -484,11 +403,8 @@ namespace DrawAnce
 
         private void rad4Gen_CheckedChanged(object sender, EventArgs e)
         {
-            if (rad4Gen.Checked)
-                drawer = draw4gen;
-            else
-                drawer = draw5gen;
-            this.cmbPerson_SelectedIndexChanged(null,null);
+            drawer = rad4Gen.Checked ? draw4gen : draw5gen;
+            cmbPerson_SelectedIndexChanged(null,null);
         }
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -513,7 +429,8 @@ namespace DrawAnce
 
         private void cmbPedigree_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbPedigree.SelectedIndex < 0)
+            // TODO stupid GUI hack: sometimes the pedigree combo update causes a redraw, and sometimes it doesn't
+            if (cmbPedigree.SelectedIndex < 0 || _noUpdate)
                 return;
             int val = (int) cmbPedigree.SelectedValue;
             if (val < 0 || val >= _pedigrees.PedigreeCount)
