@@ -73,11 +73,6 @@ namespace CheckTrees
             Console.WriteLine("Total number of trees:{0}", treenum);
             if (_gedtrees.ErrorsCount > 0)
                 Console.WriteLine("Total number of errors: {0}", _gedtrees.ErrorsCount);
-            if (_checkCHIL && _gedtrees.ChilErrorsCount > 0)
-                if (_driverIsCHIL)
-                    Console.WriteLine("FAM.CHIL reference errors: {0}", _gedtrees.ChilErrorsCount);
-                else
-                    Console.WriteLine("INDI.FAMC reference errors: {0}", _gedtrees.ChilErrorsCount);
         }
 
         private static int tick;

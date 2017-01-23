@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -72,11 +73,6 @@ namespace GEDWrap
             }
         }
 
-        public int ChilErrorsCount
-        {
-            get { return _chilErrorsCount; } // todo
-        }
-
         public IEnumerable<Person> AllPeople
         {
             get { return _indiHash.Values; }
@@ -105,18 +101,16 @@ namespace GEDWrap
         private MultiMap<string, Union> _childsIn;  // INDI ident -> multi FAM
         private List<Issue> _issues;
         private string _firstPerson; // "First" person in tree - default initial person
-        private int _chilErrorsCount;
 
         private void BuildTree()
         {
-            Pass1();   
+            WrapAndHashRecords();   
        
             Pass2(); // Make connections using FAM.HUSB/WIFE/CHIL
             // TODO Make connections using INDI.FAMC/FAMS
 
-            Pass3();
-
-            // Pass4: verify matching links
+            VerifyFAMLinks();
+            VerifyINDILinks();
         }
 
         private void MakeError(Issue.IssueCode code, params object[] evidence)
@@ -125,7 +119,7 @@ namespace GEDWrap
             _issues.Add(err);
         }
 
-        private void Pass1()
+        private void WrapAndHashRecords()
         {
             // Wrap INDI and FAM records, collect into hashes
             var gedRecs = _gedReader.Data;
@@ -221,18 +215,46 @@ namespace GEDWrap
             }
             
         }
-        private void Pass3()
-        {
-            // Try to determine each spouse's family [the family they were born into]
-            // TODO currently of dubious value because dad/mom may be adopted and currently keeping only the 'first' family connection
 
-            // Also check if HUSB/WIFE links are to valid people
-            // Also check if CHIL links are valid (exist and matched)
+        private int verifyFAMLink(string ident, string famIdent, string linkType)
+        {
+            // Verify a single FAM record link
+            // returns: 0 no problem; -1 missing; 1 unmatched
+
+            if (string.IsNullOrEmpty(ident))
+                return 0;
+
+            Person indi;
+            if (!_indiHash.TryGetValue(ident, out indi))
+            {
+                return -1;
+            }
+
+            // TODO need a simple link accessor
+            bool found = false;
+            foreach (var link in indi.Indi.Links)
+            {
+                if (link.Tag == linkType && link.Xref == famIdent)
+                    found = true;
+            }
+            return !found ? 1 : 0;
+        }
+
+        private void VerifyFAMLinks()
+        {
+            // Verify links from FAM records.
+            // 1. CHIL link to missing INDI
+            // 2. HUSB link to missing INDI
+            // 3. WIFE link to missing INDI
+            // 4. CHIL link w/ no matching FAMC
+            // 5. HUSB link w/ no matching FAMS
+            // 6. WIFE link w/ no matching FAMS
 
             foreach (var familyUnit in _famHash.Values)
             {
                 var famIdent = familyUnit.FamRec.Ident;
 
+                // TODO not sure this check is useful?
                 if (familyUnit.Husband != null)
                 {
                     var dadFams = _childsIn[familyUnit.DadId];
@@ -246,6 +268,7 @@ namespace GEDWrap
                     }
                 }
 
+                // TODO not sure this check is useful?
                 if (familyUnit.Wife != null)
                 {
                     var momFams = _childsIn[familyUnit.MomId];
@@ -262,42 +285,85 @@ namespace GEDWrap
                 // TODO what happens in parse if more than one HUSB/WIFE specified?
 
                 var husbId = familyUnit.FamRec.Dad;
-                if (husbId != null && !_indiHash.ContainsKey(husbId))
+                switch (verifyFAMLink(husbId, famIdent, "FAMS"))
                 {
-                    MakeError(Issue.IssueCode.SPOUSE_CONN2, famIdent, husbId, "HUSB");
+                    case -1:
+                        MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, husbId, "HUSB");
+                        break;
+                    case 1:
+                        MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, husbId, "HUSB");
+                        break;
                 }
                 var wifeId = familyUnit.FamRec.Mom;
-                if (wifeId != null && !_indiHash.ContainsKey(wifeId))
+                switch (verifyFAMLink(wifeId, famIdent, "FAMS"))
                 {
-                    MakeError(Issue.IssueCode.SPOUSE_CONN2, famIdent, wifeId, "WIFE");
+                    case -1:
+                        MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, wifeId, "WIFE");
+                        break;
+                    case 1:
+                        MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, wifeId, "WIFE");
+                        break;
                 }
 
                 foreach (var childId in familyUnit.FamRec.Childs)
                 {
-                    if (childId == null)
-                        continue;
-
-                    Person indi;
-                    if (!_indiHash.TryGetValue(childId, out indi))
+                    switch (verifyFAMLink(childId, famIdent, "FAMC"))
                     {
-                        MakeError(Issue.IssueCode.CHIL_MISS, famIdent, childId);
-                    }
-                    else
-                    {
-                        // TODO need a simple FAMC link accessor
-                        bool found = false;
-                        foreach (var link in indi.Indi.Links)
-                        {
-                            if (link.Tag == "FAMC" && link.Xref == famIdent)
-                                found = true;
-                        }
-                        if (!found)
+                        case -1:
+                            MakeError(Issue.IssueCode.CHIL_MISS, famIdent, childId);
+                            break;
+                        case 1:
                             MakeError(Issue.IssueCode.CHIL_NOTMATCH, famIdent, childId);
+                            break;
                     }
                 }
             }
         }
 
+        private void VerifyINDILinks()
+        {
+            foreach (var person in _indiHash.Values)
+            {
+                var indiId = person.Id;
+                foreach (var link in person.Indi.Links)
+                {
+                    // TODO verify parsing error
+                    if (string.IsNullOrEmpty(link.Xref))
+                        continue; // tabors.ged, twparker.ged
+                    switch (link.Tag)
+                    {
+                        case "FAMC":
+                            if (!_famHash.ContainsKey(link.Xref))
+                            {
+                                MakeError(Issue.IssueCode.FAMC_MISSING, indiId, link.Xref);
+                            }
+                            else
+                            {
+                                bool found = person.ChildIn.Any(familyUnit => link.Xref == familyUnit.Id);
+                                if (!found)
+                                {
+                                    MakeError(Issue.IssueCode.FAMC_UNM, indiId, link.Xref);
+                                }
+                            }
+                            break;
+                        case "FAMS":
+                            if (!_famHash.ContainsKey(link.Xref))
+                            {
+                                MakeError(Issue.IssueCode.FAMS_MISSING, indiId, link.Xref);
+                            }
+                            else
+                            {
+                                bool found = person.SpouseIn.Any(familyUnit => link.Xref == familyUnit.Id);
+                                if (!found)
+                                {
+                                    MakeError(Issue.IssueCode.FAMS_UNM, indiId, link.Xref);
+                                }
+                            }
+                            break;
+                    }
+                }
+            }
+        }
         #endregion
 
         #region Mark Trees

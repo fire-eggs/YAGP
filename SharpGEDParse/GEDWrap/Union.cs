@@ -11,6 +11,8 @@ namespace GEDWrap
 {
     public class Union
     {
+        public string Id { get { return FamRec.Ident; } }
+
         public FamRecord FamRec { get; set; }
 
         public Person Husband { get; set; }

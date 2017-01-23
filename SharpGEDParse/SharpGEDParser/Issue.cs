@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using System.Collections.Generic;
 
 namespace SharpGEDParser
 {
@@ -30,9 +24,12 @@ namespace SharpGEDParser
             FAMS_MISSING,
             FAMC_MISSING,
             AMB_CONN,
-            SPOUSE_CONN2,
+            SPOUSE_CONN_MISS,
             CHIL_MISS,
-            CHIL_NOTMATCH
+            CHIL_NOTMATCH,
+            SPOUSE_CONN_UNM,
+            FAMC_UNM,
+            FAMS_UNM,
         };
 
         // TODO warn/error prefix is temporary for unit testing
@@ -49,6 +46,9 @@ namespace SharpGEDParser
             "Error: family {0} has {2} link {1} to non-existing INDI", // {2} is 'HUSB'/'WIFE' // TODO L10N problem
             "Error: family {0} has CHIL link {1} to non-existing INDI",
             "Error: family {0} has CHIL link {1} with no matching FAMC",
+            "Error: family {0} has {2} link {1} with no matching FAMS", // {2} is 'HUSB'/'WIFE' // TODO L10N problem
+            "Error: INDI {0} with FAMC link to {1} and no matching CHIL",
+            "Error: INDI {0} with FAMS link to {1} and no matching HUSB/WIFE",
         };
 
         public Issue(IssueCode code, params object[] evidence)
