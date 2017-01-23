@@ -41,18 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\BuildTree\BuildTree.cs">
-      <Link>BuildTree.cs</Link>
-    </Compile>
-    <Compile Include="..\BuildTree\FamilyUnit.cs">
-      <Link>FamilyUnit.cs</Link>
-    </Compile>
-    <Compile Include="..\BuildTree\IndiWrap.cs">
-      <Link>IndiWrap.cs</Link>
-    </Compile>
-    <Compile Include="..\BuildTree\Multimap.cs">
-      <Link>Multimap.cs</Link>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,6 +48,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GEDWrap\GEDWrap.csproj">
+      <Project>{11921280-9C14-4595-87B2-27A6B552366C}</Project>
+      <Name>GEDWrap</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharpGEDParser\SharpGEDParser.csproj">
       <Project>{58b3c8e5-2e1c-402e-ba60-ae97de0a6621}</Project>
       <Name>SharpGEDParser</Name>

@@ -1,11 +1,8 @@
-﻿using BuildTree;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 // TODO currently uses a hard-coded max, take parameter?
-// TODO move to BuildTree
 
-
-namespace DrawAnce
+namespace GEDWrap
 {
     /// <summary>
     /// Determine a person's ancestry. Calculates an array (indexed by Ahnen number)
@@ -14,17 +11,21 @@ namespace DrawAnce
     /// </summary>
     public class Pedigrees
     {
-        private readonly IndiWrap _who;
+        private readonly Person _who;
+        private const int MAX_AHNEN = 32;
+        private Person[] _ancIndi;
+        private List<Person[]> _trees;
+        private Stack<Retry> _retry;
 
-        public Pedigrees(IndiWrap person, bool firstOnly)
+        public Pedigrees(Person person, bool firstOnly)
         {
             _who = person;
 
             // degenerate case: person has no ancestors
             if (_who.ChildIn.Count < 1)
             {
-                _trees = new List<IndiWrap[]>();
-                _trees.Add(new IndiWrap[MAX_AHNEN]);
+                _trees = new List<Person[]>();
+                _trees.Add(new Person[MAX_AHNEN]);
                 _trees[0][1] = _who;
                 return; 
             }
@@ -32,25 +33,20 @@ namespace DrawAnce
             CalcAllPedigrees(firstOnly);
         }
 
-        private const int MAX_AHNEN = 32;
-        private IndiWrap[] _ancIndi;
-        private List<IndiWrap[]> _trees;
-        private Stack<Retry> _retry;
-
         private void CalcAllPedigrees(bool firstOnly)
         {
             // Determine _all_ a person's pedigrees
             // Each person in the pedigree could be a child in more than one family
             // (e.g. adoption), resulting in a possible alternate pedigree
 
-            _trees = new List<IndiWrap[]>();
+            _trees = new List<Person[]>();
             _retry = new Stack<Retry>();
 
             // 1. For the root person, calculate full pedigree for each family they are
             // a child in.
             foreach (var familyUnit in _who.ChildIn)
             {
-                _ancIndi = new IndiWrap[MAX_AHNEN];
+                _ancIndi = new Person[MAX_AHNEN];
                 _ancIndi[1] = _who;
                 CalcAnce(familyUnit, 1);
                 _trees.Add(_ancIndi);
@@ -65,7 +61,7 @@ namespace DrawAnce
             while (_retry.Count != 0)
             {
                 var data = _retry.Pop();
-                _ancIndi = (IndiWrap[])data.ancIndi.Clone(); // don't modify the original!
+                _ancIndi = (Person[])data.ancIndi.Clone(); // don't modify the original!
                 wipeTree(data.personNum); // about to re-calc all descendants, clear the way
                 CalcAnce(data.famToDo, data.personNum);
                 _trees.Add(_ancIndi);
@@ -75,14 +71,14 @@ namespace DrawAnce
         // Container for re-calculating an alternate pedigree
         private struct Retry
         {
-            public IndiWrap[] ancIndi; // the existing pedigree
+            public Person[] ancIndi; // the existing pedigree
             public int personNum;      // the index in the pedigree of the person to re-calc
-            public FamilyUnit famToDo; // the _alternate_ family unit to recalc with
+            public Union famToDo; // the _alternate_ family unit to recalc with
         }
 
         public int PedigreeCount { get { return _trees.Count; } }
 
-        public IndiWrap[] GetPedigree(int num)
+        public Person[] GetPedigree(int num)
         {
             return _trees[num];
         }
@@ -98,7 +94,7 @@ namespace DrawAnce
             return count;
         }
 
-        private void CalcAnce(FamilyUnit fam, int myNum)
+        private void CalcAnce(Union fam, int myNum)
         {
             if (myNum >= MAX_AHNEN || fam == null)
                 return;
@@ -115,22 +111,21 @@ namespace DrawAnce
                 {
                     _ancIndi[dadnum] = fam.Husband;
                 }
-                if (fam.Husband.ChildIn.Count > 1)
+                int famCount = fam.Husband.ChildIn.Count;
+                if (famCount > 1)
                 {
-//                    Debugger.Break();
-                    foreach (var familyUnit in fam.Husband.ChildIn)
+                    //                    Debugger.Break();
+                    for (int famDex = 1; famDex < famCount; famDex++) // NOTE: skipping first fam, the family we're about to do
                     {
-                        if (familyUnit == fam.DadFam)
-                            continue; // This is the family we're about to do
                         Retry branch = new Retry();
                         branch.ancIndi = _ancIndi;
                         branch.personNum = dadnum;
-                        branch.famToDo = familyUnit;
+                        branch.famToDo = fam.Husband.ChildIn[famDex];
                         _retry.Push(branch);
                     }
                 }
-                if (fam.DadFam != null) // TODO hard-coded to first: need to split on multiple
-                    CalcAnce(fam.DadFam, dadnum);
+                if (famCount > 0 && fam.Husband.ChildIn[0] != null)
+                    CalcAnce(fam.Husband.ChildIn[0], dadnum);
             }
             if (fam.Wife != null)
             {
@@ -138,19 +133,21 @@ namespace DrawAnce
                 {
                     _ancIndi[momnum] = fam.Wife;
                 }
-                foreach (var familyUnit in fam.Wife.ChildIn)
+                int famCount = fam.Wife.ChildIn.Count;
+                if (famCount > 1)
                 {
-                    if (familyUnit == fam.MomFam)
-                        continue; // This is the family we're about to do
-                    Retry branch = new Retry();
-                    branch.ancIndi = _ancIndi;
-                    branch.personNum = momnum;
-                    branch.famToDo = familyUnit;
-                    _retry.Push(branch);
+                    for (int famDex = 1; famDex < famCount; famDex++) // NOTE: skipping first fam, the family we're about to do
+                    {
+                        Retry branch = new Retry();
+                        branch.ancIndi = _ancIndi;
+                        branch.personNum = momnum;
+                        branch.famToDo = fam.Wife.ChildIn[famDex];
+                        _retry.Push(branch);
+                    }
                 }
 
-                if (fam.MomFam != null)
-                    CalcAnce(fam.MomFam, momnum);
+                if (famCount > 0 && fam.Wife.ChildIn[0] != null)
+                    CalcAnce(fam.Wife.ChildIn[0], momnum);
             }
         }
 
@@ -176,7 +173,7 @@ namespace DrawAnce
 
     class PersonNode
     {
-        public IndiWrap Who { get; set; }
+        public Person Who { get; set; }
         public List<FamilyNode> Fams { get; set; }
         public int Depth { get; set; }
 
@@ -188,7 +185,7 @@ namespace DrawAnce
 
     class FamilyNode
     {
-        public FamilyUnit Who { get; set; }
+        public Union Who { get; set; }
         public PersonNode Mom { get; set; }
         public PersonNode Dad { get; set; }
     }

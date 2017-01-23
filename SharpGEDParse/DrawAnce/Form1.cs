@@ -1,7 +1,5 @@
-﻿using System.Diagnostics;
-using BuildTree;
+﻿using GEDWrap;
 using PrintPreview;
-using SharpGEDParser;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,15 +14,12 @@ namespace DrawAnce
         private IDrawGen draw4gen;
         private IDrawGen draw5gen;
         private IDrawGen drawer;
-        private const int MAX_AHNEN = 32;
 
         readonly List<object> _cmbItems = new List<object>();
         readonly List<object> _cmbPedItems = new List<object>();
 
         private Pedigrees _pedigrees;
-        private IndiWrap[] _ancIndi;
-
-        private readonly FamilyTreeBuild _treeBuild;
+        private Person[] _ancIndi;
 
         public event EventHandler LoadGed;
 
@@ -40,8 +35,6 @@ namespace DrawAnce
             mnuMRU.MaxEntries = 7;
             LoadGed += Form1_LoadGed;
             LoadSettings(); // must go after mnuMRU init
-
-            _treeBuild = new FamilyTreeBuild();
 
             draw4gen = new Draw4Gen();
             draw5gen = new Draw5gen();
@@ -63,20 +56,19 @@ namespace DrawAnce
         private void Form1_LoadGed(object sender, EventArgs e)
         {
             //logit("LoadGed 1", true);
-            var fr = new FileRead();
-            fr.ReadGed(LastFile); // TODO Using LastFile is a hack... pass path in args? not as event?
+            Forest gedtrees = new Forest();
+            // TODO Using LastFile is a hack... pass path in args? not as event?            
+            gedtrees.LoadGEDCOM(LastFile);
             //logit("LoadGed 2");
-            _treeBuild.BuildTree(fr.Data.ToList(), false, false);
-            //logit("LoadGed 3");
 
             // populate combobox with individuals
             // www.ahnenbuch.de-AMMON has multiple individuals with the same name. Need to distinguish
             // them somehow for the combobox.
             // TODO is there a better way? unique thing for combobox selection?
             HashSet<string> comboNames = new HashSet<string>();
-            foreach (var indiId in _treeBuild.IndiIds)
+            foreach (var indiId in gedtrees.AllIndiIds)
             {
-                IndiWrap p = _treeBuild.IndiFromId(indiId);
+                Person p = gedtrees.PersonById(indiId);
 
                 // for each person, show the # of individuals available in (first) pedigree
                 Pedigrees pd = new Pedigrees(p, firstOnly:true);
@@ -134,7 +126,7 @@ namespace DrawAnce
             _noUpdate = false;
         }
 
-        private void TreePerson(IndiWrap val)
+        private void TreePerson(Person val)
         {
             _pedigrees = new Pedigrees(val, firstOnly:false); // TODO currently re-calculating - any benefit from caching these?
             updatePedigreeList(_pedigrees);
@@ -156,7 +148,7 @@ namespace DrawAnce
 
         private void cmbPerson_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var val = cmbPerson.SelectedValue as IndiWrap;
+            var val = cmbPerson.SelectedValue as Person;
             if (val == null)
                 return;
             TreePerson(val);
@@ -190,113 +182,6 @@ namespace DrawAnce
             Application.DoEvents(); // Cycle events so image updates in case GED load/process takes a while
             LoadGed(this, new EventArgs());
         }
-
-#if false
-        /// <summary>
-        /// The GEDCOM file has been parsed. This method pieces the tree together, creating FamilyUnit
-        /// objects to contain Father/Mother/Children.
-        /// </summary>
-        /// <param name="gedRecs"></param>
-        private void BuildTree(IEnumerable<GEDCommon> gedRecs)
-        {
-            // an indi has a FAMS or FAMC
-            // a FAM has HUSB WIFE CHIL
-
-            List<FamilyUnit> families = new List<FamilyUnit>();
-
-            // Build a hash of Indi ids
-            // Build a hash of family ids
-            _indiHash = new Dictionary<string, IndiWrap>();
-            var famHash = new Dictionary<string, FamRecord>();
-            string first = null;
-            foreach (var kbrGedRec in gedRecs)
-            {
-                if (kbrGedRec is IndiRecord)
-                {
-                    var ident = (kbrGedRec as IndiRecord).Ident;
-
-                    IndiWrap iw = new IndiWrap();
-                    iw.Indi = kbrGedRec as IndiRecord;
-                    iw.Ahnen = 0;
-                    iw.ChildOf = null;
-                    _indiHash.Add(ident, iw);
-
-                    if (first == null)
-                        first = ident;
-                }
-                // TODO GEDCOM_Amssoms.ged has a duplicate family "X0". Needs to be caught by validate, flag as error, and not reach here.
-                if (kbrGedRec is FamRecord)
-                {
-                    var ident = (kbrGedRec as FamRecord).Ident;
-                    if (!famHash.ContainsKey(ident))
-                        famHash.Add(ident, kbrGedRec as FamRecord);
-                }
-            }
-
-            // hash: child ids -> familyunit
-            _childHash = new Dictionary<string, FamilyUnit>();
-
-            // Accumulate family units
-            // TODO indi with no fam
-            // TODO indi with fams/famc only : see GEDCOM_Amssoms
-            foreach (var kbrGedFam in famHash.Values)
-            {
-                var famU = new FamilyUnit(kbrGedFam);
-                if (kbrGedFam.Dad != null)
-                {
-                    // TODO GEDCOM_Amssoms has a family with reference to non-existant individual. Needs to be caught by validate and 'fixed' there.
-                    if (_indiHash.ContainsKey(kbrGedFam.Dad))
-                    {
-                        var iw = _indiHash[kbrGedFam.Dad];
-                        famU.Husband = iw.Indi;
-                        iw.SpouseIn = famU;
-                    }
-                    else
-                    {
-                        IndiWrap hack0 = new IndiWrap();
-
-                        // TODO need a library method to do this!!!
-                        IndiRecord hack = new IndiRecord(null,kbrGedFam.Dad,null);
-                        var hack2 = new SharpGEDParser.Model.NameRec();
-                        hack2.Surname = "Missing";
-                        hack.Names.Add(hack2);
-                        famU.Husband = hack;
-                        hack0.Indi = hack;
-                        hack0.Ahnen = -1;
-                        hack0.SpouseIn = famU;
-                        _indiHash.Add(kbrGedFam.Dad, hack0);
-                    }
-                }
-                if (kbrGedFam.Mom != null)
-                {
-                    var iw = _indiHash[kbrGedFam.Mom];
-                    famU.Wife = iw.Indi; // TODO handle mom as non-existant individual.
-                    iw.SpouseIn = famU;
-                }
-                foreach (var child in kbrGedFam.Childs)
-                {
-                    famU.Childs.Add(_indiHash[child].Indi);
-
-                    // TODO punting on adoption where a child could be part of more than one family see allged.ged
-                    if (!_childHash.ContainsKey(child))
-                        _childHash.Add(child, famU);
-                }
-                families.Add(famU);
-            }
-
-            // Connect family units
-            foreach (var familyUnit in families)
-            {
-                if (_childHash.ContainsKey(familyUnit.DadId))
-                    familyUnit.DadFam = _childHash[familyUnit.DadId];
-                if (_childHash.ContainsKey(familyUnit.MomId))
-                    familyUnit.MomFam = _childHash[familyUnit.MomId];
-            }
-
-            famHash = null;
-            families = null;
-        }
-#endif
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

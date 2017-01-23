@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BuildTree;
-using SharpGEDParser;
+using GEDWrap;
 using System;
 using System.IO;
 
@@ -10,88 +9,43 @@ using System.IO;
 // TODO ? bails on ADOP (indi is part of more than one family)
 // TODO ? should people in multiple families be special / near-disjoint trees?
 
+// TODO tree count is out of whack if people is zero: see 4b09cb694b032.ged
 namespace CheckTrees
 {
     class Program
     {
-        private static void AllInFamily(FamilyUnit fu)
-        {
-            // Add all individuals referenced from this family to the processing stack
-            if (fu == null) 
-                return;
-            if (fu.Husband != null)
-            {
-                var iw2 = fu.Husband;
-                if (iw2.tree == -1)
-                    treeStack.Push(iw2);
-            }
-            if (fu.Wife != null)
-            {
-                var iw2 = fu.Wife;
-                if (iw2.tree == -1)
-                    treeStack.Push(iw2);
-            }
-
-            foreach (var iw2 in fu.Childs)
-            {
-                if (iw2.tree == -1)
-                    treeStack.Push(iw2);
-            }
-        }
-
-        // stack-based list of individuals to mark - eliminate recursion due to deep
-        // trees resulting in stack overflow (at depth 15,700+).
-        private static Stack<IndiWrap> treeStack = new Stack<IndiWrap>();
-
-        private static void MakeTree(int treenum)
-        {
-            while (treeStack.Count > 0)
-            {
-                var iw = treeStack.Pop();
-                iw.tree = treenum;
-
-                // everybody where this person is a spouse
-                foreach (var familyUnit in iw.SpouseIn)
-                {
-                    AllInFamily(familyUnit);
-                }
-                // everybody where this person is a child
-                foreach (var familyUnit in iw.ChildIn)
-                {
-                    AllInFamily(familyUnit);
-                }
-//                AllInFamily(_treeBuild.FamFromIndi(iw.Indi.Ident)); // TODO replace with iw.ChildIn when BuildTree() supports
-            }
-        }
+        private static int[] _treeCount;
+        private static bool _summaryOnly;
+        private static bool _showErrors;
+        private static bool _checkCHIL;
+        private static bool _driverIsCHIL;
+        private static Forest _gedtrees;
 
         private static void CalcTrees()
         {
-            // identify disjoint trees across the individuals
-            int treenum = 1;
-            foreach (var indiId in _treeBuild.IndiIds)
+            if (_showErrors)
             {
-                var iw = _treeBuild.IndiFromId(indiId);
-                if (iw.tree == -1)
+                foreach (var issue in _gedtrees.Issues)
                 {
-                    treeStack.Push(iw);
-                    MakeTree(treenum);
-                    treenum += 1;
+                    Console.WriteLine(issue.Message());
                 }
             }
 
+            int treenum = _gedtrees.NumberOfTrees;
+
             // count the number of individuals in each disjoint tree
-            _treeCount = new int[treenum];
-            string[] aTreePerson = new string[treenum]; // grab one indi id for the tree
-            foreach (var indiId in _treeBuild.IndiIds)
+            _treeCount = new int[treenum+1];
+            string[] aTreePerson = new string[treenum+1]; // grab one indi id for the tree
+
+            foreach (var person in _gedtrees.AllPeople)
             {
-                var iw = _treeBuild.IndiFromId(indiId);
-                _treeCount[iw.tree] += 1;
-                aTreePerson[iw.tree] = indiId;
+                _treeCount[person.Tree] += 1;
+                aTreePerson[person.Tree] = person.Id;
             }
 
             // we have a list of tree counts. turn this into a map of counts->treenums
             MultiMap<int,int> countToTreeNum = new MultiMap<int,int>();
-            for (int i = 1; i < treenum; i++)
+            for (int i = 1; i <= treenum; i++)
             {
                 countToTreeNum.Add(_treeCount[i], i);
             }
@@ -116,36 +70,45 @@ namespace CheckTrees
                     break;
             }
 
-            Console.WriteLine("Total number of trees:{0}", treenum-1);
-            if (_treeBuild.ErrorsCount > 0)
-                Console.WriteLine("Total number of errors: {0}", _treeBuild.ErrorsCount);
-            if (_checkCHIL && _treeBuild.ChilErrorsCount > 0)
+            Console.WriteLine("Total number of trees:{0}", treenum);
+            if (_gedtrees.ErrorsCount > 0)
+                Console.WriteLine("Total number of errors: {0}", _gedtrees.ErrorsCount);
+            if (_checkCHIL && _gedtrees.ChilErrorsCount > 0)
                 if (_driverIsCHIL)
-                    Console.WriteLine("FAM.CHIL reference errors: {0}", _treeBuild.ChilErrorsCount);
+                    Console.WriteLine("FAM.CHIL reference errors: {0}", _gedtrees.ChilErrorsCount);
                 else
-                    Console.WriteLine("INDI.FAMC reference errors: {0}", _treeBuild.ChilErrorsCount);
+                    Console.WriteLine("INDI.FAMC reference errors: {0}", _gedtrees.ChilErrorsCount);
+        }
+
+        private static int tick;
+        private static void logit(string msg, bool first = false)
+        {
+            return; // TODO unit testing
+            int delta = 0;
+            if (!first)
+                delta = Environment.TickCount - tick;
+            tick = Environment.TickCount;
+            if (delta > 500) // only log if action took longer than .5 second
+                Console.WriteLine(msg + "|" + delta + " milliseconds");
         }
 
         private static void parseFile(string path)
         {
-            using (var fr = new FileRead())
+            logit("Start", true);
+            using (_gedtrees = new Forest())
             {
-                fr.ReadGed(path);
-                if (!_driverIsCHIL)
-                    _treeBuild.BuildTree(fr.Data, _showErrors, _checkCHIL); // INDI.FAMC is driver
-                else
-                    _treeBuild.BuildTree2(fr.Data, _showErrors, _checkCHIL); // FAM.CHIL is driver
+                _gedtrees.LoadGEDCOM(path);
+                //logit("Log: Done read");
+                //if (!_driverIsCHIL)
+                //    _treeBuild.BuildTree(fr.Data, _showErrors, _checkCHIL); // INDI.FAMC is driver
+                //else
+                //    _treeBuild.BuildTree2(fr.Data, _showErrors, _checkCHIL); // FAM.CHIL is driver
+                //logit("Log: Done build");
             }
 
             CalcTrees();
+            logit("Log: Done calc");
         }
-
-        private static FamilyTreeBuild _treeBuild;
-        private static int[] _treeCount;
-        private static bool _summaryOnly;
-        private static bool _showErrors;
-        private static bool _checkCHIL;
-        private static bool _driverIsCHIL;
 
         static void Main(string[] args)
         {
@@ -168,7 +131,6 @@ namespace CheckTrees
             int lastarg = args.Length - 1;
             if (File.Exists(args[lastarg]))
             {
-                _treeBuild = new FamilyTreeBuild();
                 Console.WriteLine(args[lastarg]);
                 parseFile(args[lastarg]);
             }

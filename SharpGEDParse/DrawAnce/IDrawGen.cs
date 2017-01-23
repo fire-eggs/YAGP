@@ -1,12 +1,12 @@
 ﻿using System.Drawing;
 using System.Drawing.Printing;
-using BuildTree;
+using GEDWrap;
 
 namespace DrawAnce
 {
     public interface IDrawGen
     {
-        IndiWrap[] AncData { get; set; }
+        Person[] AncData { get; set; }
 
         Image MakeAncTree();
 
@@ -22,7 +22,7 @@ namespace DrawAnce
 
         protected Rectangle[] _hitRect;
 
-        public IndiWrap[] AncData { get; set; }
+        public Person[] AncData { get; set; }
 
         public abstract Image MakeAncTree();
 
