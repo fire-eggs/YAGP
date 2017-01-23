@@ -82,7 +82,7 @@ namespace GEDWrap
         {
             get
             {
-                int treeCount = 1;
+                int treeCount = 0;
                 foreach (var person in _indiHash.Values)
                 {
                     if (person.Tree > treeCount)
