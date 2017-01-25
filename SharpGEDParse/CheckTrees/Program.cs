@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using GEDWrap;
 using System;
 using System.IO;
 
 // Read a GEDCOM file and find the number of disjoint trees / individuals
 
-// TODO ? bails on ADOP (indi is part of more than one family)
-// TODO ? should people in multiple families be special / near-disjoint trees?
+// ReSharper disable InconsistentNaming
 
-// TODO tree count is out of whack if people is zero: see 4b09cb694b032.ged
 namespace CheckTrees
 {
     class Program
@@ -17,8 +14,6 @@ namespace CheckTrees
         private static int[] _treeCount;
         private static bool _summaryOnly;
         private static bool _showErrors;
-        private static bool _checkCHIL;
-        private static bool _driverIsCHIL;
         private static Forest _gedtrees;
 
         private static void CalcTrees()
@@ -27,6 +22,7 @@ namespace CheckTrees
             {
                 foreach (var issue in _gedtrees.Issues)
                 {
+                    // NOTE: family relationship errors, not parsing problems
                     Console.WriteLine(issue.Message());
                 }
             }
@@ -75,10 +71,10 @@ namespace CheckTrees
                 Console.WriteLine("Total number of errors: {0}", _gedtrees.ErrorsCount);
         }
 
+#if false // TODO disabled for unit testing
         private static int tick;
         private static void logit(string msg, bool first = false)
         {
-            return; // TODO unit testing
             int delta = 0;
             if (!first)
                 delta = Environment.TickCount - tick;
@@ -86,19 +82,21 @@ namespace CheckTrees
             if (delta > 500) // only log if action took longer than .5 second
                 Console.WriteLine(msg + "|" + delta + " milliseconds");
         }
-
+#else
+// ReSharper disable UnusedParameter.Local
+        private static void logit(string msg, bool first = false)
+        {
+            
+        }
+// ReSharper restore UnusedParameter.Local
+#endif
         private static void parseFile(string path)
         {
             logit("Start", true);
             using (_gedtrees = new Forest())
             {
                 _gedtrees.LoadGEDCOM(path);
-                //logit("Log: Done read");
-                //if (!_driverIsCHIL)
-                //    _treeBuild.BuildTree(fr.Data, _showErrors, _checkCHIL); // INDI.FAMC is driver
-                //else
-                //    _treeBuild.BuildTree2(fr.Data, _showErrors, _checkCHIL); // FAM.CHIL is driver
-                //logit("Log: Done build");
+                logit("Log: Done load");
             }
 
             CalcTrees();
@@ -113,15 +111,11 @@ namespace CheckTrees
                 Console.WriteLine("Specify a .GED file");
                 Console.WriteLine("-s : summary - show few details");
                 Console.WriteLine("-e : show error details");
-                Console.WriteLine("-c : verify FAM.CHIL vs INDI.FAMC");
-                Console.WriteLine("-i : if specified, INDI.FAMC is master, otherwise FAM.CHIL is master");
                 return;
             }
 
             _summaryOnly = args.FirstOrDefault(s => s == "-s") != null;
             _showErrors = args.FirstOrDefault(s => s == "-e") != null;
-            _checkCHIL = args.FirstOrDefault(s => s == "-c") != null;
-            _driverIsCHIL = args.FirstOrDefault(s => s == "-i") == null; // NOTE: reverse logic!
 
             int lastarg = args.Length - 1;
             if (File.Exists(args[lastarg]))
