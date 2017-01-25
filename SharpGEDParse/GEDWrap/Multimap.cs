@@ -1,8 +1,48 @@
 using System.Collections.Generic;
 
+// Multi-map collections: one key to multiple values
+
 namespace GEDWrap
 {
-    public class MultiMap<T,V>
+    // Set variation: one key to a set of unique values
+    public class MultiHash<T, V>
+    {
+        readonly Dictionary<T, HashSet<V>> _dictionary = new Dictionary<T, HashSet<V>>();
+
+        public void Add(T key, V value)
+        {
+            HashSet<V> list;
+            if (_dictionary.TryGetValue(key, out list))
+            {
+                list.Add(value);
+            }
+            else
+            {
+                list = new HashSet<V>();
+                list.Add(value);
+                _dictionary[key] = list;
+            }
+        }
+
+        public IEnumerable<T> Keys { get { return _dictionary.Keys; } }
+
+        public HashSet<V> this[T key]
+        {
+            get
+            {
+                HashSet<V> list;
+                if (!_dictionary.TryGetValue(key, out list))
+                {
+                    list = new HashSet<V>();
+                    _dictionary[key] = list;
+                }
+                return list;
+            }
+        }
+    }
+
+    // List variation: one key to a list of values
+    public class MultiMap<T, V>
     {
         readonly Dictionary<T, List<V>> _dictionary = new Dictionary<T, List<V>>();
 

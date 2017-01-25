@@ -30,6 +30,7 @@ namespace SharpGEDParser
             SPOUSE_CONN_UNM,
             FAMC_UNM,
             FAMS_UNM,
+            UNKLINK
         };
 
         // TODO warn/error prefix is temporary for unit testing
@@ -49,6 +50,7 @@ namespace SharpGEDParser
             "Error: family {0} has {2} link {1} with no matching FAMS", // {2} is 'HUSB'/'WIFE' // TODO L10N problem
             "Error: INDI {0} with FAMC link to {1} and no matching CHIL",
             "Error: INDI {0} with FAMS link to {1} and no matching HUSB/WIFE",
+            "Error: INDI {0} with non-standard link '{1}'",
         };
 
         public Issue(IssueCode code, params object[] evidence)

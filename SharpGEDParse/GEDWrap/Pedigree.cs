@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 // TODO currently uses a hard-coded max, take parameter?
 
@@ -112,20 +113,26 @@ namespace GEDWrap
                     _ancIndi[dadnum] = fam.Husband;
                 }
                 int famCount = fam.Husband.ChildIn.Count;
-                if (famCount > 1)
+                if (famCount > 0)
                 {
-                    //                    Debugger.Break();
-                    for (int famDex = 1; famDex < famCount; famDex++) // NOTE: skipping first fam, the family we're about to do
+                    Union firstFam = fam.Husband.ChildIn.First();
+                    if (famCount > 1)
                     {
-                        Retry branch = new Retry();
-                        branch.ancIndi = _ancIndi;
-                        branch.personNum = dadnum;
-                        branch.famToDo = fam.Husband.ChildIn[famDex];
-                        _retry.Push(branch);
+                        //                    Debugger.Break();
+                        foreach (var union in fam.Husband.ChildIn)
+                        {
+                            if (union == firstFam) // NOTE: skipping first fam, the family we're about to do
+                                continue;
+                            Retry branch = new Retry();
+                            branch.ancIndi = _ancIndi;
+                            branch.personNum = dadnum;
+                            branch.famToDo = union;
+                            _retry.Push(branch);
+                        }
                     }
+                    if (firstFam != null)
+                        CalcAnce(firstFam, dadnum);
                 }
-                if (famCount > 0 && fam.Husband.ChildIn[0] != null)
-                    CalcAnce(fam.Husband.ChildIn[0], dadnum);
             }
             if (fam.Wife != null)
             {
@@ -134,20 +141,26 @@ namespace GEDWrap
                     _ancIndi[momnum] = fam.Wife;
                 }
                 int famCount = fam.Wife.ChildIn.Count;
-                if (famCount > 1)
+                if (famCount > 0)
                 {
-                    for (int famDex = 1; famDex < famCount; famDex++) // NOTE: skipping first fam, the family we're about to do
+                    Union firstFam = fam.Wife.ChildIn.First();
+                    if (famCount > 1)
                     {
-                        Retry branch = new Retry();
-                        branch.ancIndi = _ancIndi;
-                        branch.personNum = momnum;
-                        branch.famToDo = fam.Wife.ChildIn[famDex];
-                        _retry.Push(branch);
+                        foreach (var union in fam.Wife.ChildIn)
+                        {
+                            if (union == firstFam) // NOTE: skipping first fam, the family we're about to do
+                                continue;
+                            Retry branch = new Retry();
+                            branch.ancIndi = _ancIndi;
+                            branch.personNum = momnum;
+                            branch.famToDo = union;
+                            _retry.Push(branch);
+                        }
                     }
-                }
 
-                if (famCount > 0 && fam.Wife.ChildIn[0] != null)
-                    CalcAnce(fam.Wife.ChildIn[0], momnum);
+                    if (firstFam != null)
+                        CalcAnce(firstFam, momnum);
+                }
             }
         }
 

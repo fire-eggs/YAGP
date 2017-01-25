@@ -1,9 +1,5 @@
-﻿using System;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharpGEDParser.Model;
 
 // Wrapper around the GEDCOM FAM record
 
@@ -19,7 +15,7 @@ namespace GEDWrap
 
         public Person Wife { get; set; }
 
-        public List<Person> Childs { get; set; }
+        public HashSet<Person> Childs { get; set; }
 
         public string DadId { get { return Husband == null ? "" : Husband.Indi.Ident; } }
 
@@ -28,7 +24,13 @@ namespace GEDWrap
         public Union(FamRecord fam)
         {
             FamRec = fam;
-            Childs = new List<Person>();
+            Childs = new HashSet<Person>();
+        }
+
+        public bool ReconcileFams(string indiId)
+        {
+            // TODO Is the provided indi the husb or wife?
+            return true;
         }
     }
 }

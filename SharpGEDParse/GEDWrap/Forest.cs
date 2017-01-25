@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using SharpGEDParser;
+using SharpGEDParser.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 // Container wrapper around an imported GEDCOM
 // Use to access records
-using SharpGEDParser;
-using SharpGEDParser.Model;
+// Connects and verifies links between INDI and FAM
 
 namespace GEDWrap
 {
@@ -98,16 +98,18 @@ namespace GEDWrap
 
         private Dictionary<string, Person> _indiHash;  // INDI ident -> INDI record
         private Dictionary<string, Union> _famHash; // FAM  ident -> FAM  record
-        private MultiMap<string, Union> _childsIn;  // INDI ident -> multi FAM
+        private MultiHash<string, Union> _childsIn;  // INDI ident -> multi FAM
         private List<Issue> _issues;
         private string _firstPerson; // "First" person in tree - default initial person
 
         private void BuildTree()
         {
             WrapAndHashRecords();   
-       
-            Pass2(); // Make connections using FAM.HUSB/WIFE/CHIL
-            // TODO Make connections using INDI.FAMC/FAMS
+
+            // Making connections using _only_ the INDI, or _only_ the FAM,
+            // has not proven to be effective.
+            ConnectFamLinks();  // Make connections using FAM.HUSB/WIFE/CHIL
+            ConnectIndiLinks(); // Make connections using INDI.FAMC/FAMS
 
             VerifyFAMLinks();
             VerifyINDILinks();
@@ -122,57 +124,48 @@ namespace GEDWrap
         private void WrapAndHashRecords()
         {
             // Wrap INDI and FAM records, collect into hashes
-            var gedRecs = _gedReader.Data;
 
             _indiHash = new Dictionary<string, Person>();
             _famHash = new Dictionary<string, Union>();
-            _childsIn = new MultiMap<string, Union>();
+            _childsIn = new MultiHash<string, Union>();
             _issues = new List<Issue>();
 
-            foreach (var gedCommon in gedRecs) // TODO really need 'INDI', 'FAM' accessors
+            foreach (var indiRecord in Indi)
             {
-                if (gedCommon is IndiRecord)
+                var ident = indiRecord.Ident;
+                if (_indiHash.ContainsKey(ident))
                 {
-                    var ident = (gedCommon as IndiRecord).Ident;
-
-                    if (_indiHash.ContainsKey(ident))
-                    {
-                        MakeError(Issue.IssueCode.DUPL_INDI, ident);
-                    }
-                    else
-                    {
-                        Person iw = new Person(gedCommon as IndiRecord);
-                        _indiHash.Add(ident, iw);
-
-                        if (_firstPerson == null)
-                            _firstPerson = ident;
-                    }
+                    MakeError(Issue.IssueCode.DUPL_INDI, ident);
                 }
-
-                // TODO GEDCOM_Amssoms.ged has a duplicate family "X0". Needs to be caught by validate, flag as error, and not reach here.
-                if (gedCommon is FamRecord)
+                else
                 {
-                    var fam = gedCommon as FamRecord;
-                    var ident = fam.Ident;
-                    if (string.IsNullOrEmpty(ident))
-                    {
-                        MakeError(Issue.IssueCode.MISS_FAMID, fam.BegLine);
-                        continue;
-                    }
-                    if (!_famHash.ContainsKey(ident))
-                        _famHash.Add(ident, new Union(fam));
-                    else
-                    {
-                        MakeError(Issue.IssueCode.DUPL_FAM, ident);
-                    }
+                    Person iw = new Person(indiRecord);
+                    _indiHash.Add(ident, iw);
+
+                    if (_firstPerson == null)
+                        _firstPerson = ident;
                 }
             }
-
+            foreach (var fam in Fams)
+            {
+                var ident = fam.Ident;
+                if (string.IsNullOrEmpty(ident))
+                {
+                    MakeError(Issue.IssueCode.MISS_FAMID, fam.BegLine);
+                    continue;
+                }
+                if (!_famHash.ContainsKey(ident))
+                    _famHash.Add(ident, new Union(fam));
+                else
+                {
+                    MakeError(Issue.IssueCode.DUPL_FAM, ident);
+                }
+            }
         }
 
-        private void Pass2()
+        private void ConnectFamLinks()
         {
-            // TODO this is a good 'first guess' at family relations: also need to use INDI.FAMS/INDI.FAMC
+            // This is a good 'first guess' at family relations: also need to use INDI.FAMS/INDI.FAMC
 
             // Iterate through the family records
             // For each HUSB/WIFE, connect to INDI
@@ -207,13 +200,52 @@ namespace GEDWrap
                     if (_indiHash.TryGetValue(childId, out childWrap))
                     {
                         childWrap.ChildIn.Add(familyUnit);
-                        familyUnit.Childs.Add(childWrap);  // TODO shouldn't this be IndiWrap?
+                        familyUnit.Childs.Add(childWrap);
                         _childsIn.Add(childId, familyUnit);
                     }
                 }
-
             }
-            
+        }
+
+        private void ConnectIndiLinks()
+        {
+            // Iterate through INDI records.
+            // For each FAMC, connect to FAM.
+            // For each FAMS, connect to FAM.
+            foreach (var person in _indiHash.Values)
+            {
+                var indiId = person.Id;
+                foreach (var link in person.Indi.Links)
+                {
+                    var famId = link.Xref;
+
+                    // Some GEDCOM end up with gibberish xref. TODO were these marked during parse?
+                    if (string.IsNullOrWhiteSpace(famId))
+                    {
+                        MakeError(Issue.IssueCode.MISS_XREFID, indiId, link.Tag);
+                        continue;
+                    }
+                    Union famU;
+                    if (!_famHash.TryGetValue(famId, out famU))
+                        continue; // Ignore missing family here, catch later
+                    switch (link.Tag)
+                    {
+                        case "FAMS":
+                            person.SpouseIn.Add(famU);
+                            if (!famU.ReconcileFams(indiId))
+                                MakeError(Issue.IssueCode.SPOUSE_CONN, famId, indiId);
+                            break;
+                        case "FAMC":
+                            _childsIn.Add(indiId, famU); // TODO collision?
+                            famU.Childs.Add(person); // TODO hashset
+                            person.ChildIn.Add(famU); // TODO hashset
+                            break;
+                        default:
+                            MakeError(Issue.IssueCode.UNKLINK, indiId, link.Tag);
+                            break;
+                    }
+                }
+            }
         }
 
         private int verifyFAMLink(string ident, string famIdent, string linkType)

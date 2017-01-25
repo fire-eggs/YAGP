@@ -1,9 +1,6 @@
-﻿using System;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharpGEDParser.Model;
 
 // Wrapper around the GEDCOM INDI record
 
@@ -24,19 +21,21 @@ namespace GEDWrap
         public Person(IndiRecord indi) : this()
         {
             Indi = indi;
-            _spouseIn = new List<Union>();
-            _childIn = new List<Union>();
+            _spouseIn = new HashSet<Union>();
+            _childIn = new HashSet<Union>();
         }
 
-        private List<Union> _spouseIn;
+        private HashSet<Union> _spouseIn;
 
-        // Person may be spouse in more than one family unit
-        public List<Union> SpouseIn { get { return _spouseIn; }}
+        // Person may be spouse in more than one union; but said 
+        // person cannot be the spouse more than once in a union
+        public HashSet<Union> SpouseIn { get { return _spouseIn; }}
 
-        private List<Union> _childIn;
+        private HashSet<Union> _childIn;
 
-        // Person may be spouse in more than one family unit
-        public List<Union> ChildIn { get { return _childIn; }}
+        // Person may be child in more than one union; but said 
+        // person cannot be a child more than once in a union
+        public HashSet<Union> ChildIn { get { return _childIn; }}
             
         public string Name
         {
@@ -64,8 +63,8 @@ namespace GEDWrap
             {
                 if (SpouseIn.Count < 1)
                     return "";
-                var fam = SpouseIn[0].FamRec; // TODO 'first' one only
-                return fam.Marriage;
+                Union fam = SpouseIn.First(); // TODO punting: first one only
+                return fam.FamRec.Marriage;
             }
         }
 
