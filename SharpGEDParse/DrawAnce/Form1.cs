@@ -79,6 +79,7 @@ namespace DrawAnce
                 _cmbItems.Add(new { Text=text, Value=p } );
             }
             cmbPerson.DisplayMember = "Text";
+            cmbPerson.ValueMember = "Value";
             cmbPerson.DataSource = _cmbItems;
             cmbPerson.Enabled = true;
             //logit("LoadGed 4");
@@ -117,9 +118,9 @@ namespace DrawAnce
                     string text = string.Format("Pedigree {0}", i);
                     _cmbPedItems.Add(new { Text=text, Value=(i-1) } );
                 }
+                cmbPedigree.DataSource = _cmbPedItems;
                 cmbPedigree.DisplayMember = "Text";
                 cmbPedigree.ValueMember = "Value";
-                cmbPedigree.DataSource = _cmbPedItems;
                 cmbPedigree.SelectedIndex = 0;
                 cmbPedigree.Enabled = true;
             }
