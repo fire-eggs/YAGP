@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+// ReSharper disable InconsistentNaming
+
 namespace SharpGEDParser
 {
     public class Issue
@@ -7,11 +9,11 @@ namespace SharpGEDParser
         // A situation has been discovered.
         public IssueCode IssueId { get; set; } // message string id - localization
 
-        private List<object> evidence = new List<object>();
+        private readonly List<object> _evidence = new List<object>();
 
         public string Message()
         {
-            return string.Format(messages[(int) IssueId], evidence.ToArray());
+            return string.Format(messages[(int) IssueId], _evidence.ToArray());
         }
 
         public enum IssueCode
@@ -57,7 +59,7 @@ namespace SharpGEDParser
         {
             IssueId = code;
             foreach (object t in evidence)
-                this.evidence.Add(t);
+                this._evidence.Add(t);
         }
     }
 }

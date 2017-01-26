@@ -1,4 +1,5 @@
-﻿using SharpGEDParser;
+﻿using System.IO;
+using SharpGEDParser;
 using SharpGEDParser.Model;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,14 @@ namespace GEDWrap
             CalcTrees();
         }
 
+        public void LoadFromStream(StreamReader stream)
+        {
+            _gedReader = new FileRead();
+            _gedReader.ReadLines(stream);
+            BuildTree();
+            CalcTrees();
+        }
+
         public Person PersonById(string ident)
         {
             return _indiHash[ident];
@@ -76,6 +85,11 @@ namespace GEDWrap
         public IEnumerable<Person> AllPeople
         {
             get { return _indiHash.Values; }
+        }
+
+        public IEnumerable<Union> AllUnions
+        {
+            get { return _famHash.Values; }
         }
 
         public int NumberOfTrees
@@ -232,7 +246,7 @@ namespace GEDWrap
                     {
                         case "FAMS":
                             person.SpouseIn.Add(famU);
-                            if (!famU.ReconcileFams(indiId))
+                            if (!famU.ReconcileFams(person))
                                 MakeError(Issue.IssueCode.SPOUSE_CONN, famId, indiId);
                             break;
                         case "FAMC":
@@ -371,7 +385,16 @@ namespace GEDWrap
                             }
                             else
                             {
-                                bool found = person.ChildIn.Any(familyUnit => link.Xref == familyUnit.Id);
+                                // verify that the FAM record has a matching CHIL link
+                                bool found = false;
+                                foreach (var famU in person.ChildIn)
+                                {
+                                    foreach (var child in famU.FamRec.Childs)
+                                    {
+                                        if (child == indiId)
+                                            found = true;
+                                    }
+                                }
                                 if (!found)
                                 {
                                     MakeError(Issue.IssueCode.FAMC_UNM, indiId, link.Xref);
@@ -385,7 +408,15 @@ namespace GEDWrap
                             }
                             else
                             {
-                                bool found = person.SpouseIn.Any(familyUnit => link.Xref == familyUnit.Id);
+                                // verify that the FAM record has a matching CHIL link
+                                bool found = false;
+                                foreach (var famU in person.SpouseIn)
+                                {
+                                    if (famU.FamRec.Dad == indiId)
+                                        found = true;
+                                    if (famU.FamRec.Mom == indiId)
+                                        found = true;
+                                }
                                 if (!found)
                                 {
                                     MakeError(Issue.IssueCode.FAMS_UNM, indiId, link.Xref);

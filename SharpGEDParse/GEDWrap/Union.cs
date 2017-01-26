@@ -15,6 +15,8 @@ namespace GEDWrap
 
         public Person Wife { get; set; }
 
+        public HashSet<Person> Spouses { get; set; }
+
         public HashSet<Person> Childs { get; set; }
 
         public string DadId { get { return Husband == null ? "" : Husband.Indi.Ident; } }
@@ -25,10 +27,12 @@ namespace GEDWrap
         {
             FamRec = fam;
             Childs = new HashSet<Person>();
+            Spouses = new HashSet<Person>();
         }
 
-        public bool ReconcileFams(string indiId)
+        public bool ReconcileFams(Person indi)
         {
+            Spouses.Add(indi);
             // TODO Is the provided indi the husb or wife?
             return true;
         }
