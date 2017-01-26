@@ -254,9 +254,6 @@ namespace GEDWrap
                             famU.Childs.Add(person); // TODO hashset
                             person.ChildIn.Add(famU); // TODO hashset
                             break;
-                        default:
-                            MakeError(Issue.IssueCode.UNKLINK, indiId, link.Tag);
-                            break;
                     }
                 }
             }

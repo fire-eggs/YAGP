@@ -47,6 +47,8 @@ namespace GEDWrap.Tests
             Assert.AreEqual("F1", p.SpouseIn.First().Id);
             var fam = f.AllUnions.First();
             Assert.AreEqual("I1", fam.Husband.Id);
+
+            Assert.IsNullOrEmpty(fam.MomId);
         }
 
         [Test]
