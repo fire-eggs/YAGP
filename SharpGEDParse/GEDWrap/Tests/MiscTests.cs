@@ -94,11 +94,48 @@ namespace GEDWrap.Tests
         [Test]
         public void AmbDad()
         {
+            // 2 INDI w FAMS links but FAM has only one - which one?
             var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n0 @I3@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I1@";
             using (Forest f = LoadGEDFromStream(txt))
             {
-                Assert.AreEqual(1, f.ErrorsCount);
-                Assert.AreEqual(Issue.IssueCode.AMB_CONN, f.Issues.First().IssueId);
+                Assert.AreEqual(2, f.ErrorsCount);
+                var allIss = f.Issues.ToArray();
+                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
+                Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
+            }
+        }
+
+        [Test]
+        public void AmbigDad2()
+        {
+            // FAM has 2 HUSB links
+            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I1@\n1 HUSB @I2@";
+            using (Forest f = LoadGEDFromStream(txt))
+            {
+                Assert.AreEqual(1, f.Errors.Count); // TODO verify error details
+
+                Assert.AreEqual(2, f.ErrorsCount);
+
+                var allIss = f.Issues.ToArray();
+                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
+                Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
+            }
+        }
+
+        [Test]
+        public void AmbigSpouse()
+        {
+            // 2 INDI as spouse but no FAM reverse link: HUSB or WIFE?
+            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM";
+            using (Forest f = LoadGEDFromStream(txt))
+            {
+                Assert.AreEqual(0, f.Errors.Count);
+                Assert.AreEqual(3, f.ErrorsCount);
+
+                var allIss = f.Issues.ToArray();
+                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
+                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[1].IssueId);
+                Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[2].IssueId);
             }
         }
 
