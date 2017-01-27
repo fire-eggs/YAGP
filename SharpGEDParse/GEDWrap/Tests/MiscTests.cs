@@ -55,7 +55,7 @@ namespace GEDWrap.Tests
             Forest f = LoadGEDFromStream(txt);
             Assert.AreEqual(1, f.ErrorsCount);
             Assert.AreEqual(Issue.IssueCode.MISS_XREFID, f.Issues.First().IssueId);
-            Assert.AreEqual(0, f.Errors.Count);
+            Assert.AreEqual(1, f.Errors.Count); // TODO verify details
         }
 
         [Test]
@@ -65,7 +65,7 @@ namespace GEDWrap.Tests
             var txt = "0 @I1@ INDI\n0 @F1@ FAM\n1 CHIL";
             Forest f = LoadGEDFromStream(txt);
             Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(1, f.Errors.Count); // TODO CHIL error not visible
+            Assert.AreEqual(1, f.Errors.Count); // TODO verify error details
         }
 
         [Test]
@@ -94,12 +94,25 @@ namespace GEDWrap.Tests
         [Test]
         public void AmbDad()
         {
-            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n0 @I3@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I1@\n1 HUSB @I3@";
+            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n0 @I3@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I1@";
             using (Forest f = LoadGEDFromStream(txt))
             {
                 Assert.AreEqual(1, f.ErrorsCount);
                 Assert.AreEqual(Issue.IssueCode.AMB_CONN, f.Issues.First().IssueId);
             }
         }
+
+        [Test]
+        public void MissFamId()
+        {
+            var txt = "0 @I1@ INDI\n0 @I2@ INDI\n0 @ @ FAM\n1 CHIL @I1@";
+            using (Forest f = LoadGEDFromStream(txt))
+            {
+                Assert.AreEqual(1, f.ErrorsCount);
+                Assert.AreEqual(Issue.IssueCode.MISS_FAMID, f.Issues.First().IssueId);
+                Assert.AreEqual(1, f.Errors.Count); // TODO verify error details
+            }
+        }
+
     }
 }

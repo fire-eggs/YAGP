@@ -37,7 +37,12 @@ namespace GEDWrap
 
         public List<UnkRec> Errors
         {
-            get { return _gedReader.Errors; }
+            get { return _gedReader.AllErrors; }
+        }
+
+        public List<UnkRec> Unknowns
+        {
+            get { return _gedReader.AllUnknowns; }
         }
 
         // Only parse a GEDCOM file. Useful for syntax validation.
@@ -77,8 +82,9 @@ namespace GEDWrap
         {
             get
             {
-                return _issues.Count(issue => issue.Message().StartsWith("Error:"));
-                // TODO for testing return _issues.Count;
+                //return _issues.Count(issue => issue.Message().StartsWith("Error:"));
+                // TODO for testing 
+                return _issues.Count;
             }
         }
 
@@ -163,7 +169,7 @@ namespace GEDWrap
             foreach (var fam in Fams)
             {
                 var ident = fam.Ident;
-                if (string.IsNullOrEmpty(ident))
+                if (string.IsNullOrWhiteSpace(ident))
                 {
                     MakeError(Issue.IssueCode.MISS_FAMID, fam.BegLine);
                     continue;

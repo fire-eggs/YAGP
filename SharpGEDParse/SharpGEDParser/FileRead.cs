@@ -158,6 +158,7 @@ namespace SharpGEDParser
             }
 
             Parser.FinishUp();
+            GatherErrors();
             _currRec = null;
         }
 
@@ -237,5 +238,24 @@ namespace SharpGEDParser
             Errors = null;
             _currRec = null;
         }
+
+        private List<UnkRec> _allErrors;
+        private List<UnkRec> _allUnknowns;
+
+        private void GatherErrors()
+        {
+            _allUnknowns = new List<UnkRec>();
+            _allErrors = new List<UnkRec>();
+            _allErrors.AddRange(Errors);
+            foreach (var gedCommon in Data)
+            {
+                _allErrors.AddRange(gedCommon.Errors);
+                _allUnknowns.AddRange(gedCommon.Unknowns);
+            }
+            // TODO errors/unknown in sub-records
+        }
+
+        public List<UnkRec> AllErrors { get { return _allErrors; } }
+        public List<UnkRec> AllUnknowns { get { return _allUnknowns; } }
     }
 }
