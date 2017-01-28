@@ -1,31 +1,14 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser;
-using System.IO;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
 
 namespace GEDWrap.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
-    class MiscTests
+    class MiscTests : TestUtil
     {
-        // TODO move to lower class
-        public static Stream ToStream(string str)
-        {
-            return new MemoryStream(Encoding.UTF8.GetBytes(str));
-        }
-
-        // TODO move to lower class
-        private Forest LoadGEDFromStream(string testString)
-        {
-            Forest f = new Forest();
-            using (var stream = new StreamReader(ToStream(testString)))
-            {
-                f.LoadFromStream(stream);
-            }
-            return f;
-        }
-
         [Test]
         public void DuplIndi()
         {
@@ -88,54 +71,6 @@ namespace GEDWrap.Tests
             using (Forest f = LoadGEDFromStream(txt))
             {
                 Assert.AreEqual(2, f.NumberOfTrees);
-            }
-        }
-
-        [Test]
-        public void AmbDad()
-        {
-            // 2 INDI w FAMS links but FAM has only one - which one?
-            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n0 @I3@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I1@";
-            using (Forest f = LoadGEDFromStream(txt))
-            {
-                Assert.AreEqual(2, f.ErrorsCount);
-                var allIss = f.Issues.ToArray();
-                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
-                Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
-            }
-        }
-
-        [Test]
-        public void AmbigDad2()
-        {
-            // FAM has 2 HUSB links
-            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I1@\n1 HUSB @I2@";
-            using (Forest f = LoadGEDFromStream(txt))
-            {
-                Assert.AreEqual(1, f.Errors.Count); // TODO verify error details
-
-                Assert.AreEqual(2, f.ErrorsCount);
-
-                var allIss = f.Issues.ToArray();
-                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
-                Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
-            }
-        }
-
-        [Test]
-        public void AmbigSpouse()
-        {
-            // 2 INDI as spouse but no FAM reverse link: HUSB or WIFE?
-            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM";
-            using (Forest f = LoadGEDFromStream(txt))
-            {
-                Assert.AreEqual(0, f.Errors.Count);
-                Assert.AreEqual(3, f.ErrorsCount);
-
-                var allIss = f.Issues.ToArray();
-                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
-                Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[1].IssueId);
-                Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[2].IssueId);
             }
         }
 

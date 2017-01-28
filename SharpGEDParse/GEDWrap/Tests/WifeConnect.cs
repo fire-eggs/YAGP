@@ -1,34 +1,14 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser;
-using System.IO;
 using System.Linq;
-using System.Text;
 
-// TODO verify that INDI.FAMS and no FAM.WIFE results in spouse ambiguity
 // TODO verify HUSB is *not* set in these tests
 
 namespace GEDWrap.Tests
 {
     [TestFixture]
-    class WifeConnect
+    class WifeConnect : TestUtil
     {
-        // TODO move to lower class
-        public static Stream ToStream(string str)
-        {
-            return new MemoryStream(Encoding.UTF8.GetBytes(str));
-        }
-
-        // TODO move to lower class
-        private Forest LoadGEDFromStream(string testString)
-        {
-            Forest f = new Forest();
-            using (var stream = new StreamReader(ToStream(testString)))
-            {
-                f.LoadFromStream(stream);
-            }
-            return f;
-        }
-
         [Test]
         public void CorrectWife()
         {

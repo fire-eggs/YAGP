@@ -48,9 +48,11 @@
     <Compile Include="Pedigree.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\AmbiguousHusband.cs" />
     <Compile Include="Tests\ChilConnect.cs" />
     <Compile Include="Tests\HusbConnect.cs" />
     <Compile Include="Tests\MiscTests.cs" />
+    <Compile Include="Tests\TestUtil.cs" />
     <Compile Include="Tests\WifeConnect.cs" />
     <Compile Include="Tests\zzFileTest.cs" />
     <Compile Include="Union.cs" />

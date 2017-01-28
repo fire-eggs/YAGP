@@ -1,31 +1,14 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser;
-using System.IO;
 using System.Linq;
-using System.Text;
 
 // Exercise child connections INDI.FAMC <> FAM.CHIL
 
 namespace GEDWrap.Tests
 {
     [TestFixture]
-    class ChilConnect
+    class ChilConnect : TestUtil
     {
-        public static Stream ToStream(string str)
-        {
-            return new MemoryStream(Encoding.UTF8.GetBytes(str));
-        }
-
-        private Forest LoadGEDFromStream(string testString)
-        {
-            Forest f = new Forest();
-            using (var stream = new StreamReader(ToStream(testString)))
-            {
-                f.LoadFromStream(stream);
-            }
-            return f;
-        }
-
         [Test]
         public void CorrectChil()
         {
