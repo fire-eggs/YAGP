@@ -45,7 +45,7 @@ namespace SharpGEDParser
             "Error: Could not identify spouse connection from FAM {0} to INDI {1}",
             "Error: INDI {0} has FAMS link {1} to non-existing family",
             "Error: INDI {0} has FAMC link {1} to non-existing family",
-            "Warn: ambiguous {0} connection for family {1}", // {0} is 'dad'/'mom' // TODO L10N problem
+            "Warn: ambiguous {0} connection for family {1}", // {0} is 'dad'/'mom'/'unknown' // TODO L10N problem
             "Error: family {0} has {2} link {1} to non-existing INDI", // {2} is 'HUSB'/'WIFE' // TODO L10N problem
             "Error: family {0} has CHIL link {1} to non-existing INDI",
             "Error: family {0} has CHIL link {1} with no matching FAMC",

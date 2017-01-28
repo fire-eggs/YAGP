@@ -50,28 +50,6 @@ namespace GEDWrap.Tests
         }
 
         [Test]
-        public void NoHusb()
-        {
-            // INDI.FAMS and no matching FAM.HUSB
-            var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @F1@ FAM";
-            Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(1, f.ErrorsCount);
-            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, f.Issues.First().IssueId);
-            Assert.AreEqual(0, f.Errors.Count);
-
-            Assert.AreEqual(1, f.NumberOfTrees);
-            Assert.AreEqual(1, f.Indi.Count);
-            Assert.AreEqual(1, f.Fams.Count);
-            Assert.AreEqual(1, f.AllPeople.Count());
-            var p = f.AllPeople.First();
-            Assert.AreEqual(1, p.SpouseIn.Count);
-            Assert.AreEqual("F1", p.SpouseIn.First().Id);
-            var fam = f.AllUnions.First();
-            Assert.AreEqual(1, fam.Spouses.Count);
-            Assert.AreEqual("I1", fam.Spouses.First().Id);
-        }
-
-        [Test]
         public void NoIndi()
         {
             // FAM.HUSB and no INDI

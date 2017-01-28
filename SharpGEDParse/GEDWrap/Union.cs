@@ -33,8 +33,8 @@ namespace GEDWrap
         public bool ReconcileFams(Person indi)
         {
             Spouses.Add(indi);
-            // TODO Is the provided indi the husb or wife?
-            return true;
+            // Is the provided indi the husb or wife?
+            return (MomId == indi.Id || DadId == indi.Id);
         }
     }
 }

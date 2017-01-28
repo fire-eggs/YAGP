@@ -9,6 +9,8 @@ using System.Linq;
 // Use to access records
 // Connects and verifies links between INDI and FAM
 
+// ReSharper disable InconsistentNaming
+
 namespace GEDWrap
 {
     public class Forest : IDisposable
@@ -256,9 +258,9 @@ namespace GEDWrap
                                 MakeError(Issue.IssueCode.SPOUSE_CONN, famId, indiId);
                             break;
                         case "FAMC":
-                            _childsIn.Add(indiId, famU); // TODO collision?
-                            famU.Childs.Add(person); // TODO hashset
-                            person.ChildIn.Add(famU); // TODO hashset
+                            _childsIn.Add(indiId, famU);
+                            famU.Childs.Add(person);
+                            person.ChildIn.Add(famU);
                             break;
                     }
                 }
@@ -303,35 +305,33 @@ namespace GEDWrap
             {
                 var famIdent = familyUnit.FamRec.Ident;
 
-                // TODO not sure this check is useful?
+                // Identify spouse ambiguity: more than one HUSB; mismatch in spouses and HUSB/WIFE counts
+                int identifiedSpouseCount = 0;
+                bool warned = false; // only one message
                 if (familyUnit.Husband != null)
                 {
-                    var dadFams = _childsIn[familyUnit.DadId];
-                    if (dadFams != null && dadFams.Count > 0)
+                    identifiedSpouseCount++;
+                    if (familyUnit.FamRec.Dads.Count > 1)
                     {
-                        //familyUnit.DadFam = dadFams[0];
-                        if (dadFams.Count > 1)
-                        {
-                            MakeError(Issue.IssueCode.AMB_CONN, "dad", famIdent);
-                        }
+                        MakeError(Issue.IssueCode.AMB_CONN, "HUSB", famIdent);
+                        warned = true;
                     }
                 }
 
-                // TODO not sure this check is useful?
                 if (familyUnit.Wife != null)
                 {
-                    var momFams = _childsIn[familyUnit.MomId];
-                    if (momFams != null && momFams.Count > 0)
+                    identifiedSpouseCount++;
+                    if (familyUnit.FamRec.Dads.Count > 1)
                     {
-                        //familyUnit.MomFam = momFams[0];
-                        if (momFams.Count > 1)
-                        {
-                            MakeError(Issue.IssueCode.AMB_CONN, "mom", famIdent);
-                        }
+                        MakeError(Issue.IssueCode.AMB_CONN, "WIFE", famIdent);
+                        warned = true;
                     }
                 }
 
-                // TODO what happens in parse if more than one HUSB/WIFE specified?
+                if (identifiedSpouseCount < familyUnit.Spouses.Count && !warned) // don't repeat
+                {
+                    MakeError(Issue.IssueCode.AMB_CONN, "unknown", famIdent);
+                }
 
                 foreach (var husbId in familyUnit.FamRec.Dads)
                 {

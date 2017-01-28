@@ -20,11 +20,12 @@ namespace GEDWrap.Tests
             // two FAMS, one HUSB : is second FAMS HUSB or WIFE?
             var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I2@";
             Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(2, f.ErrorsCount);
+            Assert.AreEqual(3, f.ErrorsCount);
 
-            var allIss = f.Issues.ToArray();
-            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
+            var allIss = f.Issues.ToArray(); // TODO order sensitive
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN, allIss[0].IssueId); // TODO duplicate error?
             Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
+            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[2].IssueId);
         }
 
         [Test]
@@ -33,10 +34,11 @@ namespace GEDWrap.Tests
             // two FAMS, two HUSB : ambiguous HUSB
             var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I2@\n1 HUSB @I1@";
             Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(1, f.ErrorsCount);
+            Assert.AreEqual(2, f.ErrorsCount);
 
-            var allIss = f.Issues.ToArray();
-            Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[0].IssueId);
+            var allIss = f.Issues.ToArray(); // TODO order sensitive
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN, allIss[0].IssueId); // TODO duplicate error?
+            Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
         }
 
         [Test]
@@ -45,12 +47,14 @@ namespace GEDWrap.Tests
             // two FAMS, no HUSB : are FAMS HUSB or WIFE? 
             var txt = "0 @I1@ INDI\n1 FAMS @F1@\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM";
             Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(3, f.ErrorsCount);
+            Assert.AreEqual(5, f.ErrorsCount);
 
-            var allIss = f.Issues.ToArray();
-            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
-            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[1].IssueId);
+            var allIss = f.Issues.ToArray(); // TODO order sensitive
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN, allIss[0].IssueId); // TODO duplicate error?
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN, allIss[1].IssueId); // TODO duplicate error?
             Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[2].IssueId);
+            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[3].IssueId);
+            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[4].IssueId);
         }
 
         [Test]
@@ -59,11 +63,12 @@ namespace GEDWrap.Tests
             // One FAMS, two HUSB : ambiguous HUSB
             var txt = "0 @I1@ INDI\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM\n1 HUSB @I2@\n1 HUSB @I1@";
             Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(2, f.ErrorsCount);
+            Assert.AreEqual(3, f.ErrorsCount);
 
-            var allIss = f.Issues.ToArray();
-            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN_UNM, allIss[0].IssueId);
+            var allIss = f.Issues.ToArray(); // TODO order sensitive
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN, allIss[0].IssueId); // TODO duplicate error?
             Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN_UNM, allIss[2].IssueId);
         }
 
         [Test]
@@ -72,11 +77,23 @@ namespace GEDWrap.Tests
             // One FAMS, no HUSB : is FAMS HUSB or WIFE?
             var txt = "0 @I1@ INDI\n0 @I2@ INDI\n1 FAMS @F1@\n0 @F1@ FAM";
             Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(2, f.ErrorsCount);
+            Assert.AreEqual(3, f.ErrorsCount);
 
             var allIss = f.Issues.ToArray();
-            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[0].IssueId);
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN, allIss[0].IssueId); // TODO duplicate error?
             Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
+            Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[2].IssueId);
+
+            Assert.AreEqual(2, f.NumberOfTrees);
+            Assert.AreEqual(2, f.Indi.Count);
+            Assert.AreEqual(1, f.Fams.Count);
+            Assert.AreEqual(2, f.AllPeople.Count());
+            var peeps = f.AllPeople.ToArray();
+            Assert.AreEqual(1, peeps[1].SpouseIn.Count);
+            Assert.AreEqual("F1", peeps[1].SpouseIn.First().Id);
+            var fam = f.AllUnions.First();
+            Assert.AreEqual(1, fam.Spouses.Count);
+            Assert.AreEqual("I2", fam.Spouses.First().Id);
         }
 
         [Test]
@@ -88,9 +105,9 @@ namespace GEDWrap.Tests
             Assert.AreEqual(3, f.ErrorsCount);
 
             var allIss = f.Issues.ToArray();
-            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN_UNM, allIss[0].IssueId);
+            Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[0].IssueId); // TODO order-sensitive
             Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN_UNM, allIss[1].IssueId);
-            Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[2].IssueId);
+            Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN_UNM, allIss[2].IssueId);
         }
 
         [Test]
