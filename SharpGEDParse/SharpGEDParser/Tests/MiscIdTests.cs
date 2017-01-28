@@ -21,7 +21,8 @@ namespace SharpGEDParser.Tests
             var indi = string.Format("0 @I1@ FAM\n1 {0} number\n1 HUSB @p1@", id);
             var rec = parse<FamRecord>(indi);
             Assert.AreEqual(0, rec.Errors.Count);
-            Assert.AreEqual("p1", rec.Dad);
+            Assert.AreEqual(1, rec.Dads.Count);
+            Assert.AreEqual("p1", rec.Dads[0]);
             Assert.IsTrue(rec.Ids.HasId(id));
         }
 
@@ -60,7 +61,8 @@ namespace SharpGEDParser.Tests
             var indi = string.Format("0 @I1@ FAM\n1 {0} number\n1 HUSB @p1@\n1 {0} number42", id);
             var rec = parse<FamRecord>(indi);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual("p1", rec.Dad);
+            Assert.AreEqual(1, rec.Dads.Count);
+            Assert.AreEqual("p1", rec.Dads[0]);
             Assert.IsTrue(rec.Ids.HasId(id));
             // TODO need to be able to get id value and verify
         }
@@ -108,7 +110,7 @@ namespace SharpGEDParser.Tests
             var indi = "0 @I1@ FAM\n1 REFN number\n1 HUSB @p1@";
             var rec = parse<FamRecord>(indi);
             Assert.AreEqual(0, rec.Errors.Count);
-            Assert.AreEqual("p1", rec.Dad);
+            Assert.AreEqual("p1", rec.Dads[0]);
             Assert.AreEqual(1, rec.Ids.REFNs.Count);
         }
         [Test]
@@ -117,7 +119,7 @@ namespace SharpGEDParser.Tests
             var indi = "0 @I1@ FAM\n1 REFN number\n1 HUSB @p1@\n1 REFN number42";
             var rec = parse<FamRecord>(indi);
             Assert.AreEqual(0, rec.Errors.Count);
-            Assert.AreEqual("p1", rec.Dad);
+            Assert.AreEqual("p1", rec.Dads[0]);
             Assert.AreEqual(2, rec.Ids.REFNs.Count);
         }
 

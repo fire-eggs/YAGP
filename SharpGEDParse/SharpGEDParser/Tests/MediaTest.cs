@@ -107,16 +107,16 @@ namespace SharpGEDParser.Tests
         }
 
         #region Errors
-        [Test]
-        public void TestMissingId1()
-        {
-            // empty record; missing id
-            var txt = "0 OBJE";
-            var res = ReadItHigher(txt);
-            Assert.AreEqual(1, res.Data.Count);
-            Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count); // TODO Missing FILE, what else? validate details
-            Assert.AreEqual(1, res.Errors.Count); // TODO deliberate change: 1 line NOTE records appear valid. Need to check on a per-record-type basis?
-        }
+        //[Test]
+        //public void TestMissingId1()
+        //{
+        //    // empty record; missing id
+        //    var txt = "0 OBJE";
+        //    var res = ReadItHigher(txt);
+        //    Assert.AreEqual(1, res.Data.Count);
+        //    Assert.AreEqual(2, (res.Data[0] as GEDCommon).Errors.Count); // TODO Missing FILE, what else? validate details
+        //    Assert.AreEqual(1, res.Errors.Count); // TODO deliberate change: 1 line NOTE records appear valid. Need to check on a per-record-type basis?
+        //}
 
         [Test]
         public void TestMissingId2()

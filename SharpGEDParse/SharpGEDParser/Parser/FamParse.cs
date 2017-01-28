@@ -78,6 +78,8 @@ namespace SharpGEDParser.Parser
         // Common processing for SUBM, HUSB, WIFE, CHIL
         private void xrefProc(ParseContext2 context)
         {
+            // TODO how are sub-tags handled? E.g. _PREF on HUSB, WIFE
+
             var fam = (context.Parent as FamRecord);
 
             string xref;
@@ -95,26 +97,24 @@ namespace SharpGEDParser.Parser
                 switch (context.Tag)
                 {
                     case "HUSB":
-                        if (fam.Dad != null) // HUSB already specified
+                        if (fam.Dads.Count != 0) // HUSB already specified
                         {
                             UnkRec err = new UnkRec();
                             err.Error = "HUSB line used more than once";
                             err.Beg = err.End = context.Begline;
                             fam.Errors.Add(err);
                         }
-                        else
-                            fam.Dad = xref;
+                        fam.Dads.Add(xref);
                         break;
                     case "WIFE":
-                        if (fam.Mom != null) // HUSB already specified
+                        if (fam.Moms.Count != 0) // WIFE already specified
                         {
                             UnkRec err = new UnkRec();
                             err.Error = "WIFE line used more than once";
                             err.Beg = err.End = context.Begline;
                             fam.Errors.Add(err);
                         }
-                        else
-                            fam.Mom = xref;
+                        fam.Moms.Add(xref);
                         break;
                     case "CHIL":
                         foreach (var child in fam.Childs)

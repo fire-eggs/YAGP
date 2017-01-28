@@ -192,24 +192,24 @@ namespace GEDWrap
             // For each CHIL, connect to INDI
             foreach (var familyUnit in _famHash.Values)
             {
-                var dadId = familyUnit.FamRec.Dad;
-                if (dadId != null) // TODO mark as error?
+                foreach (var dadId in familyUnit.FamRec.Dads)
                 {
                     Person dadWrap;
                     if (_indiHash.TryGetValue(dadId, out dadWrap))
                     {
-                        dadWrap.SpouseIn.Add(familyUnit); // TODO verify dadWrap has matching FAMS
-                        familyUnit.Husband = dadWrap;
+                        dadWrap.SpouseIn.Add(familyUnit);
+                        familyUnit.Spouses.Add(dadWrap);
+                        familyUnit.Husband = dadWrap; // TODO taking the last one... save all?
                     }
                 }
-                var momId = familyUnit.FamRec.Mom;
-                if (momId != null) // TODO mark as error?
+                foreach (var momId in familyUnit.FamRec.Moms)
                 {
                     Person momWrap;
                     if (_indiHash.TryGetValue(momId, out momWrap))
                     {
-                        momWrap.SpouseIn.Add(familyUnit); // TODO verify momWrap has matching FAMS
-                        familyUnit.Wife = momWrap;
+                        momWrap.SpouseIn.Add(familyUnit);
+                        familyUnit.Spouses.Add(momWrap);
+                        familyUnit.Wife = momWrap; // TODO taking the last one... save all?
                     }
                 }
                 foreach (var childId in familyUnit.FamRec.Childs)
@@ -333,27 +333,30 @@ namespace GEDWrap
 
                 // TODO what happens in parse if more than one HUSB/WIFE specified?
 
-                var husbId = familyUnit.FamRec.Dad;
-                switch (verifyFAMLink(husbId, famIdent, "FAMS"))
+                foreach (var husbId in familyUnit.FamRec.Dads)
                 {
-                    case -1:
-                        MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, husbId, "HUSB");
-                        break;
-                    case 1:
-                        MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, husbId, "HUSB");
-                        break;
+                    switch (verifyFAMLink(husbId, famIdent, "FAMS"))
+                    {
+                        case -1:
+                            MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, husbId, "HUSB");
+                            break;
+                        case 1:
+                            MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, husbId, "HUSB");
+                            break;
+                    }
                 }
-                var wifeId = familyUnit.FamRec.Mom;
-                switch (verifyFAMLink(wifeId, famIdent, "FAMS"))
+                foreach (var wifeId in familyUnit.FamRec.Moms)
                 {
-                    case -1:
-                        MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, wifeId, "WIFE");
-                        break;
-                    case 1:
-                        MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, wifeId, "WIFE");
-                        break;
+                    switch (verifyFAMLink(wifeId, famIdent, "FAMS"))
+                    {
+                        case -1:
+                            MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, wifeId, "WIFE");
+                            break;
+                        case 1:
+                            MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, wifeId, "WIFE");
+                            break;
+                    }
                 }
-
                 foreach (var childId in familyUnit.FamRec.Childs)
                 {
                     switch (verifyFAMLink(childId, famIdent, "FAMC"))
@@ -411,14 +414,20 @@ namespace GEDWrap
                             }
                             else
                             {
-                                // verify that the FAM record has a matching CHIL link
+                                // verify that the FAM record has a matching HUSB/WIFE link
                                 bool found = false;
                                 foreach (var famU in person.SpouseIn)
                                 {
-                                    if (famU.FamRec.Dad == indiId)
-                                        found = true;
-                                    if (famU.FamRec.Mom == indiId)
-                                        found = true;
+                                    foreach (var dad in famU.FamRec.Dads)
+                                    {
+                                        if (dad == indiId)
+                                            found = true;
+                                    }
+                                    foreach (var mom in famU.FamRec.Moms)
+                                    {
+                                        if (mom == indiId)
+                                            found = true;
+                                    }
                                 }
                                 if (!found)
                                 {

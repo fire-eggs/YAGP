@@ -85,7 +85,8 @@ namespace SharpGEDParser.Tests
             GEDCommon res = torun("FAM", "1 HUSB @P1@");
             var rec = res as FamRecord;
             Assert.IsNotNull(rec);
-            Assert.AreEqual("P1", rec.Dad);
+            Assert.AreEqual(1, rec.Dads.Count);
+            Assert.AreEqual("P1", rec.Dads[0]);
         }
 
         private void VerifyNote(Atest torun)

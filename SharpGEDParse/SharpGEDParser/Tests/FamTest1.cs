@@ -34,8 +34,10 @@ namespace SharpGEDParser.Tests
         {
             string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 WIFE @p2@";
             var rec = parse(fam);
-            Assert.AreEqual("p1", rec.Dad);
-            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual(1, rec.Dads.Count);
+            Assert.AreEqual(1, rec.Moms.Count);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(0, rec.Childs.Count);
         }
 
@@ -44,8 +46,10 @@ namespace SharpGEDParser.Tests
         {
             string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 WIFE @p2@\n1 CHIL @p3@\n1 CHIL @p4@\n1 RIN 2";
             var rec = parse(fam);
-            Assert.AreEqual("p1", rec.Dad);
-            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual(1, rec.Dads.Count);
+            Assert.AreEqual(1, rec.Moms.Count);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(2, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0]);
             Assert.AreEqual("p4", rec.Childs[1]);
@@ -75,13 +79,15 @@ namespace SharpGEDParser.Tests
         public void TestDadIdentErrs()
         {
             var rec = TestIdentErr("", " @p2@", " @p3@", 1);
-            Assert.AreEqual(null, rec.Dad);
-            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual(0, rec.Dads.Count);
+            Assert.AreEqual(1, rec.Moms.Count);
+            Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0]);
             rec = TestIdentErr(" @", " @p2@", " @p3@", 1);
-            Assert.AreEqual(null, rec.Dad);
-            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual(0, rec.Dads.Count);
+            Assert.AreEqual(1, rec.Moms.Count);
+            Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0]);
             rec = TestIdentErr(" @p1", " @p2@", " @p3@", 1); // TODO is this correct? unterminated ident?
@@ -92,13 +98,13 @@ namespace SharpGEDParser.Tests
         public void TestMomIdentErrs()
         {
             var rec = TestIdentErr(" @p1@", "", " @p3@", 1);
-            Assert.AreEqual("p1", rec.Dad);
-            Assert.AreEqual(null, rec.Mom);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual(0, rec.Moms.Count);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0]);
             rec = TestIdentErr(" @p1@", " @", " @p3@", 1);
-            Assert.AreEqual("p1", rec.Dad);
-            Assert.AreEqual(null, rec.Mom);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual(0, rec.Moms.Count);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0]);
             rec = TestIdentErr(" @p1@", " @p2", " @p3@", 1); // TODO is this correct? unterminated ident?
@@ -109,8 +115,8 @@ namespace SharpGEDParser.Tests
         public void TestKidIdentErrs()
         {
             var rec = TestIdentErr(" @p1@", " @p2@", "", 1);
-            Assert.AreEqual("p1", rec.Dad);
-            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(0, rec.Childs.Count);
             var rec2 = TestIdentErr(" @p1@", " @p2@", " @", 1);
             var rec3 = TestIdentErr(" @p1@", " @p2@", " @p3", 1); // TODO is this correct? unterminated ident?
@@ -226,14 +232,14 @@ namespace SharpGEDParser.Tests
             string fam = "0 @F1@ FAM\n1 SUBM @p1@\n1 WIFE @p2@";
             var rec = parse(fam);
             Assert.AreEqual("p1", rec.FamSubm[0]);
-            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(0, rec.Childs.Count);
 
             fam = "0 @F1@ FAM\n1 SUBM @s1@\n1 WIFE @w2@\n1 SUBM @s2@";
             rec = parse(fam);
             Assert.AreEqual("s1", rec.FamSubm[0]);
             Assert.AreEqual("s2", rec.FamSubm[1]);
-            Assert.AreEqual("w2", rec.Mom);
+            Assert.AreEqual("w2", rec.Moms[0]);
             Assert.AreEqual(0, rec.Childs.Count);
         }
 
@@ -261,18 +267,19 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
         }
 
-        [Test]
-        public void TestErrorId3()
-        {
-            // Nested '@' breaking ident parsing
-            var txt = "0 @@@ FAM\n1 HUSB @h1@";
-            var res = ReadItHigher(txt);
-            Assert.AreEqual(0, res.Errors.Count);
-            Assert.AreEqual(1, res.Data.Count);
-            var rec = res.Data[0] as FamRecord;
-            Assert.IsNotNull(rec);
-            Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
-        }
+        //[Test]
+        //public void TestErrorId3()
+        //{
+        //    // Nested '@' breaking ident parsing
+        //    var txt = "0 @@@ FAM\n1 HUSB @h1@";
+        //    var res = ReadItHigher(txt);
+        //    Assert.AreEqual(0, res.Errors.Count);
+        //    Assert.AreEqual(1, res.Data.Count);
+        //    var rec = res.Data[0] as FamRecord;
+        //    Assert.IsNotNull(rec);
+        //    Assert.AreEqual(1, (res.Data[0] as GEDCommon).Errors.Count);
+        //}
+
 
         [Test]
         public void TestMissingId()
@@ -318,7 +325,9 @@ namespace SharpGEDParser.Tests
         {
             string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 HUSB @p2@";
             var rec = parse(fam);
-            Assert.AreEqual("p1", rec.Dad);
+            Assert.AreEqual(2, rec.Dads.Count);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual("p2", rec.Dads[1]);
             Assert.AreEqual(1, rec.Errors.Count); // TODO validate error details
         }
         [Test]
@@ -326,7 +335,9 @@ namespace SharpGEDParser.Tests
         {
             string fam = "0 @F1@ FAM\n1 WIFE @p1@\n1 WIFE @p2@";
             var rec = parse(fam);
-            Assert.AreEqual("p1", rec.Mom);
+            Assert.AreEqual(2, rec.Moms.Count);
+            Assert.AreEqual("p1", rec.Moms[0]);
+            Assert.AreEqual("p2", rec.Moms[1]);
             Assert.AreEqual(1, rec.Errors.Count); // TODO validate error details
         }
 
@@ -353,8 +364,8 @@ namespace SharpGEDParser.Tests
             // same child ident used more than once
             string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 WIFE @p2@\n1 CHIL @p3@\n1 CHIL @p3@";
             var rec = parse(fam);
-            Assert.AreEqual("p1", rec.Dad);
-            Assert.AreEqual("p2", rec.Mom);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0]);
             Assert.AreEqual(1, rec.Errors.Count);

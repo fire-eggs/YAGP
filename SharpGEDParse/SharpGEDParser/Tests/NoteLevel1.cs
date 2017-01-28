@@ -89,7 +89,7 @@ namespace SharpGEDParser.Tests
             res = TwoNotesSplit(_FAM, "1 HUSB @I1@");
             var fam = res as FamRecord;
             Assert.IsNotNull(fam, "FAM");
-            Assert.AreEqual("I1", fam.Dad, "FAM");
+            Assert.AreEqual("I1", fam.Dads[0], "FAM");
 
             res = TwoNotesSplit("@R1@ REPO", "1 NAME foo");
             var repo = res as Repository;

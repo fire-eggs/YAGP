@@ -20,8 +20,14 @@ namespace SharpGEDParser.Model
         // Identity strings for children
         private List<string> _childs;
         public List<string> Childs { get { return _childs ?? (_childs = new List<string>()); } }
-        public string Dad { get; set; } // identity string for Father
-        public string Mom { get; set; } // identity string for Mother
+
+        // Identity strings for HUSB (multiple are possible from some programs)
+        private List<string> _dads;
+        public List<string> Dads { get { return _dads ?? (_dads = new List<string>()); } }
+
+        // Identity strings for WIFE (multiple are possible from some programs)
+        private List<string> _moms;
+        public List<string> Moms { get { return _moms ?? (_moms = new List<string>()); } }
 
         private List<FamilyEvent> _famEvents; // TODO common?
         public List<FamilyEvent> FamEvents { get { return _famEvents ?? (_famEvents = new List<FamilyEvent>()); } }
