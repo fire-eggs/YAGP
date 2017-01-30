@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace GEDWrap
 {
+#if false
     // Set variation: one key to a set of unique values
     public class MultiHash<T, V>
     {
@@ -40,6 +41,7 @@ namespace GEDWrap
             }
         }
     }
+#endif
 
     // List variation: one key to a list of values
     public class MultiMap<T, V>

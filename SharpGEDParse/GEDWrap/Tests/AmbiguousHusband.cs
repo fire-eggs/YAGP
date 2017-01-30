@@ -85,7 +85,10 @@ namespace GEDWrap.Tests
             Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[2].IssueId);
 
             Assert.AreEqual(2, f.NumberOfTrees);
-            Assert.AreEqual(2, f.Indi.Count);
+            var indis = f.Indi;
+            Assert.AreEqual(2, indis.Count);
+            Assert.AreEqual("I1", indis[0].Ident); // TODO order sensitive?
+            Assert.AreEqual("I2", indis[1].Ident);
             Assert.AreEqual(1, f.Fams.Count);
             Assert.AreEqual(2, f.AllPeople.Count());
             var peeps = f.AllPeople.ToArray();

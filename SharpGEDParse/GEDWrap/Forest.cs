@@ -120,7 +120,6 @@ namespace GEDWrap
 
         private Dictionary<string, Person> _indiHash;  // INDI ident -> INDI record
         private Dictionary<string, Union> _famHash; // FAM  ident -> FAM  record
-        private MultiHash<string, Union> _childsIn;  // INDI ident -> multi FAM
         private List<Issue> _issues;
         private string _firstPerson; // "First" person in tree - default initial person
 
@@ -149,7 +148,6 @@ namespace GEDWrap
 
             _indiHash = new Dictionary<string, Person>();
             _famHash = new Dictionary<string, Union>();
-            _childsIn = new MultiHash<string, Union>();
             _issues = new List<Issue>();
 
             foreach (var indiRecord in Indi)
@@ -223,7 +221,6 @@ namespace GEDWrap
                     {
                         childWrap.ChildIn.Add(familyUnit);
                         familyUnit.Childs.Add(childWrap);
-                        _childsIn.Add(childId, familyUnit);
                     }
                 }
             }
@@ -258,7 +255,6 @@ namespace GEDWrap
                                 MakeError(Issue.IssueCode.SPOUSE_CONN, famId, indiId);
                             break;
                         case "FAMC":
-                            _childsIn.Add(indiId, famU);
                             famU.Childs.Add(person);
                             person.ChildIn.Add(famU);
                             break;
