@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTrees", "CheckTrees\Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEDWrap", "GEDWrap\GEDWrap.csproj", "{11921280-9C14-4595-87B2-27A6B552366C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationsList", "LocationsList\LocationsList.csproj", "{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{11921280-9C14-4595-87B2-27A6B552366C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11921280-9C14-4595-87B2-27A6B552366C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11921280-9C14-4595-87B2-27A6B552366C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
