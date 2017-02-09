@@ -47,14 +47,20 @@ namespace GEDWrap
             get { return _gedReader.AllUnknowns; }
         }
 
-        // Only parse a GEDCOM file. Useful for syntax validation.
+        /// <summary>
+        /// Only parse a GEDCOM file. Useful for syntax validation. 
+        /// </summary>
+        /// <param name="path"></param>
         public void ParseGEDCOM(string path)
         {
             _gedReader = new FileRead();
             _gedReader.ReadGed(path);
         }
 
-        // Parse a GEDCOM file, establish family relations
+        /// <summary>
+        /// Parse a GEDCOM file, establish family relations 
+        /// </summary>
+        /// <param name="path"></param>
         public void LoadGEDCOM(string path)
         {
             ParseGEDCOM(path);
@@ -98,6 +104,11 @@ namespace GEDWrap
         public IEnumerable<Union> AllUnions
         {
             get { return _famHash.Values; }
+        }
+
+        public List<GEDCommon> AllRecords
+        {
+            get { return _gedReader.Data; }
         }
 
         public int NumberOfTrees
