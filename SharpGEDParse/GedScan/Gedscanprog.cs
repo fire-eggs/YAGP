@@ -1,6 +1,7 @@
 ﻿// A q&d program to scan GEDCOM files and report statistics
 
 using System.Linq;
+using GEDWrap;
 using SharpGEDParser;
 using System;
 using System.Collections.Generic;
@@ -91,16 +92,26 @@ namespace GedScan
             long afterMem;
             Console.WriteLine("   {0}", Path.GetFileName(path));
             logit("", true);
-            using (var fr = new FileRead())
+            using (Forest f = new Forest())
             {
-                fr.ReadGed(path);
-                dump(fr.Data, fr.Errors, showErrors);
-                logit("\t---Ticks");
+                f.LoadGEDCOM(path);
                 afterMem = GC.GetTotalMemory(false);
+                dump(f, showErrors);
             }
+            //using (var fr = new FileRead())
+            //{
+            //    fr.ReadGed(path);
+            //    dump(fr.Data, fr.Errors, showErrors);
+            //    logit("\t---Ticks");
+            //    afterMem = GC.GetTotalMemory(false);
+            //}
 
             if (_showDiags)
-                Console.WriteLine("\t===Memory:{0}", (afterMem-beforeMem));
+            {
+                long delta = (afterMem - beforeMem);
+                double meg = delta/(1024*1024.0);
+                Console.WriteLine("\t===Memory:{0:0.00}M", meg);
+            }
         }
 
         //struct errBucket
@@ -108,6 +119,92 @@ namespace GedScan
         //    public int count;
         //    public object firstOne;
         //}
+
+        private static void incr(Dictionary<string, int> dict, string key)
+        {
+            if (dict.ContainsKey(key))
+            {
+                int val = dict[key];
+                val++;
+                dict[key] = val;
+            }
+            else
+            {
+                dict.Add(key, 1);
+            }
+        }
+
+        private static void dump(Forest f, bool showErrors)
+        {
+            Dictionary<string, int> tagCounts = new Dictionary<string, int>();
+            foreach (var record in f.AllRecords)
+            {
+                incr(tagCounts, record.Tag);
+            }
+
+            Dictionary<string, int> indiEventCounts = new Dictionary<string, int>();
+            int indiEventLoc = 0;
+            Dictionary<string, int> indiAttribCounts = new Dictionary<string, int>();
+            int attribLoc = 0;
+            Dictionary<string, int> famEventCounts = new Dictionary<string, int>();
+            int famEventLoc = 0;
+            foreach (var person in f.AllPeople)
+            {
+                IndiRecord ged = person.Indi;
+                foreach (var familyEvent in ged.Events)
+                {
+                    string tag = familyEvent.Tag;
+                    incr(indiEventCounts, tag);
+                    if (!string.IsNullOrEmpty(familyEvent.Place))
+                        indiEventLoc++;
+                }
+                foreach (var familyEvent in ged.Attribs)
+                {
+                    string tag = familyEvent.Tag;
+                    incr(indiAttribCounts, tag);
+                    if (!string.IsNullOrEmpty(familyEvent.Place))
+                        attribLoc++;
+                }
+            }
+
+            foreach (var union in f.AllUnions)
+            {
+                FamRecord ged = union.FamRec;
+                foreach (var familyEvent in ged.FamEvents)
+                {
+                    string tag = familyEvent.Tag;
+                    incr(famEventCounts, tag);
+                    if (!string.IsNullOrEmpty(familyEvent.Place))
+                        famEventLoc++;
+                }
+            }
+            foreach (var tag in tagCounts.Keys)
+            {
+                if (!string.IsNullOrEmpty(tag))
+                    Console.WriteLine("\t\t{0}:{1}", tag, tagCounts[tag]);
+            }
+            Console.WriteLine("\t\t----------");
+            foreach (var tag in indiEventCounts.Keys)
+            {
+                Console.WriteLine("\t\t{0}:{1}", tag, indiEventCounts[tag]);
+            }
+            if (indiEventLoc > 0)
+                Console.WriteLine("\t\tLocations:{0}", indiEventLoc);
+            Console.WriteLine("\t\t----------");
+            foreach (var tag in indiAttribCounts.Keys)
+            {
+                Console.WriteLine("\t\t{0}:{1}", tag, indiAttribCounts[tag]);
+            }
+            if (attribLoc > 0)
+                Console.WriteLine("\t\tLocations:{0}", attribLoc);
+            Console.WriteLine("\t\t----------");
+            foreach (var tag in famEventCounts.Keys)
+            {
+                Console.WriteLine("\t\t{0}:{1}", tag, famEventCounts[tag]);
+            }
+            if (famEventLoc > 0)
+                Console.WriteLine("\t\tLocations:{0}", famEventLoc);
+        }
 
         private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, bool showErrors)
         {
