@@ -26,7 +26,7 @@ namespace SharpGEDParser.Model
 {
     public class Repository : GEDCommon, NoteHold
     {
-        public static string Tag = "REPO";
+        public override string Tag { get { return "REPO"; } }
 
         public string Name { get; set; }
 

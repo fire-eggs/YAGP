@@ -8,7 +8,7 @@ namespace SharpGEDParser.Model
 {
     public class NoteRecord : GEDCommon, SourceCitHold
     {
-        public static string Tag = "NOTE";
+        public override string Tag { get { return "NOTE"; } }
 
         // Submitter text during parse
         public StringBuilder Builder { get; set; }

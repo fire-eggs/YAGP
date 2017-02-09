@@ -5,7 +5,7 @@ namespace SharpGEDParser.Model
 {
     public class FamRecord : GEDCommon, NoteHold, SourceCitHold, MediaHold
     {
-        public static string Tag = "FAM";
+        public override string Tag { get { return "FAM"; } }
 
         private List<Note> _notes;
         private List<SourceCit> _cits;

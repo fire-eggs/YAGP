@@ -5,7 +5,7 @@ namespace SharpGEDParser.Model
 {
     public class SourceRecord : GEDCommon, MediaHold, NoteHold
     {
-        public static string Tag = "SOUR";
+        public override string Tag { get { return "SOUR"; }}
 
         public string Author { get; set; }
 

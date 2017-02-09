@@ -4,7 +4,7 @@ namespace SharpGEDParser.Model
 {
     public class IndiRecord : GEDCommon, NoteHold, SourceCitHold, MediaHold
     {
-        public static string Tag = "INDI";
+        public override string Tag { get { return "INDI"; } }
 
         private List<Note> _notes;
         private List<SourceCit> _cits;

@@ -8,7 +8,7 @@ namespace SharpGEDParser.Model
 
     public class MediaRecord : GEDCommon, NoteHold, SourceCitHold
     {
-        public static string Tag = "OBJE";
+        public override string Tag { get { return "OBJE"; } }
 
         private List<Note> _notes;
 
