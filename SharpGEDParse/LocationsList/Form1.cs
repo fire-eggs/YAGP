@@ -50,6 +50,59 @@ namespace LocationsList
             DoItState();
         }
 
+        private class One
+        {
+            public string Location;
+            public string Tag;
+            public string PersonId;
+            public Person Indi; // TODO either keep reference to Forest data or keep instance of Forest
+            public string FamId;
+            public Union Fam; // TODO either keep reference to Forest data or keep instance of Forest
+        }
+
+        private List<One> dataSet;
+
+        private void ScanIt(Forest f)
+        {
+            dataSet = new List<One>();
+
+            foreach (var person in f.AllPeople)
+            {
+                IndiRecord ged = person.Indi;
+                foreach (var familyEvent in ged.Events)
+                {
+                    string tag = familyEvent.Tag;
+                    if (!string.IsNullOrEmpty(familyEvent.Place))
+                    {
+                        dataSet.Add(new One {Location = familyEvent.Place, Tag = tag, PersonId = ged.Ident, Indi=person});
+                    }
+                }
+                foreach (var familyEvent in ged.Attribs)
+                {
+                    string tag = familyEvent.Tag;
+                    if (!string.IsNullOrEmpty(familyEvent.Place))
+                    {
+                        dataSet.Add(new One { Location = familyEvent.Place, Tag = tag, PersonId = ged.Ident, Indi = person});
+                    }
+                }
+            }
+
+            foreach (var union in f.AllUnions)
+            {
+                FamRecord fam = union.FamRec;
+                foreach (var familyEvent in fam.FamEvents)
+                {
+                    string tag = familyEvent.Tag;
+                    if (!string.IsNullOrEmpty(familyEvent.Place))
+                    {
+                        dataSet.Add(new One { Location = familyEvent.Place, Tag = tag, FamId = fam.Ident, Fam=union });
+                    }
+                }
+            }
+        }
+
+        #region Event Tree Management
+
         private class treeHier
         {
             public int Group;
@@ -113,55 +166,6 @@ namespace LocationsList
             new treeHier {Group=3, Tag="EVEN", Label = ""}, // conflict
         };
 
-        private class One
-        {
-            public string Location;
-            public string Tag;
-            public string PersonId;
-            public string FamId;
-        }
-
-        private List<One> dataSet;
-
-        private void ScanIt(Forest f)
-        {
-            dataSet = new List<One>();
-
-            foreach (var person in f.AllPeople)
-            {
-                IndiRecord ged = person.Indi;
-                foreach (var familyEvent in ged.Events)
-                {
-                    string tag = familyEvent.Tag;
-                    if (!string.IsNullOrEmpty(familyEvent.Place))
-                    {
-                        dataSet.Add(new One {Location = familyEvent.Place, Tag = tag, PersonId = ged.Ident});
-                    }
-                }
-                foreach (var familyEvent in ged.Attribs)
-                {
-                    string tag = familyEvent.Tag;
-                    if (!string.IsNullOrEmpty(familyEvent.Place))
-                    {
-                        dataSet.Add(new One { Location = familyEvent.Place, Tag = tag, PersonId = ged.Ident });
-                    }
-                }
-            }
-
-            foreach (var union in f.AllUnions)
-            {
-                FamRecord fam = union.FamRec;
-                foreach (var familyEvent in fam.FamEvents)
-                {
-                    string tag = familyEvent.Tag;
-                    if (!string.IsNullOrEmpty(familyEvent.Place))
-                    {
-                        dataSet.Add(new One { Location = familyEvent.Place, Tag = tag, FamId = fam.Ident });
-                    }
-                }
-            }
-        }
-
         private void BuildTagTree()
         {
             var uniqueTags = (from one in dataSet select one.Tag).Distinct(); //.OrderBy(name => name);
@@ -204,6 +208,7 @@ namespace LocationsList
             }
             return checkedEvents;
         }
+        #endregion
 
         #region Tree Checkbox State
         private bool busy = false; // prevent recursive check events
@@ -222,6 +227,8 @@ namespace LocationsList
             {
                 busy = false;
             }
+
+            SelectedEvents.Checked = true; // user changes to events implies they want to use 'selected events'
         }
 
         private void checkNodes(TreeNode node, bool check)
@@ -259,6 +266,7 @@ namespace LocationsList
             if (string.IsNullOrWhiteSpace(outfile))
                 return;
 
+            // Filter data based on selected events
             List<One> filteredData = dataSet;
             if (!AllEvents.Checked)
             {
@@ -272,6 +280,14 @@ namespace LocationsList
             if (LocOnly.Checked)
             {
                 WriteLocationsOnly(filteredData, outfile);
+            }
+            if (LocSurname.Checked)
+            {
+                WriteLocationsNames(filteredData, outfile, surnamesonly: true);
+            }
+            if (LocPeople.Checked)
+            {
+                WriteLocationsNames(filteredData, outfile, surnamesonly: false);
             }
 
             Process.Start("notepad.exe", outfile);
@@ -294,6 +310,45 @@ namespace LocationsList
             foreach (var loc in uniqueLocs)
             {
                 sb.AppendLine(loc);
+            }
+            File.WriteAllText(path, sb.ToString());
+        }
+
+        // TODO include person id when writing persons?
+
+        private void WriteLocationsNames(List<One> filteredData, string path, bool surnamesonly)
+        {
+            var sb = new StringBuilder();
+            MultiMap<string, string> locToSurname = new MultiMap<string, string>();
+            foreach (var one in filteredData)
+            {
+                if (one.Indi != null) // INDI event
+                {
+                    string name = surnamesonly ? one.Indi.Surname : one.Indi.Name;
+                    locToSurname.Add(one.Location, name);
+                }
+                if (one.Fam != null) // FAM event
+                {
+                    // TODO husband or wife not specified
+                    string name1 = surnamesonly ? one.Fam.Husband.Surname : one.Fam.Husband.Name;
+                    string name2 = surnamesonly ? one.Fam.Wife.Surname : one.Fam.Wife.Name;
+                    locToSurname.Add(one.Location, name1);
+                    locToSurname.Add(one.Location, name2);
+                }
+            }
+
+            foreach (var loc in locToSurname.Keys.OrderBy(name=>name))
+            {
+                var names = locToSurname[loc];
+                sb.Append(loc);
+                sb.Append(" | ");
+                foreach (var name in names.Distinct().OrderBy(name=>name))
+                {
+                    sb.Append(name);
+                    sb.Append(", ");
+                }
+                sb.Remove(sb.Length - 2, 2); // erase trailing comma
+                sb.AppendLine();
             }
             File.WriteAllText(path, sb.ToString());
         }
