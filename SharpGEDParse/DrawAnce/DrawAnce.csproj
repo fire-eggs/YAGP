@@ -48,6 +48,7 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="Draw4Gen.cs" />
     <Compile Include="Draw5gen.cs" />
+    <Compile Include="DrawCirc.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

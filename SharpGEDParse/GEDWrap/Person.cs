@@ -42,6 +42,11 @@ namespace GEDWrap
             get { return Indi == null ? "" : Indi.Names[0].Names + " " + Indi.Names[0].Surname; } // TODO need a better accessor? restore ToString?
         }
 
+        public string Given
+        {
+            get { return Indi == null ? "" : Indi.Names[0].Names; }
+        }
+
         public string Surname
         {
             get { return Indi == null ? "" : Indi.Names[0].Surname; } 

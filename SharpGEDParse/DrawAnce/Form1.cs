@@ -13,6 +13,7 @@ namespace DrawAnce
         protected MruStripMenu mnuMRU;
         private IDrawGen draw4gen;
         private IDrawGen draw5gen;
+        private IDrawGen drawcirc;
         private IDrawGen drawer;
 
         readonly List<object> _cmbItems = new List<object>();
@@ -38,6 +39,8 @@ namespace DrawAnce
 
             draw4gen = new Draw4Gen();
             draw5gen = new Draw5gen();
+            drawcirc = new DrawCirc();
+
             rad4Gen.Checked = true;
             drawer = draw4gen;
         }
@@ -289,7 +292,16 @@ namespace DrawAnce
 
         private void rad4Gen_CheckedChanged(object sender, EventArgs e)
         {
-            drawer = rad4Gen.Checked ? draw4gen : draw5gen;
+            RadioButton rb = sender as RadioButton;
+            if (rb == null || !rb.Checked)
+                return;
+
+            if (rad4Gen.Checked)
+                drawer = draw4gen;
+            else if (rad5Gen.Checked)
+                drawer = draw5gen;
+            else if (radCirc.Checked)
+                drawer = drawcirc;
             cmbPerson_SelectedIndexChanged(null,null);
         }
 

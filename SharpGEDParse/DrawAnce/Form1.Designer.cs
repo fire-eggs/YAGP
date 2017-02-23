@@ -45,6 +45,7 @@
             this.rad5Gen = new System.Windows.Forms.RadioButton();
             this.cmbPedigree = new System.Windows.Forms.ComboBox();
             this.picTree = new System.Windows.Forms.PictureBox();
+            this.radCirc = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -58,7 +59,7 @@
             this.printToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(793, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(865, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -135,7 +136,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(793, 390);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(865, 390);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -144,11 +145,12 @@
             this.flowLayoutPanel1.Controls.Add(this.cmbPerson);
             this.flowLayoutPanel1.Controls.Add(this.rad4Gen);
             this.flowLayoutPanel1.Controls.Add(this.rad5Gen);
+            this.flowLayoutPanel1.Controls.Add(this.radCirc);
             this.flowLayoutPanel1.Controls.Add(this.cmbPedigree);
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(778, 29);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(850, 29);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -196,6 +198,7 @@
             this.rad5Gen.TabStop = true;
             this.rad5Gen.Text = "5 Gen";
             this.rad5Gen.UseVisualStyleBackColor = true;
+            this.rad5Gen.CheckedChanged += new System.EventHandler(this.rad4Gen_CheckedChanged);
             // 
             // cmbPedigree
             // 
@@ -203,10 +206,10 @@
             this.cmbPedigree.Enabled = false;
             this.cmbPedigree.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPedigree.FormattingEnabled = true;
-            this.cmbPedigree.Location = new System.Drawing.Point(565, 3);
+            this.cmbPedigree.Location = new System.Drawing.Point(620, 3);
             this.cmbPedigree.Name = "cmbPedigree";
             this.cmbPedigree.Size = new System.Drawing.Size(196, 24);
-            this.cmbPedigree.TabIndex = 4;
+            this.cmbPedigree.TabIndex = 5;
             this.cmbPedigree.SelectedIndexChanged += new System.EventHandler(this.cmbPedigree_SelectedIndexChanged);
             // 
             // picTree
@@ -214,17 +217,29 @@
             this.picTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picTree.Location = new System.Drawing.Point(3, 38);
             this.picTree.Name = "picTree";
-            this.picTree.Size = new System.Drawing.Size(787, 349);
+            this.picTree.Size = new System.Drawing.Size(859, 349);
             this.picTree.TabIndex = 1;
             this.picTree.TabStop = false;
             this.picTree.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picTree_MouseClick);
             this.picTree.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picTree_MouseMove);
             // 
+            // radCirc
+            // 
+            this.radCirc.AutoSize = true;
+            this.radCirc.Location = new System.Drawing.Point(565, 3);
+            this.radCirc.Name = "radCirc";
+            this.radCirc.Size = new System.Drawing.Size(49, 20);
+            this.radCirc.TabIndex = 4;
+            this.radCirc.TabStop = true;
+            this.radCirc.Text = "Circ";
+            this.radCirc.UseVisualStyleBackColor = true;
+            this.radCirc.CheckedChanged += new System.EventHandler(this.rad4Gen_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 414);
+            this.ClientSize = new System.Drawing.Size(865, 414);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -261,6 +276,7 @@
         private System.Windows.Forms.ToolStripMenuItem printSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem1;
         private System.Windows.Forms.ComboBox cmbPedigree;
+        private System.Windows.Forms.RadioButton radCirc;
     }
 }
 
