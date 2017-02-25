@@ -16,6 +16,8 @@ namespace DrawAnce
         private IDrawGen drawcirc;
         private IDrawGen drawer;
 
+        private int _paletteIndex; // TODO save/restore the setting
+
         readonly List<object> _cmbItems = new List<object>();
         readonly List<object> _cmbPedItems = new List<object>();
 
@@ -335,6 +337,19 @@ namespace DrawAnce
                 return;
             _ancIndi = _pedigrees.GetPedigree(val);
             DoAncTree();
+        }
+
+        private void btnPal_Click(object sender, EventArgs e)
+        {
+            SwatchPick dlg = new SwatchPick();
+            dlg.StartPosition = FormStartPosition.CenterParent;
+            dlg.SwatchIndex = _paletteIndex;
+            DialogResult res = dlg.ShowDialog(this);
+            if (res == DialogResult.Cancel)
+                return;
+            _paletteIndex = dlg.SwatchIndex;
+            drawer.Palette = _paletteIndex;
+            DoAncTree(); // TODO the 'control' should redraw itself
         }
     }
 }

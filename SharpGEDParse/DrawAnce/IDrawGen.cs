@@ -1,6 +1,6 @@
-﻿using System.Drawing;
+﻿using GEDWrap;
+using System.Drawing;
 using System.Drawing.Printing;
-using GEDWrap;
 
 namespace DrawAnce
 {
@@ -13,6 +13,8 @@ namespace DrawAnce
         int HitIndex(Point hit);
 
         PrintDocument PrintAncTree();
+
+        int Palette { set; }
     }
 
     public abstract class DrawGen : IDrawGen
@@ -21,6 +23,8 @@ namespace DrawAnce
         protected int MoreGenW;
 
         protected Rectangle[] _hitRect;
+
+        public int Palette { protected get; set; }
 
         public Person[] AncData { get; set; }
 

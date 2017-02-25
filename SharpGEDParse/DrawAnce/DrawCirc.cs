@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Draw pedigree as a doughnut chart
+using GEDWrap;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-// Draw pedigree as a doughnut chart
-using GEDWrap;
 
 namespace DrawAnce
 {
@@ -22,24 +17,10 @@ namespace DrawAnce
             Init();
         }
 
-        private static Color[] genColors = new Color[]
-        {
-            Color.Coral,
-            Color.CadetBlue,
-            Color.DarkGray,
-            Color.Khaki,
-            Color./*CadetBlue,*/LawnGreen,
-            Color./*DarkGray,*/Khaki,
-            Color./*Khaki,*/HotPink,
-            Color./*CadetBlue,*/Ivory,
-            Color.Black, // text
-            Color.Moccasin, // background
-            Color.Black, // lines
-            Color.PaleGreen, // lines
-        };
-
         private void DrawAncCirc(Graphics gr, Rectangle bounds)
         {
+            Color[] genColors = SwatchPick.Swatch(Palette);
+
             // 16-31
             //  8-15
             //  4-7
@@ -63,7 +44,6 @@ namespace DrawAnce
                 using (Brush brush = new SolidBrush(genColors[gen]))
                     if (gen == 0)
                     {
-                        // TODO draw circle
                         gr.FillEllipse(brush, rect);
                         gr.DrawEllipse(pen, rect);
                         drawText(gr, 1, 0, 0, RADIUS_STEP);
