@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEDWrap", "GEDWrap\GEDWrap.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationsList", "LocationsList\LocationsList.csproj", "{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCloud", "WordCloud\WordCloud.csproj", "{E3D06FF1-0DDC-4DBE-ACFE-D2B7CB0D333F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GedCloud", "GedCloud\GedCloud.csproj", "{36DE69F3-8717-4FE5-B79E-487F38165C13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,14 @@ Global
 		{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A3A4BAE-B23F-40ED-83C9-68E671C0A15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D06FF1-0DDC-4DBE-ACFE-D2B7CB0D333F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D06FF1-0DDC-4DBE-ACFE-D2B7CB0D333F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D06FF1-0DDC-4DBE-ACFE-D2B7CB0D333F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D06FF1-0DDC-4DBE-ACFE-D2B7CB0D333F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36DE69F3-8717-4FE5-B79E-487F38165C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36DE69F3-8717-4FE5-B79E-487F38165C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36DE69F3-8717-4FE5-B79E-487F38165C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36DE69F3-8717-4FE5-B79E-487F38165C13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
