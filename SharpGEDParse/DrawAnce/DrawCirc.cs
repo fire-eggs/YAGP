@@ -1,4 +1,7 @@
 ﻿// Draw pedigree as a doughnut chart
+//
+// Adapted from https://github.com/Serg-Norseman/GEDKeeper/tree/master/projects/GEDKeeper2/GKUI/Charts/CircleChart.cs
+//
 using GEDWrap;
 using System;
 using System.Drawing;
