@@ -19,6 +19,7 @@ namespace SharpGEDParser.Model
         public string Place { get; set; } // TODO temporary - need full PLACE_STRUCTURE support
 
         public string Date { get; set; }
+        public GEDDate GedDate { get; set; }
 
         private List<Note> _notes;
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }

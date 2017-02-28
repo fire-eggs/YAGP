@@ -66,6 +66,7 @@
     <Compile Include="Model\EventCommon.cs" />
     <Compile Include="Model\FamilyEvent.cs" />
     <Compile Include="Model\FamRecord.cs" />
+    <Compile Include="Model\GEDDate.cs" />
     <Compile Include="Model\IndiLink.cs" />
     <Compile Include="Model\IndiRecord.cs" />
     <Compile Include="Model\LDSEvent.cs" />
@@ -89,7 +90,9 @@
     <Compile Include="Model\StructCommon.cs" />
     <Compile Include="Model\Unknown.cs" />
     <Compile Include="Parser\AddrStructParse.cs" />
+    <Compile Include="Parser\DateTokens.cs" />
     <Compile Include="Parser\EventAgeParse.cs" />
+    <Compile Include="Parser\EventDateParse.cs" />
     <Compile Include="Parser\FamilyEventParse.cs" />
     <Compile Include="Parser\FamParse.cs" />
     <Compile Include="Parser\IndiAssoParse.cs" />
@@ -111,6 +114,8 @@
     <Compile Include="Parser\StructParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ChanTests.cs" />
+    <Compile Include="Tests\DateParsing.cs" />
+    <Compile Include="Tests\DateToken.cs" />
     <Compile Include="Tests\FamEventTest1.cs" />
     <Compile Include="Tests\FamTest1.cs" />
     <Compile Include="Tests\zFileTest.cs" />

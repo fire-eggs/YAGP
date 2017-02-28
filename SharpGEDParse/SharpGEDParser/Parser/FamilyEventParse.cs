@@ -72,6 +72,7 @@ namespace SharpGEDParser.Parser
             // TODO full Date support
             var famE = (context.Parent as FamilyEvent);
             famE.Date = context.Remain;
+            famE.GedDate = EventDateParse.DateParser(context.Remain);
         }
 
         private static void ageProc(StructParseContext context, int linedex, char level)
