@@ -200,7 +200,7 @@
             // 
             this.cloudControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cloudControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cloudControl1.LayoutType = Gma.CodeCloud.Controls.LayoutType.Spiral;
+            this.cloudControl1.LayoutType = WordCloud.LayoutType.Spiral;
             this.cloudControl1.Location = new System.Drawing.Point(3, 38);
             this.cloudControl1.MaxFontSize = 68;
             this.cloudControl1.MinFontSize = 6;
