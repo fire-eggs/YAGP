@@ -67,7 +67,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void DayMon()
         {
-            const string val = "13 Apr";
+            const string val = "25 Jul";
             GEDDate res = ParseForDate(val);
             Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
         }
@@ -75,7 +75,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void InvMon()
         {
-            const string val = "13 foo 1964";
+            const string val = "25 foo 1964";
             GEDDate res = ParseForDate(val);
             Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
         }
@@ -115,19 +115,19 @@ namespace SharpGEDParser.Tests
         [Test]
         public void ValidNonStdMonth()
         {
-            const string val = "13 April 1964";
+            const string val = "25 Jul. 1972";
             GEDDate res = ParseForDate(val);
 
             Assert.AreEqual(GEDDate.Types.Exact, res.Type);
-            Assert.AreEqual(1964, res.Year);
-            Assert.AreEqual(4, res.Month);
-            Assert.AreEqual(13, res.Day);
+            Assert.AreEqual(1972, res.Year);
+            Assert.AreEqual(7, res.Month);
+            Assert.AreEqual(25, res.Day);
         }
 
         [Test]
         public void ValidAllShortMonths()
         {
-            DateTime dt = new DateTime(1964,1,13);
+            DateTime dt = new DateTime(1972,1,25);
 
             for (int i = 1; i <= 12; i++)
             {
@@ -136,9 +136,9 @@ namespace SharpGEDParser.Tests
                 GEDDate res = ParseForDate(str1);
 
                 Assert.AreEqual(GEDDate.Types.Exact, res.Type);
-                Assert.AreEqual(1964, res.Year);
+                Assert.AreEqual(1972, res.Year);
                 Assert.AreEqual(i, res.Month);
-                Assert.AreEqual(13, res.Day);
+                Assert.AreEqual(25, res.Day);
 
                 dt = dt.AddMonths(1);
             }
@@ -146,7 +146,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void ValidAllNonStdShortMonths()
         {
-            DateTime dt = new DateTime(1964, 1, 13);
+            DateTime dt = new DateTime(1972, 1, 25);
 
             for (int i = 1; i <= 12; i++)
             {
@@ -155,9 +155,9 @@ namespace SharpGEDParser.Tests
                 GEDDate res = ParseForDate(str1);
 
                 Assert.AreEqual(GEDDate.Types.Exact, res.Type);
-                Assert.AreEqual(1964, res.Year);
+                Assert.AreEqual(1972, res.Year);
                 Assert.AreEqual(i, res.Month);
-                Assert.AreEqual(13, res.Day);
+                Assert.AreEqual(25, res.Day);
 
                 dt = dt.AddMonths(1);
             }
@@ -165,7 +165,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void ValidAllLongMonths()
         {
-            DateTime dt = new DateTime(1964, 1, 13);
+            DateTime dt = new DateTime(1972, 1, 25);
 
             for (int i = 1; i <= 12; i++)
             {
@@ -174,11 +174,89 @@ namespace SharpGEDParser.Tests
                 GEDDate res = ParseForDate(str1);
 
                 Assert.AreEqual(GEDDate.Types.Exact, res.Type);
-                Assert.AreEqual(1964, res.Year);
+                Assert.AreEqual(1972, res.Year);
                 Assert.AreEqual(i, res.Month);
-                Assert.AreEqual(13, res.Day);
+                Assert.AreEqual(25, res.Day);
 
                 dt = dt.AddMonths(1);
+            }
+        }
+
+        [Test]
+        public void BasicCalendar()
+        {
+            // specifying greg cal should have no impact
+            string val = "@#DGREGORIAN@ 17 May 1972";
+            GEDDate res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(1972, res.Year);
+            Assert.AreEqual(5, res.Month);
+            Assert.AreEqual(17, res.Day);
+        }
+
+        [Test]
+        public void BasicCalendar2()
+        {
+            // specifying greg cal should have no impact
+            string val = "@#DGREGORIAN 17 May 1972";
+            GEDDate res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(1972, res.Year);
+            Assert.AreEqual(5, res.Month);
+            Assert.AreEqual(17, res.Day);
+        }
+
+        [Test]
+        public void InvalidCalendar()
+        {
+            string val = "@#GREGORIAN@ 17 May 1972";
+            GEDDate res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+        }
+        [Test]
+        public void InvalidChar()
+        {
+            string val = "#@DGREGORIAN@ 17 May 1972";
+            GEDDate res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+        }
+
+        private void TestEra(string era, bool shouldbebc)
+        {
+            string val = "17 May 1972";
+            GEDDate res = ParseForDate(val + era);
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(1972, res.Year);
+            Assert.AreEqual(5, res.Month);
+            Assert.AreEqual(17, res.Day);
+            Assert.AreEqual(shouldbebc, res.IsBC, era);
+        }
+
+        [Test]
+        public void ValidStdEra()
+        {
+            TestEra("B.C.",true);
+            TestEra(" B.C.", true);
+        }
+
+        [Test]
+        public void NonStdBC()
+        {
+            string[] variants = {"BC", "BCE", "B.C.E."};
+            foreach (var variant in variants)
+            {
+                TestEra(variant, true);
+                TestEra(" "+variant, true);
+            }
+        }
+        [Test]
+        public void NonStdAD()
+        {
+            string[] variants = { "AD", "CE", "C.E.", "A.D." };
+            foreach (var variant in variants)
+            {
+                TestEra(variant, false);
+                TestEra(" " + variant, false);
             }
         }
     }

@@ -11,21 +11,20 @@ namespace SharpGEDParser.Parser
 {
     static class EventDateParse
     {
-        private static object[] gregMonData =
+        private enum Cal
         {
-            "JAN", 1,
-            "FEB", 2,
-            "MAR", 3,
-            "APR", 4,
-            "MAY", 5,
-            "JUN", 6,
-            "JUL", 7,
-            "AUG", 8,
-            "SEP", 9,
-            "OCT", 10,
-            "NOV", 11,
-            "DEC", 12,
-        };
+            Greg, Jul, Hebr, Fre, Rom, Fut
+        }
+
+        private enum KeyW
+        {
+            Bef, Aft, Est, Calc, Int, Range, None
+        }
+
+        private enum Era
+        {
+            BC, AD, None
+        }
 
         private static Dictionary<string, Cal> calLookup = new Dictionary<string, Cal>
         {
@@ -82,22 +81,111 @@ namespace SharpGEDParser.Parser
             {"NOVEMBER",11},
             {"DECEMBER",12},
         };
- 
+
+        // The GEDCOM standard keywords - initial appearance
+        private static Dictionary<string, KeyW> initialKeyLookup = new Dictionary<string, KeyW>()
+        {
+            {"BEF", KeyW.Bef},
+            {"AFT", KeyW.Aft},
+            {"ABT", KeyW.Est},
+            {"EST", KeyW.Est},
+            {"CAL", KeyW.Calc},
+            {"FROM", KeyW.Range},
+            {"TO", KeyW.Range},
+            {"INT", KeyW.Int}
+        };
+        // TODO 'NOT' variation: "NOT BEF"==after, "NOT AFT"==before, etc.
+        // Non-standard variants on GEDCOM initial keywords
+        private static Dictionary<string, KeyW> initialNonStdKeyLookup = new Dictionary<string, KeyW>()
+        {
+            {"BEF.", KeyW.Bef},
+            {"AFT.", KeyW.Aft},
+            {"ABT.", KeyW.Est},
+            {"EST.", KeyW.Est},
+            {"CAL.", KeyW.Calc},
+            {"INT.", KeyW.Int},
+            {"BEFORE", KeyW.Bef},
+            {"AFTER", KeyW.Aft},
+            {"ABOUT", KeyW.Est}, // BROSKEEP?
+            {"CIRCA", KeyW.Est},
+            {"C.", KeyW.Est}, // BROSKEEP ?
+            {"AB.", KeyW.Est}, // personal
+            {"MAYBE", KeyW.Calc}, // personal
+        };
+
+        private static Dictionary<string, Era> eraLookup = new Dictionary<string, Era>
+        {
+            {"B.C.", Era.BC}
+        };
+
+        private static Dictionary<string, Era> nonStdEraLookup = new Dictionary<string, Era>
+        {
+            {"BC", Era.BC},
+            {"BCE", Era.BC},
+            {"B.C.E.", Era.BC},
+            {"AD", Era.AD},
+            {"A.D.", Era.AD},
+            {"CE", Era.AD},
+            {"C.E.", Era.AD},
+        };
+
         static EventDateParse()
         {
         }
 
-        private enum Cal
+        private static Cal CheckCalendar(Context ctx)
         {
-            Greg, Jul, Hebr, Fre, Rom, Fut
+            Token tok = ctx.LookAhead();
+            Cal calen = Cal.Greg;
+            if (tok.type == TokType.CALEN)
+            {
+                if (!calLookup.TryGetValue(ctx.getString(), out calen))
+                    calen = Cal.Fut;
+                ctx.Consume();
+            }
+            return calen;
         }
 
-        private static Cal CheckCalendar(string calstr)
+        private static KeyW CheckInitialKeyword(Context ctx)
         {
-            Cal calen;
-            if (calLookup.TryGetValue(calstr, out calen))
-                return calen;
-            return Cal.Fut;
+            // TODO non-standard match needs flagging mechanism
+
+            Token tok = ctx.LookAhead();
+            if (tok.type != TokType.WORD)
+                return KeyW.None;
+            KeyW keyw;
+            if (initialKeyLookup.TryGetValue(ctx.getString(), out keyw))
+            {
+                ctx.Consume();
+                return keyw;
+            }
+            if (initialNonStdKeyLookup.TryGetValue(ctx.getString(), out keyw))
+            {
+                ctx.Consume();
+                return keyw;
+            }
+            return KeyW.None;
+        }
+
+        private static Era CheckEra(Context ctx)
+        {
+            // TODO non-standard match needs flagging mechanism
+
+            Token tok = ctx.LookAhead();
+            if (tok.type != TokType.WORD)
+                return Era.None;
+            Era era;
+            if (eraLookup.TryGetValue(ctx.getString(), out era))
+            {
+                ctx.Consume();
+                return era;
+            }
+            if (nonStdEraLookup.TryGetValue(ctx.getString(), out era))
+            {
+                ctx.Consume();
+                return era;
+            }
+            return Era.None;
         }
 
         private class Context
@@ -144,23 +232,20 @@ namespace SharpGEDParser.Parser
         {
             Context ctx = new Context(datestr, new DateTokens().Tokenize(datestr));
 
-            Token tok = ctx.LookAhead();
-            Cal calen = Cal.Greg;
-            if (tok.type == TokType.CALEN)
-            {
-                calen = CheckCalendar(ctx.getString());
-                ctx.Consume();
-            }
+            Cal calen = CheckCalendar(ctx);
             if (calen != Cal.Greg) // TODO other calendar support
                 return new GEDDate(GEDDate.Types.Unknown);
 
             // TODO punting past keywords
+            KeyW initKeyword = CheckInitialKeyword(ctx);
 
             ctx.gd = new GEDDate();
             if (!parseDate(ref ctx, calen))
                 return ctx.gd;
 
             // check for an era
+            Era era = CheckEra(ctx);
+            ctx.gd.IsBC = (era == Era.BC);
 
             return ctx.gd;
         }

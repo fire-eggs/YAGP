@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SharpGEDParser.Model
+﻿namespace SharpGEDParser.Model
 {
     public class GEDDate
     {
@@ -24,6 +18,8 @@ namespace SharpGEDParser.Model
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
+
+        public bool IsBC { get; set; }
 
         public Types Type { get; set; }
 
