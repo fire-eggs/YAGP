@@ -1,7 +1,10 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 
 // Tests for event date parsing
+
+// TODO every month name combination - drive via DateTime?
 
 // ReSharper disable ConvertToConstant.Local
 
@@ -109,5 +112,74 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(25, res.Day);
         }
 
+        [Test]
+        public void ValidNonStdMonth()
+        {
+            const string val = "13 April 1964";
+            GEDDate res = ParseForDate(val);
+
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(1964, res.Year);
+            Assert.AreEqual(4, res.Month);
+            Assert.AreEqual(13, res.Day);
+        }
+
+        [Test]
+        public void ValidAllShortMonths()
+        {
+            DateTime dt = new DateTime(1964,1,13);
+
+            for (int i = 1; i <= 12; i++)
+            {
+                string str1 = dt.ToString("dd MMM yyyy");
+
+                GEDDate res = ParseForDate(str1);
+
+                Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+                Assert.AreEqual(1964, res.Year);
+                Assert.AreEqual(i, res.Month);
+                Assert.AreEqual(13, res.Day);
+
+                dt = dt.AddMonths(1);
+            }
+        }
+        [Test]
+        public void ValidAllNonStdShortMonths()
+        {
+            DateTime dt = new DateTime(1964, 1, 13);
+
+            for (int i = 1; i <= 12; i++)
+            {
+                string str1 = dt.ToString("dd MMM. yyyy");
+
+                GEDDate res = ParseForDate(str1);
+
+                Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+                Assert.AreEqual(1964, res.Year);
+                Assert.AreEqual(i, res.Month);
+                Assert.AreEqual(13, res.Day);
+
+                dt = dt.AddMonths(1);
+            }
+        }
+        [Test]
+        public void ValidAllLongMonths()
+        {
+            DateTime dt = new DateTime(1964, 1, 13);
+
+            for (int i = 1; i <= 12; i++)
+            {
+                string str1 = dt.ToString("dd MMMM yyyy");
+
+                GEDDate res = ParseForDate(str1);
+
+                Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+                Assert.AreEqual(1964, res.Year);
+                Assert.AreEqual(i, res.Month);
+                Assert.AreEqual(13, res.Day);
+
+                dt = dt.AddMonths(1);
+            }
+        }
     }
 }

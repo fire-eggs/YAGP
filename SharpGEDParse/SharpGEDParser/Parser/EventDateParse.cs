@@ -11,16 +11,6 @@ namespace SharpGEDParser.Parser
 {
     static class EventDateParse
     {
-        private static object[] calData =
-        {
-            "#DGREGORIAN", Cal.Greg,
-            "#DJULIAN", Cal.Jul,
-            "#DHEBREW", Cal.Hebr,
-            "#DFRENCH R", Cal.Fre,
-            "#DROMAN", Cal.Rom,
-            "#DUNKNOWN", Cal.Fut
-        };
-
         private static object[] gregMonData =
         {
             "JAN", 1,
@@ -37,19 +27,64 @@ namespace SharpGEDParser.Parser
             "DEC", 12,
         };
 
-        private static Dictionary<string, Cal> calLookup;
-        private static Dictionary<string, int> gregMonLookup;
+        private static Dictionary<string, Cal> calLookup = new Dictionary<string, Cal>
+        {
+            {"#DGREGORIAN", Cal.Greg},
+            {"#DJULIAN", Cal.Jul},
+            {"#DHEBREW", Cal.Hebr},
+            {"#DFRENCH R", Cal.Fre},
+            {"#DROMAN", Cal.Rom},
+            {"#DUNKNOWN", Cal.Fut},
+        };
+
+        private static Dictionary<string, int> gregMonLookup = new Dictionary<string, int>()
+        {
+            {"JAN", 1},
+            {"FEB", 2},
+            {"MAR", 3},
+            {"APR", 4},
+            {"MAY", 5},
+            {"JUN", 6},
+            {"JUL", 7},
+            {"AUG", 8},
+            {"SEP", 9},
+            {"OCT",10},
+            {"NOV",11},
+            {"DEC",12},
+        };
+        // Variations on the gregorian months - accepted but should be flagged
+        // as non-standard
+        private static Dictionary<string, int> gregMonNonStdLookup = new Dictionary<string, int>()
+        {
+            {"JAN.", 1},
+            {"FEB.", 2},
+            {"MAR.", 3},
+            {"APR.", 4},
+            {"MAY.", 5},
+            {"JUN.", 6},
+            {"JUL.", 7},
+            {"AUG.", 8},
+            {"SEP.", 9},
+            {"OCT.",10},
+            {"NOV.",11},
+            {"DEC.",12},
+            {"SEPT.", 9},
+            {"SEPT", 9},
+            {"JANUARY", 1},
+            {"FEBRUARY", 2},
+            {"MARCH", 3},
+            {"APRIL", 4},
+            {"JUNE", 6},
+            {"JULY", 7},
+            {"AUGUST", 8},
+            {"SEPTEMBER", 9},
+            {"OCTOBER",10},
+            {"NOVEMBER",11},
+            {"DECEMBER",12},
+        };
  
         static EventDateParse()
         {
-            calLookup = new Dictionary<string, Cal>();
-            for (int i = 0; i < calData.Length; i++)
-                calLookup.Add((string)calData[i], 
-                              (Cal)calData[++i]);
-            gregMonLookup = new Dictionary<string, int>();
-            for (int i=0; i < gregMonData.Length; i++)
-                gregMonLookup.Add((string)gregMonData[i],
-                                    (int)gregMonData[++i]);
         }
 
         private enum Cal
@@ -194,7 +229,8 @@ namespace SharpGEDParser.Parser
         private static bool getMonth(string str, Cal calen, ref int mon)
         {
             // TODO swap month lookup based on calendar
-            // TODO check actual strings, not just first 3 chars
+            // TODO may find month match in list for different calendar - change calendar?
+            // TODO non-standard match needs flagging mechanism
 
             string str2 = str.Substring(0, 3);
             int monNum;
@@ -203,6 +239,12 @@ namespace SharpGEDParser.Parser
                 mon = monNum;
                 return true;
             }
+            if (gregMonNonStdLookup.TryGetValue(str, out monNum))
+            {
+                mon = monNum;
+                return true;
+            }
+
             return false;
        }
     }
