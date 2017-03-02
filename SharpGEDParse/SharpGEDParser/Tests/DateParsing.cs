@@ -259,5 +259,44 @@ namespace SharpGEDParser.Tests
                 TestEra(" " + variant, false);
             }
         }
+
+        private void TestPrefix(string pref)
+        {
+            string val = "17 May 1972";
+            GEDDate res = ParseForDate(pref + val);
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type, pref);
+            Assert.AreEqual(1972, res.Year, pref);
+            Assert.AreEqual(5, res.Month, pref);
+            Assert.AreEqual(17, res.Day, pref);
+            Assert.IsFalse(res.IsBC, pref);
+        }
+
+        [Test]
+        public void StdKeywords()
+        {
+            // TODO will break when actual keyword functionality is implemented...
+
+            string[] pref = {"from", "bef", "aft", "abt", "cal", "to", "bet", "est", "int"};
+            foreach (var s in pref)
+            {
+                TestPrefix(s);
+            }
+        }
+        [Test]
+        public void NonStdKeywords()
+        {
+            // TODO will break when actual keyword functionality is implemented...
+
+            string[] pref = { "bef", "aft", "abt", "cal", "est", "int" };
+            foreach (var s in pref)
+            {
+                TestPrefix(s+".");
+            }
+            string[] pref2 = { "before","after","about","circa","maybe","between" };
+            foreach (var s in pref2)
+            {
+                TestPrefix(s);
+            }
+        }
     }
 }

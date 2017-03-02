@@ -92,7 +92,8 @@ namespace SharpGEDParser.Parser
             {"CAL", KeyW.Calc},
             {"FROM", KeyW.Range},
             {"TO", KeyW.Range},
-            {"INT", KeyW.Int}
+            {"INT", KeyW.Int},
+            {"BET", KeyW.Range}
         };
         // TODO 'NOT' variation: "NOT BEF"==after, "NOT AFT"==before, etc.
         // Non-standard variants on GEDCOM initial keywords
@@ -104,6 +105,7 @@ namespace SharpGEDParser.Parser
             {"EST.", KeyW.Est},
             {"CAL.", KeyW.Calc},
             {"INT.", KeyW.Int},
+            {"BETWEEN", KeyW.Range},
             {"BEFORE", KeyW.Bef},
             {"AFTER", KeyW.Aft},
             {"ABOUT", KeyW.Est}, // BROSKEEP?
