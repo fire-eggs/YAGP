@@ -1,9 +1,5 @@
-﻿using System;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharpGEDParser.Model;
 
 // TODO validation should include checks for non-standard months, keywords
 
@@ -115,6 +111,12 @@ namespace SharpGEDParser.Parser
             {"MAYBE", KeyW.Calc}, // personal
         };
 
+        private static Dictionary<string, KeyW> secondKeyLookup = new Dictionary<string, KeyW>()
+        {
+            {"AND", KeyW.Between},
+            {"TO", KeyW.From}
+        };
+
         private static Dictionary<string, Era> eraLookup = new Dictionary<string, Era>
         {
             {"B.C.", Era.BC}
@@ -169,6 +171,27 @@ namespace SharpGEDParser.Parser
             return KeyW.None;
         }
 
+        private static KeyW CheckSecondKeyword(Context ctx)
+        {
+            // TODO non-standard match needs flagging mechanism
+
+            Token tok = ctx.LookAhead();
+            if (tok.type != TokType.WORD)
+                return KeyW.None;
+            KeyW keyw;
+            if (secondKeyLookup.TryGetValue(ctx.getString(), out keyw))
+            {
+                ctx.Consume();
+                return keyw;
+            }
+            // TODO any non-standard 2d key? "&"? "-"?
+            //if (initialNonStdKeyLookup.TryGetValue(ctx.getString(), out keyw))
+            //{
+            //    ctx.Consume();
+            //    return keyw;
+            //}
+            return KeyW.None;
+        }
         private static Era CheckEra(Context ctx)
         {
             // TODO non-standard match needs flagging mechanism
@@ -197,6 +220,7 @@ namespace SharpGEDParser.Parser
             private int tokLen;
             public string datestr;
             public GEDDate gd;
+            public GEDDate gd2;
 
             public Context( string _str, List<Token> _toks )
             {
@@ -228,6 +252,30 @@ namespace SharpGEDParser.Parser
             {
                 return toks[tokDex].getInt(datestr);
             }
+
+            public void SetBC(bool isbc, bool second = false)
+            {
+                if (second)
+                    gd2.IsBC = isbc;
+                else
+                    gd.IsBC = isbc;
+            }
+
+            private void Set(int day, int mon, int year, GEDDate.Types type, ref GEDDate tomod)
+            {
+                tomod.Day = day; // TODO may be invalid
+                tomod.Month = mon;
+                tomod.Year = year; // TODO may be invalid
+                tomod.Type = type;
+            }
+
+            public void Set(int day, int mon, int year, GEDDate.Types type, bool second)
+            {
+                if (second)
+                    Set(day, mon, year, type, ref gd2);
+                else
+                    Set(day, mon, year, type, ref gd);
+            }
         }
 
         public static GEDDate DateParser(string datestr)
@@ -238,7 +286,7 @@ namespace SharpGEDParser.Parser
             if (calen != Cal.Greg) // TODO other calendar support
                 return new GEDDate(GEDDate.Types.Unknown);
 
-            // TODO punting past keywords
+            // TODO grabbing keyword but doing nothing
             KeyW initKeyword = CheckInitialKeyword(ctx);
 
             ctx.gd = new GEDDate();
@@ -247,13 +295,29 @@ namespace SharpGEDParser.Parser
 
             // check for an era
             Era era = CheckEra(ctx);
-            ctx.gd.IsBC = (era == Era.BC);
+            ctx.SetBC(era == Era.BC);
 
+            KeyW secondKeyword = CheckSecondKeyword(ctx);
+            if (secondKeyword != KeyW.None)
+            {
+                ctx.gd2 = new GEDDate();
+                // expecting a second date
+                if (!parseDate(ref ctx, calen, second:true))
+                    return new GEDDate(GEDDate.Types.Unknown); // TODO track/note issues
+                Era era2 = CheckEra(ctx);
+                ctx.SetBC(era2 == Era.BC, second:true);
+            }
+
+            // Still have unparsed stuff must be problem
+            if (ctx.LookAhead().type != TokType.EOF)
+                return new GEDDate(GEDDate.Types.Unknown); // TODO track/note issues
             return ctx.gd;
         }
 
-        private static bool parseDate(ref Context ctx, Cal calen)
+        private static bool parseDate(ref Context ctx, Cal calen, bool second=false)
         {
+            // TODO according to standard, the calendar escape can go on each date, e.g. "AFT @#DJULIAN@ 1898"
+
             // parse a date.
             // TODO dd/mm/yyyy
             // TODO dd-mm-yyyy
@@ -275,9 +339,7 @@ namespace SharpGEDParser.Parser
                     return false; // no year following
                 year = ctx.getInt();
                 ctx.Consume();
-                ctx.gd.Month = mon;
-                ctx.gd.Year = year;
-                ctx.gd.Type = GEDDate.Types.Range;
+                ctx.Set(-1,mon,year,GEDDate.Types.Range,second);
                 return true;
             }
 
@@ -287,29 +349,37 @@ namespace SharpGEDParser.Parser
             }
 
             // day mon year OR year
+            GEDDate.Types newType;
             if (ctx.LookAhead(1).type == TokType.WORD)
             {
                 // day mon year
                 day = ctx.getInt();
                 ctx.Consume();
                 if (!getMonth(ctx.getString(), calen, ref mon))
-                    return false; // Not a known month
-                tok = ctx.Consume();
-                if (tok.type != TokType.NUM)
-                    return false; // Not a year, invalid
-                year = ctx.getInt();
-                ctx.Consume();
-                ctx.gd.Type = GEDDate.Types.Exact;
+                {
+                    // Not a known month - might be a second keyword; assume YEAR
+                    year = day;
+                    day = -1;
+                    mon = -1;
+                    newType = GEDDate.Types.Range;
+                }
+                else
+                {
+                    tok = ctx.Consume();
+                    if (tok.type != TokType.NUM)
+                        return false; // Not a year, invalid
+                    year = ctx.getInt();
+                    ctx.Consume();
+                    newType = GEDDate.Types.Exact;
+                }
             }
             else
             {
                 year = ctx.getInt();
                 ctx.Consume();
-                ctx.gd.Type = GEDDate.Types.Range;
+                newType = GEDDate.Types.Range;
             }
-            ctx.gd.Day = day; // TODO may be invalid
-            ctx.gd.Month = mon;
-            ctx.gd.Year = year; // TODO may be invalid
+            ctx.Set(day, mon, year, newType, second);
             return true;
         }
 

@@ -298,5 +298,52 @@ namespace SharpGEDParser.Tests
                 TestPrefix(s);
             }
         }
+
+        [Test]
+        public void SecondKeyword()
+        {
+            // TODO will break when actual keyword functionality is implemented...
+
+            string val = "FROM 17 May 1972 TO 25 May 1972";
+            GEDDate res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(1972, res.Year);
+            Assert.AreEqual(5, res.Month);
+            Assert.AreEqual(17, res.Day);
+            Assert.IsFalse(res.IsBC);
+
+            val = "BET 17 May 1972 AND 25 May 1972";
+            res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(1972, res.Year);
+            Assert.AreEqual(5, res.Month);
+            Assert.AreEqual(17, res.Day);
+            Assert.IsFalse(res.IsBC);          
+        }
+
+        [Test]
+        public void SecondKeyword2()
+        {
+            var val = "BET 1972 AND 1974";
+            var res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Range, res.Type);
+            Assert.AreEqual(1972, res.Year);
+            Assert.AreEqual(-1, res.Day);
+            Assert.AreEqual(-1, res.Month);
+            Assert.IsFalse(res.IsBC);
+        }
+
+        [Test]
+        public void InvalidSecondKeyword()
+        {
+            string val = "FROM 17 May 1972 TO ";
+            GEDDate res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+
+            val = "BET 17 May 1972 AND";
+            res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+        }
+    
     }
 }
