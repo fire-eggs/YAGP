@@ -12,8 +12,8 @@
             Range
         }
 
-        private long jdn;
-        private long range;
+        public long JDN { get; set; } // This date's Julian Day Number
+        public long JDR { get; set; } // This date's Julian Day Range [meaning defined by Type]
 
         public int Year { get; set; }
         public int Month { get; set; }
