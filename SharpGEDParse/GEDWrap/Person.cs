@@ -135,5 +135,33 @@ namespace GEDWrap
             return Indi.Ident + ":" + Name;
         }
 
+        // Return either the birth or christening event
+        public FamilyEvent Birth
+        {
+            get
+            {
+                var birth = GetEvent("BIRT");
+                if (birth != null)
+                    return birth;
+                var christ = GetEvent("CHR");
+                return christ;
+            }
+        }
+
+        // Return Death/Burial/Cremation event
+        public FamilyEvent Death
+        {
+            get
+            {
+                var evt = GetEvent("DEAT");
+                if (evt != null)
+                    return evt;
+                evt = GetEvent("BURI");
+                if (evt != null)
+                    return evt;
+                evt = GetEvent("CREM");
+                return evt;
+            }
+        }
     }
 }
