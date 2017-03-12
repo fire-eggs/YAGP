@@ -5,6 +5,7 @@ using SharpGEDParser.Model;
 // Tests for event date parsing
 
 // TODO every month name combination - drive via DateTime?
+// TODO julian date calculation verify
 
 // ReSharper disable ConvertToConstant.Local
 
@@ -260,11 +261,17 @@ namespace SharpGEDParser.Tests
             }
         }
 
-        private void TestPrefix(string pref)
+        private void TestPrefix(string pref, GEDDate.Types target, bool? isStandard)
         {
+            // TODO isStandard: verify flagged as (not)standard
+
             string val = "17 May 1972";
             GEDDate res = ParseForDate(pref + val);
-            Assert.AreEqual(GEDDate.Types.Exact, res.Type, pref);
+            Assert.AreEqual(target, res.Type, pref);
+
+            if (!isStandard.HasValue)
+                return; // Couldn't parse: values not expected
+
             Assert.AreEqual(1972, res.Year, pref);
             Assert.AreEqual(5, res.Month, pref);
             Assert.AreEqual(17, res.Day, pref);
@@ -272,41 +279,88 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
-        public void StdKeywords()
+        public void AftKeywords()
         {
-            // TODO will break when actual keyword functionality is implemented...
-
-            string[] pref = {"from", "bef", "aft", "abt", "cal", "to", "bet", "est", "int"};
-            foreach (var s in pref)
-            {
-                TestPrefix(s);
-            }
-        }
-        [Test]
-        public void NonStdKeywords()
-        {
-            // TODO will break when actual keyword functionality is implemented...
-
-            string[] pref = { "bef", "aft", "abt", "cal", "est", "int" };
-            foreach (var s in pref)
-            {
-                TestPrefix(s+".");
-            }
-            string[] pref2 = { "before","after","about","circa","maybe","between" };
+            // standard keywords where result is 'after'
+            string[] pref2 = { "aft", "from" };
             foreach (var s in pref2)
             {
-                TestPrefix(s);
+                TestPrefix(s, GEDDate.Types.After, true);
+                TestPrefix(s+" ", GEDDate.Types.After, true);
+            }
+
+            // non-standard keywords where result is 'after'
+            string[] pref4 = { "aft.", "after" };
+            foreach (var s in pref4)
+            {
+                TestPrefix(s, GEDDate.Types.After, false);
+                TestPrefix(s + " ", GEDDate.Types.After, false);
+            }
+        }
+
+        [Test]
+        public void BefKeywords()
+        {
+            // standard keywords where result is 'before'
+            string[] pref = { "bef", "to" };
+            foreach (var s in pref)
+            {
+                TestPrefix(s, GEDDate.Types.Before, true);
+                TestPrefix(s+" ", GEDDate.Types.Before, true);
+            }
+
+            // non-standard keywords where result is 'before'
+            string[] pref3 = { "bef.", "before" };
+            foreach (var s in pref3)
+            {
+                TestPrefix(s, GEDDate.Types.Before, false);
+                TestPrefix(s + " ", GEDDate.Types.Before, false);
+            }
+        }
+
+        [Test]
+        public void EstKeywords()
+        {
+            string[] pref = {"abt", "cal", "est", "int"};
+            foreach (var s in pref)
+            {
+                TestPrefix(s, GEDDate.Types.Estimated, true);
+                TestPrefix(s + " ", GEDDate.Types.Estimated, true);
+            }
+            string[] pref2 = { "about", "circa", "maybe", "int.", "abt.", "cal.", "est." };
+            foreach (var s in pref2)
+            {
+                TestPrefix(s, GEDDate.Types.Estimated, false);
+                TestPrefix(s + " ", GEDDate.Types.Estimated, false);
+            }
+        }
+
+        [Test]
+        public void BadKeywords()
+        {
+            // incorrectly used keywords (incorrect by themselves)
+            string[] pref = {"bet", "bet.", "between"};
+            foreach (var s in pref)
+            {
+                TestPrefix(s, GEDDate.Types.Unknown, null);
+                TestPrefix(s+" ", GEDDate.Types.Unknown, null);
+            }
+
+            // invalid keywords
+            string[] pref2 = {"garbage", "foo", "aboot", "sometimes"};
+            foreach (var s in pref2)
+            {
+                TestPrefix(s, GEDDate.Types.Unknown, null);
+                TestPrefix(s + " ", GEDDate.Types.Unknown, null);
             }
         }
 
         [Test]
         public void SecondKeyword()
         {
-            // TODO will break when actual keyword functionality is implemented...
-
             string val = "FROM 17 May 1972 TO 25 May 1972";
             GEDDate res = ParseForDate(val);
-            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(GEDDate.Types.Range, res.Type);
             Assert.AreEqual(1972, res.Year);
             Assert.AreEqual(5, res.Month);
             Assert.AreEqual(17, res.Day);
@@ -314,11 +368,28 @@ namespace SharpGEDParser.Tests
 
             val = "BET 17 May 1972 AND 25 May 1972";
             res = ParseForDate(val);
-            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(GEDDate.Types.Range, res.Type);
             Assert.AreEqual(1972, res.Year);
             Assert.AreEqual(5, res.Month);
             Assert.AreEqual(17, res.Day);
-            Assert.IsFalse(res.IsBC);          
+            Assert.IsFalse(res.IsBC);
+
+            val = "BET 17 May 1972 BLAH 25 May 1972";
+            res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+
+            val = "FROM 17 May 1972 BLAH 25 May 1972";
+            res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+
+            val = "BET 17 May 1972 TO 25 May 1972";
+            res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+
+            val = "FROM 17 May 1972 AND 25 May 1972";
+            res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
+
         }
 
         [Test]
@@ -344,6 +415,17 @@ namespace SharpGEDParser.Tests
             res = ParseForDate(val);
             Assert.AreEqual(GEDDate.Types.Unknown, res.Type);
         }
-    
+
+        [Test]
+        public void RealWorld()
+        {
+            // found during real GEDCOM testing
+            string val = "1910 to 1920";
+            GEDDate res = ParseForDate(val);
+            Assert.AreEqual(GEDDate.Types.Range, res.Type);
+            Assert.AreEqual(1910, res.Year);
+
+            // TODO verify range values
+        }
     }
 }

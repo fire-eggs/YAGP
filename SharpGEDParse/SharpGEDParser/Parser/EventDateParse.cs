@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 // TODO validation should include checks for non-standard months, keywords
+// TODO use of non-standard keyword,era,months, etc needs a mechanism to flag as an 'issue'
 
 namespace SharpGEDParser.Parser
 {
@@ -14,7 +15,8 @@ namespace SharpGEDParser.Parser
 
         private enum KeyW // Used to determine how to convert to JulianDayRange
         {
-            None, Before, After, From, InitialTo, Between, DontCare
+            None, Before, After, From, InitialTo, Between, 
+            Estimate // NOTE: doesn't impact JulianDay but is a flag on the result
         }
 
         private enum Era
@@ -47,6 +49,7 @@ namespace SharpGEDParser.Parser
             {"NOV",11},
             {"DEC",12},
         };
+
         // Variations on the gregorian months - accepted but should be flagged
         // as non-standard
         private static Dictionary<string, int> gregMonNonStdLookup = new Dictionary<string, int>()
@@ -83,32 +86,33 @@ namespace SharpGEDParser.Parser
         {
             {"BEF", KeyW.Before},
             {"AFT", KeyW.After},
-            {"ABT", KeyW.DontCare},
-            {"EST", KeyW.DontCare},
-            {"CAL", KeyW.DontCare},
+            {"ABT", KeyW.Estimate},
+            {"EST", KeyW.Estimate},
+            {"CAL", KeyW.Estimate},
             {"FROM", KeyW.From},
             {"TO", KeyW.InitialTo},
-            {"INT", KeyW.DontCare},
+            {"INT", KeyW.Estimate},
             {"BET", KeyW.Between}
         };
+
         // TODO 'NOT' variation: "NOT BEF"==after, "NOT AFT"==before, etc.
         // Non-standard variants on GEDCOM initial keywords
         private static Dictionary<string, KeyW> initialNonStdKeyLookup = new Dictionary<string, KeyW>()
         {
             {"BEF.", KeyW.Before},
             {"AFT.", KeyW.After},
-            {"ABT.", KeyW.DontCare},
-            {"EST.", KeyW.DontCare},
-            {"CAL.", KeyW.DontCare},
-            {"INT.", KeyW.DontCare},
+            {"ABT.", KeyW.Estimate},
+            {"EST.", KeyW.Estimate},
+            {"CAL.", KeyW.Estimate},
+            {"INT.", KeyW.Estimate},
             {"BETWEEN", KeyW.Between},
             {"BEFORE", KeyW.Before},
             {"AFTER", KeyW.After},
-            {"ABOUT", KeyW.DontCare}, // BROSKEEP?
-            {"CIRCA", KeyW.DontCare},
-            {"C.", KeyW.DontCare}, // BROSKEEP ?
-            {"AB.", KeyW.DontCare}, // personal
-            {"MAYBE", KeyW.DontCare}, // personal
+            {"ABOUT", KeyW.Estimate}, // BROSKEEP?
+            {"CIRCA", KeyW.Estimate},
+            {"C.", KeyW.Estimate}, // BROSKEEP ?
+            {"AB.", KeyW.Estimate}, // personal
+            {"MAYBE", KeyW.Estimate}, // personal
         };
 
         private static Dictionary<string, KeyW> secondKeyLookup = new Dictionary<string, KeyW>()
@@ -117,11 +121,13 @@ namespace SharpGEDParser.Parser
             {"TO", KeyW.From}
         };
 
+        // The 'standard' era markers
         private static Dictionary<string, Era> eraLookup = new Dictionary<string, Era>
         {
             {"B.C.", Era.BC}
         };
 
+        // The non-standard era markers: accepted but should be flagged
         private static Dictionary<string, Era> nonStdEraLookup = new Dictionary<string, Era>
         {
             {"BC", Era.BC},
@@ -132,10 +138,6 @@ namespace SharpGEDParser.Parser
             {"CE", Era.AD},
             {"C.E.", Era.AD},
         };
-
-        static EventDateParse()
-        {
-        }
 
         private static Cal CheckCalendar(Context ctx)
         {
@@ -279,20 +281,27 @@ namespace SharpGEDParser.Parser
             }
         }
 
+        // TODO appears not to be thread safe: some tests fail under code coverage analysis with this enabled
+        //private static DateTokens _dateTokenSingleton;
+        //private static DateTokens Tokenizer
+        //{
+        //    get { return _dateTokenSingleton ?? (_dateTokenSingleton = new DateTokens()); }
+        //}
+
         public static GEDDate DateParser(string datestr)
         {
-            Context ctx = new Context(datestr, new DateTokens().Tokenize(datestr));
+            DateTokens tok = new DateTokens();
+            Context ctx = new Context(datestr, tok.Tokenize(datestr));
 
             // TODO this is not standard, but some programs do this
             Cal calen = CheckCalendar(ctx);
             if (calen != Cal.Greg) // TODO other calendar support
                 return new GEDDate(GEDDate.Types.Unknown);
 
-            // TODO grabbing keyword but doing nothing
             KeyW initKeyword = CheckInitialKeyword(ctx);
 
             ctx.gd = new GEDDate();
-            if (!parseDate(ref ctx, calen))
+            if (!parseDate(ref ctx, calen, second:false))
                 return ctx.gd;
 
             // check for an era
@@ -310,13 +319,11 @@ namespace SharpGEDParser.Parser
                 ctx.SetBC(era2 == Era.BC, second:true);
             }
 
-            // Still have unparsed stuff must be problem
+            // Still have unparsed stuff - must be problem
             if (ctx.LookAhead().type != TokType.EOF)
                 return new GEDDate(GEDDate.Types.Unknown); // TODO track/note issues
 
             MakeJulianDayRange(ctx, initKeyword, secondKeyword);
-
-            // TODO merge ctx.gd2 into ctx.gd
             return ctx.gd;
         }
 
@@ -395,14 +402,17 @@ namespace SharpGEDParser.Parser
             // TODO may find month match in list for different calendar - change calendar?
             // TODO non-standard match needs flagging mechanism
 
-            string str2 = str.Substring(0, 3);
             int monNum;
-            if (gregMonLookup.TryGetValue(str2, out monNum))
+            if (gregMonNonStdLookup.TryGetValue(str, out monNum))
             {
                 mon = monNum;
                 return true;
             }
-            if (gregMonNonStdLookup.TryGetValue(str, out monNum))
+            if (str.Length < 3)
+                return false;
+
+            string str2 = str.Substring(0, 3);
+            if (gregMonLookup.TryGetValue(str2, out monNum))
             {
                 mon = monNum;
                 return true;
@@ -457,8 +467,8 @@ namespace SharpGEDParser.Parser
         }
 
         // No key, exact date: date to julian, range=1 [Exact]
-        // No key, range date, no month: beg of year to julian, range=365/366 [Between][Range] [issue: leap] 
-        // No key, range date, month: beg of month to julian, range=month length [Between][Range] [issue: leap] 
+        // No key, range date, no month: beg of year to julian, range=365/366 [Between][Range]
+        // No key, range date, month: beg of month to julian, range=month length [Between][Range]
         // firstKey: (no secondkey)
         //   before - beg of date to julian [Before][Range]
         //   after -  end of date to julian [After][Range]
@@ -475,13 +485,15 @@ namespace SharpGEDParser.Parser
             switch (firstKey)
             {
                 case KeyW.None:
-                case KeyW.DontCare:
+                case KeyW.Estimate:
                     jdn = StartToJulian(ctx.gd);
                     long jdn2 = jdn + 1;
                     if (ctx.gd.Type != GEDDate.Types.Exact)
                         jdn2 = EndToJulian(ctx.gd);
                     range = jdn2 - jdn;
-                    // NOTE: not changing initial type finalType = GEDDate.Types.Range;
+                    if (firstKey == KeyW.Estimate)
+                        finalType = GEDDate.Types.Estimated;
+                    // TODO e.g. "1910 to 1920" needs to be marked non-standard
                     break;
 
                 case KeyW.Before:
@@ -503,6 +515,8 @@ namespace SharpGEDParser.Parser
                     jdn = StartToJulian(ctx.gd);
                     if (secondKey == KeyW.None)
                         finalType = GEDDate.Types.After; // TODO mark as range?
+                    else if (secondKey != KeyW.From)
+                        finalType = GEDDate.Types.Unknown; // TODO error mark?
                     else
                     {
                         jdn2 = EndToJulian(ctx.gd2);
@@ -512,6 +526,12 @@ namespace SharpGEDParser.Parser
                     break;
 
                 case KeyW.Between:
+                    if (secondKey == KeyW.None || secondKey != KeyW.Between || ctx.gd2 == null)
+                    {
+                        finalType = GEDDate.Types.Unknown;
+                        // TODO error mark?
+                        break;
+                    }
                     jdn = StartToJulian(ctx.gd);
                     jdn2 = EndToJulian(ctx.gd2);
                     range = jdn2 - jdn;

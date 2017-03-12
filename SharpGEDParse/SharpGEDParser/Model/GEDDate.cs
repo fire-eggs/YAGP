@@ -28,13 +28,5 @@
             Type = _type;
             Year = Month = Day = -1;
         }
-
-        public GEDDate(int year, int month, int day)
-        {
-            Type = Types.Exact;
-            Year = year;
-            Month = month;
-            Day = day;
-        }
     }
 }

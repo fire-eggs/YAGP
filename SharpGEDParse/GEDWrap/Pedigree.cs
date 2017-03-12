@@ -183,23 +183,4 @@ namespace GEDWrap
             wipeTree(momn);
         }
     }
-
-    class PersonNode
-    {
-        public Person Who { get; set; }
-        public List<FamilyNode> Fams { get; set; }
-        public int Depth { get; set; }
-
-        public PersonNode()
-        {
-            Fams = new List<FamilyNode>();
-        }
-    }
-
-    class FamilyNode
-    {
-        public Union Who { get; set; }
-        public PersonNode Mom { get; set; }
-        public PersonNode Dad { get; set; }
-    }
 }
