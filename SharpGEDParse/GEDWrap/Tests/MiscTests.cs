@@ -3,6 +3,8 @@ using SharpGEDParser;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
+// ReSharper disable ConvertToConstant.Local
+
 namespace GEDWrap.Tests
 {
     [ExcludeFromCodeCoverage]
