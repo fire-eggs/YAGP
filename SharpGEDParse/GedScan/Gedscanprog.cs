@@ -17,15 +17,21 @@ namespace GedScan
 {
     class Gedscanprog
     {
+        private static bool _showDiags;
+        private static bool _dates;
+        private static bool _ged; // show basic GED record stats
+
         static void Main(string[] args)
         {
             if (args.Length < 1)
             {
-                Console.WriteLine("Usage: gedparse [-e] [-r] [-d] <.ged file OR folder>");
+                Console.WriteLine("Usage: gedparse [-e] [-r] [-d] [-date] <.ged file OR folder>");
                 Console.WriteLine("Specify a .GED file or path");
                 Console.WriteLine("-e : show error/custom details");
                 Console.WriteLine("-r : recurse through folders");
                 Console.WriteLine("-d : show performance diagnostics");
+                Console.WriteLine("-date : date parse testing");
+                Console.WriteLine("-b : basic GED record stats");
                 return;
             }
 
@@ -33,6 +39,8 @@ namespace GedScan
             var showErrors = args.FirstOrDefault(s => s == "-e") != null;
             var recurse = args.FirstOrDefault(s => s == "-r") != null;
             var csv = args.FirstOrDefault(s => s == "-csv") != null;
+            _dates = args.FirstOrDefault(s => s == "-date") != null;
+            _ged = args.FirstOrDefault(s => s == "-b") != null;
 
             int lastarg = args.Length-1;
             if (File.Exists(args[lastarg]))
@@ -70,8 +78,6 @@ namespace GedScan
             }
         }
 
-        private static bool _showDiags;
-
         private static int tick;
         private static void logit(string msg, bool first = false)
         {
@@ -96,7 +102,12 @@ namespace GedScan
             {
                 f.LoadGEDCOM(path);
                 afterMem = GC.GetTotalMemory(false);
-                dump(f, showErrors);
+                if (_dates)
+                    dumpDates(f);
+                else if (_ged)
+                    dump(f.AllRecords, f.Errors, showErrors);
+                else
+                    dump(f, showErrors);
             }
             //using (var fr = new FileRead())
             //{
@@ -132,6 +143,73 @@ namespace GedScan
             {
                 dict.Add(key, 1);
             }
+        }
+
+        private enum DateState { Success=0, WftEst, Fail, FailAndDump, Empty, Exact }
+        private static DateState dumpDate(FamilyEvent evt)
+        {
+            if (evt.GedDate != null && evt.GedDate.Type != GEDDate.Types.Unknown)
+                return evt.GedDate.Type == GEDDate.Types.Exact ? DateState.Exact : DateState.Success;
+
+            // skip empty or successful dates
+            if (evt.GedDate == null || evt.GedDate.Type != GEDDate.Types.Unknown || string.IsNullOrWhiteSpace(evt.Date))
+                return DateState.Empty;
+
+            // Ignore common entries
+            string[] skip = {"unknown", "private", "infant", "deceased", "dead", "not married", "child", "died", 
+                             "young", "stillborn", "never married","seenotes","nao informado"};
+            string test = (evt.Date.Trim().ToLower());
+            if (test.StartsWith("wft est"))
+                return DateState.WftEst;
+
+            if (skip.Any(s => s == test))
+                return DateState.Fail;
+            //Console.WriteLine("\t{0}", evt.Date);
+            return DateState.FailAndDump;
+        }
+
+        private static void IncrCount(DateState state, int[] counts)
+        {
+            int dex = (int) state;
+            counts[dex]++;
+        }
+
+        private static void dumpDates(Forest f)
+        {
+            int [] counts = new int[6];
+
+            //bool hasWFTEst = false;
+            foreach (var person in f.AllPeople)
+            {
+                IndiRecord ged = person.Indi;
+                foreach (var familyEvent in ged.Events)
+                {
+                    var state = dumpDate(familyEvent);
+                    IncrCount(state, counts);
+                }
+                foreach (var familyEvent in ged.Attribs)
+                {
+                    var state = dumpDate(familyEvent);
+                    IncrCount(state, counts);
+                }
+            }
+            foreach (var union in f.AllUnions)
+            {
+                FamRecord ged = union.FamRec;
+                foreach (var familyEvent in ged.FamEvents)
+                {
+                    var state = dumpDate(familyEvent);
+                    IncrCount(state, counts);
+                }
+            }
+
+            Console.WriteLine("\t        Success:{0}", counts[0]);
+            Console.WriteLine("\tSuccess (exact):{0}", counts[5]);
+            Console.WriteLine("\t        WFT Est:{0}", counts[1]);
+            Console.WriteLine("\t           Fail:{0}", counts[2]);
+            Console.WriteLine("\t      Fail/Dump:{0}", counts[3]);
+            //if (hasWFTEst)
+            //    Console.WriteLine("\tWFT Est not shown");
         }
 
         private static void dump(Forest f, bool showErrors)
@@ -208,7 +286,7 @@ namespace GedScan
 
         private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, bool showErrors)
         {
-            int errs = errors.Count;
+            int errs = errors == null ?0 : errors.Count;
             int inds = 0;
             int fams = 0;
             int unks = 0;
@@ -217,6 +295,11 @@ namespace GedScan
             int repo = 0;
             int note = 0;
             int media = 0;
+
+            int nLen = 0; // total length of NOTE record text
+
+            int subN = 0; // NOTE sub-records
+            int subNLen = 0; // total length of sub-record note text
 
             // int index = 0; // testing
             foreach (var gedRec2 in kbrGedRecs)
@@ -241,6 +324,15 @@ namespace GedScan
                     }
                 }
 
+                if (gedRec2 is NoteHold)
+                {
+                    var gr = gedRec2 as NoteHold;
+                    subN += gr.Notes.Count;
+                    foreach (var anote in gr.Notes)
+                    {
+                        subNLen += anote.Text.Length;
+                    }
+                }
                 // TODO this is awkward
                 if (gedRec2 is IndiRecord)
                     inds++;
@@ -251,7 +343,11 @@ namespace GedScan
                 else if (gedRec2 is Repository)
                     repo++;
                 else if (gedRec2 is NoteRecord)
+                {
                     note++;
+                    var gr = gedRec2 as NoteRecord;
+                    nLen += gr.Text.Length;
+                }
                 else if (gedRec2 is MediaRecord)
                     media++;
                 else if (gedRec2 is Unknown)
@@ -261,7 +357,8 @@ namespace GedScan
                         //if (gedRec2.Unknowns.  .Lines == null)
                         //    Console.WriteLine("Empty record!");
                         //else
-                            Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", "<need to pull from original file>", gedRec2.BegLine, gedRec2.EndLine);
+                        Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", "<need to pull from original file>",
+                            gedRec2.BegLine, gedRec2.EndLine);
                     }
                     unks++;
                 }
@@ -288,7 +385,10 @@ namespace GedScan
                     Console.WriteLine("\t\tError:{0}", unkRec.Error);
                 }
             }
-            Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}", inds, fams, unks, oths, errs, src, repo, note, 0, media);
+            Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}[{10}]\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}; Sub-Notes:{11}[{12}]", 
+                inds, fams, unks, oths, errs, src, repo, note, 0, media, nLen, subN, subNLen);
+            Console.WriteLine("\tAvg note len:{0}\tAvg sub-note len:{1}\tSub-note len ratio:{2}",
+                nLen / (note==0?1:note), subNLen / (subN==0?1:subN), subNLen / ((fams+inds) == 0 ? 1 : (fams+inds)));
         }
 
     }
