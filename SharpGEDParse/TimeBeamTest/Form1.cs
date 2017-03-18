@@ -8,6 +8,8 @@ using GEDWrap;
 using SharpGEDParser.Model;
 using TimeBeam;
 
+// ReSharper disable LocalizableElement
+
 namespace TimeBeamTest
 {
     public partial class Form1 : Form
@@ -33,7 +35,7 @@ namespace TimeBeamTest
 
             timeline1.Clock = null; // TODO KBR _clock;
             timeline1.TrackBorderSize = 0; // TODO KBR
-            timeline1.TrackLabelWidth = 150; // TODO should adjust automagically
+            timeline1.TrackLabelWidth = 200; // TODO should adjust automagically
         }
 
         private void loadGEDCOMToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -195,10 +197,15 @@ namespace TimeBeamTest
             }
         }
 
+        public class MyTrack : Track
+        {
+        }
+
         private void MakeTrack(Person val, string mark)
         {
             var birt = val.Birth;
             var deat = val.Death;
+            var name = val.Name;
 
             float yrs;
             float secs;
@@ -210,6 +217,7 @@ namespace TimeBeamTest
             else
             {
                 yrs = (birt.GedDate.JDN - JDN1800_01_01) / 365.0f;
+            int yr1 = (int)yrs + 1800;
                 secs = yrs * 6; // six seconds equals one year
                 start = 60.0f + secs;
             }
@@ -219,10 +227,18 @@ namespace TimeBeamTest
             else
                 yrs = deat.GedDate.JDN;
             yrs = (yrs - JDN1800_01_01) / 365.0f;
+            int yr2 = (int) yrs + 1800;
             secs = yrs * 6;
             float end = 60.0f + secs;
 
-            timeline1.AddTrack(new AdjustMyLength { Start = start, End = end, Name = string.Format("{0}({1})",val.Name,mark) });
+            timeline1.AddTrack(new AdjustMyLength { Start = start, End = end, Name = string.Format("{0}({1})[{2}-{3}]",name,mark, yr1,yr2) });
+
+            Track person = new MyTrack();
+            person.Start = yr1;
+            if (deat != null && !val.Indi.Living && deat.GedDate != null)
+                person.End = yr2;
+            person.Name = string.Format("{0}({1})[{2}-{3}]", name, mark, yr1, person.End.HasValue ? yr2.ToString() : "");
+            gedTime1.AddTrack(person);
         }
 
         private void personSel_SelectedIndexChanged(object sender, EventArgs e)
@@ -232,6 +248,7 @@ namespace TimeBeamTest
                 return;
 
             timeline1.ClearTracks();
+            gedTime1.ClearAllTracks();
 
             MakeTrack(val, "P");
 
@@ -261,6 +278,7 @@ namespace TimeBeamTest
             scale.X += 0.1f;
             scale.Y += 0.1f;
             timeline1.RenderingScale = scale;
+            gedTime1.RenderingScale = scale;
         }
 
         private void zoomOut_Click(object sender, EventArgs e)
@@ -269,6 +287,7 @@ namespace TimeBeamTest
             scale.X -= 0.1f;
             scale.Y -= 0.1f;
             timeline1.RenderingScale = scale;
+            gedTime1.RenderingScale = scale;
         }
 
     }
