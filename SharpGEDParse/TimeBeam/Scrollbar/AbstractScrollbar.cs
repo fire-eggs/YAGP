@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace TimeBeam {
+namespace TimeBeam.Scrollbar {
   /// <summary>
   ///   A scrollbar.
   /// </summary>

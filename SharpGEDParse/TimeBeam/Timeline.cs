@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using TimeBeam.Events;
 using TimeBeam.Helper;
 using TimeBeam.Surrogates;
-using TimeBeam.Timing;
 
 // ReSharper disable SpecifyACultureInStringConversionExplicitly
 
@@ -52,16 +51,7 @@ namespace TimeBeam
         /// </summary>
         [Description("How high a single track should be.")]
         [Category("Layout")]
-        public int TrackHeight
-        {
-            get { return _trackHeight; }
-            set { _trackHeight = value; }
-        }
-
-        /// <summary>
-        ///   Backing field for <see cref="TrackHeight" />.
-        /// </summary>
-        private int _trackHeight = 20;
+        public int TrackHeight { get; set; }
 
         /// <summary>
         ///   How wide/high the border on a track item should be.
@@ -69,48 +59,21 @@ namespace TimeBeam
         /// </summary>
         [Description("How wide/high the border on a track item should be.")]
         [Category("Layout")]
-        public int TrackBorderSize
-        {
-            get { return _trackBorderSize; }
-            set { _trackBorderSize = value; }
-        }
-
-        /// <summary>
-        ///   Backing field for <see cref="TrackBorderSize" />.
-        /// </summary>
-        private int _trackBorderSize = 2;
+        public int TrackBorderSize { get; set; }
 
         /// <summary>
         ///   How much space should be left between every track.
         /// </summary>
         [Description("How much space should be left between every track.")]
         [Category("Layout")]
-        public int TrackSpacing
-        {
-            get { return _trackSpacing; }
-            set { _trackSpacing = value; }
-        }
-
-        /// <summary>
-        ///   Backing field for <see cref="TrackSpacing" />.
-        /// </summary>
-        private int _trackSpacing = 1;
+        public int TrackSpacing { get; set; }
 
         /// <summary>
         ///   The width of the label section before the tracks.
         /// </summary>
         [Description("The width of the label section before the tracks.")]
         [Category("Layout")]
-        public int TrackLabelWidth
-        {
-            get { return _trackLabelWidth; }
-            set { _trackLabelWidth = value; }
-        }
-
-        /// <summary>
-        ///   Backing field for <see cref="TrackLabelWidth" />.
-        /// </summary>
-        private int _trackLabelWidth = 100;
+        public int TrackLabelWidth { get; set; }
 
         /// <summary>
         ///   The font to use to draw the track labels.
@@ -129,16 +92,9 @@ namespace TimeBeam
         /// </summary>
         [Description("The background color of the timeline.")]
         [Category("Drawing")]
-        public Color BackgroundColor
-        {
-            get { return _backgroundColor; }
-            set { _backgroundColor = value; }
-        }
+        public Color BackgroundColor { get; set; }
 
-        /// <summary>
-        ///   Backing field for <see cref="BackgroundColor" />.
-        /// </summary>
-        private Color _backgroundColor = Color.Black;
+        public Color LabelColor { get; set; }
 
         internal PointF RenderingOffset
         {
@@ -188,7 +144,7 @@ namespace TimeBeam
         /// <summary>
         ///   The tracks currently placed on the timeline.
         /// </summary>
-        private readonly List<IMultiPartTimelineTrack> _tracks = new List<IMultiPartTimelineTrack>();
+        private readonly List<ITimelineTrack> _tracks = new List<ITimelineTrack>();
 
         /// <summary>
         ///   The currently selected tracks.
@@ -245,26 +201,6 @@ namespace TimeBeam
         private RectangleHelper.Edge _activeEdge = RectangleHelper.Edge.None;
         #endregion
 
-        #region Timing
-        /// <summary>
-        ///   The clock to use as the timing source.
-        /// </summary>
-        public IClock Clock
-        {
-            get { return _clock; }
-            set
-            {
-                _clock = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        ///   Backing field for <see cref="Clock" />.
-        /// </summary>
-        private IClock _clock;
-        #endregion
-
         #region Enums
         /// <summary>
         ///   Enumerates states the timeline can be in.
@@ -316,7 +252,15 @@ namespace TimeBeam
         public Timeline()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
+
+            TrackHeight = 20;
+            TrackBorderSize = 0;
+            TrackSpacing = 5;
+            TrackLabelWidth = 200;
+            DecadeLabelHigh = 16;
+            LabelColor = Color.SaddleBrown;
+
+            DoubleBuffered = true;
 
             SetStyle( ControlStyles.AllPaintingInWmPaint | 
                       ControlStyles.Opaque | 
@@ -328,7 +272,14 @@ namespace TimeBeam
             // Set up the font to use to draw the track labels
             float emHeightForLabel = EmHeightForLabel("WM_g^~", TrackHeight); // TODO KBR TrackHeight changes on RenderingScale change?
             _labelFont = new Font(DefaultFont.FontFamily, emHeightForLabel - 2);
+
+            // The last year showable
+            int year = DateTime.Now.Year;
+            year += 10 - year % 10; // round up to next decade
+            year += 4; // TODO tweak for decade label size?
+            FarRightYear = year;
         }
+        
         #endregion
 
         /// <summary>
@@ -337,7 +288,7 @@ namespace TimeBeam
         /// <param name="track">The track to add.</param>
         public void AddTrack(ITimelineTrack track)
         {
-            _tracks.Add(new SingleTrackToMultiTrackWrapper(track));
+            _tracks.Add(track);
             RecalculateScrollbarBounds();
             Invalidate();
         }
@@ -348,16 +299,16 @@ namespace TimeBeam
         /// <param name="track"></param>
         public void AddTrack(IMultiPartTimelineTrack track)
         {
-            _tracks.Add(track);
-            RecalculateScrollbarBounds();
-            Invalidate();
+            //_tracks.Add(track);
+            //RecalculateScrollbarBounds();
+            //Invalidate();
         }
 
         public void AddTracks(IEnumerable<IMultiPartTimelineTrack> tracks)
         {
-            _tracks.AddRange(tracks);
-            RecalculateScrollbarBounds();
-            Invalidate();
+            //_tracks.AddRange(tracks);
+            //RecalculateScrollbarBounds();
+            //Invalidate();
         }
 
         public void ClearTracks()
@@ -365,19 +316,6 @@ namespace TimeBeam
             _tracks.Clear();
             RecalculateScrollbarBounds();
             Invalidate();
-        }
-
-        /// <summary>
-        ///   Invoked when the external clock is updated.
-        /// </summary>
-        public void Tick() 
-        {
-            if( Clock == null )
-                return;
-            if (Clock.IsRunning)
-            {
-                Invalidate();
-            }
         }
 
         #region Helpers
@@ -390,8 +328,11 @@ namespace TimeBeam
                 ScrollbarH.Max = ScrollbarV.Max = 0;
             else
             {
+                // TODO should be zero if less than height of trackareabounds
                 ScrollbarV.Max = (int)((_tracks.Count * (TrackHeight + TrackSpacing)) * _renderingScale.Y);
-                ScrollbarH.Max = (int)(_tracks.Max(t => t.TrackElements.Any() ? t.TrackElements.Max(te => te.End) : 0) * _renderingScale.X);
+                // TODO real max
+                ScrollbarH.Max = 1000; //(int)(_tracks.Max(t => t.TrackElements.Any() ? t.TrackElements.Max(te => te.End) : 0) * _renderingScale.X);
+                ScrollbarH.Value = 0; // zero == FarYear
             }
             ScrollbarV.Refresh();
             ScrollbarH.Refresh();
@@ -408,15 +349,16 @@ namespace TimeBeam
             // Start after the track labels
             trackArea.X = TrackLabelWidth;
             // Start at the top (later, we'll deduct the playhead and time label height)
-            trackArea.Y = (int)_playheadExtents.Height;
+            trackArea.Y = (int)(DecadeLabelHigh * _renderingScale.Y);
             // Deduct scrollbar width.
-            trackArea.Width = Width - ScrollbarV.Width;
+            trackArea.Width = Width - TrackLabelWidth - ScrollbarV.Width;
             // Deduct scrollbar height.
             trackArea.Height = Height - ScrollbarH.Height;
 
             return trackArea;
         }
 
+        public int DecadeLabelHigh { get; set; }
 
         /// <summary>
         ///   Check if a track is located at the given position.
@@ -427,15 +369,18 @@ namespace TimeBeam
         /// </returns>
         private ITimelineTrack TrackHitTest(PointF test)
         {
-            foreach (ITimelineTrack track in _tracks.SelectMany(t => t.TrackElements))
+            int trackIndex = 0;
+            foreach (ITimelineTrack track in _tracks) //.SelectMany(t => t.TrackElements))
             {
+                RectangleF trackExtent = TrackRectangle(track, trackIndex);
                 // The extent of the track, including the border
-                RectangleF trackExtent = BoundsHelper.GetTrackExtents(track, this);
+                //RectangleF trackExtent = BoundsHelper.GetTrackExtents(track, this);
 
                 if (trackExtent.Contains(test))
                 {
                     return track;
                 }
+                trackIndex++;
             }
 
             return null;
@@ -464,8 +409,8 @@ namespace TimeBeam
         {
             for (int index = 0; index < _tracks.Count; index++)
             {
-                IMultiPartTimelineTrack track = _tracks[index];
-                RectangleF trackExtent = BoundsHelper.GetTrackExtents(track.TrackElements.First(), this);
+                ITimelineTrack track = _tracks[index];
+                RectangleF trackExtent = BoundsHelper.GetTrackExtents(track, this);
 
                 if (trackExtent.Top < test.Y && trackExtent.Bottom > test.Y)
                 {
@@ -521,10 +466,10 @@ namespace TimeBeam
         /// <param name="location">The location on the playhead area.</param>
         private void SetClockFromMousePosition(PointF location)
         {
-            Rectangle trackAreaBounds = GetTrackAreaBounds();
-            // Calculate a clock value for the current X coordinate.
-            float clockValue = (location.X - _renderingOffset.X - trackAreaBounds.X) * (1 / _renderingScale.X) * 1000f;
-            Clock.Value = clockValue;
+            //Rectangle trackAreaBounds = GetTrackAreaBounds();
+            //// Calculate a clock value for the current X coordinate.
+            //float clockValue = (location.X - _renderingOffset.X - trackAreaBounds.X) * (1 / _renderingScale.X) * 1000f;
+            //Clock.Value = clockValue;
         }
         #endregion
 
@@ -538,228 +483,340 @@ namespace TimeBeam
             // Clear the buffer
             graphics.Clear(BackgroundColor);
 
-            DrawBackground(graphics);
-            DrawTracks(_tracks.SelectMany(t => t.TrackElements), graphics);
-            DrawTracks(_trackSurrogates, graphics);
-            DrawSelectionRectangle(graphics);
-
-            // Draw labels after the tracks to draw over elements that are partially moved out of the viewing area
-            DrawTrackLabels(graphics);
-
-            DrawPlayhead(graphics);
+            DrawGrid(graphics);
+            DrawTracks(graphics);
+            DrawLabels(graphics);
 
             ScrollbarH.Refresh();
             ScrollbarV.Refresh();
         }
 
-        /// <summary>
-        ///   Draws the background of the control.
-        /// </summary>
-        private void DrawBackground(Graphics graphics)
+        public int FarRightYear { get; set; }
+
+        private void DrawGrid(Graphics g)
         {
+            Rectangle trackAreaBounds = GetTrackAreaBounds();
+
+            int year = FarRightYear;
+
+            int gridWide = (int) (10*_renderingScale.X);
+
+            int x = 1 + (int) _renderingOffset.X;
+            int maxX = trackAreaBounds.Width;
+            for (; x < maxX; x += gridWide)
+            {
+                if (year%10 == 0)
+                {
+                    var strS = g.MeasureString(year.ToString(), _labelFont);
+                    float left = trackAreaBounds.Right - x - strS.Width/2;
+                    float top = trackAreaBounds.Y - _labelFont.GetHeight();
+                    using (var textBrush = new SolidBrush(Color.DodgerBlue))
+                    {
+                        g.DrawString(year.ToString(), _labelFont, textBrush, left, top);
+                    }
+                }
+
+                using (Pen gridPen = new Pen(Color.Black))
+                using (Pen decPen = new Pen(Color.Salmon))
+                {
+                    Pen penToUse = (year%10 == 0) ? decPen : gridPen;
+
+                    g.DrawLine(penToUse, trackAreaBounds.Right - x,
+                        trackAreaBounds.Y,
+                        trackAreaBounds.Right - x,
+                        trackAreaBounds.Height);
+                }
+                year -= 2;
+            }
+        }
+
+        private int YearDelta(int year)
+        {
+            var delta = (FarRightYear - year) * 5 * _renderingScale.X;
+            delta += _renderingOffset.X;
+            return (int)delta;
+        }
+
+        private RectangleF TrackRectangle(ITimelineTrack track, int index)
+        {
+            int left = YearDelta((int)track.Start);
+            int right = DateTime.Now.Year;
+            if (track.End.HasValue)
+                right = (int)track.End.Value;
+            right = YearDelta(right);
 
             Rectangle trackAreaBounds = GetTrackAreaBounds();
 
-            // Draw horizontal grid.
-            // Grid is white so just take the alpha as the white value.
-            Pen gridPen = new Pen(Color.FromArgb(GridAlpha, GridAlpha, GridAlpha));
-            // Calculate the Y position of the first line.
-            int firstLineY = (int)(TrackHeight * _renderingScale.Y + trackAreaBounds.Y + _renderingOffset.Y);
-            // Calculate the distance between each following line.
-            int actualRowHeight = (int)((TrackHeight) * _renderingScale.Y + TrackSpacing);
-            actualRowHeight = Math.Max(1, actualRowHeight);
-            // Draw the actual lines.
-            for (int y = firstLineY; y < Height; y += actualRowHeight)
-            {
-                graphics.DrawLine(gridPen, trackAreaBounds.X, y, trackAreaBounds.Width, y);
-            }
+            float y = (2 + index*(TrackHeight + TrackSpacing))*_renderingScale.Y;
+            y += _renderingOffset.Y;
 
-            // The distance between the minor ticks.
-            float minorTickDistance = _renderingScale.X;
-            int minorTickOffset = (int)(_renderingOffset.X % minorTickDistance);
+            // TODO horizontal scroll offset
 
-            // The distance between the regular ticks.
-            int tickDistance = (int)(10f * _renderingScale.X);
-            tickDistance = Math.Max(1, tickDistance);
-
-            // The distance between minute ticks
-            int minuteDistance = tickDistance * 6;
-
-            // Draw a vertical grid. Every 10 ticks, we place a line.
-            int tickOffset = (int)(_renderingOffset.X % tickDistance);
-            int minuteOffset = (int)(_renderingOffset.X % minuteDistance);
-
-            // Calculate the distance between each column line.
-            int columnWidth = (int)(10 * _renderingScale.X);
-            columnWidth = Math.Max(1, columnWidth);
-
-            // Should we draw minor ticks?
-            if (minorTickDistance > 5.0f)
-            {
-                using (Pen minorGridPen = new Pen(Color.FromArgb(30, 30, 30))
-                {
-                    DashStyle = DashStyle.Dot
-                })
-                {
-                    for (float x = minorTickOffset; x < Width; x += minorTickDistance)
-                    {
-                        graphics.DrawLine(minorGridPen, trackAreaBounds.X + x, trackAreaBounds.Y, trackAreaBounds.X + x, trackAreaBounds.Height);
-                    }
-                }
-            }
-
-            int val = 1800; // TODO KBR min / max range
-//            Console.WriteLine("tickOff:{0} tickDist:{1} minuteOff:{2} rendOff:{3}", tickOffset, tickDistance, minuteOffset, _renderingOffset.X);
-            int off = (int)(_renderingOffset.X / minuteDistance);
-            //Console.WriteLine("rendOff:{0} minuteDist:{1} off:{2}", _renderingOffset.X, minuteDistance, off);
-            val -= off * 10;
-
-            // We start one tick distance after the offset to draw the first line that is actually in the display area
-            // The one that is only tickOffset pixels away it behind the track labels.
-            int minutePenColor = (int)(255 * Math.Min(255, GridAlpha * 2) / 255f);
-//            Pen brightPen = new Pen(Color.FromArgb(minutePenColor, minutePenColor, minutePenColor));
-            Pen brightPen = new Pen( Color.GreenYellow );
-            for (int x = tickOffset + tickDistance; x < Width; x += columnWidth)
-            {
-                // Every 60 ticks, we put a brighter, thicker line.
-                Pen penToUse;
-                if ((x - minuteOffset) % minuteDistance == 0) 
-                {
-                    penToUse = brightPen;
-                    var strS = graphics.MeasureString( val.ToString(), _labelFont );
-                    float left = trackAreaBounds.X + x - strS.Width / 2;
-                    float top = trackAreaBounds.Y - _labelFont.GetHeight();
-                    using( var textBrush = new SolidBrush( Color.DodgerBlue ) ) 
-                    {
-                        graphics.DrawString( val.ToString(), _labelFont, textBrush, left, top );
-                    }
-                    val += 10;
-                }
-                else
-                {
-                    penToUse = gridPen;
-                }
-
-                graphics.DrawLine(penToUse, trackAreaBounds.X + x, trackAreaBounds.Y, trackAreaBounds.X + x, trackAreaBounds.Height);
-            }
-
-            gridPen.Dispose();
-            brightPen.Dispose();
+            RectangleF me = new RectangleF(trackAreaBounds.Right - left,
+                                           trackAreaBounds.Y + y,
+                                           left - right,
+                                           TrackHeight * _renderingScale.Y);
+            return me;
         }
+
+        private void DrawTracks(Graphics g)
+        {
+            List<Color> colors = ColorHelper.GetRandomColors(_tracks.Count);
+            Color borderColor = Color.FromArgb(128, Color.Black);
+
+            Rectangle trackAreaBounds = GetTrackAreaBounds();
+
+            int trackIndex = 0;
+            foreach (var track in _tracks)
+            {
+                RectangleF trackRect = TrackRectangle(track, trackIndex);
+
+                // Don't draw track elements that aren't within the target area.
+                if (!trackAreaBounds.IntersectsWith(trackRect.ToRectangle()))
+                {
+                    trackIndex++;
+                    continue;
+                }
+
+                Color trackColor = ColorHelper.AdjustColor(colors[trackIndex], 0, -0.1, -0.2);
+
+                using (Brush b = new SolidBrush(trackColor))
+                    g.FillRectangle(b, trackRect);
+                if (TrackBorderSize > 0)
+                    using (Pen borderPen = new Pen(borderColor, TrackBorderSize))
+                        g.DrawRectangle(borderPen, trackRect.ToRectangle());
+
+                trackIndex++;
+            }
+        }
+
+        private void DrawLabels(Graphics g)
+        {
+            using (Brush b = new SolidBrush(BackgroundColor))
+                g.FillRectangle(b, 0, 0, TrackLabelWidth, Height);
+
+            int trackIndex = 0;
+            foreach (var track in _tracks)
+            {
+                var rect1 = TrackRectangle(track, trackIndex);
+
+                using (Brush b = new SolidBrush(LabelColor))
+                    g.DrawString(track.Name, _labelFont, b, 0, rect1.Top);
+
+                trackIndex++;
+            }
+        }
+
+//        public const int MINUTE_MULTIPLIER = 6;
+
+        /// <summary>
+        ///   Draws the background of the control.
+        /// </summary>
+//        private void DrawBackground(Graphics graphics)
+//        {
+
+//            Rectangle trackAreaBounds = GetTrackAreaBounds();
+
+//            // Draw horizontal grid.
+//            // Grid is white so just take the alpha as the white value.
+//            Pen gridPen = new Pen(Color.FromArgb(GridAlpha, GridAlpha, GridAlpha));
+//            // Calculate the Y position of the first line.
+//            int firstLineY = (int)(TrackHeight * _renderingScale.Y + trackAreaBounds.Y + _renderingOffset.Y);
+//            // Calculate the distance between each following line.
+//            int actualRowHeight = (int)((TrackHeight) * _renderingScale.Y + TrackSpacing);
+//            actualRowHeight = Math.Max(1, actualRowHeight);
+//            // Draw the actual lines.
+//            for (int y = firstLineY; y < Height; y += actualRowHeight)
+//            {
+//                graphics.DrawLine(gridPen, trackAreaBounds.X, y, trackAreaBounds.Width, y);
+//            }
+
+//            // The distance between the minor ticks.
+//            float minorTickDistance = _renderingScale.X;
+//            int minorTickOffset = (int)(_renderingOffset.X % minorTickDistance);
+
+//            // The distance between the regular ticks.
+//            int tickDistance = (int)(10f * _renderingScale.X);
+//            tickDistance = Math.Max(1, tickDistance);
+
+//            // The distance between minute ticks
+//            int minuteDistance = tickDistance*MINUTE_MULTIPLIER; // KBR 6
+
+//            // Draw a vertical grid. Every 10 ticks, we place a line.
+//            int tickOffset = (int)(_renderingOffset.X % tickDistance);
+//            int minuteOffset = (int)(_renderingOffset.X % minuteDistance);
+
+//            // Calculate the distance between each column line.
+//            int columnWidth = (int)(10 * _renderingScale.X);
+//            columnWidth = Math.Max(1, columnWidth);
+
+//            // Should we draw minor ticks?
+//            if (minorTickDistance > 5.0f)
+//            {
+//                using (Pen minorGridPen = new Pen(Color.FromArgb(30, 30, 30))
+//                {
+//                    DashStyle = DashStyle.Dot
+//                })
+//                {
+//                    for (float x = minorTickOffset; x < Width; x += minorTickDistance)
+//                    {
+//                        graphics.DrawLine(minorGridPen, trackAreaBounds.X + x, trackAreaBounds.Y, trackAreaBounds.X + x, trackAreaBounds.Height);
+//                    }
+//                }
+//            }
+
+//            int val = 1800; // TODO KBR min / max range
+////            Console.WriteLine("tickOff:{0} tickDist:{1} minuteOff:{2} rendOff:{3}", tickOffset, tickDistance, minuteOffset, _renderingOffset.X);
+//            int off = (int)(_renderingOffset.X / minuteDistance);
+//            //Console.WriteLine("rendOff:{0} minuteDist:{1} off:{2}", _renderingOffset.X, minuteDistance, off);
+//            val -= off * 10;
+
+//            // We start one tick distance after the offset to draw the first line that is actually in the display area
+//            // The one that is only tickOffset pixels away it behind the track labels.
+//            int minutePenColor = (int)(255 * Math.Min(255, GridAlpha * 2) / 255f);
+////            Pen brightPen = new Pen(Color.FromArgb(minutePenColor, minutePenColor, minutePenColor));
+//            Pen brightPen = new Pen( Color.GreenYellow );
+//            for (int x = tickOffset + tickDistance; x < Width; x += columnWidth)
+//            {
+//                // Every 60 ticks, we put a brighter, thicker line.
+//                Pen penToUse;
+//                if ((x - minuteOffset) % minuteDistance == 0) 
+//                {
+//                    penToUse = brightPen;
+//                    var strS = graphics.MeasureString( val.ToString(), _labelFont );
+//                    float left = trackAreaBounds.X + x - strS.Width / 2;
+//                    float top = trackAreaBounds.Y - _labelFont.GetHeight();
+//                    using( var textBrush = new SolidBrush( Color.DodgerBlue ) ) 
+//                    {
+//                        graphics.DrawString( val.ToString(), _labelFont, textBrush, left, top );
+//                    }
+//                    val += 10;
+//                }
+//                else
+//                {
+//                    penToUse = gridPen;
+//                }
+
+//                graphics.DrawLine(penToUse, trackAreaBounds.X + x, trackAreaBounds.Y, trackAreaBounds.X + x, trackAreaBounds.Height);
+//            }
+
+//            gridPen.Dispose();
+//            brightPen.Dispose();
+//        }
 
         /// <summary>
         ///   Draw a list of tracks onto the timeline.
         /// </summary>
         /// <param name="tracks">The tracks to draw.</param>
         /// <param name="graphics"></param>
-        private void DrawTracks(IEnumerable<ITimelineTrack> tracks, Graphics graphics)
-        {
+        //private void DrawTracks(IEnumerable<ITimelineTrack> tracks, Graphics graphics)
+        //{
 
-            Rectangle trackAreaBounds = GetTrackAreaBounds();
+        //    Rectangle trackAreaBounds = GetTrackAreaBounds();
 
-            // Generate colors for the tracks.
-            List<Color> colors = ColorHelper.GetRandomColors(_tracks.Count);
+        //    // Generate colors for the tracks.
+        //    List<Color> colors = ColorHelper.GetRandomColors(_tracks.Count);
 
-            foreach (ITimelineTrack track in tracks)
-            {
-                // The extent of the track, including the border
-                RectangleF trackExtent = BoundsHelper.GetTrackExtents(track, this);
+        //    foreach (ITimelineTrack track in tracks)
+        //    {
+        //        // The extent of the track, including the border
+        //        RectangleF trackExtent = BoundsHelper.GetTrackExtents(track, this);
 
-                // Don't draw track elements that aren't within the target area.
-                if (!trackAreaBounds.IntersectsWith(trackExtent.ToRectangle()))
-                {
-                    continue;
-                }
+        //        // Don't draw track elements that aren't within the target area.
+        //        if (!trackAreaBounds.IntersectsWith(trackExtent.ToRectangle()))
+        //        {
+        //            continue;
+        //        }
 
-                // The index of this track (or the one it's a substitute for).
-                int trackIndex = TrackIndexForTrack(track);
+        //        // The index of this track (or the one it's a substitute for).
+        //        int trackIndex = TrackIndexForTrack(track);
 
-                // Determine colors for this track
-                Color trackColor = ColorHelper.AdjustColor(colors[trackIndex], 0, -0.1, -0.2);
-                Color borderColor = Color.FromArgb(128, Color.Black);
+        //        // Determine colors for this track
+        //        Color trackColor = ColorHelper.AdjustColor(colors[trackIndex], 0, -0.1, -0.2);
+        //        Color borderColor = Color.FromArgb(128, Color.Black);
 
-                if (_selectedTracks.Contains(track))
-                {
-                    borderColor = Color.WhiteSmoke;
-                }
+        //        if (_selectedTracks.Contains(track))
+        //        {
+        //            borderColor = Color.WhiteSmoke;
+        //        }
 
-                // Draw the main track area.
-                if (track is TrackSurrogate)
-                {
-                    // Draw surrogates with a transparent brush.
-                    graphics.FillRectangle(new SolidBrush(Color.FromArgb(128, trackColor)), trackExtent);
-                }
-                else
-                {
-                    graphics.FillRectangle(new SolidBrush(trackColor), trackExtent);
-                }
+        //        // Draw the main track area.
+        //        if (track is TrackSurrogate)
+        //        {
+        //            // Draw surrogates with a transparent brush.
+        //            graphics.FillRectangle(new SolidBrush(Color.FromArgb(128, trackColor)), trackExtent);
+        //        }
+        //        else
+        //        {
+        //            graphics.FillRectangle(new SolidBrush(trackColor), trackExtent);
+        //        }
 
-                // Compensate for border size
-                trackExtent.X += TrackBorderSize / 2f;
-                trackExtent.Y += TrackBorderSize / 2f;
-                trackExtent.Height -= TrackBorderSize;
-                trackExtent.Width -= TrackBorderSize;
+        //        // Compensate for border size
+        //        trackExtent.X += TrackBorderSize / 2f;
+        //        trackExtent.Y += TrackBorderSize / 2f;
+        //        trackExtent.Height -= TrackBorderSize;
+        //        trackExtent.Width -= TrackBorderSize;
 
-                graphics.DrawRectangle(new Pen(borderColor, TrackBorderSize), trackExtent.X, trackExtent.Y, trackExtent.Width, trackExtent.Height);
-            }
-        }
+        //        graphics.DrawRectangle(new Pen(borderColor, TrackBorderSize), trackExtent.X, trackExtent.Y, trackExtent.Width, trackExtent.Height);
+        //    }
+        //}
 
         /// <summary>
         ///   Draw the labels next to each track.
         /// </summary>
-        private void DrawTrackLabels(Graphics graphics)
-        {
-            foreach (IMultiPartTimelineTrack track in _tracks)
-            {
-                if (!track.TrackElements.Any()) continue;
-                // We just need the height and Y-offset, so we get the extents of the first track
-                RectangleF trackExtents = BoundsHelper.GetTrackExtents(track.TrackElements.First(), this);
-                RectangleF labelRect = new RectangleF(0, trackExtents.Y, TrackLabelWidth, trackExtents.Height);
-                graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 30, 30)), labelRect);
-                graphics.DrawString(track.Name, _labelFont, Brushes.LightGray, labelRect);
-            }
-        }
+        //private void DrawTrackLabels(Graphics graphics)
+        //{
+        //    foreach (IMultiPartTimelineTrack track in _tracks)
+        //    {
+        //        if (!track.TrackElements.Any()) continue;
+        //        // We just need the height and Y-offset, so we get the extents of the first track
+        //        RectangleF trackExtents = BoundsHelper.GetTrackExtents(track.TrackElements.First(), this);
+        //        RectangleF labelRect = new RectangleF(0, trackExtents.Y, TrackLabelWidth, trackExtents.Height);
+        //        graphics.FillRectangle(new SolidBrush(Color.FromArgb(30, 30, 30)), labelRect);
+        //        graphics.DrawString(track.Name, _labelFont, Brushes.LightGray, labelRect);
+        //    }
+        //}
 
         /// <summary>
         ///   Draw a playhead on the timeline.
         ///   The playhead indicates a time value.
         /// </summary>
-        private void DrawPlayhead(Graphics graphics)
-        {
-            // Only draw a playhead if we have a clock set.
-            if (null != Clock)
-            {
-                // Calculate the position of the playhead.
-                Rectangle trackAreaBounds = GetTrackAreaBounds();
+        //private void DrawPlayhead(Graphics graphics)
+        //{
+        //    //// Only draw a playhead if we have a clock set.
+        //    //if (null != Clock)
+        //    //{
+        //    //    // Calculate the position of the playhead.
+        //    //    Rectangle trackAreaBounds = GetTrackAreaBounds();
 
-                // Draw a background for the playhead. This also overdraws elements that drew into the playhead area.
-                graphics.FillRectangle(Brushes.Black, 0, 0, Width, _playheadExtents.Height);
+        //    //    // Draw a background for the playhead. This also overdraws elements that drew into the playhead area.
+        //    //    graphics.FillRectangle(Brushes.Black, 0, 0, Width, _playheadExtents.Height);
 
-                float playheadOffset = (float)(trackAreaBounds.X + (Clock.Value * 0.001f) * _renderingScale.X) + _renderingOffset.X;
-                // Don't draw when not in view.
-                if (playheadOffset < trackAreaBounds.X || playheadOffset > trackAreaBounds.X + trackAreaBounds.Width)
-                {
-                    return;
-                }
+        //    //    float playheadOffset = (float)(trackAreaBounds.X + (Clock.Value * 0.001f) * _renderingScale.X) + _renderingOffset.X;
+        //    //    // Don't draw when not in view.
+        //    //    if (playheadOffset < trackAreaBounds.X || playheadOffset > trackAreaBounds.X + trackAreaBounds.Width)
+        //    //    {
+        //    //        return;
+        //    //    }
 
-                // Draw the playhead as a single line.
-                graphics.DrawLine(Pens.SpringGreen, playheadOffset, trackAreaBounds.Y, playheadOffset, trackAreaBounds.Height);
+        //    //    // Draw the playhead as a single line.
+        //    //    graphics.DrawLine(Pens.SpringGreen, playheadOffset, trackAreaBounds.Y, playheadOffset, trackAreaBounds.Height);
 
-                graphics.FillRectangle(Brushes.SpringGreen, playheadOffset - _playheadExtents.Width / 2, 0, _playheadExtents.Width, _playheadExtents.Height);
-            }
-        }
+        //    //    graphics.FillRectangle(Brushes.SpringGreen, playheadOffset - _playheadExtents.Width / 2, 0, _playheadExtents.Width, _playheadExtents.Height);
+        //    //}
+        //}
 
         /// <summary>
         ///   Draws the selection rectangle the user is drawing.
         /// </summary>
-        private void DrawSelectionRectangle(Graphics graphics)
-        {
-            graphics.DrawRectangle(
-              new Pen(Color.LightGray, 1)
-              {
-                  DashStyle = DashStyle.Dot
-              }, _selectionRectangle.ToRectangle());
-        }
+        //private void DrawSelectionRectangle(Graphics graphics)
+        //{
+        //    graphics.DrawRectangle(
+        //      new Pen(Color.LightGray, 1)
+        //      {
+        //          DashStyle = DashStyle.Dot
+        //      }, _selectionRectangle.ToRectangle());
+        //}
 
         /// <summary>
         ///   Retrieve the index of a given track.
@@ -774,7 +831,15 @@ namespace TimeBeam
             {
                 trackToLookFor = ((TrackSurrogate)track).SubstituteFor;
             }
-            return _tracks.FindIndex(t => t.TrackElements.Contains(trackToLookFor));
+            int i = 0;
+            foreach (var timelineTrack in _tracks)
+            {
+                if (timelineTrack == trackToLookFor)
+                    return i;
+                i++;
+            }
+            return -1;
+            //return _tracks.FindIndex(t => t.TrackElements.Contains(trackToLookFor));
         }
         #endregion
 
@@ -822,22 +887,22 @@ namespace TimeBeam
                     delta = AcceptableMovementDelta(delta);
 
                     // Apply the delta to all selected tracks
-                    foreach (TrackSurrogate selectedTrack in _trackSurrogates)
-                    {
-                        // Store the length of this track
-                        float length = selectedTrack.SubstituteFor.End - selectedTrack.SubstituteFor.Start;
+                    //foreach (TrackSurrogate selectedTrack in _trackSurrogates)
+                    //{
+                    //    // Store the length of this track
+                    //    float length = selectedTrack.SubstituteFor.End - selectedTrack.SubstituteFor.Start;
 
-                        // Calculate the proposed new start for the track depending on the given delta.
-                        float proposedStart = Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
-                        // Snap to next full value
-                        if (!IsKeyDown(Keys.Alt))
-                        {
-                            proposedStart = (float)Math.Round(proposedStart);
-                        }
+                    //    // Calculate the proposed new start for the track depending on the given delta.
+                    //    float proposedStart = Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
+                    //    // Snap to next full value
+                    //    if (!IsKeyDown(Keys.Alt))
+                    //    {
+                    //        proposedStart = (float)Math.Round(proposedStart);
+                    //    }
 
-                        selectedTrack.Start = proposedStart;
-                        selectedTrack.End = proposedStart + length;
-                    }
+                    //    selectedTrack.Start = proposedStart;
+                    //    selectedTrack.End = proposedStart + length;
+                    //}
 
                     // Force a redraw.
                     Invalidate();
@@ -851,41 +916,41 @@ namespace TimeBeam
                     // Calculate the movement delta.
                     PointF delta = PointF.Subtract(location, new SizeF(_dragOrigin));
 
-                    foreach (TrackSurrogate selectedTrack in _trackSurrogates)
-                    {
-                        // Initialize the proposed start and end with the current track values for now.
-                        float proposedStart = selectedTrack.SubstituteFor.Start;
-                        float proposedEnd = selectedTrack.SubstituteFor.End;
+                    //foreach (TrackSurrogate selectedTrack in _trackSurrogates)
+                    //{
+                    //    // Initialize the proposed start and end with the current track values for now.
+                    //    float proposedStart = selectedTrack.SubstituteFor.Start;
+                    //    float proposedEnd = selectedTrack.SubstituteFor.End;
 
-                        // Apply the delta to the start or end of the timeline track,
-                        // depending on the edge where the user originally started the resizing operation.
-                        if ((_activeEdge & RectangleHelper.Edge.Left) != 0)
-                        {
-                            // Adjust the delta so that all selected tracks can be resized without collisions.
-                            delta = AcceptableResizingDelta(delta, true);
-                            proposedStart = Math.Max(0, proposedStart + delta.X * (1 / _renderingScale.X));
-                            // Snap to next full value
-                            if (!IsKeyDown(Keys.Alt))
-                            {
-                                proposedStart = (float)Math.Round(proposedStart);
-                            }
+                    //    // Apply the delta to the start or end of the timeline track,
+                    //    // depending on the edge where the user originally started the resizing operation.
+                    //    if ((_activeEdge & RectangleHelper.Edge.Left) != 0)
+                    //    {
+                    //        // Adjust the delta so that all selected tracks can be resized without collisions.
+                    //        delta = AcceptableResizingDelta(delta, true);
+                    //        proposedStart = Math.Max(0, proposedStart + delta.X * (1 / _renderingScale.X));
+                    //        // Snap to next full value
+                    //        if (!IsKeyDown(Keys.Alt))
+                    //        {
+                    //            proposedStart = (float)Math.Round(proposedStart);
+                    //        }
 
-                        }
-                        else if ((_activeEdge & RectangleHelper.Edge.Right) != 0)
-                        {
-                            // Adjust the delta so that all selected tracks can be resized without collisions.
-                            delta = AcceptableResizingDelta(delta, false);
-                            proposedEnd = Math.Max(0, proposedEnd + (delta.X * (1 / _renderingScale.X)));
-                            // Snap to next full value
-                            if (!IsKeyDown(Keys.Alt))
-                            {
-                                proposedEnd = (float)Math.Round(proposedEnd);
-                            }
-                        }
+                    //    }
+                    //    else if ((_activeEdge & RectangleHelper.Edge.Right) != 0)
+                    //    {
+                    //        // Adjust the delta so that all selected tracks can be resized without collisions.
+                    //        delta = AcceptableResizingDelta(delta, false);
+                    //        proposedEnd = Math.Max(0, proposedEnd + (delta.X * (1 / _renderingScale.X)));
+                    //        // Snap to next full value
+                    //        if (!IsKeyDown(Keys.Alt))
+                    //        {
+                    //            proposedEnd = (float)Math.Round(proposedEnd);
+                    //        }
+                    //    }
 
-                        selectedTrack.Start = proposedStart;
-                        selectedTrack.End = proposedEnd;
-                    }
+                    //    selectedTrack.Start = proposedStart;
+                    //    selectedTrack.End = proposedEnd;
+                    //}
 
                     // Force a redraw.
                     Invalidate();
@@ -929,7 +994,7 @@ namespace TimeBeam
                 }
                 else if (CurrentMode == BehaviorMode.TimeScrub)
                 {
-                    SetClockFromMousePosition(location);
+                    //SetClockFromMousePosition(location);
                     Invalidate();
                 }
 
@@ -1009,133 +1074,133 @@ namespace TimeBeam
         private PointF AcceptableMovementDelta(PointF delta)
         {
             PointF lastDelta;
-            do
-            {
-                lastDelta = delta;
+            //do
+            //{
+            //    lastDelta = delta;
 
-                foreach (TrackSurrogate selectedTrack in _trackSurrogates)
-                {
-                    // Store the length of this track
-                    float length = selectedTrack.SubstituteFor.End - selectedTrack.SubstituteFor.Start;
+            //    foreach (TrackSurrogate selectedTrack in _trackSurrogates)
+            //    {
+            //        // Store the length of this track
+            //        float length = selectedTrack.SubstituteFor.End - selectedTrack.SubstituteFor.Start;
 
-                    // Calculate the proposed new start for the track depending on the given delta.
-                    float proposedStart = Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
+            //        // Calculate the proposed new start for the track depending on the given delta.
+            //        float proposedStart = Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
 
-                    // If the movement on this track would move it to the start of the timeline,
-                    // cap the movement for all tracks.
-                    // TODO: It could be interesting to enable this anyway through a modifier key.
-                    if (proposedStart <= 0)
-                    {
-                        delta.X = -selectedTrack.SubstituteFor.Start * _renderingScale.X;
-                        proposedStart = Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
-                    }
+            //        // If the movement on this track would move it to the start of the timeline,
+            //        // cap the movement for all tracks.
+            //        // TODO: It could be interesting to enable this anyway through a modifier key.
+            //        if (proposedStart <= 0)
+            //        {
+            //            delta.X = -selectedTrack.SubstituteFor.Start * _renderingScale.X;
+            //            proposedStart = Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
+            //        }
 
-                    // Get the index of the selected track to use it as a basis for calculating the proposed new bounding box.
-                    int trackIndex = TrackIndexForTrack(selectedTrack);
-                    // Use the calculated values to get a full screen-space bounding box for the proposed track location.
-                    RectangleF proposed = BoundsHelper.RectangleToTrackExtents(
-                      new RectangleF
-                      {
-                          X = proposedStart,
-                          Width = length,
-                      }, this, trackIndex);
+            //        // Get the index of the selected track to use it as a basis for calculating the proposed new bounding box.
+            //        int trackIndex = TrackIndexForTrack(selectedTrack);
+            //        // Use the calculated values to get a full screen-space bounding box for the proposed track location.
+            //        RectangleF proposed = BoundsHelper.RectangleToTrackExtents(
+            //          new RectangleF
+            //          {
+            //              X = proposedStart,
+            //              Width = length,
+            //          }, this, trackIndex);
 
-                    TrackSurrogate track = selectedTrack;
-                    IOrderedEnumerable<ITimelineTrack> sortedTracks =
-                        // All track elements on the same track as the selected one
-                      _tracks[trackIndex].TrackElements
-                        // Remove the selected tracks and the one we're the substitute for
-                                           .Where(t => t != track.SubstituteFor && !_selectedTracks.Contains(t))
-                        // Sort all by their position on the track
-                                           .OrderBy(t => t.Start);
+            //        TrackSurrogate track = selectedTrack;
+            //        IOrderedEnumerable<ITimelineTrack> sortedTracks =
+            //            // All track elements on the same track as the selected one
+            //          _tracks[trackIndex].TrackElements
+            //            // Remove the selected tracks and the one we're the substitute for
+            //                               .Where(t => t != track.SubstituteFor && !_selectedTracks.Contains(t))
+            //            // Sort all by their position on the track
+            //                               .OrderBy(t => t.Start);
 
-                    if (BoundsHelper.IntersectsAny(proposed, sortedTracks.Select(t => BoundsHelper.GetTrackExtents(t, this))))
-                    {
-                        // Let's grab a list of the tracks so we can iterate by index.
-                        List<ITimelineTrack> sortedTracksList = sortedTracks.ToList();
-                        // If delta points towards left, walk the sorted tracks from the left (respecting the proposed start)
-                        // and try to find a non-colliding window between track elements.
-                        if (delta.X < 0)
-                        {
-                            for (int elementIndex = 0; elementIndex < sortedTracksList.Count(); elementIndex++)
-                            {
-                                // If the right edge of the element is left of our proposed start, then it's too far left to be interesting.
-                                if (sortedTracksList[elementIndex].End < proposedStart)
-                                {
-                                    continue;
-                                }
+            //        if (BoundsHelper.IntersectsAny(proposed, sortedTracks.Select(t => BoundsHelper.GetTrackExtents(t, this))))
+            //        {
+            //            // Let's grab a list of the tracks so we can iterate by index.
+            //            List<ITimelineTrack> sortedTracksList = sortedTracks.ToList();
+            //            // If delta points towards left, walk the sorted tracks from the left (respecting the proposed start)
+            //            // and try to find a non-colliding window between track elements.
+            //            if (delta.X < 0)
+            //            {
+            //                for (int elementIndex = 0; elementIndex < sortedTracksList.Count(); elementIndex++)
+            //                {
+            //                    // If the right edge of the element is left of our proposed start, then it's too far left to be interesting.
+            //                    if (sortedTracksList[elementIndex].End < proposedStart)
+            //                    {
+            //                        continue;
+            //                    }
 
-                                // The right edge of the element is right of our proposed start. So this is at least the first one we intersect with.
-                                // So we'll move our proposed start at the end of that element. However, this could cause another collision at the end of our element.
-                                proposedStart = sortedTracksList[elementIndex].End;
+            //                    // The right edge of the element is right of our proposed start. So this is at least the first one we intersect with.
+            //                    // So we'll move our proposed start at the end of that element. However, this could cause another collision at the end of our element.
+            //                    proposedStart = sortedTracksList[elementIndex].End;
 
-                                // Are we at the last element? Then there's no need to check further, we can always snap here.
-                                if (elementIndex == sortedTracksList.Count - 1)
-                                {
-                                    break;
-                                }
+            //                    // Are we at the last element? Then there's no need to check further, we can always snap here.
+            //                    if (elementIndex == sortedTracksList.Count - 1)
+            //                    {
+            //                        break;
+            //                    }
 
-                                // Does the next element in line collide with the end of our selected track?
-                                if (sortedTracksList[elementIndex + 1].Start < proposedStart + length)
-                                {
-                                    continue;
-                                }
+            //                    // Does the next element in line collide with the end of our selected track?
+            //                    if (sortedTracksList[elementIndex + 1].Start < proposedStart + length)
+            //                    {
+            //                        continue;
+            //                    }
 
-                                break;
-                            }
+            //                    break;
+            //                }
 
-                        }
-                        else if (delta.X > 0)
-                        {
-                            // If delta points right, walk the sorted tracks from the right and do the same thing as above.
-                            for (int elementIndex = sortedTracksList.Count() - 1; elementIndex >= 0; elementIndex--)
-                            {
-                                // If the left edge of the element is right of our proposed end, then it's too far right to be interesting.
-                                if (sortedTracksList[elementIndex].Start > proposedStart + length)
-                                {
-                                    continue;
-                                }
+            //            }
+            //            else if (delta.X > 0)
+            //            {
+            //                // If delta points right, walk the sorted tracks from the right and do the same thing as above.
+            //                for (int elementIndex = sortedTracksList.Count() - 1; elementIndex >= 0; elementIndex--)
+            //                {
+            //                    // If the left edge of the element is right of our proposed end, then it's too far right to be interesting.
+            //                    if (sortedTracksList[elementIndex].Start > proposedStart + length)
+            //                    {
+            //                        continue;
+            //                    }
 
-                                // The left edge of the element is left of our proposed end. So this is at least the first one we intersect with.
-                                // So we'll move our proposed end at the start of that element. However, this could cause another collision at the start of our element.
-                                proposedStart = sortedTracksList[elementIndex].Start - length;
+            //                    // The left edge of the element is left of our proposed end. So this is at least the first one we intersect with.
+            //                    // So we'll move our proposed end at the start of that element. However, this could cause another collision at the start of our element.
+            //                    proposedStart = sortedTracksList[elementIndex].Start - length;
 
-                                // Are we at the first element? Then there's no need to check further, we can always snap here.
-                                // We can always snap because we're moving right and this is the first element that is not ourself.
-                                // So we were placed in front of it anyway and we're now just moving closer to it.
-                                if (elementIndex == 0)
-                                {
-                                    break;
-                                }
+            //                    // Are we at the first element? Then there's no need to check further, we can always snap here.
+            //                    // We can always snap because we're moving right and this is the first element that is not ourself.
+            //                    // So we were placed in front of it anyway and we're now just moving closer to it.
+            //                    if (elementIndex == 0)
+            //                    {
+            //                        break;
+            //                    }
 
-                                // Does the next element in line collide with the start of our selected track?
-                                if (sortedTracksList[elementIndex - 1].End > proposedStart)
-                                {
-                                    continue;
-                                }
+            //                    // Does the next element in line collide with the start of our selected track?
+            //                    if (sortedTracksList[elementIndex - 1].End > proposedStart)
+            //                    {
+            //                        continue;
+            //                    }
 
-                                break;
-                            }
-                        }
+            //                    break;
+            //                }
+            //            }
 
-                        if (delta.X < 0)
-                        {
-                            delta.X = Math.Max(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
-                        }
-                        else
-                        {
-                            delta.X = Math.Min(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
-                        }
-                    }
+            //            if (delta.X < 0)
+            //            {
+            //                delta.X = Math.Max(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
+            //            }
+            //            else
+            //            {
+            //                delta.X = Math.Min(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
+            //            }
+            //        }
 
-                    // If the delta is nearing zero, bail out.
-                    if (Math.Abs(delta.X) < 0.001f)
-                    {
-                        delta.X = 0;
-                        return delta;
-                    }
-                }
-            } while (!lastDelta.Equals(delta));
+            //        // If the delta is nearing zero, bail out.
+            //        if (Math.Abs(delta.X) < 0.001f)
+            //        {
+            //            delta.X = 0;
+            //            return delta;
+            //        }
+            //    }
+            //} while (!lastDelta.Equals(delta));
 
             return delta;
         }
@@ -1151,100 +1216,100 @@ namespace TimeBeam
         /// <returns>The adjusted resizing delta that is acceptable for all selected tracks.</returns>
         private PointF AcceptableResizingDelta(PointF delta, bool adjustStart)
         {
-            foreach (TrackSurrogate selectedTrack in _trackSurrogates)
-            {
-                // Calculate the proposed new start and end for the track depending on the adjustStart parameter and given delta..
-                float proposedStart = (!adjustStart) ? selectedTrack.SubstituteFor.Start : Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
-                float proposedEnd = (adjustStart) ? selectedTrack.SubstituteFor.End : Math.Max(0, selectedTrack.SubstituteFor.End + (delta.X * (1 / _renderingScale.X)));
-                // Get the index of the selected track to use it as a basis for calculating the proposed new bounding box.
-                int trackIndex = TrackIndexForTrack(selectedTrack);
-                // Use the calculated values to get a full screen-space bounding box for the proposed track location.
-                RectangleF proposed = BoundsHelper.RectangleToTrackExtents(
-                  new RectangleF
-                  {
-                      X = proposedStart,
-                      Width = proposedEnd - proposedStart,
-                  }, this, trackIndex);
+            //foreach (TrackSurrogate selectedTrack in _trackSurrogates)
+            //{
+            //    // Calculate the proposed new start and end for the track depending on the adjustStart parameter and given delta..
+            //    float proposedStart = (!adjustStart) ? selectedTrack.SubstituteFor.Start : Math.Max(0, selectedTrack.SubstituteFor.Start + (delta.X * (1 / _renderingScale.X)));
+            //    float proposedEnd = (adjustStart) ? selectedTrack.SubstituteFor.End : Math.Max(0, selectedTrack.SubstituteFor.End + (delta.X * (1 / _renderingScale.X)));
+            //    // Get the index of the selected track to use it as a basis for calculating the proposed new bounding box.
+            //    int trackIndex = TrackIndexForTrack(selectedTrack);
+            //    // Use the calculated values to get a full screen-space bounding box for the proposed track location.
+            //    RectangleF proposed = BoundsHelper.RectangleToTrackExtents(
+            //      new RectangleF
+            //      {
+            //          X = proposedStart,
+            //          Width = proposedEnd - proposedStart,
+            //      }, this, trackIndex);
 
-                // If the movement on this track would move it to the start of the timeline,
-                // cap the movement for all tracks.
-                // TODO: It could be interesting to enable this anyway through a modifier key.
-                if (adjustStart && proposedStart <= 0)
-                {
-                    delta.X = -selectedTrack.SubstituteFor.Start * _renderingScale.X;
-                    return delta;
-                }
+            //    // If the movement on this track would move it to the start of the timeline,
+            //    // cap the movement for all tracks.
+            //    // TODO: It could be interesting to enable this anyway through a modifier key.
+            //    if (adjustStart && proposedStart <= 0)
+            //    {
+            //        delta.X = -selectedTrack.SubstituteFor.Start * _renderingScale.X;
+            //        return delta;
+            //    }
 
-                TrackSurrogate track = selectedTrack;
-                IOrderedEnumerable<ITimelineTrack> sortedTracks =
-                    // All track elements on the same track as the selected one
-                  _tracks[trackIndex].TrackElements
-                    // Add all track surrogates on the same track (except ourself)
-                                       .Concat(_trackSurrogates.Where(t => t != track && TrackIndexForTrack(t) == trackIndex))
-                    // Remove the selected tracks and the one we're the substitute for
-                                       .Where(t => t != track.SubstituteFor && !_selectedTracks.Contains(t))
-                    // Sort all by their position on the track
-                                       .OrderBy(t => t.Start);
+            //    TrackSurrogate track = selectedTrack;
+            //    IOrderedEnumerable<ITimelineTrack> sortedTracks =
+            //        // All track elements on the same track as the selected one
+            //      _tracks[trackIndex].TrackElements
+            //        // Add all track surrogates on the same track (except ourself)
+            //                           .Concat(_trackSurrogates.Where(t => t != track && TrackIndexForTrack(t) == trackIndex))
+            //        // Remove the selected tracks and the one we're the substitute for
+            //                           .Where(t => t != track.SubstituteFor && !_selectedTracks.Contains(t))
+            //        // Sort all by their position on the track
+            //                           .OrderBy(t => t.Start);
 
-                if (BoundsHelper.IntersectsAny(proposed, sortedTracks.Select(t => BoundsHelper.GetTrackExtents(t, this))))
-                {
-                    // Let's grab a list of the tracks so we can iterate by index.
-                    List<ITimelineTrack> sortedTracksList = sortedTracks.ToList();
-                    if (adjustStart)
-                    {
-                        for (int elementIndex = sortedTracksList.Count() - 1; elementIndex >= 0; elementIndex--)
-                        {
-                            if (sortedTracksList[elementIndex].Start >= selectedTrack.SubstituteFor.Start)
-                            {
-                                continue;
-                            }
+            //    if (BoundsHelper.IntersectsAny(proposed, sortedTracks.Select(t => BoundsHelper.GetTrackExtents(t, this))))
+            //    {
+            //        // Let's grab a list of the tracks so we can iterate by index.
+            //        List<ITimelineTrack> sortedTracksList = sortedTracks.ToList();
+            //        if (adjustStart)
+            //        {
+            //            for (int elementIndex = sortedTracksList.Count() - 1; elementIndex >= 0; elementIndex--)
+            //            {
+            //                if (sortedTracksList[elementIndex].Start >= selectedTrack.SubstituteFor.Start)
+            //                {
+            //                    continue;
+            //                }
 
-                            proposedStart = sortedTracksList[elementIndex].End;
-                            break;
-                        }
+            //                proposedStart = sortedTracksList[elementIndex].End;
+            //                break;
+            //            }
 
-                        // Write back delta depending on calculated start value.
-                        if (delta.X < 0)
-                        {
-                            delta.X = Math.Max(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
-                        }
-                        else
-                        {
-                            delta.X = Math.Min(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
-                        }
-                    }
-                    else
-                    {
-                        for (int elementIndex = 0; elementIndex < sortedTracksList.Count(); elementIndex++)
-                        {
-                            if (sortedTracksList[elementIndex].End <= selectedTrack.SubstituteFor.Start)
-                            {
-                                continue;
-                            }
+            //            // Write back delta depending on calculated start value.
+            //            if (delta.X < 0)
+            //            {
+            //                delta.X = Math.Max(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
+            //            }
+            //            else
+            //            {
+            //                delta.X = Math.Min(delta.X, (proposedStart - selectedTrack.SubstituteFor.Start) * _renderingScale.X);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            for (int elementIndex = 0; elementIndex < sortedTracksList.Count(); elementIndex++)
+            //            {
+            //                if (sortedTracksList[elementIndex].End <= selectedTrack.SubstituteFor.Start)
+            //                {
+            //                    continue;
+            //                }
 
-                            proposedEnd = sortedTracksList[elementIndex].Start;
-                            break;
-                        }
+            //                proposedEnd = sortedTracksList[elementIndex].Start;
+            //                break;
+            //            }
 
-                        // Write back delta depending on calculated end value.
-                        if (delta.X < 0)
-                        {
-                            delta.X = Math.Max(delta.X, (proposedEnd - selectedTrack.SubstituteFor.End) * _renderingScale.X);
-                        }
-                        else
-                        {
-                            delta.X = Math.Min(delta.X, (proposedEnd - selectedTrack.SubstituteFor.End) * _renderingScale.X);
-                        }
+            //            // Write back delta depending on calculated end value.
+            //            if (delta.X < 0)
+            //            {
+            //                delta.X = Math.Max(delta.X, (proposedEnd - selectedTrack.SubstituteFor.End) * _renderingScale.X);
+            //            }
+            //            else
+            //            {
+            //                delta.X = Math.Min(delta.X, (proposedEnd - selectedTrack.SubstituteFor.End) * _renderingScale.X);
+            //            }
 
-                    }
-                }
+            //        }
+            //    }
 
-                // If the delta is nearing zero, bail out.
-                if (Math.Abs(0 - delta.X) < 0.001f)
-                {
-                    return delta;
-                }
-            }
+            //    // If the delta is nearing zero, bail out.
+            //    if (Math.Abs(0 - delta.X) < 0.001f)
+            //    {
+            //        return delta;
+            //    }
+            //}
 
             return delta;
         }
@@ -1311,7 +1376,7 @@ namespace TimeBeam
                 else if (location.Y < _playheadExtents.Height)
                 {
                     CurrentMode = BehaviorMode.TimeScrub;
-                    SetClockFromMousePosition(location);
+                    //SetClockFromMousePosition(location);
 
                 }
                 else
@@ -1358,29 +1423,29 @@ namespace TimeBeam
                     int trackIndex = TrackLabelHitTest(location);
                     if (-1 < trackIndex)
                     {
-                        IMultiPartTimelineTrack track = _tracks[trackIndex];
+                        //IMultiPartTimelineTrack track = _tracks[trackIndex];
 
-                        // SingleTrackToMultiTrackWrapper instances are implicitly created by the timeline itself.
-                        // There is no need to invoke the method, as the single track element it contains will be notified by the loop below.
-                        if (!(track is SingleTrackToMultiTrackWrapper))
-                        {
-                            InvokeSelectionChanged(new SelectionChangedEventArgs(track.Yield(), null));
-                        }
+                        //// SingleTrackToMultiTrackWrapper instances are implicitly created by the timeline itself.
+                        //// There is no need to invoke the method, as the single track element it contains will be notified by the loop below.
+                        //if (!(track is SingleTrackToMultiTrackWrapper))
+                        //{
+                        //    InvokeSelectionChanged(new SelectionChangedEventArgs(track.Yield(), null));
+                        //}
 
-                        foreach (ITimelineTrack trackElement in track.TrackElements)
-                        {
-                            // Toggle track in and out of selection.
-                            if (_selectedTracks.Contains(trackElement))
-                            {
-                                _selectedTracks.Remove(trackElement);
-                                InvokeSelectionChanged(new SelectionChangedEventArgs(null, trackElement.Yield()));
-                            }
-                            else
-                            {
-                                _selectedTracks.Add(trackElement);
-                                InvokeSelectionChanged(new SelectionChangedEventArgs(trackElement.Yield(), null));
-                            }
-                        }
+                        //foreach (ITimelineTrack trackElement in track.TrackElements)
+                        //{
+                        //    // Toggle track in and out of selection.
+                        //    if (_selectedTracks.Contains(trackElement))
+                        //    {
+                        //        _selectedTracks.Remove(trackElement);
+                        //        InvokeSelectionChanged(new SelectionChangedEventArgs(null, trackElement.Yield()));
+                        //    }
+                        //    else
+                        //    {
+                        //        _selectedTracks.Add(trackElement);
+                        //        InvokeSelectionChanged(new SelectionChangedEventArgs(trackElement.Yield(), null));
+                        //    }
+                        //}
 
                     }
                     else
@@ -1389,26 +1454,26 @@ namespace TimeBeam
                         // Construct the correct rectangle spanning from the selection origin to the current cursor position.
                         RectangleF selectionRectangle = RectangleHelper.Normalize(_selectionOrigin, location);
 
-                        foreach (ITimelineTrack track in _tracks.SelectMany(t => t.TrackElements))
-                        {
-                            RectangleF boundingRectangle = BoundsHelper.GetTrackExtents(track, this);
+                        //foreach (ITimelineTrack track in _tracks.SelectMany(t => t.TrackElements))
+                        //{
+                        //    RectangleF boundingRectangle = BoundsHelper.GetTrackExtents(track, this);
 
-                            // Check if the track item is selected by the selection rectangle.
-                            if (SelectionHelper.IsSelected(selectionRectangle, boundingRectangle, ModifierKeys))
-                            {
-                                // Toggle track in and out of selection.
-                                if (_selectedTracks.Contains(track))
-                                {
-                                    _selectedTracks.Remove(track);
-                                    InvokeSelectionChanged(new SelectionChangedEventArgs(null, track.Yield()));
-                                }
-                                else
-                                {
-                                    _selectedTracks.Add(track);
-                                    InvokeSelectionChanged(new SelectionChangedEventArgs(track.Yield(), null));
-                                }
-                            }
-                        }
+                        //    // Check if the track item is selected by the selection rectangle.
+                        //    if (SelectionHelper.IsSelected(selectionRectangle, boundingRectangle, ModifierKeys))
+                        //    {
+                        //        // Toggle track in and out of selection.
+                        //        if (_selectedTracks.Contains(track))
+                        //        {
+                        //            _selectedTracks.Remove(track);
+                        //            InvokeSelectionChanged(new SelectionChangedEventArgs(null, track.Yield()));
+                        //        }
+                        //        else
+                        //        {
+                        //            _selectedTracks.Add(track);
+                        //            InvokeSelectionChanged(new SelectionChangedEventArgs(track.Yield(), null));
+                        //        }
+                        //    }
+                        //}
                     }
 
                 }
@@ -1456,10 +1521,10 @@ namespace TimeBeam
                 // Ctrl+A - Select all
                 InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks));
                 _selectedTracks.Clear();
-                foreach (ITimelineTrack track in _tracks.SelectMany(t => t.TrackElements))
-                {
-                    _selectedTracks.Add(track);
-                }
+                //foreach (ITimelineTrack track in _tracks.SelectMany(t => t.TrackElements))
+                //{
+                //    _selectedTracks.Add(track);
+                //}
                 InvokeSelectionChanged(new SelectionChangedEventArgs(_selectedTracks, null));
                 Invalidate();
 

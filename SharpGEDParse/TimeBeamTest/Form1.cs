@@ -33,9 +33,11 @@ namespace TimeBeamTest
 
             LoadGed += Form1_LoadGed;
 
-            timeline1.Clock = null; // TODO KBR _clock;
-            timeline1.TrackBorderSize = 0; // TODO KBR
+            timeline1.TrackBorderSize = 2; // TODO KBR
             timeline1.TrackLabelWidth = 200; // TODO should adjust automagically
+            timeline1.TrackSpacing = 5; // TODO primary/secondary spacing
+            timeline1.TrackHeight = 20;
+            timeline1.DecadeLabelHigh = 16;
         }
 
         private void loadGEDCOMToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -188,7 +190,7 @@ namespace TimeBeamTest
         private class AdjustMyLength : ITimelineTrack
         {
             public float Start { get; set; }
-            public float End { get; set; }
+            public float? End { get; set; }
             public string Name { get; set; }
 
             public override string ToString() // TODO not used?
@@ -207,20 +209,27 @@ namespace TimeBeamTest
             var deat = val.Death;
             var name = val.Name;
 
-            float yrs;
+            float yrs = JDN1800_01_01;
             float secs;
             float start = 60.0f;
             if (birt == null || birt.GedDate == null || birt.GedDate.Type==GEDDate.Types.Unknown)
             {
                 ; // TODO need extrapolated
+                GEDDate birt2 = val.ExtrapolateBirth();
+                if (birt2 != null && birt2.Type != GEDDate.Types.Unknown)
+                {
+                    name = "*" + name;
+                    yrs = birt2.JDN;
+                }
             }
             else
             {
-                yrs = (birt.GedDate.JDN - JDN1800_01_01) / 365.0f;
-            int yr1 = (int)yrs + 1800;
-                secs = yrs * 6; // six seconds equals one year
-                start = 60.0f + secs;
+                yrs = birt.GedDate.JDN;
             }
+            yrs = (yrs - JDN1800_01_01) / 365.0f;
+            int yr1 = (int)yrs + 1800;
+            secs = yrs * 6; // six seconds equals one year
+            start = 60.0f + secs;
 
             if (deat == null || val.Indi.Living || deat.GedDate == null)
                 yrs = JDN2017_01_01;
@@ -231,13 +240,25 @@ namespace TimeBeamTest
             secs = yrs * 6;
             float end = 60.0f + secs;
 
-            timeline1.AddTrack(new AdjustMyLength { Start = start, End = end, Name = string.Format("{0}({1})[{2}-{3}]",name,mark, yr1,yr2) });
+            int? showEnd = null;
+            if (deat != null && !val.Indi.Living && deat.GedDate != null)
+                showEnd = yr2;
+
+            var outName = string.Format("{0}({1})[{2}-{3}]", name, mark, yr1, showEnd.HasValue ? yr2.ToString() : "");
+
+            var aml = new AdjustMyLength();
+            aml.Start = yr1;
+            if (deat != null && !val.Indi.Living && deat.GedDate != null)
+                aml.End = yr2;
+            aml.Name = outName;
+
+            timeline1.AddTrack(aml);
 
             Track person = new MyTrack();
             person.Start = yr1;
             if (deat != null && !val.Indi.Living && deat.GedDate != null)
                 person.End = yr2;
-            person.Name = string.Format("{0}({1})[{2}-{3}]", name, mark, yr1, person.End.HasValue ? yr2.ToString() : "");
+            person.Name = outName;
             gedTime1.AddTrack(person);
         }
 

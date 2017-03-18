@@ -17,6 +17,7 @@ namespace TimeBeam {
         components.Dispose();
       }
       base.Dispose( disposing );
+      _labelFont.Dispose();
     }
 
     #region Component Designer generated code

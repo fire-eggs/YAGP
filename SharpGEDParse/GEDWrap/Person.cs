@@ -1,4 +1,5 @@
-﻿using SharpGEDParser.Model;
+﻿using System;
+using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -146,6 +147,109 @@ namespace GEDWrap
                 var christ = GetEvent("CHR");
                 return christ;
             }
+        }
+
+        private void RangeCheck(Person p, ref long lastBorn, ref long firstDead)
+        {
+            if (p == null)
+                return;
+            if (p.Birth != null &&
+            p.Birth.GedDate != null &&
+            p.Birth.GedDate.Type != GEDDate.Types.Unknown)
+            {
+                GEDDate dadBorn = p.Birth.GedDate;
+                if (dadBorn.JDN > lastBorn)
+                    lastBorn = dadBorn.JDN;
+            }
+            if (p.Death != null &&
+                p.Death.GedDate != null &&
+                p.Death.GedDate.Type != GEDDate.Types.Unknown)
+            {
+                GEDDate dadBorn = p.Death.GedDate;
+                if (dadBorn.JDN > firstDead)
+                    firstDead = dadBorn.JDN;
+            }
+        }
+
+        public GEDDate ExtrapolateBirth()
+        {
+            // 1. person not born before parent-birth+16
+            // 2. person not born after parent-death+1
+            // 3. person not born before own-marriage-date-16
+            // 4. person not born before parent-marriage-date-1
+            // 5. person not born before child-16
+            // 6. person not born before spouse-birth-50
+
+            long firstParentMarriage = long.MaxValue;
+            long firstOwnMarriage = long.MaxValue;
+            long lastParentBorn = long.MinValue;
+            long firstParentDead = long.MaxValue;
+            long firstSpouseBorn = long.MinValue;
+            long firstChildBorn = long.MinValue;
+            foreach (var union in _childIn)
+            {
+                // TODO this is not taking adoption into account!
+
+                RangeCheck(union.Husband, ref lastParentBorn, ref firstParentDead);
+                RangeCheck(union.Wife, ref lastParentBorn, ref firstParentDead);
+
+                GEDDate md = union.MarriageDate;
+                if (md != null && md.Type != GEDDate.Types.Unknown && md.JDN < firstParentMarriage)
+                    firstParentMarriage = md.JDN;
+            }
+            foreach (var union in _spouseIn)
+            {
+                long junk = 0;
+                GEDDate md = union.MarriageDate;
+                if (md != null && md.Type != GEDDate.Types.Unknown && md.JDN < firstOwnMarriage)
+                    firstOwnMarriage = md.JDN;
+                if (union.Husband != this) // TODO 'otherspouse' accessor?
+                    RangeCheck(union.Husband, ref firstSpouseBorn, ref junk);
+                else
+                    RangeCheck(union.Wife, ref firstSpouseBorn, ref junk);
+                foreach (var child in union.Childs)
+                {
+                    RangeCheck(child, ref firstChildBorn, ref junk);
+                }
+            }
+
+            long result = 0;
+            if (lastParentBorn != long.MinValue)
+            {
+                // 1. person not born before parent-birth+16
+                result = Math.Max(result, lastParentBorn + 16 * 365);
+            }
+            if (firstParentMarriage != long.MaxValue)
+            {
+                // 4. person not born before parent-marriage-date-1
+                result = Math.Max(result, firstParentMarriage - 365);
+            }
+            if (firstParentDead != long.MaxValue)
+            {
+                // 2. person not born after parent-death+1
+                result = Math.Min(result, firstParentDead + 365);
+            }
+            if (firstOwnMarriage != long.MaxValue)
+            {
+                // 3. person not born before own-marriage-date-16
+                result = Math.Max(result, firstOwnMarriage - 16 * 365);
+            }
+            if (firstChildBorn != long.MinValue)
+            {
+                // 5. person not born before child-16
+                result = Math.Max(result, firstChildBorn - 16 * 365);
+            }
+            if (firstSpouseBorn != long.MinValue)
+            {
+                // 6. person not born before spouse-birth-50
+                result = Math.Max(result, firstSpouseBorn - 50 * 365);
+            }
+            if (result == 0)
+                return null;
+
+            GEDDate output = new GEDDate(GEDDate.Types.Estimated);
+            output.JDN = result;
+            return output;
         }
 
         // Return Death/Burial/Cremation event

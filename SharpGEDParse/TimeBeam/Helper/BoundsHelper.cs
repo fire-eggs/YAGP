@@ -14,7 +14,7 @@ namespace TimeBeam.Helper {
     /// <returns>The bounding rectangle for the given track.</returns>
     internal static RectangleF GetTrackExtents( ITimelineTrack track, Timeline timeline ) {
       int trackIndex = timeline.TrackIndexForTrack( track );
-      return RectangleToTrackExtents( new RectangleF( track.Start, 0, track.End - track.Start, 0 ), timeline, trackIndex );
+      return RectangleToTrackExtents( new RectangleF( track.Start, 0, track.End.GetValueOrDefault() - track.Start, 0 ), timeline, trackIndex );
     }
 
     /// <summary>

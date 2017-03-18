@@ -181,9 +181,11 @@
             // 
             // gedTime1
             // 
+            this.gedTime1.BackgroundColor = System.Drawing.Color.PowderBlue;
             this.gedTime1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gedTime1.Location = new System.Drawing.Point(3, 244);
             this.gedTime1.Name = "gedTime1";
+            this.gedTime1.RenderingScale = ((System.Drawing.PointF)(resources.GetObject("gedTime1.RenderingScale")));
             this.gedTime1.Size = new System.Drawing.Size(818, 188);
             this.gedTime1.TabIndex = 2;
             // 

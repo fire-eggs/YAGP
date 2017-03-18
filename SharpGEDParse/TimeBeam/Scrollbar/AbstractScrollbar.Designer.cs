@@ -1,4 +1,4 @@
-﻿namespace TimeBeam {
+﻿namespace TimeBeam.Scrollbar {
   partial class AbstractScrollbar {
     /// <summary> 
     /// Required designer variable.

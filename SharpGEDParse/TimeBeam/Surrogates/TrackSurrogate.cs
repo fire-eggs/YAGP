@@ -2,7 +2,8 @@
   /// <summary>
   ///   A substitute for another track on the timeline.
   /// </summary>
-  internal class TrackSurrogate : ITimelineTrack {
+  internal class TrackSurrogate : ITimelineTrack 
+  {
     /// <summary>
     ///   The object this surrogate is a substitute for.
     /// </summary>
@@ -16,7 +17,7 @@
     /// <summary>
     ///   The end of the item.
     /// </summary>
-    public float End { get; set; }
+    public float? End { get; set; }
 
     /// <summary>
     ///   The name of the item.

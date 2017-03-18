@@ -129,7 +129,7 @@ namespace TimeBeamTest
         private void DrawTracks(Graphics g)
         {
             Rectangle trackAreaBounds = GetTrackAreaBounds();
-            float y = 2 * _renderingScale.Y;
+            float y = _renderingScale.Y;
 
             foreach (var track in _tracks)
             {

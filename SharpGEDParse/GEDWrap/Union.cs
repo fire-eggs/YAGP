@@ -36,5 +36,27 @@ namespace GEDWrap
             // Is the provided indi the husb or wife?
             return (MomId == indi.Id || DadId == indi.Id);
         }
+
+        private FamilyEvent GetEvent(string tag)
+        {
+            foreach (var kbrGedEvent in FamRec.FamEvents)
+            {
+                if (kbrGedEvent.Tag == tag)
+                {
+                    return kbrGedEvent;
+                }
+            }
+            return null;
+        }
+
+        public FamilyEvent Marriage
+        {
+            get { return GetEvent("MARR"); }
+        }
+
+        public GEDDate MarriageDate
+        {
+            get { return Marriage == null ? null : Marriage.GedDate; }
+        }
     }
 }
