@@ -178,7 +178,7 @@ namespace GEDWrap
             // 3. person not born before own-marriage-date-16
             // 4. person not born before parent-marriage-date-1
             // 5. person not born before child-16
-            // 6. person not born before spouse-birth-50
+            // 6. person not born before spouse-birth-20
 
             long firstParentMarriage = long.MaxValue;
             long firstOwnMarriage = long.MaxValue;
@@ -221,8 +221,8 @@ namespace GEDWrap
             }
             if (firstParentMarriage != long.MaxValue)
             {
-                // 4. person not born before parent-marriage-date-1
-                result = Math.Max(result, firstParentMarriage - 365);
+                // 4. person not born before parent-marriage-date+1
+                result = Math.Max(result, firstParentMarriage + 365);
             }
             if (firstParentDead != long.MaxValue)
             {
@@ -237,12 +237,15 @@ namespace GEDWrap
             if (firstChildBorn != long.MinValue)
             {
                 // 5. person not born before child-16
-                result = Math.Max(result, firstChildBorn - 16 * 365);
+                if (result == 0) // TODO init to MAXVALUE?
+                    result = firstChildBorn - 16*365;
+                else
+                    result = Math.Min(result, firstChildBorn - 16*365);
             }
             if (firstSpouseBorn != long.MinValue)
             {
-                // 6. person not born before spouse-birth-50
-                result = Math.Max(result, firstSpouseBorn - 50 * 365);
+                // 6. person not born before spouse-birth-20
+                result = Math.Max(result, firstSpouseBorn - 20 * 365);
             }
             if (result == 0)
                 return null;
