@@ -836,10 +836,10 @@ namespace TimeBeam
         internal int TrackIndexForTrack(ITimelineTrack track)
         {
             ITimelineTrack trackToLookFor = track;
-            if (track is TrackSurrogate)
-            {
-                trackToLookFor = ((TrackSurrogate)track).SubstituteFor;
-            }
+            //if (track is TrackSurrogate)
+            //{
+            //    trackToLookFor = ((TrackSurrogate)track).SubstituteFor;
+            //}
             int i = 0;
             foreach (var timelineTrack in _tracks)
             {
@@ -1490,11 +1490,11 @@ namespace TimeBeam
                 else if (CurrentMode == BehaviorMode.MovingSelection || CurrentMode == BehaviorMode.ResizingSelection)
                 {
                     // The moving operation ended, apply the values of the surrogates to the originals
-                    foreach (TrackSurrogate surrogate in _trackSurrogates)
-                    {
-                        surrogate.CopyTo(surrogate.SubstituteFor);
-                    }
-                    _trackSurrogates.Clear();
+                    //foreach (TrackSurrogate surrogate in _trackSurrogates)
+                    //{
+                    //    surrogate.CopyTo(surrogate.SubstituteFor);
+                    //}
+                    //_trackSurrogates.Clear();
 
                     RecalculateScrollbarBounds();
                 }

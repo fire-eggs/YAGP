@@ -14,8 +14,10 @@ namespace TimeBeam.Helper {
     /// </summary>
     /// <param name="tracks">The tracks for which to generate surrogates.</param>
     /// <returns>A list of surrogates for the given input series.</returns>
-    public static List<ITimelineTrack> GetSurrogates( IEnumerable<ITimelineTrack> tracks ) {
-      return new List<ITimelineTrack>( tracks.Select( track => new TrackSurrogate( track ) ).ToList() );
+    public static List<ITimelineTrack> GetSurrogates( IEnumerable<ITimelineTrack> tracks )
+    {
+        return null;
+      //return new List<ITimelineTrack>( tracks.Select( track => new TrackSurrogate( track ) ).ToList() );
     }
   }
 }
