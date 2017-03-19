@@ -69,7 +69,7 @@ namespace TimeBeam {
             this.Controls.Add(this.ScrollbarV);
             this.Controls.Add(this.ScrollbarH);
             this.Size = new System.Drawing.Size(800, 200);
-            this.toolTip1.SetToolTip(this, "fee");
+            this.toolTip1.SetToolTip(this, "");
             this.ResumeLayout(false);
 
     }

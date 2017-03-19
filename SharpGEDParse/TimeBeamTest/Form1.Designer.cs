@@ -41,7 +41,6 @@
             this.personSel = new System.Windows.Forms.ComboBox();
             this.zoomIn = new System.Windows.Forms.Button();
             this.zoomOut = new System.Windows.Forms.Button();
-            this.gedTime1 = new TimeBeamTest.GEDTime();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -51,12 +50,15 @@
             // 
             this.timeline1.BackColor = System.Drawing.Color.White;
             this.timeline1.BackgroundColor = System.Drawing.Color.Silver;
+            this.timeline1.DecadeLabelHigh = 16;
             this.timeline1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeline1.FarRightYear = 2024;
             this.timeline1.GridAlpha = 40;
+            this.timeline1.LabelColor = System.Drawing.Color.SaddleBrown;
             this.timeline1.Location = new System.Drawing.Point(3, 50);
             this.timeline1.Name = "timeline1";
             this.timeline1.RenderingScale = ((System.Drawing.PointF)(resources.GetObject("timeline1.RenderingScale")));
-            this.timeline1.Size = new System.Drawing.Size(818, 188);
+            this.timeline1.Size = new System.Drawing.Size(818, 382);
             this.timeline1.TabIndex = 0;
             this.timeline1.Text = "timeline1";
             this.timeline1.TrackBorderSize = 2;
@@ -111,14 +113,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.timeline1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.gedTime1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(824, 435);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
@@ -179,16 +180,6 @@
             this.zoomOut.UseVisualStyleBackColor = true;
             this.zoomOut.Click += new System.EventHandler(this.zoomOut_Click);
             // 
-            // gedTime1
-            // 
-            this.gedTime1.BackgroundColor = System.Drawing.Color.PowderBlue;
-            this.gedTime1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gedTime1.Location = new System.Drawing.Point(3, 244);
-            this.gedTime1.Name = "gedTime1";
-            this.gedTime1.RenderingScale = ((System.Drawing.PointF)(resources.GetObject("gedTime1.RenderingScale")));
-            this.gedTime1.Size = new System.Drawing.Size(818, 188);
-            this.gedTime1.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,7 +215,6 @@
         private System.Windows.Forms.ToolStripMenuItem recentFilesToolStripMenuItem;
         private System.Windows.Forms.Button zoomIn;
         private System.Windows.Forms.Button zoomOut;
-        private GEDTime gedTime1;
     }
 }
 

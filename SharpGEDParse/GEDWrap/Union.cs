@@ -37,7 +37,7 @@ namespace GEDWrap
             return (MomId == indi.Id || DadId == indi.Id);
         }
 
-        private FamilyEvent GetEvent(string tag)
+        public FamilyEvent GetEvent(string tag)
         {
             foreach (var kbrGedEvent in FamRec.FamEvents)
             {

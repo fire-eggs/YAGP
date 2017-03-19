@@ -492,12 +492,24 @@ namespace TimeBeam
             // Clear the buffer
             graphics.Clear(BackgroundColor);
 
+            MeasureLabelSpace(graphics);
             DrawGrid(graphics);
             DrawTracks(graphics);
             DrawLabels(graphics);
 
             ScrollbarH.Refresh();
             ScrollbarV.Refresh();
+        }
+
+        private void MeasureLabelSpace(Graphics g)
+        {
+            var wide = 0.0f;
+            foreach (var track in _tracks)
+            {
+                wide = Math.Max(wide, g.MeasureString(track.Name, _labelFont).Width);
+            }
+            if (wide > TrackLabelWidth)
+                TrackLabelWidth = (int)wide;
         }
 
         public int FarRightYear { get; set; }
@@ -627,6 +639,12 @@ namespace TimeBeam
             }
         }
 
+        private RectangleF LabelRectangle(int index)
+        {
+            var rect1 = TrackRectangle(_tracks[index], index);
+            return new RectangleF(0, rect1.Y, TrackLabelWidth, rect1.Height);
+        }
+
         private void DrawLabels(Graphics g)
         {
             using (Brush b = new SolidBrush(BackgroundColor))
@@ -635,10 +653,19 @@ namespace TimeBeam
             int trackIndex = 0;
             foreach (var track in _tracks)
             {
-                var rect1 = TrackRectangle(track, trackIndex);
+                var rect2 = LabelRectangle(trackIndex);
+                //var rect1 = TrackRectangle(track, trackIndex);
 
                 using (Brush b = new SolidBrush(LabelColor))
-                    g.DrawString(track.Name, _labelFont, b, 0, rect1.Top);
+                    g.DrawString(track.Name, _labelFont, b, rect2.Left, rect2.Top);
+
+                if (track.Split) // TODO take spacing into account
+                    using (Pen p = new Pen(LabelColor))
+                        g.DrawLine(p, 
+                            0, 
+                            rect2.Top-2*_renderingScale.Y, 
+                            Width, 
+                            rect2.Top-2*_renderingScale.Y);
 
                 trackIndex++;
             }
@@ -909,6 +936,7 @@ namespace TimeBeam
             PointF location = new PointF(e.X, e.Y);
             // Check if there is a track at the current mouse position.
             ITimelineTrack focusedTrack = TrackHitTest(location);
+            int labelIndex = TrackLabelHitTest(location);
 
             // Is the left mouse button pressed?
             if ((e.Button & MouseButtons.Left) != 0)
@@ -1095,6 +1123,12 @@ namespace TimeBeam
                     }
 
                 }
+                else if (labelIndex != -1)
+                {
+                    // show that a label can be clicked on
+                    Cursor = Cursors.Hand;
+                    toolTip1.Hide(this);
+                }
                 else
                 {
                     Cursor = Cursors.Arrow;
@@ -1110,7 +1144,7 @@ namespace TimeBeam
         /// <returns>The adjusted movement delta that is acceptable for all selected tracks.</returns>
         private PointF AcceptableMovementDelta(PointF delta)
         {
-            PointF lastDelta;
+            //PointF lastDelta;
             //do
             //{
             //    lastDelta = delta;

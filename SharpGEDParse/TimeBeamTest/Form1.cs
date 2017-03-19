@@ -292,6 +292,8 @@ namespace TimeBeamTest
                 aml.End = yr2;
             aml.Name = outName;
 
+            if (mark == "S") // TODO hack
+                aml.Split = true;
 
             if (mark != "C") // TODO hack
             {
