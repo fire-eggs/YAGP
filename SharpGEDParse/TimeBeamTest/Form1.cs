@@ -7,6 +7,7 @@ using DrawAnce; // TODO need to start collecting utility classes
 using GEDWrap;
 using SharpGEDParser.Model;
 using TimeBeam;
+using TimeBeam.Events;
 
 // ReSharper disable LocalizableElement
 
@@ -33,7 +34,7 @@ namespace TimeBeamTest
 
             LoadGed += Form1_LoadGed;
 
-            timeline1.TrackBorderSize = 2; // TODO KBR
+            timeline1.TrackBorderSize = 1;
             timeline1.TrackLabelWidth = 200; // TODO should adjust automagically
             timeline1.TrackSpacing = 5; // TODO primary/secondary spacing
             timeline1.TrackHeight = 20;
@@ -176,9 +177,11 @@ namespace TimeBeamTest
             SaveSettings();
         }
 
+        private Forest gedtrees;
+
         void Form1_LoadGed(object sender, EventArgs e)
         {
-            Forest gedtrees = new Forest();
+            gedtrees = new Forest();
             // TODO Using LastFile is a hack... pass path in args? not as event?            
             gedtrees.LoadGEDCOM(LastFile);
 
@@ -209,9 +212,18 @@ namespace TimeBeamTest
 
         private class AdjustMyLength : ITimelineTrack
         {
+            public string Id { get; set; }
+
             public float Start { get; set; }
+
+            public TrackStyle StartStyle { get; set; }
+
             public float? End { get; set; }
             public string Name { get; set; }
+
+            public List<Marker> Marks { get; set; }
+
+            public bool Split { get; set; }
 
             public override string ToString() // TODO not used?
             {
@@ -230,17 +242,23 @@ namespace TimeBeamTest
             var name = val.Name;
 
             float yrs = JDN1800_01_01;
-            float secs;
             float start = 60.0f;
+            TrackStyle startStyle = TrackStyle.Precise;
             if (birt == null || birt.GedDate == null || birt.GedDate.Type==GEDDate.Types.Unknown)
             {
                 ; // TODO need extrapolated
                 GEDDate birt2 = val.ExtrapolateBirth();
                 if (birt2 != null && birt2.Type != GEDDate.Types.Unknown)
                 {
-                    name = "*" + name;
                     yrs = birt2.JDN;
                 }
+                else
+                {
+                    // Couldn't extrapolate birth, assume 100 years ago
+                    yrs = JDN2017_01_01 - 100*365;
+                }
+                startStyle = TrackStyle.Imprecise;
+                name = "*" + name;
             }
             else
             {
@@ -248,7 +266,7 @@ namespace TimeBeamTest
             }
             yrs = (yrs - JDN1800_01_01) / 365.0f;
             int yr1 = (int)yrs + 1800;
-            secs = yrs * 6; // six seconds equals one year
+            float secs = yrs * 6;
             start = 60.0f + secs;
 
             if (deat == null || val.Indi.Living || deat.GedDate == null)
@@ -267,19 +285,52 @@ namespace TimeBeamTest
             var outName = string.Format("{0}({1})[{2}-{3}]", name, mark, yr1, showEnd.HasValue ? yr2.ToString() : "");
 
             var aml = new AdjustMyLength();
+            aml.Id = val.Id;
+            aml.StartStyle = startStyle;
             aml.Start = yr1;
             if (deat != null && !val.Indi.Living && deat.GedDate != null)
                 aml.End = yr2;
             aml.Name = outName;
 
+
+            if (mark != "C") // TODO hack
+            {
+                var onions = val.SpouseIn;
+                foreach (var onion in onions)
+                {
+                    var mdate = onion.MarriageDate;
+                    if (mdate != null && mdate.Type != GEDDate.Types.Unknown)
+                    {
+                        Marker marky = new Marker();
+                        marky.Char = "\u2665";
+                        marky.Time = mdate.Year;
+                        if (aml.Marks == null)
+                            aml.Marks = new List<Marker>();
+                        aml.Marks.Add(marky);
+                    }
+
+                    var divE = onion.GetEvent("DIV");
+                    if (divE != null && divE.GedDate != null && divE.GedDate.Type != GEDDate.Types.Unknown)
+                    {
+                        Marker marky = new Marker();
+                        marky.Char = "D";
+                        marky.Time = divE.GedDate.Year;
+                        if (aml.Marks == null)
+                            aml.Marks = new List<Marker>();
+                        aml.Marks.Add(marky);
+                    }
+                }
+            }
+
+
             timeline1.AddTrack(aml);
 
-            Track person = new MyTrack();
-            person.Start = yr1;
-            if (deat != null && !val.Indi.Living && deat.GedDate != null)
-                person.End = yr2;
-            person.Name = outName;
-            gedTime1.AddTrack(person);
+            //Track person = new MyTrack();
+            //person.Start = yr1;
+            //if (deat != null && !val.Indi.Living && deat.GedDate != null)
+            //    person.End = yr2;
+            //person.Name = outName;
+            //gedTime1.AddTrack(person);
         }
 
         private void personSel_SelectedIndexChanged(object sender, EventArgs e)
@@ -289,7 +340,7 @@ namespace TimeBeamTest
                 return;
 
             timeline1.ClearTracks();
-            gedTime1.ClearAllTracks();
+//            gedTime1.ClearAllTracks();
 
             MakeTrack(val, "P");
 
@@ -319,7 +370,7 @@ namespace TimeBeamTest
             scale.X += 0.1f;
             scale.Y += 0.1f;
             timeline1.RenderingScale = scale;
-            gedTime1.RenderingScale = scale;
+//            gedTime1.RenderingScale = scale;
         }
 
         private void zoomOut_Click(object sender, EventArgs e)
@@ -328,7 +379,7 @@ namespace TimeBeamTest
             scale.X -= 0.1f;
             scale.Y -= 0.1f;
             timeline1.RenderingScale = scale;
-            gedTime1.RenderingScale = scale;
+//            gedTime1.RenderingScale = scale;
         }
 
     }

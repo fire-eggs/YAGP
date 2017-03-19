@@ -589,12 +589,40 @@ namespace TimeBeam
 
                 Color trackColor = ColorHelper.AdjustColor(colors[trackIndex], 0, -0.1, -0.2);
 
-                using (Brush b = new SolidBrush(trackColor))
-                    g.FillRectangle(b, trackRect);
+                switch (track.StartStyle)
+                {
+                    case TrackStyle.Precise:
+                        using (Brush b = new SolidBrush(trackColor))
+                            g.FillRectangle(b, trackRect);
+                        break;
+                    case TrackStyle.Imprecise:
+                        float div = trackRect.Width/2;
+                        using (var hatchB = new HatchBrush(HatchStyle.DarkDownwardDiagonal, trackColor, Color.Transparent))
+                            g.FillRectangle(hatchB,
+                                trackRect.X, trackRect.Y,
+                                trackRect.Width - div,
+                                trackRect.Height);
+                        using (Brush b = new SolidBrush(trackColor))
+                            g.FillRectangle(b, trackRect.X+div,
+                                trackRect.Y, trackRect.Width-div,
+                                trackRect.Height);
+                        break;
+                }
                 if (TrackBorderSize > 0)
                     using (Pen borderPen = new Pen(borderColor, TrackBorderSize))
                         g.DrawRectangle(borderPen, trackRect.ToRectangle());
 
+                if (track.Marks != null && track.Marks.Count > 0)
+                {
+                    foreach (var mark in track.Marks)
+                    {
+                        int delta = YearDelta(mark.Time);
+                        float x = trackAreaBounds.Right - delta - 5; // TODO adjust using string width, not constant
+                        float y = trackRect.Top;
+                        using (Brush markBrush = new SolidBrush(Color.Yellow))
+                            g.DrawString(mark.Char, _labelFont, markBrush, new PointF(x,y));
+                    }
+                }
                 trackIndex++;
             }
         }
