@@ -78,7 +78,7 @@ namespace TimeBeam
         /// <summary>
         ///   The font to use to draw the track labels.
         /// </summary>
-        private readonly Font _labelFont = DefaultFont;
+        private Font _labelFont = DefaultFont;
 
         /// <summary>
         ///   The size of the top part of the playhead.
@@ -112,6 +112,7 @@ namespace TimeBeam
             set 
             {
                 _renderingScale = value;
+                ChangeFont();
                 RecalculateScrollbarBounds();
                 Invalidate();
             }
@@ -270,8 +271,9 @@ namespace TimeBeam
                       ControlStyles.UserPaint, true);
 
             // Set up the font to use to draw the track labels
-            float emHeightForLabel = EmHeightForLabel("WM_g^~", TrackHeight); // TODO KBR TrackHeight changes on RenderingScale change?
-            _labelFont = new Font(DefaultFont.FontFamily, emHeightForLabel - 2);
+            ChangeFont();
+            //float emHeightForLabel = EmHeightForLabel("WM_g^~", TrackHeight); // TODO KBR TrackHeight changes on RenderingScale change?
+            //_labelFont = new Font(DefaultFont.FontFamily, emHeightForLabel - 2);
 
             // The last year showable
             int year = DateTime.Now.Year;
@@ -279,7 +281,14 @@ namespace TimeBeam
             year += 4; // TODO tweak for decade label size?
             FarRightYear = year;
         }
-        
+
+        private void ChangeFont()
+        {
+            // TODO KBR TrackHeight changes on RenderingScale change?
+            float emHeightForLabel = EmHeightForLabel("WM_g^~", TrackHeight * _renderingScale.Y);
+            _labelFont = new Font(DefaultFont.FontFamily, emHeightForLabel - 2);
+        }
+
         #endregion
 
         /// <summary>
