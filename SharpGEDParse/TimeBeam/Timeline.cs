@@ -1345,11 +1345,11 @@ namespace TimeBeam
                     if (!_selectedTracks.Contains(focusedTrack))
                     {
                         // Tell the track that it was selected.
-                        InvokeSelectionChanged(new SelectionChangedEventArgs(focusedTrack.Yield(), null));
+                        InvokeSelectionChanged(new SelectionChangedEventArgs(focusedTrack, null));
                         // Clear the selection, unless the user is picking
                         if (!IsKeyDown(Keys.Control))
                         {
-                            InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks));
+                            InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks.FirstOrDefault()));
                             _selectedTracks.Clear();
                         }
 
@@ -1362,7 +1362,7 @@ namespace TimeBeam
                     else if (IsKeyDown(Keys.Control))
                     {
                         _selectedTracks.Remove(focusedTrack);
-                        InvokeSelectionChanged(new SelectionChangedEventArgs(null, focusedTrack.Yield()));
+                        InvokeSelectionChanged(new SelectionChangedEventArgs(null, focusedTrack));
                     }
 
                     // Store the current mouse position. It'll be used later to calculate the movement delta.
@@ -1393,7 +1393,7 @@ namespace TimeBeam
                     // Clear the selection, unless the user is picking
                     if (!IsKeyDown(Keys.Control))
                     {
-                        InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks));
+                        InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks.FirstOrDefault()));
                         _selectedTracks.Clear();
                     }
 
@@ -1432,6 +1432,7 @@ namespace TimeBeam
                     int trackIndex = TrackLabelHitTest(location);
                     if (-1 < trackIndex)
                     {
+                        InvokeSelectionChanged(new SelectionChangedEventArgs(_tracks[trackIndex], null));
                         //IMultiPartTimelineTrack track = _tracks[trackIndex];
 
                         //// SingleTrackToMultiTrackWrapper instances are implicitly created by the timeline itself.
@@ -1528,20 +1529,20 @@ namespace TimeBeam
             if (e.KeyCode == Keys.A && IsKeyDown(Keys.Control))
             {
                 // Ctrl+A - Select all
-                InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks));
+                InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks.FirstOrDefault()));
                 _selectedTracks.Clear();
                 //foreach (ITimelineTrack track in _tracks.SelectMany(t => t.TrackElements))
                 //{
                 //    _selectedTracks.Add(track);
                 //}
-                InvokeSelectionChanged(new SelectionChangedEventArgs(_selectedTracks, null));
+                InvokeSelectionChanged(new SelectionChangedEventArgs(_selectedTracks.FirstOrDefault(), null));
                 Invalidate();
 
             }
             else if (e.KeyCode == Keys.D && IsKeyDown(Keys.Control))
             {
                 // Ctrl+D - Deselect all
-                InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks));
+                InvokeSelectionChanged(new SelectionChangedEventArgs(null, _selectedTracks.FirstOrDefault()));
                 _selectedTracks.Clear();
                 Invalidate();
             }

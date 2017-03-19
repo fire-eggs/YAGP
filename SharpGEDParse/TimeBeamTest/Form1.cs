@@ -38,6 +38,26 @@ namespace TimeBeamTest
             timeline1.TrackSpacing = 5; // TODO primary/secondary spacing
             timeline1.TrackHeight = 20;
             timeline1.DecadeLabelHigh = 16;
+
+            timeline1.SelectionChanged += SelectionChanged;
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
+        {
+            // User has clicked on a label to change the 'active' person
+            if (selectionChangedEventArgs.Selected == null)
+                return;
+            AdjustMyLength aml = selectionChangedEventArgs.Selected as AdjustMyLength;
+            if (aml == null)
+                return;
+
+            var val = personSel.SelectedValue as Person;
+            if (val == null) 
+                return;
+            if (val.Id == aml.Id) // same as current
+                return;
+
+            personSel.SelectedValue = gedtrees.PersonById(aml.Id);
         }
 
         private void loadGEDCOMToolStripMenuItem_Click(object sender, System.EventArgs e)
