@@ -6,6 +6,7 @@ namespace TimeBeam
     {
         public string Char { get; set; }
         public int Time { get; set; }
+        public bool Above { get; set; }
     }
 
     public enum TrackStyle

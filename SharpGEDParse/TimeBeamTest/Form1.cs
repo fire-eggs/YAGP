@@ -184,6 +184,7 @@ namespace TimeBeamTest
             gedtrees = new Forest();
             // TODO Using LastFile is a hack... pass path in args? not as event?            
             gedtrees.LoadGEDCOM(LastFile);
+            DateEstimator.Estimate(gedtrees);
 
             // TODO people should be distinguished by date range [as seen on tamurajones.net... where?]
 
@@ -243,27 +244,27 @@ namespace TimeBeamTest
 
             float yrs = JDN1800_01_01;
             float start = 60.0f;
+
+            // TODO this is looking awkward
             TrackStyle startStyle = TrackStyle.Precise;
-            if (birt == null || birt.GedDate == null || birt.GedDate.Type==GEDDate.Types.Unknown)
+            var bdate = val.BirthDate;
+            if (bdate == null)
             {
-                ; // TODO need extrapolated
-                GEDDate birt2 = val.ExtrapolateBirth();
-                if (birt2 != null && birt2.Type != GEDDate.Types.Unknown)
-                {
-                    yrs = birt2.JDN;
-                }
-                else
-                {
-                    // Couldn't extrapolate birth, assume 100 years ago
-                    yrs = JDN2017_01_01 - 100*365;
-                }
                 startStyle = TrackStyle.Imprecise;
-                name = "*" + name;
+                yrs = JDN2017_01_01 - 100 * 365;
+                name = name + "*";
+            }
+            else if (bdate.Type == GEDDate.Types.Estimated)
+            {
+                startStyle = TrackStyle.Imprecise;
+                yrs = bdate.JDN;
+                name = name + "*";
             }
             else
             {
-                yrs = birt.GedDate.JDN;
+                yrs = bdate.JDN;
             }
+
             yrs = (yrs - JDN1800_01_01) / 365.0f;
             int yr1 = (int)yrs + 1800;
             float secs = yrs * 6;
@@ -306,6 +307,7 @@ namespace TimeBeamTest
                         Marker marky = new Marker();
                         marky.Char = "\u2665";
                         marky.Time = mdate.Year;
+                        marky.Above = true;
                         if (aml.Marks == null)
                             aml.Marks = new List<Marker>();
                         aml.Marks.Add(marky);
@@ -317,6 +319,7 @@ namespace TimeBeamTest
                         Marker marky = new Marker();
                         marky.Char = "D";
                         marky.Time = divE.GedDate.Year;
+                        marky.Above = false;
                         if (aml.Marks == null)
                             aml.Marks = new List<Marker>();
                         aml.Marks.Add(marky);
@@ -324,15 +327,7 @@ namespace TimeBeamTest
                 }
             }
 
-
             timeline1.AddTrack(aml);
-
-            //Track person = new MyTrack();
-            //person.Start = yr1;
-            //if (deat != null && !val.Indi.Living && deat.GedDate != null)
-            //    person.End = yr2;
-            //person.Name = outName;
-            //gedTime1.AddTrack(person);
         }
 
         private void personSel_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,7 +337,6 @@ namespace TimeBeamTest
                 return;
 
             timeline1.ClearTracks();
-//            gedTime1.ClearAllTracks();
 
             MakeTrack(val, "P");
 
@@ -372,7 +366,6 @@ namespace TimeBeamTest
             scale.X += 0.1f;
             scale.Y += 0.1f;
             timeline1.RenderingScale = scale;
-//            gedTime1.RenderingScale = scale;
         }
 
         private void zoomOut_Click(object sender, EventArgs e)
@@ -381,7 +374,6 @@ namespace TimeBeamTest
             scale.X -= 0.1f;
             scale.Y -= 0.1f;
             timeline1.RenderingScale = scale;
-//            gedTime1.RenderingScale = scale;
         }
 
     }

@@ -629,10 +629,19 @@ namespace TimeBeam
                     foreach (var mark in track.Marks)
                     {
                         int delta = YearDelta(mark.Time);
-                        float x = trackAreaBounds.Right - delta - 5; // TODO adjust using string width, not constant
+                        float x1 = trackAreaBounds.Right - delta; 
+                        // TODO adjustment needs to take scale into account?
+                        float x2 = x1 - 5; // TODO adjust using string width, not constant
                         float y = trackRect.Top;
+                        if (mark.Above)
+                            y -= trackRect.Height/4;
+                        else
+                            y += trackRect.Height/4;
+
+                        using (Pen markPen = new Pen(Color.Yellow))
+                            g.DrawLine(markPen, x1, trackRect.Top, x1, trackRect.Bottom);
                         using (Brush markBrush = new SolidBrush(Color.Yellow))
-                            g.DrawString(mark.Char, _labelFont, markBrush, new PointF(x,y));
+                            g.DrawString(mark.Char, _labelFont, markBrush, new PointF(x2,y));
                     }
                 }
                 trackIndex++;
