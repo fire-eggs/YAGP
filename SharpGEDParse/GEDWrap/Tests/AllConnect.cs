@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using SharpGEDParser;
 using System.Linq;
 
 // Exercise both child and spouse connections
