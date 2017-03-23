@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBeam", "TimeBeam\TimeBe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBeamTest", "TimeBeamTest\TimeBeamTest.csproj", "{BD04E9D4-1203-46DE-BAC5-7864FC190C54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawTreeTest", "DrawTreeTest\DrawTreeTest.csproj", "{C4A55278-6F34-483D-AE27-4ED4ED84C754}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{BD04E9D4-1203-46DE-BAC5-7864FC190C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD04E9D4-1203-46DE-BAC5-7864FC190C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD04E9D4-1203-46DE-BAC5-7864FC190C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A55278-6F34-483D-AE27-4ED4ED84C754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A55278-6F34-483D-AE27-4ED4ED84C754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A55278-6F34-483D-AE27-4ED4ED84C754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A55278-6F34-483D-AE27-4ED4ED84C754}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
