@@ -53,11 +53,11 @@ namespace DrawTreeTest
 
             LoadSettings(); // NOTE: must go after mnuMRU init
 
-            _data = GetSampleData();
-            _tree = GetSampleTree(_data);
-            TreeHelpers<SampleDataModel>.CalculateNodePositions(_tree);
+            //_data = GetSampleData();
+            //_tree = GetSampleTree(_data);
+            //TreeHelpers<SampleDataModel>.CalculateNodePositions(_tree);
 
-            CalculateControlSize();
+            //CalculateControlSize();
 
             DoubleBuffered = true;
             treePanel.Paint += treePanel_Paint;
@@ -288,7 +288,8 @@ namespace DrawTreeTest
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
             e.Graphics.Clear(Color.AntiqueWhite);
-            DrawNode(_tree, e.Graphics);
+            if (_tree != null)
+                DrawNode(_tree, e.Graphics);
         }
         
         private void CalculateControlSize()
@@ -472,7 +473,7 @@ namespace DrawTreeTest
         {
             base.OnMouseMove(e);
 
-            if (e.Location == oldLocation) // TODO tooltip causing infinite mouse move events?
+            if (e.Location == oldLocation || _tree == null) // TODO tooltip causing infinite mouse move events?
                 return;
             oldLocation = e.Location;
 
