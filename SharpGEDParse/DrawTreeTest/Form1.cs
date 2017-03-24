@@ -307,10 +307,7 @@ namespace DrawTreeTest
         private void DrawNode(TreeNodeModel<SampleDataModel> node, Graphics g)
         {
             // rectangle where node will be positioned
-            var nodeRect = new Rectangle(
-                Convert.ToInt32(NODE_MARGIN_X + (node.X * (NODE_WIDTH + NODE_MARGIN_X))),
-                NODE_MARGIN_Y + (node.Y * (NODE_HEIGHT + NODE_MARGIN_Y))
-                , NODE_WIDTH, NODE_HEIGHT);
+            var nodeRect = this.nodeRect(node);
 
             // draw box
             g.DrawRectangle(NODE_PEN, nodeRect);
@@ -462,5 +459,71 @@ namespace DrawTreeTest
             personSel.Enabled = true;
         }
 
+        private enum HitType { Person, Parent, Marriage };
+
+        private void treePanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private Point oldLocation = Point.Empty;
+
+        private void treePanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            if (e.Location == oldLocation) // TODO tooltip causing infinite mouse move events?
+                return;
+            oldLocation = e.Location;
+
+            string pId;
+            HitType what;
+            if (!treeIntersect(e.X, e.Y, out pId, out what))
+            {
+                treePanel.Cursor = Cursors.Arrow;
+            }
+
+            treePanel.Cursor = what == HitType.Person ? Cursors.Arrow : Cursors.Hand;
+
+            //Point panelLoc = treePanel.PointToClient(e.Location);
+            toolTip1.Show(pId, treePanel, e.X + 15, e.Y + 15);
+        }
+
+        private Rectangle nodeRect(TreeNodeModel<SampleDataModel> node)
+        {
+            var rect = new Rectangle(
+                Convert.ToInt32(NODE_MARGIN_X + (node.X * (NODE_WIDTH + NODE_MARGIN_X))),
+                NODE_MARGIN_Y + (node.Y * (NODE_HEIGHT + NODE_MARGIN_Y))
+                , NODE_WIDTH, NODE_HEIGHT);
+            return rect;
+        }
+
+        private bool treeIntersect(int x, int y, ref string who, ref HitType what, TreeNodeModel<SampleDataModel> tree )
+        {
+            var rect = nodeRect(tree);
+            if (rect.Contains(x, y))
+            {
+                who = tree.Item.Id;
+                what = HitType.Person;
+                return true;
+            }
+
+            // TODO parent
+            // TODO marriage toggle
+
+            foreach (var child in tree.Children)
+            {
+                if (treeIntersect(x, y, ref who, ref what, child))
+                    return true;
+            }
+            return false;
+        }
+
+        private bool treeIntersect(int x, int y, out string who, out HitType what)
+        {
+            who = "";
+            what = HitType.Person;
+            return treeIntersect(x, y, ref who, ref what, _tree);
+        }
     }
 }
