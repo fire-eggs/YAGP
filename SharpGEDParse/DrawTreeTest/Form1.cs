@@ -18,13 +18,11 @@ using GEDWrap;
 
 // TODO scale factor
 // TODO text boxes sized by text
-// TODO marriages as larger boxes
+// TODO marriages as double boxes, showing spouse
 // TODO tree into a control
-// TODO multi-marriage toggle
-// TODO navigation: go to parent [M / F separate]
 // TODO drag to pan?
 
-// TODO stupid! need to be able to click on any box to make 'current'!
+// TODO a person might appear more than once (see I80 in kev.ged). Impact if has multiple marriages?
 
 namespace DrawTreeTest
 {
@@ -369,7 +367,13 @@ namespace DrawTreeTest
 
         private void TreePerson(Person val)
         {
-            _data = GetAncestors(val);
+            _data = GetDescendants(val);
+            RebuildTree();
+        }
+
+        private void RebuildTree()
+        {
+            toolTip1.SetToolTip(treePanel, "");
             _tree = GetSampleTree(_data);
             TreeHelpers<SampleDataModel>.CalculateNodePositions(_tree);
             CalculateControlSize();
@@ -384,11 +388,11 @@ namespace DrawTreeTest
             TreePerson(val);
         }
 
-        private void GetAncestors(List<SampleDataModel> tree, Person root, string parentId)
+        private void GetDescendants(List<SampleDataModel> tree, Person root, string parentId)
         {
             // TODO intermediate nodes may have been toggled to show a different marriage
 
-            SampleDataModel node = new SampleDataModel() {Id = root.Id, ParentId = parentId};
+            SampleDataModel node = new SampleDataModel {Id = root.Id, ParentId = parentId};
             tree.Add(node);
 
             // TODO navigation to parent(s) for spouse
@@ -417,14 +421,14 @@ namespace DrawTreeTest
             var union = root.SpouseIn.First();
             foreach (var achild in union.Childs)
             {
-                GetAncestors(tree, achild, root.Id);
+                GetDescendants(tree, achild, root.Id);
             }
         }
 
-        private List<SampleDataModel> GetAncestors(Person person)
+        private List<SampleDataModel> GetDescendants(Person person)
         {
             List<SampleDataModel> tree = new List<SampleDataModel>();
-            GetAncestors(tree, person, "");
+            GetDescendants(tree, person, "");
             return tree;
         }
 
@@ -497,13 +501,68 @@ namespace DrawTreeTest
             HitType what;
             if (!treeIntersect(e.X, e.Y, out pId, out what))
                 return;
+            Person p = gedtrees.PersonById(pId);
             if (what == HitType.Parent)
             {
-                Person p = gedtrees.PersonById(pId);
                 Union u = p.ChildIn.First();
-                Debug.Assert(p.ChildIn.Count < 2);
+                Debug.Assert(p.ChildIn.Count < 2); // TODO adoption case
                 personSel.SelectedIndex = -1;
                 TreePerson(u.Husband ?? u.Wife);
+            }
+            else if (what == HitType.Person)
+            {
+                personSel.SelectedIndex = -1;
+                TreePerson(p);
+            }
+            else if (what == HitType.Marriage)
+            {
+                SampleDataModel item = _data.Find(x => x.Id == pId);
+                Debug.Assert(item != null);
+                item.CurrentMarriage++;
+                if (p.SpouseIn.Count <= item.CurrentMarriage)
+                    item.CurrentMarriage = 0;
+                RebuildChildren(item, p);
+                RebuildTree();
+            }
+        }
+
+        // TODO wouldn't a Hash be better?
+
+        private void DeleteChildrenOf(string id)
+        {
+            List<string> toDelete = new List<string>();
+            foreach (var sampleDataModel in _data)
+            {
+                if (sampleDataModel.ParentId == id)
+                    toDelete.Add(sampleDataModel.Id);
+            }
+            foreach (var todel in toDelete)
+            {
+                DeleteChildrenOf(todel);
+            }
+            _data.RemoveAll(x => x.ParentId == id);
+        }
+
+        private void RebuildChildren(SampleDataModel node, Person person)
+        {
+            // TODO rebuild spouse
+
+            // Marriage has been changed. 
+            // 1. Existing children AND descendants need to be removed.
+            // 2. Children from selected marriage need to be added.
+            DeleteChildrenOf(person.Id);
+
+            int index = 0;
+            foreach (var union1 in person.SpouseIn)
+            {
+                if (index == node.CurrentMarriage)
+                {
+                    foreach (var achild in union1.Childs)
+                    {
+                        GetDescendants(_data, achild, node.Id);
+                    }
+                }
+                index++;
             }
         }
 
@@ -525,6 +584,7 @@ namespace DrawTreeTest
             }
 
             string ttxt = "";
+            treePanel.Cursor = Cursors.Hand;
             switch (what)
             {
             case HitType.Person:
@@ -532,22 +592,19 @@ namespace DrawTreeTest
                     Person p = gedtrees.PersonById(pId);
                     string bdate = p.Birth == null ? "" : "\n" + p.Birth.Date;
                     ttxt = String.Format("{0}{1}", p.Name, bdate);
-                    treePanel.Cursor = Cursors.Arrow;
                 }
-                    break;
+                break;
             case HitType.Marriage:
                 ttxt = "Another marriage";
-                treePanel.Cursor = Cursors.Hand;
                 break;
             case HitType.Parent:
                 ttxt = "View parent";
-                treePanel.Cursor = Cursors.Hand;
                 break;
             default:
                 treePanel.Cursor = Cursors.Arrow;
                 break;
             }
-            toolTip1.Show(ttxt, treePanel, e.X + 15, e.Y + 15);
+            toolTip1.Show(ttxt, treePanel, e.X + 15, e.Y + 15); // TODO use cursor size for offset
         }
 
         private Rectangle nodeRect(TreeNodeModel<SampleDataModel> node)
