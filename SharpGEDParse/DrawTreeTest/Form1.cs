@@ -4,14 +4,22 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using DrawAnce;  // TODO common helpers into utility DLL
+using GEDWrap;
+
 
 // Ancestry tree diagram
 // Using code from Rachel Lim, and fixes from the blog comments.
 // https://rachel53461.wordpress.com/2014/04/20/algorithm-for-drawing-trees/
 //
-using DrawAnce;
-using GEDWrap;
 
+// TODO scale factor
+// TODO text boxes sized by text
+// TODO marriages as larger boxes
+// TODO tree into a control
+// TODO multi-marriage toggle
+// TODO navigation: go to parent [M / F separate]
+// TODO drag to pan?
 
 namespace DrawTreeTest
 {
@@ -355,9 +363,33 @@ namespace DrawTreeTest
             treePanel.Invalidate();
         }
 
+        private void GetAncestors(List<SampleDataModel> tree, Person root, string parentId)
+        {
+            SampleDataModel node = new SampleDataModel() {Id = root.Id, ParentId = parentId};
+            tree.Add(node);
+
+            // TODO add spouse as expanded node
+            // TODO if root has more than one marriage, provide a toggle
+
+            // children of first marriage the root is spouse in are added
+            if (root.SpouseIn.Count < 1)
+                return;
+
+            if (root.SpouseIn.Count > 1)
+                node.Name = root.Id + "(*)";
+
+            var union = root.SpouseIn.First();
+            foreach (var achild in union.Childs)
+            {
+                GetAncestors(tree, achild, root.Id);
+            }
+        }
+
         private List<SampleDataModel> GetAncestors(Person person)
         {
-            throw new NotImplementedException();
+            List<SampleDataModel> tree = new List<SampleDataModel>();
+            GetAncestors(tree, person, "");
+            return tree;
         }
 
         private void ProcessGED(string gedPath)
