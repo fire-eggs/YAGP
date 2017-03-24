@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -283,6 +285,8 @@ namespace DrawTreeTest
 
         private void treePanel_Paint(object sender, PaintEventArgs e)
         {
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
             e.Graphics.Clear(Color.AntiqueWhite);
             DrawNode(_tree, e.Graphics);
         }
@@ -312,7 +316,13 @@ namespace DrawTreeTest
             g.DrawRectangle(NODE_PEN, nodeRect);
 
             // draw content
-            g.DrawString(node.ToString(), Font, Brushes.Black, nodeRect.X + 10, nodeRect.Y + 10);
+            {
+                string txt = node.ToString();
+                SizeF txtSz = g.MeasureString(txt, Font, 1000, StringFormat.GenericTypographic);
+                float txtX = nodeRect.X + nodeRect.Width/2.0f - txtSz.Width/2.0f;
+                float txtY = nodeRect.Y + nodeRect.Height / 2.0f - txtSz.Height / 2.0f;
+                g.DrawString(node.ToString(), Font, Brushes.Black, txtX, txtY, StringFormat.GenericTypographic);
+            }
 
             // draw line to parent
             if (node.Parent != null)
