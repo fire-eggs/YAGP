@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -22,6 +23,8 @@ using GEDWrap;
 // TODO multi-marriage toggle
 // TODO navigation: go to parent [M / F separate]
 // TODO drag to pan?
+
+// TODO stupid! need to be able to click on any box to make 'current'!
 
 namespace DrawTreeTest
 {
@@ -320,6 +323,11 @@ namespace DrawTreeTest
                 float txtX = nodeRect.X + nodeRect.Width/2.0f - txtSz.Width/2.0f;
                 float txtY = nodeRect.Y + nodeRect.Height / 2.0f - txtSz.Height / 2.0f;
                 g.DrawString(node.ToString(), Font, Brushes.Black, txtX, txtY, StringFormat.GenericTypographic);
+
+                if (node.Item.CurrentMarriage != -1)
+                    g.DrawString("M", Font, Brushes.Black, nodeRect.Right + 1, nodeRect.Top+1, StringFormat.GenericTypographic);
+                if (node.Item.Parents.Count > 0)
+                    g.DrawString("P", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
             }
 
             // draw line to parent
@@ -359,11 +367,8 @@ namespace DrawTreeTest
 
         #endregion
 
-        private void personSel_SelectedIndexChanged(object sender, EventArgs e)
+        private void TreePerson(Person val)
         {
-            var val = personSel.SelectedValue as Person;
-            if (val == null)
-                return;
             _data = GetAncestors(val);
             _tree = GetSampleTree(_data);
             TreeHelpers<SampleDataModel>.CalculateNodePositions(_tree);
@@ -371,20 +376,43 @@ namespace DrawTreeTest
             treePanel.Invalidate();
         }
 
+        private void personSel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var val = personSel.SelectedValue as Person;
+            if (val == null)
+                return;
+            TreePerson(val);
+        }
+
         private void GetAncestors(List<SampleDataModel> tree, Person root, string parentId)
         {
+            // TODO intermediate nodes may have been toggled to show a different marriage
+
             SampleDataModel node = new SampleDataModel() {Id = root.Id, ParentId = parentId};
             tree.Add(node);
 
+            // TODO navigation to parent(s) for spouse
             // TODO add spouse as expanded node
-            // TODO if root has more than one marriage, provide a toggle
+            
+            Debug.Assert(!(root.ChildIn.Count > 1 && parentId != ""));
 
-            // children of first marriage the root is spouse in are added
+            // Navigation to parents - for root only
+            if (parentId == "" && root.ChildIn.Count > 0)
+            {
+                // TODO a non-root node might have an alternate parent!
+                foreach (var union1 in root.ChildIn)
+                {
+                    node.Parents.Add(union1.DadId);
+                    node.Parents.Add(union1.MomId);
+                }
+            }
+
+            // children of first marriage are added
             if (root.SpouseIn.Count < 1)
                 return;
 
             if (root.SpouseIn.Count > 1)
-                node.Name = root.Id + "(*)";
+                node.CurrentMarriage = 0; // Alternate marriages possible
 
             var union = root.SpouseIn.First();
             foreach (var achild in union.Childs)
@@ -460,11 +488,23 @@ namespace DrawTreeTest
             personSel.Enabled = true;
         }
 
-        private enum HitType { Person, Parent, Marriage };
+        private enum HitType { Person, Parent, Marriage, None };
 
-        private void treePanel_Click(object sender, EventArgs e)
+        private void treePanel_Click(object sender, EventArgs eventArgs)
         {
-
+            MouseEventArgs e = eventArgs as MouseEventArgs;
+            string pId;
+            HitType what;
+            if (!treeIntersect(e.X, e.Y, out pId, out what))
+                return;
+            if (what == HitType.Parent)
+            {
+                Person p = gedtrees.PersonById(pId);
+                Union u = p.ChildIn.First();
+                Debug.Assert(p.ChildIn.Count < 2);
+                personSel.SelectedIndex = -1;
+                TreePerson(u.Husband ?? u.Wife);
+            }
         }
 
         private Point oldLocation = Point.Empty;
@@ -484,14 +524,35 @@ namespace DrawTreeTest
                 treePanel.Cursor = Cursors.Arrow;
             }
 
-            treePanel.Cursor = what == HitType.Person ? Cursors.Arrow : Cursors.Hand;
-
-            //Point panelLoc = treePanel.PointToClient(e.Location);
-            toolTip1.Show(pId, treePanel, e.X + 15, e.Y + 15);
+            string ttxt = "";
+            switch (what)
+            {
+            case HitType.Person:
+                {
+                    Person p = gedtrees.PersonById(pId);
+                    string bdate = p.Birth == null ? "" : "\n" + p.Birth.Date;
+                    ttxt = String.Format("{0}{1}", p.Name, bdate);
+                    treePanel.Cursor = Cursors.Arrow;
+                }
+                    break;
+            case HitType.Marriage:
+                ttxt = "Another marriage";
+                treePanel.Cursor = Cursors.Hand;
+                break;
+            case HitType.Parent:
+                ttxt = "View parent";
+                treePanel.Cursor = Cursors.Hand;
+                break;
+            default:
+                treePanel.Cursor = Cursors.Arrow;
+                break;
+            }
+            toolTip1.Show(ttxt, treePanel, e.X + 15, e.Y + 15);
         }
 
         private Rectangle nodeRect(TreeNodeModel<SampleDataModel> node)
         {
+            // TODO This changes only on paint - store in data?
             var rect = new Rectangle(
                 Convert.ToInt32(NODE_MARGIN_X + (node.X * (NODE_WIDTH + NODE_MARGIN_X))),
                 NODE_MARGIN_Y + (node.Y * (NODE_HEIGHT + NODE_MARGIN_Y))
@@ -501,16 +562,39 @@ namespace DrawTreeTest
 
         private bool treeIntersect(int x, int y, ref string who, ref HitType what, TreeNodeModel<SampleDataModel> tree )
         {
+            who = tree.Item.Id;
+            what = HitType.None;
+
             var rect = nodeRect(tree);
             if (rect.Contains(x, y))
             {
-                who = tree.Item.Id;
                 what = HitType.Person;
                 return true;
             }
 
-            // TODO parent
-            // TODO marriage toggle
+            // Marriage toggle
+            if (tree.Item.CurrentMarriage != -1)
+            {
+                // TODO calc and store during draw when we have actual sizes
+                var marrRect = new Rectangle(rect.Right + 1, rect.Top + 1, 10, 19);
+                if (marrRect.Contains(x, y))
+                {
+                    what = HitType.Marriage;
+                    return true;
+                }
+            }
+
+            // Parent(s)
+            if (tree.Item.Parents.Count > 0)
+            {
+                // TODO calc and store during draw when we have actual sizes
+                var parRect = new Rectangle(rect.Left + 1, rect.Top - 20, 10, 19);
+                if (parRect.Contains(x, y))
+                {
+                    what = HitType.Parent;
+                    return true;
+                }
+            }
 
             foreach (var child in tree.Children)
             {
