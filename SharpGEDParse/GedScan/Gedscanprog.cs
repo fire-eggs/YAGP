@@ -301,6 +301,9 @@ namespace GedScan
             int subN = 0; // NOTE sub-records
             int subNLen = 0; // total length of sub-record note text
 
+            HashSet<string> errRollup = new HashSet<string>();
+            HashSet<string> unkRollup = new HashSet<string>();
+
             // int index = 0; // testing
             foreach (var gedRec2 in kbrGedRecs)
             {
@@ -312,7 +315,8 @@ namespace GedScan
                 {
                     foreach (var errRec in gedRec2.Errors)
                     {
-                        Console.WriteLine("\t\tError:{0}", errRec.Error);
+                        errRollup.Add(errRec.Error);
+                        //Console.WriteLine("\t\tError:{0}", errRec.Error);
                     }
                 }
                 unks += gedRec2.Unknowns.Count;
@@ -320,7 +324,8 @@ namespace GedScan
                 {
                     foreach (var errRec in gedRec2.Unknowns)
                     {
-                        Console.WriteLine("\t\tUnknown:{0} at line {2} in {1}", errRec.Tag, gedRec2, errRec.Beg);
+                        unkRollup.Add(errRec.Tag);
+                        //Console.WriteLine("\t\tUnknown:{0} at line {2} in {1}", errRec.Tag, gedRec2, errRec.Beg);
                     }
                 }
 
@@ -357,7 +362,7 @@ namespace GedScan
                         //if (gedRec2.Unknowns.  .Lines == null)
                         //    Console.WriteLine("Empty record!");
                         //else
-                        Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", "<need to pull from original file>",
+                        Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", gedRec2.Tag,
                             gedRec2.BegLine, gedRec2.EndLine);
                     }
                     unks++;
@@ -382,13 +387,26 @@ namespace GedScan
 
                 foreach (var unkRec in errors)
                 {
-                    Console.WriteLine("\t\tError:{0}", unkRec.Error);
+                    errRollup.Add(unkRec.Error);
+                    //Console.WriteLine("\t\tError:{0}", unkRec.Error);
                 }
             }
             Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}[{10}]\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}; Sub-Notes:{11}[{12}]", 
                 inds, fams, unks, oths, errs, src, repo, note, 0, media, nLen, subN, subNLen);
             Console.WriteLine("\tAvg note len:{0}\tAvg sub-note len:{1}\tSub-note len ratio:{2}",
                 nLen / (note==0?1:note), subNLen / (subN==0?1:subN), subNLen / ((fams+inds) == 0 ? 1 : (fams+inds)));
+            if (showErrors)
+            {
+                foreach (var err in errRollup)
+                {
+                    Console.WriteLine("\t\tErr:{0}", err);
+                }
+                foreach (var err in unkRollup)
+                {
+                    Console.WriteLine("\t\tUnk:{0}", err);
+                }
+            }
+            Console.WriteLine(new string('-',50));
         }
 
     }

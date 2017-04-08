@@ -41,6 +41,10 @@ namespace SharpGEDParser.Parser
 
             _tagSet2.Add("_UID", UidProc);
             _tagSet2.Add("UID", UidProc);
+
+            // Drat. These are sub-tags per-child. Child doesn't yet have more than an id string.
+            //_tagSet2.Add("_FREL", UidProc); // Commonly encountered non-standard tags
+            //_tagSet2.Add("_MREL", UidProc);
         }
 
         private void ldsSpouseSeal(ParseContext2 context)
