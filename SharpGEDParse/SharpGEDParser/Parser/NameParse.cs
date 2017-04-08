@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SharpGEDParser.Model;
+
+// TODO unit-testing of sub-records
 
 namespace SharpGEDParser.Parser
 {
@@ -11,8 +10,20 @@ namespace SharpGEDParser.Parser
     {
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
         {
-            
+            { "NPFX", subProc},
+            { "NSFX", subProc},
+            { "_AKA", subProc},
+            { "NICK", subProc},
+            { "SURN", subProc},
+            { "GIVN", subProc},
         };
+
+        private static void subProc(StructParseContext ctx, int linedex, char level)
+        {
+            // TODO punting: grab&store w/o analysis
+            var rec = (ctx.Parent as NameRec);
+            rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
+        }
 
         private static void parseName(NameRec rec, string line)
         {
@@ -44,6 +55,9 @@ namespace SharpGEDParser.Parser
             // TODO can this be shortcut when context length is only 1 line?
             var name = new NameRec();
             parseName(name, ctx.Remain);
+            StructParseContext ctx2 = new StructParseContext(ctx, name);
+            StructParse(ctx2, tagDict);
+            ctx.Endline = ctx2.Endline;
             return name;
         }
     }

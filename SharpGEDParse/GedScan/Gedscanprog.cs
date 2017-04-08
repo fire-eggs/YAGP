@@ -359,11 +359,20 @@ namespace GedScan
                 {
                     if (showErrors)
                     {
-                        //if (gedRec2.Unknowns.  .Lines == null)
-                        //    Console.WriteLine("Empty record!");
-                        //else
-                        Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", gedRec2.Tag,
-                            gedRec2.BegLine, gedRec2.EndLine);
+                        string tag = gedRec2.Tag;
+                        switch (tag)
+                        {
+                            case "HEAD": // TODO known NYI
+                            case "SUBM":
+                            case "SUBN":
+                            case "TRLR":
+                                break;
+                            default:
+                                unkRollup.Add(tag);
+                                break;
+                        }
+                        //Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", gedRec2.Tag,
+                        //    gedRec2.BegLine, gedRec2.EndLine);
                     }
                     unks++;
                 }
