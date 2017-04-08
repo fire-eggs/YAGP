@@ -191,7 +191,7 @@ namespace WordCloud
                 m_Words = value;
                 if (value==null) {return;}
 
-                IWord first = m_Words.First();
+                IWord first = m_Words.FirstOrDefault();
                 if (first!=null)
                 {
                     m_MaxWordWeight = first.Occurrences;

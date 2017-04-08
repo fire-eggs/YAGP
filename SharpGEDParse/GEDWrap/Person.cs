@@ -50,7 +50,8 @@ namespace GEDWrap
 
         public string Surname
         {
-            get { return Indi == null ? "" : Indi.Names[0].Surname; } 
+            get { return Indi == null ? "" : 
+                (Indi.Names[0].Surname ?? ""); } 
         }
 
         public string Text

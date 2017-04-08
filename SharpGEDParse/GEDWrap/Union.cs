@@ -54,6 +54,11 @@ namespace GEDWrap
             get { return GetEvent("MARR"); }
         }
 
+        public FamilyEvent Divorce
+        {
+            get { return GetEvent("DIV"); }
+        }
+
         public GEDDate MarriageDate
         {
             get { return Marriage == null ? null : Marriage.GedDate; }
