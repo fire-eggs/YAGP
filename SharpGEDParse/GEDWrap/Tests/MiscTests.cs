@@ -79,6 +79,7 @@ namespace GEDWrap.Tests
         [Test]
         public void MissFamId()
         {
+            // TODO GedSplitter is confused by empty id
             var txt = "0 @I1@ INDI\n0 @I2@ INDI\n0 @ @ FAM\n1 CHIL @I1@";
             using (Forest f = LoadGEDFromStream(txt))
             {

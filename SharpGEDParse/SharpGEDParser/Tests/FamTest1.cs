@@ -246,6 +246,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestErrorId()
         {
+            // TODO GedSplitter is confused by empty id
             var txt = "0 @ @ FAM\n1 HUSB @h1@";
             var res = ReadItHigher(txt);
             Assert.AreEqual(0, res.Errors.Count);
