@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileRead.cs" />
+    <Compile Include="GedSplitter.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="Model\AgeDetail.cs" />
     <Compile Include="Model\AssoRec.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Tests\DateToken.cs" />
     <Compile Include="Tests\FamEventTest1.cs" />
     <Compile Include="Tests\FamTest1.cs" />
+    <Compile Include="Tests\GedSplit.cs" />
     <Compile Include="Tests\zFileTest.cs" />
     <Compile Include="Tests\IndiAssocs.cs" />
     <Compile Include="Tests\IndiAttrib.cs" />

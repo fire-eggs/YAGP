@@ -20,6 +20,8 @@ namespace SharpGEDParser
         public void Parse(GEDCommon rec, GedRecord Lines)
         {
             ParseContext2 ctx = new ParseContext2();
+            GEDSplitter gs = new GEDSplitter();
+
             ctx.Lines = Lines;
             ctx.Parent = rec;
 
@@ -29,7 +31,8 @@ namespace SharpGEDParser
                 ctx.Begline = i;
                 ctx.Endline = i; // assume it is one line long, parser might change it
 
-                LineUtil.LevelTagAndRemain(ctx, line); //, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
+                gs.LevelTagAndRemain(line, ctx);
+                //LineUtil.LevelTagAndRemain(ctx, line); //, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
                 if (ctx.Tag != null && _tagSet2.ContainsKey(ctx.Tag))
                 {
                     _tagSet2[ctx.Tag](ctx);
@@ -48,6 +51,7 @@ namespace SharpGEDParser
             PostCheck(ctx.Parent); // post parse error checking
 
             ctx = null;
+            gs = null;
         }
 
         // Find the end of this 'record'.

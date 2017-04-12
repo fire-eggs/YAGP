@@ -55,6 +55,10 @@ namespace SharpGEDParser
             return parseSet.Item1 as GEDCommon;
         }
 
+        //private LineUtil.LineData ld = new LineUtil.LineData();
+        private readonly GEDSplitter gs = new GEDSplitter(50);
+        //private readonly char[] identTrim = {'@'};
+
         private Tuple<object, GedParse> Make(GedRecord rec)
         {
             // 1. The first line in the rec should start with '0'
@@ -64,11 +68,14 @@ namespace SharpGEDParser
                 throw new Exception("record head not zero"); // TODO should this be an error record instead?
 
             // 2. search for and find the tag
-            LineUtil.LineData ld = new LineUtil.LineData(); // TODO static?
-            LineUtil.LevelTagAndRemain(ld, head);
+            //LineUtil.LineData ld = new LineUtil.LineData(); // TODO static?
+            //LineUtil.LevelTagAndRemain(ld, head);
+
+            gs.Split(head, ' ');
 
             // 3. create a GedCommon derived class
-            return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain);
+            return GedRecFactory(rec, gs.Ident(head), gs.Tag(head), gs.Remain(head));
+            //return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain);
         }
 
         private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)
