@@ -27,7 +27,9 @@ namespace SharpGEDParser
         private int _count;
         private readonly string[] _buf;
 
-        public GEDSplitter() : this(20)
+        private const int MAX_PARTS = 49; // TODO verify this works as desired
+
+        public GEDSplitter() : this(MAX_PARTS+1) 
         {
         }
 
@@ -83,7 +85,7 @@ namespace SharpGEDParser
             _count = 0;
 
             // Find the mid-parts
-            for (int i = 0; i < value.Length; i++)
+            for (int i = 0; i < value.Length && resultIndex < MAX_PARTS; i++)
             {
                 if (value[i] == separator)
                 {
@@ -130,6 +132,8 @@ namespace SharpGEDParser
 
         public string Remain(string value)
         {
+            if (_count < 2)
+                return null;
             if (_lens[1] > 0 && value[_starts[1]] != '@')
                 return GetRest(value, 2);
             return GetRest(value, 3);
