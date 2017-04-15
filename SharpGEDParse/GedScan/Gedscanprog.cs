@@ -105,7 +105,7 @@ namespace GedScan
                 if (_dates)
                     dumpDates(f);
                 else if (_ged)
-                    dump(f.AllRecords, f.Errors, showErrors);
+                    dump(f.AllRecords, f.Errors, f.Issues, showErrors);
                 else
                     dump(f, showErrors);
             }
@@ -284,7 +284,7 @@ namespace GedScan
                 Console.WriteLine("\t\tLocations:{0}", famEventLoc);
         }
 
-        private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, bool showErrors)
+        private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, IEnumerable<Issue> issues, bool showErrors)
         {
             int errs = errors == null ?0 : errors.Count;
             int inds = 0;
@@ -301,8 +301,9 @@ namespace GedScan
             int subN = 0; // NOTE sub-records
             int subNLen = 0; // total length of sub-record note text
 
-            HashSet<string> errRollup = new HashSet<string>();
-            HashSet<string> unkRollup = new HashSet<string>();
+            var errRollup = new Dictionary<string, UnkRec>();
+            var unkRollup = new Dictionary<string, UnkRec>();
+            var unkRecRollup = new Dictionary<string, GEDCommon>();
 
             // int index = 0; // testing
             foreach (var gedRec2 in kbrGedRecs)
@@ -315,7 +316,8 @@ namespace GedScan
                 {
                     foreach (var errRec in gedRec2.Errors)
                     {
-                        errRollup.Add(errRec.Error);
+                        if (!errRollup.ContainsKey(errRec.Error))
+                            errRollup.Add(errRec.Error, errRec);
                         //Console.WriteLine("\t\tError:{0}", errRec.Error);
                     }
                 }
@@ -324,7 +326,8 @@ namespace GedScan
                 {
                     foreach (var errRec in gedRec2.Unknowns)
                     {
-                        unkRollup.Add(errRec.Tag);
+                        if (!unkRollup.ContainsKey(errRec.Tag))
+                            unkRollup.Add(errRec.Tag, errRec);
                         //Console.WriteLine("\t\tUnknown:{0} at line {2} in {1}", errRec.Tag, gedRec2, errRec.Beg);
                     }
                 }
@@ -368,11 +371,11 @@ namespace GedScan
                             case "TRLR":
                                 break;
                             default:
-                                unkRollup.Add(tag);
+                                if (!unkRecRollup.ContainsKey(gedRec2.Tag))
+                                    unkRecRollup.Add(gedRec2.Tag, gedRec2);
+                                //Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", gedRec2.Tag, gedRec2.BegLine, gedRec2.EndLine);
                                 break;
                         }
-                        //Console.WriteLine("\t\tUnknown:\"{0}\"[{1}:{2}]", gedRec2.Tag,
-                        //    gedRec2.BegLine, gedRec2.EndLine);
                     }
                     unks++;
                 }
@@ -386,6 +389,7 @@ namespace GedScan
                 // index++; // testing
             }
 
+            var issRollup = new Dictionary<Issue.IssueCode, string>();
             if (showErrors)
             {
                 //foreach (var err in errCounts.Keys)
@@ -394,10 +398,16 @@ namespace GedScan
                 //    Console.WriteLine("\t\tError:{0} Count:{1} First:{2}", err, bucket.count, (bucket.firstOne as UnkRec).Beg);
                 //}
 
-                foreach (var unkRec in errors)
+                foreach (var errRec in errors)
                 {
-                    errRollup.Add(unkRec.Error);
+                    if (!errRollup.ContainsKey(errRec.Error))
+                        errRollup.Add(errRec.Error, errRec);
                     //Console.WriteLine("\t\tError:{0}", unkRec.Error);
+                }
+                foreach (var issue in issues)
+                {
+                    if (!issRollup.ContainsKey(issue.IssueId))
+                        issRollup.Add(issue.IssueId, issue.Message());
                 }
             }
             Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}[{10}]\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}; Sub-Notes:{11}[{12}]", 
@@ -406,13 +416,21 @@ namespace GedScan
                 nLen / (note==0?1:note), subNLen / (subN==0?1:subN), subNLen / ((fams+inds) == 0 ? 1 : (fams+inds)));
             if (showErrors)
             {
+                foreach (var err in issRollup)
+                {
+                    Console.WriteLine("\t\tIss:{0}", err.Value);
+                }
                 foreach (var err in errRollup)
                 {
-                    Console.WriteLine("\t\tErr:{0}", err);
+                    Console.WriteLine("\t\tErr:{0} [line {1}]", err.Key, err.Value.Beg);
                 }
                 foreach (var err in unkRollup)
                 {
-                    Console.WriteLine("\t\tUnk:{0}", err);
+                    Console.WriteLine("\t\tUnk:{0} [line {1}]", err.Key, err.Value.Beg);
+                }
+                foreach (var rec in unkRecRollup)
+                {
+                    Console.WriteLine("\t\tUnk record:\"{0}\"[{1}:{2}]", rec.Key, rec.Value.BegLine, rec.Value.EndLine);
                 }
             }
             Console.WriteLine(new string('-',50));
