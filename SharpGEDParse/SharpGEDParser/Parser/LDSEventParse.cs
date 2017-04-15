@@ -30,7 +30,7 @@ namespace SharpGEDParser.Parser
             // TODO copy-pasta from IndiParse
             string xref;
             string extra;
-            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
+            parseXrefExtra(context.Remain, out xref, out extra);
             if (string.IsNullOrEmpty(xref))
             {
                 UnkRec err = new UnkRec();

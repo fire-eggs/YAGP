@@ -26,13 +26,13 @@ namespace SharpGEDParser.Parser
 
             string xref;
             string extra;
-            StructParser.parseXrefExtra(ctx.Remain, out xref, out extra);
+            parseXrefExtra(ctx.Remain, out xref, out extra);
 
             if (string.IsNullOrEmpty(xref))
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Missing/unterminated identifier: " + ctx.Tag;
-                err.Beg = err.End = ctx.Begline;
+                err.Beg = err.End = ctx.Begline + ctx.Parent.BegLine;
                 ctx.Parent.Errors.Add(err); // TODO parent level or structure level?
             }
             else

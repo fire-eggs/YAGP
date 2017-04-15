@@ -90,6 +90,7 @@ namespace SharpGEDParser.Parser
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Missing FILE";
+                err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }
 
@@ -100,6 +101,7 @@ namespace SharpGEDParser.Parser
                 {
                     UnkRec err = new UnkRec();
                     err.Error = "Missing FORM";
+                    err.Beg = err.End = me.BegLine;
                     me.Errors.Add(err);
                 }
             }

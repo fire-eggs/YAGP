@@ -42,7 +42,7 @@ namespace SharpGEDParser.Parser
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Missing/unterminated identifier: " + ctx.Tag;
-                err.Beg = err.End = ctx.Begline;
+                err.Beg = err.End = ctx.Begline + ctx.Parent.BegLine;
                 ctx.Parent.Errors.Add(err); // TODO parent level or structure level?
             }
             else

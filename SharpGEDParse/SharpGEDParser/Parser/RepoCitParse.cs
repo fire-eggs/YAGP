@@ -48,7 +48,7 @@ namespace SharpGEDParser.Parser
             cit.Xref = xref;
             if (xref != null && (xref.Trim().Length == 0 || cit.Xref.Contains("@"))) // NOTE: missing xref is valid, but NOT empty one!
             {
-                ctx.Parent.Errors.Add(new UnkRec { Error = "Invalid repository citation xref id" });
+                ctx.Parent.Errors.Add(new UnkRec { Error = "Invalid repository citation xref id" }); // TODO not yet reproduced in the field
             }
             if (!string.IsNullOrEmpty(extra))
             {

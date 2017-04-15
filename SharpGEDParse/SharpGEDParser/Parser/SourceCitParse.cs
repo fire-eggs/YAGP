@@ -92,7 +92,10 @@ namespace SharpGEDParser.Parser
             cit.Xref = xref;
             if (xref != null && (xref.Trim().Length == 0 || cit.Xref.Contains("@")))  // No xref is valid but not if empty/illegal
             {
-                errs.Add(new UnkRec { Error = "Invalid source citation xref id" });
+                var unk = new UnkRec {Error = "Invalid source citation xref id"};
+                unk.Beg = ctx.Begline;
+                unk.End = ctx.Endline;
+                errs.Add(unk);
             }
             if (!string.IsNullOrEmpty(extra))
             {
@@ -106,15 +109,24 @@ namespace SharpGEDParser.Parser
 
             if (!cit.Data && cit.Xref != null && cit.AnyText)
             {
-                errs.Add(new UnkRec() { Error = "TEXT tag used for reference source citation" });
+                var unk = new UnkRec { Error = "TEXT tag used for reference source citation" };
+                unk.Beg = ctx.Begline;
+                unk.End = ctx.Endline;
+                errs.Add(unk);
             }
             if (cit.Xref == null && cit.Event != null)
             {
-                errs.Add(new UnkRec() { Error = "EVEN tag used for embedded source citation" });
+                var unk = new UnkRec { Error = "EVEN tag used for embedded source citation" };
+                unk.Beg = ctx.Begline;
+                unk.End = ctx.Endline;
+                errs.Add(unk);
             }
             if (cit.Xref == null && cit.Page != null)
             {
-                errs.Add(new UnkRec() { Error = "PAGE tag used for embedded source citation" });
+                var unk = new UnkRec { Error = "PAGE tag used for embedded source citation" };
+                unk.Beg = ctx.Begline;
+                unk.End = ctx.Endline;
+                errs.Add(unk);
             }
             return cit;
         }

@@ -63,14 +63,14 @@ namespace SharpGEDParser.Parser
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Invalid child count";
-                err.Beg = err.End = context.Begline;
+                err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
             else if (fam.ChildCount != -1) // has been specified once already
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Child count specified more than once";
-                err.Beg = err.End = context.Begline;
+                err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
             else
@@ -93,7 +93,7 @@ namespace SharpGEDParser.Parser
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Missing/unterminated identifier: " + context.Tag;
-                err.Beg = err.End = context.Begline;
+                err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
             else
@@ -105,7 +105,7 @@ namespace SharpGEDParser.Parser
                         {
                             UnkRec err = new UnkRec();
                             err.Error = "HUSB line used more than once";
-                            err.Beg = err.End = context.Begline;
+                            err.Beg = err.End = context.Begline + context.Parent.BegLine;
                             fam.Errors.Add(err);
                         }
                         fam.Dads.Add(xref);
@@ -115,7 +115,7 @@ namespace SharpGEDParser.Parser
                         {
                             UnkRec err = new UnkRec();
                             err.Error = "WIFE line used more than once";
-                            err.Beg = err.End = context.Begline;
+                            err.Beg = err.End = context.Begline + context.Parent.BegLine;
                             fam.Errors.Add(err);
                         }
                         fam.Moms.Add(xref);
@@ -127,7 +127,7 @@ namespace SharpGEDParser.Parser
                             {
                                 UnkRec err = new UnkRec();
                                 err.Error = "CHIL ident used more than once (one person cannot be two children)";
-                                err.Beg = err.End = context.Begline;
+                                err.Beg = err.End = context.Begline + context.Parent.BegLine;
                                 fam.Errors.Add(err);
                                 return;
                             }
@@ -152,7 +152,7 @@ namespace SharpGEDParser.Parser
             {
                 UnkRec err = new UnkRec();
                 err.Error = "RESN specified more than once";
-                err.Beg = err.End = context.Begline;
+                err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
         }

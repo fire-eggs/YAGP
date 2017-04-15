@@ -37,8 +37,8 @@ namespace SharpGEDParser.Parser
                 UnkRec err = new UnkRec();
                 err.Error = "More than one change record";
                 GedRecParse.LookAhead(ctx);
-                err.Beg = ctx.Begline;
-                err.End = ctx.Endline;
+                err.Beg = ctx.Begline + ctx.Parent.BegLine;
+                err.End = ctx.Endline + ctx.Parent.BegLine;
                 ctx.Parent.Errors.Add(err);
                 return;
             }
@@ -48,8 +48,8 @@ namespace SharpGEDParser.Parser
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Missing/invalid date for CHAN";
-                err.Beg = ctx.Begline;
-                err.End = ctx.Endline;
+                err.Beg = ctx.Begline + ctx.Parent.BegLine;
+                err.End = ctx.Endline + ctx.Parent.BegLine;
                 ctx.Parent.Errors.Add(err);
             }
         }

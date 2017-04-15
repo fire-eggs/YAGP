@@ -199,7 +199,7 @@ namespace SharpGEDParser.Parser
             {
                 UnkRec err = new UnkRec();
                 err.Error = "Missing/unterminated identifier: " + context.Tag;
-                err.Beg = err.End = context.Begline;
+                err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 indi.Errors.Add(err);
             }
             else
@@ -231,11 +231,12 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrWhiteSpace(me.Ident))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one?
+                err.Error = "INDI missing identifier"; // TODO assign one?
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }
 
+            // TODO should this be checked in the SEX routine so line # points at the actual line???
             // Make sure sex is set
             if (!"MFU".Contains(me.Sex.ToString(CultureInfo.InvariantCulture).ToUpper()))
             {
