@@ -11,3 +11,5 @@ o Duplicated family record.
 o An individual record with FAMS / FAMC references, but no corresponding family record reference.
 
 The "DrawAnce" project is a little bit interesting, drawing the ancestry tree for any given individual.
+
+Some additional details (screenshots, planning) can be seen in the Wiki.
