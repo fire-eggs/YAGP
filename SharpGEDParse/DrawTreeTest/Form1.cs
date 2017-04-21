@@ -326,6 +326,9 @@ namespace DrawTreeTest
                     g.DrawString("M", Font, Brushes.Black, nodeRect.Right + 1, nodeRect.Top+1, StringFormat.GenericTypographic);
                 if (node.Item.Parents.Count > 0)
                     g.DrawString("P", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+                if (node.Item.CurrentParents != -1)
+                    g.DrawString("A", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+
             }
 
             // draw line to parent
@@ -398,7 +401,7 @@ namespace DrawTreeTest
             // TODO navigation to parent(s) for spouse
             // TODO add spouse as expanded node
             
-            Debug.Assert(!(root.ChildIn.Count > 1 && parentId != ""));
+            //Debug.Assert(!(root.ChildIn.Count > 1 && parentId != "")); // alternate set of parents
 
             // Navigation to parents - for root only
             if (parentId == "" && root.ChildIn.Count > 0)
@@ -409,6 +412,13 @@ namespace DrawTreeTest
                     node.Parents.Add(union1.DadId);
                     node.Parents.Add(union1.MomId);
                 }
+            }
+
+            if (root.ChildIn.Count > 1 && parentId != "")
+            {
+                // Child node has multiple parents possible
+                node.CurrentParents = 0;
+                // TODO actually implement this!
             }
 
             // children of first marriage are added
@@ -422,6 +432,19 @@ namespace DrawTreeTest
             foreach (var achild in union.Childs)
             {
                 GetDescendants(tree, achild, root.Id);
+            }
+
+            // TODO need a 'get spouse' method in Union!
+            // spousein.count > 0 but may not have a spouse!
+            if (union.DadId == root.Id)
+            {
+                node.HasSpouse = !string.IsNullOrEmpty(union.MomId);
+                node.SpouseId = union.MomId;
+            }
+            if (union.MomId == root.Id)
+            {
+                node.HasSpouse = !string.IsNullOrEmpty(union.DadId);
+                node.SpouseId = union.DadId;
             }
         }
 
@@ -610,10 +633,17 @@ namespace DrawTreeTest
         private Rectangle nodeRect(TreeNodeModel<SampleDataModel> node)
         {
             // TODO This changes only on paint - store in data?
-            var rect = new Rectangle(
-                Convert.ToInt32(NODE_MARGIN_X + (node.X * (NODE_WIDTH + NODE_MARGIN_X))),
+            int x = (int)(NODE_MARGIN_X + (node.X*(NODE_WIDTH + NODE_MARGIN_X)));
+            int w = NODE_WIDTH;
+            if (node.Item.HasSpouse)
+            {
+                w += NODE_WIDTH;
+                x -= NODE_WIDTH/2;
+            }
+
+            var rect = new Rectangle( x,
                 NODE_MARGIN_Y + (node.Y * (NODE_HEIGHT + NODE_MARGIN_Y))
-                , NODE_WIDTH, NODE_HEIGHT);
+                , w, NODE_HEIGHT);
             return rect;
         }
 
