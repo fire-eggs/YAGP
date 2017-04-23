@@ -1,15 +1,21 @@
 # YAGP
 "Yet Another GEDCOM Parser" - newer/faster/complete GEDCOM parser in C#
 
-WIP
-Added a couple of "test" programs which consume the results from the GEDCOM parser. Crude and not yet refactored cleanly.
+The intent is to provide a library to parse and validate 5.5/5.5.1 GEDCOM files. The library needs to do so quickly and with low 
+memory consumption. Non-standard tags and data need to be preserved.
 
-Both attempt to connect up a family tree using the records parsed from a GED file. A few "outlier" situations are sort of handled, needing to be completed or improved. For example:
-o An individual who is part of multiple families (i.e. birth and adoption).
-o A family record references an INDI record which doesn't exist.
-o Duplicated family record.
-o An individual record with FAMS / FAMC references, but no corresponding family record reference.
+Several "demo" programs and WinForms controls will be provided to show off and exercise the library's capabilities.
 
-The "DrawAnce" project is a little bit interesting, drawing the ancestry tree for any given individual.
+Very much a work-in-progress.
 
-Some additional details (screenshots, planning) can be seen in the Wiki.
+General status:
+- GEDCOM parsing is working.
+- Parsing uses more memory than I'd like.
+- Working on edge cases, 'non-standard' tag and error handling.
+- Date parsing/estimation is partially working: needs to be more robust, handle more cases and calendars.
+- Demo programs and controls are crude and not yet refactored cleanly.
+- Demo programs need improved navigation/searching amongst INDIs.
+- Demo programs need print/preview consistently implemented.
+- A couple of statistics programs exist but still need a _useful_ validation program.
+
+Additional details (screenshots, planning) can be seen in the Wiki.
