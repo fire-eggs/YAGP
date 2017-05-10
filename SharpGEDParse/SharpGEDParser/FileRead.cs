@@ -170,13 +170,14 @@ namespace SharpGEDParser
         /// <param name="lineNum"></param>
         private void ProcessLine(string line, int lineNum)
         {
-            int dex = LineUtil.FirstChar(line);
+            int len = line.Length;
+            int dex = LineUtil.FirstChar(line, 0, len);
             if (dex < 0)
             {
                 DoError("Empty line", lineNum);
                 return; // empty line
             }
-            if (line.Length > 255) // TODO anything special for UTF-16?
+            if (len > 255) // TODO anything special for UTF-16?
             {
                 DoError("Line too long", lineNum);
                 // proceed anyway

@@ -52,7 +52,7 @@ namespace SharpGEDParser
         {
             if (_count <= dex)
                 return null;
-            return value.Substring(_starts[dex], value.Length - _starts[dex]);
+            return value.Substring(_starts[dex]); //, value.Length - _starts[dex]);
         }
 
         public string[] ZeroOneMany(string value)
@@ -83,9 +83,10 @@ namespace SharpGEDParser
             int resultIndex = 0;
             int startIndex = 0;
             _count = 0;
+            int max = value.Length;
 
             // Find the mid-parts
-            for (int i = 0; i < value.Length && resultIndex < MAX_PARTS; i++)
+            for (int i = 0; i < max && resultIndex < MAX_PARTS; i++)
             {
                 if (value[i] == separator)
                 {
@@ -101,7 +102,7 @@ namespace SharpGEDParser
 
             // Find the last part
             _starts[resultIndex] = startIndex;
-            _lens[resultIndex] = value.Length - startIndex;
+            _lens[resultIndex] = max - startIndex;
             resultIndex++;
 
             _count = resultIndex;

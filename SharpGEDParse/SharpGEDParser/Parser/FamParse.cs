@@ -56,6 +56,11 @@ namespace SharpGEDParser.Parser
 
         private void nchiProc(ParseContext2 context)
         {
+            // TODO Data loss: The Master Genealogist (TMG) treats NCHI as a text field.
+            // NCHI in TMG can have CONC, CONT, and other sub-tags. Here, these sub-tags 
+            // are not correctly connected to the NCHI tag, nor am I preserving the NCHI 
+            // data as entered.
+
             var fam = (context.Parent as FamRecord);
 
             int childCount;

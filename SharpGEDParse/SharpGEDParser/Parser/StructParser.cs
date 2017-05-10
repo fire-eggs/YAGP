@@ -35,11 +35,13 @@ namespace SharpGEDParser.Parser
                 if (ld.Level <= ctx.Level)
                     break; // end of sub-record
                 ctx.Remain = ld.Remain;
-                if (tagSet.ContainsKey(ld.Tag))
+
+                TagProc tagproc;
+                if (tagSet.TryGetValue(ld.Tag, out tagproc))
                 {
                     ctx.Begline = i;
                     ctx.Tag = ld.Tag;
-                    tagSet[ld.Tag](ctx, i, ld.Level);
+                    tagproc(ctx, i, ld.Level);
                 }
                 else
                 {
