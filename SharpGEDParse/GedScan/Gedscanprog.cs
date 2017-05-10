@@ -13,6 +13,8 @@ using SharpGEDParser.Model;
 // TODO Need to pull unknown text from original file?
 // TODO don't repeat the same error more than once
 
+// ReSharper disable InconsistentNaming
+
 namespace GedScan
 {
     class Gedscanprog
@@ -38,7 +40,7 @@ namespace GedScan
             _showDiags = args.FirstOrDefault(s => s == "-d") != null;
             var showErrors = args.FirstOrDefault(s => s == "-e") != null;
             var recurse = args.FirstOrDefault(s => s == "-r") != null;
-            var csv = args.FirstOrDefault(s => s == "-csv") != null;
+            //var csv = args.FirstOrDefault(s => s == "-csv") != null;
             _dates = args.FirstOrDefault(s => s == "-date") != null;
             _ged = args.FirstOrDefault(s => s == "-b") != null;
 
@@ -81,12 +83,11 @@ namespace GedScan
         private static int tick;
         private static void logit(string msg, bool first = false)
         {
-            int delta = 0;
             if (first)
                 tick = Environment.TickCount;
             else
             {
-                delta = Environment.TickCount - tick;
+                int delta = Environment.TickCount - tick;
                 if (_showDiags)
                     Console.WriteLine(msg + "|" + delta);
             }
@@ -94,14 +95,24 @@ namespace GedScan
 
         private static void parseFile(string path, bool showErrors)
         {
-            long beforeMem = GC.GetTotalMemory(true);
-            long afterMem;
+            long beforeMem = 0;
+            long afterMem = 0;
+
+            if (_showDiags)
+            {
+                beforeMem = GC.GetTotalMemory(true);
+                logit("",true);
+            }
+
             Console.WriteLine("   {0}", Path.GetFileName(path));
-            logit("", true);
             using (Forest f = new Forest())
             {
                 f.LoadGEDCOM(path);
-                afterMem = GC.GetTotalMemory(false);
+                if (_showDiags)
+                {
+                    afterMem = GC.GetTotalMemory(false);
+                    logit("__load complete (ms)");
+                }
                 if (_dates)
                     dumpDates(f);
                 else if (_ged)
