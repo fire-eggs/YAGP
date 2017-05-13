@@ -4,8 +4,6 @@ namespace SharpGEDParser.Parser
 {
     // Parsing for the FAM (family) record.
 
-    // TODO validate that HUSB, WIFE, SUBM, CHIL idents actually exist [final post-process stage]
-
     public class FamParse : GedRecParse
     {
         protected override void BuildTagSet()
@@ -17,7 +15,7 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("RIN",  RinProc);
             _tagSet2.Add("SOUR", SourCitProc);
 
-            _tagSet2.Add("CHIL", xrefProc);
+            _tagSet2.Add("CHIL", childProc);
             _tagSet2.Add("HUSB", xrefProc);
             _tagSet2.Add("NCHI", nchiProc);
             _tagSet2.Add("RESN", resnProc);
@@ -84,7 +82,71 @@ namespace SharpGEDParser.Parser
             }
         }
 
-        // Common processing for SUBM, HUSB, WIFE, CHIL
+        // CHIL processing pulled out for _FREL/_MREL
+        private void childProc(ParseContext2 context)
+        {
+            var fam = (context.Parent as FamRecord);
+
+            LookAhead(context); // Any sub-lines (e.g. _FREL/_MREL)?
+
+            string xref;
+            string extra;
+            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
+            if (string.IsNullOrEmpty(xref))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = "Missing/unterminated identifier: " + context.Tag;
+                err.Beg = context.Begline + context.Parent.BegLine;
+                err.End = context.Endline + context.Parent.BegLine;
+                fam.Errors.Add(err);
+                return;
+            }
+
+            foreach (var child in fam.Childs)
+            {
+                if (child.Xref == xref)
+                {
+                    UnkRec err = new UnkRec();
+                    err.Error = "CHIL ident used more than once (one person cannot be two children)";
+                    err.Beg = context.Begline + context.Parent.BegLine;
+                    err.End = context.Endline + context.Parent.BegLine;
+                    fam.Errors.Add(err);
+                    return;
+                }
+            }
+
+            string mrel = null;
+            string frel = null;
+            if (context.Endline > context.Begline)
+            {
+                var gs = new GEDSplitter();
+                ParseContext2 ctx = new ParseContext2();
+                int i = context.Begline + 1;
+                while (i <= context.Endline)
+                {
+                    gs.LevelTagAndRemain(context.Lines.GetLine(i), ctx);
+                    switch (ctx.Tag)
+                    {
+                        case "_MREL":
+                            if (!string.IsNullOrWhiteSpace(ctx.Remain) && ctx.Remain != "Natural")
+                                mrel = ctx.Remain;
+                            break;
+                        case "_FREL":
+                            if (!string.IsNullOrWhiteSpace(ctx.Remain) && ctx.Remain != "Natural")
+                                frel = ctx.Remain;
+                            break;
+                        default:
+                            UnkRec unk = new UnkRec(ctx.Tag, i, i);
+                            fam.Unknowns.Add(unk);
+                            break;
+                    }
+                    i++;
+                }
+            }
+            fam.AddChild(xref, frel, mrel);
+        }
+
+        // Common processing for SUBM, HUSB, WIFE
         private void xrefProc(ParseContext2 context)
         {
             // TODO how are sub-tags handled? E.g. _PREF on HUSB, WIFE
@@ -125,20 +187,20 @@ namespace SharpGEDParser.Parser
                         }
                         fam.Moms.Add(xref);
                         break;
-                    case "CHIL":
-                        foreach (var child in fam.Childs)
-                        {
-                            if (child == xref)
-                            {
-                                UnkRec err = new UnkRec();
-                                err.Error = "CHIL ident used more than once (one person cannot be two children)";
-                                err.Beg = err.End = context.Begline + context.Parent.BegLine;
-                                fam.Errors.Add(err);
-                                return;
-                            }
-                        }
-                        fam.Childs.Add(xref);
-                        break;
+                    //case "CHIL":
+                    //    foreach (var child in fam.Childs)
+                    //    {
+                    //        if (child == xref)
+                    //        {
+                    //            UnkRec err = new UnkRec();
+                    //            err.Error = "CHIL ident used more than once (one person cannot be two children)";
+                    //            err.Beg = err.End = context.Begline + context.Parent.BegLine;
+                    //            fam.Errors.Add(err);
+                    //            return;
+                    //        }
+                    //    }
+                    //    fam.Childs.Add(xref);
+                    //    break;
                     case "SUBM":
                         fam.FamSubm.Add(xref); // TODO check if xref specified more than once
                         break;

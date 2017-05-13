@@ -120,6 +120,7 @@
     <Compile Include="Tests\DateToken.cs" />
     <Compile Include="Tests\FamEventTest1.cs" />
     <Compile Include="Tests\FamTest1.cs" />
+    <Compile Include="Tests\FamTest2.cs" />
     <Compile Include="Tests\GedSplit.cs" />
     <Compile Include="Tests\zFileTest.cs" />
     <Compile Include="Tests\IndiAssocs.cs" />

@@ -11,11 +11,7 @@ using SharpGEDParser.Model;
 // TODO SOUR -> common testing
 // TODO OBJE -> common testing
 
-// TODO test _MREL, _FREL from 'AGES'
-//0 @F17299@ FAM\n1 HUSB @I4235@\n1 WIFE @I4236@\n1 CHIL @I7431@\n2 _FREL step\n2 _MREL step\n1 CHIL @I7432@\n2 _FREL step\n2 _MREL step\n1 MARR
-
 // TODO _STAT
-
 
 namespace SharpGEDParser.Tests
 {
@@ -51,8 +47,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("p1", rec.Dads[0]);
             Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(2, rec.Childs.Count);
-            Assert.AreEqual("p3", rec.Childs[0]);
-            Assert.AreEqual("p4", rec.Childs[1]);
+            Assert.AreEqual("p3", rec.Childs[0].Xref);
+            Assert.AreEqual("p4", rec.Childs[1].Xref);
             Assert.AreEqual("2", rec.RIN);
         }
 
@@ -83,13 +79,13 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Moms.Count);
             Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(1, rec.Childs.Count);
-            Assert.AreEqual("p3", rec.Childs[0]);
+            Assert.AreEqual("p3", rec.Childs[0].Xref);
             rec = TestIdentErr(" @", " @p2@", " @p3@", 1);
             Assert.AreEqual(0, rec.Dads.Count);
             Assert.AreEqual(1, rec.Moms.Count);
             Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(1, rec.Childs.Count);
-            Assert.AreEqual("p3", rec.Childs[0]);
+            Assert.AreEqual("p3", rec.Childs[0].Xref);
             rec = TestIdentErr(" @p1", " @p2@", " @p3@", 1); // TODO is this correct? unterminated ident?
             rec = TestIdentErr(" ", " @p2@", " @p3@", 1);
         }
@@ -101,12 +97,12 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("p1", rec.Dads[0]);
             Assert.AreEqual(0, rec.Moms.Count);
             Assert.AreEqual(1, rec.Childs.Count);
-            Assert.AreEqual("p3", rec.Childs[0]);
+            Assert.AreEqual("p3", rec.Childs[0].Xref);
             rec = TestIdentErr(" @p1@", " @", " @p3@", 1);
             Assert.AreEqual("p1", rec.Dads[0]);
             Assert.AreEqual(0, rec.Moms.Count);
             Assert.AreEqual(1, rec.Childs.Count);
-            Assert.AreEqual("p3", rec.Childs[0]);
+            Assert.AreEqual("p3", rec.Childs[0].Xref);
             rec = TestIdentErr(" @p1@", " @p2", " @p3@", 1); // TODO is this correct? unterminated ident?
             rec = TestIdentErr(" @p1@", " ", " @p3@", 1);
         }
@@ -368,7 +364,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("p1", rec.Dads[0]);
             Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(1, rec.Childs.Count);
-            Assert.AreEqual("p3", rec.Childs[0]);
+            Assert.AreEqual("p3", rec.Childs[0].Xref);
             Assert.AreEqual(1, rec.Errors.Count);
         }
     }

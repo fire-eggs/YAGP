@@ -3,6 +3,15 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SharpGEDParser.Model
 {
+    public class Child
+    {
+        public string Xref { get; set; }
+
+        public string MotherRelation { get; set; }
+
+        public string FatherRelation { get; set; }
+    }
+
     public class FamRecord : GEDCommon, NoteHold, SourceCitHold, MediaHold
     {
         public override string Tag { get { return "FAM"; } }
@@ -18,8 +27,8 @@ namespace SharpGEDParser.Model
         public List<LDSEvent> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSEvent>()); } }
 
         // Identity strings for children
-        private List<string> _childs;
-        public List<string> Childs { get { return _childs ?? (_childs = new List<string>()); } }
+        private List<Child> _childs;
+        public List<Child> Childs { get { return _childs ?? (_childs = new List<Child>()); } }
 
         // Identity strings for HUSB (multiple are possible from some programs)
         private List<string> _dads;
@@ -77,6 +86,17 @@ namespace SharpGEDParser.Model
         {
             get { return _restriction; }
             set { _restriction = value; }
+        }
+
+        public void AddChild(string xref, string frel = null, string mrel = null)
+        {
+            // Add a child record, given a cross reference id.
+            // Assumes that the father/mother relation is 'Natural'
+            Child ch = new Child();
+            ch.Xref = xref;
+            ch.FatherRelation = frel;
+            ch.MotherRelation = mrel;
+            Childs.Add(ch);
         }
     }
 }

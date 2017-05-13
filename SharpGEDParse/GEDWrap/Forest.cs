@@ -223,12 +223,12 @@ namespace GEDWrap
                         familyUnit.Wife = momWrap; // TODO taking the last one... save all?
                     }
                 }
-                foreach (var childId in familyUnit.FamRec.Childs)
+                foreach (var childData in familyUnit.FamRec.Childs)
                 {
                     // does childId exist in _indiHash: if yes, add to familyUnit.Childs
                     // if no, error
                     Person childWrap;
-                    if (_indiHash.TryGetValue(childId, out childWrap))
+                    if (_indiHash.TryGetValue(childData.Xref, out childWrap))
                     {
                         childWrap.ChildIn.Add(familyUnit);
                         familyUnit.Childs.Add(childWrap);
@@ -364,8 +364,9 @@ namespace GEDWrap
                             break;
                     }
                 }
-                foreach (var childId in familyUnit.FamRec.Childs)
+                foreach (var childData in familyUnit.FamRec.Childs)
                 {
+                    var childId = childData.Xref;
                     switch (verifyFAMLink(childId, famIdent, "FAMC"))
                     {
                         case -1:
@@ -402,9 +403,9 @@ namespace GEDWrap
                                 bool found = false;
                                 foreach (var famU in person.ChildIn)
                                 {
-                                    foreach (var child in famU.FamRec.Childs)
+                                    foreach (var childData in famU.FamRec.Childs)
                                     {
-                                        if (child == indiId)
+                                        if (childData.Xref == indiId)
                                             found = true;
                                     }
                                 }

@@ -96,9 +96,9 @@ namespace SharpGEDParser.Tests
         public void EventMultSour(string tag)
         {
             string txt = string.Format("0 @F1@ FAM\n1 {0}\n" +
-                "2 SOUR out of bed\n3 TEXT fumbar ex\n3 CONC tended\n3 QUAY nope\n" +
+                "2 SOUR out of bed\n3 TEXT fumbar ex\n4 CONC tended\n3 QUAY nope\n" +
                 "2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng\n" +
-                "2 SOUR inbed\n3 TEXT foebar \n3 CONC extended\n3 QUAY yup",
+                "2 SOUR inbed\n3 TEXT foebar \n4 CONC extended\n3 QUAY yup",
                 tag);
             var rec = parse(txt);
             Assert.AreEqual("F1", rec.Ident, tag);
