@@ -136,7 +136,7 @@ namespace SharpGEDParser.Parser
                                 frel = ctx.Remain;
                             break;
                         default:
-                            UnkRec unk = new UnkRec(ctx.Tag, i, i);
+                            UnkRec unk = new UnkRec(ctx.Tag, i + context.Parent.BegLine, i + context.Parent.BegLine);
                             fam.Unknowns.Add(unk);
                             break;
                     }
