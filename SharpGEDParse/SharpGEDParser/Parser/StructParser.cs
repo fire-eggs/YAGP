@@ -16,8 +16,9 @@ namespace SharpGEDParser.Parser
             LineUtil.LineData ld = new LineUtil.LineData();
 
             int i = ctx.Begline + 1;
+            int max = ctx.Lines.Max;
 
-            for (; i < ctx.Lines.Max; i++)
+            for (; i < max; i++)
             {
                 try
                 {

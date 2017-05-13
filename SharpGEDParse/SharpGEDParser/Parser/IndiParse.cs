@@ -26,10 +26,10 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("ANCI", xrefProc);
             _tagSet2.Add("DESI", xrefProc);
 
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID", UidProc);
-            _tagSet2.Add("RFN", rfnProc);
-            _tagSet2.Add("AFN", afnProc);
+            _tagSet2.Add("_UID", DataProc);
+            _tagSet2.Add("UID",  DataProc);
+            _tagSet2.Add("RFN",  DataProc);
+            _tagSet2.Add("AFN",  DataProc);
 
             // Events
             _tagSet2.Add("DEAT", EventProc);
@@ -93,21 +93,6 @@ namespace SharpGEDParser.Parser
         private void LivingProc(ParseContext2 context)
         {
             (context.Parent as IndiRecord).Living = true;
-        }
-
-        private void afnProc(ParseContext2 context)
-        {
-            DataProc(context, false);
-        }
-
-        private void rfnProc(ParseContext2 context)
-        {
-            DataProc(context, false);
-        }
-
-        private void UidProc(ParseContext2 context)
-        {
-            DataProc(context, false);
         }
 
         private void AssocProc(ParseContext2 context)

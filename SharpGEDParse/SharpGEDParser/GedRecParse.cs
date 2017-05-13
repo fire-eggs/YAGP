@@ -24,8 +24,9 @@ namespace SharpGEDParser
 
             ctx.Lines = Lines;
             ctx.Parent = rec;
+            int max = Lines.Max;
 
-            for (int i = 1; i < Lines.Max; i++)
+            for (int i = 1; i < max; i++)
             {
                 string line = Lines.GetLine(i);
                 ctx.Begline = i;
@@ -110,11 +111,10 @@ namespace SharpGEDParser
             (ctx.Parent as MediaHold).Media.Add(mlink);
         }
 
-        protected void DataProc(ParseContext2 ctx, bool multipleOK)
+        protected void DataProc(ParseContext2 ctx)
         {
             // Common processing for UID, RFN, AFN
-            bool isRefn = ctx.Tag.Equals("REFN");
-            if (!isRefn && !multipleOK && ctx.Parent.Ids.HasId(ctx.Tag))
+            if (ctx.Parent.Ids.HasId(ctx.Tag))
             {
                 ErrorRec(ctx, string.Format("Multiple {0} encountered; keeping only the first", ctx.Tag));
                 // TODO what to do: we're throwing away data!
@@ -125,15 +125,17 @@ namespace SharpGEDParser
             LookAhead(ctx);
             sp.Extra.Beg = ctx.Begline + 1;
             sp.Extra.End = ctx.Endline;
-            if (isRefn)
-                ctx.Parent.Ids.REFNs.Add(sp);
-            else
-                ctx.Parent.Ids.Add(ctx.Tag, sp);
+            ctx.Parent.Ids.Add(ctx.Tag, sp);
         }
 
         protected void RefnProc(ParseContext2 ctx)
         {
-            DataProc(ctx, true);
+            var sp = new StringPlus();
+            sp.Value = ctx.Remain;
+            LookAhead(ctx);
+            sp.Extra.Beg = ctx.Begline + 1;
+            sp.Extra.End = ctx.Endline;
+            ctx.Parent.Ids.REFNs.Add(sp);
         }
 
         public virtual void PostCheck(GEDCommon rec)
@@ -147,7 +149,8 @@ namespace SharpGEDParser
             StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart(),1024);
             int i = ctx.Begline + 1;
             LineUtil.LineData ld = new LineUtil.LineData();
-            for (; i < ctx.Lines.Max; i++)
+            int max = ctx.Lines.Max;
+            for (; i < max; i++)
             {
                 LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
                 if (ld.Level <= ctx.Level)

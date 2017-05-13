@@ -37,8 +37,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("MARS", eventProc);
             _tagSet2.Add("RESI", eventProc);
 
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID", UidProc);
+            _tagSet2.Add("_UID", DataProc);
+            _tagSet2.Add("UID",  DataProc);
 
             // Drat. These are sub-tags per-child. Child doesn't yet have more than an id string.
             //_tagSet2.Add("_FREL", UidProc); // Commonly encountered non-standard tags
@@ -232,11 +232,6 @@ namespace SharpGEDParser.Parser
             var famEvent = FamilyEventParse.Parse(context);
             var fam = (context.Parent as FamRecord);
             fam.FamEvents.Add(famEvent);
-        }
-
-        private void UidProc(ParseContext2 context)
-        {
-            DataProc(context, false);
         }
 
         public override void PostCheck(GEDCommon rec)
