@@ -34,9 +34,12 @@ namespace SharpGEDParser
 
                 gs.LevelTagAndRemain(line, ctx);
                 //LineUtil.LevelTagAndRemain(ctx, line); //, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
-                if (ctx.Tag != null && _tagSet2.ContainsKey(ctx.Tag))
+                TagProc2 tagProc;
+                if (ctx.Tag != null && _tagSet2.TryGetValue(ctx.Tag, out tagProc))
+                    //_tagSet2.ContainsKey(ctx.Tag))
                 {
-                    _tagSet2[ctx.Tag](ctx);
+                    tagProc(ctx);
+                    //_tagSet2[ctx.Tag](ctx);
                 }
                 else
                 {
