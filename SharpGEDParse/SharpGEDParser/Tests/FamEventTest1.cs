@@ -148,7 +148,7 @@ namespace SharpGEDParser.Tests
 
             // relying on an error container within the sub-record
             Assert.AreEqual(1, evt.Errors.Count, "Error expected " + tag);
-            Assert.IsNotNullOrEmpty(evt.Errors[0].Error);
+            Assert.AreNotEqual(0, (int)evt.Errors[0].Error);
         }
 
         public void EventSimpleSourErr2(string tag)
@@ -180,7 +180,7 @@ namespace SharpGEDParser.Tests
 
             // relying on an error container within the sub-record
             Assert.AreEqual(2, evt.Errors.Count, "2 Errors expected " + tag);
-            Assert.IsNotNullOrEmpty(evt.Errors[0].Error);
+            Assert.AreNotEqual(0, (int)evt.Errors[0].Error);
         }
 
         // TODO trailing 'Y' for MARR

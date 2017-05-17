@@ -80,7 +80,7 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrWhiteSpace(me.Ident))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one?
+                err.Error = UnkRec.ErrorCode.MissIdent; // TODO "Missing identifier"; // TODO assign one?
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }
@@ -89,7 +89,7 @@ namespace SharpGEDParser.Parser
             if (me.Files.Count < 1)
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing FILE";
+                err.Error = UnkRec.ErrorCode.MissFile; // "Missing FILE";
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }
@@ -100,7 +100,7 @@ namespace SharpGEDParser.Parser
                 if (string.IsNullOrWhiteSpace(mediaFile.Form))
                 {
                     UnkRec err = new UnkRec();
-                    err.Error = "Missing FORM";
+                    err.Error = UnkRec.ErrorCode.MissForm; // "Missing FORM";
                     err.Beg = err.End = me.BegLine;
                     me.Errors.Add(err);
                 }

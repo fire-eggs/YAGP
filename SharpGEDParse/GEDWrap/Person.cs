@@ -82,7 +82,7 @@ namespace GEDWrap
 
         public string Id { get { return Indi.Ident; } }
 
-        private FamilyEvent GetEvent(string tag)
+        private IndiEvent GetEvent(string tag)
         {
             foreach (var kbrGedEvent in Indi.Events)
             {
@@ -94,7 +94,7 @@ namespace GEDWrap
             return null;
         }
 
-        private FamilyEvent GetAttrib(string tag)
+        private IndiEvent GetAttrib(string tag)
         {
             foreach (var kbrGedEvent in Indi.Attribs)
             {
@@ -138,7 +138,7 @@ namespace GEDWrap
         }
 
         // Return either the birth or christening event
-        public FamilyEvent Birth
+        public IndiEvent Birth
         {
             get
             {
@@ -156,7 +156,7 @@ namespace GEDWrap
         {
             get
             {
-                FamilyEvent b = Birth;
+                var b = Birth;
                 if (b != null &&
                     b.GedDate != null &&
                     b.GedDate.Type != GEDDate.Types.Unknown)
@@ -166,7 +166,7 @@ namespace GEDWrap
         }
 
         // Return Death/Burial/Cremation event
-        public FamilyEvent Death
+        public IndiEvent Death
         {
             get
             {

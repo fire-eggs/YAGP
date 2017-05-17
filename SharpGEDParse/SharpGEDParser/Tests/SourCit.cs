@@ -48,7 +48,7 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec);
 
             Assert.AreEqual(1, res[0].Errors.Count, "No error");
-            Assert.IsNotNullOrEmpty(res[0].Errors[0].Error); // TODO verify details?
+            Assert.AreNotEqual(0, (int)res[0].Errors[0].Error); // TODO verify details?
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.AreEqual("p1", rec.Cits[0].Xref);
             Assert.AreEqual(1, res[0].Errors.Count, "No error");
-            Assert.IsNotNullOrEmpty(res[0].Errors[0].Error); // TODO verify details?
+            Assert.AreNotEqual(0, (int)res[0].Errors[0].Error); // TODO verify details?
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(null, rec.Cits[0].Xref);
             Assert.IsNotNullOrEmpty(rec.Cits[0].Page);
             Assert.AreEqual(1, res[0].Errors.Count, "No error");
-            Assert.IsNotNullOrEmpty(res[0].Errors[0].Error); // TODO verify details?
+            Assert.AreNotEqual(0, (int)res[0].Errors[0].Error); // TODO verify details?
         }
 
         [Test]
@@ -114,7 +114,7 @@ namespace SharpGEDParser.Tests
             Assert.IsNull(rec.Cits[0].Xref);
             Assert.IsNotNullOrEmpty(rec.Cits[0].Event);
             Assert.AreEqual(1, res[0].Errors.Count, "No error");
-            Assert.IsNotNullOrEmpty(res[0].Errors[0].Error); // TODO verify details?
+            Assert.AreNotEqual(0, (int)res[0].Errors[0].Error); // TODO verify details?
         }
 
         [Test]

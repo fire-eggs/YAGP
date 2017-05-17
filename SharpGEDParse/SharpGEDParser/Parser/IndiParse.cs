@@ -129,9 +129,9 @@ namespace SharpGEDParser.Parser
 
         private void EventProc(ParseContext2 context)
         {
-            var @event = FamilyEventParse.Parse(context); // TODO family flag? post-check? what INDI specific details?
+            var @event = FamilyEventParse.Parse(context, true); // TODO family flag? post-check? what INDI specific details?
             var indi = (context.Parent as IndiRecord);
-            indi.Events.Add(@event);
+            indi.Events.Add(@event as IndiEvent);
         }
 
         private void LdsOrdProc(ParseContext2 context)
@@ -143,9 +143,9 @@ namespace SharpGEDParser.Parser
 
         private void AttribProc(ParseContext2 context)
         {
-            var @event = FamilyEventParse.Parse(context); // TODO family flag? post-check? what INDI specific details?
+            var @event = FamilyEventParse.Parse(context, true); // TODO family flag? post-check? what INDI specific details?
             var indi = (context.Parent as IndiRecord);
-            indi.Attribs.Add(@event);
+            indi.Attribs.Add((IndiEvent)@event);
         }
 
         private void resnProc(ParseContext2 context)
@@ -158,7 +158,7 @@ namespace SharpGEDParser.Parser
             else
             {
                 UnkRec err = new UnkRec();
-                err.Error = "RESN specified more than once";
+                err.Error = UnkRec.ErrorCode.MultRESN; // "RESN specified more than once";
                 err.Beg = err.End = context.Begline;
                 indi.Errors.Add(err);
             }
@@ -183,7 +183,7 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrEmpty(xref))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing/unterminated identifier: " + context.Tag;
+                err.Error = UnkRec.ErrorCode.MissIdent; // "Missing/unterminated identifier: " + context.Tag;
                 err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 indi.Errors.Add(err);
             }
@@ -216,7 +216,7 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrWhiteSpace(me.Ident))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "INDI missing identifier"; // TODO assign one?
+                err.Error = UnkRec.ErrorCode.MissIdent; // TODO "INDI missing identifier"; // TODO assign one?
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }
@@ -228,7 +228,7 @@ namespace SharpGEDParser.Parser
                 me.Sex = 'U'; // TODO warning
 
                 UnkRec err = new UnkRec();
-                err.Error = "Non-standard SEX value corrected to U";
+                err.Error = UnkRec.ErrorCode.InvSex; // "Non-standard SEX value corrected to U";
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }

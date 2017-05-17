@@ -16,7 +16,15 @@ namespace SharpGEDParser.Parser
             { "NICK", subProc},
             { "SURN", subProc},
             { "GIVN", subProc},
+            { "SOUR", junkProc},
+            { "DATA", junkProc},
+            { "TEXT", junkProc}
         };
+
+        private static void junkProc(StructParseContext ctx, int linedex, char level)
+        {
+            // TODO temp ignore SOUR.DATA.TEXT - see 2524482.ged
+        }
 
         private static void subProc(StructParseContext ctx, int linedex, char level)
         {

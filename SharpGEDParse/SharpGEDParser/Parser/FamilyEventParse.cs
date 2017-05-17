@@ -43,7 +43,7 @@ namespace SharpGEDParser.Parser
             // handling of CONC/CONT tags for DSCR
             // TODO not quite the same as other CONC/CONT, can't use extendedText?
 
-            var own = ctx.Parent as FamilyEvent;
+            var own = ctx.Parent as EventCommon;
             if (own.Tag != "DSCR")
             {
                 // TODO ErrorRec(string.Format("Invalid CONC/CONT for {0}", own.Tag));
@@ -59,29 +59,32 @@ namespace SharpGEDParser.Parser
 
         private static void adopProc(StructParseContext context, int linedex, char level)
         {
-            (context.Parent as FamilyEvent).FamcAdop = context.Remain;
+            (context.Parent as IndiEvent).FamcAdop = context.Remain;
         }
 
         private static void famcProc(StructParseContext context, int linedex, char level)
         {
-            (context.Parent as FamilyEvent).Famc = context.Remain;
+            (context.Parent as IndiEvent).Famc = context.Remain;
         }
 
         private static void dateProc(StructParseContext context, int linedex, char level)
         {
             // TODO full Date support
-            var famE = (context.Parent as FamilyEvent);
+            var famE = (context.Parent as EventCommon);
             famE.Date = context.Remain;
             famE.GedDate = EventDateParse.DateParser(context.Remain);
         }
 
         private static void ageProc(StructParseContext context, int linedex, char level)
         {
-            var evt = context.Parent as FamilyEvent;
             if (context.Tag == "AGE")
-                evt.Age = context.Remain;
+            {
+                (context.Parent as EventCommon).Age = context.Remain;
+                //evt.Age = context.Remain;
+            }
             else
             {
+                var evt = context.Parent as FamilyEvent;
                 var det = EventAgeParse.AgeParser(context, linedex, level);
                 switch (context.Tag)
                 {
@@ -105,25 +108,25 @@ namespace SharpGEDParser.Parser
         private static void placProc(StructParseContext context, int linedex, char level)
         {
             // TODO full PLACE_STRUCTURE support
-            var famE = (context.Parent as FamilyEvent);
+            var famE = (context.Parent as EventCommon);
             famE.Place = context.Remain;
         }
 
         private static void addrProc(StructParseContext ctx, int linedex, char level)
         {
             var addr = AddrStructParse.AddrParse(ctx, linedex, level);
-            (ctx.Parent as FamilyEvent).Address = addr;
+            (ctx.Parent as EventCommon).Address = addr;
         }
 
         private static void commonAddr2(StructParseContext ctx, int linedex, char level)
         {
-            var dad = (ctx.Parent as FamilyEvent);
+            var dad = (ctx.Parent as EventCommon);
             dad.Address = AddrStructParse.OtherTag(ctx, ctx.Tag, dad.Address);
         }
 
         private static void remainProc(StructParseContext context, int linedex, char level)
         {
-            var famE = (context.Parent as FamilyEvent);
+            var famE = (context.Parent as EventCommon);
             switch (context.Tag) // TODO consider using reflection and property name?
             {
                 case "TYPE":
@@ -149,9 +152,9 @@ namespace SharpGEDParser.Parser
  */
         }
 
-        public static FamilyEvent Parse(ParseContext2 ctx)
+        public static EventCommon Parse(ParseContext2 ctx, bool indi)
         {
-            var gedEvent = new FamilyEvent();
+            EventCommon gedEvent = indi ? new IndiEvent() as EventCommon : new FamilyEvent() as EventCommon;
             StructParseContext ctx2 = new StructParseContext(ctx, gedEvent);
             gedEvent.Tag = ctx.Tag;
             gedEvent.Descriptor = ctx.Remain;

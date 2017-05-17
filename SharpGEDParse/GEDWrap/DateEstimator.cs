@@ -14,7 +14,7 @@ namespace GEDWrap
     {
         private static bool NeedsEstimateBirth(Person p)
         {
-            FamilyEvent b = p.Birth;
+            var b = p.Birth;
             if (b != null &&
                 b.GedDate != null &&
                 b.GedDate.Type != GEDDate.Types.Unknown)

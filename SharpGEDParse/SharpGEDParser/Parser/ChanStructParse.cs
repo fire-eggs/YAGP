@@ -9,8 +9,14 @@ namespace SharpGEDParser.Parser
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
         {
             {"DATE", dateProc},
-            {"NOTE", noteProc}
+            {"NOTE", noteProc},
+            {"TIME", timeProc}
         };
+
+        private static void timeProc(StructParseContext ctx, int linedex, char level)
+        {
+            // TODO toss TIME data
+        }
 
         private static void dateProc(StructParseContext ctx, int linedex, char level)
         {
@@ -35,7 +41,7 @@ namespace SharpGEDParser.Parser
             if (chan.Date != null)
             {
                 UnkRec err = new UnkRec();
-                err.Error = "More than one change record";
+                err.Error = UnkRec.ErrorCode.MultChan; // TODO "More than one change record";
                 GedRecParse.LookAhead(ctx);
                 err.Beg = ctx.Begline + ctx.Parent.BegLine;
                 err.End = ctx.Endline + ctx.Parent.BegLine;
@@ -47,7 +53,7 @@ namespace SharpGEDParser.Parser
             if (chan.Date == null)
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing/invalid date for CHAN";
+                err.Error = UnkRec.ErrorCode.ChanDate; // TODO "Missing/invalid date for CHAN";
                 err.Beg = ctx.Begline + ctx.Parent.BegLine;
                 err.End = ctx.Endline + ctx.Parent.BegLine;
                 ctx.Parent.Errors.Add(err);

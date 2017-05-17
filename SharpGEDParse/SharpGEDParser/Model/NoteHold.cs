@@ -11,10 +11,11 @@ namespace SharpGEDParser.Model
 
         public StringBuilder Builder { get; set; } // Accumulate text during parse
 
-        public Note()
-        {
-            Builder = new StringBuilder(1024);
-        }
+        // Memory hog
+        //public Note()
+        //{
+        //    Builder = new StringBuilder(1024);
+        //}
     }
 
     public interface NoteHold

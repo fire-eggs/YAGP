@@ -1,4 +1,5 @@
-﻿using SharpGEDParser.Model;
+﻿using System.Text;
+using SharpGEDParser.Model;
 using System.Collections.Generic;
 
 namespace SharpGEDParser.Parser
@@ -30,6 +31,7 @@ namespace SharpGEDParser.Parser
         public static Note NoteParser(ParseContext2 ctx)
         {
             Note note = new Note();
+            note.Builder = new StringBuilder(512);
             StructParseContext ctx2 = new StructParseContext(ctx, note);
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
@@ -51,6 +53,7 @@ namespace SharpGEDParser.Parser
         public static Note NoteParser(StructParseContext ctx, int linedex, char level)
         {
             Note note = new Note();
+            note.Builder = new StringBuilder(512);
             StructParseContext ctx2 = new StructParseContext(ctx, linedex, note);
             ctx2.Level = level;
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')

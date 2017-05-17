@@ -5,11 +5,13 @@ namespace SharpGEDParser.Model
     {
         public AgeDetail HusbDetail { get; set; } // FAM event
         public AgeDetail WifeDetail { get; set; } // FAM event
+    }
 
-        public string Age { get; set; } // INDI event, attribute
-
+    public class IndiEvent : EventCommon
+    {
         public string Famc { get; set; } // INDI event
 
         public string FamcAdop { get; set; } // INDI event
+        
     }
 }

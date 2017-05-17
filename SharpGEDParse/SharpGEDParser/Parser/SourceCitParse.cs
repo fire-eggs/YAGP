@@ -92,7 +92,8 @@ namespace SharpGEDParser.Parser
             cit.Xref = xref;
             if (xref != null && (xref.Trim().Length == 0 || cit.Xref.Contains("@")))  // No xref is valid but not if empty/illegal
             {
-                var unk = new UnkRec {Error = "Invalid source citation xref id"};
+                var unk = new UnkRec();
+                unk.Error = UnkRec.ErrorCode.InvXref; // TODO {Error = "Invalid source citation xref id"};
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
                 unk.End = ctx.Endline + ctx.Lines.End;
                 errs.Add(unk);
@@ -107,21 +108,24 @@ namespace SharpGEDParser.Parser
 
             if (!cit.Data && cit.Xref != null && cit.AnyText)
             {
-                var unk = new UnkRec { Error = "TEXT tag used for reference source citation" };
+                var unk = new UnkRec();
+                unk.Error = UnkRec.ErrorCode.RefSourText; // TODO { Error = "TEXT tag used for reference source citation" };
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
                 unk.End = ctx.Endline + ctx.Lines.End;
                 errs.Add(unk);
             }
             if (cit.Xref == null && cit.Event != null)
             {
-                var unk = new UnkRec { Error = "EVEN tag used for embedded source citation" };
+                var unk = new UnkRec();
+                unk.Error = UnkRec.ErrorCode.EmbSourEven; // TODO { Error = "EVEN tag used for embedded source citation" };
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
                 unk.End = ctx.Endline + ctx.Lines.End;
                 errs.Add(unk);
             }
             if (cit.Xref == null && cit.Page != null)
             {
-                var unk = new UnkRec { Error = "PAGE tag used for embedded source citation" };
+                var unk = new UnkRec();
+                unk.Error = UnkRec.ErrorCode.EmbSourPage; // TODO { Error = "PAGE tag used for embedded source citation" };
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
                 unk.End = ctx.Endline + ctx.Lines.End;
                 errs.Add(unk);

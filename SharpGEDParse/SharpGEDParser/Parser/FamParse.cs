@@ -40,9 +40,16 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("_UID", DataProc);
             _tagSet2.Add("UID",  DataProc);
 
+            _tagSet2.Add("_PREF", junkProc);
+
             // Drat. These are sub-tags per-child. Child doesn't yet have more than an id string.
             //_tagSet2.Add("_FREL", UidProc); // Commonly encountered non-standard tags
             //_tagSet2.Add("_MREL", UidProc);
+        }
+
+        private void junkProc(ParseContext2 context)
+        {
+            // TODO throw away
         }
 
         private void ldsSpouseSeal(ParseContext2 context)
@@ -65,14 +72,15 @@ namespace SharpGEDParser.Parser
             if (!int.TryParse(context.Remain, out childCount))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Invalid child count";
+                err.Error = UnkRec.ErrorCode.InvNCHI; //"Invalid child count";
                 err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
             else if (fam.ChildCount != -1) // has been specified once already
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Child count specified more than once";
+                err.Error = UnkRec.ErrorCode.MultNCHI;
+                //err.Error = "Child count specified more than once";
                 err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
@@ -95,7 +103,7 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrEmpty(xref))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing/unterminated identifier: " + context.Tag;
+                err.Error = UnkRec.ErrorCode.MissIdent; // TODO "Missing/unterminated identifier: " + context.Tag;
                 err.Beg = context.Begline + context.Parent.BegLine;
                 err.End = context.Endline + context.Parent.BegLine;
                 fam.Errors.Add(err);
@@ -107,7 +115,7 @@ namespace SharpGEDParser.Parser
                 if (child.Xref == xref)
                 {
                     UnkRec err = new UnkRec();
-                    err.Error = "CHIL ident used more than once (one person cannot be two children)";
+                    err.Error = UnkRec.ErrorCode.MultCHIL; // TODO "CHIL ident used more than once (one person cannot be two children)";
                     err.Beg = context.Begline + context.Parent.BegLine;
                     err.End = context.Endline + context.Parent.BegLine;
                     fam.Errors.Add(err);
@@ -135,6 +143,10 @@ namespace SharpGEDParser.Parser
                             if (!string.IsNullOrWhiteSpace(ctx.Remain) && ctx.Remain != "Natural")
                                 frel = ctx.Remain;
                             break;
+                        case "_PREF":
+                        case "_STAT":
+                            // TODO temporarily ignore: see 2524482.ged
+                            break;
                         default:
                             UnkRec unk = new UnkRec(ctx.Tag, i + context.Parent.BegLine, i + context.Parent.BegLine);
                             fam.Unknowns.Add(unk);
@@ -159,7 +171,8 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrEmpty(xref))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing/unterminated identifier: " + context.Tag;
+                err.Error = UnkRec.ErrorCode.MissIdent;
+                //err.Error = "Missing/unterminated identifier: " + context.Tag;
                 err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
@@ -171,7 +184,7 @@ namespace SharpGEDParser.Parser
                         if (fam.Dads.Count != 0) // HUSB already specified
                         {
                             UnkRec err = new UnkRec();
-                            err.Error = "HUSB line used more than once";
+                            err.Error = UnkRec.ErrorCode.MultHUSB; //"HUSB line used more than once";
                             err.Beg = err.End = context.Begline + context.Parent.BegLine;
                             fam.Errors.Add(err);
                         }
@@ -181,7 +194,7 @@ namespace SharpGEDParser.Parser
                         if (fam.Moms.Count != 0) // WIFE already specified
                         {
                             UnkRec err = new UnkRec();
-                            err.Error = "WIFE line used more than once";
+                            err.Error = UnkRec.ErrorCode.MultWIFE; //"WIFE line used more than once";
                             err.Beg = err.End = context.Begline + context.Parent.BegLine;
                             fam.Errors.Add(err);
                         }
@@ -218,7 +231,7 @@ namespace SharpGEDParser.Parser
             else
             {
                 UnkRec err = new UnkRec();
-                err.Error = "RESN specified more than once";
+                err.Error = UnkRec.ErrorCode.MultRESN; // TODO "RESN specified more than once";
                 err.Beg = err.End = context.Begline + context.Parent.BegLine;
                 fam.Errors.Add(err);
             }
@@ -229,9 +242,9 @@ namespace SharpGEDParser.Parser
             // 5.5.1 : MARR allows 'Y'
             // 5.5 : most events allow 'Y'
             // Syntax changed between 5.5 and 5.5.1 for HUSB.AGE / WIFE.AGE
-            var famEvent = FamilyEventParse.Parse(context);
+            var famEvent = FamilyEventParse.Parse(context, false);
             var fam = (context.Parent as FamRecord);
-            fam.FamEvents.Add(famEvent);
+            fam.FamEvents.Add((FamilyEvent)famEvent);
         }
 
         public override void PostCheck(GEDCommon rec)
@@ -241,7 +254,7 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrWhiteSpace(me.Ident))
             {
                 UnkRec err = new UnkRec();
-                err.Error = "Missing identifier"; // TODO assign one?
+                err.Error = UnkRec.ErrorCode.MissIdent; // "Missing identifier"; // TODO assign one?
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }

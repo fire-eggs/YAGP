@@ -59,7 +59,8 @@ namespace SharpGEDParser
             catch (Exception ex)
             {
                 UnkRec err = new UnkRec();
-                err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+                err.Error = UnkRec.ErrorCode.Exception;
+                // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
                 Errors.Add(err);
             }
         }
@@ -148,11 +149,17 @@ namespace SharpGEDParser
             catch (Exception ex)
             {
                 if (ex.Message == "record head not zero")
-                    Errors.Add(new UnkRec {Error = "File doesn't start with '0 HEAD', parse fails"});
+                {
+                    UnkRec unk = new UnkRec();
+                    unk.Error = UnkRec.ErrorCode.MissHEAD;
+                    Errors.Add(unk);
+                    //Errors.Add(new UnkRec { Error = "File doesn't start with '0 HEAD', parse fails" });
+                }
                 else
                 {
                     var err = new UnkRec();
-                    err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+                    err.Error = UnkRec.ErrorCode.Exception;
+                    // err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
                     Errors.Add(err);
                 }
             }
@@ -174,19 +181,19 @@ namespace SharpGEDParser
             int dex = LineUtil.FirstChar(line, 0, len);
             if (dex < 0)
             {
-                DoError("Empty line", lineNum);
+                DoError( UnkRec.ErrorCode.EmptyLine, lineNum);
                 return; // empty line
             }
             if (len > 255) // TODO anything special for UTF-16?
             {
-                DoError("Line too long", lineNum);
+                DoError( UnkRec.ErrorCode.LineTooLong, lineNum);
                 // proceed anyway
             }
 
             char level = line[dex];
             if (level < '0' || level > '9')
             {
-                DoError("Invalid record level", lineNum);
+                DoError( UnkRec.ErrorCode.InvLevel, lineNum);
                 return; // cannot proceed
             }
 
@@ -222,7 +229,7 @@ namespace SharpGEDParser
             Data.Add(parsed);
         }
 
-        private void DoError(string msg, int lineNum)
+        private void DoError(UnkRec.ErrorCode msg, int lineNum)
         {
             var err = new UnkRec();
             err.Error = msg;
@@ -247,11 +254,14 @@ namespace SharpGEDParser
         {
             _allUnknowns = new List<UnkRec>();
             _allErrors = new List<UnkRec>();
-            _allErrors.AddRange(Errors);
+            if (Errors != null)
+                _allErrors.AddRange(Errors);
             foreach (var gedCommon in Data)
             {
-                _allErrors.AddRange(gedCommon.Errors);
-                _allUnknowns.AddRange(gedCommon.Unknowns);
+                if (gedCommon.Errors != null)
+                    _allErrors.AddRange(gedCommon.Errors);
+                if (gedCommon.Unknowns != null)
+                    _allUnknowns.AddRange(gedCommon.Unknowns);
             }
             // TODO errors/unknown in sub-records
         }

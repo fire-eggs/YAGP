@@ -94,7 +94,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("salty", rec.LDSEvents[0].Place);
             Assert.AreEqual("insane", rec.LDSEvents[0].Status);
             Assert.AreEqual(1, rec.LDSEvents[0].Errors.Count);
-            Assert.IsNotNullOrEmpty(rec.LDSEvents[0].Errors[0].Error);
+            Assert.AreNotEqual(0, (int)rec.LDSEvents[0].Errors[0].Error);
             Assert.IsNullOrEmpty(rec.LDSEvents[0].FamilyXref);
         }
 

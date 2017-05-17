@@ -105,6 +105,7 @@ namespace GedScan
             }
 
             Console.WriteLine("   {0}", Path.GetFileName(path));
+            Console.Out.Flush();
             using (Forest f = new Forest())
             {
                 f.LoadGEDCOM(path);
@@ -134,6 +135,7 @@ namespace GedScan
                 double meg = delta/(1024*1024.0);
                 Console.WriteLine("\t===Memory:{0:0.00}M", meg);
             }
+            Console.Out.Flush();
         }
 
         //struct errBucket
@@ -157,7 +159,7 @@ namespace GedScan
         }
 
         private enum DateState { Success=0, WftEst, Fail, FailAndDump, Empty, Exact }
-        private static DateState dumpDate(FamilyEvent evt)
+        private static DateState dumpDate(EventCommon evt)
         {
             if (evt.GedDate != null && evt.GedDate.Type != GEDDate.Types.Unknown)
                 return evt.GedDate.Type == GEDDate.Types.Exact ? DateState.Exact : DateState.Success;
@@ -312,7 +314,7 @@ namespace GedScan
             int subN = 0; // NOTE sub-records
             int subNLen = 0; // total length of sub-record note text
 
-            var errRollup = new Dictionary<string, UnkRec>();
+            var errRollup = new Dictionary<int, UnkRec>();
             var unkRollup = new Dictionary<string, UnkRec>();
             var unkRecRollup = new Dictionary<string, GEDCommon>();
 
@@ -327,8 +329,8 @@ namespace GedScan
                 {
                     foreach (var errRec in gedRec2.Errors)
                     {
-                        if (!errRollup.ContainsKey(errRec.Error))
-                            errRollup.Add(errRec.Error, errRec);
+                        if (!errRollup.ContainsKey((int)errRec.Error))
+                            errRollup.Add((int)errRec.Error, errRec);
                         //Console.WriteLine("\t\tError:{0}", errRec.Error);
                     }
                 }
@@ -337,8 +339,8 @@ namespace GedScan
                 {
                     foreach (var errRec in gedRec2.Unknowns)
                     {
-                        if (!unkRollup.ContainsKey(errRec.Tag))
-                            unkRollup.Add(errRec.Tag, errRec);
+                        if (!unkRollup.ContainsKey(errRec.Tag ?? ""))
+                            unkRollup.Add(errRec.Tag ?? "", errRec);
                         //Console.WriteLine("\t\tUnknown:{0} at line {2} in {1}", errRec.Tag, gedRec2, errRec.Beg);
                     }
                 }
@@ -411,8 +413,8 @@ namespace GedScan
 
                 foreach (var errRec in errors)
                 {
-                    if (!errRollup.ContainsKey(errRec.Error))
-                        errRollup.Add(errRec.Error, errRec);
+                    if (!errRollup.ContainsKey((int)errRec.Error))
+                        errRollup.Add((int)errRec.Error, errRec);
                     //Console.WriteLine("\t\tError:{0}", unkRec.Error);
                 }
                 foreach (var issue in issues)

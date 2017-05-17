@@ -156,7 +156,7 @@ namespace SharpGEDParser.Tests
             var rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // Mutation testing
+            Assert.AreNotEqual(0, rec.Errors[0].Error); // Mutation testing
             Assert.AreNotEqual(-1, rec.Errors[0].Beg); // Mutation testing
             Assert.AreNotEqual(-1, rec.Errors[0].End); // Mutation testing
             Assert.AreEqual(0, rec.Unknowns.Count);
@@ -184,7 +184,7 @@ namespace SharpGEDParser.Tests
             var rec = ReadOne(txt);
 
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // Mutation testing
+            Assert.AreNotEqual(0, rec.Errors[0].Error); // Mutation testing
             Assert.AreNotEqual(-1, rec.Errors[0].Beg); // Mutation testing
             Assert.AreNotEqual(-1, rec.Errors[0].End); // Mutation testing
             Assert.AreEqual(0, rec.Unknowns.Count);
@@ -194,6 +194,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TimeRec() // TODO test with all supported record types?
         {
+            // TODO broken: throwing TIME record away
             // TIME record treated as 'other'
             var txt = "0 @N1@ SOUR\n1 CHAN\n2 DATE 1 MAR 2000\n3 TIME 13:24\n1 RIN fumbar";
             var rec = ReadOne(txt);

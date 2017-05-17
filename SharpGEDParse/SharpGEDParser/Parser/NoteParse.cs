@@ -36,7 +36,8 @@ namespace SharpGEDParser.Parser
 
             if (string.IsNullOrWhiteSpace(me.Ident))
             {
-                UnkRec err = new UnkRec {Error = "Missing identifier"};
+                UnkRec err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.MissIdent; // TODO {Error = "Missing identifier"};
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }

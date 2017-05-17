@@ -741,22 +741,26 @@ namespace SharpGEDParser.Tests
 
         #endregion
 
+        public void HasErrors(GEDCommon rec, int count)
+        {
+            Assert.AreEqual(count, rec.Errors.Count);
+            Assert.AreNotEqual(0, rec.Errors[0].Error);
+        }
+
         [Test]
         public void InvalidRepoId()
         {
             var txt = "0 @S1@ SOUR\n1 REPO @   @";
             var rec = ReadOne(txt);
 
-            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
-            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // from mutation test
+            HasErrors(rec, 1);
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.IsNullOrEmpty(rec.Cits[0].Xref);
 
             txt = "0 @S1@ SOUR\n1 REPO @ gibberish";
             rec = ReadOne(txt);
 
-            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
-            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // from mutation test
+            HasErrors(rec, 1);
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.IsNullOrEmpty(rec.Cits[0].Xref);
         }
@@ -767,8 +771,7 @@ namespace SharpGEDParser.Tests
             var txt = "0 @S1@ SOUR\n1 REPO @@@";
             var rec = ReadOne(txt);
 
-            Assert.AreEqual(1, rec.Errors.Count);  // TODO validate details
-            Assert.IsNotNullOrEmpty(rec.Errors[0].Error); // from mutation test
+            HasErrors(rec, 1);
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.AreEqual("@", rec.Cits[0].Xref); // TODO is this correct???
         }

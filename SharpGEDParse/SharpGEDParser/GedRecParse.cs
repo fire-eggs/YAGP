@@ -74,14 +74,6 @@ namespace SharpGEDParser
             ctx.Endline = linedex;
         }
 
-        protected UnkRec ErrorRec(ParseContext2 ctx, string reason)
-        {
-            var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
-            rec.Error = reason;
-            ctx.Parent.Errors.Add(rec);
-            return rec;
-        }
-
         protected void RinProc(ParseContext2 ctx)
         {
             // Common RIN processing
@@ -119,7 +111,11 @@ namespace SharpGEDParser
             // Common processing for UID, RFN, AFN
             if (ctx.Parent.Ids.HasId(ctx.Tag))
             {
-                ErrorRec(ctx, string.Format("Multiple {0} encountered; keeping only the first", ctx.Tag));
+                var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+                rec.Error = UnkRec.ErrorCode.MultId; // reason;
+                ctx.Parent.Errors.Add(rec);
+
+                //ErrorRec(ctx, string.Format("Multiple {0} encountered; keeping only the first", ctx.Tag));
                 // TODO what to do: we're throwing away data!
                 return;
             }
@@ -187,7 +183,8 @@ namespace SharpGEDParser
                     break;
                 default:
                     UnkRec err = new UnkRec();
-                    err.Error = "Non-standard Restriction value";
+                    err.Error = UnkRec.ErrorCode.InvRestrict;
+                    //err.Error = "Non-standard Restriction value";
                     err.Beg = err.End = rec.BegLine;
                     rec.Errors.Add(err);
                     break;
@@ -202,7 +199,7 @@ namespace SharpGEDParser
             {
                 UnkRec err = new UnkRec();
                 err.Beg = err.End = rec.BegLine;
-                err.Error = string.Format("Non-standard extra text: '{0}'", remain);
+                err.Error = UnkRec.ErrorCode.InvExtra; // TODO string.Format("Non-standard extra text: '{0}'", remain);
                 rec.Errors.Add(err);
 
                 if (rec is NoteHold)

@@ -450,12 +450,13 @@ namespace SharpGEDParser.Parser
             return ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)));
         }
 
+        private static readonly int[] MonthDays = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+
         private static int MonthEnd(int mon, int yr)
         {
-            int [] monthDays = {0,31,28,31,30,31,30,31,31,30,31,30,31};
             if (mon == 2 && isLeap(yr))
                 return 29;
-            return monthDays[mon];
+            return MonthDays[mon];
         }
 
         private static long EndToJulian(GEDDate gd)

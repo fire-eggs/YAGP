@@ -28,7 +28,8 @@ namespace SharpGEDParser.Parser
                 {
                     UnkRec exc = new UnkRec();
                     exc.Beg = exc.End = i;
-                    exc.Error = "Exception during parse, skipping line";
+                    exc.Error = UnkRec.ErrorCode.Exception;
+                    // TODO exc.Error = "Exception during parse, skipping line";
                     ctx.Parent.Errors.Add(exc);
                     continue;
                 }

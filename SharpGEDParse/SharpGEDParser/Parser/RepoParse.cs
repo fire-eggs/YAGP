@@ -43,7 +43,8 @@ namespace SharpGEDParser.Parser
 
             if (string.IsNullOrWhiteSpace(me.Ident))
             {
-                UnkRec err = new UnkRec {Error = "REPO missing identifier"};
+                UnkRec err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.MissIdent; // TODO {Error = "REPO missing identifier"};
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }
@@ -51,7 +52,8 @@ namespace SharpGEDParser.Parser
             // A NAME record is required
             if (string.IsNullOrWhiteSpace(me.Name))
             {
-                UnkRec err = new UnkRec {Error = "REPO missing NAME"};
+                UnkRec err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.MissName; // TODO {Error = "REPO missing identifier"};
                 err.Beg = err.End = me.BegLine;
                 me.Errors.Add(err);
             }

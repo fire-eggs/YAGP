@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 
 namespace SharpGEDParser.Model
 {
@@ -14,9 +13,40 @@ namespace SharpGEDParser.Model
         public int LineCount { get { return End - Beg + 1; } }
     }
 
+
     // Attributes about an unknown tag - custom or not
     public class UnkRec : LineSet
     {
+        public enum ErrorCode
+        {
+            Exception = 1,
+            UntermIdent,
+            MissIdent,
+            MultChan,
+            InvXref,
+            MissName,
+            ChanDate,
+            InvNCHI,
+            MultNCHI,
+            MultId,
+            MissFile,
+            MissForm,
+            RefSourText,
+            EmbSourEven,
+            MultCHIL,
+            MissHEAD,
+            EmbSourPage,
+            MultHUSB,
+            MultWIFE,
+            MultRESN,
+            InvRestrict,
+            InvExtra,
+            InvSex,
+            EmptyLine,
+            LineTooLong,
+            InvLevel,
+        }
+
         public UnkRec()
         {
             Beg = End = -1;
@@ -24,14 +54,14 @@ namespace SharpGEDParser.Model
 
         public UnkRec(string tag, int beg, int end)
         {
-            Tag = tag ?? "<unexpected>";
+            Tag = tag; // TODO null=="<unexpected>";
             Beg = beg;
             End = end;
         }
 
         public string Tag { get; set; }
 
-        public string Error { get; set; }
+        public ErrorCode Error { get; set; }
     }
 
     // Properties which are common across the main top-level records (INDI, FAM, OBJE, SOUR, NOTE, REPO)
