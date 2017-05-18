@@ -1,5 +1,4 @@
 ﻿using SharpGEDParser.Model;
-using System;
 using System.Collections.Generic;
 
 namespace SharpGEDParser.Parser

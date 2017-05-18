@@ -50,6 +50,7 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("PROB", EventProc);
             _tagSet2.Add("GRAD", EventProc);
             _tagSet2.Add("RETI", EventProc);
+            _tagSet2.Add("CENS", EventProc); // 20170518 Actually an event, not an attribute!!!
             _tagSet2.Add("EVEN", EventProc);
 
             // Birth, Christening, Adoption: extra FAMC tag
@@ -71,7 +72,6 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("PROP", AttribProc);
             _tagSet2.Add("RELI", AttribProc);
             _tagSet2.Add("SSN", AttribProc);
-            _tagSet2.Add("CENS", AttribProc);
             _tagSet2.Add("RESI", AttribProc);
 
             // LDS events

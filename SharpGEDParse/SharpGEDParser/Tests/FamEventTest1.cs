@@ -1,7 +1,5 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser.Model;
-using System.Collections.Generic;
-using System.Linq;
 
 // TODO generic address testing?
 
@@ -182,8 +180,6 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(2, evt.Errors.Count, "2 Errors expected " + tag);
             Assert.AreNotEqual(0, (int)evt.Errors[0].Error);
         }
-
-        // TODO trailing 'Y' for MARR
 
         [Test]
         public void EventXrefSourErr()

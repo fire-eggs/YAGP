@@ -122,6 +122,7 @@
     <Compile Include="Tests\FamTest1.cs" />
     <Compile Include="Tests\FamTest2.cs" />
     <Compile Include="Tests\GedSplit.cs" />
+    <Compile Include="Tests\IndiEventAddr.cs" />
     <Compile Include="Tests\zFileTest.cs" />
     <Compile Include="Tests\IndiAssocs.cs" />
     <Compile Include="Tests\IndiAttrib.cs" />
