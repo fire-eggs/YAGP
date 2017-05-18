@@ -37,6 +37,7 @@ namespace SharpGEDParser.Tests
         {
             var indi1 = "0 INDI\n1 SEX";
             var rec = parse(indi1);
+            Assert.AreEqual("INDI", rec.Tag);
             Assert.AreEqual(0, rec.Names.Count);
         }
 

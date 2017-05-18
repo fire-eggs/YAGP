@@ -39,6 +39,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;
             Assert.IsNotNull(rec);
+            Assert.AreEqual("NOTE", rec.Tag);
             Assert.AreEqual("foobar", rec.RIN);
             Assert.AreEqual("N1", rec.Ident);
         }

@@ -105,6 +105,7 @@ namespace SharpGEDParser.Parser
                     addr.Fax.Add(ctx.Remain);
                     break;
                 default:
+                    // TODO can't really get here
                     // TODO punting here, need to perform LookAhead and that requires a StructParseContext
                     addr.OtherLines.Add(new LineSet {Beg=ctx.Begline});
                     break;

@@ -17,6 +17,7 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(1, res.Count);
 			Repository rec = res[0] as Repository;
 			Assert.IsNotNull(rec);
+            Assert.AreEqual("REPO", rec.Tag);
 			Assert.AreEqual("foobar", rec.Name);
 			Assert.AreEqual("R1", rec.Ident);
 		}

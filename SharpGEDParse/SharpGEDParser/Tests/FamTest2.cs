@@ -18,6 +18,7 @@ namespace SharpGEDParser.Tests
         {
             string fam = "0 @F1@ FAM\n1 CHIL @I1@";
             var rec = parse(fam);
+            Assert.AreEqual("FAM", rec.Tag);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("I1", rec.Childs[0].Xref);
             Assert.IsNull(rec.Childs[0].FatherRelation);
@@ -37,6 +38,28 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(2, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0].Xref);
             Assert.AreEqual("p4", rec.Childs[1].Xref);
+            Assert.AreEqual("2", rec.RIN);
+        }
+
+        // TODO no mother/father relation specified
+
+        [Test]
+        public void BasicRel()
+        {
+            // Added _MREL, _FREL
+            string fam = "0 @F1@ FAM\n1 CHIL @p3@\n2 _MREL Natural\n2 _FREL Natural\n1 CHIL @p4@\n2 _MREL Adopted\n2 _FREL Step\n1 HUSB @p1@\n1 WIFE @p2@\n1 RIN 2";
+            var rec = parse(fam);
+            Assert.AreEqual(1, rec.Dads.Count);
+            Assert.AreEqual(1, rec.Moms.Count);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual("p2", rec.Moms[0]);
+            Assert.AreEqual(2, rec.Childs.Count);
+            Assert.AreEqual("p3", rec.Childs[0].Xref);
+            Assert.IsNull(rec.Childs[0].FatherRelation); // 'Natural' is default, so null
+            Assert.IsNull(rec.Childs[0].MotherRelation); // 'Natural' is default, so null
+            Assert.AreEqual("p4", rec.Childs[1].Xref);
+            Assert.AreEqual("Step", rec.Childs[1].FatherRelation);
+            Assert.AreEqual("Adopted", rec.Childs[1].MotherRelation);
             Assert.AreEqual("2", rec.RIN);
         }
 

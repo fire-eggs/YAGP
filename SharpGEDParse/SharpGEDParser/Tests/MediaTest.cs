@@ -29,6 +29,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, res.Count);
             MediaRecord rec = res[0] as MediaRecord;
             Assert.IsNotNull(rec);
+            Assert.AreEqual("OBJE", rec.Tag);
             Assert.AreEqual("M1", rec.Ident);
             Assert.AreEqual(1, rec.Files.Count);
             Assert.AreEqual("reference", rec.Files[0].FileRefn);

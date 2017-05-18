@@ -259,6 +259,15 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("blah\n", rec.Notes[0].Text);
         }
 
+        [Test]
+        public void Unk()
+        {
+            var txt = "0 BLAH";
+            var res = ReadIt(txt);
+
+            Assert.AreEqual(1, res.Count);
+            Assert.AreEqual("BLAH", res[0].Tag);
+        }
     }
 }
 
