@@ -23,7 +23,8 @@ namespace SharpGEDParser
             UTF16LE,
             UTF32BE,
             UTF32LE,
-            UnSupported
+            UnSupported,
+            EmptyFile
         };
         // ReSharper restore InconsistentNaming
 
@@ -51,6 +52,14 @@ namespace SharpGEDParser
             {
                 FilePath = gedPath;
                 GetEncoding(gedPath);
+                if (Charset == GedcomCharset.EmptyFile)
+                {
+                    UnkRec err = new UnkRec();
+                    err.Error = UnkRec.ErrorCode.EmptyFile;
+                    // TODO err.Error = string.Format("Empty file");
+                    Errors.Add(err);
+                    return;
+                }
                 using (StreamReader stream = new StreamReader(FilePath, FileEnc))
                 {
                     ReadLines(stream);
@@ -74,7 +83,13 @@ namespace SharpGEDParser
             {
                 byte[] bom = new byte[4];
 
-                fileStream.Read(bom, 0, 4);
+                int count = fileStream.Read(bom, 0, 4);
+                if (count == 0)
+                {
+                    // empty file, quit
+                    Charset = GedcomCharset.EmptyFile;
+                    return;
+                }
 
                 // look for BOMs, if found we will ignore the CHAR tag
                 // don't use .net look for bom as we also want to detect

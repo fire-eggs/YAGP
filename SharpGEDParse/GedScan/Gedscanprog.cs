@@ -227,6 +227,21 @@ namespace GedScan
 
         private static void dump(Forest f, bool showErrors)
         {
+            if (f.Errors.Count > 0)
+            {
+                foreach (var unkRec in f.Errors)
+                {
+                    if (unkRec.Error == UnkRec.ErrorCode.EmptyFile)
+                    {
+                        Console.WriteLine("Empty file");
+                        return;
+                    }
+                }
+            }
+
+            if (f.AllRecords.Count == 0)
+                throw new Exception("Failed to parse");
+
             Dictionary<string, int> tagCounts = new Dictionary<string, int>();
             foreach (var record in f.AllRecords)
             {
@@ -299,6 +314,9 @@ namespace GedScan
 
         private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, IEnumerable<Issue> issues, bool showErrors)
         {
+            if (kbrGedRecs == null)
+                return;
+
             int errs = errors == null ?0 : errors.Count;
             int inds = 0;
             int fams = 0;

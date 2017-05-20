@@ -39,7 +39,7 @@ namespace GEDWrap
 
         public List<UnkRec> Errors
         {
-            get { return _gedReader.AllErrors; }
+            get { return _gedReader.AllErrors ?? _gedReader.Errors; }
         }
 
         public List<UnkRec> Unknowns
@@ -64,6 +64,9 @@ namespace GEDWrap
         public void LoadGEDCOM(string path)
         {
             ParseGEDCOM(path);
+            if (_gedReader == null || _gedReader.Data == null) // nothing to do!
+                return;
+
             BuildTree();
             CalcTrees();
         }
@@ -161,9 +164,16 @@ namespace GEDWrap
             _famHash = new Dictionary<string, Union>();
             _issues = new List<Issue>();
 
+            // 20170520 From Peach fuzzing: missing ident would crash
+            Random ranGen = new Random();
             foreach (var indiRecord in Indi)
             {
                 var ident = indiRecord.Ident;
+                if (ident == null) // TODO probably should be done in parser
+                {
+                    indiRecord.Ident = "A0" + ranGen.Next(1000);
+                    ident = indiRecord.Ident;
+                }
                 if (_indiHash.ContainsKey(ident))
                 {
                     MakeError(Issue.IssueCode.DUPL_INDI, ident);

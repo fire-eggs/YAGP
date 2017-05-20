@@ -45,6 +45,7 @@ namespace SharpGEDParser.Model
             EmptyLine,
             LineTooLong,
             InvLevel,
+            EmptyFile
         }
 
         public UnkRec()
