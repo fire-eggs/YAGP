@@ -45,7 +45,8 @@ namespace SharpGEDParser.Model
             EmptyLine,
             LineTooLong,
             InvLevel,
-            EmptyFile
+            EmptyFile, // input file is empty
+            MissTag // missing tag
         }
 
         public UnkRec()

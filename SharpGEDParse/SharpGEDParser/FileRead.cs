@@ -81,10 +81,10 @@ namespace SharpGEDParser
 
             using (FileStream fileStream = File.OpenRead(gedPath))
             {
-                byte[] bom = new byte[4];
+                byte[] bom = new byte[10]; // large enough for "<BOM>0 HEAD"
 
-                int count = fileStream.Read(bom, 0, 4);
-                if (count == 0)
+                int count = fileStream.Read(bom, 0, 10);
+                if (count < 10)
                 {
                     // empty file, quit
                     Charset = GedcomCharset.EmptyFile;
