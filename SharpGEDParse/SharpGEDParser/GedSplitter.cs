@@ -110,6 +110,11 @@ namespace SharpGEDParser
             return resultIndex;
         }
 
+        public char Level(string value)
+        {
+            return value[_starts[0]];
+        }
+
         public string Ident(string value)
         {
             // substring 1 starts with '@' == ident
@@ -141,6 +146,14 @@ namespace SharpGEDParser
         }
 
         public void LevelTagAndRemain(string line, ParseContext2 ctx)
+        {
+            Split(line, ' ');
+            ctx.Level = line[_starts[0]];
+            ctx.Tag = Tag(line);
+            ctx.Remain = Remain(line) ?? "";
+        }
+
+        public void LevelTagAndRemain(string line, LineUtil.LineData ctx)
         {
             Split(line, ' ');
             ctx.Level = line[_starts[0]];

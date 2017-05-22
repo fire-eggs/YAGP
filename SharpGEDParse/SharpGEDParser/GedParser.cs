@@ -63,15 +63,24 @@ namespace SharpGEDParser
         {
             // 1. The first line in the rec should start with '0'
             string head = rec.FirstLine();
-            int firstDex = LineUtil.FirstChar(head);
-            if (head[firstDex] != '0')
-                throw new Exception("record head not zero"); // TODO should this be an error record instead?
+            gs.Split(head, ' ');
+            char lvl = gs.Level(head);
+
+            //int firstDex = LineUtil.FirstChar(head);
+            //if (head[firstDex] != '0')
+            if (lvl != '0')
+            {
+                var rec2 = new Unknown(rec, null, gs.Tag(head));
+                //rec2.Error = UnkRec.ErrorCode.InvLevel;
+                return new Tuple<object, GedParse>(rec2, null);
+                //throw new Exception("record head not zero"); // TODO should this be an error record instead?
+            }
 
             // 2. search for and find the tag
             //LineUtil.LineData ld = new LineUtil.LineData(); // TODO static?
             //LineUtil.LevelTagAndRemain(ld, head);
 
-            gs.Split(head, ' ');
+            //gs.Split(head, ' ');
 
             // 3. create a GedCommon derived class
             return GedRecFactory(rec, gs.Ident(head), gs.Tag(head), gs.Remain(head));
@@ -80,6 +89,13 @@ namespace SharpGEDParser
 
         private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)
         {
+            if (string.IsNullOrWhiteSpace(tag))
+            {
+                var foo = new Unknown(rec, ident, "");
+                foo.Errors.Add(new UnkRec{Error = UnkRec.ErrorCode.MissTag});
+                return new Tuple<object, GedParse>(foo, null);
+            }
+
             // Parse 'top level' records. Parsing of some record types (e.g. NOTE, SOUR, etc) are likely to be in 'common' with sub-record parsing
 
             // TODO Very much brute force. If/until this is found to be optimizable

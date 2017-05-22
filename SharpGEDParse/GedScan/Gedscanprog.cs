@@ -284,32 +284,39 @@ namespace GedScan
                         famEventLoc++;
                 }
             }
+            Console.Write("\t");
             foreach (var tag in tagCounts.Keys)
             {
                 if (!string.IsNullOrEmpty(tag))
-                    Console.WriteLine("\t\t{0}:{1}", tag, tagCounts[tag]);
+                    Console.Write("{0}:{1};", tag, tagCounts[tag]);
             }
+            Console.WriteLine();
             Console.WriteLine("\t\t----------");
+            Console.Write("\t");
             foreach (var tag in indiEventCounts.Keys)
             {
-                Console.WriteLine("\t\t{0}:{1}", tag, indiEventCounts[tag]);
+                Console.Write("{0}:{1};", tag, indiEventCounts[tag]);
             }
             if (indiEventLoc > 0)
-                Console.WriteLine("\t\tLocations:{0}", indiEventLoc);
+                Console.Write("Locations:{0}", indiEventLoc);
+            Console.WriteLine();
             Console.WriteLine("\t\t----------");
-            foreach (var tag in indiAttribCounts.Keys)
-            {
-                Console.WriteLine("\t\t{0}:{1}", tag, indiAttribCounts[tag]);
-            }
-            if (attribLoc > 0)
-                Console.WriteLine("\t\tLocations:{0}", attribLoc);
+            //foreach (var tag in indiAttribCounts.Keys)
+            //{
+            //    Console.WriteLine("\t\t{0}:{1}", tag, indiAttribCounts[tag]);
+            //}
+            //if (attribLoc > 0)
+            //    Console.WriteLine("\t\tLocations:{0}", attribLoc);
+            //Console.WriteLine("\t\t----------");
             Console.WriteLine("\t\t----------");
+            Console.Write("\t");
             foreach (var tag in famEventCounts.Keys)
             {
-                Console.WriteLine("\t\t{0}:{1}", tag, famEventCounts[tag]);
+                Console.Write("{0}:{1};", tag, famEventCounts[tag]);
             }
             if (famEventLoc > 0)
-                Console.WriteLine("\t\tLocations:{0}", famEventLoc);
+                Console.Write("Locations:{0}", famEventLoc);
+            Console.WriteLine();
         }
 
         private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, IEnumerable<Issue> issues, bool showErrors)
