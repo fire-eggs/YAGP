@@ -65,7 +65,7 @@ namespace SharpGEDParser
             if (linedex >= Max)
                 return ' ';
             string line = _lines[linedex];
-            int dex = LineUtil.FirstChar(line);
+            int dex = LineUtil.FirstChar(line, 0, line.Length);
             // Can't happen? empty lines stripped earlier...
             //if (dex < 0)
             //    return ' '; // empty line

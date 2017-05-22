@@ -163,5 +163,21 @@ namespace SharpGEDParser.Tests
             }
         }
 
+        [Test]
+        public void BlankFiles()
+        {
+            // A set of 'blank' files (no data, BOM/no-BOM, does not start with "0 HEAD")
+            FileRead fr = new FileRead();
+            var path = @"Z:\HOST_E\projects\GED\GED Files\09";
+            foreach (var file in Directory.GetFiles(path, "blank*.ged"))
+            {
+                fr.ReadGed(file);
+                Assert.AreEqual(fr.Errors.Count, 1);
+                Assert.AreEqual(UnkRec.ErrorCode.EmptyFile, fr.Errors[0].Error);
+                Assert.IsNull(fr.Data);
+            }
+
+        }
+
     }
 }

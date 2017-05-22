@@ -99,8 +99,11 @@ namespace SharpGEDParser.Tests
             // No zero level at first line
             var indi = "INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var fr = ReadItHigher(indi);
-            Assert.AreEqual(0, fr.Data.Count);
-            Assert.AreNotEqual(0, fr.Errors.Count); // no leading zero TODO verify details
+            Assert.AreEqual(2, fr.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.InvLevel, fr.Errors[0].Error);
+            Assert.AreEqual(UnkRec.ErrorCode.InvLevel, fr.Errors[1].Error);
+            Assert.AreEqual(1, fr.Data.Count);
+            Assert.IsInstanceOf(typeof(Unknown), fr.Data[0]);
         }
 
         [Test]
