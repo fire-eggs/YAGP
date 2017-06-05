@@ -31,7 +31,11 @@ namespace SharpGEDParser.Parser
 
         public int getInt(string orig)
         {
-            return int.Parse(orig.Substring(offset, length));
+            string toparse = orig.Substring(offset, length);
+            int val;
+            if (!int.TryParse(toparse, out val))
+                return -1;
+            return val;
         }
     }
 
