@@ -283,5 +283,17 @@ namespace SharpGEDParser
 
         public List<UnkRec> AllErrors { get { return _allErrors; } }
         public List<UnkRec> AllUnknowns { get { return _allUnknowns; } }
+
+        public NoteRecord GetNote(string id)
+        {
+            // TODO this should be an all-records dictionary for lookup?
+            foreach (var gedCommon in Data)
+            {
+                if (//gedCommon is NoteRecord &&
+                    gedCommon.Ident == id)
+                    return gedCommon as NoteRecord;
+            }
+            return null;
+        }
     }
 }

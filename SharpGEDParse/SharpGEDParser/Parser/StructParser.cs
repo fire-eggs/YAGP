@@ -60,6 +60,7 @@ namespace SharpGEDParser.Parser
                 i = Math.Max(ctx.Endline,i);
             }
             ctx.Endline = i - 1;           
+            ld = null;
         }
 
         // Common Note sub-structure parsing

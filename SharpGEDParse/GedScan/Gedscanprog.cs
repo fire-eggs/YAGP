@@ -146,6 +146,8 @@ namespace GedScan
 
         private static void incr(Dictionary<string, int> dict, string key)
         {
+            if (string.IsNullOrEmpty(key))
+                key = "<empty>";
             if (dict.ContainsKey(key))
             {
                 int val = dict[key];
