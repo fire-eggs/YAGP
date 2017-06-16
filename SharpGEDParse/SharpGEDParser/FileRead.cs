@@ -284,12 +284,63 @@ namespace SharpGEDParser
         public List<UnkRec> AllErrors { get { return _allErrors; } }
         public List<UnkRec> AllUnknowns { get { return _allUnknowns; } }
 
+        private List<IndiRecord> _indis;
+        private List<FamRecord> _fams;
+
+        public List<IndiRecord> AllIndividuals
+        {
+            get
+            {
+                if (_indis == null)
+                {
+                    _indis = new List<IndiRecord>();
+                    foreach (var gedCommon in Data)
+                    {
+                        if (gedCommon is IndiRecord)
+                            _indis.Add(gedCommon as IndiRecord);
+                    }
+                }
+                return _indis;
+            }
+        }
+
+        public List<FamRecord> AllFamilies
+        {
+            get
+            {
+                if (_fams == null)
+                {
+                    _fams = new List<FamRecord>();
+                    foreach (var gedCommon in Data)
+                    {
+                        if (gedCommon is FamRecord)
+                            _fams.Add(gedCommon as FamRecord);
+                    }
+                }
+                return _fams;
+            }
+        }
+
+        public List<SourceRecord> AllSources
+        {
+            get
+            {
+                List<SourceRecord> srcs = new List<SourceRecord>();
+                foreach (var gedCommon in Data)
+                {
+                    if (gedCommon is SourceRecord)
+                        srcs.Add(gedCommon as SourceRecord);
+                }
+                return srcs;
+            }
+        }
+
         public NoteRecord GetNote(string id)
         {
             // TODO this should be an all-records dictionary for lookup?
             foreach (var gedCommon in Data)
             {
-                if (//gedCommon is NoteRecord &&
+                if (//gedCommon is NoteRecord && // NOTE assuming no id collision between record types
                     gedCommon.Ident == id)
                     return gedCommon as NoteRecord;
             }
