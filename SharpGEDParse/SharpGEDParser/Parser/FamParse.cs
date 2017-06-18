@@ -90,6 +90,8 @@ namespace SharpGEDParser.Parser
             }
         }
 
+        private static LineUtil.LineData ld = new LineUtil.LineData();
+
         // CHIL processing pulled out for _FREL/_MREL
         private void childProc(ParseContext2 context)
         {
@@ -128,32 +130,34 @@ namespace SharpGEDParser.Parser
             if (context.Endline > context.Begline)
             {
                 var gs = new GEDSplitter();
-                ParseContext2 ctx = new ParseContext2();
+                //ParseContext2 ctx = new ParseContext2();
                 int i = context.Begline + 1;
                 while (i <= context.Endline)
                 {
-                    gs.LevelTagAndRemain(context.Lines.GetLine(i), ctx);
-                    switch (ctx.Tag)
+                    //LineUtil.LevelTagAndRemain(ld, context.Lines.GetLine(i));
+                    gs.LevelTagAndRemain(context.Lines.GetLine(i), ld);
+                    switch (ld.Tag)
                     {
                         case "_MREL":
-                            if (!string.IsNullOrWhiteSpace(ctx.Remain) && ctx.Remain != "Natural")
-                                mrel = ctx.Remain;
+                            if (!string.IsNullOrWhiteSpace(ld.Remain)) // FTA expects 'Natural' and I canna see why not && ld.Remain != "Natural")
+                                mrel = ld.Remain;
                             break;
                         case "_FREL":
-                            if (!string.IsNullOrWhiteSpace(ctx.Remain) && ctx.Remain != "Natural")
-                                frel = ctx.Remain;
+                            if (!string.IsNullOrWhiteSpace(ld.Remain)) // FTA expects 'Natural' and I canna see why not && ld.Remain != "Natural")
+                                frel = ld.Remain;
                             break;
                         case "_PREF":
                         case "_STAT":
                             // TODO temporarily ignore: see 2524482.ged
                             break;
                         default:
-                            UnkRec unk = new UnkRec(ctx.Tag, i + context.Parent.BegLine, i + context.Parent.BegLine);
+                            UnkRec unk = new UnkRec(ld.Tag, i + context.Parent.BegLine, i + context.Parent.BegLine);
                             fam.Unknowns.Add(unk);
                             break;
                     }
                     i++;
                 }
+                gs = null;
             }
             fam.AddChild(xref, frel, mrel);
         }

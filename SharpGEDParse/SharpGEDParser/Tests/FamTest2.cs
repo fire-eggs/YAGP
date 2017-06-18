@@ -55,8 +55,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(2, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0].Xref);
-            Assert.IsNull(rec.Childs[0].FatherRelation); // 'Natural' is default, so null
-            Assert.IsNull(rec.Childs[0].MotherRelation); // 'Natural' is default, so null
+            Assert.AreEqual("Natural", rec.Childs[0].FatherRelation);
+            Assert.AreEqual("Natural", rec.Childs[0].MotherRelation);
             Assert.AreEqual("p4", rec.Childs[1].Xref);
             Assert.AreEqual("Step", rec.Childs[1].FatherRelation);
             Assert.AreEqual("Adopted", rec.Childs[1].MotherRelation);
@@ -70,8 +70,8 @@ namespace SharpGEDParser.Tests
             var rec = parse(fam);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("I1", rec.Childs[0].Xref);
-            Assert.IsNull(rec.Childs[0].FatherRelation);
-            Assert.IsNull(rec.Childs[0].MotherRelation);
+            Assert.AreEqual("Natural", rec.Childs[0].FatherRelation);
+            Assert.AreEqual("Natural", rec.Childs[0].MotherRelation);
         }
 
         [Test]
@@ -86,8 +86,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("p2", rec.Moms[0]);
             Assert.AreEqual(2, rec.Childs.Count);
             Assert.AreEqual("p3", rec.Childs[0].Xref);
-            Assert.IsNull(rec.Childs[0].FatherRelation);
-            Assert.IsNull(rec.Childs[0].MotherRelation);
+            Assert.AreEqual("Natural", rec.Childs[0].FatherRelation);
+            Assert.AreEqual("Natural", rec.Childs[0].MotherRelation);
             Assert.AreEqual("p4", rec.Childs[1].Xref);
             Assert.AreEqual("2", rec.RIN);
         }
@@ -100,7 +100,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("I1", rec.Childs[0].Xref);
             Assert.AreEqual("Adopted", rec.Childs[0].FatherRelation);
-            Assert.IsNull(rec.Childs[0].MotherRelation);
+            Assert.AreEqual("Natural", rec.Childs[0].MotherRelation);
         }
 
         [Test]
@@ -111,7 +111,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual("I1", rec.Childs[0].Xref);
             Assert.AreEqual("Adopted", rec.Childs[0].MotherRelation);
-            Assert.IsNull(rec.Childs[0].FatherRelation);
+            Assert.AreEqual("Natural", rec.Childs[0].FatherRelation);
         }
 
         [Test]
