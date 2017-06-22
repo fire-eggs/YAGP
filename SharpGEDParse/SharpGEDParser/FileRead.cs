@@ -344,7 +344,8 @@ namespace SharpGEDParser
             _allRecsDict = new Dictionary<string, GEDCommon>(Data.Count);
             foreach (var gedCommon in Data)
             {
-                _allRecsDict.Add(gedCommon.Ident, gedCommon);
+                if (!string.IsNullOrEmpty(gedCommon.Ident))
+                    _allRecsDict.Add(gedCommon.Ident, gedCommon);
             }
         }
 
