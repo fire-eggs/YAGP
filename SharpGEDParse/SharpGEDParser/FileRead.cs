@@ -180,6 +180,7 @@ namespace SharpGEDParser
             }
 
             Parser.FinishUp();
+            GatherRecords();
             GatherErrors();
             _currRec = null;
         }
@@ -335,16 +336,24 @@ namespace SharpGEDParser
             }
         }
 
-        public NoteRecord GetNote(string id)
+        private Dictionary<string, GEDCommon> _allRecsDict;
+
+        private void GatherRecords()
         {
-            // TODO this should be an all-records dictionary for lookup?
+            // Create a lookup dictionary based on id.
+            _allRecsDict = new Dictionary<string, GEDCommon>(Data.Count);
             foreach (var gedCommon in Data)
             {
-                if (//gedCommon is NoteRecord && // NOTE assuming no id collision between record types
-                    gedCommon.Ident == id)
-                    return gedCommon as NoteRecord;
+                _allRecsDict.Add(gedCommon.Ident, gedCommon);
             }
-            return null;
+        }
+
+        public NoteRecord GetNote(string id)
+        {
+            GEDCommon rec;
+            if (!_allRecsDict.TryGetValue(id, out rec))
+                return null;
+            return rec as NoteRecord;
         }
     }
 }
