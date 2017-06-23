@@ -22,6 +22,7 @@ namespace GedScan
         private static bool _showDiags;
         private static bool _dates;
         private static bool _ged; // show basic GED record stats
+        private static bool _csv; // output to CSV
 
         static void Main(string[] args)
         {
@@ -40,9 +41,12 @@ namespace GedScan
             _showDiags = args.FirstOrDefault(s => s == "-d") != null;
             var showErrors = args.FirstOrDefault(s => s == "-e") != null;
             var recurse = args.FirstOrDefault(s => s == "-r") != null;
-            //var csv = args.FirstOrDefault(s => s == "-csv") != null;
+            _csv = args.FirstOrDefault(s => s == "-csv") != null;
             _dates = args.FirstOrDefault(s => s == "-date") != null;
             _ged = args.FirstOrDefault(s => s == "-b") != null;
+
+            if (_csv)
+                Console.WriteLine("filename,file KB,Millisec,Mem MB,GED Version,Product,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
 
             int lastarg = args.Length-1;
             if (File.Exists(args[lastarg]))
@@ -62,7 +66,7 @@ namespace GedScan
         private static void parseTree(string path, bool recurse, bool showErrors)
         {
             var files = Directory.GetFiles(path, "*.ged");
-            if (files.Length > 0)
+            if (files.Length > 0 && !_csv)
                 Console.WriteLine("---{0}", path); // Only echo path if it has GED files
 
             foreach (var aFile in files)
@@ -81,7 +85,7 @@ namespace GedScan
         }
 
         private static int tick;
-        private static void logit(string msg, bool first = false)
+        private static int logit(string msg, bool first = false)
         {
             if (first)
                 tick = Environment.TickCount;
@@ -90,59 +94,48 @@ namespace GedScan
                 int delta = Environment.TickCount - tick;
                 if (_showDiags)
                     Console.WriteLine(msg + "|" + delta);
+                return delta;
             }
+            return 0;
         }
 
         private static void parseFile(string path, bool showErrors)
         {
-            long beforeMem = 0;
-            long afterMem = 0;
+            long beforeMem = GC.GetTotalMemory(true);
+            logit("",true);
 
-            if (_showDiags)
-            {
-                beforeMem = GC.GetTotalMemory(true);
-                logit("",true);
-            }
+            if (!_csv)
+                Console.WriteLine("   {0}", Path.GetFileName(path));
 
-            Console.WriteLine("   {0}", Path.GetFileName(path));
             Console.Out.Flush();
             using (Forest f = new Forest())
             {
                 f.LoadGEDCOM(path);
+
+                var fil = File.OpenRead(path);
+                long flen = fil.Length;
+                fil.Close();
+                double fkb = flen/(1024.0);
+                
+                long afterMem = GC.GetTotalMemory(false);
+                int ms = logit("__load complete (ms)");
+                long delta = (afterMem - beforeMem);
+                double meg = delta / (1024 * 1024.0);
                 if (_showDiags)
-                {
-                    afterMem = GC.GetTotalMemory(false);
-                    logit("__load complete (ms)");
-                }
+                    Console.WriteLine("\t===Memory:{0:0.00}M", meg);
+
                 if (_dates)
                     dumpDates(f);
                 else if (_ged)
                     dump(f.AllRecords, f.Errors, f.Issues, showErrors);
+                else if (_csv)
+                    dumpCSV(Path.GetFileNameWithoutExtension(path), f, ms, meg, fkb);
                 else
                     dump(f, showErrors);
             }
-            //using (var fr = new FileRead())
-            //{
-            //    fr.ReadGed(path);
-            //    dump(fr.Data, fr.Errors, showErrors);
-            //    logit("\t---Ticks");
-            //    afterMem = GC.GetTotalMemory(false);
-            //}
 
-            if (_showDiags)
-            {
-                long delta = (afterMem - beforeMem);
-                double meg = delta/(1024*1024.0);
-                Console.WriteLine("\t===Memory:{0:0.00}M", meg);
-            }
             Console.Out.Flush();
         }
-
-        //struct errBucket
-        //{
-        //    public int count;
-        //    public object firstOne;
-        //}
 
         private static void incr(Dictionary<string, int> dict, string key)
         {
@@ -286,6 +279,9 @@ namespace GedScan
                         famEventLoc++;
                 }
             }
+
+            HeadRecord head = f.Header;
+            Console.WriteLine("  {0}-{1}:{2} ({3})", head.GedVersion, head.Product, head.ProductVersion, head.GedDate.ToString("yyyyMMdd"));
             Console.Write("\t");
             foreach (var tag in tagCounts.Keys)
             {
@@ -474,6 +470,82 @@ namespace GedScan
                 }
             }
             Console.WriteLine(new string('-',50));
+        }
+
+        private static void dumpCSV(string filename, Forest f, int ms, double meg, double fmeg)
+        {
+            int inds = 0;
+            int fams = 0;
+            int unks = 0;
+            int oths = 0;
+            int src = 0;
+            int repo = 0;
+            int note = 0;
+            int media = 0;
+            int errs = f.Errors == null ? 0 : f.ErrorsCount;
+
+            int nLen = 0; // total length of NOTE record text
+            int subN = 0; // NOTE sub-records
+            int subNLen = 0; // total length of sub-record note text
+
+            foreach (var gedRec2 in f.AllRecords)
+            {
+                //if (index == 52790) // wemightbekin testing
+                //    Debugger.Break();
+
+                errs += gedRec2.Errors.Count; // TODO errors in sub-records
+                unks += gedRec2.Unknowns.Count;
+
+                if (gedRec2 is NoteHold)
+                {
+                    var gr = gedRec2 as NoteHold;
+                    subN += gr.Notes.Count;
+                    foreach (var anote in gr.Notes)
+                    {
+                        subNLen += anote.Text.Length;
+                    }
+                }
+                // TODO this is awkward
+                if (gedRec2 is IndiRecord)
+                    inds++;
+                else if (gedRec2 is FamRecord)
+                    fams++;
+                else if (gedRec2 is SourceRecord)
+                    src++;
+                else if (gedRec2 is Repository)
+                    repo++;
+                else if (gedRec2 is NoteRecord)
+                {
+                    note++;
+                    var gr = gedRec2 as NoteRecord;
+                    nLen += gr.Text.Length;
+                }
+                else if (gedRec2 is MediaRecord)
+                    media++;
+                else if (gedRec2 is Unknown)
+                {
+                    unks++;
+                }
+                else
+                {
+                    oths++;
+                }
+
+                // index++; // testing
+            }
+
+            var headr = f.Header;
+            var gedv = headr == null ? "NO HEAD" : headr.GedVersion;
+            var prod = headr == null ? "NO HEAD" : headr.Product;
+            var prodv = headr == null ? "NO HEAD" : headr.ProductVersion;
+            var gedD = headr == null ? "NO HEAD" : headr.GedDate.ToString("yyyyMMdd");
+            var chrS = headr == null ? "NO HEAD" : headr.CharSet;
+
+            // filename,"file KB","Millisec","Mem MB","GED Version","Product","Product Version", "GED Date","Charset",
+            // INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len
+            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},\"{4}\",\"{5}\",\"{6}\",{7},\"{8}\",\"{9}\",{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
+                filename,fmeg,ms,meg,gedv,prod, prodv,gedD, chrS,
+                inds,fams,src,repo,note,media,unks,errs,nLen,subN,subNLen);
         }
 
     }
