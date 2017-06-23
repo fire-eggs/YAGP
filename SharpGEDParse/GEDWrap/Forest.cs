@@ -17,6 +17,14 @@ namespace GEDWrap
     {
         private FileRead _gedReader;
 
+        public HeadRecord Header
+        {
+            get
+            {
+                return _gedReader.Data.OfType<HeadRecord>().FirstOrDefault();
+            }
+        }
+
         public List<IndiRecord> Indi
         {
             get

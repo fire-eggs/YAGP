@@ -68,6 +68,7 @@
     <Compile Include="Model\FamilyEvent.cs" />
     <Compile Include="Model\FamRecord.cs" />
     <Compile Include="Model\GEDDate.cs" />
+    <Compile Include="Model\HeadRecord.cs" />
     <Compile Include="Model\IndiLink.cs" />
     <Compile Include="Model\IndiRecord.cs" />
     <Compile Include="Model\LDSEvent.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Parser\EventDateParse.cs" />
     <Compile Include="Parser\FamilyEventParse.cs" />
     <Compile Include="Parser\FamParse.cs" />
+    <Compile Include="Parser\HeadParse.cs" />
     <Compile Include="Parser\IndiAssoParse.cs" />
     <Compile Include="Parser\IndiLinkParse.cs" />
     <Compile Include="Parser\IndiParse.cs" />

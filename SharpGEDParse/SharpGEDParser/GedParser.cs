@@ -17,8 +17,7 @@ namespace SharpGEDParser
             // TODO dunno yet if the path to the GED is useful
 
             _IndiParseSingleton = new IndiParse();
-            // TODO GEDCommon based Head record _HeadParseSingleton = new GedHeadParse();
-
+            _HeadParseSingleton = new HeadParse();
             _FamParseSingleton = new FamParse();
             _SourParseSingleton = new SourceRecParse();
             _RepoParseSingleton = new RepoParse();
@@ -119,8 +118,10 @@ namespace SharpGEDParser
                 case "OBJE":
                     return new Tuple<object, GedParse>(new MediaRecord(rec, ident, remain), _MediaParseSingleton);
 
+                case "HEAD":
+                    return new Tuple<object, GedParse>(new HeadRecord(rec), _HeadParseSingleton);
+
                 case "SUBM": // TODO temp ignore
-                case "HEAD": // TODO temp ignore
                 case "SUBN": // TODO temp ignore
                 case "TRLR": // TODO temp ignore
                 default:
@@ -133,7 +134,7 @@ namespace SharpGEDParser
 
         private readonly GedParse _IndiParseSingleton;
         private readonly GedParse _FamParseSingleton;
-        // TODO gedcommon based HEAD parsing private GedParse _HeadParseSingleton;
+        private readonly GedParse _HeadParseSingleton;
         private readonly GedParse _SourParseSingleton;
         private readonly GedParse _RepoParseSingleton;
         private readonly GedParse _NoteParseSingleton;
