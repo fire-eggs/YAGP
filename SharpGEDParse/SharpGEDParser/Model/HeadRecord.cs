@@ -17,6 +17,7 @@ namespace SharpGEDParser.Model
         private List<IndiRecord.Submitter> _submit; // TODO common?
         public List<IndiRecord.Submitter> Submitters { get { return _submit ?? (_submit = new List<IndiRecord.Submitter>()); } }
 
+        public string Source { get; set; }
         public string Product { get; set; }
         public string ProductVersion { get; set; }
 

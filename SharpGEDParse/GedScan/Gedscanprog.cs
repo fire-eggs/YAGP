@@ -46,7 +46,7 @@ namespace GedScan
             _ged = args.FirstOrDefault(s => s == "-b") != null;
 
             if (_csv)
-                Console.WriteLine("filename,file KB,Millisec,Mem MB,GED Version,Product,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
+                Console.WriteLine("filename,file KB,Millisec,Mem MB,GED Version,Product1,Product2,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
 
             int lastarg = args.Length-1;
             if (File.Exists(args[lastarg]))
@@ -474,6 +474,9 @@ namespace GedScan
 
         private static void dumpCSV(string filename, Forest f, int ms, double meg, double fmeg)
         {
+            if (f.AllRecords == null) // empty, failure to parse, ?
+                return;
+
             int inds = 0;
             int fams = 0;
             int unks = 0;
@@ -482,7 +485,7 @@ namespace GedScan
             int repo = 0;
             int note = 0;
             int media = 0;
-            int errs = f.Errors == null ? 0 : f.ErrorsCount;
+            int errs = f.Errors == null ? 0 : f.Errors.Count; // TODO ErrorsCount was null but Errors was not?
 
             int nLen = 0; // total length of NOTE record text
             int subN = 0; // NOTE sub-records
@@ -535,17 +538,31 @@ namespace GedScan
             }
 
             var headr = f.Header;
-            var gedv = headr == null ? "NO HEAD" : headr.GedVersion;
-            var prod = headr == null ? "NO HEAD" : headr.Product;
-            var prodv = headr == null ? "NO HEAD" : headr.ProductVersion;
-            var gedD = headr == null ? "NO HEAD" : headr.GedDate.ToString("yyyyMMdd");
-            var chrS = headr == null ? "NO HEAD" : headr.CharSet;
+            string sauce;
+            string gedv;
+            string prod;
+            string prodv;
+            string gedD;
+            string chrS;
+            if (headr == null)
+            {
+                sauce = gedv = prod = prodv = gedD = chrS = "NO HEAD";
+            }
+            else
+            {
+                sauce = headr.Source.Replace('\"',' ').Trim();
+                gedv =  headr.GedVersion;
+                prod =  headr.Product.Replace('\"',' ').Trim();
+                prodv = headr.ProductVersion.Replace('\"', ' ').Trim();
+                gedD =  headr.GedDate.ToString("yyyyMMdd");
+                chrS =  headr.CharSet;
+            }
 
-            // filename,"file KB","Millisec","Mem MB","GED Version","Product","Product Version", "GED Date","Charset",
+            // filename,"file KB","Millisec","Mem MB","GED Version","Product","Product","Product Version", "GED Date","Charset",
             // INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len
-            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},\"{4}\",\"{5}\",\"{6}\",{7},\"{8}\",\"{9}\",{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
+            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},\"{4}\",\"{20}\",\"{5}\",\"{6}\",{7},\"{8}\",\"{9}\",{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
                 filename,fmeg,ms,meg,gedv,prod, prodv,gedD, chrS,
-                inds,fams,src,repo,note,media,unks,errs,nLen,subN,subNLen);
+                inds,fams,src,repo,note,media,unks,errs,nLen,subN,subNLen,sauce);
         }
 
     }

@@ -55,6 +55,7 @@ namespace SharpGEDParser.Parser
         private void SourProc(ParseContext2 context)
         {
             var self = (context.Parent as HeadRecord);
+            self.Source = context.Remain;
             string val = seekSubRecord("VERS", context);
             self.ProductVersion = val;
             val = seekSubRecord("NAME", context);
