@@ -35,7 +35,7 @@ namespace TimeBeamTest
             LoadGed += Form1_LoadGed;
 
             timeline1.TrackBorderSize = 1;
-            timeline1.TrackLabelWidth = 200; // TODO should adjust automagically
+            timeline1.TrackLabelWidth = 100; // TODO should adjust automagically
             timeline1.TrackSpacing = 5; // TODO primary/secondary spacing
             timeline1.TrackHeight = 20;
             timeline1.DecadeLabelHigh = 16;

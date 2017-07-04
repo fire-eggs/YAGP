@@ -152,109 +152,110 @@ namespace DrawTreeTest
 
         #region Tree Setup Helpers
 
-        private List<SampleDataModel> GetSampleData2()
-        {
-            var sampleTree = new List<SampleDataModel>();
+        //private List<SampleDataModel> GetSampleData2()
+        //{
+        //    var sampleTree = new List<SampleDataModel>();
 
-            sampleTree.Add(new SampleDataModel {Id = "TO", ParentId = string.Empty});
-            sampleTree.Add(new SampleDataModel {Id = "JW", ParentId = "TO"});
-            sampleTree.Add(new SampleDataModel {Id = "BK", ParentId = "JW"});
-            sampleTree.Add(new SampleDataModel {Id = "WH", ParentId = "BK"});
-            sampleTree.Add(new SampleDataModel {Id = "SE", ParentId = "BK"});
-            sampleTree.Add(new SampleDataModel {Id = "QI", ParentId = "BK"});
-            sampleTree.Add(new SampleDataModel {Id = "KX", ParentId = "BK"});
-            sampleTree.Add(new SampleDataModel {Id = "KA", ParentId = "KX"});
-            sampleTree.Add(new SampleDataModel {Id = "HH", ParentId = "JW"});
-            sampleTree.Add(new SampleDataModel {Id = "DN", ParentId = "HH"});
-            sampleTree.Add(new SampleDataModel {Id = "KT", ParentId = "HH"});
-            sampleTree.Add(new SampleDataModel {Id = "JB", ParentId = "KT"});
-            sampleTree.Add(new SampleDataModel {Id = "UM", ParentId = "KT"});
-            sampleTree.Add(new SampleDataModel {Id = "AL", ParentId = "KT"});
-            sampleTree.Add(new SampleDataModel {Id = "FR", ParentId = "KT"});
-            sampleTree.Add(new SampleDataModel {Id = "WE", ParentId = "HH"});
-            sampleTree.Add(new SampleDataModel {Id = "CO", ParentId = "WE"});
-            sampleTree.Add(new SampleDataModel {Id = "LE", ParentId = "WE"});
-            sampleTree.Add(new SampleDataModel {Id = "LO", ParentId = "WE"});
-            sampleTree.Add(new SampleDataModel {Id = "YI", ParentId = "HH"});
-            sampleTree.Add(new SampleDataModel {Id = "EI", ParentId = "YI"});
-            sampleTree.Add(new SampleDataModel {Id = "DJ", ParentId = "YI"});
-            sampleTree.Add(new SampleDataModel {Id = "SH", ParentId = "YI"});
-            sampleTree.Add(new SampleDataModel {Id = "BS", ParentId = "JW"});
-            sampleTree.Add(new SampleDataModel {Id = "SP", ParentId = "BS"});
-            sampleTree.Add(new SampleDataModel {Id = "SB", ParentId = "JW"});
-            sampleTree.Add(new SampleDataModel {Id = "GQ", ParentId = "SB"});
-            sampleTree.Add(new SampleDataModel {Id = "JS", ParentId = "GQ"});
-            sampleTree.Add(new SampleDataModel {Id = "HT", ParentId = "SB"});
-            sampleTree.Add(new SampleDataModel {Id = "MB", ParentId = "HT"});
-            sampleTree.Add(new SampleDataModel {Id = "MF", ParentId = "HT"});
-            sampleTree.Add(new SampleDataModel {Id = "FW", ParentId = "SB"});
-            sampleTree.Add(new SampleDataModel {Id = "GM", ParentId = "FW"});
-            sampleTree.Add(new SampleDataModel {Id = "XT", ParentId = "FW"});
-            sampleTree.Add(new SampleDataModel {Id = "VQ", ParentId = "FW"});         
-            return sampleTree;
-        }
+        //    sampleTree.Add(new SampleDataModel {Id = "TO", ParentId = string.Empty});
+        //    sampleTree.Add(new SampleDataModel {Id = "JW", ParentId = "TO"});
+        //    sampleTree.Add(new SampleDataModel {Id = "BK", ParentId = "JW"});
+        //    sampleTree.Add(new SampleDataModel {Id = "WH", ParentId = "BK"});
+        //    sampleTree.Add(new SampleDataModel {Id = "SE", ParentId = "BK"});
+        //    sampleTree.Add(new SampleDataModel {Id = "QI", ParentId = "BK"});
+        //    sampleTree.Add(new SampleDataModel {Id = "KX", ParentId = "BK"});
+        //    sampleTree.Add(new SampleDataModel {Id = "KA", ParentId = "KX"});
+        //    sampleTree.Add(new SampleDataModel {Id = "HH", ParentId = "JW"});
+        //    sampleTree.Add(new SampleDataModel {Id = "DN", ParentId = "HH"});
+        //    sampleTree.Add(new SampleDataModel {Id = "KT", ParentId = "HH"});
+        //    sampleTree.Add(new SampleDataModel {Id = "JB", ParentId = "KT"});
+        //    sampleTree.Add(new SampleDataModel {Id = "UM", ParentId = "KT"});
+        //    sampleTree.Add(new SampleDataModel {Id = "AL", ParentId = "KT"});
+        //    sampleTree.Add(new SampleDataModel {Id = "FR", ParentId = "KT"});
+        //    sampleTree.Add(new SampleDataModel {Id = "WE", ParentId = "HH"});
+        //    sampleTree.Add(new SampleDataModel {Id = "CO", ParentId = "WE"});
+        //    sampleTree.Add(new SampleDataModel {Id = "LE", ParentId = "WE"});
+        //    sampleTree.Add(new SampleDataModel {Id = "LO", ParentId = "WE"});
+        //    sampleTree.Add(new SampleDataModel {Id = "YI", ParentId = "HH"});
+        //    sampleTree.Add(new SampleDataModel {Id = "EI", ParentId = "YI"});
+        //    sampleTree.Add(new SampleDataModel {Id = "DJ", ParentId = "YI"});
+        //    sampleTree.Add(new SampleDataModel {Id = "SH", ParentId = "YI"});
+        //    sampleTree.Add(new SampleDataModel {Id = "BS", ParentId = "JW"});
+        //    sampleTree.Add(new SampleDataModel {Id = "SP", ParentId = "BS"});
+        //    sampleTree.Add(new SampleDataModel {Id = "SB", ParentId = "JW"});
+        //    sampleTree.Add(new SampleDataModel {Id = "GQ", ParentId = "SB"});
+        //    sampleTree.Add(new SampleDataModel {Id = "JS", ParentId = "GQ"});
+        //    sampleTree.Add(new SampleDataModel {Id = "HT", ParentId = "SB"});
+        //    sampleTree.Add(new SampleDataModel {Id = "MB", ParentId = "HT"});
+        //    sampleTree.Add(new SampleDataModel {Id = "MF", ParentId = "HT"});
+        //    sampleTree.Add(new SampleDataModel {Id = "FW", ParentId = "SB"});
+        //    sampleTree.Add(new SampleDataModel {Id = "GM", ParentId = "FW"});
+        //    sampleTree.Add(new SampleDataModel {Id = "XT", ParentId = "FW"});
+        //    sampleTree.Add(new SampleDataModel {Id = "VQ", ParentId = "FW"});         
+        //    return sampleTree;
+        //}
 
         // returns a list of sample data items
-        private List<SampleDataModel> GetSampleData()
-        {
-            var sampleTree = new List<SampleDataModel>();
+        //private List<SampleDataModel> GetSampleData()
+        //{
+        //    var sampleTree = new List<SampleDataModel>();
 
-            // Root Node
-            sampleTree.Add(new SampleDataModel {Id = "O", ParentId = string.Empty, Name = "Test GP O"});
-            sampleTree.Add(new SampleDataModel { Id = "Z", ParentId = string.Empty});
+        //    // Root Node
+        //    sampleTree.Add(new SampleDataModel {Id = "O", ParentId = string.Empty, Name = "Test GP O"});
+        //    sampleTree.Add(new SampleDataModel { Id = "Z", ParentId = string.Empty});
 
-            // 1st Level
-            sampleTree.Add(new SampleDataModel {Id = "E", ParentId = "O", Name = "Test Node E"});
-            sampleTree.Add(new SampleDataModel {Id = "F", ParentId = "O", Name = "Test Node F"});
-            sampleTree.Add(new SampleDataModel {Id = "N", ParentId = "O", Name = "Test Node N"});
+        //    // 1st Level
+        //    sampleTree.Add(new SampleDataModel {Id = "E", ParentId = "O", Name = "Test Node E"});
+        //    sampleTree.Add(new SampleDataModel {Id = "F", ParentId = "O", Name = "Test Node F"});
+        //    sampleTree.Add(new SampleDataModel {Id = "N", ParentId = "O", Name = "Test Node N"});
 
-            // 2nd Level
-            sampleTree.Add(new SampleDataModel {Id = "A", ParentId = "E", Name = "Test Node A"});
-            sampleTree.Add(new SampleDataModel {Id = "D", ParentId = "E", Name = "Test Node D"});
+        //    // 2nd Level
+        //    sampleTree.Add(new SampleDataModel {Id = "A", ParentId = "E", Name = "Test Node A"});
+        //    sampleTree.Add(new SampleDataModel {Id = "D", ParentId = "E", Name = "Test Node D"});
 
-            sampleTree.Add(new SampleDataModel {Id = "G", ParentId = "N", Name = "Test Node G"});
-            sampleTree.Add(new SampleDataModel {Id = "M", ParentId = "N", Name = "Test Node M"});
-            sampleTree.Add(new SampleDataModel {Id = "P", ParentId = "N", Name = "KBR P"});
+        //    sampleTree.Add(new SampleDataModel {Id = "G", ParentId = "N", Name = "Test Node G"});
+        //    sampleTree.Add(new SampleDataModel {Id = "M", ParentId = "N", Name = "Test Node M"});
+        //    sampleTree.Add(new SampleDataModel {Id = "P", ParentId = "N", Name = "KBR P"});
 
-            // 3rd Level
-            sampleTree.Add(new SampleDataModel {Id = "B", ParentId = "D", Name = "Test Node B"});
-            sampleTree.Add(new SampleDataModel {Id = "C", ParentId = "D", Name = "Test Node C"});
+        //    // 3rd Level
+        //    sampleTree.Add(new SampleDataModel {Id = "B", ParentId = "D", Name = "Test Node B"});
+        //    sampleTree.Add(new SampleDataModel {Id = "C", ParentId = "D", Name = "Test Node C"});
 
-            sampleTree.Add(new SampleDataModel {Id = "H", ParentId = "M", Name = "Test Node H"});
-            sampleTree.Add(new SampleDataModel {Id = "I", ParentId = "M", Name = "Test Node I"});
-            sampleTree.Add(new SampleDataModel {Id = "J", ParentId = "M", Name = "Test Node J"});
-            sampleTree.Add(new SampleDataModel {Id = "K", ParentId = "M", Name = "Test Node K"});
-            sampleTree.Add(new SampleDataModel {Id = "L", ParentId = "M", Name = "Test Node L"});
+        //    sampleTree.Add(new SampleDataModel {Id = "H", ParentId = "M", Name = "Test Node H"});
+        //    sampleTree.Add(new SampleDataModel {Id = "I", ParentId = "M", Name = "Test Node I"});
+        //    sampleTree.Add(new SampleDataModel {Id = "J", ParentId = "M", Name = "Test Node J"});
+        //    sampleTree.Add(new SampleDataModel {Id = "K", ParentId = "M", Name = "Test Node K"});
+        //    sampleTree.Add(new SampleDataModel {Id = "L", ParentId = "M", Name = "Test Node L"});
 
-            sampleTree.Add(new SampleDataModel {Id="Q",ParentId="G" });
-            sampleTree.Add(new SampleDataModel { Id = "R", ParentId = "G" });
+        //    sampleTree.Add(new SampleDataModel {Id="Q",ParentId="G" });
+        //    sampleTree.Add(new SampleDataModel { Id = "R", ParentId = "G" });
 
-            // 4th level
-            sampleTree.Add(new SampleDataModel { Id = "A1", ParentId = "H" });
-            sampleTree.Add(new SampleDataModel { Id = "A2", ParentId = "H" });
-            sampleTree.Add(new SampleDataModel { Id = "A3", ParentId = "H" });
+        //    // 4th level
+        //    sampleTree.Add(new SampleDataModel { Id = "A1", ParentId = "H" });
+        //    sampleTree.Add(new SampleDataModel { Id = "A2", ParentId = "H" });
+        //    sampleTree.Add(new SampleDataModel { Id = "A3", ParentId = "H" });
 
-            // 5th level
-            sampleTree.Add(new SampleDataModel { Id = "B1", ParentId = "A1"});
-            sampleTree.Add(new SampleDataModel { Id = "B2", ParentId = "A1" });
-            sampleTree.Add(new SampleDataModel { Id = "B3", ParentId = "A1" });
-            sampleTree.Add(new SampleDataModel { Id = "B4", ParentId = "A1" });
-            sampleTree.Add(new SampleDataModel { Id = "B5", ParentId = "A1" });
-            sampleTree.Add(new SampleDataModel { Id = "B6", ParentId = "A1" });
-            sampleTree.Add(new SampleDataModel { Id = "B7", ParentId = "A1" });
+        //    // 5th level
+        //    sampleTree.Add(new SampleDataModel { Id = "B1", ParentId = "A1"});
+        //    sampleTree.Add(new SampleDataModel { Id = "B2", ParentId = "A1" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B3", ParentId = "A1" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B4", ParentId = "A1" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B5", ParentId = "A1" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B6", ParentId = "A1" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B7", ParentId = "A1" });
 
-            sampleTree.Add(new SampleDataModel { Id = "B8", ParentId = "A2" });
-            sampleTree.Add(new SampleDataModel { Id = "B9", ParentId = "A2" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B8", ParentId = "A2" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B9", ParentId = "A2" });
 
-            sampleTree.Add(new SampleDataModel { Id = "B10", ParentId = "A3" });
-            sampleTree.Add(new SampleDataModel { Id = "B11", ParentId = "A3" });
-            sampleTree.Add(new SampleDataModel { Id = "B12", ParentId = "A3" });
-            sampleTree.Add(new SampleDataModel { Id = "B13", ParentId = "A3" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B10", ParentId = "A3" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B11", ParentId = "A3" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B12", ParentId = "A3" });
+        //    sampleTree.Add(new SampleDataModel { Id = "B13", ParentId = "A3" });
 
-            return sampleTree;
-        }
+        //    return sampleTree;
+        //}
 
         // converts list of sample items to hierarchial list of TreeNodeModels
+        
         private TreeNodeModel<SampleDataModel> GetSampleTree(List<SampleDataModel> data)
         {
             var root = data.FirstOrDefault(p => p.ParentId == string.Empty);
