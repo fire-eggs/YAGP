@@ -142,31 +142,59 @@ namespace SharpGEDParser
             // post parse checking; each record parser should overload
         }
 
+        private static LineUtil.LineData LevelTagAndRemain(LineUtil.LineData data, string line)
+        {
+            int max = line.Length;
+
+            // Move past level
+            int dex = LineUtil.FirstChar(line, 0, max);
+            data.Level = line[dex];
+            data.Tag = ""; // in case of error
+            data.Remain = ""; // in case of error
+            dex = LineUtil.AllCharsUntil(line, max, dex+1, ' ');
+
+            dex = LineUtil.FirstChar(line, dex, max);
+            // TODO assuming no ident here!
+            int endTag = LineUtil.AllCharsUntil(line, max, dex + 1, ' ');
+            data.Tag = line.Substring(dex, endTag - dex);
+            
+            if (endTag < max)
+                data.Remain = line.Substring(endTag + 1);
+            else
+                data.Remain = "";
+            return data;
+        }
+        
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         public static string extendedText(ParseContextCommon ctx)
         {
+            GEDSplitter eTextSplit = new GEDSplitter();
+            LineUtil.LineData eTextLd = new LineUtil.LineData();
+
             StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart(),1024);
             int i = ctx.Begline + 1;
-            LineUtil.LineData ld = new LineUtil.LineData();
             int max = ctx.Lines.Max;
             for (; i < max; i++)
             {
-                LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
-                if (ld.Level <= ctx.Level)
+                eTextSplit.LevelTagAndRemain(ctx.Lines.GetLine(i), eTextLd);
+                //LevelTagAndRemain(eTextLd, ctx.Lines.GetLine(i));
+                if (eTextLd.Level <= ctx.Level)
                     break; // end of sub-record
-                if (ld.Tag == "CONC")
+                if (eTextLd.Tag == "CONC")
                 {
-                    txt.Append(ld.Remain); // must keep trailing space
+                    txt.Append(eTextLd.Remain); // must keep trailing space
                 }
-                else if (ld.Tag == "CONT")
+                else if (eTextLd.Tag == "CONT")
                 {
                     txt.Append("\n"); // NOTE: not appendline, which is \r\n
-                    txt.Append(ld.Remain); // must keep trailing space
+                    txt.Append(eTextLd.Remain); // must keep trailing space
                 }
                 else
                     break; // non-CONC, non-CONT: stop!
             }
             ctx.Endline = i - 1;
+            eTextLd = null;
+            eTextSplit = null;
             return txt.ToString();
         }
 

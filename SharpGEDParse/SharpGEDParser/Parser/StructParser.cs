@@ -14,6 +14,7 @@ namespace SharpGEDParser.Parser
         protected static void StructParse(StructParseContext ctx, Dictionary<string, TagProc> tagSet)
         {
             LineUtil.LineData ld = new LineUtil.LineData();
+            GEDSplitter gs = new GEDSplitter();
 
             int i = ctx.Begline + 1;
             int max = ctx.Lines.Max;
@@ -22,7 +23,8 @@ namespace SharpGEDParser.Parser
             {
                 try
                 {
-                    LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
+                    gs.LevelTagAndRemain(ctx.Lines.GetLine(i), ld);
+                    //LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
                 }
                 catch (Exception)
                 {
@@ -72,6 +74,7 @@ namespace SharpGEDParser.Parser
             }
             ctx.Endline = i - 1;
             ld = null;
+            gs = null;
         }
 
         // Common Note sub-structure parsing

@@ -46,6 +46,60 @@ namespace SharpGEDParser
 
         public void ReadGed(string gedPath)
         {
+            FilePath = gedPath;
+            Errors = new List<UnkRec>();
+            GedReader _reader = new GedReader();
+            _reader.ProcessALine = ProcessALine;
+            _reader.ErrorTracker = ErrorTracker;
+
+            // Processor context
+            Parser = new GedParser(FilePath ?? "");
+            Data = new List<GEDCommon>();
+            if (Errors == null)
+                Errors = new List<UnkRec>();
+            _currRec = new GedRecord();
+
+            try
+            {
+                _reader.ReadFile(gedPath);
+                EndOfFile();
+            }
+            catch (Exception)
+            {
+                UnkRec err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.Exception;
+                // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+                Errors.Add(err);
+            }
+
+            Parser.FinishUp();
+            GatherRecords();
+            GatherErrors();
+            _currRec = null;
+        }
+
+        // TODO read from a stream for unit testing
+
+        private void ErrorTracker(string error, int lineNum)
+        {
+            // TODO hack implementation
+            UnkRec err = new UnkRec();
+            err.Tag = error;
+            err.Beg = err.End = lineNum;
+            Errors.Add(err);
+        }
+
+        private bool ProcessALine(char[] lineToProcess, int lineNumber)
+        {
+            // TODO Hack implementation
+            var val = new string(lineToProcess).Trim('\0'); // trim to deal w/removed terminators
+            _lineNum = lineNumber;
+            ProcessLine(val, _lineNum);
+            return (val != "0 TRLR");
+        }
+
+        private void oldReadGed(string gedPath)
+        {
             _lineNum = 0;
             Errors = new List<UnkRec>();
 
