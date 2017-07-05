@@ -38,6 +38,17 @@ namespace SharpGEDParser.Parser
                     break; // end of sub-record
                 ctx.Remain = ld.Remain;
 
+                if (ld.Tag == null)
+                {
+                    UnkRec exc = new UnkRec();
+                    exc.Beg = exc.End = i;
+                    exc.Error = UnkRec.ErrorCode.Exception;
+                    // TODO exc.Error = "Exception during parse, skipping line";
+                    // TODO not exception - missing tag / invalid linebreak
+                    ctx.Parent.Errors.Add(exc);
+                    continue;
+                }
+
                 TagProc tagproc;
                 if (tagSet.TryGetValue(ld.Tag, out tagproc))
                 {
@@ -59,7 +70,7 @@ namespace SharpGEDParser.Parser
                 }
                 i = Math.Max(ctx.Endline,i);
             }
-            ctx.Endline = i - 1;           
+            ctx.Endline = i - 1;
             ld = null;
         }
 

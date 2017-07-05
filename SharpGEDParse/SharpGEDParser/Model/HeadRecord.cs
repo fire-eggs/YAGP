@@ -30,6 +30,7 @@ namespace SharpGEDParser.Model
         public HeadRecord(GedRecord lines) : base(lines, null)
         {
             Source = Product = ProductVersion = GedVersion = CharSet = "";
+            Ident = "HEAD";
         }
 
         public void AddSubmitter(int submType, string ident)

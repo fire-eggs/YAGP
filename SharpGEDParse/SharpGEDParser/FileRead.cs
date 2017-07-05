@@ -5,13 +5,15 @@ using System.IO;
 using System.Text;
 using SharpGEDParser.Parser;
 
+// ReSharper disable InconsistentNaming
+
+
 namespace SharpGEDParser
 {
     public class FileRead : IDisposable
     {
         private int _lineNum;
 
-        // ReSharper disable InconsistentNaming
         public enum GedcomCharset
         {
             Unknown,
@@ -26,7 +28,6 @@ namespace SharpGEDParser
             UnSupported,
             EmptyFile
         };
-        // ReSharper restore InconsistentNaming
 
         private GedcomCharset Charset { get; set; }
 
@@ -345,7 +346,14 @@ namespace SharpGEDParser
             foreach (var gedCommon in Data)
             {
                 if (!string.IsNullOrEmpty(gedCommon.Ident))
-                    _allRecsDict.Add(gedCommon.Ident, gedCommon);
+                    try
+                    {
+                        _allRecsDict.Add(gedCommon.Ident, gedCommon);
+                    }
+                    catch (ArgumentException)
+                    {
+                        DoError(UnkRec.ErrorCode.IdentCollide, gedCommon.BegLine);
+                    }
             }
         }
 

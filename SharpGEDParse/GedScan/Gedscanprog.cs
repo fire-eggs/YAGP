@@ -560,7 +560,7 @@ namespace GedScan
 
             // filename,"file KB","Millisec","Mem MB","GED Version","Product","Product","Product Version", "GED Date","Charset",
             // INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len
-            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},\"{4}\",\"{20}\",\"{5}\",\"{6}\",{7},\"{8}\",\"{9}\",{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
+            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},\"{4}\",\"{20}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
                 filename,fmeg,ms,meg,gedv,prod, prodv,gedD, chrS,
                 inds,fams,src,repo,note,media,unks,errs,nLen,subN,subNLen,sauce);
         }

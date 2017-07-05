@@ -46,7 +46,8 @@ namespace SharpGEDParser.Model
             LineTooLong,
             InvLevel,
             EmptyFile, // input file is empty
-            MissTag // missing tag
+            MissTag, // missing tag
+            IdentCollide, // more than one record with same ident
         }
 
         public UnkRec()
