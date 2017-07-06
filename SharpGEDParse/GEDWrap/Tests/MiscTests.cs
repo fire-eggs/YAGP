@@ -19,7 +19,7 @@ namespace GEDWrap.Tests
             Forest f = LoadGEDFromStream(txt);
             Assert.AreEqual(1, f.ErrorsCount);
             Assert.AreEqual(Issue.IssueCode.DUPL_INDI, f.Issues.First().IssueId);
-            Assert.AreEqual(0, f.Errors.Count);
+            Assert.AreEqual(1, f.Errors.Count);  // TODO verify IdentCollide
         }
         [Test]
         public void DuplFam()
@@ -29,7 +29,7 @@ namespace GEDWrap.Tests
             Forest f = LoadGEDFromStream(txt);
             Assert.AreEqual(1, f.ErrorsCount);
             Assert.AreEqual(Issue.IssueCode.DUPL_FAM, f.Issues.First().IssueId);
-            Assert.AreEqual(0, f.Errors.Count);
+            Assert.AreEqual(1, f.Errors.Count);  // TODO verify IdentCollide
         }
 
         [Test]

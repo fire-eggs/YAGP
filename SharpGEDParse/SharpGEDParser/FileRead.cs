@@ -79,6 +79,38 @@ namespace SharpGEDParser
         }
 
         // TODO read from a stream for unit testing
+        public void ReadGed(StreamReader instream)
+        {
+            Errors = new List<UnkRec>();
+            GedReader _reader = new GedReader();
+            _reader.ProcessALine = ProcessALine;
+            _reader.ErrorTracker = ErrorTracker;
+
+            // Processor context
+            Parser = new GedParser("");
+            Data = new List<GEDCommon>();
+            if (Errors == null)
+                Errors = new List<UnkRec>();
+            _currRec = new GedRecord();
+
+            try
+            {
+                _reader.ReadFile(instream);
+                EndOfFile();
+            }
+            catch (Exception)
+            {
+                UnkRec err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.Exception;
+                // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+                Errors.Add(err);
+            }
+
+            Parser.FinishUp();
+            GatherRecords();
+            GatherErrors();
+            _currRec = null;
+        }
 
         private void ErrorTracker(string error, int lineNum)
         {
@@ -117,7 +149,7 @@ namespace SharpGEDParser
                 }
                 using (StreamReader stream = new StreamReader(FilePath, FileEnc))
                 {
-                    ReadLines(stream);
+                    oldReadLines(stream);
                 }
             }
             catch (Exception ex)
@@ -195,7 +227,7 @@ namespace SharpGEDParser
         /// be done using string streams.
         /// </summary>
         /// <param name="instream"></param>
-        public void ReadLines(StreamReader instream)
+        public void oldReadLines(StreamReader instream)
         {
             Parser = new GedParser(FilePath ?? "");
             Data = new List<GEDCommon>();

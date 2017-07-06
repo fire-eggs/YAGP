@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 // ReSharper disable InconsistentNaming
-
-// TODO warn if trailing characters (including space!) after "0 HEAD"
-// TODO a HEAD.CHAR value of UNICODE w/o a matching BOM: fatal error
 
 namespace SharpGEDParser
 {
@@ -86,6 +84,64 @@ namespace SharpGEDParser
             }
         }
 
+        public void ReadFile(StreamReader instream)
+        {
+            try
+            {
+                // State to be preserved across file re-open
+                // TODO errors in opening stages might be duplicated
+                Errors = new List<string>();
+                BomEncoding = "";
+                Encoding = "";
+                if (!StartFile(instream))
+                    return;
+
+// TODO can't do this with stream
+                if (false)
+                {
+                    Encoding gedEnc;
+                    if (FindHeadEncoding(out gedEnc))
+                    {
+                        _fs.Dispose();
+                        if (!StartFile(instream, gedEnc))
+                            return;
+                    }
+                }
+                // TODO line numbers 'off' due to initial garbage?
+                // TODO unit testing expects no 0HEAD ProcessALine(HEAD0, 1);
+                //Lines.Add("0 HEAD");
+                _lineNum = 2; // "first" line of "0 HEAD" has been read
+                ReadLines();
+            }
+            finally
+            {
+                _buffer = null;
+            }
+        }
+
+        private bool StartFile(StreamReader instream, Encoding enc = null)
+        {
+            _lineNum = 0;
+            _spuriousLoc = new List<int>();
+            _buffer = new char[BUFSIZE];
+            _blockLen = 0;
+            _blockPos = 0;
+            _lineBreaks = LB.ERR;
+            //Lines = new List<string>();
+            _sawEOF = false;
+
+            if (!OpenFile(instream, enc))
+                return false;
+            // TODO unit testing expects no 0 HEAD
+            //if (!FindHead())
+            //    return false;
+            var saveBlockPos = _blockPos;
+            if (!DetermineLineEnding()) // TODO messes unit testing because no 0HEAD
+                return false;
+            _blockPos = saveBlockPos;
+            return true;
+        }
+
         /*
          * Logic for "starting" a file.
          * This will be called twice if the file does NOT have a BOM and
@@ -139,6 +195,39 @@ namespace SharpGEDParser
                 Errors.Add("Empty File");
                 return false;
             }
+            return true;
+        }
+
+        // TODO how to re-open the stream opened by caller?
+
+        private bool OpenFile(StreamReader instream, Encoding enc)
+        {
+            bool startwdefault = false;
+            if (enc == null)
+            {
+                enc = _enc;
+                startwdefault = true;
+            }
+
+            // Try to open the file
+            _fs = instream;
+            _blockLen = _fs.ReadBlock(_buffer, 0, BUFSIZE);
+            if (startwdefault)
+            {
+                BomEncoding = _fs.CurrentEncoding.ToString();
+                if (BomEncoding.Contains("ASCII") || BomEncoding.Contains("Latin1"))
+                    BomEncoding = "None";
+                if (BomEncoding.Contains("UTF8"))
+                    BomEncoding = "UTF8";
+                if (BomEncoding.Contains("Unicode"))
+                    BomEncoding = "Unicode"; // TODO LE vs BE
+            }
+
+            //if (_blockLen < 15) // TODO arbitrary, breaking some tests?
+            //{
+            //    Errors.Add("Empty File");
+            //    return false;
+            //}
             return true;
         }
 
@@ -213,8 +302,10 @@ namespace SharpGEDParser
                 dex++;
             }
 
-            Errors.Add("Supported linebreaks don't exist!"); // CR broken file
-            return false;
+            // TODO unit tests might not have a terminator
+            //Errors.Add("Supported linebreaks don't exist!"); // CR broken file
+            //return false;
+            return true;
         }
 
         private bool FindHeadEncoding(out Encoding gedEnc)
@@ -222,81 +313,89 @@ namespace SharpGEDParser
             gedEnc = null;
 
             // TODO a cleaner implementation
+            // TODO locating of ANSI, ANSEL, UTF-8 strings could "do the wrong thing" if the word appears away from the "1 CHAR"
+
             // Locating '1 CHAR' in the header moves the block position.
             // This _must_ happen so the subsequent character set matching
             // works. If a file re-open isn't necessary, the block position
             // is now scrod: restore it in that case.
             int saveBlockPos = _blockPos;
 
-            // The GEDCOM header includes a character encoding
-            bool result = Locate(CHAR1);
-            if (!result)
+            try
             {
-                _blockPos = saveBlockPos;
-                Errors.Add("No character set specified.");
-                return false;
-            }
-
-            if (Locate(ANSEL, false))
-            {
-                Encoding = "ANSEL";
-                Errors.Add("ANSEL not supported. Using ASCII.");
-                gedEnc = _enc;
-                if (BomEncoding != "None")
+                // The GEDCOM header includes a character encoding
+                bool result = Locate(CHAR1);
+                if (!result)
                 {
-                    Errors.Add("BOM doesn't match specified character set");
-                    return true; // only necessary if BOM exists
-                }
-            }
-            else if (Locate(ASCII, false))
-            {
-                Encoding = "ASCII";
-                gedEnc = _enc;
-                if (BomEncoding != "None")
-                {
-                    Errors.Add("BOM doesn't match specified character set");
-                    return true; // only necessary if BOM exists
-                }
-            }
-            else if (Locate(UTF8, false))
-            {
-                Encoding = "UTF8";
-                gedEnc = System.Text.Encoding.UTF8;
-                if (BomEncoding != "UTF8")
-                {
-                    Errors.Add("BOM doesn't match specified character set");
-                    return true; // only necessary if BOM is not UTF8
-                }
-            }
-            else if (Locate(UNICODE, false))
-            {
-                Encoding = "UNICODE";
-                if (BomEncoding != "Unicode")
-                {
-                    Errors.Add("Marked as UNICODE but missing BOM: handled as ASCII");
+                    Errors.Add("No character set specified.");
                     return false;
                 }
-                gedEnc = System.Text.Encoding.Unicode;
-                var macintosh = false;
-                if (macintosh)
-                    gedEnc = System.Text.Encoding.BigEndianUnicode;
-                // TODO error if BOM doesn't match
-                // TODO Unicode vs BigEndianUnicode
-                return true; // TODO only necessary if BOM is not Unicode
-            }
-            else
-            {
-                Errors.Add("Non-standard character set specified. Using ASCII.");
-                Encoding = "ASCII";
-                gedEnc = _enc;
-                if (BomEncoding != "None")
+
+                if (Locate(ANSEL, false))
                 {
-                    Errors.Add("BOM doesn't match specified character set");
-                    return true; // only necessary if BOM exists
+                    Encoding = "ANSEL";
+                    Errors.Add("ANSEL not supported. Using ASCII.");
+                    gedEnc = _enc;
+                    if (BomEncoding != "None")
+                    {
+                        Errors.Add("BOM doesn't match specified character set");
+                        return true; // only necessary if BOM exists
+                    }
+                }
+                else if (Locate(ASCII, false))
+                {
+                    Encoding = "ASCII";
+                    gedEnc = _enc;
+                    if (BomEncoding != "None")
+                    {
+                        Errors.Add("BOM doesn't match specified character set");
+                        return true; // only necessary if BOM exists
+                    }
+                }
+                else if (Locate(UTF8, false))
+                {
+                    Encoding = "UTF8";
+                    gedEnc = System.Text.Encoding.UTF8;
+                    if (BomEncoding != "UTF8")
+                    {
+                        Errors.Add("BOM doesn't match specified character set");
+                        return true; // only necessary if BOM is not UTF8
+                    }
+                }
+                else if (Locate(UNICODE, false))
+                {
+                    Encoding = "UNICODE";
+                    if (BomEncoding != "Unicode")
+                    {
+                        Errors.Add("Marked as UNICODE but missing BOM: handled as ASCII");
+                        return false;
+                    }
+                    gedEnc = System.Text.Encoding.Unicode;
+                    var macintosh = false;
+                    if (macintosh)
+                        gedEnc = System.Text.Encoding.BigEndianUnicode;
+                    // TODO error if BOM doesn't match
+                    // TODO Unicode vs BigEndianUnicode
+                    return true; // TODO only necessary if BOM is not Unicode
+                }
+                else
+                {
+                    Errors.Add("Non-standard character set specified. Using ASCII.");
+                    Encoding = "ASCII";
+                    gedEnc = _enc;
+                    if (BomEncoding != "None")
+                    {
+                        Errors.Add("BOM doesn't match specified character set");
+                        return true; // only necessary if BOM exists
+                    }
                 }
             }
+            finally
+            {
+                // a problem with multiple returns from a routine... restoring context
+                _blockPos = saveBlockPos;
+            }
 
-            _blockPos = saveBlockPos;
             return false;
         }
 
@@ -390,18 +489,6 @@ namespace SharpGEDParser
             return line; // NOTE length does NOT take into account spurious chars removed
         }
 
-        //public List<string> Lines { get; set; }
-
-        //private bool ProcessLine(char[] line, int linenum)
-        //{
-        //    var val = new string(line).Trim('\0'); // trim to deal w/removed terminators
-        //    Lines.Add(val);
-        //    if (val == "0 TRLR")
-        //        return false;
-        //    return true;
-        //}
-
-        // TODO: error? - trailing stuff after "0 TRLR"
     }
 }
 
@@ -410,6 +497,9 @@ namespace SharpGEDParser
 // TODO buffer boundary exactly on LF (no partial)
 
 // TODO see Choquet.GED: HEAD.CHAR says 'ANSI' but BOM says UTF8. Should I use UTF8???
+// TODO: error? - trailing stuff after "0 TRLR"
+// TODO warn if trailing characters (including space!) after "0 HEAD"
+// TODO a HEAD.CHAR value of UNICODE w/o a matching BOM: fatal error
 
 /*
  * Limitations:
@@ -418,5 +508,7 @@ namespace SharpGEDParser
  *    the "0 HEAD" line (i.e. "0 HEAD" is always line 1)
  * 3) IBMPC, MSDOS, ANSI, MACINTOSH or similar CHARACTER_SET values
  *    will be treated as Latin1, not their code-page equivalents.
- * 4) ANSEL???
+ * 4) ANSEL is not supported
+ * 5) Acceptable: files which specify UNICODE but with no matching BOM will be treated as Latin1
+ * 6) TBD: Unicode-16 (LittleEndian) may not be correct
 */

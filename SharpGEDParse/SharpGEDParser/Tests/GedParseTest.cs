@@ -21,7 +21,8 @@ namespace SharpGEDParser.Tests
 			FileRead fr = new FileRead();
 			using (var stream = new StreamReader(ToStream(testString)))
 			{
-				fr.ReadLines(stream);
+//				fr.ReadLines(stream);
+                fr.ReadGed(stream);
 			}
 			return fr;
 		}

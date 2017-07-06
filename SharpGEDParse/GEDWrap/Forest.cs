@@ -82,7 +82,10 @@ namespace GEDWrap
         public void LoadFromStream(StreamReader stream)
         {
             _gedReader = new FileRead();
-            _gedReader.ReadLines(stream);
+            //_gedReader.ReadLines(stream);
+            _gedReader.ReadGed(stream);
+            if (_gedReader.Data == null) // nothing to do!
+                return;
             BuildTree();
             CalcTrees();
         }
