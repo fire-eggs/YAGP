@@ -41,6 +41,8 @@ namespace SharpGEDParser
         {
             // Given a glop of lines which represent a 'record', parse it into GED data (INDI/FAM/NOTE/OBJE/REPO/SOUR/etc)
             Tuple<object, GedParse> parseSet = Make(rec);
+            if (parseSet == null)
+                return null; // EOF
 
             if (parseSet.Item2 == null) 
                 return parseSet.Item1 as GEDCommon; // unknown or NYI record type
@@ -121,9 +123,11 @@ namespace SharpGEDParser
                 case "HEAD":
                     return new Tuple<object, GedParse>(new HeadRecord(rec), _HeadParseSingleton);
 
+                case "TRLR":
+                    return null;
+
                 case "SUBM": // TODO temp ignore
                 case "SUBN": // TODO temp ignore
-                case "TRLR": // TODO temp ignore
                 default:
                 {
                     var foo = new Unknown(rec, ident, tag);

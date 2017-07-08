@@ -11,7 +11,7 @@ namespace SharpGEDParser
     {
         public int LineCount { get { return _lines.Count; } }
 
-        private List<string> _lines;
+        private List<char []> _lines;
         private int _firstLine;
 
         public int Beg { get { return _firstLine; } }
@@ -19,16 +19,16 @@ namespace SharpGEDParser
 
         public GedRecord()
         {
-            _lines = new List<string>();
+            _lines = new List<char []>();
         }
 
-        public GedRecord(int firstLine, string line) : this()
+        public GedRecord(int firstLine, char [] line) : this()
         {
             _lines.Add(line);
             _firstLine = firstLine;
         }
 
-        public void AddLine(string line)
+        public void AddLine(char [] line)
         {
             _lines.Add(line);
         }
@@ -44,13 +44,14 @@ namespace SharpGEDParser
 
         public string FirstLine()
         {
-            return _lines[0];
+            return new string(_lines[0]); // TODO
         }
 
-        public string GetLine(int linedex)
+        public char [] GetLine(int linedex)
         {
             return _lines[linedex];
         }
+
         public int Max { get { return _lines.Count; } }
 
         /// <summary>
@@ -64,7 +65,7 @@ namespace SharpGEDParser
             sublinedex = -1;
             if (linedex >= Max)
                 return ' ';
-            string line = _lines[linedex];
+            var line = _lines[linedex];
             int dex = LineUtil.FirstChar(line, 0, line.Length);
             // Can't happen? empty lines stripped earlier...
             //if (dex < 0)

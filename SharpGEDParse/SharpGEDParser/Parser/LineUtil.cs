@@ -12,6 +12,15 @@ namespace SharpGEDParser.Parser
             public string Remain;
         }
 
+        internal static int FirstChar(char [] line, int dex, int max)
+        {
+            while (dex < max && (line[dex] == ' ' || line[dex] == '\t'))
+                dex++;
+            if (dex >= max) // empty line
+                return -1;
+            return dex;
+        }
+
         internal static int FirstChar(string line, int dex, int max)
         {
             while (dex < max && (line[dex] == ' ' || line[dex] == '\t'))

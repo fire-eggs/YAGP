@@ -46,7 +46,7 @@ namespace GedScan
             _ged = args.FirstOrDefault(s => s == "-b") != null;
 
             if (_csv)
-                Console.WriteLine("filename,file KB,Millisec,Mem MB,GED Version,Product1,Product2,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
+                Console.WriteLine("filename,file KB,Millisec,Mem MB,# Lines,GED Version,Product1,Product2,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
 
             int lastarg = args.Length-1;
             if (File.Exists(args[lastarg]))
@@ -558,11 +558,14 @@ namespace GedScan
                 chrS =  headr.CharSet;
             }
 
-            // filename,"file KB","Millisec","Mem MB","GED Version","Product","Product","Product Version", "GED Date","Charset",
+            // filename,"file KB","Millisec","Mem MB","# Lines","GED Version","Product","Product","Product Version", "GED Date","Charset",
             // INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len
-            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},\"{4}\",\"{20}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
-                filename,fmeg,ms,meg,gedv,prod, prodv,gedD, chrS,
-                inds,fams,src,repo,note,media,unks,errs,nLen,subN,subNLen,sauce);
+            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},{21},\"{4}\",\"{20}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
+                filename,fmeg,ms,meg,gedv, // 0-4
+                prod, prodv,gedD, chrS,inds, // 5-9
+                fams,src,repo,note,media, // 10-14
+                unks,errs,nLen,subN,subNLen, // 15-19
+                sauce, f.NumberOfLines);
         }
 
     }

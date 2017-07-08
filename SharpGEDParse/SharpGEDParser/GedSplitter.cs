@@ -106,7 +106,37 @@ namespace SharpGEDParser
             resultIndex++;
 
             _count = resultIndex;
+            return resultIndex;
+        }
 
+        public int Split(char [] value, char separator)
+        {
+            int resultIndex = 0;
+            int startIndex = 0;
+            _count = 0;
+            int max = value.Length;
+
+            // Find the mid-parts
+            for (int i = 0; i < max && resultIndex < MAX_PARTS; i++)
+            {
+                if (value[i] == separator)
+                {
+                    if (i > 0 && value[i - 1] != separator)
+                    {
+                        _starts[resultIndex] = startIndex;
+                        _lens[resultIndex] = i - startIndex;
+                        resultIndex++;
+                    }
+                    startIndex = i + 1;
+                }
+            }
+
+            // Find the last part
+            _starts[resultIndex] = startIndex;
+            _lens[resultIndex] = max - startIndex;
+            resultIndex++;
+
+            _count = resultIndex;
             return resultIndex;
         }
 
@@ -136,7 +166,41 @@ namespace SharpGEDParser
             return value.Substring(_starts[2], _lens[2]);
         }
 
+        public string Tag(char [] value)
+        {
+            // substring 1 doesn't start with '@' == tag
+            // else substring 2
+            if (_count < 2 || _lens[1] < 1)
+                return null;
+            if (value[_starts[1]] != '@')
+                return new string(value, _starts[1], _lens[1]);
+            if (_count < 3)
+                return null;
+            return new string(value, _starts[2], _lens[2]);
+        }
+
         public string Remain(string value)
+        {
+            if (_count < 2)
+                return null;
+            if (_lens[1] > 0 && value[_starts[1]] != '@')
+                return GetRest(value, 2);
+            return GetRest(value, 3);
+        }
+
+        public string GetRest(char [] value, int dex)
+        {
+            if (_count <= dex)
+                return null;
+
+            int max = value.Length;
+            while (value[max - 1] == '\0')
+                max--;
+
+            return new string(value, _starts[dex], max-_starts[dex]);
+        }
+
+        public string Remain(char [] value)
         {
             if (_count < 2)
                 return null;
@@ -160,5 +224,22 @@ namespace SharpGEDParser
             ctx.Tag = Tag(line);
             ctx.Remain = Remain(line) ?? "";
         }
+
+        public void LevelTagAndRemain(char [] line, LineUtil.LineData ctx)
+        {
+            Split(line, ' ');
+            ctx.Level = line[_starts[0]];
+            ctx.Tag = Tag(line);
+            ctx.Remain = Remain(line) ?? "";
+        }
+
+        public void LevelTagAndRemain(char [] line, ParseContext2 ctx)
+        {
+            Split(line, ' ');
+            ctx.Level = line[_starts[0]];
+            ctx.Tag = Tag(line);
+            ctx.Remain = Remain(line) ?? "";
+        }
+
     }
 }

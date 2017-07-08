@@ -23,27 +23,27 @@ namespace SharpGEDParser.Model
             UntermIdent,
             MissIdent,
             MultChan,
-            InvXref,
+            InvXref, // 5
             MissName,
             ChanDate,
             InvNCHI,
             MultNCHI,
-            MultId,
+            MultId,  // 10
             MissFile,
             MissForm,
             RefSourText,
             EmbSourEven,
-            MultCHIL,
+            MultCHIL, // 15
             MissHEAD,
             EmbSourPage,
             MultHUSB,
             MultWIFE,
-            MultRESN,
+            MultRESN, // 20
             InvRestrict,
             InvExtra,
             InvSex,
             EmptyLine,
-            LineTooLong,
+            LineTooLong, // 25
             InvLevel,
             EmptyFile, // input file is empty
             MissTag, // missing tag

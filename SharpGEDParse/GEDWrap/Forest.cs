@@ -140,6 +140,7 @@ namespace GEDWrap
         }
 
         public IEnumerable<Issue> Issues { get { return _issues; } }
+        public int NumberOfLines { get { return _gedReader.NumberLines; } }
 
         #region BuildTree (Establish family relationships)
 

@@ -28,7 +28,7 @@ namespace SharpGEDParser
 
             for (int i = 1; i < max; i++)
             {
-                string line = Lines.GetLine(i);
+                var line = Lines.GetLine(i);
                 ctx.Begline = i;
                 ctx.Endline = i; // assume it is one line long, parser might change it
 

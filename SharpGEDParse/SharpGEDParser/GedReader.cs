@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -9,7 +8,7 @@ namespace SharpGEDParser
 {
     public class GedReader
     {
-        private int _lineNum;
+        public int _lineNum;
         private List<int> _spuriousLoc;
         private char[] _buffer;
         private StreamReader _fs;
@@ -41,7 +40,12 @@ namespace SharpGEDParser
             MAC,  // CR
         };
 
-
+        /// <summary>
+        /// A line has been read from the input file.
+        /// </summary>
+        /// <param name="lineToProcess"></param>
+        /// <param name="lineNumber"></param>
+        /// <returns>false if not to continue (e.g. EOF)</returns>
         public delegate bool Processor(char[] lineToProcess, int lineNumber);
 
         public delegate void ErrorTrack(string error, int lineNum);

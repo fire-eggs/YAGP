@@ -37,6 +37,8 @@ namespace SharpGEDParser
 
         private GedParser Parser { get; set; }
 
+        public int NumberLines { get { return _lineNum; } }
+
         public List<GEDCommon> Data { get; set; }
 
         // Top-level (file level) errors, such as blank lines
@@ -49,7 +51,7 @@ namespace SharpGEDParser
             FilePath = gedPath;
             Errors = new List<UnkRec>();
             GedReader _reader = new GedReader();
-            _reader.ProcessALine = ProcessALine;
+            _reader.ProcessALine = ProcessLine;
             _reader.ErrorTracker = ErrorTracker;
 
             // Processor context
@@ -75,7 +77,10 @@ namespace SharpGEDParser
             Parser.FinishUp();
             GatherRecords();
             GatherErrors();
+
+            _lineNum = _reader._lineNum;
             _currRec = null;
+            _reader = null;
         }
 
         // TODO read from a stream for unit testing
@@ -83,7 +88,7 @@ namespace SharpGEDParser
         {
             Errors = new List<UnkRec>();
             GedReader _reader = new GedReader();
-            _reader.ProcessALine = ProcessALine;
+            _reader.ProcessALine = ProcessLine;
             _reader.ErrorTracker = ErrorTracker;
 
             // Processor context
@@ -121,45 +126,45 @@ namespace SharpGEDParser
             Errors.Add(err);
         }
 
-        private bool ProcessALine(char[] lineToProcess, int lineNumber)
-        {
-            // TODO Hack implementation
-            var val = new string(lineToProcess).Trim('\0'); // trim to deal w/removed terminators
-            _lineNum = lineNumber;
-            ProcessLine(val, _lineNum);
-            return (val != "0 TRLR");
-        }
+        //private bool ProcessALine(char[] lineToProcess, int lineNumber)
+        //{
+        //    // TODO Hack implementation
+        //    var val = new string(lineToProcess).Trim('\0'); // trim to deal w/removed terminators
+        //    _lineNum = lineNumber;
+        //    ProcessLine(val, _lineNum);
+        //    return (val != "0 TRLR");
+        //}
 
-        private void oldReadGed(string gedPath)
-        {
-            _lineNum = 0;
-            Errors = new List<UnkRec>();
+        //private void oldReadGed(string gedPath)
+        //{
+        //    _lineNum = 0;
+        //    Errors = new List<UnkRec>();
 
-            try
-            {
-                FilePath = gedPath;
-                GetEncoding(gedPath);
-                if (Charset == GedcomCharset.EmptyFile)
-                {
-                    UnkRec err = new UnkRec();
-                    err.Error = UnkRec.ErrorCode.EmptyFile;
-                    // TODO err.Error = string.Format("Empty file");
-                    Errors.Add(err);
-                    return;
-                }
-                using (StreamReader stream = new StreamReader(FilePath, FileEnc))
-                {
-                    oldReadLines(stream);
-                }
-            }
-            catch (Exception ex)
-            {
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.Exception;
-                // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
-                Errors.Add(err);
-            }
-        }
+        //    try
+        //    {
+        //        FilePath = gedPath;
+        //        GetEncoding(gedPath);
+        //        if (Charset == GedcomCharset.EmptyFile)
+        //        {
+        //            UnkRec err = new UnkRec();
+        //            err.Error = UnkRec.ErrorCode.EmptyFile;
+        //            // TODO err.Error = string.Format("Empty file");
+        //            Errors.Add(err);
+        //            return;
+        //        }
+        //        using (StreamReader stream = new StreamReader(FilePath, FileEnc))
+        //        {
+        //            oldReadLines(stream);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        UnkRec err = new UnkRec();
+        //        err.Error = UnkRec.ErrorCode.Exception;
+        //        // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+        //        Errors.Add(err);
+        //    }
+        //}
 
         private void GetEncoding(string gedPath)
         {
@@ -227,50 +232,50 @@ namespace SharpGEDParser
         /// be done using string streams.
         /// </summary>
         /// <param name="instream"></param>
-        public void oldReadLines(StreamReader instream)
-        {
-            Parser = new GedParser(FilePath ?? "");
-            Data = new List<GEDCommon>();
-            if (Errors == null)
-                Errors = new List<UnkRec>();
+        //public void oldReadLines(StreamReader instream)
+        //{
+        //    Parser = new GedParser(FilePath ?? "");
+        //    Data = new List<GEDCommon>();
+        //    if (Errors == null)
+        //        Errors = new List<UnkRec>();
 
-            try
-            {
-                _currRec = new GedRecord();
-                _lineNum = 1;
-                string line = instream.ReadLine(); // TODO CR, LF, CR/LF, and LF/CR must be validated?
-                while (line != null)
-                {
-                    ProcessLine(line, _lineNum);
+        //    try
+        //    {
+        //        _currRec = new GedRecord();
+        //        _lineNum = 1;
+        //        string line = instream.ReadLine(); // TODO CR, LF, CR/LF, and LF/CR must be validated?
+        //        while (line != null)
+        //        {
+        //            ProcessLine(line, _lineNum);
 
-                    line = instream.ReadLine();
-                    _lineNum++;
-                }
-                EndOfFile();
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message == "record head not zero")
-                {
-                    UnkRec unk = new UnkRec();
-                    unk.Error = UnkRec.ErrorCode.MissHEAD;
-                    Errors.Add(unk);
-                    //Errors.Add(new UnkRec { Error = "File doesn't start with '0 HEAD', parse fails" });
-                }
-                else
-                {
-                    var err = new UnkRec();
-                    err.Error = UnkRec.ErrorCode.Exception;
-                    // err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
-                    Errors.Add(err);
-                }
-            }
+        //            line = instream.ReadLine();
+        //            _lineNum++;
+        //        }
+        //        EndOfFile();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ex.Message == "record head not zero")
+        //        {
+        //            UnkRec unk = new UnkRec();
+        //            unk.Error = UnkRec.ErrorCode.MissHEAD;
+        //            Errors.Add(unk);
+        //            //Errors.Add(new UnkRec { Error = "File doesn't start with '0 HEAD', parse fails" });
+        //        }
+        //        else
+        //        {
+        //            var err = new UnkRec();
+        //            err.Error = UnkRec.ErrorCode.Exception;
+        //            // err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
+        //            Errors.Add(err);
+        //        }
+        //    }
 
-            Parser.FinishUp();
-            GatherRecords();
-            GatherErrors();
-            _currRec = null;
-        }
+        //    Parser.FinishUp();
+        //    GatherRecords();
+        //    GatherErrors();
+        //    _currRec = null;
+        //}
 
         /// <summary>
         /// Deal with a single line. It either starts with '0' and is to be a new record,
@@ -278,14 +283,15 @@ namespace SharpGEDParser
         /// </summary>
         /// <param name="line"></param>
         /// <param name="lineNum"></param>
-        private void ProcessLine(string line, int lineNum)
+        //private void ProcessLine(string line, int lineNum)
+        private bool ProcessLine(char [] line, int lineNum)
         {
             int len = line.Length;
             int dex = LineUtil.FirstChar(line, 0, len);
             if (dex < 0)
             {
                 DoError( UnkRec.ErrorCode.EmptyLine, lineNum);
-                return; // empty line
+                return true; // empty line
             }
             if (len > 255) // TODO anything special for UTF-16?
             {
@@ -297,7 +303,7 @@ namespace SharpGEDParser
             if (level < '0' || level > '9')
             {
                 DoError( UnkRec.ErrorCode.InvLevel, lineNum);
-                return; // cannot proceed
+                return false; // cannot proceed
             }
 
             // NOTE: do NOT warn about leading spaces "GEDCOM readers should ignore it when it occurs".
@@ -312,6 +318,9 @@ namespace SharpGEDParser
 
                 // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
                 var parsed = Parser.Parse(_currRec);
+                if (parsed == null)
+                    return false;
+
                 Data.Add(parsed);
                 //if (Data.Count % 10000 == 0) // TODO force garbage collection every few records: major performance hit
                 //    GC.Collect();
@@ -321,6 +330,8 @@ namespace SharpGEDParser
             {
                 _currRec.AddLine(line);
             }
+
+            return true;
         }
 
         private void EndOfFile()
@@ -329,6 +340,8 @@ namespace SharpGEDParser
             if (_currRec.LineCount < 1)
                 return;
             var parsed = Parser.Parse(_currRec);
+            if (parsed == null)
+                return;
             Data.Add(parsed);
         }
 
