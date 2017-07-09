@@ -59,7 +59,6 @@ namespace SharpGEDParser
             {
                 // State to be preserved across file re-open
                 // TODO errors in opening stages might be duplicated
-                Errors = new List<string>();
                 BomEncoding = "";
                 Encoding = "";
 
@@ -93,7 +92,6 @@ namespace SharpGEDParser
             {
                 // State to be preserved across file re-open
                 // TODO errors in opening stages might be duplicated
-                Errors = new List<string>();
                 BomEncoding = "";
                 Encoding = "";
                 if (!StartFile(instream))
@@ -193,7 +191,7 @@ namespace SharpGEDParser
 
             if (_blockLen < 20)
             {
-                Errors.Add("Empty File");
+                ErrorTracker("Empty File", -1);
                 return false;
             }
             return true;
@@ -240,7 +238,7 @@ namespace SharpGEDParser
             // NOTE this will do the 'wrong' thing if the initial garbage includes the text '0 HEAD'
             bool result = Locate(HEAD0);
             if (!result)
-                Errors.Add("Cannot find initial '0 HEAD'");
+                ErrorTracker("Cannot find initial '0 HEAD'", -1);
             return result;
 
             // TODO error for leading garbage?
@@ -289,7 +287,7 @@ namespace SharpGEDParser
                     if (_buffer[dex + 1] != LF)
                     {
                         _lineBreaks = LB.MAC;
-                        Errors.Add("Carriage return linebreaks not supported.");
+                        ErrorTracker("Carriage return linebreaks not supported.", -1);
                         return false;
                     }
                     _lineBreaks = (_buffer[dex + 1] == LF) ? LB.DOS : LB.MAC;
@@ -328,18 +326,18 @@ namespace SharpGEDParser
                 bool result = Locate(CHAR1);
                 if (!result)
                 {
-                    Errors.Add("No character set specified.");
+                    ErrorTracker("No character set specified.", -1);
                     return false;
                 }
 
                 if (Locate(ANSEL, false))
                 {
                     Encoding = "ANSEL";
-                    Errors.Add("ANSEL not supported. Using ASCII.");
+                    ErrorTracker("ANSEL not supported. Using ASCII.", -1);
                     gedEnc = _enc;
                     if (BomEncoding != "None")
                     {
-                        Errors.Add("BOM doesn't match specified character set");
+                        ErrorTracker("BOM doesn't match specified character set", -1);
                         return true; // only necessary if BOM exists
                     }
                 }
@@ -349,7 +347,7 @@ namespace SharpGEDParser
                     gedEnc = _enc;
                     if (BomEncoding != "None")
                     {
-                        Errors.Add("BOM doesn't match specified character set");
+                        ErrorTracker("BOM doesn't match specified character set", -1);
                         return true; // only necessary if BOM exists
                     }
                 }
@@ -359,7 +357,7 @@ namespace SharpGEDParser
                     gedEnc = System.Text.Encoding.UTF8;
                     if (BomEncoding != "UTF8")
                     {
-                        Errors.Add("BOM doesn't match specified character set");
+                        ErrorTracker("BOM doesn't match specified character set", -1);
                         return true; // only necessary if BOM is not UTF8
                     }
                 }
@@ -368,7 +366,7 @@ namespace SharpGEDParser
                     Encoding = "UNICODE";
                     if (BomEncoding != "Unicode")
                     {
-                        Errors.Add("Marked as UNICODE but missing BOM: handled as ASCII");
+                        ErrorTracker("Marked as UNICODE but missing BOM: handled as ASCII", -1);
                         return false;
                     }
                     gedEnc = System.Text.Encoding.Unicode;
@@ -381,12 +379,12 @@ namespace SharpGEDParser
                 }
                 else
                 {
-                    Errors.Add("Non-standard character set specified. Using ASCII.");
+                    ErrorTracker("Non-standard character set specified. Using ASCII.", -1);
                     Encoding = "ASCII";
                     gedEnc = _enc;
                     if (BomEncoding != "None")
                     {
-                        Errors.Add("BOM doesn't match specified character set");
+                        ErrorTracker("BOM doesn't match specified character set", -1);
                         return true; // only necessary if BOM exists
                     }
                 }
@@ -404,7 +402,6 @@ namespace SharpGEDParser
         public string Encoding { get; set; }
         public List<int> Spurious { get { return _spuriousLoc; } }
         public string BomEncoding { get; set; }
-        public List<string> Errors { get; set; }
 
         private LB _lineBreaks;
         public string LineBreaks { get { return _lineBreaks.ToString(); } }
