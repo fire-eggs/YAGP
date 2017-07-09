@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using SharpGEDParser.Model;
 
 // ReSharper disable InconsistentNaming
 
@@ -48,7 +49,7 @@ namespace SharpGEDParser
         /// <returns>false if not to continue (e.g. EOF)</returns>
         public delegate bool Processor(char[] lineToProcess, int lineNumber);
 
-        public delegate void ErrorTrack(string error, int lineNum);
+        public delegate void ErrorTrack(UnkRec.ErrorCode err, int lineNum);
 
         public Processor ProcessALine { get; set; }
         public ErrorTrack ErrorTracker { get; set; }
@@ -191,7 +192,7 @@ namespace SharpGEDParser
 
             if (_blockLen < 20)
             {
-                ErrorTracker("Empty File", -1);
+                ErrorTracker(UnkRec.ErrorCode.EmptyFile, -1);
                 return false;
             }
             return true;
@@ -238,7 +239,7 @@ namespace SharpGEDParser
             // NOTE this will do the 'wrong' thing if the initial garbage includes the text '0 HEAD'
             bool result = Locate(HEAD0);
             if (!result)
-                ErrorTracker("Cannot find initial '0 HEAD'", -1);
+                ErrorTracker(UnkRec.ErrorCode.MissHEAD, -1);
             return result;
 
             // TODO error for leading garbage?
@@ -287,7 +288,7 @@ namespace SharpGEDParser
                     if (_buffer[dex + 1] != LF)
                     {
                         _lineBreaks = LB.MAC;
-                        ErrorTracker("Carriage return linebreaks not supported.", -1);
+                        ErrorTracker(UnkRec.ErrorCode.UnsuppLB, -1);
                         return false;
                     }
                     _lineBreaks = (_buffer[dex + 1] == LF) ? LB.DOS : LB.MAC;
@@ -326,18 +327,18 @@ namespace SharpGEDParser
                 bool result = Locate(CHAR1);
                 if (!result)
                 {
-                    ErrorTracker("No character set specified.", -1);
+                    ErrorTracker(UnkRec.ErrorCode.MissCharSet, -1);
                     return false;
                 }
 
                 if (Locate(ANSEL, false))
                 {
                     Encoding = "ANSEL";
-                    ErrorTracker("ANSEL not supported. Using ASCII.", -1);
+                    ErrorTracker(UnkRec.ErrorCode.ForceASCII, -1);
                     gedEnc = _enc;
                     if (BomEncoding != "None")
                     {
-                        ErrorTracker("BOM doesn't match specified character set", -1);
+                        ErrorTracker(UnkRec.ErrorCode.BOMMismatch, -1);
                         return true; // only necessary if BOM exists
                     }
                 }
@@ -347,7 +348,7 @@ namespace SharpGEDParser
                     gedEnc = _enc;
                     if (BomEncoding != "None")
                     {
-                        ErrorTracker("BOM doesn't match specified character set", -1);
+                        ErrorTracker(UnkRec.ErrorCode.BOMMismatch, -1);
                         return true; // only necessary if BOM exists
                     }
                 }
@@ -357,7 +358,7 @@ namespace SharpGEDParser
                     gedEnc = System.Text.Encoding.UTF8;
                     if (BomEncoding != "UTF8")
                     {
-                        ErrorTracker("BOM doesn't match specified character set", -1);
+                        ErrorTracker(UnkRec.ErrorCode.BOMMismatch, -1);
                         return true; // only necessary if BOM is not UTF8
                     }
                 }
@@ -366,7 +367,7 @@ namespace SharpGEDParser
                     Encoding = "UNICODE";
                     if (BomEncoding != "Unicode")
                     {
-                        ErrorTracker("Marked as UNICODE but missing BOM: handled as ASCII", -1);
+                        ErrorTracker(UnkRec.ErrorCode.ForceASCII, -1);
                         return false;
                     }
                     gedEnc = System.Text.Encoding.Unicode;
@@ -379,12 +380,12 @@ namespace SharpGEDParser
                 }
                 else
                 {
-                    ErrorTracker("Non-standard character set specified. Using ASCII.", -1);
+                    ErrorTracker(UnkRec.ErrorCode.ForceASCII, -1);
                     Encoding = "ASCII";
                     gedEnc = _enc;
                     if (BomEncoding != "None")
                     {
-                        ErrorTracker("BOM doesn't match specified character set", -1);
+                        ErrorTracker(UnkRec.ErrorCode.BOMMismatch, -1);
                         return true; // only necessary if BOM exists
                     }
                 }

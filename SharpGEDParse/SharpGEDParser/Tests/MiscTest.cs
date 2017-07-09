@@ -16,7 +16,7 @@ namespace SharpGEDParser.Tests
             string testString = "0 HEAD\n1 SOUR TJ\n2 NAME Tamura Jones\n2 VERS 1.0\n1 DATE 9 Sep 2013\n1 FILE IdentCONT.GED\n1 NOTE Test File: CONT line with identifier.\n1 GEDC\n2 VERS 5.5.1\n2 FORM LINEAGE-LINKED\n1 CHAR UTF-8\n1 LANG English\n1 SUBM @U1@\n0 @U1@ SUBM\n1 NAME Name\n0 @I1@ INDI\n1 NAME One /Note/\n2 SURN Note\n2 GIVN One\n1 NOTE First line of a note.\n2 @IDENT@ CONT Second line of a note.\n2 CONT Third line of a note.\n0 TRLR";
             var res = ReadIt(testString);
 
-            Assert.AreEqual(4, res.Count);
+            Assert.AreEqual(3, res.Count);
             Assert.IsNotNull(res[2] as IndiRecord);
         }
 
@@ -34,8 +34,7 @@ namespace SharpGEDParser.Tests
             var fr = ReadItHigher(testString);
             var res = fr.Data;
 
-            Assert.AreEqual(7, res.Count);
-            //Assert.AreEqual("HEAD", (res[0] as KBRGedRec).Tag);
+            Assert.AreEqual(6, res.Count);
             // TODO GedCommon doesn't expose Tag property
             Assert.IsNotNull(res[2] as IndiRecord);
             Assert.IsNotNull(res[3] as IndiRecord);
@@ -96,14 +95,12 @@ namespace SharpGEDParser.Tests
         [Test]
         public void NotZero()
         {
-            // No zero level at first line
+            // No zero level at first line - can't parse
             var indi = "INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var fr = ReadItHigher(indi);
-            Assert.AreEqual(2, fr.Errors.Count);
+            Assert.AreEqual(1, fr.Errors.Count);
             Assert.AreEqual(UnkRec.ErrorCode.InvLevel, fr.Errors[0].Error);
-            Assert.AreEqual(UnkRec.ErrorCode.InvLevel, fr.Errors[1].Error);
-            Assert.AreEqual(1, fr.Data.Count);
-            Assert.IsInstanceOf(typeof(Unknown), fr.Data[0]);
+            Assert.AreEqual(0, fr.Data.Count);
         }
 
         [Test]

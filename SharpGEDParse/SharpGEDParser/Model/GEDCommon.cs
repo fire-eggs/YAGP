@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// ReSharper disable InconsistentNaming
+
 namespace SharpGEDParser.Model
 {
     // Low-level line range reference
@@ -12,7 +14,6 @@ namespace SharpGEDParser.Model
 
         public int LineCount { get { return End - Beg + 1; } }
     }
-
 
     // Attributes about an unknown tag - custom or not
     public class UnkRec : LineSet
@@ -48,6 +49,10 @@ namespace SharpGEDParser.Model
             EmptyFile, // input file is empty
             MissTag, // missing tag
             IdentCollide, // more than one record with same ident
+            UnsuppLB, // 30 // Unsupported line breaks (CR)
+            MissCharSet, // No character set specified in header
+            BOMMismatch, // BOM doesn't match specified charset
+            ForceASCII, // unsupported or other problem charset; forced to ASCII
         }
 
         public UnkRec()

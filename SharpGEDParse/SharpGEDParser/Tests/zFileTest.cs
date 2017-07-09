@@ -174,7 +174,8 @@ namespace SharpGEDParser.Tests
                 fr.ReadGed(file);
                 Assert.AreEqual(1, fr.Errors.Count);
                 Assert.AreEqual(UnkRec.ErrorCode.EmptyFile, fr.Errors[0].Error);
-                Assert.IsNull(fr.Data);
+                Assert.IsNotNull(fr.Data);
+                Assert.AreEqual(0, fr.Data.Count);
             }
 
         }

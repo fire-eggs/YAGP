@@ -116,11 +116,11 @@ namespace SharpGEDParser
             _currRec = null;
         }
 
-        private void ErrorTracker(string error, int lineNum)
+        private void ErrorTracker(UnkRec.ErrorCode errC, int lineNum)
         {
             // TODO hack implementation
             UnkRec err = new UnkRec();
-            err.Tag = error;
+            err.Error = errC;
             err.Beg = err.End = lineNum;
             Errors.Add(err);
         }
