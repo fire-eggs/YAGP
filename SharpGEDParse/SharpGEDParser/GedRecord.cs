@@ -42,9 +42,9 @@ namespace SharpGEDParser
             return string.Format("Record:({0},{1}):'{2}'", _firstLine, _lines.Count, _lines[0]);
         }
 
-        public string FirstLine()
+        public char [] FirstLine()
         {
-            return new string(_lines[0]); // TODO
+            return _lines[0];
         }
 
         public char [] GetLine(int linedex)

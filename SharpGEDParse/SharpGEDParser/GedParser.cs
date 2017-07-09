@@ -63,7 +63,7 @@ namespace SharpGEDParser
         private Tuple<object, GedParse> Make(GedRecord rec)
         {
             // 1. The first line in the rec should start with '0'
-            string head = rec.FirstLine();
+            var head = rec.FirstLine();
             gs.Split(head, ' ');
             char lvl = gs.Level(head);
 

@@ -80,33 +80,7 @@ namespace SharpGEDParser
 
         public int Split(string value, char separator)
         {
-            int resultIndex = 0;
-            int startIndex = 0;
-            _count = 0;
-            int max = value.Length;
-
-            // Find the mid-parts
-            for (int i = 0; i < max && resultIndex < MAX_PARTS; i++)
-            {
-                if (value[i] == separator)
-                {
-                    if (i > 0 && value[i - 1] != separator)
-                    {
-                        _starts[resultIndex] = startIndex;
-                        _lens[resultIndex] = i - startIndex;
-                        resultIndex++;
-                    }
-                    startIndex = i + 1;
-                }
-            }
-
-            // Find the last part
-            _starts[resultIndex] = startIndex;
-            _lens[resultIndex] = max - startIndex;
-            resultIndex++;
-
-            _count = resultIndex;
-            return resultIndex;
+            return Split(value.ToCharArray(), separator);
         }
 
         public int Split(char [] value, char separator)
@@ -140,17 +114,17 @@ namespace SharpGEDParser
             return resultIndex;
         }
 
-        public char Level(string value)
+        public char Level(char [] value)
         {
             return value[_starts[0]];
         }
 
-        public string Ident(string value)
+        public string Ident(char [] value)
         {
             // substring 1 starts with '@' == ident
             if (_count < 2 || value[_starts[1]] != '@')
                 return null;
-            return value.Substring(_starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
+            return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
         }
 
         public string Tag(string value)

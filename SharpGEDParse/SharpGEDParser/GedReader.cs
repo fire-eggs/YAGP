@@ -75,7 +75,6 @@ namespace SharpGEDParser
 
                 // TODO line numbers 'off' due to initial garbage?
                 ProcessALine(HEAD0, 1);
-                //Lines.Add("0 HEAD");
                 _lineNum = 2; // "first" line of "0 HEAD" has been read
                 ReadLines();
             }
@@ -113,7 +112,6 @@ namespace SharpGEDParser
                 }
                 // TODO line numbers 'off' due to initial garbage?
                 // TODO unit testing expects no 0HEAD ProcessALine(HEAD0, 1);
-                //Lines.Add("0 HEAD");
                 _lineNum = 2; // "first" line of "0 HEAD" has been read
                 ReadLines();
             }
@@ -139,8 +137,8 @@ namespace SharpGEDParser
             // TODO unit testing expects no 0 HEAD
             //if (!FindHead())
             //    return false;
-            var saveBlockPos = _blockPos;
-            if (!DetermineLineEnding()) // TODO messes unit testing because no 0HEAD
+            var saveBlockPos = _blockPos; // TODO should do this in DetermineLineEnding
+            if (!DetermineLineEnding()) 
                 return false;
             _blockPos = saveBlockPos;
             return true;
@@ -159,7 +157,6 @@ namespace SharpGEDParser
             _blockLen = 0;
             _blockPos = 0;
             _lineBreaks = LB.ERR;
-            //Lines = new List<string>();
             _sawEOF = false;
 
             if (!OpenFile(path, enc))

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
@@ -35,7 +31,7 @@ namespace SharpGEDParser.Parser
             if (DateTime.TryParse(context.Remain.Trim(), out outDate))
                 self.GedDate = outDate;
             else 
-                self.GedDate = DateTime.Now;
+                self.GedDate = DateTime.MinValue; // TODO attempt to derive from other information in postcheck
         }
 
         private void GedcProc(ParseContext2 context)
@@ -82,8 +78,8 @@ namespace SharpGEDParser.Parser
             }
         }
 
-        private static LineUtil.LineData ld = new LineUtil.LineData();
-        private static GEDSplitter gs = new GEDSplitter();
+        private static readonly LineUtil.LineData ld = new LineUtil.LineData();
+        private static readonly GEDSplitter gs = new GEDSplitter();
 
         private string seekSubRecord(string target, ParseContext2 context)
         {
@@ -105,7 +101,7 @@ namespace SharpGEDParser.Parser
 
         public override void PostCheck(GEDCommon rec)
         {
-            var me = rec as IndiRecord;
+            //var me = rec as IndiRecord;
         }
 
     }

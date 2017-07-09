@@ -7,7 +7,6 @@ using SharpGEDParser.Parser;
 
 // ReSharper disable InconsistentNaming
 
-
 namespace SharpGEDParser
 {
     public class FileRead : IDisposable
@@ -126,46 +125,7 @@ namespace SharpGEDParser
             Errors.Add(err);
         }
 
-        //private bool ProcessALine(char[] lineToProcess, int lineNumber)
-        //{
-        //    // TODO Hack implementation
-        //    var val = new string(lineToProcess).Trim('\0'); // trim to deal w/removed terminators
-        //    _lineNum = lineNumber;
-        //    ProcessLine(val, _lineNum);
-        //    return (val != "0 TRLR");
-        //}
-
-        //private void oldReadGed(string gedPath)
-        //{
-        //    _lineNum = 0;
-        //    Errors = new List<UnkRec>();
-
-        //    try
-        //    {
-        //        FilePath = gedPath;
-        //        GetEncoding(gedPath);
-        //        if (Charset == GedcomCharset.EmptyFile)
-        //        {
-        //            UnkRec err = new UnkRec();
-        //            err.Error = UnkRec.ErrorCode.EmptyFile;
-        //            // TODO err.Error = string.Format("Empty file");
-        //            Errors.Add(err);
-        //            return;
-        //        }
-        //        using (StreamReader stream = new StreamReader(FilePath, FileEnc))
-        //        {
-        //            oldReadLines(stream);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        UnkRec err = new UnkRec();
-        //        err.Error = UnkRec.ErrorCode.Exception;
-        //        // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
-        //        Errors.Add(err);
-        //    }
-        //}
-
+        #region Old Character Encoding code - re-use?
         private void GetEncoding(string gedPath)
         {
             FileEnc = Encoding.Default;
@@ -226,56 +186,7 @@ namespace SharpGEDParser
                 }
             }
         }
-
-        /// <summary>
-        /// Read GED lines from a stream. This is split from file processing so unit testing can 
-        /// be done using string streams.
-        /// </summary>
-        /// <param name="instream"></param>
-        //public void oldReadLines(StreamReader instream)
-        //{
-        //    Parser = new GedParser(FilePath ?? "");
-        //    Data = new List<GEDCommon>();
-        //    if (Errors == null)
-        //        Errors = new List<UnkRec>();
-
-        //    try
-        //    {
-        //        _currRec = new GedRecord();
-        //        _lineNum = 1;
-        //        string line = instream.ReadLine(); // TODO CR, LF, CR/LF, and LF/CR must be validated?
-        //        while (line != null)
-        //        {
-        //            ProcessLine(line, _lineNum);
-
-        //            line = instream.ReadLine();
-        //            _lineNum++;
-        //        }
-        //        EndOfFile();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        if (ex.Message == "record head not zero")
-        //        {
-        //            UnkRec unk = new UnkRec();
-        //            unk.Error = UnkRec.ErrorCode.MissHEAD;
-        //            Errors.Add(unk);
-        //            //Errors.Add(new UnkRec { Error = "File doesn't start with '0 HEAD', parse fails" });
-        //        }
-        //        else
-        //        {
-        //            var err = new UnkRec();
-        //            err.Error = UnkRec.ErrorCode.Exception;
-        //            // err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
-        //            Errors.Add(err);
-        //        }
-        //    }
-
-        //    Parser.FinishUp();
-        //    GatherRecords();
-        //    GatherErrors();
-        //    _currRec = null;
-        //}
+        #endregion
 
         /// <summary>
         /// Deal with a single line. It either starts with '0' and is to be a new record,
