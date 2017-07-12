@@ -90,8 +90,6 @@ namespace SharpGEDParser.Parser
             }
         }
 
-        private static LineUtil.LineData ld = new LineUtil.LineData();
-
         // CHIL processing pulled out for _FREL/_MREL
         private void childProc(ParseContext2 context)
         {
@@ -129,6 +127,7 @@ namespace SharpGEDParser.Parser
             string frel = null;
             if (context.Endline > context.Begline)
             {
+                LineUtil.LineData ld = new LineUtil.LineData();
                 var gs = new GEDSplitter();
                 //ParseContext2 ctx = new ParseContext2();
                 int i = context.Begline + 1;
