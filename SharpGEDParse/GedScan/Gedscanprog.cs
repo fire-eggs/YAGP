@@ -235,7 +235,10 @@ namespace GedScan
             }
 
             if (f.AllRecords.Count == 0)
-                throw new Exception("Failed to parse");
+            {
+                Console.WriteLine("*****Failed to parse");
+                return;
+            }
 
             Dictionary<string, int> tagCounts = new Dictionary<string, int>();
             foreach (var record in f.AllRecords)
@@ -281,7 +284,10 @@ namespace GedScan
             }
 
             HeadRecord head = f.Header;
-            Console.WriteLine("  {0}-{1}:{2} ({3})", head.GedVersion, head.Product, head.ProductVersion, head.GedDate.ToString("yyyyMMdd"));
+            if (head == null)
+                Console.WriteLine("No head");
+            else
+                Console.WriteLine("  {0}-{1}:{2} ({3})", head.GedVersion, head.Product, head.ProductVersion, head.GedDate.ToString("yyyyMMdd"));
             Console.Write("\t");
             foreach (var tag in tagCounts.Keys)
             {
@@ -315,6 +321,9 @@ namespace GedScan
             if (famEventLoc > 0)
                 Console.Write("Locations:{0}", famEventLoc);
             Console.WriteLine();
+            if (f.NumberOfTrees > 1)
+                Console.WriteLine("Number of trees:{0}", f.NumberOfTrees);
+
         }
 
         private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, IEnumerable<Issue> issues, bool showErrors)
