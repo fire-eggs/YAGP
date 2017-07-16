@@ -22,7 +22,7 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("SEX",  SexProc);
             _tagSet2.Add("SUBM", xrefProc);
             _tagSet2.Add("ASSO", AssocProc);
-            _tagSet2.Add("ALIA", xrefProc);
+            _tagSet2.Add("ALIA", aliasProc);
             _tagSet2.Add("ANCI", xrefProc);
             _tagSet2.Add("DESI", xrefProc);
 
@@ -171,6 +171,36 @@ namespace SharpGEDParser.Parser
             own.Links.Add(res);
         }
 
+        // Some GEDCOM have been seen to use slashes around non-standard ALIA text
+        private static readonly char[] aliasTrimChars = {' ', '\t', '/'};
+
+        // ALIAS (ALIA) specific processing. A common but non-standard use of ALIA
+        // is to not specify a cross-reference.
+        private static void aliasProc(ParseContext2 context)
+        {
+            var indi = (context.Parent as IndiRecord);
+
+            string xref;
+            string extra;
+            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
+            if (string.IsNullOrEmpty(xref))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.NonStdAlias;
+                err.Beg = err.End = context.Begline + context.Parent.BegLine;
+                indi.Errors.Add(err);
+
+                IndiEvent nick = new IndiEvent();
+                nick.Tag = "ALIA";
+                nick.Descriptor = context.Remain.Trim(aliasTrimChars);
+                indi.Attribs.Add(nick);
+            }
+            else
+            {
+                indi.AliasLinks.Add(xref);
+            }
+        }
+
         // Common processing for SUBM, FAMC, FAMS
         // TODO what additional error handling?
         private static void xrefProc(ParseContext2 context)
@@ -193,9 +223,6 @@ namespace SharpGEDParser.Parser
                 {
                     case "SUBM":
                         indi.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
-                        break;
-                    case "ALIA":
-                        indi.AliasLinks.Add(xref);
                         break;
                     case "DESI":
                         indi.AddSubmitter(IndiRecord.Submitter.DESI, xref);
