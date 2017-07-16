@@ -23,6 +23,7 @@ namespace GedScan
         private static bool _dates;
         private static bool _ged; // show basic GED record stats
         private static bool _csv; // output to CSV
+        private static bool _dumpAllErrors;
 
         static void Main(string[] args)
         {
@@ -44,6 +45,7 @@ namespace GedScan
             _csv = args.FirstOrDefault(s => s == "-csv") != null;
             _dates = args.FirstOrDefault(s => s == "-date") != null;
             _ged = args.FirstOrDefault(s => s == "-b") != null;
+            _dumpAllErrors = args.FirstOrDefault(s => s == "-edump") != null;
 
             if (_csv)
                 Console.WriteLine("filename,file KB,Millisec,Mem MB,# Lines,GED Version,Product1,Product2,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
@@ -132,6 +134,8 @@ namespace GedScan
                     dumpCSV(Path.GetFileNameWithoutExtension(path), f, ms, meg, fkb);
                 else
                     dump(f, showErrors);
+                if (_dumpAllErrors)
+                    dumpAllErrors(null, f);
             }
 
             Console.Out.Flush();
@@ -481,6 +485,64 @@ namespace GedScan
             Console.WriteLine(new string('-',50));
         }
 
+        private static void dumpAllErrors(string filename, Forest f)
+        {
+            if (f.AllRecords == null) // empty, failure to parse, ?
+                return;
+            int counter = 0;
+
+            // f.Errors is a rollup of f.AllRecords.Errors; ditto for unks
+            // TODO errors in sub-records?
+
+            foreach (var err in f.Errors)
+            {
+                var text = err.Error >= UnkRec.ErrorCode.Exception ? err.Error.ToString() : err.Tag;
+                Console.WriteLine("\t\tErr:{0} [line {1}]", text, err.Beg);
+                counter++;
+            }
+            foreach (var err in f.Issues)
+            {
+                Console.WriteLine("\t\tIss:{0} [Id {1}]", err.Message(), err.IssueId);
+                counter++;
+            }
+            foreach (var err in f.Unknowns)
+            {
+                var text = err.Error >= UnkRec.ErrorCode.Exception ? err.Error.ToString() : err.Tag;
+                Console.WriteLine("\t\tUnk:{0} [line {1}]", text, err.Beg);
+                counter++;
+            }
+            bool customRecord = false;
+            foreach (var gedRec2 in f.AllRecords)
+            {
+                //foreach (var err in gedRec2.Errors)
+                //{
+                //    var text = err.Error >= UnkRec.ErrorCode.Exception ? err.Error.ToString() : err.Tag;
+                //    Console.WriteLine("\t\tErr:{0} [line {1}]", text, err.Beg);
+                //    counter++;
+                //}
+                //foreach (var err in gedRec2.Unknowns)
+                //{
+                //    var text = err.Error >= UnkRec.ErrorCode.Exception ? err.Error.ToString() : err.Tag;
+                //    Console.WriteLine("\t\tUnk:{0} [line {1}]", text, err.Beg);
+                //    counter++;
+                //}
+                if (gedRec2 is Unknown)
+                {
+                    if (gedRec2.Tag.StartsWith("_"))
+                        customRecord = true;
+                    else
+                    {
+                        Console.WriteLine("\t\tUnk record:\"{0}\"[{1}:{2}]", gedRec2.Tag, gedRec2.BegLine,
+                            gedRec2.EndLine);
+                        counter++;
+                    }
+                }
+            }
+            if (customRecord)
+                Console.WriteLine("\t\tOne or more custom records observed.");
+            Console.WriteLine("total:{0}", counter);
+        }
+
         private static void dumpCSV(string filename, Forest f, int ms, double meg, double fmeg)
         {
             if (f.AllRecords == null) // empty, failure to parse, ?
@@ -488,13 +550,12 @@ namespace GedScan
 
             int inds = 0;
             int fams = 0;
-            int unks = 0;
-            int oths = 0;
             int src = 0;
             int repo = 0;
             int note = 0;
             int media = 0;
-            int errs = f.Errors == null ? 0 : f.Errors.Count; // TODO ErrorsCount was null but Errors was not?
+            int errs = f.Errors == null ? 0 : f.Errors.Count; // TODO ErrorsCount was 0 but Errors was not empty?
+            int unks = f.Unknowns == null ? 0 : f.Unknowns.Count;
 
             int nLen = 0; // total length of NOTE record text
             int subN = 0; // NOTE sub-records
@@ -505,8 +566,9 @@ namespace GedScan
                 //if (index == 52790) // wemightbekin testing
                 //    Debugger.Break();
 
-                errs += gedRec2.Errors.Count; // TODO errors in sub-records
-                unks += gedRec2.Unknowns.Count;
+                // Forest has already wrapped up errors/unknowns.
+                //errs += gedRec2.Errors.Count; 
+                //unks += gedRec2.Unknowns.Count;
 
                 if (gedRec2 is NoteHold)
                 {
@@ -537,10 +599,6 @@ namespace GedScan
                 else if (gedRec2 is Unknown)
                 {
                     unks++;
-                }
-                else
-                {
-                    oths++;
                 }
 
                 // index++; // testing
