@@ -12,6 +12,7 @@ namespace SharpGEDParser
     public class FileRead : IDisposable
     {
         private int _lineNum;
+        private int _emptyLineSeen; // 20170715 only one 'empty line' message per file // TODO show instance count
 
         public enum GedcomCharset
         {
@@ -47,11 +48,12 @@ namespace SharpGEDParser
 
         public void ReadGed(string gedPath)
         {
+            _emptyLineSeen = 0;
             FilePath = gedPath;
             Errors = new List<UnkRec>();
             GedReader _reader = new GedReader();
             _reader.ProcessALine = ProcessLine;
-            _reader.ErrorTracker = ErrorTracker;
+            _reader.ErrorTracker = DoError;
 
             // Processor context
             Parser = new GedParser(FilePath ?? "");
@@ -69,6 +71,7 @@ namespace SharpGEDParser
             {
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.Exception;
+                err.Beg = _lineNum;
                 // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
                 Errors.Add(err);
             }
@@ -82,13 +85,13 @@ namespace SharpGEDParser
             _reader = null;
         }
 
-        // TODO read from a stream for unit testing
         public void ReadGed(StreamReader instream)
         {
+            // read from stream for unit testing. TODO refactor common code
             Errors = new List<UnkRec>();
             GedReader _reader = new GedReader();
             _reader.ProcessALine = ProcessLine;
-            _reader.ErrorTracker = ErrorTracker;
+            _reader.ErrorTracker = DoError;
 
             // Processor context
             Parser = new GedParser("");
@@ -106,6 +109,7 @@ namespace SharpGEDParser
             {
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.Exception;
+                err.Beg = _lineNum;
                 // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
                 Errors.Add(err);
             }
@@ -114,15 +118,6 @@ namespace SharpGEDParser
             GatherRecords();
             GatherErrors();
             _currRec = null;
-        }
-
-        private void ErrorTracker(UnkRec.ErrorCode errC, int lineNum)
-        {
-            // TODO hack implementation
-            UnkRec err = new UnkRec();
-            err.Error = errC;
-            err.Beg = err.End = lineNum;
-            Errors.Add(err);
         }
 
         #region Old Character Encoding code - re-use?
@@ -201,7 +196,9 @@ namespace SharpGEDParser
             int dex = LineUtil.FirstChar(line, 0, len);
             if (dex < 0)
             {
-                DoError( UnkRec.ErrorCode.EmptyLine, lineNum);
+                if (_emptyLineSeen == 0)
+                    DoError( UnkRec.ErrorCode.EmptyLine, lineNum);
+                _emptyLineSeen++;
                 return true; // empty line
             }
             if (len > 255) // TODO anything special for UTF-16?
@@ -283,22 +280,47 @@ namespace SharpGEDParser
             _allErrors = new List<UnkRec>();
             if (Errors != null)
                 _allErrors.AddRange(Errors);
+
+            bool customTagSeen = false;
+            bool nonStdAliasSeen = false;
             foreach (var gedCommon in Data)
             {
-                if (gedCommon.Errors != null)
-                    _allErrors.AddRange(gedCommon.Errors);
-                if (gedCommon.Unknowns != null)
-                    _allUnknowns.AddRange(gedCommon.Unknowns);
+                foreach (var err in gedCommon.Errors)
+                {
+                    if (err.Error == UnkRec.ErrorCode.NonStdAlias)
+                        nonStdAliasSeen = true;
+                    else
+                        _allErrors.Add(err);
+                }
+                //if (gedCommon.Errors != null)
+                //    _allErrors.AddRange(gedCommon.Errors);
+                foreach (var unknown in gedCommon.Unknowns)
+                {
+                    if (!string.IsNullOrEmpty(unknown.Tag) && unknown.Tag.StartsWith("_"))
+                        customTagSeen = true;
+                    else
+                        _allUnknowns.Add(unknown);
+                }
+                //if (gedCommon.Unknowns != null)
+                //    _allUnknowns.AddRange(gedCommon.Unknowns);
             }
-            // TODO errors/unknown in sub-records
+
+            // TODO errors/unknown in sub-records - gather via gedCommon
+
+            if (customTagSeen)
+                _allErrors.Add(new UnkRec() {Error = UnkRec.ErrorCode.CustTagsSeen});
+            if (nonStdAliasSeen)
+                _allErrors.Add(new UnkRec() { Error = UnkRec.ErrorCode.NonStdAlias });
         }
 
+        // TODO this needs to go into an API class?
         public List<UnkRec> AllErrors { get { return _allErrors; } }
         public List<UnkRec> AllUnknowns { get { return _allUnknowns; } }
 
         private List<IndiRecord> _indis;
         private List<FamRecord> _fams;
 
+        // TODO this needs to go into an API class?
         public List<IndiRecord> AllIndividuals
         {
             get
@@ -316,6 +338,7 @@ namespace SharpGEDParser
             }
         }
 
+        // TODO this needs to go into an API class?
         public List<FamRecord> AllFamilies
         {
             get
@@ -333,6 +356,7 @@ namespace SharpGEDParser
             }
         }
 
+        // TODO this needs to go into an API class?
         public List<SourceRecord> AllSources
         {
             get
@@ -349,6 +373,7 @@ namespace SharpGEDParser
 
         private Dictionary<string, GEDCommon> _allRecsDict;
 
+        // TODO use for looking up INDI,FAM,etc
         private void GatherRecords()
         {
             // Create a lookup dictionary based on id.
@@ -367,6 +392,7 @@ namespace SharpGEDParser
             }
         }
 
+        // TODO this needs to go into an API class?
         public NoteRecord GetNote(string id)
         {
             GEDCommon rec;

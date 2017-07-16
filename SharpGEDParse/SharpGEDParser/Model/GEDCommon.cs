@@ -53,6 +53,8 @@ namespace SharpGEDParser.Model
             MissCharSet, // No character set specified in header
             BOMMismatch, // BOM doesn't match specified charset
             ForceASCII, // unsupported or other problem charset; forced to ASCII
+            NonStdAlias, // Non-standard ALIA tag
+            CustTagsSeen, // 35 // one or more valid custom tags seen
         }
 
         public UnkRec()
