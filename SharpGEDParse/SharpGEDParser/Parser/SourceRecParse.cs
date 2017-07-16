@@ -20,6 +20,9 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("REPO", repoProc);
             _tagSet2.Add("TEXT", textProc);
             _tagSet2.Add("TITL", titlProc);
+
+            _tagSet2.Add("_UID", DataProc);
+            _tagSet2.Add("UID", DataProc);
         }
 
         private void abbrProc(ParseContext2 context)

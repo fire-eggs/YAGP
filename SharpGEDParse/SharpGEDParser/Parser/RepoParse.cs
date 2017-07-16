@@ -18,6 +18,9 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("WWW", commonAddr2);
             _tagSet2.Add("EMAIL", commonAddr2);
             _tagSet2.Add("FAX", commonAddr2);
+
+            _tagSet2.Add("_UID", DataProc);
+            _tagSet2.Add("UID", DataProc);
         }
 
         private void nameproc(ParseContext2 ctx)

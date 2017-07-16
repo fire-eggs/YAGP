@@ -12,6 +12,9 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("SOUR", SourCitProc);
             _tagSet2.Add("CONC", concProc);
             _tagSet2.Add("CONT", contProc);
+
+            _tagSet2.Add("_UID", DataProc);
+            _tagSet2.Add("UID", DataProc);
         }
 
         private void contProc(ParseContext2 ctx)
