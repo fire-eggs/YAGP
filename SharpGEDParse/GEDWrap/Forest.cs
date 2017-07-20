@@ -59,9 +59,10 @@ namespace GEDWrap
         /// Only parse a GEDCOM file. Useful for syntax validation. 
         /// </summary>
         /// <param name="path"></param>
-        public void ParseGEDCOM(string path)
+        /// <param name="bufferSize"></param>
+        public void ParseGEDCOM(string path, int bufferSize=0)
         {
-            _gedReader = new FileRead();
+            _gedReader = new FileRead(bufferSize);
             _gedReader.ReadGed(path);
         }
 
@@ -72,6 +73,16 @@ namespace GEDWrap
         public void LoadGEDCOM(string path)
         {
             ParseGEDCOM(path);
+            if (_gedReader == null || _gedReader.Data == null) // nothing to do!
+                return;
+
+            BuildTree();
+            CalcTrees();
+        }
+
+        public void LoadGEDCOM(string path, int bufferSize)
+        {
+            ParseGEDCOM(path, bufferSize);
             if (_gedReader == null || _gedReader.Data == null) // nothing to do!
                 return;
 

@@ -46,12 +46,18 @@ namespace SharpGEDParser
 
         private GedRecord _currRec;
 
+        public FileRead(int bufferSize=0)
+        {
+            _bufferSize = bufferSize;
+        }
+
         public void ReadGed(string gedPath)
         {
             _emptyLineSeen = 0;
             FilePath = gedPath;
             Errors = new List<UnkRec>();
             GedReader _reader = new GedReader();
+            _reader.BufferSize = _bufferSize;
             _reader.ProcessALine = ProcessLine;
             _reader.ErrorTracker = DoError;
 
@@ -90,6 +96,7 @@ namespace SharpGEDParser
             // read from stream for unit testing. TODO refactor common code
             Errors = new List<UnkRec>();
             GedReader _reader = new GedReader();
+            _reader.BufferSize = _bufferSize;
             _reader.ProcessALine = ProcessLine;
             _reader.ErrorTracker = DoError;
 
@@ -372,6 +379,7 @@ namespace SharpGEDParser
         }
 
         private Dictionary<string, GEDCommon> _allRecsDict;
+        private int _bufferSize;
 
         // TODO use for looking up INDI,FAM,etc
         private void GatherRecords()

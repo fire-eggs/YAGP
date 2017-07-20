@@ -24,6 +24,7 @@ namespace GedScan
         private static bool _ged; // show basic GED record stats
         private static bool _csv; // output to CSV
         private static bool _dumpAllErrors;
+        private static int _bsize;
 
         static void Main(string[] args)
         {
@@ -47,6 +48,18 @@ namespace GedScan
             _ged = args.FirstOrDefault(s => s == "-b") != null;
             _dumpAllErrors = args.FirstOrDefault(s => s == "-edump") != null;
 
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i] == "-z")
+                {
+                    _bsize = int.Parse(args[i + 1]);
+                    break;
+                }
+            }
+
+            if (_bsize != 0)
+                logit("", true);
+
             if (_csv)
                 Console.WriteLine("filename,file KB,Millisec,Mem MB,# Lines,GED Version,Product1,Product2,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
 
@@ -63,6 +76,8 @@ namespace GedScan
             {
                 Console.WriteLine("Specified file/path doesn't exist!");
             }
+            if (_bsize != 0)
+                logit("__All load complete (ms)");
         }
 
         private static void parseTree(string path, bool recurse, bool showErrors)
@@ -94,7 +109,7 @@ namespace GedScan
             else
             {
                 int delta = Environment.TickCount - tick;
-                if (_showDiags)
+                if (_showDiags || _bsize != 0)
                     Console.WriteLine(msg + "|" + delta);
                 return delta;
             }
@@ -104,7 +119,8 @@ namespace GedScan
         private static void parseFile(string path, bool showErrors)
         {
             long beforeMem = GC.GetTotalMemory(true);
-            logit("",true);
+            if (_bsize == 0)
+                logit("",true);
 
             if (!_csv)
                 Console.WriteLine("   {0}", Path.GetFileName(path));
@@ -112,7 +128,7 @@ namespace GedScan
             Console.Out.Flush();
             using (Forest f = new Forest())
             {
-                f.LoadGEDCOM(path);
+                f.LoadGEDCOM(path, _bsize);
 
                 var fil = File.OpenRead(path);
                 long flen = fil.Length;
@@ -120,7 +136,9 @@ namespace GedScan
                 double fkb = flen/(1024.0);
                 
                 long afterMem = GC.GetTotalMemory(false);
-                int ms = logit("__load complete (ms)");
+                int ms = 0;
+                if (_bsize == 0)
+                    ms = logit("__load complete (ms)");
                 long delta = (afterMem - beforeMem);
                 double meg = delta / (1024 * 1024.0);
                 if (_showDiags)

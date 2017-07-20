@@ -13,7 +13,7 @@ namespace SharpGEDParser
         private List<int> _spuriousLoc;
         private char[] _buffer;
         private StreamReader _fs;
-        private const int BUFSIZE = 4096; // TODO buffer size property
+        private const int BUFSIZE = 32768; // Testing with large # of files shows better performance w/32K than 4K 4096;
         private int _blockLen;
         private int _blockPos;
         private bool _sawEOF;
@@ -53,6 +53,8 @@ namespace SharpGEDParser
 
         public Processor ProcessALine { get; set; }
         public ErrorTrack ErrorTracker { get; set; }
+
+        public int BufferSize { get; set; }
 
         public void ReadFile(string path)
         {
@@ -122,9 +124,12 @@ namespace SharpGEDParser
 
         private bool StartFile(StreamReader instream, Encoding enc = null)
         {
+            if (BufferSize == 0)
+                BufferSize = BUFSIZE;
+
             _lineNum = 0;
             _spuriousLoc = new List<int>();
-            _buffer = new char[BUFSIZE];
+            _buffer = new char[BufferSize];
             _blockLen = 0;
             _blockPos = 0;
             _lineBreaks = LB.ERR;
@@ -150,9 +155,12 @@ namespace SharpGEDParser
          */
         private bool StartFile(string path, Encoding enc = null)
         {
+            if (BufferSize == 0)
+                BufferSize = BUFSIZE;
+
             _lineNum = 0;
             _spuriousLoc = new List<int>();
-            _buffer = new char[BUFSIZE];
+            _buffer = new char[BufferSize];
             _blockLen = 0;
             _blockPos = 0;
             _lineBreaks = LB.ERR;
@@ -177,8 +185,8 @@ namespace SharpGEDParser
             }
 
             // Try to open the file
-            _fs = new StreamReader(new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read), enc, true, BUFSIZE);
-            _blockLen = _fs.ReadBlock(_buffer, 0, BUFSIZE);
+            _fs = new StreamReader(new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read), enc, true, BufferSize);
+            _blockLen = _fs.ReadBlock(_buffer, 0, BufferSize);
             if (startwdefault)
             {
                 BomEncoding = _fs.CurrentEncoding.ToString();
@@ -211,7 +219,7 @@ namespace SharpGEDParser
 
             // Try to open the file
             _fs = instream;
-            _blockLen = _fs.ReadBlock(_buffer, 0, BUFSIZE);
+            _blockLen = _fs.ReadBlock(_buffer, 0, BufferSize);
             if (startwdefault)
             {
                 BomEncoding = _fs.CurrentEncoding.ToString();
@@ -267,7 +275,7 @@ namespace SharpGEDParser
 
         private bool IsMatch(int dex, char[] needle)
         {
-            if (needle.Length > BUFSIZE - dex)
+            if (needle.Length > BufferSize - dex)
                 return false; // Too close to end of buffer
             for (int i = 0; i < needle.Length; i++)
                 if (_buffer[dex + i] != needle[i])
@@ -446,7 +454,7 @@ namespace SharpGEDParser
                 int partlen = _blockLen - _blockPos;
                 for (int i = 0; i < partlen; i++)
                     _buffer[i] = _buffer[i + _blockPos];
-                int readcount = _fs.ReadBlock(_buffer, partlen, BUFSIZE - partlen);
+                int readcount = _fs.ReadBlock(_buffer, partlen, BufferSize - partlen);
                 _blockLen = readcount + partlen;
                 _blockPos = 0;
 

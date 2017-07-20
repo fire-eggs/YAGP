@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using SharpGEDParser.Model;
 
+// TODO 20170714: discovered there are multiple standard name variants
+// "/surname/fornames"
+// done:"fornames/surname/"
+// validate: "fornames" - no surname
+// validate: "/surname/" - no fornames
+// "name1/name2/name3" - I think name3 is the surname?
+
+
+
 // TODO unit-testing of sub-records
 
 namespace SharpGEDParser.Parser
