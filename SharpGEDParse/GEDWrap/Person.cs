@@ -62,27 +62,40 @@ namespace GEDWrap
                     return "";
                 string val1 = GetShowString("BIRT", "B: ");
                 string val2 = GetShowString("DEAT", "D: ");
-                string val3 = string.IsNullOrWhiteSpace(Marriage) ? "" : "M: " + Marriage + "\r\n";
+                string val3 = "";
+                if (Marriage != null)
+                {
+                    val3 = string.Format("M: {0} {1}\r\n", Marriage.Date, Marriage.Place);
+                }
                 string val4 = GetShowString("CHR", "C: ");
                 string val5 = GetShowString2("OCCU", "O: ");
                 return val1 + val4 + val3 + val2 + val5;
             }
         }
 
-        public string Marriage
+        public Union MarriageUnion
         {
             get
             {
                 if (SpouseIn.Count < 1)
-                    return "";
+                    return null;
                 Union fam = SpouseIn.First(); // TODO punting: first one only
-                return fam.FamRec.Marriage;
+                return fam;
+            }
+        }
+
+        public FamilyEvent Marriage
+        {
+            get
+            {
+                Union onion = MarriageUnion;
+                return onion == null ? null : onion.Marriage;
             }
         }
 
         public string Id { get { return Indi.Ident; } }
 
-        private IndiEvent GetEvent(string tag)
+        public IndiEvent GetEvent(string tag)
         {
             foreach (var kbrGedEvent in Indi.Events)
             {
@@ -179,6 +192,11 @@ namespace GEDWrap
                 evt = GetEvent("CREM");
                 return evt;
             }
+        }
+
+        public IndiEvent Occupation
+        {
+            get { return GetEvent("OCCU"); }
         }
     }
 }

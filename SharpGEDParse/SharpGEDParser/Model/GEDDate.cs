@@ -1,4 +1,7 @@
-﻿namespace SharpGEDParser.Model
+﻿using System;
+using System.Globalization;
+
+namespace SharpGEDParser.Model
 {
     public class GEDDate
     {
@@ -27,6 +30,16 @@
         {
             Type = _type;
             Year = Month = Day = -1;
+        }
+
+        public override string ToString()
+        {
+            // TODO variants: range, BC
+            // TODO other formats
+            return string.Format("{0}-{1}-{2}", 
+                Day <= 0 ? "" : Day.ToString(),
+                Month <= 0 ? "" : DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(Month), 
+                Year);
         }
     }
 }

@@ -1,6 +1,8 @@
 using System.ComponentModel;
 using System.Drawing;
 
+// TODO implement IDisposable to clean up brush
+
 namespace PrintPreview
 {
     public enum TextPosition

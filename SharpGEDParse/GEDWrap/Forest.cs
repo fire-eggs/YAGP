@@ -13,7 +13,7 @@ using System.Linq;
 
 namespace GEDWrap
 {
-    public class Forest : IDisposable
+    public sealed class Forest : IDisposable
     {
         private FileRead _gedReader;
 

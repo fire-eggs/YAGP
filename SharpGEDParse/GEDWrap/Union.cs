@@ -63,5 +63,19 @@ namespace GEDWrap
         {
             get { return Marriage == null ? null : Marriage.GedDate; }
         }
+
+        public string MarriagePlace
+        {
+            get { return Marriage == null ? null : Marriage.Place; }
+        }
+
+        public Person Spouse(Person who)
+        {
+            if (who == Husband)
+                return Wife;
+            return Husband;
+
+            // TODO more than one spouse?
+        }
     }
 }

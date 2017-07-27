@@ -4,6 +4,7 @@ using System.Text;
 using SharpGEDParser.Model;
 
 // ReSharper disable InconsistentNaming
+// TODO implement Idisposable to clean up streamreader
 
 namespace SharpGEDParser
 {
