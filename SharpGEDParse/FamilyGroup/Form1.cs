@@ -34,6 +34,13 @@ namespace FamilyGroup
             LoadGed += Form1_LoadGed;
 
             Filler = "-";
+            textBox1.Text = Filler;
+            radioButton1.Checked = true;
+            TopLabel = "Person";
+            BotLabel = "Spouse";
+            radioButton2.Checked = false;
+
+            cmbWebFont.DataSource = _webFonts;
         }
 
         #region Settings
@@ -338,6 +345,9 @@ namespace FamilyGroup
 
         private void fillWeb()
         {
+            if (_family == null) // Invoked from event handlers
+                return;
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<html>");
             fillStyle(sb);
@@ -350,12 +360,12 @@ namespace FamilyGroup
             sb.AppendLine("</h3>");
 
             Person who = _family.Husband ?? _family.Wife;
-            fillPerson(sb, "Person", who, true);
+            fillPerson(sb, TopLabel, who, true);
 
             sb.AppendLine("&nbsp;");
 
             who = _family.Spouse(who);
-            fillPerson(sb, "Spouse", who);
+            fillPerson(sb, BotLabel, who);
 
             sb.AppendLine("&nbsp;");
 
@@ -366,12 +376,14 @@ namespace FamilyGroup
         }
 
         // TODO consider placing in external file?
+        // NOTE: double-brackets required for escape when using AppendFormat
         private static readonly string[] STYLE_STRINGS =
         {
-        ".tt{color:#333; background-color:#fff;font-family:Arial, sans-serif;font-size:14px;font-weight:bold;}",
-        ".tg{width:100%;border-collapse:collapse;border-spacing:0;border-color:#ccc;}",
-        ".tg td{font-family:Arial, sans-serif;font-size:13px;padding:4px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;}",
-        ".tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:5px 4px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#aaa;}",
+        ".tt{{color:#333; background-color:#fff;font-family:{0};font-size:14px;font-weight:bold;}}",
+        ".tg{{width:100%;border-collapse:collapse;border-spacing:0;border-color:#ccc;}}",
+        ".tg td{{font-family:{0};font-size:13px;padding:4px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;}}",
+        ".tg th{{font-family:{0};font-size:14px;font-weight:normal;padding:5px 4px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#aaa;}}",
+        ".tNest td{{font-family:{0};font-size:13px;padding:1px 1px;border-width:0px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;}}",
         ".tg .tg-9hbo{font-weight:bold;vertical-align:top}",
         ".tg .tg-9hboN{font-weight:bold;vertical-align:top;width:5%;}",
         ".tg .tg-9hboPH{font-weight:bold;vertical-align:top;width:15%;} /* person header */",
@@ -381,7 +393,6 @@ namespace FamilyGroup
         ".tg .tg-yw4l{vertical-align:top}",
         ".tg .tg-baqh{text-align:center;vertical-align:top}",
         ".tNest {width:100%;border-collapse:collapse;}",
-        ".tNest td{font-family:Arial, sans-serif;font-size:13px;padding:1px 1px;border-width:0px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;}",
         ".tNest .tNt{border-style:none none dashed none; border-width:1px; border-color:#ccc;}",
         ".tNest .tN-b7b8{background-color:#f0f0f0;vertical-align:top}",
         ".tNest .tNt-b7b8{border-style:none none dashed none; border-width:1px; border-color:#ccc;background-color:#f0f0f0;vertical-align:top}",
@@ -391,6 +402,7 @@ namespace FamilyGroup
         {
             sb.AppendLine("<style type=\"text/css\">");
 
+/*
             //font-family: arial, sans-serif;
             sb.AppendLine("table#t1 { border-collapse: collapse; width: 100%; } ");
             sb.AppendLine("table#t2 { border-spacing: 0px; width: 100%; } ");
@@ -398,10 +410,20 @@ namespace FamilyGroup
             sb.AppendLine("td#d0, th { border: 1px solid #dddddd; text-align: left; padding: 1px; }");
             sb.AppendLine("td#d1 {border: 1px solid #dddddd; text-align: center;}");
             sb.AppendLine("td#d2 {border-bottom: 1px dashed #dddddd;}");
-
+*/
+            var font = cmbWebFont.SelectedItem as string;
+            int i = 0;
             foreach (var s in STYLE_STRINGS)
             {
-                sb.AppendLine(s);
+                if (i < 5)
+                {
+                    sb.AppendFormat(s, font).AppendLine();
+                }
+                else
+                {
+                    sb.AppendLine(s);
+                }
+                i++;
             }
             sb.AppendLine("</style>");
         }
@@ -521,8 +543,6 @@ namespace FamilyGroup
             }
         }
 
-        private string Filler { get; set; }
-
         private void button1_Click(object sender, EventArgs e)
         {
             webBrowser1.ShowPrintPreviewDialog();
@@ -536,5 +556,62 @@ namespace FamilyGroup
             f.Write(bytes,0,bytes.Length);
             f.Close();
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                TopLabel = "Person";
+                BotLabel = "Spouse";
+            }
+            else
+            {
+                TopLabel = "Husband";
+                BotLabel = "Wife";
+            }
+            fillWeb();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Filler = textBox1.Text.Trim();
+            if (_childs == null)
+                return;
+            foreach (var child in _childs)
+            {
+                child.Filler = Filler;
+            }
+            fillWeb();
+        }
+
+        private string Filler { get; set; }
+        private string TopLabel { get; set; }
+        private string BotLabel { get; set; }
+
+        private void fontComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbWebFont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillWeb();
+        }
+
+        private static string[] _webFonts =
+        {
+            "Arial,sans-serif",
+            "Arial Black,sans-serif",
+            "Courier New,monospace",
+            "Garamond,serif",
+            "Georgia,serif",
+            "Helvetica,sans-serif",
+            "Impact,sans-serif",
+            "Palatino,serif",
+            "Papyrus,fantasy",
+            "Times New Roman,serif",
+            "Trebuchet MS,sans-serif",
+            "Verdana,sans-serif",
+        };
     }
 }

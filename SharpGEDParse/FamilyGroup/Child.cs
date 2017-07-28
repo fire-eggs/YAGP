@@ -6,13 +6,12 @@ namespace FamilyGroup
     public class Child : IDisplayChild
     {
         private readonly Person _who;
-        private readonly string _filler;
 
         public Child(Person who, int no, string fill)
         {
             _who = who;
             No = no;
-            _filler = fill;
+            Filler = fill;
         }
 
         public int No { get; private set; }
@@ -25,16 +24,16 @@ namespace FamilyGroup
         private string date(EventCommon what)
         {
             if (what == null)
-                return _filler;
+                return Filler;
             if (what.GedDate != null)
                 return what.GedDate.ToString(); // TODO format
-            return what.Date ?? _filler;
+            return what.Date ?? Filler;
         }
 
         private string place(EventCommon what)
         {
             if (what == null || string.IsNullOrEmpty(what.Place))
-                return _filler;
+                return Filler;
             return what.Place;
         }
 
@@ -55,10 +54,12 @@ namespace FamilyGroup
             {
                 Union marr = _who.MarriageUnion;
                 if (marr == null)
-                    return _filler;
+                    return Filler;
                 var spouse = marr.Spouse(_who);
                 return spouse.Name;
             }
         }
+
+        public string Filler { get; set; }
     }
 }
