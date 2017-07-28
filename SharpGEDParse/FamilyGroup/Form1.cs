@@ -32,6 +32,8 @@ namespace FamilyGroup
             LoadSettings(); // NOTE: must go after mnuMRU init
 
             LoadGed += Form1_LoadGed;
+
+            Filler = "-";
         }
 
         #region Settings
@@ -147,7 +149,6 @@ namespace FamilyGroup
 
         void Form1_LoadGed(object sender, EventArgs e)
         {
-
             gedtrees = new Forest();
             gedtrees.LoadGEDCOM(LastFile);
             DateEstimator.Estimate(gedtrees);
@@ -184,7 +185,7 @@ namespace FamilyGroup
             int i = 1;
             foreach (var person in val.Childs)
             {
-                Child aCh = new Child(person, i);
+                Child aCh = new Child(person, i, Filler);
                 _childs.Add(aCh);
                 i++;
             }
@@ -243,7 +244,7 @@ namespace FamilyGroup
         // TODO move these to Person?
         private string GetWhat(Person who, string what)
         {
-            string val = " ";
+            string val = Filler;
             var gedEvent = who.GetEvent(what);
             if (gedEvent != null && gedEvent.Descriptor != null)
                 val = gedEvent.Descriptor;
@@ -251,15 +252,31 @@ namespace FamilyGroup
         }
         private string GetDate(Person who, string what)
         {
-            string val = " ";
+            string val = Filler;
             var gedEvent = who.GetEvent(what);
             if (gedEvent != null && gedEvent.GedDate != null)
                 val = gedEvent.GedDate.ToString(); // TODO provide format
             return WebUtility.HtmlEncode(val);
         }
+        private string GetDate(Union who, string what)
+        {
+            string val = Filler;
+            var gedEvent = who.GetEvent(what);
+            if (gedEvent != null && gedEvent.GedDate != null)
+                val = gedEvent.GedDate.ToString(); // TODO provide format
+            return WebUtility.HtmlEncode(val);
+        }
+        private string GetPlace(Union who, string what)
+        {
+            string val = Filler;
+            var gedEvent = who.GetEvent(what);
+            if (gedEvent != null && !string.IsNullOrEmpty(gedEvent.Place))
+                val = gedEvent.Place;
+            return WebUtility.HtmlEncode(val);
+        }
         private string GetPlace(Person who, string what)
         {
-            string val = " ";
+            string val = Filler;
             var gedEvent = who.GetEvent(what);
             if (gedEvent != null && !string.IsNullOrEmpty(gedEvent.Place))
                 val = gedEvent.Place;
@@ -268,13 +285,13 @@ namespace FamilyGroup
 
         private string GetParent(Person who, bool dad)
         {
-            string val = " ";
+            string val = Filler;
             if (who.ChildIn != null && who.ChildIn.Count > 0)
             {
                 // TODO adoption etc
                 Union onion = who.ChildIn.ToArray()[0]; // TODO might not get the "right" one
                 var val0 = dad ? onion.Husband : onion.Wife;
-                val = val0 == null ? " " : val0.Name;
+                val = val0 == null ? Filler : val0.Name;
             }
             return WebUtility.HtmlEncode(val);
         }
@@ -291,20 +308,30 @@ namespace FamilyGroup
             // Opt: Buried Place
             // Parent Parent
             // Other spouses?
-            sb.AppendLine("<table id=\"t1\">");
+            sb.AppendLine("<table class=\"tg\">");
             sb.AppendFormat("<caption class=\"tt\">{0}</caption>", caption);
             if (who == null)
                 sb.AppendLine("<tr><td>None</td></tr>");
             else
             {
-                sb.AppendFormat("<tr><th width=\"15%\";></th><td id=\"d0\">{0}</td><th width=\"15%\";>Occupation</th><td id=\"d0\">{1}</td></tr>", who.Name, GetWhat(who, "OCCU")).AppendLine();
-                sb.AppendFormat("<tr><th width=\"15%\";>Born</th><td id=\"d0\"; width=\"30%\";>{0}</td><th width=\"15%\";>Place</th><td id=\"d0\"; width=\"30%\";>{1}</td></tr>", GetDate(who, "BIRT"), GetPlace(who, "BIRT")).AppendLine();
+                sb.AppendLine("<tr>");
+                sb.AppendFormat("<td class=\"tg-b7b8\";>{2}</td><td class=\"tg-b7b8\";>{0}</td><th class=\"tg-9hboPH\";>Occupation</th><td class=\"tg-b7b8\";>{1}</td>", who.Name, GetWhat(who, "OCCU"), who.Id).AppendLine();
+                sb.AppendLine("</tr>");
+                sb.AppendLine("<tr>");
+                sb.AppendFormat("<th class=\"tg-9hboPH\";>Born</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Place</th><td class=\"tg-b7b8PD\";>{1}</td>", GetDate(who, "BIRT"), GetPlace(who, "BIRT")).AppendLine();
+                sb.AppendLine("</tr>");
                 if (inclMarr)
                 {
-                    sb.AppendFormat("<tr><th width=\"15%\";>Married</th><td id=\"d0\"; width=\"30%\";>{0}</td><th width=\"15%\";>Place</th><td id=\"d0\"; width=\"30%\";>{1}</td></tr>", GetDate(who, "MARR"), GetPlace(who, "MARR")).AppendLine();
+                    sb.AppendLine("<tr>");
+                    sb.AppendFormat("<th class=\"tg-9hboPH\";>Married</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Place</th><td class=\"tg-b7b8PD\";>{1}</td>", GetDate(_family, "MARR"), GetPlace(_family, "MARR")).AppendLine();
+                    sb.AppendLine("</tr>");
                 }
-                sb.AppendFormat("<tr><th width=\"15%\";>Died</th><td id=\"d0\">{0}</td><th width=\"15%\";>Place</th><td id=\"d0\">{1}</td></tr>", GetDate(who, "DEAT"), GetPlace(who, "DEAT")).AppendLine();
-                sb.AppendFormat("<tr><th width=\"15%\";>Parent</th><td id=\"d0\">{0}</td><th width=\"15%\";>Parent</th><td id=\"d0\">{1}</td></tr>", GetParent(who, true), GetParent(who, false)).AppendLine();
+                sb.AppendLine("<tr>");
+                sb.AppendFormat("<th class=\"tg-9hboPH\";>Died</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Place</th><td class=\"tg-b7b8PD\";>{1}</td>", GetDate(who, "DEAT"), GetPlace(who, "DEAT")).AppendLine();
+                sb.AppendLine("</tr>");
+                sb.AppendLine("<tr>");
+                sb.AppendFormat("<th class=\"tg-9hboPH\";>Parent</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Parent</th><td class=\"tg-b7b8PD\";>{1}</td>", GetParent(who, true), GetParent(who, false)).AppendLine();
+                sb.AppendLine("</tr>");
             }
             sb.AppendLine("</table>");
         }
@@ -315,7 +342,12 @@ namespace FamilyGroup
             sb.AppendLine("<html>");
             fillStyle(sb);
 
-            sb.AppendLine("<body><h3>Family Group Report</h3>");
+            sb.AppendLine("<body><h3>");
+
+            sb.AppendFormat("Family Group Report - {0} : {1} + {2}", _family.Id,
+                _family.Husband == null ? " " : _family.Husband.Name,
+                _family.Wife == null ? " " : _family.Wife.Name).AppendLine();
+            sb.AppendLine("</h3>");
 
             Person who = _family.Husband ?? _family.Wife;
             fillPerson(sb, "Person", who, true);
@@ -342,8 +374,10 @@ namespace FamilyGroup
         ".tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:5px 4px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#aaa;}",
         ".tg .tg-9hbo{font-weight:bold;vertical-align:top}",
         ".tg .tg-9hboN{font-weight:bold;vertical-align:top;width:5%;}",
+        ".tg .tg-9hboPH{font-weight:bold;vertical-align:top;width:15%;} /* person header */",
         ".tg .tg-dzk6{background-color:#f0f0f0;text-align:center;vertical-align:top}",
         ".tg .tg-b7b8{background-color:#f0f0f0;vertical-align:top}",
+        ".tg .tg-b7b8PD{background-color:#f0f0f0;vertical-align:top;width:30%;} /* person data */",
         ".tg .tg-yw4l{vertical-align:top}",
         ".tg .tg-baqh{text-align:center;vertical-align:top}",
         ".tNest {width:100%;border-collapse:collapse;}",
@@ -476,6 +510,7 @@ namespace FamilyGroup
                         sb.AppendFormat(s, child.MSpouse);
                         break;
                     case 20:
+                        // TODO when both are empty: "-;-" not good?
                         sb.AppendFormat(s, child.MDate, child.MPlace);
                         break;
                     default:
@@ -485,6 +520,8 @@ namespace FamilyGroup
                 dex++;
             }
         }
+
+        private string Filler { get; set; }
 
         private void button1_Click(object sender, EventArgs e)
         {

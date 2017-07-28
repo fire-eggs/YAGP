@@ -1,80 +1,53 @@
-﻿using System.Collections.Generic;
-using System.Windows.Markup;
-using GEDWrap;
+﻿using GEDWrap;
+using SharpGEDParser.Model;
 
 namespace FamilyGroup
 {
     public class Child : IDisplayChild
     {
-        private Person _who;
+        private readonly Person _who;
+        private readonly string _filler;
 
-        public Child(Person who, int no)
+        public Child(Person who, int no, string fill)
         {
             _who = who;
             No = no;
+            _filler = fill;
         }
 
         public int No { get; private set; }
         public string Id { get { return _who.Id; } }
         public string Name { get { return _who.Name; } }
         public string Sex { get { return _who.Indi.FullSex; } }
-        public string BDate { get { return _who.BirthDate.ToString(); } }
 
-        public string DDate
+        // TODO all this stuff should be in Person ?
+
+        private string date(EventCommon what)
         {
-            get
-            {
-                // TODO cope with these situations in Person
-                // TODO Living?
-                if (_who.Death == null)
-                    return "-";
-                if (_who.Death.GedDate != null) 
-                    return _who.Death.GedDate.ToString();
-                return _who.Death.Date ?? "-";
-            }
+            if (what == null)
+                return _filler;
+            if (what.GedDate != null)
+                return what.GedDate.ToString(); // TODO format
+            return what.Date ?? _filler;
         }
 
-        public string BPlace
+        private string place(EventCommon what)
         {
-            get
-            {
-                // TODO cope with these situations in Person
-                if (_who.Birth == null || _who.Birth.Place == null)
-                    return "-";
-                return _who.Birth.Place;
-            }
+            if (what == null || string.IsNullOrEmpty(what.Place))
+                return _filler;
+            return what.Place;
         }
 
-        public string DPlace
-        {
-            get
-            {
-                // TODO cope with these situations in Person
-                if (_who.Death == null || _who.Death.Place == null)
-                    return "-";
-                return _who.Death.Place;
-            }
-        }
+        public string BDate { get { return date(_who.Birth); } }
 
-        public string MDate
-        {
-            get
-            {
-                if (_who.Marriage == null || _who.Marriage.Date == null)
-                    return "-";
-                return _who.Marriage.Date; // TODO ged date?
-            }
-        }
+        public string DDate { get { return date(_who.Death); } }
 
-        public string MPlace
-        {
-            get
-            {
-                if (_who.Marriage == null || string.IsNullOrEmpty(_who.Marriage.Place))
-                    return "-";
-                return _who.Marriage.Place;
-            }
-        }
+        public string BPlace { get { return place(_who.Birth); } }
+        public string DPlace { get { return place(_who.Death); } }
+
+        public string MDate { get { return date(_who.Marriage); } }
+
+        public string MPlace { get { return place(_who.Marriage); } }
 
         public string MSpouse
         {
@@ -82,27 +55,10 @@ namespace FamilyGroup
             {
                 Union marr = _who.MarriageUnion;
                 if (marr == null)
-                    return "-";
+                    return _filler;
                 var spouse = marr.Spouse(_who);
                 return spouse.Name;
             }
-        }
-
-        public string[] ToArray(int num)
-        {
-            List<string> vals = new List<string>();
-            vals.Add(num.ToString());
-            vals.Add(Id);
-            vals.Add(Name);
-            vals.Add(Sex);
-            vals.Add(BDate);
-            vals.Add(BPlace);
-            vals.Add(DDate);
-            vals.Add(DPlace);
-            vals.Add(MSpouse);
-            vals.Add(MDate);
-            vals.Add(MPlace);
-            return vals.ToArray();
         }
     }
 }

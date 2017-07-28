@@ -42,9 +42,9 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFamilies = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAutoSave = new System.Windows.Forms.Button();
             this.ppreview = new System.Windows.Forms.Button();
+            this.btnAutoSave = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -167,15 +167,15 @@
             this.cmbFamilies.TabIndex = 1;
             this.cmbFamilies.SelectedIndexChanged += new System.EventHandler(this.cmbFamilies_SelectedIndexChanged);
             // 
-            // panel1
+            // ppreview
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.webBrowser1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 55);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1037, 488);
-            this.panel1.TabIndex = 3;
+            this.ppreview.Location = new System.Drawing.Point(406, 8);
+            this.ppreview.Name = "ppreview";
+            this.ppreview.Size = new System.Drawing.Size(92, 23);
+            this.ppreview.TabIndex = 3;
+            this.ppreview.Text = "Print Preview";
+            this.ppreview.UseVisualStyleBackColor = true;
+            this.ppreview.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAutoSave
             // 
@@ -187,15 +187,15 @@
             this.btnAutoSave.UseVisualStyleBackColor = true;
             this.btnAutoSave.Click += new System.EventHandler(this.btnAutoSave_Click);
             // 
-            // ppreview
+            // panel1
             // 
-            this.ppreview.Location = new System.Drawing.Point(406, 8);
-            this.ppreview.Name = "ppreview";
-            this.ppreview.Size = new System.Drawing.Size(92, 23);
-            this.ppreview.TabIndex = 3;
-            this.ppreview.Text = "Print Preview";
-            this.ppreview.UseVisualStyleBackColor = true;
-            this.ppreview.Click += new System.EventHandler(this.button1_Click);
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.webBrowser1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 55);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1037, 488);
+            this.panel1.TabIndex = 3;
             // 
             // webBrowser1
             // 
