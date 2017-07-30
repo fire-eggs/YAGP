@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Child.cs" />
+    <Compile Include="FamSheet.cs" />
     <Compile Include="FontCombo.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -54,7 +55,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IChartDraw.cs" />
     <Compile Include="IDisplayChild.cs" />
+    <Compile Include="Pedigree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

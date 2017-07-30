@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -179,7 +178,7 @@ namespace FamilyGroup
         }
 
         private Union _family;
-        private List<Child> _childs;
+        private FamSheet _famDraw ;
 
         private void cmbFamilies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -187,15 +186,11 @@ namespace FamilyGroup
             if (val == null)
                 return;
 
+            _famDraw = new FamSheet();
+            _famDraw.Base = val;
+            _famDraw.Trees = gedtrees;
+
             _family = val;
-            _childs = new List<Child>();
-            int i = 1;
-            foreach (var person in val.Childs)
-            {
-                Child aCh = new Child(person, i, Filler);
-                _childs.Add(aCh);
-                i++;
-            }
             fillWeb();
         }
 
@@ -248,101 +243,6 @@ namespace FamilyGroup
 
         // TODO need to escape strings for HTML
 
-        // TODO move these to Person?
-        private string GetWhat(Person who, string what)
-        {
-            string val = Filler;
-            var gedEvent = who.GetEvent(what);
-            if (gedEvent != null && gedEvent.Descriptor != null)
-                val = gedEvent.Descriptor;
-            return WebUtility.HtmlEncode(val);
-        }
-        private string GetDate(Person who, string what)
-        {
-            string val = Filler;
-            var gedEvent = who.GetEvent(what);
-            if (gedEvent != null && gedEvent.GedDate != null)
-                val = gedEvent.GedDate.ToString(); // TODO provide format
-            return WebUtility.HtmlEncode(val);
-        }
-        private string GetDate(Union who, string what)
-        {
-            string val = Filler;
-            var gedEvent = who.GetEvent(what);
-            if (gedEvent != null && gedEvent.GedDate != null)
-                val = gedEvent.GedDate.ToString(); // TODO provide format
-            return WebUtility.HtmlEncode(val);
-        }
-        private string GetPlace(Union who, string what)
-        {
-            string val = Filler;
-            var gedEvent = who.GetEvent(what);
-            if (gedEvent != null && !string.IsNullOrEmpty(gedEvent.Place))
-                val = gedEvent.Place;
-            return WebUtility.HtmlEncode(val);
-        }
-        private string GetPlace(Person who, string what)
-        {
-            string val = Filler;
-            var gedEvent = who.GetEvent(what);
-            if (gedEvent != null && !string.IsNullOrEmpty(gedEvent.Place))
-                val = gedEvent.Place;
-            return WebUtility.HtmlEncode(val);
-        }
-
-        private string GetParent(Person who, bool dad)
-        {
-            string val = Filler;
-            if (who.ChildIn != null && who.ChildIn.Count > 0)
-            {
-                // TODO adoption etc
-                Union onion = who.ChildIn.ToArray()[0]; // TODO might not get the "right" one
-                var val0 = dad ? onion.Husband : onion.Wife;
-                val = val0 == null ? Filler : val0.Name;
-            }
-            return WebUtility.HtmlEncode(val);
-        }
-
-        // TODO consistent styling w/ child table
-        private void fillPerson(StringBuilder sb, string caption, Person who, bool inclMarr = false)
-        {
-            // Name-full Occupation
-            // Born Place
-            // Opt: Christened Place
-            // inclMarr: Married Place
-            // inclMarr: Divorced Place
-            // Died Place
-            // Opt: Buried Place
-            // Parent Parent
-            // Other spouses?
-            sb.AppendLine("<table class=\"tg\">");
-            sb.AppendFormat("<caption class=\"tt\">{0}</caption>", caption);
-            if (who == null)
-                sb.AppendLine("<tr><td>None</td></tr>");
-            else
-            {
-                sb.AppendLine("<tr>");
-                sb.AppendFormat("<td class=\"tg-b7b8\";>{2}</td><td class=\"tg-b7b8\";>{0}</td><th class=\"tg-9hboPH\";>Occupation</th><td class=\"tg-b7b8\";>{1}</td>", who.Name, GetWhat(who, "OCCU"), who.Id).AppendLine();
-                sb.AppendLine("</tr>");
-                sb.AppendLine("<tr>");
-                sb.AppendFormat("<th class=\"tg-9hboPH\";>Born</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Place</th><td class=\"tg-b7b8PD\";>{1}</td>", GetDate(who, "BIRT"), GetPlace(who, "BIRT")).AppendLine();
-                sb.AppendLine("</tr>");
-                if (inclMarr)
-                {
-                    sb.AppendLine("<tr>");
-                    sb.AppendFormat("<th class=\"tg-9hboPH\";>Married</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Place</th><td class=\"tg-b7b8PD\";>{1}</td>", GetDate(_family, "MARR"), GetPlace(_family, "MARR")).AppendLine();
-                    sb.AppendLine("</tr>");
-                }
-                sb.AppendLine("<tr>");
-                sb.AppendFormat("<th class=\"tg-9hboPH\";>Died</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Place</th><td class=\"tg-b7b8PD\";>{1}</td>", GetDate(who, "DEAT"), GetPlace(who, "DEAT")).AppendLine();
-                sb.AppendLine("</tr>");
-                sb.AppendLine("<tr>");
-                sb.AppendFormat("<th class=\"tg-9hboPH\";>Parent</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Parent</th><td class=\"tg-b7b8PD\";>{1}</td>", GetParent(who, true), GetParent(who, false)).AppendLine();
-                sb.AppendLine("</tr>");
-            }
-            sb.AppendLine("</table>");
-        }
-
         private void fillWeb()
         {
             if (_family == null) // Invoked from event handlers
@@ -350,197 +250,27 @@ namespace FamilyGroup
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<html>");
-            fillStyle(sb);
 
-            sb.AppendLine("<body><h3>");
+            _famDraw.DrawTo = sb;
+            _famDraw.Filler = Filler;
+            _famDraw.Spouse1Text = TopLabel;
+            _famDraw.Spouse2Text = BotLabel;
 
-            sb.AppendFormat("Family Group Report - {0} : {1} + {2}", _family.Id,
-                _family.Husband == null ? " " : _family.Husband.Name,
-                _family.Wife == null ? " " : _family.Wife.Name).AppendLine();
-            sb.AppendLine("</h3>");
+            var fontFamily = cmbWebFont.SelectedItem as string;
+            _famDraw.FontFam = fontFamily;
 
-            Person who = _family.Husband ?? _family.Wife;
-            fillPerson(sb, TopLabel, who, true);
+            sb.AppendLine("<style type=\"text/css\">");
+            sb.AppendFormat("body{{font-family: {0};font-size: 14px;padding: 30px 50px 50px 50px;margin: 0;}}",
+                fontFamily).AppendLine();
 
-            sb.AppendLine("&nbsp;");
+            _famDraw.FillStyle();
+            sb.AppendLine("</style>");
+            sb.AppendLine("<body>");
 
-            who = _family.Spouse(who);
-            fillPerson(sb, BotLabel, who);
-
-            sb.AppendLine("&nbsp;");
-
-            fillChildren(sb);
+            _famDraw.DrawChart();
 
             sb.AppendLine("</body></html>");
             webBrowser1.DocumentText = sb.ToString();
-        }
-
-        // TODO consider placing in external file?
-        // NOTE: double-brackets required for escape when using AppendFormat
-        private static readonly string[] STYLE_STRINGS =
-        {
-        ".tt{{color:#333; background-color:#fff;font-family:{0};font-size:14px;font-weight:bold;}}",
-        ".tg{{width:100%;border-collapse:collapse;border-spacing:0;border-color:#ccc;}}",
-        ".tg td{{font-family:{0};font-size:13px;padding:4px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;}}",
-        ".tg th{{font-family:{0};font-size:14px;font-weight:normal;padding:5px 4px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#aaa;}}",
-        ".tNest td{{font-family:{0};font-size:13px;padding:1px 1px;border-width:0px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;}}",
-        ".tg .tg-9hbo{font-weight:bold;vertical-align:top}",
-        ".tg .tg-9hboN{font-weight:bold;vertical-align:top;width:5%;}",
-        ".tg .tg-9hboPH{font-weight:bold;vertical-align:top;width:15%;} /* person header */",
-        ".tg .tg-dzk6{background-color:#f0f0f0;text-align:center;vertical-align:top}",
-        ".tg .tg-b7b8{background-color:#f0f0f0;vertical-align:top}",
-        ".tg .tg-b7b8PD{background-color:#f0f0f0;vertical-align:top;width:30%;} /* person data */",
-        ".tg .tg-yw4l{vertical-align:top}",
-        ".tg .tg-baqh{text-align:center;vertical-align:top}",
-        ".tNest {width:100%;border-collapse:collapse;}",
-        ".tNest .tNt{border-style:none none dashed none; border-width:1px; border-color:#ccc;}",
-        ".tNest .tN-b7b8{background-color:#f0f0f0;vertical-align:top}",
-        ".tNest .tNt-b7b8{border-style:none none dashed none; border-width:1px; border-color:#ccc;background-color:#f0f0f0;vertical-align:top}",
-        };
-
-        private void fillStyle(StringBuilder sb)
-        {
-            sb.AppendLine("<style type=\"text/css\">");
-
-/*
-            //font-family: arial, sans-serif;
-            sb.AppendLine("table#t1 { border-collapse: collapse; width: 100%; } ");
-            sb.AppendLine("table#t2 { border-spacing: 0px; width: 100%; } ");
-            //padding: 8px;
-            sb.AppendLine("td#d0, th { border: 1px solid #dddddd; text-align: left; padding: 1px; }");
-            sb.AppendLine("td#d1 {border: 1px solid #dddddd; text-align: center;}");
-            sb.AppendLine("td#d2 {border-bottom: 1px dashed #dddddd;}");
-*/
-            var font = cmbWebFont.SelectedItem as string;
-            int i = 0;
-            foreach (var s in STYLE_STRINGS)
-            {
-                if (i < 5)
-                {
-                    sb.AppendFormat(s, font).AppendLine();
-                }
-                else
-                {
-                    sb.AppendLine(s);
-                }
-                i++;
-            }
-            sb.AppendLine("</style>");
-        }
-
-        // TODO consider placing in an external file?
-        private static string[] childHeader =
-        {
-            "<tr>",
-            "<th class=\"tg-9hboN\">No</th>",
-            "<th class=\"tg-9hboN\">Id</th>",
-            "<th class=\"tg-9hbo\">Name</th>",
-            "<th class=\"tg-9hboN\">Sex</th>",
-            "<th class=\"tg-9hbo\">BDate/DDate</th>",
-            "<th class=\"tg-9hbo\">BPlace/DPlace</th>",
-            "<th class=\"tg-9hbo\">Spouse / Details</th>",
-            "</tr>",
-        };
-
-        private void fillChildren(StringBuilder sb)
-        {
-            sb.AppendLine("<table class=\"tg\">");
-            sb.AppendLine("<caption class=\"tt\">Children</caption>");
-
-            if (_childs.Count < 1)
-            {
-                sb.AppendLine("<tr><td>None</td></tr>");
-            }
-            else
-            {
-                foreach (var s in childHeader)
-                {
-                    sb.AppendLine(s);
-                }
-                int i = 1;
-                foreach (var child in _childs)
-                {
-                    fillChild(sb, i, child);
-                    i++;
-                }
-            }
-
-            sb.AppendLine("</table>");
-        }
-
-        // TODO different style for alternate rows!
-        private static string[] CHILD_ROW =
-        {
-"<tr>",
-"<td class=\"tg-dzk6\">{0}</td>",
-"<td class=\"tg-b7b8\">{0}</td>",
-"<td class=\"tg-b7b8\">{0}</td>",
-"<td class=\"tg-dzk6\">{0}</td>",
-"<td class=\"tg-b7b8\">",
-"<table class=\"tNest\">",
-"<tr><td class=\"tNt-b7b8\">{0}</td></tr>",
-"<tr><td class=\"tN-b7b8\">{0}</td></tr>",
-"</table>",
-"</td>",
-"<td class=\"tg-b7b8\"> <!-- bplace/dplace -->",
-"<table class=\"tNest\">",
-"<tr><td class=\"tNt-b7b8\">{0}</td></tr>",
-"<tr><td class=\"tN-b7b8\">{0}</td></tr>",
-"</table>",
-"</td>",
-"<td class=\"tg-b7b8\"> <!-- Marriage details -->",
-"<table class=\"tNest\">",
-"<tr><td class=\"tNt-b7b8\">{0}</td></tr>",
-"<tr><td class=\"tN-b7b8\">{0};{1}</td></tr>",
-"</table>",
-"</td>",
-"</tr>",
-        };
-
-        private void fillChild(StringBuilder sb, int num, Child child)
-        {
-            int dex = 0;
-            foreach (var s in CHILD_ROW)
-            {
-                switch (dex)
-                {
-                    case 1:
-                        sb.AppendFormat(s, num);
-                        break;
-                    case 2:
-                        sb.AppendFormat(s, child.Id);
-                        break;
-                    case 3:
-                        sb.AppendFormat(s, child.Name);
-                        break;
-                    case 4:
-                        sb.AppendFormat(s, child.Sex);
-                        break;
-                    case 7:
-                        sb.AppendFormat(s, child.BDate);
-                        break;
-                    case 8:
-                        sb.AppendFormat(s, child.DDate);
-                        break;
-                    case 13:
-                        sb.AppendFormat(s, child.BPlace);
-                        break;
-                    case 14:
-                        sb.AppendFormat(s, child.DPlace);
-                        break;
-                    case 19:
-                        sb.AppendFormat(s, child.MSpouse);
-                        break;
-                    case 20:
-                        // TODO when both are empty: "-;-" not good?
-                        sb.AppendFormat(s, child.MDate, child.MPlace);
-                        break;
-                    default:
-                        sb.AppendLine(s);
-                        break;
-                }
-                dex++;
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -575,12 +305,9 @@ namespace FamilyGroup
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             Filler = textBox1.Text.Trim();
-            if (_childs == null)
+            if (_famDraw == null)
                 return;
-            foreach (var child in _childs)
-            {
-                child.Filler = Filler;
-            }
+            _famDraw.Filler = Filler;
             fillWeb();
         }
 

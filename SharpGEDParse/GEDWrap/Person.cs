@@ -198,5 +198,42 @@ namespace GEDWrap
         {
             get { return GetEvent("OCCU"); }
         }
+
+        public string GetWhat(string eventName)
+        {
+            var gedEvent = GetEvent(eventName);
+            if (gedEvent != null && gedEvent.Descriptor != null)
+                return gedEvent.Descriptor;
+            return null;
+        }
+
+        public string GetDate(string eventName) // TODO format
+        {
+            var gedEvent = GetEvent(eventName);
+            if (gedEvent != null && gedEvent.GedDate != null)
+                return gedEvent.GedDate.ToString();
+            return null;
+        }
+
+        public string GetPlace(string eventName)
+        {
+            var gedEvent = GetEvent(eventName);
+            if (gedEvent != null && gedEvent.Place != null)
+                return gedEvent.Place;
+            return null;
+        }
+
+        public string GetParent(bool dad)
+        {
+            if (ChildIn != null && ChildIn.Count > 0)
+            {
+                // TODO adoption etc
+                Union onion = ChildIn.ToArray()[0]; // TODO might not get the "right" one
+                var val0 = dad ? onion.Husband : onion.Wife;
+                return val0 == null ? null : val0.Name;
+            }
+            return null;
+        }
+
     }
 }

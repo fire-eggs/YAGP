@@ -77,5 +77,21 @@ namespace GEDWrap
 
             // TODO more than one spouse?
         }
+
+        public string GetDate(string eventName) // TODO format
+        {
+            var gedEvent = GetEvent(eventName);
+            if (gedEvent != null && gedEvent.GedDate != null)
+                return gedEvent.GedDate.ToString();
+            return null;
+        }
+
+        public string GetPlace(string eventName)
+        {
+            var gedEvent = GetEvent(eventName);
+            if (gedEvent != null)
+                return gedEvent.Place;
+            return null;
+        }
     }
 }
