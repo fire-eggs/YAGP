@@ -179,6 +179,7 @@ namespace FamilyGroup
 
         private Union _family;
         private FamSheet _famDraw ;
+        private Pedigree _pedDraw;
 
         private void cmbFamilies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -191,6 +192,9 @@ namespace FamilyGroup
             _famDraw.Trees = gedtrees;
 
             _family = val;
+
+            _pedDraw = new Pedigree();
+
             fillWeb();
         }
 
@@ -250,6 +254,8 @@ namespace FamilyGroup
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<html>");
+
+            _pedDraw.DrawTo = sb;
 
             _famDraw.DrawTo = sb;
             _famDraw.Filler = Filler;
