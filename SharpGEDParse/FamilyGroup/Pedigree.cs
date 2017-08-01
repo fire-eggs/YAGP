@@ -83,7 +83,7 @@ namespace FamilyGroup
 
         private static readonly string[] TABLE_STRINGS =
         {
-        "<table border=\"1px\" class=\"PEDtable\">",
+        "<table class=\"PEDtable\">",
         "<tbody>",
         "<tr>",
         "<td class=\"PEDperson_name\" rowspan=\"8\">{0}</td>", /* person 1-name */

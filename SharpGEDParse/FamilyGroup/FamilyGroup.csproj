@@ -58,6 +58,7 @@
     <Compile Include="IChartDraw.cs" />
     <Compile Include="IDisplayChild.cs" />
     <Compile Include="Pedigree.cs" />
+    <Compile Include="Pedigree5.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

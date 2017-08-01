@@ -180,6 +180,7 @@ namespace FamilyGroup
         private Union _family;
         private FamSheet _famDraw ;
         private Pedigree _pedDraw;
+        private Pedigree5 _ped5Draw;
 
         private void cmbFamilies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -194,6 +195,7 @@ namespace FamilyGroup
             _family = val;
 
             _pedDraw = new Pedigree();
+            _ped5Draw = new Pedigree5();
 
             fillWeb();
         }
@@ -256,6 +258,7 @@ namespace FamilyGroup
             sb.AppendLine("<html>");
 
             _pedDraw.DrawTo = sb;
+            _ped5Draw.DrawTo = sb;
 
             _famDraw.DrawTo = sb;
             _famDraw.Filler = Filler;
@@ -269,11 +272,13 @@ namespace FamilyGroup
             sb.AppendFormat("body{{font-family: {0};font-size: 14px;padding: 30px 50px 50px 50px;margin: 0;}}",
                 fontFamily).AppendLine();
 
+            //_pedDraw.FillStyle();
             _famDraw.FillStyle();
             sb.AppendLine("</style>");
             sb.AppendLine("<body>");
 
             _famDraw.DrawChart();
+            //_pedDraw.DrawChart();
 
             sb.AppendLine("</body></html>");
             webBrowser1.DocumentText = sb.ToString();
