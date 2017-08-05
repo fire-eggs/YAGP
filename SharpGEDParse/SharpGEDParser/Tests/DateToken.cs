@@ -28,6 +28,17 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void Reuse()
+        {
+            string val = "13 Apr 1964";
+            var tokenize = new DateTokens();
+            var toks = tokenize.Tokenize(val);
+            Assert.AreEqual(3, toks.Count);
+            toks = tokenize.Tokenize(val);
+            Assert.AreEqual(3, toks.Count);
+        }
+
+        [Test]
         public void Test2()
         {
             string val = "@#DGREGORIAN@  1964B.C.";

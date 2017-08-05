@@ -125,6 +125,14 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void LeadingSpaces2()
+        {
+            string indi = "0 INDI\n     1 NAME \t \tattrib_value\n     2 DATE 1774";
+            var rec = parse<IndiRecord>(indi);
+            Assert.AreEqual(1, rec.Names.Count);
+        }
+
+        [Test]
         public void LeadingTabs()
         {
             string indi = "0 INDI\n\t\t1 DSCR attrib_value\n\t\t2 DATE 1774";

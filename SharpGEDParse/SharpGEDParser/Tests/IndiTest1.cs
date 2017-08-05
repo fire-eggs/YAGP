@@ -275,6 +275,20 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void NonStdAlias()
+        {
+            var indi = "0 @I1@ INDI\n1 ALIA nickname";
+            var rec = parse(indi);
+            Assert.AreEqual(0, rec.AliasLinks.Count);
+            Assert.AreEqual(1, rec.Attribs.Count);
+            var attrib = rec.Attribs[0];
+            Assert.AreEqual("ALIA", attrib.Tag);
+            Assert.AreEqual("nickname", attrib.Descriptor);
+
+            Assert.AreEqual(1, rec.Errors.Count);
+        }
+
+        [Test]
         public void ObjeXref()
         {
             var indi = "0 @I1@ INDI\n1 OBJE @o1@\n1 SEX U";

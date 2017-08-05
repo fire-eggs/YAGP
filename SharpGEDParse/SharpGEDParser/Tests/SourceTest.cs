@@ -38,6 +38,7 @@ namespace SharpGEDParser.Tests
             var txt = "0 @S1@ SOUR\n1 AUTH Fred";
             var rec = ReadOne(txt);
 
+            Assert.AreEqual("SOUR", rec.Tag);
             Assert.AreEqual("S1", rec.Ident);
             Assert.AreEqual("Fred", rec.Author);
         }
@@ -363,6 +364,20 @@ namespace SharpGEDParser.Tests
             Assert.IsNotNull(rec.Data);
             Assert.AreEqual(1, rec.Data.Events.Count);
             Assert.AreEqual("things happened", rec.Data.Events[0].Text);
+            Assert.AreEqual("period", rec.Data.Events[0].Place);
+        }
+
+        [Test]
+        public void DataNoEven()
+        {
+            // TODO not sure if this should be accepted... 5.5/5.5.1 diff?
+            var txt = "0 @S1@ SOUR\n1 DATA\n3 PLAC period\n1 TEXT Use your loaf";
+            var rec = ReadOne(txt);
+
+            Assert.AreEqual("S1", rec.Ident);
+            Assert.AreEqual("Use your loaf", rec.Text);
+            Assert.IsNotNull(rec.Data);
+            Assert.AreEqual(1, rec.Data.Events.Count);
             Assert.AreEqual("period", rec.Data.Events[0].Place);
         }
 

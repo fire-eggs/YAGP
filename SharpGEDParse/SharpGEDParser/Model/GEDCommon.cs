@@ -78,9 +78,10 @@ namespace SharpGEDParser.Model
     // Based on the data from https://www.genealogieonline.nl/en/GEDCOM-tags/ some properties are less
     // frequent and their instances are allocated on an as-needed basis.
     //
-    public class GEDCommon
+    public abstract class GEDCommon
     {
-        public virtual string Tag { get { return ""; }}
+        public abstract string Tag { get; }
+//    { return ""; }}
 
         // The record's id
         public string Ident { get; set; }

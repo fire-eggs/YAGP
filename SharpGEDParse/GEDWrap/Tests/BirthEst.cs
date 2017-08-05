@@ -336,7 +336,7 @@ namespace GEDWrap.Tests
         public void TwoGenEstC()
         {
             // Two generations, estimate from parent
-            var txt = ComposeTwoGen("M", false, false, true);
+            var txt = ComposeTwoGen("F", false, false, true);
             var f = Load(txt);
 
             GEDDate b = f.PersonById("I2").BirthDate;

@@ -24,6 +24,7 @@ namespace GEDWrap.Tests
 
             var allIss = f.Issues.ToArray(); // TODO order sensitive
             Assert.AreEqual(Issue.IssueCode.SPOUSE_CONN, allIss[0].IssueId); // TODO duplicate error?
+            Assert.IsNotNullOrEmpty(allIss[0].Message());
             Assert.AreEqual(Issue.IssueCode.AMB_CONN, allIss[1].IssueId);
             Assert.AreEqual(Issue.IssueCode.FAMS_UNM, allIss[2].IssueId);
         }

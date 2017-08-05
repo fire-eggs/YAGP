@@ -137,33 +137,30 @@ namespace SharpGEDParser
             ctx.Parent.Ids.REFNs.Add(sp);
         }
 
-        public virtual void PostCheck(GEDCommon rec)
-        {
-            // post parse checking; each record parser should overload
-        }
+        public abstract void PostCheck(GEDCommon rec);
 
-        private static LineUtil.LineData LevelTagAndRemain(LineUtil.LineData data, string line)
-        {
-            int max = line.Length;
+        //private static LineUtil.LineData LevelTagAndRemain(LineUtil.LineData data, string line)
+        //{
+        //    int max = line.Length;
 
-            // Move past level
-            int dex = LineUtil.FirstChar(line, 0, max);
-            data.Level = line[dex];
-            data.Tag = ""; // in case of error
-            data.Remain = ""; // in case of error
-            dex = LineUtil.AllCharsUntil(line, max, dex+1, ' ');
+        //    // Move past level
+        //    int dex = LineUtil.FirstChar(line, 0, max);
+        //    data.Level = line[dex];
+        //    data.Tag = ""; // in case of error
+        //    data.Remain = ""; // in case of error
+        //    dex = LineUtil.AllCharsUntil(line, max, dex+1, ' ');
 
-            dex = LineUtil.FirstChar(line, dex, max);
-            // TODO assuming no ident here!
-            int endTag = LineUtil.AllCharsUntil(line, max, dex + 1, ' ');
-            data.Tag = line.Substring(dex, endTag - dex);
+        //    dex = LineUtil.FirstChar(line, dex, max);
+        //    // TODO assuming no ident here!
+        //    int endTag = LineUtil.AllCharsUntil(line, max, dex + 1, ' ');
+        //    data.Tag = line.Substring(dex, endTag - dex);
             
-            if (endTag < max)
-                data.Remain = line.Substring(endTag + 1);
-            else
-                data.Remain = "";
-            return data;
-        }
+        //    if (endTag < max)
+        //        data.Remain = line.Substring(endTag + 1);
+        //    else
+        //        data.Remain = "";
+        //    return data;
+        //}
         
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         public static string extendedText(ParseContextCommon ctx)

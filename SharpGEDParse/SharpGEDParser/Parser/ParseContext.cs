@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using SharpGEDParser.Model;
 
 // TODO the only diff between StructParseContext and ParseContext is the datatype of the Parent
@@ -29,6 +30,7 @@ namespace SharpGEDParser.Parser
     {
         public StructCommon Parent;
 
+        [ExcludeFromCodeCoverage]
         public StructParseContext()
         {
             throw new Exception(); // don't be calling me!
