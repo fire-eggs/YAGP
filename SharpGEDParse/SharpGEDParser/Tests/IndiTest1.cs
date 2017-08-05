@@ -175,6 +175,10 @@ namespace SharpGEDParser.Tests
             indi = "0 INDI\n1 RESN       privacy     ";
             rec = parse(indi);
             Assert.AreEqual("privacy", rec.Restriction);
+
+            indi = "0 INDI\n1 RESN       confidential     ";
+            rec = parse(indi);
+            Assert.AreEqual("confidential", rec.Restriction);
         }
 
         [Test]
