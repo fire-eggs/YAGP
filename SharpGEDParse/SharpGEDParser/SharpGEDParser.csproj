@@ -131,6 +131,7 @@
     <Compile Include="Tests\GedSplit.cs" />
     <Compile Include="Tests\HeadTest.cs" />
     <Compile Include="Tests\IndiEventAddr.cs" />
+    <Compile Include="Tests\IndiNameVariants.cs" />
     <Compile Include="Tests\zFileTest.cs" />
     <Compile Include="Tests\IndiAssocs.cs" />
     <Compile Include="Tests\IndiAttrib.cs" />

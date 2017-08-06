@@ -42,36 +42,42 @@ namespace SharpGEDParser.Parser
             rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
         }
 
-        private static void parseName(NameRec rec, string line)
+        private static bool parseName(NameRec rec, string line)
         {
             int max = line.Length;
 
             // BOULDER_CEM_02212009b.GED had a "1 NAME" with nothing else
             int startName = LineUtil.FirstChar(line, 0, max);
-            if (startName >= 0)
-            {
-                int startSur = LineUtil.AllCharsUntil(line, max, startName, '/');
-                int endSur = LineUtil.AllCharsUntil(line, max, startSur + 1, '/');
+            if (startName < 0)
+                return false;
 
-                var suffix = "";
-                if (endSur + 1 < max)
-                    suffix = line.Substring(endSur + 1).Trim();
+            int startSur = LineUtil.AllCharsUntil(line, max, startName, '/');
+            int endSur = LineUtil.AllCharsUntil(line, max, startSur + 1, '/');
 
-                rec.Names = line.Substring(startName, startSur - startName).Trim();
-                rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
-                if (startSur < max) // e.g. "1 NAME LIVING"
-                    rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1);
-                if (suffix.Length > 0)
-                    rec.Suffix = suffix;
-            }
-            
+            var suffix = "";
+            if (endSur + 1 < max)
+                suffix = string.Join(" ", line.Substring(endSur + 1).Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
+
+            rec.Names = line.Substring(startName, startSur - startName).Trim();
+            rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
+            if (startSur < max) // e.g. "1 NAME LIVING"
+                rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1).Trim();
+            if (suffix.Length > 0)
+                rec.Suffix = suffix;
+            return true;
         }
 
         public static NameRec Parse(ParseContext2 ctx)
         {
             // TODO can this be shortcut when context length is only 1 line?
             var name = new NameRec();
-            parseName(name, ctx.Remain);
+            if (!parseName(name, ctx.Remain))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.EmptyName;
+                err.Beg = err.End = ctx.Begline;
+                name.Errors.Add(err);
+            }
             StructParseContext ctx2 = new StructParseContext(ctx, name);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;

@@ -55,6 +55,7 @@ namespace SharpGEDParser.Model
             ForceASCII, // unsupported or other problem charset; forced to ASCII
             NonStdAlias, // Non-standard ALIA tag
             CustTagsSeen, // 35 // one or more valid custom tags seen
+            EmptyName, // NAME line with no value
         }
 
         public UnkRec()
