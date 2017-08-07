@@ -1,9 +1,11 @@
-﻿using GEDWrap;
+﻿using System;
+using GEDWrap;
 using System.Collections.Generic;
 using System.Text;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable RedundantCommaInArrayInitializer
+// ReSharper disable UnusedAutoPropertyAccessor.Local
 
 // NOTE: styles probably not in external file because of special formatting for sb.AppendFormat
 
@@ -17,20 +19,6 @@ namespace FamilyGroup
 
         private Union _family;
         private List<Child> _childs;
-
-        public override string Filler
-        {
-            get { return base.Filler; }
-            set
-            {
-                base.Filler = value;
-                // TODO is this still necessary?
-                foreach (var child in _childs)
-                {
-                    child.Filler = value;
-                }
-            }
-        }
             
         public Union Base
         {
@@ -72,19 +60,114 @@ namespace FamilyGroup
         ".tNest .tNt-b7b8{border-style:none none dashed none; border-width:1px; border-color:#ccc;background-color:#f0f0f0;vertical-align:top}",
         };
 
+        /*
+         * 1. style string
+         * 2. color details (look up in map)
+         * 3. font details (look up in map)
+         * 4. font-size delta
+         */
+        private static readonly Tuple<string,bool,bool,int>[] STYLE_STRINGS2 =
+        {
+            Tuple.Create(".tt{<color><font>font-weight:bold;}",true,true,0),
+            Tuple.Create(".tg{width:100%;border-collapse:collapse;border-spacing:0;<color>}",true,false,0),
+            Tuple.Create(".tg td{<font>padding:4px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;<color>}",true,true,-1),
+            Tuple.Create(".tg th{<font>font-weight:normal;padding:5px 4px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;<color>}",true,true,0),
+            Tuple.Create(".tNest td{<font>padding:1px 1px;border-width:0px;overflow:hidden;word-break:normal;<color>}",true,true,-1),
+            Tuple.Create(".tg .tg-9hbo{font-weight:bold;vertical-align:top}",false,false,0),
+            Tuple.Create(".tg .tg-9hboN{font-weight:bold;vertical-align:top;width:5%;}",false,false,0),
+            Tuple.Create(".tg .tg-9hboPH{font-weight:bold;vertical-align:top;width:15%;}",false,false,0), /* person header */
+            Tuple.Create(".tg .tg-dzk6{<color>text-align:center;vertical-align:top}",true,false,0),
+            Tuple.Create(".tg .tg-b7b8{<color>vertical-align:top}",true,false,0),
+            Tuple.Create(".tg .tg-b7b8PD{<color>vertical-align:top;width:30%;}",true,false,0), /* person data */
+            Tuple.Create(".tg .tg-yw4l{vertical-align:top}",false,false,0),
+            Tuple.Create(".tg .tg-baqh{text-align:center;vertical-align:top}",false,false,0),
+            Tuple.Create(".tNest {width:100%;border-collapse:collapse;}",false,false,0),
+            Tuple.Create(".tNest .tNt{border-style:none none dashed none; border-width:1px;<color>}",true,false,0),
+            Tuple.Create(".tNest .tN-b7b8{<color>vertical-align:top}",true,false,0),
+            Tuple.Create(".tNest .tNt-b7b8{border-style:none none dashed none; border-width:1px;<color>vertical-align:top}",true,false,0),
+        };
+
+        private static readonly Tuple<int, string>[] COLOR_STRINGS_GREY =
+        {
+            Tuple.Create(0, "color:#333;background-color:#fff;"),
+            Tuple.Create(1, "border-color:#ccc;"),
+            Tuple.Create(2, "border-color:#ccc;color:#333;"),
+            Tuple.Create(3, "border-color:#ccc;color:#333;background-color:#aaa;"),
+            Tuple.Create(4, "border-color:#ccc;color:#333;"),
+            Tuple.Create(8, "background-color:#f0f0f0;"),
+            Tuple.Create(9, "background-color:#f0f0f0;"),
+            Tuple.Create(10, "background-color:#f0f0f0;"),
+            Tuple.Create(14, "border-color:#ccc;"),
+            Tuple.Create(15, "background-color:#f0f0f0;"),
+            Tuple.Create(16, "border-color:#ccc;background-color:#f0f0f0;"),
+        };
+
+        private static readonly Tuple<int, string>[] COLOR_STRINGS_BLUE =
+        {
+            Tuple.Create(0, "color:#039;background-color:#D2E4FC;"), // tt
+            Tuple.Create(1, "border-color:#aabcfe;"), // tg
+            Tuple.Create(2, "border-color:#aabcfe;color:#669;background-color:#e8edff;"), // tg td
+            Tuple.Create(3, "border-color:#aabcfe;color:#039;background-color:#b9c9fe;"), // tg th
+            Tuple.Create(4, "border-color:#ccc;color:#333;"), // tnest td
+            Tuple.Create(8, "background-color:#D2E4FC;"), // .tg .tg-dzk6
+            Tuple.Create(9, "background-color:#D2E4FC;"), // .tg .tg-b7b8
+            Tuple.Create(10, "background-color:#D2E4FC;"),
+            Tuple.Create(14, "border-color:#aabcfe;"),
+            Tuple.Create(15, "background-color:#D2E4FC;"),
+            Tuple.Create(16, "border-color:#aabcfe;background-color:#D2E4FC;"),
+        };
+
+        private static readonly Tuple<int, string>[] COLOR_STRINGS_GREEN =
+        {
+            Tuple.Create(0, "color:#493F3F;background-color:#C2FFD6;"), // tt
+            Tuple.Create(1, "border-color:#bbb;"), // tg
+            Tuple.Create(2, "border-color:#bbb;color:#594F4F;background-color:#E0FFEB;"), // tg td
+            Tuple.Create(3, "border-color:#bbb;color:#493F3F;background-color:#9DE0AD;"), // tg th
+            Tuple.Create(4, "border-color:#bbb;color:#333;"), // tnest td
+            Tuple.Create(8, "background-color:#C2FFD6;"), // .tg .tg-dzk6
+            Tuple.Create(9, "background-color:#C2FFD6;"), // .tg .tg-b7b8
+            Tuple.Create(10, "background-color:#C2FFD6;"),
+            Tuple.Create(14, "border-color:#594F4F;"),
+            Tuple.Create(15, "background-color:#C2FFD6;"),
+            Tuple.Create(16, "border-color:#493F3F;background-color:#C2FFD6;"),
+        };
+
+        private string getColorString(int dex)
+        {
+            foreach (var tuple in _colorScheme)
+            {
+                if (tuple.Item1 == dex)
+                    return tuple.Item2;
+            }
+            throw new Exception("blech");
+        }
+
+        private string getFontString(int sizeDelta)
+        {
+            string fSize = FontSize;
+            if (sizeDelta != 0)
+                fSize = (int.Parse(FontSize) + sizeDelta).ToString();
+            return string.Format("font-family:{0};font-size:{1}px;", FontFam, fSize);
+        }
+
         public void FillStyle()
         {
             int i = 0;
-            foreach (var s in STYLE_STRINGS)
+            foreach (var tuple in STYLE_STRINGS2)
             {
-                if (i < 5)
+                var outStr = tuple.Item1;
+                if (tuple.Item2) // color
                 {
-                    DrawTo.AppendFormat(s, FontFam).AppendLine();
+                    var cStr = getColorString(i);
+                    outStr = outStr.Replace("<color>", cStr);
                 }
-                else
+
+                if (tuple.Item3) // font
                 {
-                    DrawTo.AppendLine(s);
+                    var fStr = getFontString(tuple.Item4);
+                    outStr = outStr.Replace("<font>", fStr);
                 }
+                DrawTo.AppendLine(outStr);
                 i++;
             }
         }
@@ -93,7 +176,9 @@ namespace FamilyGroup
         {
             StringBuilder sb = DrawTo;
 
-            sb.AppendFormat("Family Group Report - {0} : {1} + {2}", _family.Id,
+            // TODO needs a style
+            // TODO need to use HTMLText
+            sb.AppendFormat("<h3>Family Group Report - {0} : {1} + {2}", _family.Id,
                 _family.Husband == null ? " " : _family.Husband.Name,
                 _family.Wife == null ? " " : _family.Wife.Name).AppendLine();
             sb.AppendLine("</h3>");
@@ -114,6 +199,31 @@ namespace FamilyGroup
         public string Spouse1Text { set; private get; }
         public string Spouse2Text { set; private get; }
         public string FontFam { set; private get; }
+        public string Theme 
+        {
+            get { return ""; }
+            set
+            {
+                switch (value)
+                {
+                    case "grey":
+                        _colorScheme = COLOR_STRINGS_GREY;
+                        break;
+                    case "blue":
+                        _colorScheme = COLOR_STRINGS_BLUE;
+                        break;
+                    case "green":
+                        _colorScheme = COLOR_STRINGS_GREEN;
+                        break;
+                    default:
+                        throw new Exception("blech");
+                }
+            } 
+        }
+
+        public string FontSize { get; set; }
+
+        private Tuple<int, string>[] _colorScheme;
 
         private void fillPerson(string caption, Person who, bool inclMarr = false)
         {

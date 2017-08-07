@@ -37,6 +37,8 @@ namespace GedScan
                 Console.WriteLine("-d : show performance diagnostics");
                 Console.WriteLine("-date : date parse testing");
                 Console.WriteLine("-b : basic GED record stats");
+                Console.WriteLine("-edump: dump all errors");
+                Console.WriteLine("-csv: write to csv [distinct from -b or -date]");
                 return;
             }
 

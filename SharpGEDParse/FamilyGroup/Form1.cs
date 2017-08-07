@@ -40,6 +40,8 @@ namespace FamilyGroup
             radioButton2.Checked = false;
 
             cmbWebFont.DataSource = _webFonts;
+            cmbTheme.DataSource = _themes;
+            cmbFontSize.DataSource = _fontSizes;
         }
 
         #region Settings
@@ -161,7 +163,7 @@ namespace FamilyGroup
 
             foreach (var union in gedtrees.AllUnions)
             {
-                var text = union.Id; // TODO add spous names
+                var text = union.Id; // TODO add spouse names
                 _cmbItems.Add(new {Text=text, Value=union});
             }
 
@@ -247,8 +249,6 @@ namespace FamilyGroup
 
         }
 
-        // TODO need to escape strings for HTML
-
         private void fillWeb()
         {
             if (_family == null) // Invoked from event handlers
@@ -267,18 +267,27 @@ namespace FamilyGroup
 
             var fontFamily = cmbWebFont.SelectedItem as string;
             _famDraw.FontFam = fontFamily;
+            var theme = cmbTheme.SelectedItem as string;
+            _famDraw.Theme = theme;
+            var fSize = cmbFontSize.SelectedItem as string;
+            _famDraw.FontSize = fSize;
 
             sb.AppendLine("<style type=\"text/css\">");
             sb.AppendFormat("body{{font-family: {0};font-size: 14px;padding: 30px 50px 50px 50px;margin: 0;}}",
                 fontFamily).AppendLine();
 
             //_pedDraw.FillStyle();
+
+            //_ped5Draw.FillStyle();
+
             _famDraw.FillStyle();
+
             sb.AppendLine("</style>");
             sb.AppendLine("<body>");
 
-            _famDraw.DrawChart();
+            //_ped5Draw.DrawChart();
             //_pedDraw.DrawChart();
+            _famDraw.DrawChart();
 
             sb.AppendLine("</body></html>");
             webBrowser1.DocumentText = sb.ToString();
@@ -326,17 +335,12 @@ namespace FamilyGroup
         private string TopLabel { get; set; }
         private string BotLabel { get; set; }
 
-        private void fontComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cmbWebFont_SelectedIndexChanged(object sender, EventArgs e)
         {
             fillWeb();
         }
 
-        private static string[] _webFonts =
+        private static readonly string[] _webFonts =
         {
             "Arial,sans-serif",
             "Arial Black,sans-serif",
@@ -351,5 +355,32 @@ namespace FamilyGroup
             "Trebuchet MS,sans-serif",
             "Verdana,sans-serif",
         };
+
+        private static string[] _themes =
+        {
+            "blue",
+            "grey",
+            "green",
+        };
+
+        private static string[] _fontSizes =
+        {
+            "10",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+        };
+
+        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillWeb();
+        }
+
+        private void cmbFontSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillWeb();
+        }
     }
 }
