@@ -221,8 +221,6 @@ namespace FamilyGroup
             } 
         }
 
-        public string FontSize { get; set; }
-
         private Tuple<int, string>[] _colorScheme;
 
         private void fillPerson(string caption, Person who, bool inclMarr = false)

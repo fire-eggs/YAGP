@@ -28,6 +28,8 @@ namespace FamilyGroup
     {
         public virtual string Filler { get; set; }
 
+        public string FontSize { get; set; }
+
         protected string HtmlText(string inT)
         {
             if (inT == null)

@@ -20,6 +20,7 @@ namespace FamilyGroup
         public event EventHandler LoadGed;
         private Forest gedtrees;
         readonly List<object> _cmbItems = new List<object>();
+        readonly List<object> _cmbPedItems = new List<object>();
 
         public Form1()
         {
@@ -42,6 +43,17 @@ namespace FamilyGroup
             cmbWebFont.DataSource = _webFonts;
             cmbTheme.DataSource = _themes;
             cmbFontSize.DataSource = _fontSizes;
+            cmbFontSize.SelectedIndex = cmbFontSize.FindStringExact("14");
+
+            cmbPerson.DisplayMember = "Text";
+            cmbPerson.ValueMember = "Value";
+            cmbPerson.DataSource = _cmbPedItems;
+
+            rbFamGroup.CheckedChanged += chartType_Change;
+            rbPed4.CheckedChanged += chartType_Change;
+            rbPed5.CheckedChanged += chartType_Change;
+
+            rbFamGroup.Checked = true;
         }
 
         #region Settings
@@ -128,6 +140,12 @@ namespace FamilyGroup
             cmbFamilies.Refresh();
             _cmbItems.Clear();
 
+            cmbPerson.SelectedIndex = -1;
+            cmbPerson.DataSource = null;
+            cmbPerson.Enabled = false;
+            cmbPerson.Refresh();
+            _cmbPedItems.Clear();
+
             Text = gedPath;
             Application.DoEvents(); // Cycle events so image updates in case GED load/process takes a while
             LoadGed(this, new EventArgs());
@@ -171,7 +189,32 @@ namespace FamilyGroup
             cmbFamilies.ValueMember = "Value";
             cmbFamilies.DataSource = _cmbItems;
             cmbFamilies.SelectedIndex = 0;
-            cmbFamilies.Enabled = true;
+            cmbFamilies.Enabled = rbFamGroup.Checked;
+
+            // populate combobox with individuals
+            // www.ahnenbuch.de-AMMON has multiple individuals with the same name. Need to distinguish
+            // them somehow for the combobox.
+            // TODO is there a better way? unique thing for combobox selection?
+            HashSet<string> comboNames = new HashSet<string>();
+            foreach (var indiId in gedtrees.AllIndiIds)
+            {
+                Person p = gedtrees.PersonById(indiId);
+
+                // for each person, show the # of individuals available in (first) pedigree
+                Pedigrees pd = new Pedigrees(p, firstOnly: true);
+                p.Ahnen = pd.GetPedigreeMax(0);
+
+                var text = string.Format("{0} [{1}] ({2})", p.Name, indiId, p.Ahnen);
+                comboNames.Add(text);
+                _cmbPedItems.Add(new { Text = text, Value = p });
+            }
+            cmbPerson.DisplayMember = "Text";
+            cmbPerson.ValueMember = "Value";
+            cmbPerson.DataSource = _cmbPedItems;
+            cmbPerson.SelectedIndex = 0;
+            cmbPerson.Enabled = !rbFamGroup.Checked;
+
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -259,6 +302,8 @@ namespace FamilyGroup
 
             _pedDraw.DrawTo = sb;
             _ped5Draw.DrawTo = sb;
+            _pedDraw.Filler = Filler;
+            _ped5Draw.Filler = Filler;
 
             _famDraw.DrawTo = sb;
             _famDraw.Filler = Filler;
@@ -271,23 +316,30 @@ namespace FamilyGroup
             _famDraw.Theme = theme;
             var fSize = cmbFontSize.SelectedItem as string;
             _famDraw.FontSize = fSize;
+            _pedDraw.FontSize = fSize;
+            _ped5Draw.FontSize = fSize;
 
             sb.AppendLine("<style type=\"text/css\">");
-            sb.AppendFormat("body{{font-family: {0};font-size: 14px;padding: 30px 50px 50px 50px;margin: 0;}}",
-                fontFamily).AppendLine();
+            //sb.AppendFormat("body{{font-family: {0};font-size: 14px;padding: 30px 50px 50px 50px;margin: 0;}}",
+            sb.AppendFormat("body{{font-family: {0};font-size: {1}px;margin: 0;}}",
+                fontFamily, fSize).AppendLine();
 
-            //_pedDraw.FillStyle();
-
-            //_ped5Draw.FillStyle();
-
-            _famDraw.FillStyle();
+            if (rbFamGroup.Checked)
+                _famDraw.FillStyle();
+            if (rbPed4.Checked)
+                _pedDraw.FillStyle();
+            if (rbPed5.Checked)
+                _ped5Draw.FillStyle();
 
             sb.AppendLine("</style>");
             sb.AppendLine("<body>");
 
-            //_ped5Draw.DrawChart();
-            //_pedDraw.DrawChart();
-            _famDraw.DrawChart();
+            if (rbFamGroup.Checked)
+                _famDraw.DrawChart();
+            if (rbPed4.Checked)
+                _pedDraw.DrawChart();
+            if (rbPed5.Checked)
+                _ped5Draw.DrawChart();
 
             sb.AppendLine("</body></html>");
             webBrowser1.DocumentText = sb.ToString();
@@ -382,5 +434,38 @@ namespace FamilyGroup
         {
             fillWeb();
         }
+
+        private Pedigrees _pedigrees;
+        private Person[] _ancIndi;
+
+        private void cmbSelectPerson_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var val = cmbPerson.SelectedValue as Person;
+            if (val == null)
+                return;
+
+            _pedigrees = new Pedigrees(val, firstOnly: false); // TODO currently re-calculating - any benefit from caching these?
+            //updatePedigreeList(_pedigrees); // TODO ability to select from alternate pedigrees
+            _ancIndi = _pedigrees.GetPedigree(0);
+
+            _pedDraw.Ancestors = _ancIndi;
+            _ped5Draw.Ancestors = _ancIndi;
+            fillWeb();
+        }
+
+        private void chartType_Change(object sender, EventArgs e)
+        {
+            var famGroup = rbFamGroup.Checked;
+            cmbFamilies.Visible = famGroup;
+            cmbFamilies.Enabled = famGroup;
+            cmbPerson.Visible = !famGroup;  // TODO force selection change if enabled
+            cmbPerson.Enabled = !famGroup;
+
+            if (famGroup)
+                cmbFamilies_SelectedIndexChanged(null,null);
+            else
+                cmbSelectPerson_SelectedIndexChanged(null,null);
+        }
+
     }
 }

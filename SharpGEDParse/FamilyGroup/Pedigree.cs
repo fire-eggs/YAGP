@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FamilyGroup
 {
-    public class Pedigree : IChartDraw
+    public class Pedigree : ChartDraw, IChartDraw
     {
         // TODO name color
         // TODO name size
@@ -24,10 +24,17 @@ namespace FamilyGroup
 
         private static readonly string[] STYLE_STRINGS =
         {
-            ".PEDperson_name{vertical-align: bottom;border-bottom: solid 2px black;margin: 0;padding: 10px 10px 5px 10px;font-weight: bold;}",
-            ".PEDdate{vertical-align: top; font-size: .85em;color: #777;margin: 0;padding: 2px 10px 10px 10px;}",
+            //".PEDperson_name{vertical-align: bottom;border-bottom: solid 2px black;margin: 0;padding: 10px 10px 5px 10px;font-weight: bold;}",
+            ".PEDperson_name{vertical-align: bottom;border-bottom: solid 2px black;margin: 0;padding: 5px 10px 2px 10px;font-weight: bold;}",
+            ".PEDdate{vertical-align: top; font-size: .8em;color: #777;margin: 0;padding: 2px 10px 10px 10px;}",
             ".PEDleftborder{border-left: solid 2px black;}",
             ".PEDtable{margin: 2em 0 2em 0; border:0; border-spacing:0px; width:100%; border-collapse:collapse;}",
+
+            // color diagnostics for borders
+            //".PEDtable{border: solid 1px; border-color: #f00; background-color:#8eb5f2; border-spacing:0px; width:100%; border-collapse:collapse;}",
+            //"td{border: solid 1px; border-color: #f00;<font>}",
+
+            "td{<font>}",
         };
 
         public void FillStyle()
@@ -35,7 +42,9 @@ namespace FamilyGroup
             // Style for this table. names cannot conflict with other styles.
             foreach (var s in STYLE_STRINGS)
             {
-                DrawTo.AppendLine(s);
+                var s2 = s;
+                s2 = s.Replace("<font>", string.Format("font-size:{0}px;", FontSize));
+                DrawTo.AppendLine(s2);
             }
         }
 
@@ -86,10 +95,10 @@ namespace FamilyGroup
         "<table class=\"PEDtable\">",
         "<tbody>",
         "<tr>",
-        "<td class=\"PEDperson_name\" rowspan=\"8\">{0}</td>", /* person 1-name */
-        "<td class=\"PEDperson_name\" rowspan=\"4\">{0}</td>", /* person 2-name */ // 5
-        "<td class=\"PEDperson_name\" rowspan=\"2\">{0}</td>", /* person 4-name */
-        "<td class=\"PEDperson_name\">{0}</td>",               /* person 8-name */
+        "<td class=\"PEDperson_name\" width=\"30%\" rowspan=\"8\">{0}</td>", /* person 1-name */
+        "<td class=\"PEDperson_name\" width=\"25%\" rowspan=\"4\">{0}</td>", /* person 2-name */ // 5
+        "<td class=\"PEDperson_name\" width=\"25%\" rowspan=\"2\">{0}</td>", /* person 4-name */
+        "<td class=\"PEDperson_name\" width=\"20%\">{0}</td>",               /* person 8-name */
         "</tr>",
         "<tr>",
         "<td class=\"PEDdate PEDleftborder\">{0}</td>",                    /* person 8-data */ // 10
@@ -172,8 +181,32 @@ namespace FamilyGroup
                 else
                 {
                     var tup2 = TABLE_MAP[mapdex];
-                    // NOTE tup2.Item2 is 1-based, ancestors list is  0-based
-                    var val = string.Format("{0}({1})", tup2.Item3 ? "Name" : "Data", tup2.Item2);
+                    string val;
+                    if (Ancestors == null)
+                    {
+                        val = string.Format("{0}({1})", tup2.Item3 ? "Name" : "Data", tup2.Item2);
+                    }
+                    else
+                    {
+                        val = HtmlText("");
+                        // NOTE tup2.Item2 is 1-based, ancestors list is  1-based
+                        Person p = Ancestors[tup2.Item2];
+                        if (p != null)
+                        {
+                            if (tup2.Item3)
+                                val = HtmlText(p.Name);
+                            else
+                            {
+                                var bd = HtmlText(p.GetDate("BIRT"));
+                                var bp = HtmlText(p.GetPlace("BIRT"));
+                                var dd = HtmlText(p.GetDate("DEAT"));
+                                var dp = HtmlText(p.GetPlace("DEAT"));
+                                val = string.Format("Born:{0}<br>Place:{1}<br>Died:{2}<br>Place:{3}", bd, bp, dd, dp);
+                            }
+                        }
+                    }
+
+
                     DrawTo.AppendFormat(s, val).AppendLine();
                 }
                 i++;

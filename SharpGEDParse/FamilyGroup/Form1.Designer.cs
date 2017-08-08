@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,8 +39,13 @@
             this.printItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rbFamGroup = new System.Windows.Forms.RadioButton();
+            this.rbPed4 = new System.Windows.Forms.RadioButton();
+            this.rbPed5 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbFamilies = new System.Windows.Forms.ComboBox();
+            this.cmbPerson = new System.Windows.Forms.ComboBox();
             this.ppreview = new System.Windows.Forms.Button();
             this.btnAutoSave = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -58,12 +62,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbWebFont = new System.Windows.Forms.ComboBox();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.cmbFontSize = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -152,10 +154,10 @@
             // flowLayoutPanel1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.cmbFamilies);
-            this.flowLayoutPanel1.Controls.Add(this.ppreview);
-            this.flowLayoutPanel1.Controls.Add(this.btnAutoSave);
+            this.flowLayoutPanel1.Controls.Add(this.cmbPerson);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -163,10 +165,55 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1037, 46);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.Controls.Add(this.rbFamGroup);
+            this.flowLayoutPanel2.Controls.Add(this.rbPed4);
+            this.flowLayoutPanel2.Controls.Add(this.rbPed5);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 8);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(314, 23);
+            this.flowLayoutPanel2.TabIndex = 6;
+            // 
+            // rbFamGroup
+            // 
+            this.rbFamGroup.AutoSize = true;
+            this.rbFamGroup.Location = new System.Drawing.Point(3, 3);
+            this.rbFamGroup.Name = "rbFamGroup";
+            this.rbFamGroup.Size = new System.Drawing.Size(86, 17);
+            this.rbFamGroup.TabIndex = 0;
+            this.rbFamGroup.TabStop = true;
+            this.rbFamGroup.Text = "Family Group";
+            this.rbFamGroup.UseVisualStyleBackColor = true;
+            // 
+            // rbPed4
+            // 
+            this.rbPed4.AutoSize = true;
+            this.rbPed4.Location = new System.Drawing.Point(95, 3);
+            this.rbPed4.Name = "rbPed4";
+            this.rbPed4.Size = new System.Drawing.Size(105, 17);
+            this.rbPed4.TabIndex = 1;
+            this.rbPed4.TabStop = true;
+            this.rbPed4.Text = "Pedigree (4-Gen)";
+            this.rbPed4.UseVisualStyleBackColor = true;
+            // 
+            // rbPed5
+            // 
+            this.rbPed5.AutoSize = true;
+            this.rbPed5.Location = new System.Drawing.Point(206, 3);
+            this.rbPed5.Name = "rbPed5";
+            this.rbPed5.Size = new System.Drawing.Size(105, 17);
+            this.rbPed5.TabIndex = 2;
+            this.rbPed5.TabStop = true;
+            this.rbPed5.Text = "Pedigree (5-Gen)";
+            this.rbPed5.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Location = new System.Drawing.Point(323, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
@@ -175,15 +222,24 @@
             // cmbFamilies
             // 
             this.cmbFamilies.FormattingEnabled = true;
-            this.cmbFamilies.Location = new System.Drawing.Point(90, 8);
+            this.cmbFamilies.Location = new System.Drawing.Point(410, 8);
             this.cmbFamilies.Name = "cmbFamilies";
-            this.cmbFamilies.Size = new System.Drawing.Size(310, 21);
+            this.cmbFamilies.Size = new System.Drawing.Size(209, 21);
             this.cmbFamilies.TabIndex = 1;
             this.cmbFamilies.SelectedIndexChanged += new System.EventHandler(this.cmbFamilies_SelectedIndexChanged);
             // 
+            // cmbPerson
+            // 
+            this.cmbPerson.FormattingEnabled = true;
+            this.cmbPerson.Location = new System.Drawing.Point(625, 8);
+            this.cmbPerson.Name = "cmbPerson";
+            this.cmbPerson.Size = new System.Drawing.Size(241, 21);
+            this.cmbPerson.TabIndex = 5;
+            this.cmbPerson.SelectedIndexChanged += new System.EventHandler(this.cmbSelectPerson_SelectedIndexChanged);
+            // 
             // ppreview
             // 
-            this.ppreview.Location = new System.Drawing.Point(406, 8);
+            this.ppreview.Location = new System.Drawing.Point(91, 170);
             this.ppreview.Name = "ppreview";
             this.ppreview.Size = new System.Drawing.Size(92, 23);
             this.ppreview.TabIndex = 3;
@@ -193,7 +249,7 @@
             // 
             // btnAutoSave
             // 
-            this.btnAutoSave.Location = new System.Drawing.Point(504, 8);
+            this.btnAutoSave.Location = new System.Drawing.Point(3, 170);
             this.btnAutoSave.Name = "btnAutoSave";
             this.btnAutoSave.Size = new System.Drawing.Size(75, 23);
             this.btnAutoSave.TabIndex = 4;
@@ -236,6 +292,8 @@
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnAutoSave, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.ppreview, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.cmbTheme, 1, 2);
@@ -363,20 +421,6 @@
             this.cmbWebFont.TabIndex = 9;
             this.cmbWebFont.SelectedIndexChanged += new System.EventHandler(this.cmbWebFont_SelectedIndexChanged);
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // printDialog1
-            // 
-            this.printDialog1.UseEXDialog = true;
-            // 
             // cmbFontSize
             // 
             this.cmbFontSize.FormattingEnabled = true;
@@ -402,6 +446,8 @@
             this.menuStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -422,9 +468,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
-        private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbFamilies;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
@@ -447,6 +490,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbWebFont;
         private System.Windows.Forms.ComboBox cmbFontSize;
+        private System.Windows.Forms.ComboBox cmbPerson;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.RadioButton rbFamGroup;
+        private System.Windows.Forms.RadioButton rbPed4;
+        private System.Windows.Forms.RadioButton rbPed5;
     }
 }
 
