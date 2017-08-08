@@ -19,6 +19,7 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("EMAIL", commonAddr2);
             _tagSet2.Add("FAX", commonAddr2);
 
+            // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
             _tagSet2.Add("_UID", DataProc);
             _tagSet2.Add("UID", DataProc);
         }

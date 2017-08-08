@@ -34,6 +34,7 @@ namespace SharpGEDParser.Parser
             //_tagSet2.Add("BLOB", blobProc); // GEDCOM 5.5 - intentionally treated as unknown
             //_tagSet2.Add("OBJE", objeProc); // GEDCOM 5.5 - intentionally treated as unknown
 
+            // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
             _tagSet2.Add("_UID", DataProc);
             _tagSet2.Add("UID", DataProc);
         }
