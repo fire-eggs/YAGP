@@ -194,7 +194,6 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TimeRec() // TODO test with all supported record types?
         {
-            // TODO broken: throwing TIME record away
             // TIME record treated as 'other'
             var txt = "0 @N1@ SOUR\n1 CHAN\n2 DATE 1 MAR 2000\n3 TIME 13:24\n1 RIN fumbar";
             var rec = ReadOne(txt);

@@ -10,13 +10,13 @@ namespace SharpGEDParser.Parser
         {
             {"DATE", dateProc},
             {"NOTE", noteProc},
-            {"TIME", timeProc}
+            //{"TIME", timeProc} // treating TIME record as 'other'
         };
 
-        private static void timeProc(StructParseContext ctx, int linedex, char level)
-        {
-            // TODO toss TIME data
-        }
+        //private static void timeProc(StructParseContext ctx, int linedex, char level)
+        //{
+        //    // TODO toss TIME data
+        //}
 
         private static void dateProc(StructParseContext ctx, int linedex, char level)
         {
