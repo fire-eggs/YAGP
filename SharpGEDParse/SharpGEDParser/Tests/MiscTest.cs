@@ -107,10 +107,13 @@ namespace SharpGEDParser.Tests
         public void EmptyLines()
         {
             // multiple empty lines (incl. blanks)
-            string indi = "0 INDI\n1 DSCR attrib_value\n\n2 DATE 1774\n   "; // TODO trailing record bug
+            string indi = "0 INDI\n1 DSCR attrib_value\n\n2 DATE 1774\n   ";
             var fr = ReadItHigher(indi);
-            Assert.AreEqual(1, fr.Data.Count);
-            Assert.AreEqual(2, fr.Errors.Count); // blank lines as error "records"
+            Assert.AreEqual(1, fr.Errors.Count); // blank lines as error "records"
+            Assert.AreEqual(UnkRec.ErrorCode.EmptyLine, fr.Errors[0].Error);
+            Assert.AreEqual(1, fr.AllIndividuals.Count);
+            Assert.AreEqual(1, fr.AllIndividuals[0].Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, fr.AllIndividuals[0].Errors[0].Error);
         }
 
         [Test]
