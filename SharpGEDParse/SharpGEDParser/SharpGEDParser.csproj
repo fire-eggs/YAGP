@@ -139,6 +139,7 @@
     <Compile Include="Tests\ReadingLeadJunk.cs" />
     <Compile Include="Tests\ReadingNoHead.cs" />
     <Compile Include="Tests\ReadingNoTerm.cs" />
+    <Compile Include="Tests\ReadingSpurious.cs" />
     <Compile Include="Tests\ReadingUnicode.cs" />
     <Compile Include="Tests\ReadingUtil.cs" />
     <Compile Include="Tests\zFileTest.cs" />
