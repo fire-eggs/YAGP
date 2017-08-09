@@ -133,6 +133,14 @@
     <Compile Include="Tests\IndiEventAddr.cs" />
     <Compile Include="Tests\IndiNameVariants.cs" />
     <Compile Include="Tests\MoreUID.cs" />
+    <Compile Include="Tests\Reading.cs" />
+    <Compile Include="Tests\ReadingEmpty.cs" />
+    <Compile Include="Tests\ReadingHeadOnly.cs" />
+    <Compile Include="Tests\ReadingLeadJunk.cs" />
+    <Compile Include="Tests\ReadingNoHead.cs" />
+    <Compile Include="Tests\ReadingNoTerm.cs" />
+    <Compile Include="Tests\ReadingUnicode.cs" />
+    <Compile Include="Tests\ReadingUtil.cs" />
     <Compile Include="Tests\zFileTest.cs" />
     <Compile Include="Tests\IndiAssocs.cs" />
     <Compile Include="Tests\IndiAttrib.cs" />
