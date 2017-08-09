@@ -56,6 +56,8 @@ namespace SharpGEDParser.Model
             NonStdAlias, // Non-standard ALIA tag
             CustTagsSeen, // 35 // one or more valid custom tags seen
             EmptyName, // NAME line with no value
+            SlashInName, // Surname containing slash(es)
+            UntermSurname, // Surname is not terminated with slash
         }
 
         public UnkRec()

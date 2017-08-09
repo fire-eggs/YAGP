@@ -201,6 +201,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("John", rec.Names[0].Names);
             Assert.AreEqual("Doe/Roe", rec.Names[0].Surname);
             Assert.AreEqual(1, rec.Names[0].Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.SlashInName, rec.Names[0].Errors[0].Error);
         }
 
     }

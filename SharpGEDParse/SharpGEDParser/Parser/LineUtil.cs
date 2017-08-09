@@ -35,7 +35,17 @@ namespace SharpGEDParser.Parser
             while (dex < max && line[dex] != target)
                 dex++;
             if (dex >= max) // target not found
-                return max; // TODO is this correct???
+                return max+1;
+            return dex;
+        }
+
+        public static int ReverseSearch(string line, int max, int limit, char target)
+        {
+            int dex = max - 1;
+            while (dex > limit && line[dex] != target)
+                dex--;
+            if (dex <= limit) // target not found
+                return max;
             return dex;
         }
 

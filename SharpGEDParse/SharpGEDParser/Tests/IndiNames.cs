@@ -5,7 +5,6 @@ using SharpGEDParser.Model;
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable InconsistentNaming
 
-// TODO a surname with space? e.g. "von neumann"? extra spaces?
 // TODO name sub-records
 
 namespace SharpGEDParser.Tests
@@ -22,11 +21,13 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestBasicName()
         {
-            var indi1 = "0 INDI\n1 NAME  kludge  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME  kludge  ";
             var rec = parse(indi1);
+            Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
             Assert.AreEqual(null, rec.Names[0].Surname);
+            Assert.AreEqual(0, rec.Names[0].Errors.Count);
         }
 
         [Test]
@@ -82,6 +83,17 @@ namespace SharpGEDParser.Tests
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("esq", rec.Names[0].Suffix);
+        }
+
+        [Test]
+        public void UntermSurname()
+        {
+            var indi = "0 @I1@ INDI\n1 NAME Given Name /Smith";
+            var rec = parse(indi);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("Smith", rec.Names[0].Surname);
+            Assert.AreEqual(1, rec.Names[0].Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.UntermSurname, rec.Names[0].Errors[0].Error);
         }
     }
 }

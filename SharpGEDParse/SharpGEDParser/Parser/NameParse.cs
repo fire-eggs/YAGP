@@ -2,14 +2,7 @@
 using System.Collections.Generic;
 using SharpGEDParser.Model;
 
-// TODO 20170714: discovered there are multiple standard name variants
-// "/surname/fornames"
-// done:"fornames/surname/"
-// validate: "fornames" - no surname
-// validate: "/surname/" - no fornames
-// "name1/name2/name3" - I think name3 is the surname?
-
-
+// ReSharper disable InconsistentNaming
 
 // TODO unit-testing of sub-records
 
@@ -17,7 +10,7 @@ namespace SharpGEDParser.Parser
 {
     public class NameParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
         {
             { "NPFX", subProc},
             { "NSFX", subProc},
@@ -42,7 +35,7 @@ namespace SharpGEDParser.Parser
             rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
         }
 
-        private static bool parseName(NameRec rec, string line)
+        private static bool parseName(NameRec rec, string line, int linenum)
         {
             int max = line.Length;
 
@@ -51,17 +44,38 @@ namespace SharpGEDParser.Parser
             if (startName < 0)
                 return false;
 
+            // Deal with slashes in the surname
             int startSur = LineUtil.AllCharsUntil(line, max, startName, '/');
-            int endSur = LineUtil.AllCharsUntil(line, max, startSur + 1, '/');
+            int endSur = LineUtil.ReverseSearch(line, max, startSur + 1, '/');
 
             var suffix = "";
             if (endSur + 1 < max)
                 suffix = string.Join(" ", line.Substring(endSur + 1).Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
 
-            rec.Names = line.Substring(startName, startSur - startName).Trim();
+            if (startSur >= max)
+                rec.Names = line.Trim();
+            else
+                rec.Names = line.Substring(startName, startSur - startName).Trim();
+
             rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
             if (startSur < max) // e.g. "1 NAME LIVING"
+            {
                 rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1).Trim();
+                if (rec.Surname.Contains("/"))
+                {
+                    UnkRec err = new UnkRec();
+                    err.Beg = err.End = linenum;
+                    err.Error = UnkRec.ErrorCode.SlashInName;
+                    rec.Errors.Add(err);
+                }
+                if (endSur == max && startSur < max)
+                {
+                    UnkRec err = new UnkRec();
+                    err.Beg = err.End = linenum;
+                    err.Error = UnkRec.ErrorCode.UntermSurname;
+                    rec.Errors.Add(err);
+                }
+            }
             if (suffix.Length > 0)
                 rec.Suffix = suffix;
             return true;
@@ -71,7 +85,7 @@ namespace SharpGEDParser.Parser
         {
             // TODO can this be shortcut when context length is only 1 line?
             var name = new NameRec();
-            if (!parseName(name, ctx.Remain))
+            if (!parseName(name, ctx.Remain, ctx.Begline))
             {
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.EmptyName;
