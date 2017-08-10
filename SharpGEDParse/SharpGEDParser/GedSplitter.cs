@@ -127,18 +127,18 @@ namespace SharpGEDParser
             return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
         }
 
-        public string Tag(string value)
-        {
-            // substring 1 doesn't start with '@' == tag
-            // else substring 2
-            if (_count < 2 || _lens[1] < 1)
-                return null;
-            if (value[_starts[1]] != '@')
-                return value.Substring(_starts[1], _lens[1]);
-            if (_count < 3)
-                return null;
-            return value.Substring(_starts[2], _lens[2]);
-        }
+        //public string Tag(string value)
+        //{
+        //    // substring 1 doesn't start with '@' == tag
+        //    // else substring 2
+        //    if (_count < 2 || _lens[1] < 1)
+        //        return null;
+        //    if (value[_starts[1]] != '@')
+        //        return value.Substring(_starts[1], _lens[1]);
+        //    if (_count < 3)
+        //        return null;
+        //    return value.Substring(_starts[2], _lens[2]);
+        //}
 
         public string Tag(char [] value)
         {
@@ -153,14 +153,14 @@ namespace SharpGEDParser
             return new string(value, _starts[2], _lens[2]);
         }
 
-        public string Remain(string value)
-        {
-            if (_count < 2)
-                return null;
-            if (_lens[1] > 0 && value[_starts[1]] != '@')
-                return GetRest(value, 2);
-            return GetRest(value, 3);
-        }
+        //public string Remain(string value)
+        //{
+        //    if (_count < 2)
+        //        return null;
+        //    if (_lens[1] > 0 && value[_starts[1]] != '@')
+        //        return GetRest(value, 2);
+        //    return GetRest(value, 3);
+        //}
 
         public string GetRest(char [] value, int dex)
         {
@@ -183,21 +183,21 @@ namespace SharpGEDParser
             return GetRest(value, 3);
         }
 
-        public void LevelTagAndRemain(string line, ParseContext2 ctx)
-        {
-            Split(line, ' ');
-            ctx.Level = line[_starts[0]];
-            ctx.Tag = Tag(line);
-            ctx.Remain = Remain(line) ?? "";
-        }
+        //public void LevelTagAndRemain(string line, ParseContext2 ctx)
+        //{
+        //    Split(line, ' ');
+        //    ctx.Level = line[_starts[0]];
+        //    ctx.Tag = Tag(line);
+        //    ctx.Remain = Remain(line) ?? "";
+        //}
 
-        public void LevelTagAndRemain(string line, LineUtil.LineData ctx)
-        {
-            Split(line, ' ');
-            ctx.Level = line[_starts[0]];
-            ctx.Tag = Tag(line);
-            ctx.Remain = Remain(line) ?? "";
-        }
+        //public void LevelTagAndRemain(string line, LineUtil.LineData ctx)
+        //{
+        //    Split(line, ' ');
+        //    ctx.Level = line[_starts[0]];
+        //    ctx.Tag = Tag(line);
+        //    ctx.Remain = Remain(line) ?? "";
+        //}
 
         public void LevelTagAndRemain(char [] line, LineUtil.LineData ctx)
         {

@@ -42,6 +42,10 @@ namespace GEDWrap.Tests
         [Test]
         public void AdoptedChildCheck()
         {
+            // Unclear if INDI.ADOP.FAMC is supposed to be sufficient, or if 
+            // a matching INDI.FAMC.PEDI adopted is also required? CheckErrors=true
+            // gives an error because I've specified only INDI.ADOP.FAMC ...
+
             // TODO "0 FAM + 1 CHIL" check not handling adoption            
             var pd = GetPedigree("I1", checkErrors: true);
         }
