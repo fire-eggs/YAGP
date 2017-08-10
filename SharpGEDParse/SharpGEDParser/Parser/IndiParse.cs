@@ -180,16 +180,9 @@ namespace SharpGEDParser.Parser
         {
             var indi = (context.Parent as IndiRecord);
 
-            string xref;
-            string extra;
-            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
+            string xref = parseForXref(context, UnkRec.ErrorCode.NonStdAlias);
             if (string.IsNullOrEmpty(xref))
             {
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.NonStdAlias;
-                err.Beg = err.End = context.Begline + context.Parent.BegLine;
-                indi.Errors.Add(err);
-
                 IndiEvent nick = new IndiEvent();
                 nick.Tag = "ALIA";
                 nick.Descriptor = context.Remain.Trim(aliasTrimChars);
@@ -207,17 +200,8 @@ namespace SharpGEDParser.Parser
         {
             var indi = (context.Parent as IndiRecord);
 
-            string xref;
-            string extra;
-            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
-            if (string.IsNullOrEmpty(xref))
-            {
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.MissIdent; // "Missing/unterminated identifier: " + context.Tag;
-                err.Beg = err.End = context.Begline + context.Parent.BegLine;
-                indi.Errors.Add(err);
-            }
-            else
+            string xref = parseForXref(context);
+            if (!string.IsNullOrEmpty(xref))
             {
                 switch (context.Tag)
                 {

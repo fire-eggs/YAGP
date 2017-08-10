@@ -60,20 +60,10 @@ namespace SharpGEDParser.Parser
 
         private void SubmProc(ParseContext2 context)
         {
-            var self = (context.Parent as HeadRecord);
-
-            string xref;
-            string extra;
-            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
-            if (string.IsNullOrEmpty(xref))
+            string xref = parseForXref(context);
+            if (!string.IsNullOrEmpty(xref))
             {
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.MissIdent; // "Missing/unterminated identifier: " + context.Tag;
-                err.Beg = err.End = context.Begline + context.Parent.BegLine;
-                self.Errors.Add(err);
-            }
-            else
-            {
+                var self = (context.Parent as HeadRecord);
                 self.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
             }
         }

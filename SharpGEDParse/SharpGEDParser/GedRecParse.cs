@@ -237,5 +237,19 @@ namespace SharpGEDParser
 
         }
 
+        protected static string parseForXref(ParseContext2 context, UnkRec.ErrorCode errVal = UnkRec.ErrorCode.MissIdent)
+        {
+            string xref;
+            string extra;
+            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
+            if (string.IsNullOrEmpty(xref))
+            {
+                UnkRec err = new UnkRec();
+                err.Error = errVal;
+                err.Beg = err.End = context.Begline + context.Parent.BegLine;
+                context.Parent.Errors.Add(err);
+            }
+            return xref;
+        }
     }
 }

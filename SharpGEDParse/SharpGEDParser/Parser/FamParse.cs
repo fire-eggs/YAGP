@@ -166,20 +166,10 @@ namespace SharpGEDParser.Parser
         {
             // TODO how are sub-tags handled? E.g. _PREF on HUSB, WIFE
 
+            string xref = parseForXref(context);
             var fam = (context.Parent as FamRecord);
 
-            string xref;
-            string extra;
-            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
-            if (string.IsNullOrEmpty(xref))
-            {
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.MissIdent;
-                //err.Error = "Missing/unterminated identifier: " + context.Tag;
-                err.Beg = err.End = context.Begline + context.Parent.BegLine;
-                fam.Errors.Add(err);
-            }
-            else
+            if (!string.IsNullOrEmpty(xref))
             {
                 switch (context.Tag)
                 {
