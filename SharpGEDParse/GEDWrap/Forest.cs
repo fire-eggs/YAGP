@@ -94,7 +94,7 @@ namespace GEDWrap
         {
             _gedReader = new FileRead();
             //_gedReader.ReadLines(stream);
-            _gedReader.ReadGed(stream);
+            _gedReader.ReadGed(null, stream);
             if (_gedReader.Data == null) // nothing to do!
                 return;
             BuildTree();

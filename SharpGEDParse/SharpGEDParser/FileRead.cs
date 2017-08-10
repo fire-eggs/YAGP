@@ -51,7 +51,8 @@ namespace SharpGEDParser
             _bufferSize = bufferSize;
         }
 
-        public void ReadGed(string gedPath)
+        // Common method for unit testing (instream != null) or file reading (gedPath != null)
+        public void ReadGed(string gedPath, StreamReader instream=null)
         {
             _emptyLineSeen = 0;
             FilePath = gedPath;
@@ -62,7 +63,7 @@ namespace SharpGEDParser
             _reader.ErrorTracker = DoError;
 
             // Processor context
-            Parser = new GedParser(FilePath ?? "");
+            Parser = new GedParser(FilePath);
             Data = new List<GEDCommon>();
             if (Errors == null)
                 Errors = new List<UnkRec>();
@@ -70,7 +71,10 @@ namespace SharpGEDParser
 
             try
             {
-                _reader.ReadFile(gedPath);
+                if (gedPath == null)
+                    _reader.ReadFile(instream);
+                else
+                    _reader.ReadFile(gedPath);
                 EndOfFile();
             }
             catch (Exception)
@@ -89,42 +93,6 @@ namespace SharpGEDParser
             _lineNum = _reader._lineNum;
             _currRec = null;
             _reader = null;
-        }
-
-        public void ReadGed(StreamReader instream)
-        {
-            // read from stream for unit testing. TODO refactor common code
-            Errors = new List<UnkRec>();
-            GedReader _reader = new GedReader();
-            _reader.BufferSize = _bufferSize;
-            _reader.ProcessALine = ProcessLine;
-            _reader.ErrorTracker = DoError;
-
-            // Processor context
-            Parser = new GedParser("");
-            Data = new List<GEDCommon>();
-            if (Errors == null)
-                Errors = new List<UnkRec>();
-            _currRec = new GedRecord();
-
-            try
-            {
-                _reader.ReadFile(instream);
-                EndOfFile();
-            }
-            catch (Exception)
-            {
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.Exception;
-                err.Beg = _lineNum;
-                // TODO err.Error = string.Format("Exception: {0} line {1} | {2}", ex.Message, _lineNum, ex.StackTrace);
-                Errors.Add(err);
-            }
-
-            Parser.FinishUp();
-            GatherRecords();
-            GatherErrors();
-            _currRec = null;
         }
 
         #region Old Character Encoding code - re-use?
