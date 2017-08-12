@@ -30,7 +30,10 @@ namespace SharpGEDParser.Model
         {
             Type = _type;
             Year = Month = Day = -1;
+            JDN = -1;
         }
+
+        public bool Initialized { get { return JDN != -1; } }
 
         public override string ToString()
         {
