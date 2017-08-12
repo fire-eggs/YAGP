@@ -160,7 +160,7 @@ namespace FamilyGroup
         "</table>",
         };
 
-        public void DrawChart()
+        public void DrawChart(bool showUrl = false)
         {
             int i = 1; // map entries are 1-based
             int mapdex = 0;

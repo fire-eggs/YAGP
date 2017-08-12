@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Child.cs" />
+    <Compile Include="EditFamSheet.cs" />
     <Compile Include="FamSheet.cs" />
     <Compile Include="FontCombo.cs">
       <SubType>Component</SubType>

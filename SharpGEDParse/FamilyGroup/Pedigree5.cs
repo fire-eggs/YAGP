@@ -137,7 +137,7 @@ namespace FamilyGroup
 
         };
 
-        public void DrawChart()
+        public void DrawChart(bool showUrl = false)
         {
             foreach (var s in TABLE_STRINGS)
             {

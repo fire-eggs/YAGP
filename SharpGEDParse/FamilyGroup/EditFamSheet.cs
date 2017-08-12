@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Permissions;
+using System.Windows.Forms;
 using GEDWrap;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +13,10 @@ using System.Text;
 
 namespace FamilyGroup
 {
-    public class FamSheet : ChartDraw, IChartDraw
+    [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+    [System.Runtime.InteropServices.ComVisibleAttribute(true)]
+
+    public class EditFamSheet : ChartDraw, IChartDraw
     {
         public StringBuilder DrawTo { set; private get; }
 
@@ -19,7 +24,7 @@ namespace FamilyGroup
 
         private Union _family;
         private List<Child> _childs;
-            
+
         public Union Base
         {
             set
@@ -33,7 +38,7 @@ namespace FamilyGroup
                     _childs.Add(aCh);
                     i++;
                 }
-            } 
+            }
         }
 
         public Forest Trees { set; private get; }
@@ -66,7 +71,7 @@ namespace FamilyGroup
          * 3. font details (look up in map)
          * 4. font-size delta
          */
-        private static readonly Tuple<string,bool,bool,int>[] STYLE_STRINGS2 =
+        private static readonly Tuple<string, bool, bool, int>[] STYLE_STRINGS2 =
         {
             Tuple.Create(".tt{<color><font>font-weight:bold;}",true,true,0),
             Tuple.Create(".tg{width:100%;border-collapse:collapse;border-spacing:0;<color>}",true,false,0),
@@ -85,6 +90,10 @@ namespace FamilyGroup
             Tuple.Create(".tNest .tNt{border-style:none none dashed none; border-width:1px;<color>}",true,false,0),
             Tuple.Create(".tNest .tN-b7b8{<color>vertical-align:top}",true,false,0),
             Tuple.Create(".tNest .tNt-b7b8{border-style:none none dashed none; border-width:1px;<color>vertical-align:top}",true,false,0),
+            Tuple.Create("a:link{<color>}",true,false,0),
+            Tuple.Create("a:active{<color>}",true,false,0),
+            Tuple.Create("a:visited{<color>}",true,false,0),
+            Tuple.Create("a:hover{<color>}",true,false,0),
         };
 
         private static readonly Tuple<int, string>[] COLOR_STRINGS_GREY =
@@ -100,6 +109,10 @@ namespace FamilyGroup
             Tuple.Create(14, "border-color:#ccc;"),
             Tuple.Create(15, "background-color:#f0f0f0;"),
             Tuple.Create(16, "border-color:#ccc;background-color:#f0f0f0;"),
+            Tuple.Create(17, "color:#333;"),
+            Tuple.Create(18, "color:#333;"),
+            Tuple.Create(19, "color:#333;"),
+            Tuple.Create(20, "color:#333;"),
         };
 
         private static readonly Tuple<int, string>[] COLOR_STRINGS_BLUE =
@@ -115,6 +128,10 @@ namespace FamilyGroup
             Tuple.Create(14, "border-color:#aabcfe;"),
             Tuple.Create(15, "background-color:#D2E4FC;"),
             Tuple.Create(16, "border-color:#aabcfe;background-color:#D2E4FC;"),
+            Tuple.Create(17, "color:#039;"),
+            Tuple.Create(18, "color:#039;"),
+            Tuple.Create(19, "color:#039;"),
+            Tuple.Create(20, "color:#039;"),
         };
 
         private static readonly Tuple<int, string>[] COLOR_STRINGS_GREEN =
@@ -130,6 +147,10 @@ namespace FamilyGroup
             Tuple.Create(14, "border-color:#594F4F;"),
             Tuple.Create(15, "background-color:#C2FFD6;"),
             Tuple.Create(16, "border-color:#493F3F;background-color:#C2FFD6;"),
+            Tuple.Create(17, "color:#493F3F;"),
+            Tuple.Create(18, "color:#493F3F;"),
+            Tuple.Create(19, "color:#493F3F;"),
+            Tuple.Create(20, "color:#493F3F;"),
         };
 
         private string getColorString(int dex)
@@ -172,7 +193,7 @@ namespace FamilyGroup
             }
         }
 
-        public void DrawChart(bool showUrl=false)
+        public void DrawChart(bool showUrl = false)
         {
             StringBuilder sb = DrawTo;
 
@@ -184,22 +205,27 @@ namespace FamilyGroup
             sb.AppendLine("</h3>");
 
             Person who = _family.Husband ?? _family.Wife;
-            fillPerson(Spouse1Text, who, true);
+            fillPerson(showUrl, Spouse1Text, who, true);
 
             sb.AppendLine("&nbsp;");
 
             who = _family.Spouse(who);
-            fillPerson(Spouse2Text, who);
+            fillPerson(showUrl, Spouse2Text, who);
 
             sb.AppendLine("&nbsp;");
 
             fillChildren();
+
+            // TODO need Done/Cancel buttons. When those are clicked, set EditElem to null.
+            // TODO switching views / family should be an implicit Cancel. Consider disabling controls until edit is complete?
+            EditElem = null;
+
         }
 
         public string Spouse1Text { set; private get; }
         public string Spouse2Text { set; private get; }
         public string FontFam { set; private get; }
-        public string Theme 
+        public string Theme
         {
             get { return ""; }
             set
@@ -218,12 +244,15 @@ namespace FamilyGroup
                     default:
                         throw new Exception("blech");
                 }
-            } 
+            }
         }
+
+        // User has clicked on something to edit it
+        public string EditElem { get; set; }
 
         private Tuple<int, string>[] _colorScheme;
 
-        private void fillPerson(string caption, Person who, bool inclMarr = false)
+        private void fillPerson(bool showUrl, string caption, Person who, bool inclMarr = false)
         {
             StringBuilder sb = DrawTo;
 
@@ -243,7 +272,30 @@ namespace FamilyGroup
             else
             {
                 sb.AppendLine("<tr>");
-                sb.AppendFormat("<td class=\"tg-b7b8\";>{2}</td><td class=\"tg-b7b8\";>{0}</td><th class=\"tg-9hboPH\";>Occupation</th><td class=\"tg-b7b8\";>{1}</td>", HtmlText(who.Name), HtmlText(who.GetWhat("OCCU")), HtmlText(who.Id)).AppendLine();
+
+                string occu;
+                string flag = inclMarr ? "P" : "S";
+                if (showUrl)
+                {
+                    occu = "<a href='' onclick='window.external.doEdit(\"" + flag + "-OCCU\")'>Occupation</a>";
+                }
+                else
+                {
+                    occu = "Occupation";
+                }
+                string occuId = flag + "-OCCU";
+
+                string occuView;
+                if (EditElem == occuId)
+                {
+                    occuView = "<input type=\"text\" value=\"" + HtmlText(who.GetWhat("OCCU")) + "\" />";
+                }
+                else
+                {
+                    occuView = HtmlText(who.GetWhat("OCCU"));
+                }
+
+                sb.AppendFormat("<td class=\"tg-b7b8\";>{2}</td><td class=\"tg-b7b8\";>{0}</td><th class=\"tg-9hboPH\";>{3}</th><td id=\"{4}\" class=\"tg-b7b8\";>{1}</td>", HtmlText(who.Name), occuView, HtmlText(who.Id), occu, occuId).AppendLine();
                 sb.AppendLine("</tr>");
                 sb.AppendLine("<tr>");
                 sb.AppendFormat("<th class=\"tg-9hboPH\";>Born</th><td class=\"tg-b7b8PD\";>{0}</td><th class=\"tg-9hboPH\";>Place</th><td class=\"tg-b7b8PD\";>{1}</td>", HtmlText(who.GetDate("BIRT")), HtmlText(who.GetPlace("BIRT"))).AppendLine();
@@ -380,5 +432,29 @@ namespace FamilyGroup
             }
         }
 
+        public void doEdit(string field)
+        {
+            MessageBox.Show(field, "link");
+        }
     }
 }
+
+/*
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+<body>
+  <image src="data:image/gif;base64,{0}" /> <!-- Replace here -->
+</body>
+</html>
+ 
+var html = GetStringResource(); // However you do it.
+var imageData = GetImageResource(); // Ditto
+var encoded = GetBase64FromBinary(imageData);
+var finalHtml = string.Format(html, encoded);
+
+*/

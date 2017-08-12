@@ -1,4 +1,5 @@
-﻿using DrawAnce;
+﻿using System.Security.Permissions;
+using DrawAnce;
 using GEDWrap;
 using PrintPreview;
 using System;
@@ -14,6 +15,8 @@ using System.Windows.Forms;
 
 namespace FamilyGroup
 {
+    [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+    [System.Runtime.InteropServices.ComVisibleAttribute(true)]
     public partial class Form1 : Form
     {
         protected MruStripMenu mnuMRU;
@@ -54,6 +57,9 @@ namespace FamilyGroup
             rbPed5.CheckedChanged += chartType_Change;
 
             rbFamGroup.Checked = true;
+
+            _famEdit = new EditFamSheet();
+            webBrowser1.ObjectForScripting = this;
         }
 
         #region Settings
@@ -213,8 +219,6 @@ namespace FamilyGroup
             cmbPerson.DataSource = _cmbPedItems;
             cmbPerson.SelectedIndex = 0;
             cmbPerson.Enabled = !rbFamGroup.Checked;
-
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,6 +230,7 @@ namespace FamilyGroup
         private FamSheet _famDraw ;
         private Pedigree _pedDraw;
         private Pedigree5 _ped5Draw;
+        private EditFamSheet _famEdit;
 
         private void cmbFamilies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -241,6 +246,9 @@ namespace FamilyGroup
 
             _pedDraw = new Pedigree();
             _ped5Draw = new Pedigree5();
+
+            _famEdit.Base = val;
+            _famEdit.Trees = gedtrees;
 
             fillWeb();
         }
@@ -292,7 +300,7 @@ namespace FamilyGroup
 
         }
 
-        private void fillWeb()
+        private void fillWeb(bool showUrl=true)
         {
             if (_family == null) // Invoked from event handlers
                 return;
@@ -310,11 +318,19 @@ namespace FamilyGroup
             _famDraw.Spouse1Text = TopLabel;
             _famDraw.Spouse2Text = BotLabel;
 
+            _famEdit.DrawTo = sb;
+            _famEdit.Filler = Filler;
+            _famEdit.Spouse1Text = TopLabel;
+            _famEdit.Spouse2Text = BotLabel;
+
             var fontFamily = cmbWebFont.SelectedItem as string;
             _famDraw.FontFam = fontFamily;
+            _famEdit.FontFam = fontFamily;
             var theme = cmbTheme.SelectedItem as string;
             _famDraw.Theme = theme;
+            _famEdit.Theme = theme;
             var fSize = cmbFontSize.SelectedItem as string;
+            _famEdit.FontSize = fSize;
             _famDraw.FontSize = fSize;
             _pedDraw.FontSize = fSize;
             _ped5Draw.FontSize = fSize;
@@ -325,7 +341,10 @@ namespace FamilyGroup
                 fontFamily, fSize).AppendLine();
 
             if (rbFamGroup.Checked)
-                _famDraw.FillStyle();
+            {
+                //_famDraw.FillStyle();
+                _famEdit.FillStyle();
+            }
             if (rbPed4.Checked)
                 _pedDraw.FillStyle();
             if (rbPed5.Checked)
@@ -335,7 +354,10 @@ namespace FamilyGroup
             sb.AppendLine("<body>");
 
             if (rbFamGroup.Checked)
-                _famDraw.DrawChart();
+            {
+                //_famDraw.DrawChart();
+                _famEdit.DrawChart(showUrl);
+            }
             if (rbPed4.Checked)
                 _pedDraw.DrawChart();
             if (rbPed5.Checked)
@@ -345,9 +367,13 @@ namespace FamilyGroup
             webBrowser1.DocumentText = sb.ToString();
         }
 
+        private bool _printPreviewing;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            webBrowser1.ShowPrintPreviewDialog();
+            _printPreviewing = true;
+            fillWeb(false);
+//            webBrowser1.ShowPrintPreviewDialog();
         }
 
         private void btnAutoSave_Click(object sender, EventArgs e)
@@ -467,5 +493,56 @@ namespace FamilyGroup
                 cmbSelectPerson_SelectedIndexChanged(null,null);
         }
 
+        private bool firstTime = true;
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            webBrowser1.AllowWebBrowserDrop = false;
+            webBrowser1.IsWebBrowserContextMenuEnabled = false;
+            webBrowser1.WebBrowserShortcutsEnabled = false;
+
+            if (firstTime)
+            {
+                webBrowser1.Document.Click += Document_Click;
+                firstTime = false;
+            }
+
+            // To allow the print to _not_ show URL links
+            if (_printPreviewing)
+                webBrowser1.ShowPrintPreviewDialog();
+        }
+
+        void Document_Click(object sender, HtmlElementEventArgs e)
+        {
+            // TODO want to ignore this if we're currently in edit mode. Once edit mode is clear (via Done/Cancel button) then re-enable
+            var doc = sender as HtmlDocument;
+            var elem = doc.ActiveElement;
+
+            if (elem.Id != null)
+            {
+                _famEdit.EditElem = elem.Id;
+                fillWeb();
+            }
+            else
+            {
+                MessageBox.Show(elem.OuterHtml, "who");
+            }
+        }
+
+        public void doEdit(string param)
+        {
+            _famEdit.doEdit(param);
+            fillWeb();
+            webBrowser1.Refresh();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            // when print preview is complete, this message is invoked
+            if (_printPreviewing)
+            {
+                fillWeb(); 
+                _printPreviewing = false;
+            }
+        }
     }
 }
