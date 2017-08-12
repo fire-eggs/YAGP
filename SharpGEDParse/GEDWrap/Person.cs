@@ -40,7 +40,7 @@ namespace GEDWrap
             
         public string Name
         {
-            get { return Indi == null ? "" : Indi.Names[0].Names + " " + Indi.Names[0].Surname; } // TODO need a better accessor? restore ToString?
+            get { return Indi == null || Indi.Names.Count < 1 ? "" : Indi.Names[0].Names + " " + Indi.Names[0].Surname; } // TODO need a better accessor? restore ToString?
         }
 
         public string Given
@@ -210,9 +210,12 @@ namespace GEDWrap
         public string GetDate(string eventName) // TODO format
         {
             var gedEvent = GetEvent(eventName);
-            if (gedEvent != null && gedEvent.GedDate != null)
+            if (gedEvent == null)
+                return null;
+            if (gedEvent.GedDate != null && 
+                gedEvent.GedDate.Initialized)
                 return gedEvent.GedDate.ToString();
-            return null;
+            return gedEvent.Date;
         }
 
         public string GetPlace(string eventName)

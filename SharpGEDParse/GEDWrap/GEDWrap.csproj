@@ -56,6 +56,7 @@
     <Compile Include="Tests\HusbConnect.cs" />
     <Compile Include="Tests\MiscTests.cs" />
     <Compile Include="Tests\PedigreeTests.cs" />
+    <Compile Include="Tests\PersonProps.cs" />
     <Compile Include="Tests\TestUtil.cs" />
     <Compile Include="Tests\WifeConnect.cs" />
     <Compile Include="Tests\zzFileTest.cs" />

@@ -361,7 +361,7 @@ namespace GEDWrap
                 if (familyUnit.Wife != null)
                 {
                     identifiedSpouseCount++;
-                    if (familyUnit.FamRec.Dads.Count > 1)
+                    if (familyUnit.FamRec.Moms.Count > 1)
                     {
                         MakeError(Issue.IssueCode.AMB_CONN, "WIFE", famIdent);
                         warned = true;
