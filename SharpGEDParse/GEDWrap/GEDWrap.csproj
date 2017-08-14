@@ -58,6 +58,7 @@
     <Compile Include="Tests\PedigreeTests.cs" />
     <Compile Include="Tests\PersonProps.cs" />
     <Compile Include="Tests\TestUtil.cs" />
+    <Compile Include="Tests\UnionProps.cs" />
     <Compile Include="Tests\WifeConnect.cs" />
     <Compile Include="Tests\zzFileTest.cs" />
     <Compile Include="Union.cs" />

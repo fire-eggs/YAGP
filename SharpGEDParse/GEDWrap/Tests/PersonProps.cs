@@ -10,33 +10,35 @@ namespace GEDWrap.Tests
     [TestFixture]
     class PersonProps : TestUtil
     {
-        [Test]
-        public void Date()
+        private Person LoadPerson(string txt)
         {
-            var txt = "0 @I1@ INDI\n1 EMIG\n2 DATE 1 APR 1990";
             Forest f = LoadGEDFromStream(txt);
             Assert.AreEqual(0, f.ErrorsCount);
             Assert.AreEqual(0, f.Errors.Count);
 
             Assert.AreEqual(1, f.AllPeople.Count());
             var p = f.AllPeople.First();
+            return p;
+        }
+
+        [Test]
+        public void Date()
+        {
+            var txt = "0 @I1@ INDI\n1 EMIG\n2 DATE 1 APR 1990";
+            var p = LoadPerson(txt);
+
             var d = p.GetDate("EMIG");
             Assert.AreEqual("1-Apr-1990", d);
             var p2 = p.GetPlace("EMIG");
             Assert.IsNullOrEmpty(p2);
-
         }
 
         [Test]
         public void BadDate()
         {
             var txt = "0 @I1@ INDI\n1 EMIG\n2 DATE garbage";
-            Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(0, f.Errors.Count);
+            var p = LoadPerson(txt);
 
-            Assert.AreEqual(1, f.AllPeople.Count());
-            var p = f.AllPeople.First();
             var e = p.GetEvent("EMIG");
             Assert.IsFalse(e.GedDate.Initialized);
             var d = p.GetDate("EMIG");
@@ -49,28 +51,20 @@ namespace GEDWrap.Tests
         public void Place()
         {
             var txt = "0 @I1@ INDI\n1 EMIG\n2 PLAC Logan Airport";
-            Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(0, f.Errors.Count);
+            var p = LoadPerson(txt);
 
-            Assert.AreEqual(1, f.AllPeople.Count());
-            var p = f.AllPeople.First();
             var d = p.GetDate("EMIG");
             Assert.IsNullOrEmpty(d);
             var p2 = p.GetPlace("EMIG");
             Assert.AreEqual("Logan Airport", p2);
-
         }
+
         [Test]
         public void What()
         {
             var txt = "0 @I1@ INDI\n1 EMIG deported";
-            Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(0, f.Errors.Count);
+            var p = LoadPerson(txt);
 
-            Assert.AreEqual(1, f.AllPeople.Count());
-            var p = f.AllPeople.First();
             var w = p.GetWhat("EMIG");
             Assert.AreEqual("deported", w);
             var d = p.GetDate("EMIG");
@@ -83,12 +77,8 @@ namespace GEDWrap.Tests
         public void NoEvent()
         {
             var txt = "0 @I1@ INDI\n1 EMIG deported";
-            Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(0, f.Errors.Count);
+            var p = LoadPerson(txt);
 
-            Assert.AreEqual(1, f.AllPeople.Count());
-            var p = f.AllPeople.First();
             var w = p.GetWhat("MILT");
             Assert.IsNullOrEmpty(w);
             var d = p.GetDate("MILT");
@@ -103,12 +93,8 @@ namespace GEDWrap.Tests
         public void NoChild()
         {
             var txt = "0 @I1@ INDI\n1 EMIG deported";
-            Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(0, f.Errors.Count);
+            var p = LoadPerson(txt);
 
-            Assert.AreEqual(1, f.AllPeople.Count());
-            var p = f.AllPeople.First();
             Assert.IsNull(p.GetParent(true));
             Assert.IsNull(p.GetParent(false));
         }
@@ -117,12 +103,8 @@ namespace GEDWrap.Tests
         public void ChildNoParents()
         {
             var txt = "0 @I1@ INDI\n1 EMIG deported\n1 FAMC @F1@\n0 @F1@ FAM\n1 CHIL @I1@";
-            Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(0, f.Errors.Count);
+            var p = LoadPerson(txt);
 
-            Assert.AreEqual(1, f.AllPeople.Count());
-            var p = f.AllPeople.First();
             Assert.IsNull(p.GetParent(true));
             Assert.IsNull(p.GetParent(false));
         }
@@ -192,5 +174,74 @@ namespace GEDWrap.Tests
         }
 
         // TODO getting mom or dad when ambiguous spouse
+
+        [Test]
+        public void Attrib()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school";
+            var p = LoadPerson(txt);
+
+            var a = p.GetAttrib("EDUC");
+            Assert.AreEqual("high school", a.Descriptor);
+        }
+
+        [Test]
+        public void NoAttrib()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school";
+            var p = LoadPerson(txt);
+
+            var a = p.GetAttrib("OCCU");
+            Assert.IsNull(a);
+        }
+
+        [Test]
+        public void Given1()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school";
+            var p = LoadPerson(txt);
+
+            Assert.IsNullOrEmpty(p.Given);
+        }
+        [Test]
+        public void Given2()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school\n1 NAME /kruger/";
+            var p = LoadPerson(txt);
+
+            Assert.IsNullOrEmpty(p.Given);
+        }
+        [Test]
+        public void Given3()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school\n1 NAME fred /kruger/";
+            var p = LoadPerson(txt);
+
+            Assert.AreEqual("fred", p.Given);
+        }
+        [Test]
+        public void Last1()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school";
+            var p = LoadPerson(txt);
+
+            Assert.IsNullOrEmpty(p.Surname);
+        }
+        [Test]
+        public void Last2()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school\n1 NAME /kruger/";
+            var p = LoadPerson(txt);
+
+            Assert.AreEqual("kruger", p.Surname);
+        }
+        [Test]
+        public void Last3()
+        {
+            var txt = "0 @I1@ INDI\n1 EDUC high school\n1 NAME fred";
+            var p = LoadPerson(txt);
+
+            Assert.IsNullOrEmpty(p.Surname);
+        }
     }
 }

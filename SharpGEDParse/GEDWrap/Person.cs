@@ -45,12 +45,14 @@ namespace GEDWrap
 
         public string Given
         {
-            get { return Indi == null ? "" : Indi.Names[0].Names; }
+            get { return Indi == null || Indi.Names.Count < 1 ? "" : Indi.Names[0].Names; }
         }
 
         public string Surname
         {
-            get { return Indi == null ? "" : 
+            get
+            {
+                return Indi == null || Indi.Names.Count < 1 ? "" : 
                 (Indi.Names[0].Surname ?? ""); } 
         }
 
@@ -107,7 +109,7 @@ namespace GEDWrap
             return null;
         }
 
-        private IndiEvent GetAttrib(string tag)
+        public IndiEvent GetAttrib(string tag)
         {
             foreach (var kbrGedEvent in Indi.Attribs)
             {
@@ -192,11 +194,6 @@ namespace GEDWrap
                 evt = GetEvent("CREM");
                 return evt;
             }
-        }
-
-        public IndiEvent Occupation
-        {
-            get { return GetEvent("OCCU"); }
         }
 
         public string GetWhat(string eventName)
