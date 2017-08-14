@@ -32,6 +32,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawTreeTest", "DrawTreeTest\DrawTreeTest.csproj", "{C4A55278-6F34-483D-AE27-4ED4ED84C754}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyGroup", "FamilyGroup\FamilyGroup.csproj", "{F63E048B-1112-46AE-846B-670A467D38F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndiTable", "IndiTable\IndiTable.csproj", "{D5B47896-51B9-49A8-B358-561EB48F7A4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +96,10 @@ Global
 		{F63E048B-1112-46AE-846B-670A467D38F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F63E048B-1112-46AE-846B-670A467D38F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F63E048B-1112-46AE-846B-670A467D38F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B47896-51B9-49A8-B358-561EB48F7A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B47896-51B9-49A8-B358-561EB48F7A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B47896-51B9-49A8-B358-561EB48F7A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B47896-51B9-49A8-B358-561EB48F7A4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
