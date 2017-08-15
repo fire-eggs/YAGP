@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using GEDWrap;
@@ -7,6 +7,7 @@ using System;
 using System.Windows.Forms;
 
 // ReSharper disable LocalizableElement
+// ReSharper disable InconsistentNaming
 
 namespace IndiTable
 {
@@ -24,6 +25,8 @@ namespace IndiTable
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             LoadGed += Form1_LoadGed;
+
+            FillNavBar();
         }
 
         private void loadGEDCOMToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,20 +58,27 @@ namespace IndiTable
         }
 
         private Forest _gedtrees;
-        //private int _visibleRows;
-
         private List<Person> _sortedData;
+
+        private int tick1;
+        private int tick2;
+        private int tick3;
 
         private void Form1_LoadGed(object sender, EventArgs e)
         {
             EmptyGrid();
 
+            tick1 = Environment.TickCount;
+
             _gedtrees = new Forest();
             _gedtrees.LoadGEDCOM(LastFile);
+
+            tick2 = Environment.TickCount;
 
             _sortedData = _gedtrees.AllPeople.ToList();
             _sortedData.OrderBy(p => p.Id);
 
+            fillingGrid = true;
             FillGrid();
         }
 
@@ -100,6 +110,9 @@ namespace IndiTable
             dataGridView1.CellValueNeeded += dataGridView1_CellValueNeeded;
             dataGridView1.ColumnHeaderMouseClick += dataGridView1_ColumnHeaderMouseClick;
 
+            dataGridView1.Invalidated += dataGridView1_Invalidated;
+
+            // double-buffer the grid for repaint performance
             typeof(DataGridView).InvokeMember("DoubleBuffered",
                 BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
                 null,
@@ -109,14 +122,34 @@ namespace IndiTable
             LoadColumns();
         }
 
-        private void loadComplete()
+        private bool fillingGrid = false;
+        void dataGridView1_Invalidated(object sender, InvalidateEventArgs e)
         {
-            if (dataGridView1.RowHeadersVisible) // Done it already
-                return; 
+            // This is a hack ... I can find no mechanism to detect when the datagridview has
+            // finished loading when in virtual mode. My attempt here is to use the first
+            // repaint of the grid after the filling process has started.
+            if (fillingGrid)
+            {
+                fillingGrid = false;
+                gridLoadComplete();
+            }
+        }
 
-            dataGridView1.RowHeadersVisible = true;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        private void gridLoadComplete()
+        {
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.EnableResizing;
+
+            tick3 = Environment.TickCount;
+            showState();
+        }
+
+        private void showState()
+        {
+            int count = _sortedData.Count;
+            int time1 = tick2 - tick1;
+            int time2 = tick3 - tick2;
+            var s = string.Format("{0:n0} INDI - Load:{1:n0} Grid:{2:n0}", count, time1, time2);
+            lblStatus.Text = s;
         }
 
         void dataGridView1_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
@@ -140,9 +173,6 @@ namespace IndiTable
                     e.Value = evt == null ? "" : evt.Date;
                     break;
             }
-
-            if (dex >= dataGridView1.RowCount)
-                loadComplete();
         }
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -175,13 +205,14 @@ namespace IndiTable
             FillGrid();
         }
 
-        // TODO letter navigator
-
         private void EmptyGrid(bool reset = true)
         {
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            if (sortCol != null)
+                dataGridView1.Columns[sortCol].HeaderCell.SortGlyphDirection = SortOrder.None;
 
             dataGridView1.Rows.Clear();
 
@@ -199,6 +230,38 @@ namespace IndiTable
             // Populate datagridview with individuals
             dataGridView1.RowCount = _sortedData.Count(); // TODO IEnumerable is not useful!
             dataGridView1.Columns[sortCol].HeaderCell.SortGlyphDirection = sortAscending ? SortOrder.Ascending : SortOrder.Descending;
+        }
+
+        private void FillNavBar()
+        {
+            flowLayoutPanel1.WrapContents = false;
+            for (char l = 'A'; l <= 'Z'; l++) // TODO localization
+            {
+                Label lbl = new Label();
+                lbl.Text = l.ToString();
+                lbl.TextAlign = ContentAlignment.MiddleCenter;
+
+                // scrunch as small as possible ... AutoSize leaves a huge gap w/ height
+                lbl.AutoSize = false;
+                using (Graphics g = CreateGraphics())
+                {
+                    var msr = g.MeasureString(lbl.Text, lbl.Font);
+                    lbl.Width = (int) msr.Width+10; // allow a little slop, especially for 'I'
+                    lbl.Height = (int) msr.Height+2;
+                }
+                lbl.Cursor = Cursors.Hand;
+                lbl.Click += lbl_Click;
+                flowLayoutPanel1.Controls.Add(lbl);
+            }
+        }
+
+        void lbl_Click(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (lbl == null)
+                return;
+            var val = lbl.Text;
+            MessageBox.Show(val);
         }
     }
 }
