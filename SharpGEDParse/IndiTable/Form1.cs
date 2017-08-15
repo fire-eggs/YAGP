@@ -9,6 +9,8 @@ using System.Windows.Forms;
 // ReSharper disable LocalizableElement
 // ReSharper disable InconsistentNaming
 
+// TODO neat if nav bar could deal with dates (i.e. date ranges)
+
 namespace IndiTable
 {
     public partial class Form1 : Form
@@ -26,7 +28,7 @@ namespace IndiTable
 
             LoadGed += Form1_LoadGed;
 
-            FillNavBar();
+            InitNavBar();
         }
 
         private void loadGEDCOMToolStripMenuItem_Click(object sender, EventArgs e)
@@ -177,10 +179,12 @@ namespace IndiTable
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            bool sortChange = false;
             if (sortCol.Trim().ToUpper() != dataGridView1.Columns[e.ColumnIndex].Name.Trim().ToUpper())
             {
                 dataGridView1.Columns[sortCol].HeaderCell.SortGlyphDirection = SortOrder.None;
                 sortAscending = true;
+                sortChange = true;
             }
             else
             {
@@ -188,7 +192,7 @@ namespace IndiTable
             }
             sortCol = dataGridView1.Columns[e.ColumnIndex].Name;
 
-            EmptyGrid(false);
+            EmptyGrid(false, false);
 
             // TODO *only* works if column name matches Person property name. Need comparators!!!
             // TODO comparer for id: sort numerically, not alphabetically
@@ -203,9 +207,11 @@ namespace IndiTable
                     _sortedData = _sortedData.OrderByDescending(p => prop.GetValue(p)).ToList();
             }
             FillGrid();
+            if (sortChange)
+                updateNavBar();
         }
 
-        private void EmptyGrid(bool reset = true)
+        private void EmptyGrid(bool reset = true, bool clear=true)
         {
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -214,7 +220,8 @@ namespace IndiTable
             if (sortCol != null)
                 dataGridView1.Columns[sortCol].HeaderCell.SortGlyphDirection = SortOrder.None;
 
-            dataGridView1.Rows.Clear();
+            if (clear)
+                dataGridView1.Rows.Clear();
 
             if (reset)
             {
@@ -227,12 +234,15 @@ namespace IndiTable
 
         private void FillGrid()
         {
+            if (dataGridView1.RowCount > 1)
+                dataGridView1.Rows.Clear();
+
             // Populate datagridview with individuals
             dataGridView1.RowCount = _sortedData.Count(); // TODO IEnumerable is not useful!
             dataGridView1.Columns[sortCol].HeaderCell.SortGlyphDirection = sortAscending ? SortOrder.Ascending : SortOrder.Descending;
         }
 
-        private void FillNavBar()
+        private void InitNavBar()
         {
             flowLayoutPanel1.WrapContents = false;
             for (char l = 'A'; l <= 'Z'; l++) // TODO localization
@@ -258,10 +268,55 @@ namespace IndiTable
         void lbl_Click(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            if (lbl == null)
+            if (lbl == null || CharMap == null)
                 return;
-            var val = lbl.Text;
-            MessageBox.Show(val);
+            var val = lbl.Text[0];
+            var dex = CharMap[val];
+            dataGridView1.FirstDisplayedScrollingRowIndex = dex;
+        }
+
+        private Dictionary<char, int> CharMap;
+
+        private void updateNavBar()
+        {
+            // TODO hack: nav bar not visible if sorting column isn't string
+            flowLayoutPanel1.Visible = sortCol == "Name";
+
+            // TODO must build in reverse order if sorted in reverse!!!
+
+            // User has changed sorting column. 
+            CharMap = new Dictionary<char, int>();
+            for (char l = 'A'; l <= 'Z'; l++)
+                CharMap.Add(l,0);
+            char l2 = 'A';
+            for (int i = 0; i < _sortedData.Count; i++)
+            {
+                var name = _sortedData[i].Name;
+                if (string.IsNullOrEmpty(name))
+                    continue;
+                char first = Char.ToUpper(name[0]);
+                if (first > 'Z')
+                    continue;
+
+                while (first > l2)
+                    l2++;
+                if (first == l2)
+                {
+                    CharMap[l2] = i;
+                    l2++;
+                }
+                if (l2 > 'Z')
+                    break;
+            }
+
+            foreach (var control in flowLayoutPanel1.Controls)
+            {
+                var lbl = control as Label;
+                if (lbl == null)
+                    continue;
+                int dex = CharMap[lbl.Text[0]];
+                lbl.Visible = dex > 0;
+            }
         }
     }
 }
