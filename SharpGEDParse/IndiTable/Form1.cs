@@ -10,6 +10,7 @@ using System.Windows.Forms;
 // ReSharper disable InconsistentNaming
 
 // TODO neat if nav bar could deal with dates (i.e. date ranges)
+// TODO nav bar has issues with accented/cryllic characters
 
 namespace IndiTable
 {
@@ -62,9 +63,9 @@ namespace IndiTable
         private Forest _gedtrees;
         private List<Person> _sortedData;
 
-        private int tick1;
-        private int tick2;
-        private int tick3;
+        private int tick1; // start of time track
+        private int tick2; // load of gedcom complete
+        private int tick3; // sort of data and grid fill complete
 
         private void Form1_LoadGed(object sender, EventArgs e)
         {
@@ -143,6 +144,7 @@ namespace IndiTable
 
             tick3 = Environment.TickCount;
             showState();
+            updateNavBar();
         }
 
         private void showState()
@@ -179,12 +181,11 @@ namespace IndiTable
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            bool sortChange = false;
             if (sortCol.Trim().ToUpper() != dataGridView1.Columns[e.ColumnIndex].Name.Trim().ToUpper())
             {
+                // changing sort column.
                 dataGridView1.Columns[sortCol].HeaderCell.SortGlyphDirection = SortOrder.None;
                 sortAscending = true;
-                sortChange = true;
             }
             else
             {
@@ -196,6 +197,7 @@ namespace IndiTable
 
             // TODO *only* works if column name matches Person property name. Need comparators!!!
             // TODO comparer for id: sort numerically, not alphabetically
+            // TODO comparer for date
             // TODO track column, comparer, column header, etc : see GedKeeper listmanager
 
             PropertyInfo prop = typeof(Person).GetProperty(sortCol);
@@ -207,8 +209,7 @@ namespace IndiTable
                     _sortedData = _sortedData.OrderByDescending(p => prop.GetValue(p)).ToList();
             }
             FillGrid();
-            if (sortChange)
-                updateNavBar();
+            updateNavBar();
         }
 
         private void EmptyGrid(bool reset = true, bool clear=true)
@@ -282,31 +283,42 @@ namespace IndiTable
             // TODO hack: nav bar not visible if sorting column isn't string
             flowLayoutPanel1.Visible = sortCol == "Name";
 
-            // TODO must build in reverse order if sorted in reverse!!!
-
             // User has changed sorting column. 
             CharMap = new Dictionary<char, int>();
             for (char l = 'A'; l <= 'Z'; l++)
-                CharMap.Add(l,0);
-            char l2 = 'A';
-            for (int i = 0; i < _sortedData.Count; i++)
+                CharMap.Add(l,-1);
+
+            char l2 = sortAscending ? 'A' : 'Z';
+
+            for (int i = 0; i != _sortedData.Count; i ++)
             {
                 var name = _sortedData[i].Name;
                 if (string.IsNullOrEmpty(name))
                     continue;
                 char first = Char.ToUpper(name[0]);
-                if (first > 'Z')
+                if (first > 'Z' || first < 'A')
                     continue;
 
-                while (first > l2)
-                    l2++;
-                if (first == l2)
+                if (sortAscending)
                 {
-                    CharMap[l2] = i;
-                    l2++;
+                    while (l2 < first)
+                        l2 ++;
+                    if (first == l2)
+                    {
+                        CharMap[l2] = i;
+                        l2 ++;
+                    }
                 }
-                if (l2 > 'Z')
-                    break;
+                else
+                {
+                    while (l2 > first)
+                        l2 --;
+                    if (first == l2)
+                    {
+                        CharMap[l2] = i;
+                        l2--;
+                    }
+                }
             }
 
             foreach (var control in flowLayoutPanel1.Controls)
@@ -315,7 +327,7 @@ namespace IndiTable
                 if (lbl == null)
                     continue;
                 int dex = CharMap[lbl.Text[0]];
-                lbl.Visible = dex > 0;
+                lbl.Visible = dex >= 0;
             }
         }
     }
