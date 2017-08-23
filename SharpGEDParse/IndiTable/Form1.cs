@@ -88,23 +88,13 @@ namespace IndiTable
         private bool sortAscending;
         private string sortCol;
 
+        private Columns indiColumns;
+
         // Set datagridview columns
         private void LoadColumns()
         {
-            var idCol = new DataGridViewTextBoxColumn();
-            idCol.HeaderText = "Id";
-            idCol.Name = "Id";
-            var nameCol = new DataGridViewTextBoxColumn();
-            nameCol.HeaderText = "Name";
-            nameCol.Name = "Name";
-
-            var bdateCol = new DataGridViewTextBoxColumn();
-            bdateCol.HeaderText = "Birth Date";
-            bdateCol.Name = "bdate";
-
-            dataGridView1.Columns.Add(idCol);
-            dataGridView1.Columns.Add(nameCol);
-            dataGridView1.Columns.Add(bdateCol);
+            indiColumns = ColumnFactory.IndiColumns();
+            indiColumns.Generate(dataGridView1);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -164,23 +154,17 @@ namespace IndiTable
             var name = dataGridView1.Columns[e.ColumnIndex].Name;
 
             Person p = _sortedData.ElementAt(dex);
-            switch (name)
-            {
-                case "Id":
-                    e.Value = p.Id;
-                    break;
-                case "Name":
-                    e.Value = p.Name;
-                    break;
-                case "bdate":
-                    var evt = p.GetEvent("BIRT");
-                    e.Value = evt == null ? "" : evt.Date;
-                    break;
-            }
+
+            string val = indiColumns.GetByName(name).GetValue(p);
+            e.Value = val;
+
         }
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (sortCol == null)
+                return;
+
             if (sortCol.Trim().ToUpper() != dataGridView1.Columns[e.ColumnIndex].Name.Trim().ToUpper())
             {
                 // changing sort column.
@@ -195,18 +179,19 @@ namespace IndiTable
 
             EmptyGrid(false, false);
 
-            // TODO *only* works if column name matches Person property name. Need comparators!!!
-            // TODO comparer for id: sort numerically, not alphabetically
             // TODO comparer for date
             // TODO track column, comparer, column header, etc : see GedKeeper listmanager
 
-            PropertyInfo prop = typeof(Person).GetProperty(sortCol);
-            if (prop != null)
+            var sorter = indiColumns.GetByName(sortCol).Comparer;
+            if (sorter != null)
             {
                 if (sortAscending)
-                    _sortedData = _sortedData.OrderBy(p => prop.GetValue(p)).ToList();
+                    _sortedData.Sort(sorter);
                 else
-                    _sortedData = _sortedData.OrderByDescending(p => prop.GetValue(p)).ToList();
+                {
+                    // ... or sorter.Compare(b,a) without the -1
+                    _sortedData.Sort((a,b) => -1 * sorter.Compare(a,b));
+                }
             }
             FillGrid();
             updateNavBar();

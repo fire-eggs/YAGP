@@ -235,5 +235,21 @@ namespace GEDWrap
             return null;
         }
 
+        public string Sex
+        {
+            get
+            {
+                switch (Indi.Sex)
+                {
+                    case 'M':
+                        return "Male";
+                    case 'F':
+                        return "Female";
+                    default:
+                        return "Unknown";
+                }
+            }
+        }
+
     }
 }
