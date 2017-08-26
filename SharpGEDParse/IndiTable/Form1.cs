@@ -131,6 +131,7 @@ namespace IndiTable
         private void gridLoadComplete()
         {
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.EnableResizing;
+            dataGridView1.ColumnHeadersVisible = true;
 
             tick3 = Environment.TickCount;
             showState();
@@ -182,6 +183,18 @@ namespace IndiTable
             // TODO comparer for date
             // TODO track column, comparer, column header, etc : see GedKeeper listmanager
 
+#if false
+            PropertyInfo prop = typeof (Person).GetProperty(sortCol);
+            if (prop != null)
+            {
+                if (sortAscending)
+                    _sortedData = _sortedData.OrderBy(p => prop.GetValue(p)).ToList();
+                else
+                {
+                    _sortedData = _sortedData.OrderByDescending(p => prop.GetValue(p)).ToList();
+                }
+            }
+#else
             var sorter = indiColumns.GetByName(sortCol).Comparer;
             if (sorter != null)
             {
@@ -193,8 +206,11 @@ namespace IndiTable
                     _sortedData.Sort((a,b) => -1 * sorter.Compare(a,b));
                 }
             }
+#endif
+            fillingGrid = true;
+            dataGridView1.ColumnHeadersVisible = false;
             FillGrid();
-            updateNavBar();
+            //updateNavBar();
         }
 
         private void EmptyGrid(bool reset = true, bool clear=true)
@@ -267,6 +283,9 @@ namespace IndiTable
         {
             // TODO hack: nav bar not visible if sorting column isn't string
             flowLayoutPanel1.Visible = sortCol == "Name";
+
+            // TODO should have the nav bar updated by the Column
+            //var col = indiColumns.GetByName(sortCol);
 
             // User has changed sorting column. 
             CharMap = new Dictionary<char, int>();

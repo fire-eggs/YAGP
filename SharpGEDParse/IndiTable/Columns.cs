@@ -94,35 +94,95 @@ namespace IndiTable
         }
     }
 
+    public class PropStringComparer : IComparer<Person>
+    {
+        // A string comparer fetching value from property via reflection
+
+        private readonly PropertyInfo _prop;
+        private Func<Person, string> _propDelegate;
+
+        public PropStringComparer(string propName)
+        {
+            _prop = typeof (Person).GetProperty(propName);
+            _propDelegate = (Func<Person, string>) Delegate.CreateDelegate
+                (typeof (Func<Person, string>), _prop.GetGetMethod());
+        }
+        public int Compare(Person x, Person y)
+        {
+            string s1, s2;
+            s1 = _propDelegate(x);
+            s2 = _propDelegate(y);
+
+            // TODO culture
+            return String.Compare(s1, s2, StringComparison.OrdinalIgnoreCase);
+        }
+    }
+
+    public class PropStringComparer<T> : IComparer<T>
+    {
+        // A string comparer fetching value from property via reflection
+
+        private readonly PropertyInfo _prop;
+        private Func<T, string> _propDelegate;
+
+        public PropStringComparer(string propName)
+        {
+            _prop = typeof(T).GetProperty(propName);
+            _propDelegate = (Func<T, string>)Delegate.CreateDelegate
+                (typeof(Func<T, string>), _prop.GetGetMethod());
+        }
+        public int Compare(T x, T y)
+        {
+            string s1, s2;
+            s1 = _propDelegate(x);
+            s2 = _propDelegate(y);
+
+            // TODO culture
+            return String.Compare(s1, s2, StringComparison.OrdinalIgnoreCase);
+        }
+    }
+
     public class StringComparer : IComparer<Person>
     {
         private readonly PropertyInfo _prop;
         private readonly MethodInfo _meth;
         private readonly object[] _methArgs;
 
+        private Func<Person, string> _propDelegate;
+
+        private delegate string MethDelegate(Person p, string val);
+
+        private MethDelegate _methDelegate;
+
         public StringComparer(string propName)
         {
             _prop = typeof (Person).GetProperty(propName);
+            _propDelegate = (Func<Person, string>) Delegate.CreateDelegate
+                (typeof (Func<Person, string>), _prop.GetGetMethod());
         }
 
         public StringComparer(string attrib, string meth)
         {
             _meth = typeof(Person).GetMethod(meth);
+            _methDelegate = (MethDelegate) Delegate.CreateDelegate(typeof (MethDelegate), _meth);
             _methArgs = new object[] {attrib};
+            _attribName = attrib;
         }
+
+        private string _attribName;
 
         public int Compare(Person x, Person y)
         {
             string s1, s2;
             if (_prop == null)
             {
-                s1 = _meth.Invoke(x, _methArgs) as string;
-                s2 = _meth.Invoke(y, _methArgs) as string;
+                s1 = _methDelegate(x, _attribName);
+                s2 = _methDelegate(y, _attribName);
             }
             else
             {
-                s1 = _prop.GetValue(x) as string;
-                s2 = _prop.GetValue(y) as string;
+                s1 = _propDelegate(x);
+                s2 = _propDelegate(y);
             }
 
             // TODO culture
@@ -275,7 +335,7 @@ namespace IndiTable
                         if (s[2] == null)
                             iCol.Comparer = new StringComparer(s[4],s[5]);
                         else
-                            iCol.Comparer = new StringComparer(s[2]);
+                            iCol.Comparer = new PropStringComparer(s[2]);
                         break;
                     case "numeric":
                         iCol.Comparer = new CompareNumberOrder(iCol.PropertyName);
