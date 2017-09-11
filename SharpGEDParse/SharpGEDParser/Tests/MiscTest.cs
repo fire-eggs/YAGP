@@ -279,6 +279,52 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, res.Count);
             Assert.AreEqual("BLAH", res[0].Tag);
         }
+
+        [Test]
+        public void AllFam()
+        {
+            string indi = "0 @F1@ FAM\n1 HUSB @I1@\n1 WIFE @I2@";
+            var fr = ReadItHigher(indi);
+            Assert.AreEqual(0, fr.Errors.Count);
+            Assert.AreEqual(1, fr.AllFamilies.Count);
+            Assert.AreEqual(0, fr.AllFamilies[0].Errors.Count);
+        }
+
+        [Test]
+        public void AllSour()
+        {
+            string indi = "0 @F1@ FAM\n1 HUSB @I1@\n1 WIFE @I2@\n0 @S1@ SOUR";
+            var fr = ReadItHigher(indi);
+            Assert.AreEqual(0, fr.Errors.Count);
+            Assert.AreEqual(1, fr.AllFamilies.Count);
+            Assert.AreEqual(1, fr.AllSources.Count);
+        }
+
+        [Test]
+        public void InvalidLevel()
+        {
+            // code coverage
+            string txt = "1 CHAN";
+            var fr = ReadItHigher(txt);
+            Assert.AreEqual(1, fr.Data.Count);
+            var rec = fr.Data[0];
+            Assert.IsTrue(rec is Unknown);
+            Assert.AreEqual(0, rec.Errors.Count);
+        }
+
+        [Test]
+        public void EmptyTag()
+        {
+            // code coverage
+            string txt = "0 @Z1@ ";
+            var fr = ReadItHigher(txt);
+            Assert.AreEqual(1, fr.AllErrors.Count);
+            Assert.AreEqual(1, fr.Data.Count);
+            var rec = fr.Data[0];
+            Assert.IsTrue(rec is Unknown);
+            Assert.AreEqual(UnkRec.ErrorCode.MissTag, rec.Errors[0].Error);
+        }
+
     }
 }
 

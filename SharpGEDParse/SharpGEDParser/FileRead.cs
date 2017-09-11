@@ -96,6 +96,7 @@ namespace SharpGEDParser
         }
 
         #region Old Character Encoding code - re-use?
+#if false
         private void GetEncoding(string gedPath)
         {
             FileEnc = Encoding.Default;
@@ -156,6 +157,7 @@ namespace SharpGEDParser
                 }
             }
         }
+#endif
         #endregion
 
         /// <summary>
@@ -368,6 +370,7 @@ namespace SharpGEDParser
             }
         }
 
+#if false
         // TODO this needs to go into an API class?
         public NoteRecord GetNote(string id)
         {
@@ -376,5 +379,7 @@ namespace SharpGEDParser
                 return null;
             return rec as NoteRecord;
         }
+#endif
+
     }
 }
