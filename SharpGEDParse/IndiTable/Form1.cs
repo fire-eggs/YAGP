@@ -334,5 +334,12 @@ namespace IndiTable
                 lbl.Visible = dex >= 0;
             }
         }
+
+        private void listViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VirtListView vlv = new VirtListView(_gedtrees);
+            vlv.Owner = this;
+            vlv.ShowDialog();
+        }
     }
 }

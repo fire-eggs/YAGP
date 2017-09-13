@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 // TODO taking several seconds to sort 300,000 people on different columns
 
+// ReSharper disable RedundantCommaInArrayInitializer
+
 namespace IndiTable
 {
     public class Column

@@ -220,7 +220,7 @@ namespace GEDWrap
             var gedEvent = GetEvent(eventName);
             if (gedEvent != null && gedEvent.Place != null)
                 return gedEvent.Place;
-            return null;
+            return "";
         }
 
         public string GetParent(bool dad)
