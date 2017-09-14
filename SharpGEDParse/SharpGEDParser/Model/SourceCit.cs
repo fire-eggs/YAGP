@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace SharpGEDParser.Model
 {
@@ -7,6 +8,8 @@ namespace SharpGEDParser.Model
     public class SourceCit : StructCommon, NoteHold, MediaHold
     {
         public string Xref { get; set; } // will be empty if an embedded citation
+
+        public StringBuilder Builder { get; set; } // Accumulate text during parse
 
         public string Desc { get; set; }
 

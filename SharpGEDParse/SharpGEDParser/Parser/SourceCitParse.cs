@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using SharpGEDParser.Model;
 
 // ReSharper disable InconsistentNaming
@@ -71,18 +72,20 @@ namespace SharpGEDParser.Parser
         private static void contProc(StructParseContext context, int linedex, char level)
         {
             SourceCit cit = (context.Parent as SourceCit);
-            cit.Desc += "\n" + context.Remain;
+            cit.Builder.Append("\n");
+            cit.Builder.Append(context.Remain);
         }
 
         private static void concProc(StructParseContext context, int linedex, char level)
         {
             SourceCit cit = (context.Parent as SourceCit);
-            cit.Desc += context.Remain;
+            cit.Builder.Append(context.Remain);
         }
 
         private static SourceCit CommonParser(ParseContextCommon ctx, int linedex, char level, List<UnkRec> errs )
         {
             SourceCit cit = new SourceCit();
+            cit.Builder = new StringBuilder(512);
             StructParseContext ctx2 = new StructParseContext(ctx, linedex, level, cit);
 
             string extra;
@@ -100,11 +103,14 @@ namespace SharpGEDParser.Parser
             }
             if (!string.IsNullOrEmpty(extra))
             {
-                cit.Desc = extra;
+                cit.Builder.Append(extra);
             }
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+
+            cit.Desc = cit.Builder.ToString(); // Save accumulated text
+            cit.Builder = null;
 
             if (!cit.Data && cit.Xref != null && cit.AnyText)
             {
