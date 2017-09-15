@@ -29,23 +29,20 @@ namespace IndiTable
         }
 
 	    MyListView lv;
-	    ComboBox view_cb;
-	    Label view_label;
-	    Label warning_label;
 
         private Forest _trees;
         private Person[] _data;
 
-        ColumnHeader [] _columns =  
-        {
-			new ColumnHeader ("Id"),
-			new ColumnHeader ("Full Name"),
-			new ColumnHeader ("Sex"),
-			new ColumnHeader ("Birth Date"),
-			new ColumnHeader ("Birth Place"),
-			new ColumnHeader ("Death Date"),
-			new ColumnHeader ("Death Place"),
-		};
+        //ColumnHeader [] _columns =  
+        //{
+        //    new ColumnHeader ("Id"),
+        //    new ColumnHeader ("Full Name"),
+        //    new ColumnHeader ("Sex"),
+        //    new ColumnHeader ("Birth Date"),
+        //    new ColumnHeader ("Birth Place"),
+        //    new ColumnHeader ("Death Date"),
+        //    new ColumnHeader ("Death Place"),
+        //};
 
         string [] _columnT =  
         {
@@ -81,6 +78,7 @@ namespace IndiTable
 		    lv.VirtualMode = true;
             lv.View = View.Details;
 	        lv.GridLines = true;
+	        lv.AllowColumnReorder = true;
 
 	        foreach (var s in _columnT)
 	        {
@@ -98,8 +96,8 @@ namespace IndiTable
 
 	    void ListViewRetrieveItem (object o, RetrieveVirtualItemEventArgs args)
 	    {
-		    if (args.ItemIndex == ItemsCount -1 && !IsHandleCreated)
-			    warning_label.Text = "Warning: The very last item was requested, which should not happen in load time (not visible yet)";
+	        if (args.ItemIndex == ItemsCount - 1 && !IsHandleCreated)
+	            ;//warning_label.Text = "Warning: The very last item was requested, which should not happen in load time (not visible yet)";
 
 	        Person p = _data[args.ItemIndex];
 
@@ -161,14 +159,14 @@ namespace IndiTable
         {
             var newSortOrder = myToggle[mySortOrderMap[e.Column]];
             mySortOrderMap[e.Column] = newSortOrder;     // Store sort order for current column
-            fastSort(e.Column, newSortOrder);
+            FastSort(e.Column, newSortOrder);
             //SortBy(newSortOrder, myComparers[e.Column]); // Do the actual sorting
             lv.Refresh();
         }
 
         delegate string Fetcher<in T>(T x);
 
-        Dictionary<int, Fetcher<Person>> fetchers = new Dictionary<int, Fetcher<Person>>
+        readonly Dictionary<int, Fetcher<Person>> _fetchers = new Dictionary<int, Fetcher<Person>>
         {
             {0, a => a.Id},
             {1, a => a.Name},
@@ -177,9 +175,9 @@ namespace IndiTable
             {6, a => a.GetPlace("DEAT")},
         };
 
-        void fastSort(int column, SortOrder newSortOrder)
+        void FastSort(int column, SortOrder newSortOrder)
         {
-            var fetch = fetchers[column];
+            var fetch = _fetchers[column];
             int count = _data.Length;
 #if false
             KeyedList<string, Person> kl = new KeyedList<string,Person>(count);
