@@ -27,7 +27,9 @@ namespace SharpGEDParser
         private int _count;
         private readonly string[] _buf;
 
-        private const int MAX_PARTS = 49; // TODO verify this works as desired
+        // private const int MAX_PARTS = 49; // TODO verify this works as desired
+        // A line is <level><ident><tag><remain> - so really only need 10?
+        private const int MAX_PARTS = 9;
 
         public GEDSplitter() : this(MAX_PARTS+1) 
         {
