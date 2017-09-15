@@ -9,8 +9,6 @@ namespace SharpGEDParser.Model
     {
         public string Xref { get; set; } // will be empty if an embedded citation
 
-        public StringBuilder Builder { get; set; } // Accumulate text during parse
-
         public string Desc { get; set; }
 
         public string Page { get; set; }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using SharpGEDParser.Model;
 
 // ReSharper disable InconsistentNaming
@@ -9,6 +8,10 @@ namespace SharpGEDParser.Parser
     // Parse a set of lines for a Source Citation structure
     // Source Citations may be embedded or reference.
  
+    // NOTE: I have experimented with using a StringBuilder for the Desc field, rather than use
+    // string concat. Doing so is FAR more expensive - a StringBuilder is allocated for every
+    // SOUR citation, when most SOUR citations do NOT have any associated description/CONC/CONT data!
+
     public class SourceCitParse : StructParser
     {
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
@@ -72,20 +75,18 @@ namespace SharpGEDParser.Parser
         private static void contProc(StructParseContext context, int linedex, char level)
         {
             SourceCit cit = (context.Parent as SourceCit);
-            cit.Builder.Append("\n");
-            cit.Builder.Append(context.Remain);
+            cit.Desc += "\n" + context.Remain;
         }
 
         private static void concProc(StructParseContext context, int linedex, char level)
         {
             SourceCit cit = (context.Parent as SourceCit);
-            cit.Builder.Append(context.Remain);
+            cit.Desc += context.Remain;
         }
 
         private static SourceCit CommonParser(ParseContextCommon ctx, int linedex, char level, List<UnkRec> errs )
         {
             SourceCit cit = new SourceCit();
-            cit.Builder = new StringBuilder(512);
             StructParseContext ctx2 = new StructParseContext(ctx, linedex, level, cit);
 
             string extra;
@@ -103,14 +104,11 @@ namespace SharpGEDParser.Parser
             }
             if (!string.IsNullOrEmpty(extra))
             {
-                cit.Builder.Append(extra);
+                cit.Desc = extra;
             }
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
-
-            cit.Desc = cit.Builder.ToString(); // Save accumulated text
-            cit.Builder = null;
 
             if (!cit.Data && cit.Xref != null && cit.AnyText)
             {
