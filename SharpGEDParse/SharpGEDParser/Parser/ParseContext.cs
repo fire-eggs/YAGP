@@ -11,6 +11,7 @@ namespace SharpGEDParser.Parser
         public GedRecord Lines;
         public int Begline; // index of first line for this 'record'
         public int Endline; // index of last line FOUND for this 'record'
+        public GEDSplitter gs;
 
         public ParseContextCommon()
         {
@@ -23,6 +24,7 @@ namespace SharpGEDParser.Parser
             Endline = ctx.Endline;
             Level = ctx.Level;
             Remain = ctx.Remain;
+            gs = ctx.gs;
         }
     }
 

@@ -20,7 +20,8 @@ namespace SharpGEDParser
         public void Parse(GEDCommon rec, GedRecord Lines)
         {
             ParseContext2 ctx = new ParseContext2();
-            GEDSplitter gs = new GEDSplitter();
+            ctx.gs = new GEDSplitter();
+            //GEDSplitter gs = new GEDSplitter();
 
             ctx.Lines = Lines;
             ctx.Parent = rec;
@@ -32,7 +33,7 @@ namespace SharpGEDParser
                 ctx.Begline = i;
                 ctx.Endline = i; // assume it is one line long, parser might change it
 
-                gs.LevelTagAndRemain(line, ctx);
+                ctx.gs.LevelTagAndRemain(line, ctx);
                 //LineUtil.LevelTagAndRemain(ctx, line); //, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
                 TagProc2 tagProc;
                 if (ctx.Tag != null && _tagSet2.TryGetValue(ctx.Tag, out tagProc))
@@ -54,8 +55,8 @@ namespace SharpGEDParser
             // TODO post parse error checking on sub-structures
             PostCheck(ctx.Parent); // post parse error checking
 
+            ctx.gs = null;
             ctx = null;
-            gs = null;
         }
 
         // Find the end of this 'record'.
@@ -165,7 +166,7 @@ namespace SharpGEDParser
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         public static string extendedText(ParseContextCommon ctx)
         {
-            GEDSplitter eTextSplit = new GEDSplitter();
+            //GEDSplitter eTextSplit = new GEDSplitter();
             LineUtil.LineData eTextLd = new LineUtil.LineData();
 
             StringBuilder txt = new StringBuilder(ctx.Remain.TrimStart(),1024);
@@ -173,7 +174,7 @@ namespace SharpGEDParser
             int max = ctx.Lines.Max;
             for (; i < max; i++)
             {
-                eTextSplit.LevelTagAndRemain(ctx.Lines.GetLine(i), eTextLd);
+                ctx.gs.LevelTagAndRemain(ctx.Lines.GetLine(i), eTextLd);
                 //LevelTagAndRemain(eTextLd, ctx.Lines.GetLine(i));
                 if (eTextLd.Level <= ctx.Level)
                     break; // end of sub-record
@@ -191,7 +192,7 @@ namespace SharpGEDParser
             }
             ctx.Endline = i - 1;
             eTextLd = null;
-            eTextSplit = null;
+            //eTextSplit = null;
             return txt.ToString();
         }
 

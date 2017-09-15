@@ -20,7 +20,7 @@ namespace SharpGEDParser
     // The original StringSplitter did not behave as desired with extra separating
     // characters, e.g. "0   @I1@   INDI" resulted in "0", " ", " ", "@I1", etc.
     //
-    class GEDSplitter
+    public class GEDSplitter
     {
         private readonly int[] _starts;
         private readonly int[] _lens;

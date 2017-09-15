@@ -128,13 +128,13 @@ namespace SharpGEDParser.Parser
             if (context.Endline > context.Begline)
             {
                 LineUtil.LineData ld = new LineUtil.LineData();
-                var gs = new GEDSplitter();
+                //var gs = new GEDSplitter();
                 //ParseContext2 ctx = new ParseContext2();
                 int i = context.Begline + 1;
                 while (i <= context.Endline)
                 {
                     //LineUtil.LevelTagAndRemain(ld, context.Lines.GetLine(i));
-                    gs.LevelTagAndRemain(context.Lines.GetLine(i), ld);
+                    context.gs.LevelTagAndRemain(context.Lines.GetLine(i), ld);
                     switch (ld.Tag)
                     {
                         case "_MREL":
@@ -156,7 +156,7 @@ namespace SharpGEDParser.Parser
                     }
                     i++;
                 }
-                gs = null;
+                //gs = null;
             }
             fam.AddChild(xref, frel, mrel);
         }
