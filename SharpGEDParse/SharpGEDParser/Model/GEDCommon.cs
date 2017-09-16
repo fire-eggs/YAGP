@@ -113,6 +113,8 @@ namespace SharpGEDParser.Model
         private List<UnkRec> _errors;
         public List<UnkRec> Errors { get { return _errors ?? (_errors = new List<UnkRec>()); } }
 
+        public bool AnyErrors { get { return _errors != null && _errors.Count > 0; } }
+
         // Container for other ids (REFN, UID, AFN, RFN)
         // NOTE: RIN is not here because used by > 50% of records
         private IdHold _ids;

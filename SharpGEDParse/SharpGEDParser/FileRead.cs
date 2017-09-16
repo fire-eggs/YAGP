@@ -262,12 +262,15 @@ namespace SharpGEDParser
             bool nonStdAliasSeen = false;
             foreach (var gedCommon in Data)
             {
-                foreach (var err in gedCommon.Errors)
+                if (gedCommon.AnyErrors)
                 {
-                    if (err.Error == UnkRec.ErrorCode.NonStdAlias)
-                        nonStdAliasSeen = true;
-                    else
-                        _allErrors.Add(err);
+                    foreach (var err in gedCommon.Errors)
+                    {
+                        if (err.Error == UnkRec.ErrorCode.NonStdAlias)
+                            nonStdAliasSeen = true;
+                        else
+                            _allErrors.Add(err);
+                    }
                 }
                 //if (gedCommon.Errors != null)
                 //    _allErrors.AddRange(gedCommon.Errors);
