@@ -1,3 +1,4 @@
+using System;
 using SharpGEDParser.Parser;
 
 namespace SharpGEDParser
@@ -26,9 +27,9 @@ namespace SharpGEDParser
         private readonly int[] _lens;
         private int _count;
         private readonly string[] _buf;
+        private int _max;
 
-        // private const int MAX_PARTS = 49; // TODO verify this works as desired
-        // A line is <level><ident><tag><remain> - so really only need 10?
+        // A line is <level><ident><tag><remain> - so even 10 is overkill?
         private const int MAX_PARTS = 9;
 
         public GEDSplitter() : this(MAX_PARTS+1) 
@@ -37,6 +38,7 @@ namespace SharpGEDParser
 
         public GEDSplitter(int bufferSize)
         {
+            _max = bufferSize-1;
             _starts = new int[bufferSize];
             _lens = new int[bufferSize];
             _buf = new string[5];
@@ -54,30 +56,7 @@ namespace SharpGEDParser
         {
             if (_count <= dex)
                 return null;
-            return value.Substring(_starts[dex]); //, value.Length - _starts[dex]);
-        }
-
-        public string[] ZeroOneMany(string value)
-        {
-            switch (_count)
-            {
-                case 1:
-                    _buf[0] = value.Substring(_starts[0], _lens[0]);
-                    _buf[1] = _buf[2] = "";
-                    break;
-                case 2:
-                    _buf[0] = value.Substring(_starts[0], _lens[0]);
-                    _buf[1] = value.Substring(_starts[1], _lens[1]);
-                    _buf[2] = "";
-                    break;
-                case 3:
-                default:
-                    _buf[0] = value.Substring(_starts[0], _lens[0]);
-                    _buf[1] = value.Substring(_starts[1], _lens[1]);
-                    _buf[2] = value.Substring(_starts[2], value.Length - _starts[2]);
-                    break;
-            }
-            return _buf;
+            return value.Substring(_starts[dex]);
         }
 
         public int Split(string value, char separator)
@@ -93,7 +72,7 @@ namespace SharpGEDParser
             int max = value.Length;
 
             // Find the mid-parts
-            for (int i = 0; i < max && resultIndex < MAX_PARTS; i++)
+            for (int i = 0; i < max && resultIndex < _max; i++)
             {
                 if (value[i] == separator)
                 {
@@ -121,26 +100,15 @@ namespace SharpGEDParser
             return value[_starts[0]];
         }
 
+        private readonly char[] _identTrim = {'@'};
         public string Ident(char [] value)
         {
             // substring 1 starts with '@' == ident
-            if (_count < 2 || value[_starts[1]] != '@')
+            if (_count < 2 || value[_starts[1]] != '@' || _lens[1] < 3)
                 return null;
-            return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
+            return new string(value, _starts[1], _lens[1]).Trim(_identTrim);
+            //return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
         }
-
-        //public string Tag(string value)
-        //{
-        //    // substring 1 doesn't start with '@' == tag
-        //    // else substring 2
-        //    if (_count < 2 || _lens[1] < 1)
-        //        return null;
-        //    if (value[_starts[1]] != '@')
-        //        return value.Substring(_starts[1], _lens[1]);
-        //    if (_count < 3)
-        //        return null;
-        //    return value.Substring(_starts[2], _lens[2]);
-        //}
 
         public string Tag(char [] value)
         {
@@ -152,17 +120,10 @@ namespace SharpGEDParser
                 return new string(value, _starts[1], _lens[1]);
             if (_count < 3)
                 return null;
+            if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
+                return new string(value, _starts[3], _lens[3]);
             return new string(value, _starts[2], _lens[2]);
         }
-
-        //public string Remain(string value)
-        //{
-        //    if (_count < 2)
-        //        return null;
-        //    if (_lens[1] > 0 && value[_starts[1]] != '@')
-        //        return GetRest(value, 2);
-        //    return GetRest(value, 3);
-        //}
 
         public string GetRest(char [] value, int dex)
         {
@@ -178,28 +139,14 @@ namespace SharpGEDParser
 
         public string Remain(char [] value)
         {
-            if (_count < 2)
+            if (_count < 3)
                 return null;
             if (_lens[1] > 0 && value[_starts[1]] != '@')
                 return GetRest(value, 2);
+            if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
+                return GetRest(value, 4);
             return GetRest(value, 3);
         }
-
-        //public void LevelTagAndRemain(string line, ParseContext2 ctx)
-        //{
-        //    Split(line, ' ');
-        //    ctx.Level = line[_starts[0]];
-        //    ctx.Tag = Tag(line);
-        //    ctx.Remain = Remain(line) ?? "";
-        //}
-
-        //public void LevelTagAndRemain(string line, LineUtil.LineData ctx)
-        //{
-        //    Split(line, ' ');
-        //    ctx.Level = line[_starts[0]];
-        //    ctx.Tag = Tag(line);
-        //    ctx.Remain = Remain(line) ?? "";
-        //}
 
         public void LevelTagAndRemain(char [] line, LineUtil.LineData ctx)
         {
@@ -208,14 +155,5 @@ namespace SharpGEDParser
             ctx.Tag = Tag(line);
             ctx.Remain = Remain(line) ?? "";
         }
-
-        public void LevelTagAndRemain(char [] line, ParseContext2 ctx)
-        {
-            Split(line, ' ');
-            ctx.Level = line[_starts[0]];
-            ctx.Tag = Tag(line);
-            ctx.Remain = Remain(line) ?? "";
-        }
-
     }
 }

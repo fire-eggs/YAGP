@@ -138,12 +138,13 @@ namespace SharpGEDParser.Tests
             DoFile(path);
         }
 
-        [Test]
-        public void TGC55()
-        {
-            var path = @"E:\projects\YAGP\Sample GED\tgc55c.ged"; // TODO project-relative path
-            DoFile(path);
-        }
+        // Not supporting carriage-return delimited files
+        //[Test]
+        //public void TGC55()
+        //{
+        //    var path = @"E:\projects\YAGP\Sample GED\tgc55c.ged"; // TODO project-relative path
+        //    DoFile(path);
+        //}
 
         [Test]
         public void DoSpecial()

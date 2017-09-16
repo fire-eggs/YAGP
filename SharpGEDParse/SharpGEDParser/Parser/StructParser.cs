@@ -44,7 +44,7 @@ namespace SharpGEDParser.Parser
                 {
                     UnkRec exc = new UnkRec();
                     exc.Beg = exc.End = i;
-                    exc.Error = UnkRec.ErrorCode.Exception;
+                    exc.Error = UnkRec.ErrorCode.MissTag;
                     // TODO exc.Error = "Exception during parse, skipping line";
                     // TODO not exception - missing tag / invalid linebreak
                     ctx.Parent.Errors.Add(exc);

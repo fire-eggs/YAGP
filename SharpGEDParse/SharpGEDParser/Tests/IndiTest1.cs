@@ -239,7 +239,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi1);
             Assert.AreEqual("1", rec.Ident);
             rec = parse(indi2);
-            Assert.AreEqual("", rec.Ident);
+            Assert.AreEqual(null, rec.Ident);
             rec = parse(indi3);
             Assert.AreEqual("VERYLONGPERSONID", rec.Ident);
         }
