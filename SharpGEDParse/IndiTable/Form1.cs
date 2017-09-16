@@ -71,6 +71,10 @@ namespace IndiTable
         {
             EmptyGrid();
 
+            _sortedData = null;
+            _gedtrees = null;
+            GC.Collect();
+
             tick1 = Environment.TickCount;
 
             _gedtrees = new Forest();
@@ -340,6 +344,9 @@ namespace IndiTable
             VirtListView vlv = new VirtListView(_gedtrees);
             vlv.Owner = this;
             vlv.ShowDialog();
+
+            vlv.Dispose();
+            GC.Collect();
         }
     }
 }

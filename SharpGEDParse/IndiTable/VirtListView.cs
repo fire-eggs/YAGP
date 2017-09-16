@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GEDWrap;
 
@@ -17,7 +13,6 @@ namespace IndiTable
         {
             DoubleBuffered = true;
             //SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
-
         }
     }
 
@@ -28,23 +23,11 @@ namespace IndiTable
             InitializeComponent();
         }
 
-	    MyListView lv;
+	    MyListView _lv;
 
-        private Forest _trees;
         private Person[] _data;
 
-        //ColumnHeader [] _columns =  
-        //{
-        //    new ColumnHeader ("Id"),
-        //    new ColumnHeader ("Full Name"),
-        //    new ColumnHeader ("Sex"),
-        //    new ColumnHeader ("Birth Date"),
-        //    new ColumnHeader ("Birth Place"),
-        //    new ColumnHeader ("Death Date"),
-        //    new ColumnHeader ("Death Place"),
-        //};
-
-        string [] _columnT =  
+        readonly string [] _columnT =  
         {
 			"Id",
 			"Full Name",
@@ -57,10 +40,15 @@ namespace IndiTable
 
         public VirtListView(Forest trees)
 	    {
-	        _trees = trees;
             _data = trees.AllPeople.ToArray();
             InitializeUIComponents();
 	    }
+
+        public new void Dispose()
+        {
+            _data = null;
+            base.Dispose();
+        }
 
         private int ItemsCount
         {
@@ -69,26 +57,26 @@ namespace IndiTable
 
 	    void InitializeUIComponents ()
 	    {
-		    lv = new MyListView ();
-		    lv.Location = new Point (10, 10);
-		    lv.Size = new Size (500, 500);
-		    lv.FullRowSelect = true;
-		    lv.RetrieveVirtualItem += ListViewRetrieveItem;
-		    lv.VirtualListSize = ItemsCount;
-		    lv.VirtualMode = true;
-            lv.View = View.Details;
-	        lv.GridLines = true;
-	        lv.AllowColumnReorder = true;
+		    _lv = new MyListView ();
+		    _lv.Location = new Point (10, 10);
+		    _lv.Size = new Size (500, 500);
+		    _lv.FullRowSelect = true;
+		    _lv.RetrieveVirtualItem += ListViewRetrieveItem;
+		    _lv.VirtualListSize = ItemsCount;
+		    _lv.VirtualMode = true;
+            _lv.View = View.Details;
+	        _lv.GridLines = true;
+	        _lv.AllowColumnReorder = true;
 
 	        foreach (var s in _columnT)
 	        {
-	            lv.Columns.Add(s);
+	            _lv.Columns.Add(s);
 	        }
             //lv.Columns.AddRange(_columnT);
             //lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
-            lv.ColumnClick += lv_ColumnClick;
-		    Controls.AddRange (new Control [] { lv });
+            _lv.ColumnClick += lv_ColumnClick;
+		    Controls.AddRange (new Control [] { _lv });
 
 		    Size = new Size (630, 580);
 		    Text = "VirtualMode tester";
@@ -161,7 +149,7 @@ namespace IndiTable
             mySortOrderMap[e.Column] = newSortOrder;     // Store sort order for current column
             FastSort(e.Column, newSortOrder);
             //SortBy(newSortOrder, myComparers[e.Column]); // Do the actual sorting
-            lv.Refresh();
+            _lv.Refresh();
         }
 
         delegate string Fetcher<in T>(T x);
