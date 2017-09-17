@@ -19,3 +19,5 @@ General status:
 - A couple of statistics programs exist but still need a _useful_ validation program.
 
 Additional details (screenshots, planning) can be seen in the Wiki.
+
+Some related material in my [Github pages (http://fire-eggs.github.io/ )]
