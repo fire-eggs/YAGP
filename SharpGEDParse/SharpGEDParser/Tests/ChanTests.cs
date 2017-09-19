@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 using System;
 
@@ -8,6 +9,7 @@ using System;
 namespace SharpGEDParser.Tests
 {
     // Common testing for CHAN - applies to all 'top-level' records with the same syntax
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class ChanTests : GedParseTest
     {

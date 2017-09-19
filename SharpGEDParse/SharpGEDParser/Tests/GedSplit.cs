@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 
 // TODO exercise Get, GetRest with edge cases
 // TODO leading tab?
@@ -7,6 +8,7 @@ namespace SharpGEDParser.Tests
 {
     // Exercise the GedSplitter class
 
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class GedSplit
     {
@@ -20,18 +22,6 @@ namespace SharpGEDParser.Tests
         //    Assert.AreEqual(0, gs.Lengths[0]);
         //    Assert.AreEqual(0, gs.Starts[0]);
         //    Assert.AreEqual("", gs.Level(txt));
-        //}
-
-        //[Test]
-        //public void Simple()
-        //{
-        //    var txt = "0 @I1@ INDI";
-        //    GEDSplitter gs = new GEDSplitter(10);
-        //    Assert.AreEqual(3, gs.Split(txt, ' '));
-        //    var res = gs.ZeroOneMany(txt);
-        //    Assert.AreEqual("0", res[0]);
-        //    Assert.AreEqual("@I1@", res[1]);
-        //    Assert.AreEqual("INDI", res[2]);
         //}
 
         [Test]
@@ -112,6 +102,18 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void BadId2()
+        {
+            // See V208252.ged
+            var txt = "0 @ 11@  FAM".ToCharArray();
+            GEDSplitter gs = new GEDSplitter();
+            gs.Split(txt, ' ');
+            Assert.AreEqual('0', gs.Level(txt));
+            Assert.AreEqual("FAM", gs.Tag(txt));
+            Assert.AreEqual("11", gs.Ident(txt));
+        }
+
+        [Test]
         public void MissTag()
         {
             var txt = "0 @Z1@ ".ToCharArray();
@@ -132,5 +134,26 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Page", gs.Tag(txt));
         }
 
+        [Test]
+        public void TabSplit()
+        {
+            var txt = "0\t@I1@\tINDI".ToCharArray();
+            GEDSplitter gs = new GEDSplitter(10);
+            Assert.AreEqual(3, gs.Split(txt, ' '));
+            Assert.AreEqual('0', gs.Level(txt));
+            Assert.AreEqual("I1", gs.Ident(txt));
+            Assert.AreEqual("INDI", gs.Tag(txt));
+        }
+
+        [Test]
+        public void LeadTab()
+        {
+            var txt = "\t0 @I1@ INDI".ToCharArray();
+            GEDSplitter gs = new GEDSplitter(10);
+            Assert.AreEqual(3, gs.Split(txt, ' '));
+            Assert.AreEqual('0', gs.Level(txt));
+            Assert.AreEqual("I1", gs.Ident(txt));
+            Assert.AreEqual("INDI", gs.Tag(txt));
+        }
     }
 }

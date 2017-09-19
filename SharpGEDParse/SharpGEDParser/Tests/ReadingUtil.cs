@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     public class ReadingUtil
     {
         public FileRead BuildAndRead(string[] lines, GedReader.LB term, bool bom, bool trailTerm=true)

@@ -56,6 +56,8 @@ namespace FamilyGroup
                 if (marr == null)
                     return Filler;
                 var spouse = marr.Spouse(_who);
+                if (spouse == null || spouse.Name == null)
+                    return "";
                 return spouse.Name;
             }
         }

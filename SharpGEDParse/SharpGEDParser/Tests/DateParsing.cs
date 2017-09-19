@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 using SharpGEDParser.Model;
 
@@ -11,6 +12,7 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class DateParsing : GedParseTest
     {
@@ -427,5 +429,15 @@ namespace SharpGEDParser.Tests
 
             // TODO verify range values
         }
+
+        [Test]
+        public void TestIntParseFail()
+        {
+            // Code coverage: failure to parse integer
+            string val = "Apr 2147483648";
+            var res = ParseForDate(val);
+            Assert.AreEqual(-1, res.Year);
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 
 // ReSharper disable UnusedMethodReturnValue.Local
@@ -7,6 +8,7 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class MiscTest : GedParseTest
     {

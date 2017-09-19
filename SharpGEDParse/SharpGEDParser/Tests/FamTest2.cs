@@ -1,10 +1,12 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 
 // Exercise _FREL/_MREL (e.g. FAM.CHIL._FREL)
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class FamTest2 : GedParseTest
     {

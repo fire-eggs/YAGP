@@ -72,6 +72,8 @@ namespace GEDWrap
         /// <param name="path"></param>
         public void LoadGEDCOM(string path)
         {
+            _issues = new List<Issue>();
+
             ParseGEDCOM(path);
             if (_gedReader == null || _gedReader.Data == null) // nothing to do!
                 return;
@@ -82,6 +84,8 @@ namespace GEDWrap
 
         public void LoadGEDCOM(string path, int bufferSize)
         {
+            _issues = new List<Issue>();
+
             ParseGEDCOM(path, bufferSize);
             if (_gedReader == null || _gedReader.Data == null) // nothing to do!
                 return;
@@ -92,10 +96,12 @@ namespace GEDWrap
 
         public void LoadFromStream(StreamReader stream)
         {
+            _issues = new List<Issue>();
+
             _gedReader = new FileRead();
             //_gedReader.ReadLines(stream);
             _gedReader.ReadGed(null, stream);
-            if (_gedReader.Data == null) // nothing to do!
+            if (_gedReader.Data.Count < 1) // nothing to do!
                 return;
             BuildTree();
             CalcTrees();
@@ -185,7 +191,6 @@ namespace GEDWrap
 
             _indiHash = new Dictionary<string, Person>();
             _famHash = new Dictionary<string, Union>();
-            _issues = new List<Issue>();
 
             // 20170520 From Peach fuzzing: missing ident would crash
             Random ranGen = new Random();

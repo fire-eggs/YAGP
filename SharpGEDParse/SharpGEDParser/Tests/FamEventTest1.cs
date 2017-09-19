@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 
 // TODO generic address testing?
@@ -15,6 +16,7 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class FamEventTest1 : GedParseTest
     {

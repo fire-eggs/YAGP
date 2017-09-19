@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\AllConnect.cs" />
     <Compile Include="Tests\AmbiguousHusband.cs" />
+    <Compile Include="Tests\AmbiguousWife.cs" />
     <Compile Include="Tests\BirthEst.cs" />
     <Compile Include="Tests\ChilConnect.cs" />
     <Compile Include="Tests\HusbConnect.cs" />

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using SharpGEDParser.Parser;
 
 // TODO valid symbol
@@ -6,6 +7,7 @@ using SharpGEDParser.Parser;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class DateToken
     {
