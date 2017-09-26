@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 
 // TODO seriously consider reworking diagrams to be drawn left-to-right
+using GEDWrap;
 
 namespace DrawAnce
 {
@@ -246,7 +247,36 @@ namespace DrawAnce
             gr.DrawString(AncData[i].Name, _nameFont, _textBrush, nameLoc);
             var textLoc = new PointF(left + 2, nameLoc.Y + TEXTSTEP + (float)Math.Ceiling(nameSize.Height));
             textRect.Location = textLoc;
-            gr.DrawString(AncData[i].Text, _textFont, _textBrush, textLoc);
+            gr.DrawString(GetText(AncData[i]), _textFont, _textBrush, textLoc);
+        }
+
+        private string GetShowString(Person anc, string tag, string prefix)
+        {
+            var even = anc.GetEvent(tag);
+            if (even == null)
+                return "";
+
+            string val = even.Descriptor + " " + even.Place;
+            if (string.IsNullOrWhiteSpace(val))
+                return "";
+
+            return prefix + val.Trim() + "\r\n";
+        }
+
+        private string GetText(Person anc)
+        {
+            if (anc.Indi == null)
+                return "";
+            string val1 = GetShowString(anc, "BIRT", "B: ");
+            string val2 = GetShowString(anc, "DEAT", "D: ");
+            string val3 = "";
+            if (anc.Marriage != null)
+            {
+                val3 = string.Format("M: {0} {1}\r\n", anc.Marriage.Date, anc.Marriage.Place);
+            }
+            string val4 = GetShowString(anc, "CHR", "C: ");
+            string val5 = GetShowString(anc, "OCCU", "O: ");
+            return val1 + val4 + val3 + val2 + val5;
         }
 
         /// <summary>
@@ -271,7 +301,7 @@ namespace DrawAnce
                 {
                     SizeF nameSize = gr.MeasureString(AncData[i].Name, _nameFont);
                     maxW = Math.Max(maxW, (int) Math.Ceiling(nameSize.Width) + penW); // round up: text margin too small
-                    var textSize = gr.MeasureString(AncData[i].Text, _textFont);
+                    var textSize = gr.MeasureString(GetText(AncData[i]), _textFont);
                     maxW = Math.Max(maxW, (int) textSize.Width + TEXTINDENT);
                     h1 = (int)Math.Ceiling(nameSize.Height);
                     h2 = (int)Math.Ceiling(textSize.Height);

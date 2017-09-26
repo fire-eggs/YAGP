@@ -56,25 +56,6 @@ namespace GEDWrap
                 (Indi.Names[0].Surname ?? ""); } 
         }
 
-        public string Text
-        {
-            get
-            {
-                if (Indi == null)
-                    return "";
-                string val1 = GetShowString("BIRT", "B: ");
-                string val2 = GetShowString("DEAT", "D: ");
-                string val3 = "";
-                if (Marriage != null)
-                {
-                    val3 = string.Format("M: {0} {1}\r\n", Marriage.Date, Marriage.Place);
-                }
-                string val4 = GetShowString("CHR", "C: ");
-                string val5 = GetShowString2("OCCU", "O: ");
-                return val1 + val4 + val3 + val2 + val5;
-            }
-        }
-
         public Union MarriageUnion
         {
             get
@@ -97,6 +78,7 @@ namespace GEDWrap
 
         public string Id { get { return Indi.Ident; } }
 
+        // TODO change to 'GetFact' to combine events/attribs?
         public IndiEvent GetEvent(string tag)
         {
             foreach (var kbrGedEvent in Indi.Events)
@@ -106,7 +88,7 @@ namespace GEDWrap
                     return kbrGedEvent;
                 }
             }
-            return null;
+            return GetAttrib(tag); // Allow attributes to be requested via a single interface
         }
 
         public IndiEvent GetAttrib(string tag)
@@ -119,32 +101,6 @@ namespace GEDWrap
                 }
             }
             return null;
-        }
-
-        private string GetShowString(string tag, string prefix)
-        {
-            var even = GetEvent(tag);
-            if (even == null)
-                return "";
-
-            string val = even.Date + " " + even.Place;
-            if (string.IsNullOrWhiteSpace(val))
-                return "";
-
-            return prefix + val + "\r\n";
-        }
-
-        private string GetShowString2(string tag, string prefix)
-        {
-            var even = GetAttrib(tag);
-            if (even == null)
-                return "";
-
-            string val = even.Descriptor + " " + even.Place;
-            if (string.IsNullOrWhiteSpace(val))
-                return "";
-
-            return prefix + val.Trim() + "\r\n";
         }
 
         public override string ToString()

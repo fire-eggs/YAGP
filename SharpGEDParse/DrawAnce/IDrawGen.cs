@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Drawing.Printing;
 
+// ReSharper disable InconsistentNaming
+
 namespace DrawAnce
 {
     public interface IDrawGen
