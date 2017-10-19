@@ -75,5 +75,22 @@ namespace SharpGEDParser.Model
             Submitters.Add(new Submitter {SubmitterType = submType, Xref = ident});
             // TODO at later time must validate the specified xref exists
         }
+
+        public bool HasName
+        {
+            get { return Names.Count > 0; }
+        }
+
+        public string FullName
+        {
+            get
+            {
+                if (!HasName)
+                    return "";
+                var name1 = Names[0];
+                string name = name1.Names + " " + name1.Surname + " " + name1.Suffix;
+                return name.Trim();
+            }
+        }
     }
 }

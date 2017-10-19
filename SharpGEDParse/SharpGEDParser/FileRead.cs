@@ -384,5 +384,19 @@ namespace SharpGEDParser
         }
 #endif
 
+        // TODO this needs to go into an API class
+        // TODO this just looks wrong
+        public IndiRecord GetDad(FamRecord fam)
+        {
+            if (fam.Dads.Count < 1)
+                return null;
+            return _allRecsDict[fam.Dads[0]] as IndiRecord;
+        }
+        public IndiRecord GetMom(FamRecord fam)
+        {
+            if (fam.Moms.Count < 1)
+                return null;
+            return _allRecsDict[fam.Moms[0]] as IndiRecord;
+        }
     }
 }
