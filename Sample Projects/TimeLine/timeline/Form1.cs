@@ -265,12 +265,6 @@ namespace timeline
                 }
             }
         }
-        // FOR GED INDIVIDUAL RECORDS
-        public class GEDrecord
-        {
-            public int startingline;
-            public int endingline;
-        }
         // FOR LONGETIVITY CALCULATIONS
         public class ageentry
         {
@@ -522,11 +516,8 @@ namespace timeline
         #region// List Objects
 
         private static List<timelineentry> TEList = new List<timelineentry>();
-        private static List<string> Lines = new List<string>(); // source GED file
         private static List<string> JS = new List<string>(); // Jscript Function call code
         private static List<ageentry> Ages = new List<ageentry>();
-        private static List<GEDrecord> Records = new List<GEDrecord>(); // holds individual records from GED file;
-        private static List<string> Individuals = new List<string>(); // holds indidiual names
         private static List<location> KnownAddresses = new List<location>(); // stores previously geocoded addresses
 
         #endregion
@@ -611,28 +602,6 @@ namespace timeline
             catch
             {
                 result = String.Empty;
-            }
-            return result;
-        }
-        // STRING CLEANUP
-        private string RemoveBadChars(string source)
-        {
-            string result = String.Empty;
-            int x;
-            ushort testch;
-            // Remove any " characters from the name string, these cause syntax errors
-            for (x = 0; x < source.Length; x++)
-            {
-                //  MODIFIED 09-15-2016if (Char.IsLetter(source[x]) || (source[x] == ' '))
-                testch = Convert.ToUInt16(source[x]);
-                if (((testch >= 0x30) && (testch <=0x7A)) || (testch == 0x20))
-                {
-                    if (source[x] == '/')
-                    {
-                        continue;
-                    }
-                    result += source[x];
-                }
             }
             return result;
         }
@@ -898,7 +867,6 @@ namespace timeline
                             globals.datafilechanged = false;
                             globals.datafileautofixperformed = false;
                             fileloadsuccessfully = false; // GED source, if any should be deleted
-                            Lines.Clear();
                             globals.sourcefileloaded = false;
                             gedfilename = "";
 
@@ -924,19 +892,19 @@ namespace timeline
                     }
                     // RECREATE INDIVIDUALS LIST FROM SAVED DATAFILE
                     // 09-11-2016
-                    Individuals.Clear();
+                    ReadGedcom.Individuals.Clear();
                     
                     foreach (timelineentry t in TEList)
                     {
-                        if (Individuals.Exists(element => element == t.Name))
+                        if (ReadGedcom.Individuals.Exists(element => element == t.Name))
                         {
                             continue;  // extract from the list of events only 1st instance of a name
                         }
-                        Individuals.Add(t.Name);
+                        ReadGedcom.Individuals.Add(t.Name);
                     }
                     // RESORT INDIVIDUALS BASED IND NUMBER THAT BEGINS THE NAME STRING
                     //09-11-2016
-                    Individuals.Sort(delegate (string s1, string s2)
+                    ReadGedcom.Individuals.Sort(delegate(string s1, string s2)
                     {
                         if (Convert.ToInt16(s1.Split('-')[0]) > Convert.ToInt16(s2.Split('-')[0]))
                         {
@@ -1560,125 +1528,17 @@ namespace timeline
                 return;
             }
             rtbMainFormResults.Clear();
-            int x;
-            StringBuilder sb = new StringBuilder();
-            for (x = 0; x < Lines.Count(); x++)
-            {
-                sb.Append(Lines[x] + "\n ");
-
-            }
-            rtbMainFormResults.Text = sb.ToString();
+            rtbMainFormResults.Text = ReadGedcom.GedcomLines();
             lblCurrentView.Text = "Viewing GED Source";
         }
-        // CREATE LIST OF INDIVIDUAL RECORDS IN THE GED FILE;
-        private void CreateRecordList()
-        {
-            int count = 0,  x = 0,y = 0;
-            bool done = false;
-            Records.Clear();
-            while (!done)
-            {
-               done = true;
-               if (FindNextIndividual( ref x))
-                {
-                    count++;
-                    GEDrecord ge = new GEDrecord();
-                    ge.startingline = x;
-                    y = x + 1;
-                    if (FindNextIndividual(ref y))
-                    {
-                        ge.endingline = y - 1;
-                        done = false;
-                        x = y - 1;
-                    }
-                    else
-                    {
-                        ge.endingline = Lines.Count - 1; // use end of file if no more records;
-                        done = true;
-                    }
-                    Records.Add(ge);
-                }
 
-            }
-            rtbMainFormResults.Clear();
-            rtbMainFormResults.Text = "\n Found " + count.ToString() + " individual records.\r\n ";
-            return;
+        //private void CreateRecordList()
+        //{
+        //    int count = ReadGedcom.CreateRecordList();
+        //    rtbMainFormResults.Clear();
+        //    rtbMainFormResults.Text = "\n Found " + count.ToString() + " individual records.\r\n ";
+        //}
 
-        }
-        // RETURNS NEXT LINE BY REFERENCE THAT HOLDS A NAME FIELD
-        // TRUE IF FIELD IDENTIFIER FOUND
-        private bool FindNextName(ref int startposition)
-        {
-            bool result = false;
-            int x = startposition;
-            while (x < Lines.Count())
-            {
-                string[] words = Lines[x].Split(' ');
-                if (words[1] == "NAME" || words[1] == "TEXT")
-               
-                {
-                    result = true;
-                    break;
-                }
-                
-                x++;
-            }
-            startposition = x; // update reference variable in caller
-            return result;
-        }
-        // RETURNS NEXT 0 @INDI@ RECORD START LINE
-        // REV 04-30-2017 Ancestry.com GEDCOMs include a space after the last word in the line
-        private bool FindNextIndividual(ref int startposition)
-        {
-            bool result = false;
-            int x = startposition;
-            while (x < Lines.Count)
-            {
-                string[] words = Lines[x].Split(' ');
-                    if ((words[words.Length - 1] == "INDI") || (words[words.Length - 2] == "INDI")) // REV 04-30-2017
-                    {
-                        result = true;
-                        break;
-                    }
-                    x++;
-            }
-            startposition = x;
-            return result;
-        }
-        // RETURNS FIELD NAME FROM LINE SPECIFIED
-        private string GetFieldType(int linetoread)
-        {
-            string[] words = Lines[linetoread].Split(' ');
-            return words[1];
-        }
-        // EXTRACTS DATA FIELD FROM A SELECTED LINE
-        // BUILDS A STRING FROM ALL WORDS AFTER THE FIRST 2 IN THE LINE
-        private string LineData(int linetoread)
-        {
-            string s = string.Empty;
-            int x;
-            string[] words = Lines[linetoread].Split(' ');
-            for (x = 2; x < words.Length; x++)
-            {
-                s += (words[x]+" ");
-            }
-            return s;
-        }
-        // EXTRACT PARTICULAR DATA TYPE IF PRESENT
-        private string ExtractData(int linetoread, string type)
-        {
-            int x;
-            string result = string.Empty;
-            string[] words = Lines[linetoread].Split(' ');
-            if (words[1] == type)
-            {
-                for (x = 2; x < words.Length; x++)
-                {
-                    result += (words[x]+" ");
-                }
-            }
-            return result;
-        }
         // INSURE LATITUDE AND LONGITUDE FORMATS ARE OK
         // Removes trailing spaces, commas, \n
         private void FixLatLong()
@@ -1975,26 +1835,16 @@ namespace timeline
                 filename = ofd.FileName;
             };
             rtbMainFormResults.Text += "Reading File... \n";
-            Lines.Clear();
             globals.sourcefileloaded = false;
-            StreamReader file = new StreamReader(filename);
             try
             {
-                string line = String.Empty;
-
-                while ((line = file.ReadLine()) != null)
-                {
-                    Lines.Add(line);
-                }
-                file.Close();
+                ReadGedcom.ReadFile(filename);
                 fileloadsuccessfully = true;
                 globals.sourcefileloaded = true;
                 TEList.Clear(); // remove any preexisting timeline data;
                 globals.datafileloaded = false;
                 globals.datafilechanged = false;
                 gedfilename = ft.GetShortFilename(filename);
-                
-
             }
             catch (Exception ex)
             {
@@ -2004,12 +1854,7 @@ namespace timeline
             }
             finally
             {
-                if (file != null)
-                {
-                    file.Close();
-                    tbMainFormFilename.Text = filename;
-                }
-                
+                tbMainFormFilename.Text = filename;
             }
             if (globals.sourcefileloaded)
             {
@@ -2027,6 +1872,7 @@ namespace timeline
            
             ParseGEDFile();
             return;
+#if FALSE
             // END MOD
             if (!globals.sourcefileloaded && TEList.Count == 0)
             {
@@ -2090,23 +1936,13 @@ namespace timeline
             SortListByDate(); // sort
             globals.datafilechanged = true;
             ViewParsedFile();
-            
-            
+#endif            
         }
+
         // PARSE GED
         // ADDED: 11-30-2015
         private void ParseGEDFile()
         {
-            int x = 0;
-            int recordstart, recordend = 0;
-            int individualnumber = 0;
-            string individualname = String.Empty;
-            string _event = String.Empty;
-            string _date = String.Empty;
-            string _place = String.Empty;
-
-            
-
             rtbMainFormResults.Clear();
             UpdateLabel("Parsing GED File");
             if (!globals.sourcefileloaded && TEList.Count == 0)
@@ -2123,55 +1959,15 @@ namespace timeline
                     return;
                 }
             }
-            // 09-12-2016
 
-            Individuals.Clear(); 
             
             // holds names found
 
             TEList.Clear();
             UpdateLabel("Finding Individuals...");
             rtbMainFormResults.Refresh();
-            CreateRecordList();
-            UpdateLabel("Found " + Records.Count.ToString() + " Individuals");
-            foreach (GEDrecord record in Records)
-            {
-                recordstart = record.startingline;
-                recordend = record.endingline;
-                
-                // 1st get Individual Name
-                // REVISED 09-11-2016 Added Number to Name as Unique Identifier
-                if (GetFieldType(recordstart+1) == "NAME")
-                {
-                    individualnumber++;
-                    individualname = individualnumber.ToString()+"-"+RemoveBadChars(LineData(recordstart + 1));
-                    // 09-11-2016
-                    Individuals.Add(individualname);
-                    //
-                    for (x = (recordstart + 2) ;x < recordend;x++)
-                    {
-                        _event = GetFieldType(x);
-                        if (_event == "TYPE" || _event == "CONC")
-                        {
-                            continue; // exclude these fields
-                        }
-                        
-                        if ((GetFieldType(x+1) == "DATE") && (GetFieldType(x+2) == "PLAC"))
-                        {
-                            _date = LineData(x + 1);
-                            _place = LineData(x + 2);
-                            timelineentry te = new timelineentry();
-                            te.Name = individualname;
-                            te.Date = _date;
-                            te.Place = _place;
-                            te.EventType = _event;
-                            TEList.Add(te);
-                        }
-
-                    }
-                        
-                 } 
-            }
+            TEList = ReadGedcom.ReadIndividuals();
+            UpdateLabel("Found " + ReadGedcom.Individuals.Count + " Individuals");
             UpdateLabel("Stardardizing Dates...");
             FixDates();
             UpdateLabel("Sorting By Date...");
@@ -2179,9 +1975,8 @@ namespace timeline
             globals.datafilechanged = true;
             globals.datafileloaded = true;
             ViewParsedFile();
-
-
         }
+
         // VIEW FILE
         private void btnMainFormViewFile_Click(object sender, EventArgs e)
         {
@@ -2769,19 +2564,19 @@ namespace timeline
         // DISPLAY LIST OF INDIVIDUALS FOUND
         private void displayListOfIndividualsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Individuals.Count == 0)
+            if (ReadGedcom.Individuals.Count == 0)
             {
                 return; // no info to display
             }
             rtbMainFormResults.Clear();
             StringBuilder sbl = new StringBuilder();
-            foreach (string s in Individuals)
+            foreach (string s in ReadGedcom.Individuals)
             {
                 sbl.Append(s + "\r\n");
             }
             
             rtbMainFormResults.Text = sbl.ToString();
-            UpdateLabel("Display List of Individuals - " + Individuals.Count.ToString());
+            UpdateLabel("Display List of Individuals - " + ReadGedcom.Individuals.Count.ToString());
             
         }
         // PRINT WHATEVER IS IN THE RTB
