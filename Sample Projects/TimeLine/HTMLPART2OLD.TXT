@@ -1,0 +1,123 @@
+      // -------------------------------------------------------------------------------
+ 
+       //  A BASIC CLICK HANDLER SHOWING NAMED MARKERS - NOT USED VER 10
+
+        function showMarker()
+          {
+                  if (count == 0)
+                   {
+                     map.panTo(myMarker.getPosition());
+                     myMarker.setMap(map);
+                    count++;
+                   } else {
+                      map.panTo(nextMarker.getPosition());
+                      nextMarker.setMap(map);
+                          }; 
+          }
+        //-------------------------------------------------------------------------------
+
+        //  ADD MARKER TO ARRAY
+
+        function addMarker(latitude,longitude,amtitle)
+          {
+                   var aLatLng = new google.maps.LatLng(latitude,longitude);
+                   var aMarker = new google.maps.Marker({position:aLatLng, title:amtitle, animation:google.maps.Animation.DROP});
+                   myArray.push(aMarker);
+          }
+     
+        //-------------------------------------------------------------------------------
+
+        //  CLICK HANDLER USING AN ARRAY OF MARKERS
+
+        function showMarker2()
+         {
+                  if (count < myArray.length)
+                    {
+                      map.panTo(myArray[count].getPosition());
+                      map.setZoom(zoom);
+                      myArray[count].setMap(map);
+                      document.getElementById("demo").innerHTML = myArray[count].title;
+                      count++;
+                      
+                    };
+
+         }
+
+        //-------------------------------------------------------------------------------
+
+        // AUTOMATE DISPLAY
+
+        function autoDisplay()
+          {
+                       idInterval = setInterval("showMarker2()",(mapspeed*1000));
+          }
+     
+        //-------------------------------------------------------------------------------
+        
+        // STOP DISPLAY
+
+        function stopDisplay()
+          {
+                    clearInterval(idInterval);
+          }
+
+        //-------------------------------------------------------------------------------
+
+        // RESET COUNTER
+
+        function resetDisplay()
+           {
+                    count =0;
+                    clearMarkers();
+                    
+           }
+
+         //-------------------------------------------------------------------------------
+
+         // CLEAR MARKERS
+
+         function clearMarkers()
+           {
+                    for (var i = 0; i < myArray.length; i++)
+                        {
+                           myArray[i].setMap(null);
+                        };
+           }
+      
+         //-------------------------------------------------------------------------------
+      
+          // ZOOM OUT
+         function zoomOut()
+           {
+                     if (zoom > 0)
+                         {
+                            zoom--;
+                         }
+           }
+
+         //-------------------------------------------------------------------------------
+
+           // ZOOM OUT
+         function zoomIn()
+           {
+                     if (zoom < 19)
+                         {
+                            zoom++;
+                         }
+           }
+
+         //------------------------------------------------------------------------------
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+      
+      
+      
+    </script>
+<button onClick="stopDisplay()">Stop Timeline</button><button onClick="autoDisplay()">Start</button><button onClick="resetDisplay()">Reset</button>
+<button onClick="zoomOut()">Zoom Out</button><button onClick="zoomIn()">Zoom In</button>
+
+  </head>
+  <body>
+<div id="map-canvas"></div>
+  </body>
+</html>

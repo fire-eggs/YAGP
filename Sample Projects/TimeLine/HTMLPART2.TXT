@@ -1,0 +1,189 @@
+    // -------------------------------------------------------------------------------
+ 
+       //  A BASIC CLICK HANDLER SHOWING NAMED MARKERS - NOT USED VER 10
+
+        function showMarker()
+          {
+                  if (count == 0)
+                   {
+                     map.panTo(myMarker.getPosition());
+                     myMarker.setMap(map);
+                    count++;
+                   } else {
+                      map.panTo(nextMarker.getPosition());
+                      nextMarker.setMap(map);
+                          }; 
+          }
+        //-------------------------------------------------------------------------------
+
+        // CHECK IF CUSTOM ICON EXISTS IN SAME DIRECTORY, IF NOT RETURN FALSE
+        //-------------------------------------------------------------------------------
+        function LinkCheck(url)
+        {
+          try
+          {
+          var http = new XMLHttpRequest();
+          http.open('HEAD',url,false);
+          http.send();
+          return http.status != 404;
+          }
+        catch(err)
+          {
+          return false;
+          }
+        }
+
+        //  ADD MARKER TO ARRAY
+		//  REV 08-08-2016
+        function addMarker(latitude,longitude,amtitle)
+          {
+                   var aLatLng = new google.maps.LatLng(latitude,longitude);
+                   if (LinkCheck('person.png'))
+                   {
+                    var aMarker = new google.maps.Marker({position:aLatLng, title:amtitle, animation:google.maps.Animation.DROP, icon:'person.png'});
+                    } else 
+                    {
+                      var aMarker = new google.maps.Marker({position:aLatLng, title:amtitle, animation:google.maps.Animation.DROP});
+                     }
+                   aMarker.infowindow = new google.maps.InfoWindow({content: amtitle});
+                   google.maps.event.addListener(aMarker,'click',function(){
+                      aMarker.infowindow.open(map,aMarker);
+                   });
+                   myArray.push(aMarker);
+                
+          }
+     
+     
+        //-------------------------------------------------------------------------------
+
+        //  CLICK HANDLER USING AN ARRAY OF MARKERS
+
+        function showMarker2()
+         {
+                  if (count < myArray.length)
+                    {
+                      // map.panTo(myArray[count].getPosition());
+                      // map.setZoom(zoom);
+                      myArray[count].setMap(map);
+                      myHeatMap.push(myArray[count].getPosition());
+                      document.getElementById("demo").innerHTML = myArray[count].title;
+                      count++;
+                      
+                    };
+
+         }
+
+        //-------------------------------------------------------------------------------
+
+        // AUTOMATE DISPLAY
+
+        function autoDisplay()
+          {
+                       idInterval = setInterval("showMarker2()",(mapspeed*1000));
+          }
+     
+        //-------------------------------------------------------------------------------
+        
+        // STOP DISPLAY
+
+        function stopDisplay()
+          {
+                    clearInterval(idInterval);
+          }
+
+        //-------------------------------------------------------------------------------
+
+        // RESET COUNTER
+
+        function resetDisplay()
+           {
+                    count =0;
+                    clearMarkers();
+	        clearInterval(idInterval);
+                    
+           }
+
+         //-------------------------------------------------------------------------------
+
+         // CLEAR MARKERS
+
+         function clearMarkers()
+           {
+                    for (var i = 0; i < myArray.length; i++)
+                        {
+                           myArray[i].setMap(null);
+                        };
+                    myHeatMap.length = 0;   
+           }
+      
+         //-------------------------------------------------------------------------------
+
+        // CLOSE OPEN INFOWINDOWS
+
+	function clearWindows()
+	{
+		for (var i=0;i<count;i++)
+			{
+				myArray[i].infowindow.close();
+			}
+	}
+	//----------------------------------------------------------------------------
+      
+          // ZOOM OUT
+         function zoomOut()
+           {
+                     if (zoom > 0)
+                         {
+                            zoom--;
+                            map.setZoom(zoom);
+                         }
+           }
+
+         //-------------------------------------------------------------------------------
+
+           // ZOOM OUT
+         function zoomIn()
+           {
+                     if (zoom < 19)
+                         {
+                            zoom++;
+                            map.setZoom(zoom);
+                         }
+                     
+           }
+
+         //------------------------------------------------------------------------------
+         
+          // HEAT MAP
+          function Heat()
+          {
+              clearInterval(idInterval);
+              heatmap.setMap(heatmap.getMap() ? null : map);
+              if (heatmap.getMap() == map)
+              {
+                 for (i=0;i < count;i++)
+                 {
+                   myArray[i].setMap(null);
+                 }
+               } else 
+                 {
+                   for (i = 0; i < count; i++)
+                   { 
+                     myArray[i].setMap(map);
+                   }
+                 } 
+              
+           }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+      
+      
+      
+    </script>
+<button onClick="stopDisplay()">Stop</button><button onClick="autoDisplay()">Start</button><button onClick="resetDisplay()">Reset</button>
+<button onClick="zoomOut()">Zoom Out</button><button onClick="zoomIn()">Zoom In</button><button onClick="Heat()">Heat Map</button>
+<button onClick="clearWindows()">Close Information Windows</button>
+  <body>
+<div id="map-canvas"></div>
+  </body>
+</html>
