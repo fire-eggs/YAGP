@@ -1585,7 +1585,7 @@ namespace timeline
                     string s = te.Date;
                     if (s.Length > 4) // if its already a year only, leave it alone
                     {
-                        s = s.Substring((s.Length - 1) - 4, 4);
+                        s = s.Substring(s.Length - 4, 4);
                         te.Date = s;
                     }
                 }
