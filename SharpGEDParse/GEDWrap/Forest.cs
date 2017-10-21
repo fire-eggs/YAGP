@@ -17,6 +17,8 @@ namespace GEDWrap
     {
         private FileRead _gedReader;
 
+        public bool IsEmpty { get { return _indiHash == null || _indiHash.Count == 0; } }
+
         public HeadRecord Header
         {
             get

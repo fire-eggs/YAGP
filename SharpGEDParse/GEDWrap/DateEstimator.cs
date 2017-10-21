@@ -45,6 +45,8 @@ namespace GEDWrap
         // Make at most three passes; stop if no estimates needed
         public static void Estimate(Forest f)
         {
+            if (f.IsEmpty)
+                return;
             bool keepGoing = Pass(f);
             if (keepGoing)
                 keepGoing = Pass(f);

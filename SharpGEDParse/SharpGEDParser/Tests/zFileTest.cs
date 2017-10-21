@@ -150,14 +150,14 @@ namespace SharpGEDParser.Tests
         public void DoSpecial()
         {
             // TODO why did I move this to aside?
-            string path = @"Z:\HOST_E\projects\GED\GED files\5.5.1\aside\index7_kbr.ged";
+            string path = @"Z:\HOST_E\proj\GED\all_ged\5.5.1\aside\index7_kbr.ged";
             DoFile(path);
         }
 
         [Test]
         public void zDoAll551()
         {
-            var path = @"Z:\HOST_E\projects\GED\GED files\5.5.1";
+            var path = @"Z:\HOST_E\proj\GED\all_ged\5.5.1";
             foreach (var file in Directory.GetFiles(path))
             {
                 DoFile(file);
@@ -169,7 +169,7 @@ namespace SharpGEDParser.Tests
         {
             // A set of 'blank' files (no data, BOM/no-BOM, does not start with "0 HEAD")
             FileRead fr = new FileRead();
-            var path = @"Z:\HOST_E\projects\GED\GED Files\09";
+            var path = @"Z:\HOST_E\proj\GED\all_ged\09";
             foreach (var file in Directory.GetFiles(path, "blank*.ged"))
             {
                 fr.ReadGed(file);

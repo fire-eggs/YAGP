@@ -42,7 +42,7 @@ namespace GEDWrap.Tests
         [Test]
         public void SimpleGed3()
         {
-            var path = @"Z:\HOST_E\projects\GED\GED files\01\pallanezf.ged"; // TODO project-relative path
+            var path = @"Z:\HOST_E\proj\GED\all_ged\01\pallanezf.ged"; // TODO project-relative path
             Forest ged = new Forest();
             ged.ParseGEDCOM(path);
             Assert.AreEqual(0, ged.Errors.Count);
