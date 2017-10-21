@@ -44,6 +44,18 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void TestValidDash() // 20171021 added symbol separator support
+        {
+            const string val = "13-Apr-1964";
+            GEDDate res = ParseForDate(val);
+
+            Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+            Assert.AreEqual(1964, res.Year);
+            Assert.AreEqual(4, res.Month);
+            Assert.AreEqual(13, res.Day);
+        }
+
+        [Test]
         public void TestValidYear()
         {
             const string val = "1964";
@@ -66,6 +78,18 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(4, res.Month);
             Assert.AreEqual(-1, res.Day);
         }
+
+        //[Test]
+        //public void TestValidMonYearDash()
+        //{
+        //    const string val = "Apr-1964";
+        //    GEDDate res = ParseForDate(val);
+
+        //    Assert.AreEqual(GEDDate.Types.Range, res.Type);
+        //    Assert.AreEqual(1964, res.Year);
+        //    Assert.AreEqual(4, res.Month);
+        //    Assert.AreEqual(-1, res.Day);
+        //}
 
         [Test]
         public void DayMon()
@@ -146,6 +170,27 @@ namespace SharpGEDParser.Tests
                 dt = dt.AddMonths(1);
             }
         }
+
+        [Test]
+        public void ValidAllShortMonthsDash()
+        {
+            DateTime dt = new DateTime(1972, 1, 25);
+
+            for (int i = 1; i <= 12; i++)
+            {
+                string str1 = dt.ToString("dd-MMM-yyyy");
+
+                GEDDate res = ParseForDate(str1);
+
+                Assert.AreEqual(GEDDate.Types.Exact, res.Type);
+                Assert.AreEqual(1972, res.Year);
+                Assert.AreEqual(i, res.Month);
+                Assert.AreEqual(25, res.Day);
+
+                dt = dt.AddMonths(1);
+            }
+        }
+
         [Test]
         public void ValidAllNonStdShortMonths()
         {

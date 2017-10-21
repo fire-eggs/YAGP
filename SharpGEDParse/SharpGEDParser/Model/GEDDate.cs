@@ -39,10 +39,12 @@ namespace SharpGEDParser.Model
         {
             // TODO variants: range, BC
             // TODO other formats
-            return string.Format("{0}-{1}-{2}", 
+            return string.Format("{0}{1}{2}{3}{4}", 
                 Day <= 0 ? "" : Day.ToString(),
-                Month <= 0 ? "" : DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(Month), 
-                Year);
+                Day <= 0 ? "" : "-",
+                Month <= 0 ? "" : DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(Month),
+                Month <= 0 ? "" : "-",
+                Year <=0 ? "" : Year.ToString());
         }
     }
 }

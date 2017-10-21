@@ -279,6 +279,14 @@ namespace SharpGEDParser.Parser
                 else
                     Set(day, mon, year, type, ref gd);
             }
+
+            public void SetType(GEDDate.Types newtype)
+            {
+                //if (second)
+                //    gd2.Type = newtype;
+                //else
+                gd.Type = newtype;
+            }
         }
 
         // TODO appears not to be thread safe: some tests fail under code coverage analysis with this enabled
@@ -327,49 +335,45 @@ namespace SharpGEDParser.Parser
             return ctx.gd;
         }
 
-        private static bool parseDate(ref Context ctx, Cal calen, bool second=false)
+        private static bool parseMonYear(ref Context ctx, Cal calen, bool second)
         {
-            // TODO according to standard, the calendar escape can go on each date, e.g. "AFT @#DJULIAN@ 1898"
+            int mon = -1;
+            int year = -1;
 
-            // parse a date.
-            // TODO dd/mm/yyyy
-            // TODO dd-mm-yyyy
-            // day mon year : num word num
-            // mon year : word num
-            // year : num 
+            // mon year?
+            if (!getMonth(ctx.getString(), calen, ref mon))
+                return false; // Not a known month
+            // TODO "15-Dep-1988"
+
+            Token tok = ctx.Consume();
+            if (tok.type != TokType.NUM)
+                return false; // no year following
+            year = ctx.getInt();
+            ctx.Consume();
+            ctx.Set(-1, mon, year, GEDDate.Types.Range, second);
+            return true;
+        }
+
+        private static bool parseDate2(ref Context ctx, Cal calen, bool second)
+        {
             int day = -1;
             int mon = -1;
             int year = -1;
 
-            Token tok = ctx.LookAhead();
-            if (tok.type == TokType.WORD)
-            {
-                // mon year?
-                if (!getMonth(ctx.getString(), calen, ref mon))
-                    return false; // Not a known month
-                tok = ctx.Consume();
-                if (tok.type != TokType.NUM)
-                    return false; // no year following
-                year = ctx.getInt();
-                ctx.Consume();
-                ctx.Set(-1,mon,year,GEDDate.Types.Range,second);
-                return true;
-            }
+            day = ctx.getInt();
 
-            if (tok.type != TokType.NUM)
-            {
-                return false; // Dunno what we got
-            }
+            if (ctx.LookAhead(1).type == TokType.SYMB || ctx.LookAhead(1).type == TokType.UNK) // TODO unknown as symb? e.g. "15+Nov-1998"?
+                ctx.Consume();
 
             // day mon year OR year
             GEDDate.Types newType;
             if (ctx.LookAhead(1).type == TokType.WORD)
             {
                 // day mon year
-                day = ctx.getInt();
                 ctx.Consume();
                 if (!getMonth(ctx.getString(), calen, ref mon))
                 {
+                    // TODO "15-Dep-1898" would ideally be parsed as "1898" but is not
                     // Not a known month - might be a second keyword; assume YEAR
                     year = day;
                     day = -1;
@@ -378,7 +382,9 @@ namespace SharpGEDParser.Parser
                 }
                 else
                 {
-                    tok = ctx.Consume();
+                    Token tok = ctx.Consume();
+                    if (tok.type == TokType.SYMB)
+                        tok = ctx.Consume();
                     if (tok.type != TokType.NUM)
                         return false; // Not a year, invalid
                     year = ctx.getInt();
@@ -389,11 +395,54 @@ namespace SharpGEDParser.Parser
             else
             {
                 year = ctx.getInt();
+                day = -1;
                 ctx.Consume();
                 newType = GEDDate.Types.Range;
             }
             ctx.Set(day, mon, year, newType, second);
             return true;
+        }
+
+        private static bool parseSymAndDate(ref Context ctx, Cal calen, bool second = false)
+        {
+            // e.g. "~1798"
+            Token tok = ctx.LookAhead();
+            if (tok.getString(ctx.getString()) == "~")
+            {
+                ctx.Consume();
+                if (parseDate2(ref ctx, calen, second))
+                {
+                    ctx.SetType(GEDDate.Types.Estimated);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static bool parseDate(ref Context ctx, Cal calen, bool second=false)
+        {
+            // TODO according to standard, the calendar escape can go on each date, e.g. "AFT @#DJULIAN@ 1898"
+
+            // parse a date.
+            // TODO dd/mm/yyyy
+            // TODO dd-mm-yyyy
+            // day mon year : num word num
+            // mon year : word num
+            // year : num 
+
+            Token tok = ctx.LookAhead();
+
+            switch (tok.type)
+            {
+                case TokType.WORD:
+                    return parseMonYear(ref ctx, calen, second);
+                case TokType.SYMB:
+                    return parseSymAndDate(ref ctx, calen, second);
+                case TokType.NUM:
+                    return parseDate2(ref ctx, calen, second);
+                default:
+                    return false;
+            }
         }
 
         private static bool getMonth(string str, Cal calen, ref int mon)
