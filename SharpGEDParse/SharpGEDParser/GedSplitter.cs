@@ -26,7 +26,7 @@ namespace SharpGEDParser
         private readonly int[] _starts;
         private readonly int[] _lens;
         private int _count;
-        private int _max;
+        private readonly int _max;
 
         // A line is <level><ident><tag><remain> - so even 10 is overkill?
         private const int MAX_PARTS = 9;
@@ -40,28 +40,27 @@ namespace SharpGEDParser
             _max = bufferSize-1;
             _starts = new int[bufferSize];
             _lens = new int[bufferSize];
-            _buf = new string[5];
         }
 
         public int[] Starts { get { return _starts; } }
         public int[] Lengths {  get { return _lens; } }
 
-        public string Get(string value, int dex)
-        {
-            return value.Substring(_starts[dex], _lens[dex]);
-        }
+        //public string Get(string value, int dex)
+        //{
+        //    return value.Substring(_starts[dex], _lens[dex]);
+        //}
 
-        public string GetRest(string value, int dex)
-        {
-            if (_count <= dex)
-                return null;
-            return value.Substring(_starts[dex]);
-        }
+        //public string GetRest(string value, int dex)
+        //{
+        //    if (_count <= dex)
+        //        return null;
+        //    return value.Substring(_starts[dex]);
+        //}
 
-        public int Split(string value, char separator)
-        {
-            return Split(value.ToCharArray(), separator);
-        }
+        //public int Split(string value, char separator)
+        //{
+        //    return Split(value.ToCharArray(), separator);
+        //}
 
         public int Split(char [] value, char separator)
         {
@@ -124,7 +123,7 @@ namespace SharpGEDParser
             return new string(value, _starts[2], _lens[2]);
         }
 
-        public string GetRest(char [] value, int dex)
+        public char [] GetRest(char [] value, int dex)
         {
             if (_count <= dex)
                 return null;
@@ -133,10 +132,15 @@ namespace SharpGEDParser
             while (value[max - 1] == '\0')
                 max--;
 
-            return new string(value, _starts[dex], max-_starts[dex]);
+            int len = max - _starts[dex];
+            var tmp = new char[len];
+            for (int i = 0; i < len; i++)
+                tmp[i] = value[i + _starts[dex]];
+            return tmp;
+            //return new string(value, _starts[dex], max-_starts[dex]);
         }
 
-        public string Remain(char [] value)
+        public char [] Remain(char [] value)
         {
             if (_count < 3)
                 return null;
@@ -152,7 +156,7 @@ namespace SharpGEDParser
             Split(line, ' ');
             ctx.Level = line[_starts[0]];
             ctx.Tag = Tag(line);
-            ctx.Remain = Remain(line) ?? "";
+            ctx.Remain1 = Remain(line) ?? new char[0];
         }
     }
 }

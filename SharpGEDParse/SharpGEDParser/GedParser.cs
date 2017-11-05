@@ -84,7 +84,8 @@ namespace SharpGEDParser
             //gs.Split(head, ' ');
 
             // 3. create a GedCommon derived class
-            return GedRecFactory(rec, gs.Ident(head), gs.Tag(head), gs.Remain(head));
+            var remain = new string(gs.Remain(head));
+            return GedRecFactory(rec, gs.Ident(head), gs.Tag(head), remain);
             //return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain);
         }
 

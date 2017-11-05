@@ -9,7 +9,15 @@ namespace SharpGEDParser.Parser
             public char Level;
             public string Tag;
             public string Ident;
-            public string Remain;
+
+            public string Remain
+            {
+                get
+                {
+                    return new string(Remain1);
+                }
+            }
+            public char[] Remain1;
         }
 
         internal static int FirstChar(char [] line, int dex, int max)

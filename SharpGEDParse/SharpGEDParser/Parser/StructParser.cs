@@ -38,7 +38,7 @@ namespace SharpGEDParser.Parser
 
                 if (ld.Level <= ctx.Level)
                     break; // end of sub-record
-                ctx.Remain = ld.Remain;
+                ctx.Remain1 = ld.Remain1;
 
                 if (ld.Tag == null)
                 {

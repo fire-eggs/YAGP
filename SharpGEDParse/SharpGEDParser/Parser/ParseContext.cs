@@ -23,7 +23,7 @@ namespace SharpGEDParser.Parser
             Begline = ctx.Begline;
             Endline = ctx.Endline;
             Level = ctx.Level;
-            Remain = ctx.Remain;
+            Remain1 = ctx.Remain1;
             gs = ctx.gs;
         }
     }
