@@ -26,7 +26,6 @@ namespace SharpGEDParser
         private readonly int[] _starts;
         private readonly int[] _lens;
         private int _count;
-        private readonly string[] _buf;
         private int _max;
 
         // A line is <level><ident><tag><remain> - so even 10 is overkill?
