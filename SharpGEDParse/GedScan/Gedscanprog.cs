@@ -25,6 +25,7 @@ namespace GedScan
         private static bool _csv; // output to CSV
         private static bool _dumpAllErrors;
         private static int _bsize;
+        private static bool _noforest; // Use sharpgedparser only, not the Forest
 
         static void Main(string[] args)
         {
@@ -39,6 +40,7 @@ namespace GedScan
                 Console.WriteLine("-b : basic GED record stats");
                 Console.WriteLine("-edump: dump all errors");
                 Console.WriteLine("-csv: write to csv [distinct from -b or -date]");
+                Console.WriteLine("-f : NO forest");
                 return;
             }
 
@@ -49,6 +51,7 @@ namespace GedScan
             _dates = args.FirstOrDefault(s => s == "-date") != null;
             _ged = args.FirstOrDefault(s => s == "-b") != null;
             _dumpAllErrors = args.FirstOrDefault(s => s == "-edump") != null;
+            _noforest = args.FirstOrDefault(s => s == "-f") != null;
 
             for (int i = 0; i < args.Length; i++)
             {
@@ -128,34 +131,54 @@ namespace GedScan
                 Console.WriteLine("   {0}", Path.GetFileName(path));
 
             Console.Out.Flush();
-            using (Forest f = new Forest())
+
+            if (_noforest)
             {
-                f.LoadGEDCOM(path, _bsize);
+                using (FileRead reader = new FileRead(_bsize))
+                {
+                    reader.ReadGed(path);
+                    long afterMem = GC.GetTotalMemory(false);
+                    int ms = 0;
+                    if (_bsize == 0)
+                        ms = logit("__load complete (ms)");
+                    long delta = (afterMem - beforeMem);
+                    double meg = delta / (1024 * 1024.0);
+                    if (_showDiags)
+                        Console.WriteLine("\t===Memory:{0:0.00}M", meg);
+                    dump(reader.Data, reader.AllErrors, null, false);
+                }
+            }
+            else
+            {
+                using (Forest f = new Forest())
+                {
+                    f.LoadGEDCOM(path, _bsize);
 
-                var fil = File.OpenRead(path);
-                long flen = fil.Length;
-                fil.Close();
-                double fkb = flen/(1024.0);
+                    var fil = File.OpenRead(path);
+                    long flen = fil.Length;
+                    fil.Close();
+                    double fkb = flen/(1024.0);
                 
-                long afterMem = GC.GetTotalMemory(false);
-                int ms = 0;
-                if (_bsize == 0)
-                    ms = logit("__load complete (ms)");
-                long delta = (afterMem - beforeMem);
-                double meg = delta / (1024 * 1024.0);
-                if (_showDiags)
-                    Console.WriteLine("\t===Memory:{0:0.00}M", meg);
+                    long afterMem = GC.GetTotalMemory(false);
+                    int ms = 0;
+                    if (_bsize == 0)
+                        ms = logit("__load complete (ms)");
+                    long delta = (afterMem - beforeMem);
+                    double meg = delta / (1024 * 1024.0);
+                    if (_showDiags)
+                        Console.WriteLine("\t===Memory:{0:0.00}M", meg);
 
-                if (_dates)
-                    dumpDates(f);
-                else if (_ged)
-                    dump(f.AllRecords, f.Errors, f.Issues, showErrors);
-                else if (_csv)
-                    dumpCSV(Path.GetFileNameWithoutExtension(path), f, ms, meg, fkb);
-                else
-                    dump(f, showErrors);
-                if (_dumpAllErrors)
-                    dumpAllErrors(null, f);
+                    if (_dates)
+                        dumpDates(f);
+                    else if (_ged)
+                        dump(f.AllRecords, f.Errors, f.Issues, showErrors);
+                    else if (_csv)
+                        dumpCSV(Path.GetFileNameWithoutExtension(path), f, ms, meg, fkb);
+                    else
+                        dump(f, showErrors);
+                    if (_dumpAllErrors)
+                        dumpAllErrors(null, f);
+                }
             }
 
             Console.Out.Flush();
@@ -473,11 +496,12 @@ namespace GedScan
                         errRollup.Add((int)errRec.Error, errRec);
                     //Console.WriteLine("\t\tError:{0}", unkRec.Error);
                 }
-                foreach (var issue in issues)
-                {
-                    if (!issRollup.ContainsKey(issue.IssueId))
-                        issRollup.Add(issue.IssueId, issue.Message());
-                }
+                if (issues != null)
+                    foreach (var issue in issues)
+                    {
+                        if (!issRollup.ContainsKey(issue.IssueId))
+                            issRollup.Add(issue.IssueId, issue.Message());
+                    }
             }
             Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}[{10}]\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}; Sub-Notes:{11}[{12}]", 
                 inds, fams, unks, oths, errs, src, repo, note, 0, media, nLen, subN, subNLen);
