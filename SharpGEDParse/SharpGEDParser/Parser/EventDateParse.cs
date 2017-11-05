@@ -407,7 +407,7 @@ namespace SharpGEDParser.Parser
         {
             // e.g. "~1798"
             Token tok = ctx.LookAhead();
-            if (tok.getString(ctx.getString()) == "~")
+            if (ctx.getString() == "~")
             {
                 ctx.Consume();
                 if (parseDate2(ref ctx, calen, second))
