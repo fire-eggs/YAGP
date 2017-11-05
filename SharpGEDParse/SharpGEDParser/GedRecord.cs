@@ -9,28 +9,31 @@ namespace SharpGEDParser
 {
     public class GedRecord
     {
-        public int LineCount { get { return _lines.Count; } }
+        public int LineCount { get { return _max; } }
 
-        private List<char []> _lines;
-        private int _firstLine;
+        private readonly List<char []> _lines;
+        private readonly int _firstLine;
+        private int _max;
 
         public int Beg { get { return _firstLine; } }
-        public int End { get { return _firstLine + LineCount; } }
+        public int End { get { return _firstLine + _max; } }
 
         public GedRecord()
         {
             _lines = new List<char []>();
+            _max = 0;
         }
 
         public GedRecord(int firstLine, char [] line) : this()
         {
-            _lines.Add(line);
+            AddLine(line);
             _firstLine = firstLine;
         }
 
         public void AddLine(char [] line)
         {
             _lines.Add(line);
+            _max++;
         }
 
         [ExcludeFromCodeCoverage]
@@ -52,7 +55,7 @@ namespace SharpGEDParser
             return _lines[linedex];
         }
 
-        public int Max { get { return _lines.Count; } }
+        public int Max { get { return _max; } }
 
         /// <summary>
         /// Determine the level value for a line.
