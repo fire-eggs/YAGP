@@ -35,7 +35,7 @@ namespace SharpGEDParser.Parser
             rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
         }
 
-        private static bool parseName(NameRec rec, string line, int linenum)
+        private static bool parseName(NameRec rec, char [] line, int linenum)
         {
             int max = line.Length;
 
@@ -50,17 +50,52 @@ namespace SharpGEDParser.Parser
 
             var suffix = "";
             if (endSur + 1 < max)
-                suffix = string.Join(" ", line.Substring(endSur + 1).Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
+            {
+                //suffix = string.Join(" ", line.Substring(endSur + 1).Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
+                int newlen = 0;
+                var tmp = LineUtil.RemoveExtraSpaces(line, endSur + 1, max, ref newlen);
+                suffix = new string(tmp, 0, newlen).Trim();
+            }
 
-            if (startSur >= max)
-                rec.Names = line.Trim();
-            else
-                rec.Names = line.Substring(startName, startSur - startName).Trim();
+            {
+                int a = 0;
+                int b = max;
+                if (startSur < max)
+                {
+                    a = startName;
+                    b = startSur - startName;
+                }
+                int newlen = 0;
+                var tmp = LineUtil.RemoveExtraSpaces(line, a, b, ref newlen);
+                rec.Names = new string(tmp, a, newlen).Trim();
+            }
 
-            rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
+            //if (startSur >= max)
+            //{
+            //    //rec.Names = line.Trim();
+            //    //rec.Names = new string(line).Trim();
+
+            //    int newlen = 0;
+            //    var tmp = LineUtil.RemoveExtraSpaces(line, 0, max, ref newlen);
+            //    rec.Names = new string(tmp, 0, newlen).Trim();
+            //}
+            //else
+            //{
+            //    //rec.Names = line.Substring(startName, startSur - startName).Trim();
+            //    //rec.Names = new string(line, startName, startSur - startName).Trim();
+
+            //    int newlen = 0;
+            //    var tmp = LineUtil.RemoveExtraSpaces(line, startName, startSur - startName, ref newlen);
+            //    rec.Names = new string(tmp, 0, newlen).Trim();
+
+            //}
+
+            ////rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
+
             if (startSur < max) // e.g. "1 NAME LIVING"
             {
-                rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1).Trim();
+                //rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1).Trim();
+                rec.Surname = new string(line, startSur + 1, endSur - startSur - 1).Trim();
                 if (rec.Surname.Contains("/"))
                 {
                     UnkRec err = new UnkRec();
@@ -85,7 +120,7 @@ namespace SharpGEDParser.Parser
         {
             // TODO can this be shortcut when context length is only 1 line?
             var name = new NameRec();
-            if (!parseName(name, ctx.Remain, ctx.Begline))
+            if (!parseName(name, ctx.Remain1, ctx.Begline))
             {
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.EmptyName;

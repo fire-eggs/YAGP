@@ -67,17 +67,17 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("According to his death certificate, John McGinnis was bor", gs.Remain(txt));
         }
 
-        [Test]
-        public void FourParts()
-        {
-            var txt = "0 @NI28@ NOTE Blah blah blah";
-            GEDSplitter gs = new GEDSplitter(20);
-            Assert.AreEqual(6, gs.Split(txt, ' '));
-            Assert.AreEqual("0", gs.Get(txt, 0));
-            Assert.AreEqual("@NI28@", gs.Get(txt, 1));
-            Assert.AreEqual("NOTE", gs.Get(txt, 2));
-            Assert.AreEqual("Blah blah blah", gs.GetRest(txt, 3));
-        }
+        //[Test]
+        //public void FourParts()
+        //{
+        //    var txt = "0 @NI28@ NOTE Blah blah blah";
+        //    GEDSplitter gs = new GEDSplitter(20);
+        //    Assert.AreEqual(6, gs.Split(txt, ' '));
+        //    Assert.AreEqual("0", gs.Get(txt, 0));
+        //    Assert.AreEqual("@NI28@", gs.Get(txt, 1));
+        //    Assert.AreEqual("NOTE", gs.Get(txt, 2));
+        //    Assert.AreEqual("Blah blah blah", gs.GetRest(txt, 3));
+        //}
 
         [Test]
         public void EmptyId()

@@ -38,7 +38,7 @@ namespace SharpGEDParser.Parser
             return dex;
         }
 
-        public static int AllCharsUntil(string line, int max, int dex, char target)
+        public static int AllCharsUntil(char [] line, int max, int dex, char target)
         {
             while (dex < max && line[dex] != target)
                 dex++;
@@ -47,7 +47,7 @@ namespace SharpGEDParser.Parser
             return dex;
         }
 
-        public static int ReverseSearch(string line, int max, int limit, char target)
+        public static int ReverseSearch(char [] line, int max, int limit, char target)
         {
             int dex = max - 1;
             while (dex > limit && line[dex] != target)
@@ -55,6 +55,24 @@ namespace SharpGEDParser.Parser
             if (dex <= limit) // target not found
                 return max;
             return dex;
+        }
+
+        public static char[] RemoveExtraSpaces(char[] line, int beg, int end, ref int outlen)
+        {
+            int size = end - beg;
+            var tmp = new char[size];
+            int outdex = 0;
+            bool isspace = false;
+            for (int i = beg; i < end; i++)
+            {
+                if (isspace && line[i] == ' ') // last char was a space, and this is a space, skip it
+                    continue;
+                tmp[outdex] = line[i];
+                outdex ++;
+                isspace = line[i] == ' ';
+            }
+            outlen = outdex;
+            return tmp;
         }
 
         //private static int CharsUntil(string line, int max, int dex, char target)
