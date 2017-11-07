@@ -24,15 +24,15 @@ namespace SharpGEDParser.Tests
         //    Assert.AreEqual("", gs.Level(txt));
         //}
 
-        [Test]
-        public void Partial1()
-        {
-            var txt = "0 @I1@".ToCharArray();
-            GEDSplitter gs = new GEDSplitter(10);
-            Assert.AreEqual(2, gs.Split(txt, ' '));
-            Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("I1", gs.Ident(txt));
-        }
+        //[Test]
+        //public void Partial1()
+        //{
+        //    var txt = "0 @I1@".ToCharArray();
+        //    GEDSplitter gs = new GEDSplitter(10);
+        //    Assert.AreEqual(2, gs.Split(txt, ' '));
+        //    Assert.AreEqual('0', gs.Level(txt));
+        //    Assert.AreEqual("I1", gs.Ident(txt));
+        //}
 
         [Test]
         public void Partial2()
@@ -45,16 +45,16 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(null, gs.Remain(txt));
         }
 
-        [Test]
-        public void ExtraSpaces()
-        {
-            var txt = "0      @I1@         INDI".ToCharArray();
-            GEDSplitter gs = new GEDSplitter(10);
-            Assert.AreEqual(3, gs.Split(txt, ' '));
-            Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("I1", gs.Ident(txt));
-            Assert.AreEqual("INDI", gs.Tag(txt));
-        }
+        //[Test]
+        //public void ExtraSpaces()
+        //{
+        //    var txt = "0      @I1@         INDI".ToCharArray();
+        //    GEDSplitter gs = new GEDSplitter(10);
+        //    Assert.AreEqual(3, gs.Split(txt, ' '));
+        //    Assert.AreEqual('0', gs.Level(txt));
+        //    Assert.AreEqual("I1", gs.Ident(txt));
+        //    Assert.AreEqual("INDI", gs.Tag(txt));
+        //}
 
         [Test]
         public void Longer()
@@ -79,27 +79,27 @@ namespace SharpGEDParser.Tests
         //    Assert.AreEqual("Blah blah blah", gs.GetRest(txt, 3));
         //}
 
-        [Test]
-        public void EmptyId()
-        {
-            var txt = "0 @ @ FAM".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
-            gs.Split(txt, ' ');
-            Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual(null, gs.Ident(txt));
-            Assert.AreEqual("FAM", gs.Tag(txt));
-        }
+        //[Test]
+        //public void EmptyId()
+        //{
+        //    var txt = "0 @ @ FAM".ToCharArray();
+        //    GEDSplitter gs = new GEDSplitter();
+        //    gs.Split(txt, ' ');
+        //    Assert.AreEqual('0', gs.Level(txt));
+        //    Assert.AreEqual(null, gs.Ident(txt));
+        //    Assert.AreEqual("FAM", gs.Tag(txt));
+        //}
 
-        [Test]
-        public void BadId()
-        {
-            var txt = "0 @I1  FAM".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
-            gs.Split(txt, ' ');
-            Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("FAM", gs.Tag(txt));
-            Assert.AreEqual("I1", gs.Ident(txt));
-        }
+        //[Test]
+        //public void BadId()
+        //{
+        //    var txt = "0 @I1  FAM".ToCharArray();
+        //    GEDSplitter gs = new GEDSplitter();
+        //    gs.Split(txt, ' ');
+        //    Assert.AreEqual('0', gs.Level(txt));
+        //    Assert.AreEqual("FAM", gs.Tag(txt));
+        //    Assert.AreEqual("I1", gs.Ident(txt));
+        //}
 
         // GEDSplitter.Split won't cope with this
         //[Test]
@@ -114,16 +114,16 @@ namespace SharpGEDParser.Tests
         //    Assert.AreEqual("11", gs.Ident(txt));
         //}
 
-        [Test]
-        public void MissTag()
-        {
-            var txt = "0 @Z1@ ".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
-            gs.Split(txt, ' ');
-            Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("Z1", gs.Ident(txt));
-            Assert.AreEqual("", gs.Tag(txt));
-        }
+        //[Test]
+        //public void MissTag()
+        //{
+        //    var txt = "0 @Z1@ ".ToCharArray();
+        //    GEDSplitter gs = new GEDSplitter();
+        //    gs.Split(txt, ' ');
+        //    Assert.AreEqual('0', gs.Level(txt));
+        //    Assert.AreEqual("Z1", gs.Ident(txt));
+        //    Assert.AreEqual("", gs.Tag(txt));
+        //}
 
         [Test]
         public void LongerDefault()
@@ -135,26 +135,26 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Page", gs.Tag(txt));
         }
 
-        [Test]
-        public void TabSplit()
-        {
-            var txt = "0\t@I1@\tINDI".ToCharArray();
-            GEDSplitter gs = new GEDSplitter(10);
-            Assert.AreEqual(3, gs.Split(txt, ' '));
-            Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("I1", gs.Ident(txt));
-            Assert.AreEqual("INDI", gs.Tag(txt));
-        }
+        //[Test]
+        //public void TabSplit()
+        //{
+        //    var txt = "0\t@I1@\tINDI".ToCharArray();
+        //    GEDSplitter gs = new GEDSplitter(10);
+        //    Assert.AreEqual(3, gs.Split(txt, ' '));
+        //    Assert.AreEqual('0', gs.Level(txt));
+        //    Assert.AreEqual("I1", gs.Ident(txt));
+        //    Assert.AreEqual("INDI", gs.Tag(txt));
+        //}
 
-        [Test]
-        public void LeadTab()
-        {
-            var txt = "\t0 @I1@ INDI".ToCharArray();
-            GEDSplitter gs = new GEDSplitter(10);
-            Assert.AreEqual(3, gs.Split(txt, ' '));
-            Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("I1", gs.Ident(txt));
-            Assert.AreEqual("INDI", gs.Tag(txt));
-        }
+        //[Test]
+        //public void LeadTab()
+        //{
+        //    var txt = "\t0 @I1@ INDI".ToCharArray();
+        //    GEDSplitter gs = new GEDSplitter(10);
+        //    Assert.AreEqual(3, gs.Split(txt, ' '));
+        //    Assert.AreEqual('0', gs.Level(txt));
+        //    Assert.AreEqual("I1", gs.Ident(txt));
+        //    Assert.AreEqual("INDI", gs.Tag(txt));
+        //}
     }
 }

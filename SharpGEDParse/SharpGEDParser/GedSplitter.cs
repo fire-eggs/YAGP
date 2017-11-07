@@ -45,23 +45,6 @@ namespace SharpGEDParser
         public int[] Starts { get { return _starts; } }
         public int[] Lengths {  get { return _lens; } }
 
-        //public string Get(string value, int dex)
-        //{
-        //    return value.Substring(_starts[dex], _lens[dex]);
-        //}
-
-        //public string GetRest(string value, int dex)
-        //{
-        //    if (_count <= dex)
-        //        return null;
-        //    return value.Substring(_starts[dex]);
-        //}
-
-        //public int Split(string value, char separator)
-        //{
-        //    return Split(value.ToCharArray(), separator);
-        //}
-
         public int Split(char [] value, char separator)
         {
             int resultIndex = 0;
@@ -98,73 +81,68 @@ namespace SharpGEDParser
             return value[_starts[0]];
         }
 
-        private readonly char[] _identTrim = {'@'};
-        public string Ident(char [] value)
-        {
-            // substring 1 starts with '@' == ident
-            if (_count < 2 || value[_starts[1]] != '@' || _lens[1] < 3)
-                return null;
-            return new string(value, _starts[1], _lens[1]).Trim(_identTrim);
-            //return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
-        }
+        //private readonly char[] _identTrim = {'@'};
+        //public string Ident(char [] value)
+        //{
+        //    // substring 1 starts with '@' == ident
+        //    if (_count < 2 || value[_starts[1]] != '@' || _lens[1] < 3)
+        //        return null;
+        //    return new string(value, _starts[1], _lens[1]).Trim(_identTrim);
+        //    //return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
+        //}
 
         public char [] Tag(char [] value)
         {
-            // substring 1 doesn't start with '@' == tag
-            // else substring 2
-            if (_count < 2 || _lens[1] < 1)
+            if (_count < 2)
                 return null;
-            if (value[_starts[1]] != '@')
-                return make(value, _starts[1], _lens[1]);
-            if (_count < 3)
-                return null;
-            if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
-                return make(value, _starts[3], _lens[3]);
-            return make(value, _starts[2], _lens[2]);
+            return make(value, _starts[1], _lens[1]);
         }
 
         private char[] make(char[] value, int beg, int len)
         {
             var tmp = new char[len];
-            for (int i = 0; i < len; i++)
-                tmp[i] = value[i + beg];
+            Array.Copy(value, beg, tmp, 0, len);
+            //for (int i = 0; i < len; i++)
+            //    tmp[i] = value[i + beg];
             return tmp;
         }
 
         public char [] GetRest(char [] value, int dex)
         {
-            if (_count <= dex)
-                return null;
-
             int max = value.Length;
             while (value[max - 1] == '\0')
                 max--;
 
             int len = max - _starts[dex];
             var tmp = new char[len];
-            for (int i = 0; i < len; i++)
-                tmp[i] = value[i + _starts[dex]];
+            Array.Copy(value, _starts[dex], tmp, 0, len);
+            //for (int i = 0; i < len; i++)
+            //    tmp[i] = value[i + _starts[dex]];
             return tmp;
-            //return new string(value, _starts[dex], max-_starts[dex]);
         }
 
         public char [] Remain(char [] value)
         {
             if (_count < 3)
                 return null;
-            if (_lens[1] > 0 && value[_starts[1]] != '@')
-                return GetRest(value, 2);
-            if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
-                return GetRest(value, 4);
-            return GetRest(value, 3);
+            return GetRest(value, 2);
         }
 
         public void LevelTagAndRemain(char [] line, LineUtil.LineData ctx)
         {
             Split(line, ' ');
             ctx.Level = line[_starts[0]];
-            ctx.Tag = Tag(line);
-            ctx.Remain1 = Remain(line) ?? new char[0];
+
+            //ctx.Tag = Tag(line);
+            if (_count < 2)
+                ctx.Tag = null;
+            else
+            {
+                ctx.Tag = new char[_lens[1]];
+                Array.Copy(line, _starts[1], ctx.Tag, 0, _lens[1]);
+            }
+
+            ctx.Remain1 = _count < 3 ? null : GetRest(line, 2);
         }
 
         public void LevelIdentTagRemain(char[] line, out char level, out char[] tag, out string ident, out char[] remain)
