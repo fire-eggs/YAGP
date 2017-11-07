@@ -203,7 +203,7 @@ namespace SharpGEDParser.Parser
             string xref = parseForXref(context);
             if (!string.IsNullOrEmpty(xref))
             {
-                switch (context.Tag)
+                switch (context.TagS)
                 {
                     case "SUBM":
                         indi.AddSubmitter(IndiRecord.Submitter.SUBM, xref);

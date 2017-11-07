@@ -29,7 +29,7 @@ namespace SharpGEDParser.Tests
         {
             string val =
                 string.Format(
-                    "0 FAM\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
+                    "0 @F1@ FAM\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
                     tag);
             var rec = parse(val);
             Assert.AreEqual(1, rec.FamEvents.Count, tag);
@@ -47,7 +47,7 @@ namespace SharpGEDParser.Tests
         public FamRecord EventLongAddr(string tag)
         {
             // This is an unlikely set of tags, but required by standard
-            string val = string.Format("0 FAM\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n" +
+            string val = string.Format("0 @F1@ FAM\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n" +
                                        "3 CONT Address continue\n3 CITY Nowhere\n3 STAE ZZ\n3 POST 1GN 2YV\n3 CTRY Where\n2 PHON 1-800-555-1212\n" +
                                        "2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
                 tag);
@@ -205,7 +205,7 @@ namespace SharpGEDParser.Tests
 
         public FamRecord TestEventTag(string tag)
         {
-            string indi3 = string.Format("0 FAM\n1 {0}\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            string indi3 = string.Format("0 @F1@ FAM\n1 {0}\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.FamEvents.Count);
             Assert.AreEqual(tag, rec.FamEvents[0].Tag);
@@ -218,7 +218,7 @@ namespace SharpGEDParser.Tests
 
         public FamRecord TestEventTag2(string tag)
         {
-            string indi3 = string.Format("0 FAM\n1 {0} Y\n2 DATE 1774\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked", tag);
+            string indi3 = string.Format("0 @F1@ FAM\n1 {0} Y\n2 DATE 1774\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked", tag);
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.FamEvents.Count);
             Assert.AreEqual(tag, rec.FamEvents[0].Tag);
@@ -235,7 +235,7 @@ namespace SharpGEDParser.Tests
 
         public FamRecord TestEventAge(string tag, string spouse)
         {
-            string fam = string.Format("0 FAM\n1 {0}\n2 {1}\n3 AGE 42\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 99", tag, spouse);
+            string fam = string.Format("0 @F1@ FAM\n1 {0}\n2 {1}\n3 AGE 42\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 99", tag, spouse);
             var rec = parse(fam);
             Assert.AreEqual(1, rec.FamEvents.Count);
             var famEvent = rec.FamEvents[0];
@@ -259,7 +259,7 @@ namespace SharpGEDParser.Tests
 
         public FamRecord TestEventNote(string tag)
         {
-            string indi3 = string.Format("0 FAM\n1 {0}\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            string indi3 = string.Format("0 @F1@ FAM\n1 {0}\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
 
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.FamEvents.Count);
@@ -341,31 +341,31 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSpouseDetail()
         {
-            string indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 HUSB blah blah\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            string indi = "0 @F1@ FAM\n1 MARR Y\n2 DATE 1774\n2 HUSB blah blah\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.FamEvents.Count);
             Assert.AreEqual("blah blah", rec.FamEvents[0].HusbDetail.Detail);
             Assert.AreEqual(null, rec.FamEvents[0].HusbDetail.Age);
 
-            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 WIFE blah blah\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            indi = "0 @F1@ FAM\n1 MARR Y\n2 DATE 1774\n2 WIFE blah blah\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
             rec = parse(indi);
             Assert.AreEqual(1, rec.FamEvents.Count);
             Assert.AreEqual("blah blah", rec.FamEvents[0].WifeDetail.Detail);
             Assert.AreEqual(null, rec.FamEvents[0].WifeDetail.Age);
 
-            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 HUSB blah blah\n3 AGE 87\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            indi = "0 @F1@ FAM\n1 MARR Y\n2 DATE 1774\n2 HUSB blah blah\n3 AGE 87\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
             rec = parse(indi);
             Assert.AreEqual(1, rec.FamEvents.Count);
             Assert.AreEqual("blah blah", rec.FamEvents[0].HusbDetail.Detail);
             Assert.AreEqual("87", rec.FamEvents[0].HusbDetail.Age);
 
-            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 WIFE bloh bloh\n3 AGE 23\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
+            indi = "0 @F1@ FAM\n1 MARR Y\n2 DATE 1774\n2 WIFE bloh bloh\n3 AGE 23\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked";
             rec = parse(indi);
             Assert.AreEqual(1, rec.FamEvents.Count);
             Assert.AreEqual("bloh bloh", rec.FamEvents[0].WifeDetail.Detail);
             Assert.AreEqual("23", rec.FamEvents[0].WifeDetail.Age);
 
-            indi = "0 FAM\n1 MARR Y\n2 DATE 1774\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked\n2 WIFE bloh bloh\n3 AGE 23";
+            indi = "0 @F1@ FAM\n1 MARR Y\n2 DATE 1774\n2 TYPE suspicious\n2 AGNC church\n2 CAUS pregnancy\n2 RELI atheist\n2 RESN locked\n2 WIFE bloh bloh\n3 AGE 23";
             rec = parse(indi);
             Assert.AreEqual(1, rec.FamEvents.Count);
             Assert.AreEqual("bloh bloh", rec.FamEvents[0].WifeDetail.Detail);

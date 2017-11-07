@@ -62,7 +62,7 @@ namespace SharpGEDParser.Tests
         public void BogusText()
         {
             // NOTE the third line is missing the leading level #
-            string indi = "0 INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            string indi = "0 @I1@ INDI\n1 DSCR attrib_value\nCONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var fr = ReadItHigher(indi);
             Assert.AreEqual(1, fr.Data.Count);
             var rec = fr.Data[0] as IndiRecord;
@@ -76,7 +76,7 @@ namespace SharpGEDParser.Tests
         {
             // NOTE the third line has an invalid leading level # (value below '0')
             // TODO which is changing how the upper level record is accumulated
-            string indi = "0 INDI\n1 BIRT attrib_value\n+ CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            string indi = "0 @I1@ INDI\n1 BIRT attrib_value\n+ CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Events.Count, "Event not parsed");
             // TODO no place to store errors
@@ -87,7 +87,7 @@ namespace SharpGEDParser.Tests
         public void BogusText3()
         {
             // NOTE the third line has an invalid leading level # (value above '9')
-            string indi = "0 INDI\n1 BIRT attrib_value\nA CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            string indi = "0 @I1@ INDI\n1 BIRT attrib_value\nA CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Events.Count, "Event not parsed");
             // TODO no place to store errors
@@ -109,7 +109,7 @@ namespace SharpGEDParser.Tests
         public void EmptyLines()
         {
             // multiple empty lines (incl. blanks)
-            string indi = "0 INDI\n1 DSCR attrib_value\n\n2 DATE 1774\n   ";
+            string indi = "0 @I1@ INDI\n1 DSCR attrib_value\n\n2 DATE 1774\n   ";
             var fr = ReadItHigher(indi);
             Assert.AreEqual(1, fr.Errors.Count); // blank lines as error "records"
             Assert.AreEqual(UnkRec.ErrorCode.EmptyLine, fr.Errors[0].Error);
@@ -121,8 +121,8 @@ namespace SharpGEDParser.Tests
         [Test]
         public void LeadingSpaces()
         {
-            string indi = "0 INDI\n     1 DSCR attrib_value\n     2 DATE 1774";
-            string indi2 = "     0 INDI\n     1 DSCR attrib_value\n     2 DATE 1774";
+            string indi = "0 @I1@ INDI\n     1 DSCR attrib_value\n     2 DATE 1774";
+            string indi2 = "     0 @I1@ INDI\n     1 DSCR attrib_value\n     2 DATE 1774";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Attribs.Count);
             rec = parse<IndiRecord>(indi2);
@@ -132,7 +132,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void LeadingSpaces2()
         {
-            string indi = "0 INDI\n     1 NAME \t \tattrib_value\n     2 DATE 1774";
+            string indi = "0 @I1@ INDI\n     1 NAME \t \tattrib_value\n     2 DATE 1774";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Names.Count);
         }
@@ -140,7 +140,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void LeadingTabs()
         {
-            string indi = "0 INDI\n\t\t1 DSCR attrib_value\n\t\t2 DATE 1774";
+            string indi = "0 @I1@ INDI\n\t\t1 DSCR attrib_value\n\t\t2 DATE 1774";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Attribs.Count);
         }
@@ -149,7 +149,7 @@ namespace SharpGEDParser.Tests
         public void Malform()
         {
             // exercise infinite loop found when no '1' level line
-            string indi = "0 INDI\n2 DATE 1774";
+            string indi = "0 @I1@ INDI\n2 DATE 1774";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(0, rec.Attribs.Count);
             // TODO error? - INDI record with no data
@@ -195,7 +195,7 @@ namespace SharpGEDParser.Tests
             // The 'unknown' line has been recorded in the parent record
             Assert.AreEqual(1, rec.Unknowns.Count);
             Assert.AreEqual(9, rec.Unknowns[0].Beg);
-            Assert.IsNull(rec.Unknowns[0].Tag);
+            Assert.IsNullOrEmpty(rec.Unknowns[0].Tag);
         }
 
         //[Test]
@@ -223,7 +223,7 @@ namespace SharpGEDParser.Tests
         public void LineTooLong()
         {
             // TODO how to exercise for UTF-16 ?
-            string indi = "0 INDI\n1 DSCR attrib_value" +
+            string indi = "0 @I1@ INDI\n1 DSCR attrib_value" +
             "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
             "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
             "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" +
@@ -237,7 +237,7 @@ namespace SharpGEDParser.Tests
         public void runOnConc()
         {
             // a later CONC tag was picked up by a tag which took a CONC
-            var txt = "0 INDI\n1 NOTE notes \n2 CONC detail\n1 DSCR a big man\n2 CONT I don't";
+            var txt = "0 @I1@ INDI\n1 NOTE notes \n2 CONC detail\n1 DSCR a big man\n2 CONT I don't";
             var rec = parse<IndiRecord>(txt);
             Assert.AreEqual("notes detail", rec.Notes[0].Text); // i.e. do NOT pick up the CONT from DSCR
         }
@@ -246,7 +246,7 @@ namespace SharpGEDParser.Tests
         public void LeadingSpacesCONT()
         {
             // CONC / CONT tags with leading spaces
-            var indi = "0 INDI\n1 NOTE notes\n    2 CONT more detail";
+            var indi = "0 @I1@ INDI\n1 NOTE notes\n    2 CONT more detail";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
@@ -256,7 +256,7 @@ namespace SharpGEDParser.Tests
         public void LeadingSpacesCONC()
         {
             // CONC / CONT tags with leading spaces
-            var indi = "0 INDI\n1 NOTE notes \n    2 CONC more detail";
+            var indi = "0 @I1@ INDI\n1 NOTE notes \n    2 CONC more detail";
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("notes more detail", rec.Notes[0].Text);
@@ -268,7 +268,7 @@ namespace SharpGEDParser.Tests
         public void EmptyCONT()
         {
             // one GEDCOM had CONT lines with no text
-            var txt = "0 INDI\n1 NOTE blah\n2 CONT";
+            var txt = "0 @I1@ INDI\n1 NOTE blah\n2 CONT";
             var rec = parse<IndiRecord>(txt);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("blah\n", rec.Notes[0].Text);
@@ -277,7 +277,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void Unk()
         {
-            var txt = "0 BLAH";
+            var txt = "0 @B1@ BLAH";
             var res = ReadIt(txt);
 
             Assert.AreEqual(1, res.Count);

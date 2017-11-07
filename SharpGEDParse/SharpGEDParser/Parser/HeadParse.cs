@@ -82,7 +82,7 @@ namespace SharpGEDParser.Parser
             while (i <= context.Endline)
             {
                 gs.LevelTagAndRemain(context.Lines.GetLine(i), ld);
-                if (ld.Tag == target)
+                if (ld.TagS == target)
                     return ld.Remain;
                 i++;
             }

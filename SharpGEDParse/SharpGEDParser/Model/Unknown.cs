@@ -7,6 +7,11 @@ namespace SharpGEDParser.Model
         {
             _tag = tag;
         }
+        public Unknown(GedRecord lines, string ident, char [] tag)
+            : base(lines, ident)
+        {
+            _tag = new string(tag);
+        }
 
         private string _tag;
         public override string Tag { get { return _tag; } }

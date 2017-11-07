@@ -108,19 +108,27 @@ namespace SharpGEDParser
             //return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
         }
 
-        public string Tag(char [] value)
+        public char [] Tag(char [] value)
         {
             // substring 1 doesn't start with '@' == tag
             // else substring 2
             if (_count < 2 || _lens[1] < 1)
                 return null;
             if (value[_starts[1]] != '@')
-                return new string(value, _starts[1], _lens[1]);
+                return make(value, _starts[1], _lens[1]);
             if (_count < 3)
                 return null;
             if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
-                return new string(value, _starts[3], _lens[3]);
-            return new string(value, _starts[2], _lens[2]);
+                return make(value, _starts[3], _lens[3]);
+            return make(value, _starts[2], _lens[2]);
+        }
+
+        private char[] make(char[] value, int beg, int len)
+        {
+            var tmp = new char[len];
+            for (int i = 0; i < len; i++)
+                tmp[i] = value[i + beg];
+            return tmp;
         }
 
         public char [] GetRest(char [] value, int dex)
@@ -158,5 +166,86 @@ namespace SharpGEDParser
             ctx.Tag = Tag(line);
             ctx.Remain1 = Remain(line) ?? new char[0];
         }
+
+        public void LevelIdentTagRemain(char[] line, out char level, out char[] tag, out string ident, out char[] remain)
+        {
+            int maxL = line.Length;
+            SplitForIdent(line, maxL);
+            level = line[_starts[0]];
+            int endIdent = _starts[1] + _lens[1] - 1;
+            if (endIdent < 0 || endIdent >= maxL || line[endIdent] != '@')
+            {
+                // didn't see a properly terminated ident; assume it is the tag
+                ident = "";
+                tag = make(line, _starts[1], _lens[1]);
+            }
+            else
+            {
+                ident = new string(line, _starts[1], _lens[1]-1);
+                tag = make(line, _starts[2], _lens[2]);
+            }
+            //try
+            //{
+            //    if (_lens[2] == 0)
+            //        tag = make(line, _starts[1], _lens[1]);
+            //    else
+            //        tag = make(line, _starts[2], _lens[2]);
+            //}
+            //catch (Exception)
+            //{
+            //    tag = make(line, _starts[1], _lens[1]); ; // 0 TRLR under obscure conditions
+            //}
+            remain = make(line, _starts[3], _lens[3]);
+            //remain = make(line, _starts[3], line.Length - _starts[3]);
+        }
+
+        public int SplitForIdent(char[] value, int maxL)
+        {
+            int resultIndex = 0;
+            int startIndex = 0;
+            _count = 0;
+
+            bool sawAt = false;
+            // Find the mid-parts
+            for (int i = 0; i < maxL && resultIndex < 3; i++)
+            {
+                char val = value[i];
+                if (sawAt)
+                {
+                    if (val == '@')
+                        sawAt = false;
+                    continue;
+                }
+
+                if (val == '@')
+                {
+                    sawAt = true;
+                    startIndex = i + 1;
+                }
+                else if (val == ' ')
+                {
+                    if (i > 0)
+                    {
+                        char val2 = value[i - 1];
+                        if (val2 != ' ')
+                        {
+                            _starts[resultIndex] = startIndex;
+                            _lens[resultIndex] = i - startIndex; // - (val2 == '@' ? 1 : 0);
+                            resultIndex++;
+                        }
+                    }
+                    startIndex = i + 1;
+                }
+            }
+
+            // Find the last part
+            _starts[resultIndex] = startIndex;
+            _lens[resultIndex] = maxL - startIndex; // - (value[max-1] == '@' ? 1 : 0);
+            resultIndex++;
+
+            _count = resultIndex;
+            return resultIndex;
+        }
+
     }
 }

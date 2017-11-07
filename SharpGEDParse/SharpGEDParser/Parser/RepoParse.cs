@@ -38,7 +38,7 @@ namespace SharpGEDParser.Parser
         private void commonAddr2(ParseContext2 ctx)
         {
             var dad = (ctx.Parent as Repository);
-            dad.Addr = AddrStructParse.OtherTag(ctx, ctx.Tag, dad.Addr);
+            dad.Addr = AddrStructParse.OtherTag(ctx, ctx.TagS, dad.Addr);
         }
 
         public override void PostCheck(GEDCommon rec)

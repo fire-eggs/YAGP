@@ -50,9 +50,9 @@ namespace SharpGEDParser.Parser
             }
 
             string extra = ctx.Remain.TrimStart();
-            if (ctx.Tag == "CONC")
+            if (ctx.TagS == "CONC")
                 own.Descriptor += extra;
-            if (ctx.Tag == "CONT")
+            if (ctx.TagS == "CONT")
                 own.Descriptor += "\n" + extra;
         }
 
@@ -71,12 +71,15 @@ namespace SharpGEDParser.Parser
             // TODO full Date support
             var famE = (context.Parent as EventCommon);
             famE.Date = context.Remain;
+#if GEDDATE
             famE.GedDate = EventDateParse.DateParser(context.Remain);
+#endif
         }
 
         private static void ageProc(StructParseContext context, int linedex, char level)
         {
-            if (context.Tag == "AGE")
+            string tag = context.TagS;
+            if (tag == "AGE")
             {
                 (context.Parent as EventCommon).Age = context.Remain;
                 //evt.Age = context.Remain;
@@ -85,7 +88,7 @@ namespace SharpGEDParser.Parser
             {
                 var evt = context.Parent as FamilyEvent;
                 var det = EventAgeParse.AgeParser(context, linedex, level);
-                switch (context.Tag)
+                switch (tag)
                 {
                     case "HUSB":
                     default: // TODO when might this happen?
@@ -120,13 +123,13 @@ namespace SharpGEDParser.Parser
         private static void commonAddr2(StructParseContext ctx, int linedex, char level)
         {
             var dad = (ctx.Parent as EventCommon);
-            dad.Address = AddrStructParse.OtherTag(ctx, ctx.Tag, dad.Address);
+            dad.Address = AddrStructParse.OtherTag(ctx, ctx.TagS, dad.Address);
         }
 
         private static void remainProc(StructParseContext context, int linedex, char level)
         {
             var famE = (context.Parent as EventCommon);
-            switch (context.Tag) // TODO consider using reflection and property name?
+            switch (context.TagS) // TODO consider using reflection and property name?
             {
                 case "TYPE":
                     famE.Type = context.Remain;
@@ -155,7 +158,7 @@ namespace SharpGEDParser.Parser
         {
             EventCommon gedEvent = indi ? new IndiEvent() as EventCommon : new FamilyEvent() as EventCommon;
             StructParseContext ctx2 = new StructParseContext(ctx, gedEvent);
-            gedEvent.Tag = ctx.Tag;
+            gedEvent.Tag = ctx.TagS;
             gedEvent.Descriptor = ctx.Remain;
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;

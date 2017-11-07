@@ -32,7 +32,7 @@ namespace SharpGEDParser.Tests
 
         public IndiRecord CommonLDS(string tag)
         {
-            var indi = string.Format("0 INDI\n1 {0}\n2 DATE unk\n2 TEMP salt lake\n2 NOTE note1\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 NOTE note2\n2 SOUR @s1@", tag);
+            var indi = string.Format("0 @I1@ INDI\n1 {0}\n2 DATE unk\n2 TEMP salt lake\n2 NOTE note1\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 NOTE note2\n2 SOUR @s1@", tag);
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.LDSEvents.Count);
@@ -67,7 +67,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSlgc()
         {
-            var indi = "0 INDI\n1 SLGC\n2 DATE unk\n2 TEMP salt lake\n2 NOTE note1\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 NOTE note2\n2 SOUR @s1@\n2 FAMC @foo@";
+            var indi = "0 @I1@ INDI\n1 SLGC\n2 DATE unk\n2 TEMP salt lake\n2 NOTE note1\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 NOTE note2\n2 SOUR @s1@\n2 FAMC @foo@";
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.LDSEvents.Count);
@@ -84,7 +84,7 @@ namespace SharpGEDParser.Tests
         public void SlgcErrXref()
         {
             // error in FamilyXref
-            var indi = "0 INDI\n1 SLGC\n2 DATE unk\n2 TEMP salt lake\n2 NOTE note1\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 NOTE note2\n2 SOUR @s1@\n2 FAMC @ @";
+            var indi = "0 @I1@ INDI\n1 SLGC\n2 DATE unk\n2 TEMP salt lake\n2 NOTE note1\n2 PLAC salty\n2 STAT insane\n3 DATE statdate\n2 NOTE note2\n2 SOUR @s1@\n2 FAMC @ @";
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.LDSEvents.Count);

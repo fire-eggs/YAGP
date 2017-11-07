@@ -23,7 +23,7 @@ namespace SharpGEDParser.Tests
         public IndiRecord TestEventTag1(string tag)
         {
             string indi =
-                string.Format("0 INDI\n1 {0}\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+                string.Format("0 @I1@ INDI\n1 {0}\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -36,7 +36,7 @@ namespace SharpGEDParser.Tests
 
         public IndiRecord TestEventTag2(string tag)
         {
-            string indi = string.Format("0 INDI\n1 {0}\n2 TYPE suspicious\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            string indi = string.Format("0 @I1@ INDI\n1 {0}\n2 TYPE suspicious\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -50,7 +50,7 @@ namespace SharpGEDParser.Tests
 
         public IndiRecord TestEventTag3(string tag)
         {
-            string indi3 = string.Format("0 INDI\n1 {0}\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            string indi3 = string.Format("0 @I1@ INDI\n1 {0}\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
@@ -64,7 +64,7 @@ namespace SharpGEDParser.Tests
 
         public void TestBirthExtra(string tag)
         {
-            string indi = string.Format("0 INDI\n1 {0} Y\n2 FAMC @FAM99@\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            string indi = string.Format("0 @I1@ INDI\n1 {0} Y\n2 FAMC @FAM99@\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -77,7 +77,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(null, rec.Events[0].Type);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
 
-            indi = string.Format("0 INDI\n1 {0} Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 ADOP pater", tag);
+            indi = string.Format("0 @I1@ INDI\n1 {0} Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 ADOP pater", tag);
             rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -94,16 +94,17 @@ namespace SharpGEDParser.Tests
         [Test]
         public void FamcBadSub()
         {
-            var indi2 = "0 INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
+            var indi2 = "0 @I1@ INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreNotEqual(0, rec.Errors.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Events[0].OtherLines.Count); // TODO other lines rolled up into parent?
         }
 
         [Test]
         public void TestBirth()
         {
-            string indi = "0 INDI\n1 BIRT\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng";
+            string indi = "0 @I1@ INDI\n1 BIRT\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng";
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -111,7 +112,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("1774", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
 
-            string indi2 = "0 INDI\n1 BIRT\n2 TYPE suspicious\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng";
+            string indi2 = "0 @I1@ INDI\n1 BIRT\n2 TYPE suspicious\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng";
             rec = parse(indi2);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -120,7 +121,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
             Assert.AreEqual("suspicious", rec.Events[0].Type);
 
-            string indi3 = "0 INDI\n1 BIRT\n2 PLAC Sands, Oldham, Lncshr, Eng";
+            string indi3 = "0 @I1@ INDI\n1 BIRT\n2 PLAC Sands, Oldham, Lncshr, Eng";
             rec = parse(indi3);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -153,7 +154,7 @@ namespace SharpGEDParser.Tests
             // TODO - optional 'Y' argument?
             // TODO test AGE with all events
 
-            string indi = string.Format("0 INDI\n1 {0}\n2 AGE 17\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
+            string indi = string.Format("0 @I1@ INDI\n1 {0}\n2 AGE 17\n2 DATE 1776\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
@@ -313,7 +314,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestEventSource()
         {
-            string indi2 = "0 INDI\n1 BURI\n2 PLAC Corinth Cemt. Barry Co., Missouri.\n2 SOUR @S122@\n3 DATA\n4 TEXT Date of Import: 17 Jun 2000\n2 SOUR @S124@";
+            string indi2 = "0 @I1@ INDI\n1 BURI\n2 PLAC Corinth Cemt. Barry Co., Missouri.\n2 SOUR @S122@\n3 DATA\n4 TEXT Date of Import: 17 Jun 2000\n2 SOUR @S124@";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);
             var aEvent = rec.Events[0];
@@ -332,15 +333,15 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestErrorSource()
         {
-            string indi = "0 INDI\n1 BURI\n2 PLAC Corinth Cemt. Barry Co., Missouri.\n2 SOUR\n3 DATA\n4 TEXT Date of Import: 17 Jun 2000\n1 SOUR";
+            string indi = "0 @I1@ INDI\n1 BURI\n2 PLAC Corinth Cemt. Barry Co., Missouri.\n2 SOUR\n3 DATA\n4 TEXT Date of Import: 17 Jun 2000\n1 SOUR";
             var rec = parse(indi);
-            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(1, rec.Errors.Count); // TODO canna remember what the error would be
         }
 
         [Test]
         public void TestMultEvent()
         {
-            string txt = "0 INDI\n1 BIRT\n2 DATE 1774\n2 NOTE this is a note\n2 PLAC Sands, Oldham, Lncshr, Eng\n1 BURI\n2 RESN locked\n2 DATE 1774\n2 PLAC who knows";
+            string txt = "0 @I1@ INDI\n1 BIRT\n2 DATE 1774\n2 NOTE this is a note\n2 PLAC Sands, Oldham, Lncshr, Eng\n1 BURI\n2 RESN locked\n2 DATE 1774\n2 PLAC who knows";
             var rec = parse(txt);
             Assert.AreEqual(2, rec.Events.Count);
             var aEvent = rec.Events[0];
@@ -355,7 +356,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestMultEvent2()
         {
-            string txt = "0 INDI\n1 BIRT\n2 NOTE this is a note\n2 DATE 1774\n2 CAUS fun\n2 PLAC Sands, Oldham, Lncshr, Eng\n1 BURI\n2 RELI cthulhu\n2 AGNC blunt instrument\n2 DATE 1774\n2 PLAC who knows";
+            string txt = "0 @I1@ INDI\n1 BIRT\n2 NOTE this is a note\n2 DATE 1774\n2 CAUS fun\n2 PLAC Sands, Oldham, Lncshr, Eng\n1 BURI\n2 RELI cthulhu\n2 AGNC blunt instrument\n2 DATE 1774\n2 PLAC who knows";
             var rec = parse(txt);
             Assert.AreEqual(2, rec.Events.Count);
             var aEvent = rec.Events[0];

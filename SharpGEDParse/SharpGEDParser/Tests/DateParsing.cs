@@ -16,6 +16,7 @@ namespace SharpGEDParser.Tests
     [TestFixture]
     public class DateParsing : GedParseTest
     {
+#if GEDDATE
         private IndiRecord parse(string val)
         {
             return parse<IndiRecord>(val);
@@ -483,6 +484,6 @@ namespace SharpGEDParser.Tests
             var res = ParseForDate(val);
             Assert.AreEqual(-1, res.Year);
         }
-
+#endif
     }
 }

@@ -21,7 +21,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void fn_sn_1()
         {
-            var indi1 = "0 INDI\n1 NAME  kludge  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME  kludge  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
@@ -32,7 +32,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void fn_sn_2()
         {
-            var indi1 = "0 INDI\n1 NAME  kludge/clan/  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME  kludge/clan/  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
@@ -43,7 +43,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void fn_sn_2a()
         {
-            var indi1 = "0 INDI\n1 NAME  kludge /clan/  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME  kludge /clan/  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
@@ -54,7 +54,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void fn_sn_3()
         {
-            var indi1 = "0 INDI\n1 NAME / clan /  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME / clan /  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.IsNullOrEmpty(rec.Names[0].Names);
@@ -65,7 +65,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void fn_sn_4()
         {
-            var indi1 = "0 INDI\n1 NAME /von Neumann/  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME /von Neumann/  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
@@ -76,7 +76,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void fn_sn_5()
         {
-            var indi1 = "0 INDI\n1 NAME john damm /von Neumann/  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME john damm /von Neumann/  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
@@ -87,7 +87,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void fn_sn_5a()
         {
-            var indi1 = "0 INDI\n1 NAME john damm/von Neumann/  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME john damm/von Neumann/  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
@@ -102,7 +102,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void sn_fn_2()
         {
-            var indi1 = "0 INDI\n1 NAME /clan/ kludge  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME /clan/ kludge  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.IsNullOrEmpty(rec.Names[0].Names);
@@ -113,7 +113,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void sn_fn_2a()
         {
-            var indi1 = "0 INDI\n1 NAME /clan/kludge  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME /clan/kludge  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.IsNullOrEmpty(rec.Names[0].Names);
@@ -124,7 +124,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void sn_fn_3()
         {
-            var indi1 = "0 INDI\n1 NAME / clan /  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME / clan /  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("clan", rec.Names[0].Surname);
@@ -135,7 +135,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void sn_fn_4()
         {
-            var indi1 = "0 INDI\n1 NAME /von Neumann/ john damm ";
+            var indi1 = "0 @I1@ INDI\n1 NAME /von Neumann/ john damm ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
@@ -148,7 +148,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void n_sn_n_1()
         {
-            var indi1 = "0 INDI\n1 NAME john /clan/ damm  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME john /clan/ damm  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("clan", rec.Names[0].Surname);
@@ -159,7 +159,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void n_sn_n_2()
         {
-            var indi1 = "0 INDI\n1 NAME john /von Neumann/dammit  jim  ";
+            var indi1 = "0 @I1@ INDI\n1 NAME john /von Neumann/dammit  jim  ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
@@ -173,7 +173,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void Empty()
         {
-            var indi1 = "0 INDI\n1 NAME   ";
+            var indi1 = "0 @I1@ INDI\n1 NAME   ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual(1, rec.Names[0].Errors.Count);
@@ -185,7 +185,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void Living()
         {
-            var indi1 = "0 INDI\n1 NAME LIVING";
+            var indi1 = "0 @I1@ INDI\n1 NAME LIVING";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("LIVING", rec.Names[0].Names);
@@ -195,7 +195,7 @@ namespace SharpGEDParser.Tests
         public void BadSlash()
         {
             // kartei.ged had this
-            var indi1 = "0 INDI\n1 NAME John /Doe/Roe/";
+            var indi1 = "0 @I1@ INDI\n1 NAME John /Doe/Roe/";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("John", rec.Names[0].Names);

@@ -8,7 +8,18 @@ namespace SharpGEDParser
     public abstract class GedRecParse : GedParse
     {
         protected delegate void TagProc2(ParseContext2 context);
-        protected readonly Dictionary<string, TagProc2> _tagSet2 = new Dictionary<string, TagProc2>();
+        protected class TagDict : Dictionary<int, TagProc2>
+        {
+            public void Add(string tag, TagProc2 val)
+            {
+                int key = LineUtil.WordToKey(tag.ToCharArray());
+                Add(key, val);
+            }
+        }
+
+        //protected readonly Dictionary<string, TagProc2> _tagSet2 = new Dictionary<string, TagProc2>();
+        //protected readonly Dictionary<int, TagProc2> _tagSet2 = new Dictionary<int, TagProc2>();
+        protected readonly TagDict _tagSet2 = new TagDict();
 
         protected GedRecParse()
         {
@@ -36,7 +47,8 @@ namespace SharpGEDParser
                 ctx.gs.LevelTagAndRemain(line, ctx);
                 //LineUtil.LevelTagAndRemain(ctx, line); //, ref ctx.Level, ref ident, ref ctx.Tag, ref ctx.Remain);
                 TagProc2 tagProc;
-                if (ctx.Tag != null && _tagSet2.TryGetValue(ctx.Tag, out tagProc))
+                int key = LineUtil.WordToKey(ctx.Tag);
+                if (ctx.Tag != null && _tagSet2.TryGetValue(key, out tagProc))
                     //_tagSet2.ContainsKey(ctx.Tag))
                 {
                     tagProc(ctx);
@@ -47,7 +59,7 @@ namespace SharpGEDParser
                     // Custom and invalid treated as 'unknowns': let the consumer figure it out
                     // TODO gedr5419_blood_type_events.ged has garbage characters in SOUR/ABBR tags: incorrect line terminator, blank lines etc.
                     LookAhead(ctx);
-                    rec.Unknowns.Add(new UnkRec(ctx.Tag, Lines.Beg + ctx.Begline, Lines.Beg + ctx.Endline));
+                    rec.Unknowns.Add(new UnkRec(new string(ctx.Tag), Lines.Beg + ctx.Begline, Lines.Beg + ctx.Endline));
                 }
                 i = ctx.Endline;
             }
@@ -109,10 +121,11 @@ namespace SharpGEDParser
 
         protected void DataProc(ParseContext2 ctx)
         {
+            string tag = new string(ctx.Tag);
             // Common processing for UID, RFN, AFN
-            if (ctx.Parent.Ids.HasId(ctx.Tag))
+            if (ctx.Parent.Ids.HasId(tag))
             {
-                var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+                var rec = new UnkRec(tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
                 rec.Error = UnkRec.ErrorCode.MultId; // reason;
                 ctx.Parent.Errors.Add(rec);
 
@@ -125,7 +138,7 @@ namespace SharpGEDParser
             LookAhead(ctx);
             sp.Extra.Beg = ctx.Begline + 1;
             sp.Extra.End = ctx.Endline;
-            ctx.Parent.Ids.Add(ctx.Tag, sp);
+            ctx.Parent.Ids.Add(tag, sp);
         }
 
         protected void RefnProc(ParseContext2 ctx)
@@ -178,11 +191,11 @@ namespace SharpGEDParser
                 //LevelTagAndRemain(eTextLd, ctx.Lines.GetLine(i));
                 if (eTextLd.Level <= ctx.Level)
                     break; // end of sub-record
-                if (eTextLd.Tag == "CONC")
+                if (eTextLd.TagS == "CONC")
                 {
                     txt.Append(eTextLd.Remain); // must keep trailing space
                 }
-                else if (eTextLd.Tag == "CONT")
+                else if (eTextLd.TagS == "CONT")
                 {
                     txt.Append("\n"); // NOTE: not appendline, which is \r\n
                     txt.Append(eTextLd.Remain); // must keep trailing space

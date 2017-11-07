@@ -52,7 +52,8 @@ namespace SharpGEDParser.Parser
                 }
 
                 TagProc tagproc;
-                if (tagSet.TryGetValue(ld.Tag, out tagproc))
+                //int key = LineUtil.WordToKey(ld.Tag);
+                if (tagSet.TryGetValue(ld.TagS, out tagproc))
                 {
                     ctx.Begline = i;
                     ctx.Tag = ld.Tag;

@@ -24,7 +24,7 @@ namespace SharpGEDParser.Tests
 
         private IndiRecord TestAttrib1(string tag)
         {
-            string indi = string.Format("0 INDI\n1 {0} attrib_value\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious", tag);
+            string indi = string.Format("0 @I1@ INDI\n1 {0} attrib_value\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious", tag);
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Attribs.Count);
@@ -54,7 +54,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void LongDSCR()
         {
-            string indi = "0 INDI\n1 DSCR attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            string indi = "0 @I1@ INDI\n1 DSCR attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Attribs.Count);
@@ -69,7 +69,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void LongDSCR2()
         {
-            string indi = "0 INDI\n1 DSCR attrib_value \n2 CONC a big man \n2 CONT I don't know the \n2 CONC secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            string indi = "0 @I1@ INDI\n1 DSCR attrib_value \n2 CONC a big man \n2 CONT I don't know the \n2 CONC secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Attribs.Count);
@@ -85,10 +85,11 @@ namespace SharpGEDParser.Tests
         public void ErrorCont()
         {
             // NOTE: CONC/CONT invalid for any but DSCR
-            string indi = "0 INDI\n1 EDUC attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
+            string indi = "0 @I1@ INDI\n1 EDUC attrib_value\n2 CONC a big man\n2 CONT I don't know the\n2 CONT secret handshake\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 AGE 17\n2 TYPE suspicious";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Attribs.Count);
             Assert.AreNotEqual(0, rec.Errors.Count); // TODO are errors correctly put in record?
+            // TODO 20171106 extra lines are vanishing
         }
 
         [Test]

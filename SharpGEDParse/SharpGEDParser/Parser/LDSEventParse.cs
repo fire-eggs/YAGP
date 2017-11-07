@@ -47,7 +47,7 @@ namespace SharpGEDParser.Parser
         private static void remainProc(StructParseContext context, int linedex, char level)
         {
             var me = (context.Parent as LDSEvent);
-            switch (context.Tag)
+            switch (context.TagS)
             {
                 case "DATE":
                     me.Date = context.Remain;
@@ -69,7 +69,7 @@ namespace SharpGEDParser.Parser
         public static LDSEvent Parse(ParseContext2 ctx)
         {
             LDSEvent evt = new LDSEvent();
-            evt.Tag = ctx.Tag;
+            evt.Tag = ctx.TagS;
             StructParseContext ctx2 = new StructParseContext(ctx, evt);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;

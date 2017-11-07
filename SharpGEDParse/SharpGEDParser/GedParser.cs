@@ -64,12 +64,14 @@ namespace SharpGEDParser
         {
             // 1. The first line in the rec should start with '0'
             var head = rec.FirstLine();
-            gs.Split(head, ' ');
-            char lvl = gs.Level(head);
 
-            //int firstDex = LineUtil.FirstChar(head);
-            //if (head[firstDex] != '0')
-            if (lvl != '0')
+            char[] tag;
+            char level;
+            string ident;
+            char[] remain;
+            gs.LevelIdentTagRemain(head, out level, out tag, out ident, out remain);
+
+            if (level != '0')
             {
                 var rec2 = new Unknown(rec, null, gs.Tag(head));
                 //rec2.Error = UnkRec.ErrorCode.InvLevel;
@@ -77,20 +79,13 @@ namespace SharpGEDParser
                 //throw new Exception("record head not zero"); // TODO should this be an error record instead?
             }
 
-            // 2. search for and find the tag
-            //LineUtil.LineData ld = new LineUtil.LineData(); // TODO static?
-            //LineUtil.LevelTagAndRemain(ld, head);
-
-            //gs.Split(head, ' ');
-
             // 3. create a GedCommon derived class
-            var remain = new string(gs.Remain(head));
-            return GedRecFactory(rec, gs.Ident(head), gs.Tag(head), remain);
-            //return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain);
+            return GedRecFactory(rec, ident, tag, new string(remain));
         }
 
-        private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)
+        private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, char [] _tag, string remain)
         {
+            string tag = new string(_tag);
             if (string.IsNullOrWhiteSpace(tag))
             {
                 var foo = new Unknown(rec, ident, "");

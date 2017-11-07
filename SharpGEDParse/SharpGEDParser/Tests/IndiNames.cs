@@ -33,8 +33,8 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestBasicSurname()
         {
-            var indi1 = "0 INDI\n1 NAME kludge /clan/";
-            var indi2 = "0 INDI\n1 NAME /clan2/";
+            var indi1 = "0 @I1@ INDI\n1 NAME kludge /clan/";
+            var indi2 = "0 @I1@ INDI\n1 NAME /clan2/";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
@@ -49,7 +49,7 @@ namespace SharpGEDParser.Tests
         public void TestBasicSurname2()
         {
             // real person from a GED, extra spaces
-            var indi1 = "0 INDI\n1    NAME     Marjorie    Lee     /Smith/   \n2 GIVN Marjorie Lee\n2 SURN Smith";
+            var indi1 = "0 @I1@ INDI\n1    NAME     Marjorie    Lee     /Smith/   \n2 GIVN Marjorie Lee\n2 SURN Smith";
 
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
@@ -60,8 +60,8 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestMultiName()
         {
-            var indi = "0 INDI\n1 NAME John /Smith/\n1 NAME Eric /Jones/";
-            var indi2 = "0 INDI\n1 NAME John /Smith/\n1 SEX M\n2 NOTE blah blah\n1 NAME Eric /Jones/";
+            var indi = "0 @I1@ INDI\n1 NAME John /Smith/\n1 NAME Eric /Jones/";
+            var indi2 = "0 @I1@ INDI\n1 NAME John /Smith/\n1 SEX M\n2 NOTE blah blah\n1 NAME Eric /Jones/";
             var rec = parse(indi);
             Assert.AreEqual(2, rec.Names.Count);
             Assert.AreEqual("Smith", rec.Names[0].Surname);
@@ -75,8 +75,8 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSuffix()
         {
-            var indi = "0 INDI\n1 NAME Given Name /Smith/ jr ";
-            var indi2 = "0 INDI\n1 NAME Given Name /Smith/esq";
+            var indi = "0 @I1@ INDI\n1 NAME Given Name /Smith/ jr ";
+            var indi2 = "0 @I1@ INDI\n1 NAME Given Name /Smith/esq";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("jr", rec.Names[0].Suffix);

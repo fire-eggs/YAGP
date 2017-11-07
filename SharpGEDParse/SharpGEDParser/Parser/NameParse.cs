@@ -32,7 +32,7 @@ namespace SharpGEDParser.Parser
         {
             // TODO punting: grab&store w/o analysis
             var rec = (ctx.Parent as NameRec);
-            rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
+            rec.Parts.Add(new Tuple<string, string>(ctx.TagS, ctx.Remain));
         }
 
         private static bool parseName(NameRec rec, char [] line, int linenum)

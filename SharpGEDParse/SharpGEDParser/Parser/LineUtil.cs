@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace SharpGEDParser.Parser
 {
     // TODO one LineUtil instance per parsing thread
@@ -7,7 +9,7 @@ namespace SharpGEDParser.Parser
         public class LineData
         {
             public char Level;
-            public string Tag;
+            public char [] Tag;
             public string Ident;
 
             public string Remain
@@ -18,6 +20,8 @@ namespace SharpGEDParser.Parser
                 }
             }
             public char[] Remain1;
+
+            public string TagS { get { return new string(Tag); } }
         }
 
         internal static int FirstChar(char [] line, int dex, int max)
@@ -135,5 +139,28 @@ namespace SharpGEDParser.Parser
         //        data.Remain = "";
         //    return data;
         //}
+
+        internal static int[] _primes = {2, 3, 5, 7, 11, 13};
+        internal static int _plen = 6;
+
+        public static int WordToKey(char[] word)
+        {
+            try
+            {
+                int val = 0;
+                int len = word.Length;
+                int pdex = 0;
+                for (int i = 0; i < len; i++)
+                {
+                    val = _primes[pdex] * val + word[i];
+                    pdex = (pdex + 1) % _plen;
+                }
+                return val;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }

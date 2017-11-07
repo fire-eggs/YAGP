@@ -67,7 +67,13 @@ namespace SharpGEDParser.Model
 
         public UnkRec(string tag, int beg, int end)
         {
-            Tag = tag; // TODO null=="<unexpected>";
+            Tag = tag;
+            Beg = beg;
+            End = end;
+        }
+        public UnkRec(char [] tag, int beg, int end)
+        {
+            Tag = new string(tag);
             Beg = beg;
             End = end;
         }

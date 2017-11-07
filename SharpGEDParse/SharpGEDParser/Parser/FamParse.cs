@@ -135,7 +135,7 @@ namespace SharpGEDParser.Parser
                 {
                     //LineUtil.LevelTagAndRemain(ld, context.Lines.GetLine(i));
                     context.gs.LevelTagAndRemain(context.Lines.GetLine(i), ld);
-                    switch (ld.Tag)
+                    switch (ld.TagS)
                     {
                         case "_MREL":
                             if (!string.IsNullOrWhiteSpace(ld.Remain)) // FTA expects 'Natural' and I canna see why not && ld.Remain != "Natural")
@@ -171,7 +171,7 @@ namespace SharpGEDParser.Parser
 
             if (!string.IsNullOrEmpty(xref))
             {
-                switch (context.Tag)
+                switch (context.TagS)
                 {
                     case "HUSB":
                         if (fam.Dads.Count != 0) // HUSB already specified

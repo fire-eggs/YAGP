@@ -150,7 +150,8 @@ namespace SharpGEDParser.Tests
         public void DoSpecial()
         {
             // TODO why did I move this to aside?
-            string path = @"Z:\HOST_E\proj\GED\all_ged\5.5.1\aside\index7_kbr.ged";
+            //string path = @"Z:\HOST_E\proj\GED\all_ged\5.5.1\aside\index7_kbr.ged";
+            var path = @"Z:\HOST_E\proj\GED\GED\OtherGEDFiles\5.5.1\aside\index7_kbr.ged";
             DoFile(path);
         }
 

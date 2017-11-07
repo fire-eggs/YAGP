@@ -35,7 +35,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestNoName()
         {
-            var indi1 = "0 INDI\n1 SEX";
+            var indi1 = "0 @I1@ INDI\n1 SEX";
             var rec = parse(indi1);
             Assert.AreEqual("INDI", rec.Tag);
             Assert.AreEqual(0, rec.Names.Count);
@@ -44,9 +44,9 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSexF()
         {
-            var indiU1 = "0 INDI\n1 NAME kludge\n1 SEX F";
-            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Feminine";
-            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Female";
+            var indiU1 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX F";
+            var indiU2 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX Feminine";
+            var indiU3 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX Female";
 
             var rec = parse(indiU1);
             Assert.AreEqual('F', rec.Sex);
@@ -64,9 +64,9 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSexM()
         {
-            var indiU1 = "0 INDI\n1 NAME kludge\n1 SEX M";
-            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX Masculine";
-            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Male";
+            var indiU1 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX M";
+            var indiU2 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX Masculine";
+            var indiU3 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX Male";
 
             var rec = parse(indiU1);
             Assert.AreEqual('M', rec.Sex);
@@ -81,10 +81,10 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSexU()
         {
-            var indi1 = "0 INDI\n1 SEX";
-            var indiU1 = "0 INDI\n1 NAME kludge";
-            var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX U";
-            var indiU3 = "0 INDI\n1 NAME kludge\n1 SEX Gibber";
+            var indi1 = "0 @I1@ INDI\n1 SEX";
+            var indiU1 = "0 @I1@ INDI\n1 NAME kludge";
+            var indiU2 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX U";
+            var indiU3 = "0 @I1@ INDI\n1 NAME kludge\n1 SEX Gibber";
 
             var rec = parse(indi1);
             Assert.AreEqual('U', rec.Sex);
@@ -164,19 +164,19 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestRestriction()
         {
-            var indi = "0 INDI\n1 RESN";
+            var indi = "0 @I1@ INDI\n1 RESN";
             var rec = parse(indi);
             Assert.AreEqual("", rec.Restriction);
 
-            indi = "0 INDI\n1 RESN locked";
+            indi = "0 @I1@ INDI\n1 RESN locked";
             rec = parse(indi);
             Assert.AreEqual("locked", rec.Restriction);
 
-            indi = "0 INDI\n1 RESN       privacy     ";
+            indi = "0 @I1@ INDI\n1 RESN       privacy     ";
             rec = parse(indi);
             Assert.AreEqual("privacy", rec.Restriction);
 
-            indi = "0 INDI\n1 RESN       confidential     ";
+            indi = "0 @I1@ INDI\n1 RESN       confidential     ";
             rec = parse(indi);
             Assert.AreEqual("confidential", rec.Restriction);
         }
@@ -202,29 +202,29 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestNote()
         {
-            var indi = "0 INDI\n1 NOTE @N123@";
+            var indi = "0 @I1@ INDI\n1 NOTE @N123@";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("N123", rec.Notes[0].Xref);
 
-            indi = "0 INDI\n1 NOTE notes\n2 CONT more detail";
+            indi = "0 @I1@ INDI\n1 NOTE notes\n2 CONT more detail";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
 
-            indi = "0 INDI\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
+            indi = "0 @I1@ INDI\n1 NOTE notes\n2 CONT more detail\n1 NAME foo\n1 NOTE notes2";
             rec = parse(indi);
             Assert.AreEqual(2, rec.Notes.Count);
             Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text);
             Assert.AreEqual("notes2", rec.Notes[1].Text);
 
             // trailing space must be preserved
-            indi = "0 INDI\n1 NOTE notes\n2 CONC more detail \n2 CONC yet more detail";
+            indi = "0 @I1@ INDI\n1 NOTE notes\n2 CONC more detail \n2 CONC yet more detail";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("notesmore detail yet more detail", rec.Notes[0].Text);
 
-            indi = "0 INDI\n1 NOTE notes \n2 CONC more detail \n2 CONC yet more detail ";
+            indi = "0 @I1@ INDI\n1 NOTE notes \n2 CONC more detail \n2 CONC yet more detail ";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("notes more detail yet more detail ", rec.Notes[0].Text);
@@ -239,7 +239,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi1);
             Assert.AreEqual("1", rec.Ident);
             rec = parse(indi2);
-            Assert.AreEqual(null, rec.Ident);
+            Assert.IsNullOrEmpty(rec.Ident);
             rec = parse(indi3);
             Assert.AreEqual("VERYLONGPERSONID", rec.Ident);
         }
@@ -247,20 +247,20 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestLiving()
         {
-            var indi = "0 INDI\n1 CHAN";
+            var indi = "0 @I1@ INDI\n1 CHAN";
             var rec = parse(indi);
             Assert.IsFalse(rec.Living);
 
-            indi = "0 INDI\n1 LVG Gibber";
+            indi = "0 @I1@ INDI\n1 LVG Gibber";
             rec = parse(indi);
             Assert.IsTrue(rec.Living);
-            indi = "0 INDI\n1 LVG";
+            indi = "0 @I1@ INDI\n1 LVG";
             rec = parse(indi);
             Assert.IsTrue(rec.Living);
-            indi = "0 INDI\n1 LVNG Gibber";
+            indi = "0 @I1@ INDI\n1 LVNG Gibber";
             rec = parse(indi);
             Assert.IsTrue(rec.Living);
-            indi = "0 INDI\n1 LVNG";
+            indi = "0 @I1@ INDI\n1 LVNG";
             rec = parse(indi);
             Assert.IsTrue(rec.Living);
         }

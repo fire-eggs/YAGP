@@ -32,7 +32,7 @@ namespace SharpGEDParser.Parser
         public static IndiLink LinkParse(ParseContext2 ctx)
         {
             IndiLink link = new IndiLink();
-            link.Tag = ctx.Tag;
+            link.Tag = ctx.TagS;
 
             string xref;
             string extra;

@@ -21,7 +21,7 @@ namespace SharpGEDParser.Tests
 
         private IndiRecord TestEventAddr(string tag)
         {
-            var indi = string.Format("0 INDI\n1 {0}\n2 ADDR This is a test", tag);
+            var indi = string.Format("0 @I1@ INDI\n1 {0}\n2 ADDR This is a test", tag);
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
@@ -37,7 +37,7 @@ namespace SharpGEDParser.Tests
 
         private IndiRecord TestEventPhon(string tag)
         {
-            var indi = string.Format("0 INDI\n1 {0}\n2 PHON This is a test", tag);
+            var indi = string.Format("0 @I1@ INDI\n1 {0}\n2 PHON This is a test", tag);
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
@@ -55,7 +55,7 @@ namespace SharpGEDParser.Tests
         public IndiRecord EventAddr(string tag)
         {
             var val = string.Format(
-                    "0 INDI\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
+                    "0 @I1@ INDI\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
                     tag);
             var rec = parse(val);
 
@@ -100,7 +100,7 @@ namespace SharpGEDParser.Tests
         public IndiRecord AttribAddr(string tag, string extra)
         {
             var val = string.Format(
-                    "0 INDI\n1 {0} {1}\n2 ADDR Calle de Milaneses 6, tienda\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
+                    "0 @I1@ INDI\n1 {0} {1}\n2 ADDR Calle de Milaneses 6, tienda\n2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
                     tag, extra);
             var rec = parse(val);
 
@@ -128,7 +128,7 @@ namespace SharpGEDParser.Tests
         public IndiRecord EventLongAddr(string tag)
         {
             // This is an unlikely set of tags, but required by standard
-            string val = string.Format("0 INDI\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n" +
+            string val = string.Format("0 @I1@ INDI\n1 {0}\n2 ADDR Calle de Milaneses 6, tienda\n" +
                                        "3 CONT Address continue\n3 CITY Nowhere\n3 STAE ZZ\n3 POST 1GN 2YV\n3 CTRY Where\n2 PHON 1-800-555-1212\n" +
                                        "2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
                 tag);
@@ -163,7 +163,7 @@ namespace SharpGEDParser.Tests
         public IndiRecord AttribLongAddr(string tag, string extra)
         {
             // This is an unlikely set of tags, but required by standard
-            string val = string.Format("0 INDI\n1 {0} {1}\n2 ADDR Calle de Milaneses 6, tienda\n" +
+            string val = string.Format("0 @I1@ INDI\n1 {0} {1}\n2 ADDR Calle de Milaneses 6, tienda\n" +
                                        "3 CONT Address continue\n3 CITY Nowhere\n3 STAE ZZ\n3 POST 1GN 2YV\n3 CTRY Where\n2 PHON 1-800-555-1212\n" +
                                        "2 NOTE Blah blah this is a note con\n3 CONC tinued on a second line.\n2 PLAC Sands, Oldham, Lncshr, Eng",
                 tag, extra);

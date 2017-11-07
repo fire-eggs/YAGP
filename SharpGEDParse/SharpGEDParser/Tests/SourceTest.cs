@@ -57,7 +57,11 @@ namespace SharpGEDParser.Tests
         public void TestMissingIdent()
         {
             var txt = "0 SOUR\n1 ABBR Fred";
-            var rec = ReadOne(txt);
+            var res = ReadItHigher(txt);
+            Assert.AreEqual(0, res.Errors.Count);
+            Assert.AreEqual(1, res.Data.Count);
+            SourceRecord rec = res.Data[0] as SourceRecord;
+            Assert.IsNotNull(rec);
 
             Assert.AreNotEqual(0, rec.Errors.Count); // TODO error details
             Assert.AreEqual("Fred", rec.Abbreviation);

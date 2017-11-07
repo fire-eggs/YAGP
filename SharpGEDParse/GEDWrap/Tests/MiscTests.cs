@@ -102,7 +102,7 @@ namespace GEDWrap.Tests
                 Assert.AreEqual(1, f.Errors.Count);
                 Assert.AreEqual(UnkRec.ErrorCode.MissIdent, f.Errors[0].Error);
                 var id = f.AllIndiIds.First();
-                Assert.IsTrue(id.StartsWith("A"));
+                Assert.IsTrue(string.IsNullOrWhiteSpace(id));
             }
         }
 
