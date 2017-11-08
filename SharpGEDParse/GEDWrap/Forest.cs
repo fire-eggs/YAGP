@@ -314,7 +314,8 @@ namespace GEDWrap
             }
         }
 
-        private int verifyFAMLink(string ident, string famIdent, string linkType)
+        private int verifyFAMLink(string ident, string famIdent, string linkType,
+                                  string relType, Issue.IssueCode err1, Issue.IssueCode err2)
         {
             // Verify a single FAM record link
             // returns: 0 no problem; -1 missing; 1 unmatched
@@ -325,6 +326,7 @@ namespace GEDWrap
             Person indi;
             if (!_indiHash.TryGetValue(ident, out indi))
             {
+                MakeError(err1, famIdent, ident, relType);
                 return -1;
             }
 
@@ -333,8 +335,14 @@ namespace GEDWrap
             foreach (var link in indi.Indi.Links)
             {
                 if (link.Tag == linkType && link.Xref == famIdent)
+                {
                     found = true;
+                    break;
+                }
             }
+            if (!found)
+                MakeError(err2, famIdent, ident, relType);
+
             return !found ? 1 : 0;
         }
 
@@ -382,40 +390,19 @@ namespace GEDWrap
 
                 foreach (var husbId in familyUnit.FamRec.Dads)
                 {
-                    switch (verifyFAMLink(husbId, famIdent, "FAMS"))
-                    {
-                        case -1:
-                            MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, husbId, "HUSB");
-                            break;
-                        case 1:
-                            MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, husbId, "HUSB");
-                            break;
-                    }
+                    verifyFAMLink(husbId, famIdent, "FAMS", "HUSB",
+                        Issue.IssueCode.SPOUSE_CONN_MISS, Issue.IssueCode.SPOUSE_CONN_UNM);
                 }
                 foreach (var wifeId in familyUnit.FamRec.Moms)
                 {
-                    switch (verifyFAMLink(wifeId, famIdent, "FAMS"))
-                    {
-                        case -1:
-                            MakeError(Issue.IssueCode.SPOUSE_CONN_MISS, famIdent, wifeId, "WIFE");
-                            break;
-                        case 1:
-                            MakeError(Issue.IssueCode.SPOUSE_CONN_UNM, famIdent, wifeId, "WIFE");
-                            break;
-                    }
+                    verifyFAMLink(wifeId, famIdent, "FAMS", "WIFE",
+                        Issue.IssueCode.SPOUSE_CONN_MISS, Issue.IssueCode.SPOUSE_CONN_UNM);
                 }
                 foreach (var childData in familyUnit.FamRec.Childs)
                 {
                     var childId = childData.Xref;
-                    switch (verifyFAMLink(childId, famIdent, "FAMC"))
-                    {
-                        case -1:
-                            MakeError(Issue.IssueCode.CHIL_MISS, famIdent, childId);
-                            break;
-                        case 1:
-                            MakeError(Issue.IssueCode.CHIL_NOTMATCH, famIdent, childId);
-                            break;
-                    }
+                    verifyFAMLink(childId, famIdent, "FAMC", "CHIL",
+                        Issue.IssueCode.CHIL_MISS, Issue.IssueCode.CHIL_NOTMATCH);
                 }
             }
         }
