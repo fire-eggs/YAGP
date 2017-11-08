@@ -18,43 +18,19 @@ namespace SharpGEDParser.Parser
             Note note = (context.Parent as Note);
             note.Builder.Append("\n");
             note.Builder.Append(context.Remain);
-            //note.Text += "\n" + context.Remain;
         }
 
         private static void concProc(StructParseContext context, int linedex, char level)
         {
             Note note = (context.Parent as Note);
             note.Builder.Append(context.Remain);
-            //note.Text += context.Remain;
         }
 
-        public static Note NoteParser(ParseContext2 ctx)
+        public static Note NoteParser(ParseContextCommon ctx, int linedex, char level)
         {
             Note note = new Note();
             note.Builder = new StringBuilder(512);
-            StructParseContext ctx2 = new StructParseContext(ctx, note);
-            if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
-            {
-                note.Xref = ctx.Remain.Trim(new char[] { '@' });
-            }
-            else
-            {
-                note.Builder.Append(ctx.Remain);
-                //note.Text = ctx.Remain;
-            }
-
-            StructParse(ctx2, tagDict);
-            note.Text = note.Builder.ToString();
-            note.Builder = null;
-            ctx.Endline = ctx2.Endline;
-            return note;
-        }
-
-        public static Note NoteParser(StructParseContext ctx, int linedex, char level)
-        {
-            Note note = new Note();
-            note.Builder = new StringBuilder(512);
-            StructParseContext ctx2 = new StructParseContext(ctx, linedex, note);
+            StructParseContext ctx2 = new StructParseContext(ctx, note, linedex);
             ctx2.Level = level;
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
@@ -63,7 +39,6 @@ namespace SharpGEDParser.Parser
             else
             {
                 note.Builder.Append(ctx.Remain);
-                //note.Text = ctx.Remain;
             }
 
             StructParse(ctx2, tagDict);

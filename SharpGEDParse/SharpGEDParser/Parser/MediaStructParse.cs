@@ -78,7 +78,7 @@ namespace SharpGEDParser.Parser
         public static MediaLink MediaParser(StructParseContext ctx, int linedex, char level)
         {
             MediaLink mlink = new MediaLink();
-            StructParseContext ctx2 = new StructParseContext(ctx, linedex, mlink);
+            StructParseContext ctx2 = new StructParseContext(ctx, mlink, linedex);
             ctx2.Level = level;
 // TODO parse xref using standard xref parser
 // TODO preserve non-xref remain as note

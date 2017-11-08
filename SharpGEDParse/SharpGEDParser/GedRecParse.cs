@@ -97,7 +97,7 @@ namespace SharpGEDParser
         protected void NoteProc(ParseContext2 ctx)
         {
             // Common note processing
-            var note = NoteStructParse.NoteParser(ctx);
+            var note = NoteStructParse.NoteParser(ctx, ctx.Begline, ctx.Level);
             (ctx.Parent as NoteHold).Notes.Add(note);
         }
 

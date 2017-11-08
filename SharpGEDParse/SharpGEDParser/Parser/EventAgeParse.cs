@@ -19,7 +19,7 @@ namespace SharpGEDParser.Parser
         public static AgeDetail AgeParser(StructParseContext ctx, int linedex, char level)
         {
             AgeDetail det = new AgeDetail();
-            StructParseContext ctx2 = new StructParseContext(ctx, linedex, det);
+            StructParseContext ctx2 = new StructParseContext(ctx, det, linedex);
             ctx2.Level = level;
             if (!string.IsNullOrWhiteSpace(ctx.Remain))
             {

@@ -44,7 +44,7 @@ namespace SharpGEDParser.Parser
             Parent = parent;
         }
 
-        public StructParseContext(StructParseContext ctx, int linedex, StructCommon parent)
+        public StructParseContext(ParseContextCommon ctx, StructCommon parent, int linedex = 0)
             : base(ctx)
         {
             Parent = parent;

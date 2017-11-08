@@ -77,7 +77,7 @@ namespace SharpGEDParser.Parser
         public static Address AddrParse(StructParseContext ctx, int linedex, char level)
         {
             Address addr = new Address();
-            StructParseContext ctx2 = new StructParseContext(ctx, linedex, addr);
+            StructParseContext ctx2 = new StructParseContext(ctx, addr, linedex);
             ctx2.Level = level;
             addr.Adr += ctx.Remain;
             StructParse(ctx2, tagDict);
