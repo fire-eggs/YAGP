@@ -134,10 +134,9 @@ namespace SharpGEDParser
             _blockLen = 0;
             _blockPos = 0;
             _lineBreaks = LB.ERR;
-            //Lines = new List<string>();
             _sawEOF = false;
 
-            if (!OpenFile(instream, enc))
+            if (!OpenFile(instream))
                 return false;
             // TODO unit testing expects no 0 HEAD
             //if (!FindHead())
@@ -184,41 +183,14 @@ namespace SharpGEDParser
                 enc = _enc;
                 startwdefault = true;
             }
-
-            // Try to open the file
             _fs = new StreamReader(new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read), enc, true, BufferSize);
-            _blockLen = _fs.ReadBlock(_buffer, 0, BufferSize);
-            if (startwdefault)
-            {
-                BomEncoding = _fs.CurrentEncoding.ToString();
-                if (BomEncoding.Contains("ASCII") || BomEncoding.Contains("Latin1"))
-                    BomEncoding = "None";
-                if (BomEncoding.Contains("UTF8"))
-                    BomEncoding = "UTF8";
-                if (BomEncoding.Contains("Unicode"))
-                    BomEncoding = "Unicode"; // TODO LE vs BE
-            }
-
-            if (_blockLen < 20)
-            {
-                ErrorTracker(UnkRec.ErrorCode.EmptyFile, -1);
-                return false;
-            }
-            return true;
+            return OpenFile(_fs, startwdefault);
         }
 
         // TODO how to re-open the stream opened by caller?
 
-        private bool OpenFile(StreamReader instream, Encoding enc)
+        private bool OpenFile(StreamReader instream, bool startwdefault=false)
         {
-            bool startwdefault = false;
-            if (enc == null)
-            {
-                enc = _enc;
-                startwdefault = true;
-            }
-
-            // Try to open the file
             _fs = instream;
             _blockLen = _fs.ReadBlock(_buffer, 0, BufferSize);
             if (startwdefault)
@@ -232,11 +204,11 @@ namespace SharpGEDParser
                     BomEncoding = "Unicode"; // TODO LE vs BE
             }
 
-            //if (_blockLen < 15) // TODO arbitrary, breaking some tests?
-            //{
-            //    Errors.Add("Empty File");
-            //    return false;
-            //}
+            if (_blockLen < 2)
+            {
+                ErrorTracker(UnkRec.ErrorCode.EmptyFile, -1);
+                return false;
+            }
             return true;
         }
 
