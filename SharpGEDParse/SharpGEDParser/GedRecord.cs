@@ -22,6 +22,7 @@ namespace SharpGEDParser
         {
             _lines = new List<char []>();
             _max = 0;
+            _firstLine = 1;
         }
 
         public GedRecord(int firstLine, char [] line) : this()
