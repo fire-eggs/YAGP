@@ -552,7 +552,7 @@ namespace GedScan
             foreach (var err in f.Unknowns)
             {
                 var text = err.Error >= UnkRec.ErrorCode.Exception ? err.Error.ToString() : err.Tag;
-                Console.WriteLine("\t\tUnk:{0} [line {1}]", text, err.Beg);
+                Console.WriteLine("\t\tUnk:{0} [lines {1}:{2}]", text, err.Beg, err.End);
                 counter++;
             }
             bool customRecord = false;
