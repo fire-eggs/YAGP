@@ -23,6 +23,7 @@ namespace SharpGEDParser.Model
         public DateTime GedDate { get; set; }
 
         public string CharSet { get; set; }
+        public string PlaceFormat { get; set; }
 
         public HeadRecord(GedRecord lines) : base(lines, null)
         {

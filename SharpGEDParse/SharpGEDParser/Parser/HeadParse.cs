@@ -15,7 +15,11 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("PLAC", PlacProc);
             _tagSet2.Add("NOTE", NoteProc);
 
-            // All other tags will be treated as unknowns
+            // throw these away
+            _tagSet2.Add("SUBN", junkProc);
+            _tagSet2.Add("DEST", junkProc);
+            _tagSet2.Add("FILE", junkProc);
+            _tagSet2.Add("LANG", junkProc);
         }
 
         private void CSetProc(ParseContext2 context)
@@ -32,6 +36,7 @@ namespace SharpGEDParser.Parser
                 self.GedDate = outDate;
             else 
                 self.GedDate = DateTime.MinValue; // TODO attempt to derive from other information in postcheck
+            string val = seekSubRecord("TIME", context);
         }
 
         private void GedcProc(ParseContext2 context)
@@ -44,8 +49,8 @@ namespace SharpGEDParser.Parser
         private void PlacProc(ParseContext2 context)
         {
             var self = (context.Parent as HeadRecord);
-            // TODO what to do here
-            //throw new NotImplementedException();
+            string val = seekSubRecord("FORM", context);
+            self.PlaceFormat = val;
         }
 
         private void SourProc(ParseContext2 context)
@@ -66,6 +71,11 @@ namespace SharpGEDParser.Parser
                 var self = (context.Parent as HeadRecord);
                 self.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
             }
+        }
+
+        private void junkProc(ParseContext2 context)
+        {
+            LookAhead(context);
         }
 
         private static readonly LineUtil.LineData ld = new LineUtil.LineData();
