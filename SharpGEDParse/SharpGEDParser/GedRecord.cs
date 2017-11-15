@@ -16,7 +16,7 @@ namespace SharpGEDParser
         private int _max;
 
         public int Beg { get { return _firstLine; } }
-        public int End { get { return _firstLine + _max; } }
+        public int End { get { return _firstLine + _max -1; } }
 
         public GedRecord()
         {
