@@ -129,6 +129,8 @@ namespace SharpGEDParser
 
                 case "SUBM": // TODO temp ignore
                 case "SUBN": // TODO temp ignore
+                    return new Tuple<object, GedParse>(new DontCare(rec, tag), null);
+
                 default:
                 {
                     var foo = new Unknown(rec, ident, tag);
