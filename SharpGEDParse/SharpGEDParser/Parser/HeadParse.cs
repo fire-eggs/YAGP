@@ -20,6 +20,7 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("DEST", junkProc);
             _tagSet2.Add("FILE", junkProc);
             _tagSet2.Add("LANG", junkProc);
+            _tagSet2.Add("COPR", junkProc);
         }
 
         private void CSetProc(ParseContext2 context)
@@ -36,7 +37,7 @@ namespace SharpGEDParser.Parser
                 self.GedDate = outDate;
             else 
                 self.GedDate = DateTime.MinValue; // TODO attempt to derive from other information in postcheck
-            string val = seekSubRecord("TIME", context);
+            string val = seekSubRecord("TIME", context); // NOTE: ignoring
         }
 
         private void GedcProc(ParseContext2 context)
