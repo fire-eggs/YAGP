@@ -144,7 +144,12 @@ namespace GedScan
                     long delta = (afterMem - beforeMem);
                     double meg = delta / (1024 * 1024.0);
                     if (_showDiags)
+                    {
                         Console.WriteLine("\t===Memory:{0:0.00}M", meg);
+                        long maxMem = Process.GetCurrentProcess().PeakWorkingSet64;
+                        double maxM = maxMem / (1024 * 1024.0);
+                        Console.WriteLine("\t===MaxWSet:{0:0.00}M", maxM);
+                    }
                     dump(reader.Data, reader.AllErrors, null, false);
                 }
             }
@@ -166,7 +171,12 @@ namespace GedScan
                     long delta = (afterMem - beforeMem);
                     double meg = delta / (1024 * 1024.0);
                     if (_showDiags)
+                    {
                         Console.WriteLine("\t===Memory:{0:0.00}M", meg);
+                        long maxMem = Process.GetCurrentProcess().PeakWorkingSet64;
+                        double maxM = maxMem/(1024*1024.0);
+                        Console.WriteLine("\t===MaxWSet:{0:0.00}M", maxM);
+                    }
 
                     if (_dates)
                         dumpDates(f);
