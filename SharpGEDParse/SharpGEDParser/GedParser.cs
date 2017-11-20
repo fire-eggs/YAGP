@@ -33,7 +33,14 @@ namespace SharpGEDParser
         {
             // If running multi-process, need to let all tasks finish before records can be accessed
 #if PARALLEL
-            Task.WaitAll(_allTasks.ToArray());
+            var allTasks2 = _allTasks.ToArray();
+            _allTasks = null;
+            Task.WaitAll(allTasks2);
+            foreach (var task in allTasks2)
+            {
+                task.Dispose();
+            }
+            allTasks2 = null;
 #endif
         }
 
