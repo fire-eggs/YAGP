@@ -9,15 +9,14 @@ Several "demo" programs and WinForms controls will be provided to show off and e
 Very much a work-in-progress.
 
 General status:
-- GEDCOM parsing is working.
-- Parsing uses more memory than I'd like.
-- Working on edge cases, 'non-standard' tag and error handling.
+- Released V0.1-Alpha: stable, performant, nearly complete GEDCOM parsing.
+- Documentation, samples, localization, and memory usage all need improvement.
 - Date parsing/estimation is partially working: needs to be more robust, handle more cases and calendars.
 - Demo programs and controls are crude and not yet refactored cleanly.
 - Demo programs need improved navigation/searching amongst INDIs.
 - Demo programs need print/preview consistently implemented.
 - A couple of statistics programs exist but still need a _useful_ validation program.
 
-Additional details (screenshots, planning) can be seen in the Wiki.
+Additional details and documentation-in-progress can be found in the Wiki.
 
 Some related material in my [Github pages (http://fire-eggs.github.io/ )]
