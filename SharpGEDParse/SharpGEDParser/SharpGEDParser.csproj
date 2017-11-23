@@ -166,6 +166,9 @@
     <Compile Include="Trie.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="OtherRecords.cd" />
+    <None Include="IndiFam.cd" />
+    <None Include="EventClasses.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
