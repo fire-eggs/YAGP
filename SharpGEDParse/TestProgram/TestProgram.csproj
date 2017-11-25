@@ -52,6 +52,10 @@
       <Project>{58b3c8e5-2e1c-402e-ba60-ae97de0a6621}</Project>
       <Name>SharpGEDParser</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpGEDWriter\SharpGEDWriter.csproj">
+      <Project>{C41549F8-F388-45C3-B25D-952332F9DA8F}</Project>
+      <Name>SharpGEDWriter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

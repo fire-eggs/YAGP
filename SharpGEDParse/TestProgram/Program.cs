@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using SharpGEDParser;
 using SharpGEDParser.Model;
+using SharpGEDWriter;
 
 namespace TestProgram
 {
@@ -10,18 +11,27 @@ namespace TestProgram
     {
         static void Main(string[] args)
         {
-            //string fpath = args[0];
-            //new FileRead().ReadGed(fpath);
+            string fpath = args[0];
+            var fr = new FileRead();
+            fr.ReadGed(fpath);
 
-            string apath = @"E:\TestGeds";
-            var files = Directory.GetFiles(apath, "*.ged");
-            foreach (var afile in files)
-            {
-                Console.WriteLine(afile);
-                var fr = new FileRead();
-                fr.ReadGed(afile);
-                dump(fr.Data);
-            }
+            string opath = Path.ChangeExtension(fpath, "ged_out");
+            FileWrite.WriteGED(fr.Data, opath);
+            
+
+            //string apath = @"E:\TestGeds";
+            //string apath = @"Z:\HOST_E\projects\GED\GED files\Ged too big\2524482.ged";
+            //Console.WriteLine(apath);
+            //dump(fr.Data);
+
+            //var files = Directory.GetFiles(apath, "*.ged");
+            //foreach (var afile in files)
+            //{
+            //    Console.WriteLine(afile);
+            //    var fr = new FileRead();
+            //    fr.ReadGed(afile);
+            //    dump(fr.Data);
+            //}
         }
 
         private static void dump(IEnumerable<GEDCommon> kbrGedRecs)
