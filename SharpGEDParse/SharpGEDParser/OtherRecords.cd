@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SharpGEDParser.Model.GEDCommon" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAABgAUAAAAIAACAAACAAIAAAIAgAAAggAAA=</HashCode>
+      <FileName>Model\GEDCommon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SharpGEDParser.Model.NoteRecord">
+    <Position X="8" Y="2" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAgAAIEAAAAAAgAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\NoteRecord.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SharpGEDParser.Model.SourceRecord">
+    <Position X="10.25" Y="2" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIwAABAAAAgAEIEgAAAAAAAAAAAABAAAAAACEgAAAQ=</HashCode>
+      <FileName>Model\SourceRecord.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SharpGEDParser.Model.Repository">
+    <Position X="0.5" Y="2" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAwAAAAAAggAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SharpGEDParser.Model.MediaRecord">
+    <Position X="2.75" Y="2" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIwAAAAAAAgAAIEAAAAAAAAAAAAAAAAAAAAAAAAEIA=</HashCode>
+      <FileName>Model\MediaRecord.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SharpGEDParser.Model.HeadRecord">
+    <Position X="5.25" Y="2" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAyAGAAQgEgAAAAIAQAAAABAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Model\HeadRecord.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

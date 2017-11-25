@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SharpGEDParser.Model.FamilyEvent">
+    <Position X="5.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\FamilyEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SharpGEDParser.Model.IndiEvent">
+    <Position X="5.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\FamilyEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SharpGEDParser.Model.EventCommon">
+    <Position X="3.25" Y="0.75" Width="2" />
+    <Members>
+      <Field Name="_cits" Hidden="true" />
+      <Field Name="_media" Hidden="true" />
+      <Field Name="_notes" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAIwAEAAAEEgAAIAAEAAAAAAAAAAAAIDAUCAAAgAAAQ=</HashCode>
+      <FileName>Model\EventCommon.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SharpGEDParser.Model.StructCommon">
+    <Position X="0.5" Y="0.75" Width="2.25" />
+    <Members>
+      <Field Name="_errors" Hidden="true" />
+      <Field Name="_other" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAABAAQAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Model\StructCommon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
