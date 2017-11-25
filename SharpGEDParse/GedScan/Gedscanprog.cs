@@ -66,7 +66,7 @@ namespace GedScan
                 logit("", true);
 
             if (_csv)
-                Console.WriteLine("filename,file KB,Millisec,Mem MB,# Lines,GED Version,Product1,Product2,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
+                Console.WriteLine("filename,file KB,Millisec,Mem MB,# Lines,GED Version,Product1,Product2,Product Version,GED Date,Charset,INDI,FAM,SOUR,REPO,NOTE,OBJE,UNKREC,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len");
 
             int lastarg = args.Length-1;
             if (File.Exists(args[lastarg]))
@@ -383,6 +383,7 @@ namespace GedScan
 
         }
 
+        // -b output
         private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, IEnumerable<Issue> issues, bool showErrors)
         {
             if (kbrGedRecs == null)
@@ -610,6 +611,7 @@ namespace GedScan
             int media = 0;
             int errs = f.Errors == null ? 0 : f.Errors.Count; // TODO ErrorsCount was 0 but Errors was not empty?
             int unks = f.Unknowns == null ? 0 : f.Unknowns.Count;
+            int unkRec = 0;
 
             int nLen = 0; // total length of NOTE record text
             int subN = 0; // NOTE sub-records
@@ -652,6 +654,7 @@ namespace GedScan
                     media++;
                 else if (gedRec2 is Unknown)
                 {
+                    unkRec++;
                     unks++;
                 }
 
@@ -680,13 +683,13 @@ namespace GedScan
             }
 
             // filename,"file KB","Millisec","Mem MB","# Lines","GED Version","Product","Product","Product Version", "GED Date","Charset",
-            // INDI,FAM,SOUR,REPO,NOTE,OBJE,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len
-            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},{21},\"{4}\",\"{20}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}",
+            // INDI,FAM,SOUR,REPO,NOTE,OBJE,UNKREC,UNK,ERR,Note Len,Sub-Notes,Sub-Note Len
+            Console.WriteLine("\"{0}.ged\",{1:0.#},{2},{3:0.#},{21},\"{4}\",\"{20}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",{9},{10},{11},{12},{13},{14},{22},{15},{16},{17},{18},{19}",
                 filename,fmeg,ms,meg,gedv, // 0-4
                 prod, prodv,gedD, chrS,inds, // 5-9
                 fams,src,repo,note,media, // 10-14
                 unks,errs,nLen,subN,subNLen, // 15-19
-                sauce, f.NumberOfLines);
+                sauce, f.NumberOfLines, unkRec);
         }
 
     }
