@@ -83,12 +83,7 @@ namespace SharpGEDWriter
         {
             file.WriteLine("0 @{0}@ OBJE", mediaRecord.Ident);
 
-            WriteCommon.writeIds(file, mediaRecord);
-            if (!string.IsNullOrEmpty(mediaRecord.RIN))
-                file.WriteLine("1 RIN {0}", mediaRecord.RIN);
-            WriteCommon.writeSubNotes(file, mediaRecord);
-            WriteCommon.writeSourCit(file, mediaRecord);
-            WriteCommon.writeChan(file, mediaRecord);
+            WriteCommon.writeRecordTrailer(file, mediaRecord, 1);
         }
 
         private static void WriteREPO(StreamWriter file, List<GEDCommon> records)
@@ -109,11 +104,7 @@ namespace SharpGEDWriter
 
             WriteCommon.writeAddr(file, repository.Addr, 1);
 
-            WriteCommon.writeIds(file, repository);
-            if (!string.IsNullOrEmpty(repository.RIN))
-                file.WriteLine("1 RIN {0}", repository.RIN);
-            WriteCommon.writeSubNotes(file, repository);
-            WriteCommon.writeChan(file, repository);
+            WriteCommon.writeRecordTrailer(file, repository, 1);
         }
 
         private static void WriteSOUR(StreamWriter file, List<GEDCommon> records)
@@ -134,12 +125,7 @@ namespace SharpGEDWriter
                 WriteCommon.writeXrefIfNotEmpty(file, "REPO", repoCit.Xref, 1);
             }
 
-            WriteCommon.writeIds(file, sourceRecord);
-            WriteCommon.writeIfNotEmpty(file, "RIN", sourceRecord.RIN, 1);
-
-            WriteCommon.writeSubNotes(file, sourceRecord);
-            WriteCommon.writeObjeLink(file, sourceRecord);
-            WriteCommon.writeChan(file, sourceRecord);
+            WriteCommon.writeRecordTrailer(file, sourceRecord, 1);
         }
 
         private static void WriteNOTE(StreamWriter file, List<GEDCommon> records)
@@ -155,11 +141,7 @@ namespace SharpGEDWriter
         {
             file.WriteLine("0 @{0}@ NOTE", noteRecord.Ident);
 
-            WriteCommon.writeIds(file, noteRecord);
-            if (!string.IsNullOrEmpty(noteRecord.RIN))
-                file.WriteLine("1 RIN {0}", noteRecord.RIN);
-            WriteCommon.writeSourCit(file, noteRecord);
-            WriteCommon.writeChan(file, noteRecord);
+            WriteCommon.writeRecordTrailer(file, noteRecord, 1);
         }
 
         private static void WriteFAM(StreamWriter file, List<GEDCommon> records)
@@ -175,8 +157,7 @@ namespace SharpGEDWriter
         {
             file.WriteLine("0 @{0}@ FAM", famRecord.Ident);
 
-            if (!string.IsNullOrEmpty(famRecord.Restriction))
-                file.WriteLine("1 RESN {0}", famRecord.Restriction);
+            WriteCommon.writeIfNotEmpty(file, "RESN", famRecord.Restriction, 1);
 
             // TODO multiple HUSB/WIFE
             if (famRecord.Dads.Count > 0)
@@ -202,14 +183,7 @@ namespace SharpGEDWriter
                 file.WriteLine("1 SUBM @{0}@", submitter);
             }
 
-            // TODO replicated in INDI... commmon sub-class?
-            WriteCommon.writeIds(file, famRecord);
-            if (!string.IsNullOrEmpty(famRecord.RIN))
-                file.WriteLine("1 RIN {0}", famRecord.RIN);
-            WriteCommon.writeSubNotes(file, famRecord);
-            WriteCommon.writeSourCit(file, famRecord);
-            WriteCommon.writeObjeLink(file, famRecord);
-            WriteCommon.writeChan(file, famRecord);
+            WriteCommon.writeRecordTrailer(file, famRecord, 1);
         }
 
         private static void WriteHead(StreamWriter file)

@@ -33,15 +33,7 @@ namespace SharpGEDWriter
                 file.WriteLine("1 SUBM @{0}@", submitter.Xref);
             }
 
-            // TODO this is replicated in FAM... common sub-type?
-            WriteCommon.writeIds(file, indiRecord);
-            if (!string.IsNullOrEmpty(indiRecord.RIN))
-                file.WriteLine("1 RIN {0}", indiRecord.RIN);
-            WriteCommon.writeSubNotes(file, indiRecord);
-            WriteCommon.writeSourCit(file, indiRecord);
-            WriteCommon.writeObjeLink(file, indiRecord);
-            WriteCommon.writeChan(file, indiRecord);
-
+            WriteCommon.writeRecordTrailer(file, indiRecord, 1);
         }
     }
 }

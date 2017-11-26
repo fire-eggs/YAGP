@@ -1,11 +1,6 @@
-﻿using System;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using SharpGEDParser.Model;
 
 namespace SharpGEDWriter
 {
@@ -14,7 +9,7 @@ namespace SharpGEDWriter
         internal static void writeSubNotes(StreamWriter file, NoteHold rec, int level = 1)
         {
             // TODO embedded notes -> note xref
-            if (rec.Notes.Count == 0)
+            if (rec == null || rec.Notes.Count == 0)
                 return;
             foreach (var note in rec.Notes)
             {
@@ -25,7 +20,7 @@ namespace SharpGEDWriter
         internal static void writeObjeLink(StreamWriter file, MediaHold rec, int level=1)
         {
             // TODO embedded OBJE -> OBJE xref
-            if (rec.Media.Count == 0)
+            if (rec == null || rec.Media.Count == 0)
                 return;
             foreach (var mediaLink in rec.Media)
             {
@@ -49,7 +44,7 @@ namespace SharpGEDWriter
 
         internal static void writeSourCit(StreamWriter file, SourceCitHold rec, int level=1)
         {
-            if (rec.Cits.Count == 0)
+            if (rec == null || rec.Cits.Count == 0)
                 return;
             foreach (var cit in rec.Cits)
             {
@@ -124,6 +119,16 @@ namespace SharpGEDWriter
             writeMultiple(file, "EMAIL", addr.Email, level);
             writeMultiple(file, "FAX", addr.Fax, level);
             writeMultiple(file, "WWW", addr.WWW, level);
+        }
+
+        internal static void writeRecordTrailer(StreamWriter file, GEDCommon rec, int level)
+        {
+            writeIds(file, rec);
+            writeIfNotEmpty(file, "RIN", rec.RIN, level);
+            writeSubNotes(file, rec as NoteHold);
+            writeSourCit(file, rec as SourceCitHold);
+            writeObjeLink(file, rec as MediaHold);
+            writeChan(file, rec);
         }
     }
 }
