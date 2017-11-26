@@ -17,12 +17,24 @@ namespace SharpGEDWriter
     {
         public static void WriteGED(List<GEDCommon> records, string path)
         {
-            // TODO submitter info
-
             using (var file = File.OpenWrite(path))
-            using (var sw = new StreamWriter(file, Encoding.UTF8))
             {
-                WriteHead(sw);
+                WriteRecs(file, records);
+            }            
+        }
+
+        public static void WriteRecs(Stream outStream, List<GEDCommon> records, bool noHead=false)
+        {
+            // TODO CR-LF vs LF
+            // TODO submitter info
+            StreamWriter sw;
+            if (noHead)
+                sw = new StreamWriter(outStream); // BOM confuses unit tests
+            else
+                sw = new StreamWriter(outStream, Encoding.UTF8);
+            {
+                if (!noHead)
+                    WriteHead(sw);
                 WriteINDI.WriteINDIs(sw, records);
                 WriteFAM(sw, records);
                 WriteNOTE(sw, records);
@@ -30,8 +42,11 @@ namespace SharpGEDWriter
                 WriteREPO(sw, records);
                 WriteOBJE(sw, records);
                 WriteOther(sw, records);
-                WriteTrailer(sw);
+                if (!noHead)
+                    WriteTrailer(sw);
             }
+            // TODO dispose issue?
+            sw.Flush();
         }
 
         private static void WriteTrailer(StreamWriter file)
