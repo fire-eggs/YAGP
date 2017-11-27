@@ -25,10 +25,16 @@ namespace SharpGEDWriter
 
             WriteCommon.writeIfNotEmpty(file, "RESN", indiRecord.Restriction, 1);
 
+            foreach (var nameRec in indiRecord.Names)
+            {
+                writeName(file, nameRec);
+                // TODO parts
+                // TODO notes/cits 
+                // TODO other name types
+            }
+
             // TODO original text or corrected?
             WriteCommon.writeIfNotEmpty(file, "SEX", indiRecord.FullSex, 1);
-
-            // TODO NAME
 
             // FAMC/FAMS
             foreach (var indiLink in indiRecord.Links)
@@ -65,6 +71,25 @@ namespace SharpGEDWriter
             }
 
             WriteCommon.writeRecordTrailer(file, indiRecord, 1);
+        }
+
+        private static void writeName(StreamWriter file, NameRec name)
+        {
+            var names = "";
+            if (!string.IsNullOrWhiteSpace(name.Names))
+                names = name.Names;
+            var sur = "";
+            if (!string.IsNullOrWhiteSpace(name.Surname))
+                sur = "/" + name.Surname + "/";
+            var suf = "";
+            if (!string.IsNullOrWhiteSpace(name.Suffix))
+                suf = name.Suffix;
+            file.WriteLine("1 NAME {0}{1}{2}{3}{4}", names, 
+                names.Length > 1 ? " " : "",
+                sur,
+                suf.Length > 1 ? " " : "",
+                suf
+                );
         }
     }
 }
