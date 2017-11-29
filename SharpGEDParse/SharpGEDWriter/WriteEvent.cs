@@ -1,10 +1,6 @@
-﻿using System;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharpGEDParser.Model;
 
 namespace SharpGEDWriter
 {
@@ -35,11 +31,13 @@ namespace SharpGEDWriter
                 writeEventCommon(file, indiEvent, level);
                 if (!string.IsNullOrWhiteSpace(indiEvent.Famc))
                 {
+                    // INDI.BIRT, INDI.CHR, INDI.ADOP
                     WriteCommon.writeXrefIfNotEmpty(file, "FAMC", indiEvent.Famc, level+1);
                     WriteCommon.writeIfNotEmpty(file, "ADOP", indiEvent.FamcAdop,level+2);
                 }
             }
         }
+
         internal static void writeEventCommon(StreamWriter file, EventCommon data, int level)
         {
             file.WriteLine("{0} {1}", level, data.Tag); // TODO extra/extended (e.g. INDI.DESC)

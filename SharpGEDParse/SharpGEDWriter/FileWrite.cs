@@ -4,12 +4,11 @@ using System.IO;
 using System.Text;
 using SharpGEDParser.Model;
 
-// TODO CHAN, REFN, RIN, other ids: common to all GEDCommon
-// TODO cits, obje, sour, notes: almost all common to GEDCommon
-
 // TODO what 5.5 specific data -> 5.5.1 ?
 
 // TODO trailing spaces
+
+// TODO embedded note conversion: do custom/unknown tags go to the NOTE record?
 
 namespace SharpGEDWriter
 {
@@ -83,7 +82,17 @@ namespace SharpGEDWriter
         {
             file.WriteLine("0 @{0}@ OBJE", mediaRecord.Ident);
 
+            // TODO were 5.5 OBJE records converted to 5.5.1 ? kinda - don't have a REFN (error?)
+            foreach (var mediaFile in mediaRecord.Files)
+            {
+                file.WriteLine("1 FILE {0}", mediaFile.FileRefn);
+                WriteCommon.writeIfNotEmpty(file, "TITL", mediaFile.Title, 2);
+                file.WriteLine("2 FORM {0}", mediaFile.Form);
+                WriteCommon.writeIfNotEmpty(file, "TYPE", mediaFile.Type, 3);
+            }
             WriteCommon.writeRecordTrailer(file, mediaRecord, 1);
+
+            // TODO other lines /unknowns : don't have access to original text
         }
 
         private static void WriteREPO(StreamWriter file, List<GEDCommon> records)
@@ -120,9 +129,39 @@ namespace SharpGEDWriter
         {
             file.WriteLine("0 @{0}@ SOUR", sourceRecord.Ident);
 
+            if (sourceRecord.Data != null && sourceRecord.Data.Events.Count > 0)
+            {
+                file.WriteLine("1 DATA");
+                WriteCommon.writeIfNotEmpty(file, "AGNC", sourceRecord.Data.Agency, 2);
+                foreach (var sourEvent in sourceRecord.Data.Events)
+                {
+                    file.WriteLine("2 EVEN {0}", sourEvent.Text);
+                    WriteCommon.writeIfNotEmpty(file, "DATE", sourEvent.Date, 3);
+                    WriteCommon.writeIfNotEmpty(file, "PLAC", sourEvent.Place, 3);
+                }
+            }
+
+            WriteCommon.writeIfNotEmpty(file, "AUTH", sourceRecord.Author, 1);
+            WriteCommon.writeIfNotEmpty(file, "TITL", sourceRecord.Title, 1);
+            WriteCommon.writeIfNotEmpty(file, "ABBR", sourceRecord.Abbreviation, 1);
+            WriteCommon.writeIfNotEmpty(file, "PUBL", sourceRecord.Publication, 1);
+            WriteCommon.writeIfNotEmpty(file, "TEXT", sourceRecord.Text, 1);
+
+            // TODO PUBL conc/cont
+            // TODO TEXT conc/cont
+            // TODO TITL conc/cont
+            // TODO AUTH conc/cont
+
+            // TODO have 5.5 repository citations been converted to 5.5.1? E.g. SOUR.REPO.MEDI?
             foreach (var repoCit in sourceRecord.Cits)
             {
-                WriteCommon.writeXrefIfNotEmpty(file, "REPO", repoCit.Xref, 1);
+                file.WriteLine("1 REPO {0}", repoCit.Xref);
+                foreach (var callNum in repoCit.CallNums)
+                {
+                    file.WriteLine("2 CALN {0}", callNum.Number);
+                    WriteCommon.writeIfNotEmpty(file, "MEDI", callNum.Media, 3);
+                }
+                WriteCommon.writeSubNotes(file, repoCit, 2);
             }
 
             WriteCommon.writeRecordTrailer(file, sourceRecord, 1);

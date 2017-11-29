@@ -16,7 +16,7 @@ namespace SharpGEDParser.Model
         public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
         public List<LDSEvent> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSEvent>()); } }
 
-        // Identity strings for submitters
+        // Identity strings for submitters [SUBM/ANCI/DESI]
         private List<Submitter> _submit; // TODO common?
         public List<Submitter> Submitters { get { return _submit ?? (_submit = new List<Submitter>()); } }
 
