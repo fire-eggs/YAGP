@@ -23,12 +23,43 @@ namespace SharpGEDWriter.Tests
             return fr;
         }
 
-        public static string ParseAndWrite(string testString, bool noHead = true, bool unix=true)
+        public static string Write(FileRead fr, bool noHead = true, bool unix = true)
         {
-            FileRead fr = ReadItHigher(testString);
             MemoryStream mem = new MemoryStream();
             FileWrite.WriteRecs(mem, fr.Data, noHead, unix);
             return Encoding.UTF8.GetString(mem.ToArray(), 0, (int)mem.Length);
         }
+
+        public static string ParseAndWrite(string testString, bool noHead = true, bool unix=true)
+        {
+            FileRead fr = ReadItHigher(testString);
+            return Write(fr, noHead, unix);
+        }
+
+        // Take a list of strings and create a combined,NL terminated string
+        public string MakeInput(string[] recs)
+        {
+            StringBuilder inp = new StringBuilder();
+            foreach (var rec in recs)
+            {
+                inp.Append(rec);
+                inp.Append("\n");
+            }
+            return inp.ToString();
+        }
+
+        // Take a list of strings and create a combined,NL terminated string
+        // in a specified order
+        public string MakeInput(string[] recs, int [] order)
+        {
+            StringBuilder inp = new StringBuilder();
+            foreach (var dex in order)
+            {
+                inp.Append(recs[dex]);
+                inp.Append("\n");
+            }
+            return inp.ToString();
+        }
+
     }
 }
