@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Linq;
+using System.Reflection;
 using SharpGEDParser.Model;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,17 @@ namespace SharpGEDWriter
             }
         }
 
+        private static void writeLink(StreamWriter file, IndiLink indiLink)
+        {
+            // TODO extra text
+            WriteCommon.writeXrefIfNotEmpty(file, indiLink.Tag, indiLink.Xref, 1);
+            WriteCommon.writeIfNotEmpty(file, "PEDI", indiLink.Pedi, 2);
+            WriteCommon.writeIfNotEmpty(file, "STAT", indiLink.Stat, 2);
+            WriteCommon.writeSubNotes(file, indiLink, 2);
+        }
+
+        // TODO more closely match PAF order? - specifically _UID
+        // INDI records are written to be as close to PAF order as possible
         private static void WriteOneIndi(StreamWriter file, IndiRecord indiRecord)
         {
             file.WriteLine("0 @{0}@ INDI", indiRecord.Ident);
@@ -36,18 +48,18 @@ namespace SharpGEDWriter
             // TODO original text or corrected?
             WriteCommon.writeIfNotEmpty(file, "SEX", indiRecord.FullSex, 1);
 
-            // FAMC/FAMS
-            foreach (var indiLink in indiRecord.Links)
-            {
-                // TODO extra text
-                WriteCommon.writeXrefIfNotEmpty(file, indiLink.Tag, indiLink.Xref, 2);
-                WriteCommon.writeIfNotEmpty(file, "PEDI", indiLink.Pedi, 3);
-                WriteCommon.writeIfNotEmpty(file, "STAT", indiLink.Stat, 3);
-                WriteCommon.writeSubNotes(file, indiLink, 3);
-            }
-
             WriteEvent.writeEvents(file, indiRecord.Events, 1);
             WriteEvent.writeEvents(file, indiRecord.Attribs, 1);
+
+            // Insure FAMS/FAMC output in consistent order
+            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Tag == "FAMS"))
+            {
+                writeLink(file, indiLink);
+            }
+            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Tag == "FAMC"))
+            {
+                writeLink(file, indiLink);
+            }
 
             // TODO LDS events
 
@@ -84,12 +96,13 @@ namespace SharpGEDWriter
             var suf = "";
             if (!string.IsNullOrWhiteSpace(name.Suffix))
                 suf = name.Suffix;
-            file.WriteLine("1 NAME {0}{1}{2}{3}{4}", names, 
+            string line = string.Format("1 NAME {0}{1}{2}{3}{4}", names, 
                 names.Length > 1 ? " " : "",
                 sur,
                 suf.Length > 1 ? " " : "",
                 suf
                 );
+            file.WriteLine(line.Trim());
         }
     }
 }

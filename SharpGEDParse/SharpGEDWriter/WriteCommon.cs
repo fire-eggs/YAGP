@@ -33,7 +33,7 @@ namespace SharpGEDWriter
             if (rec.CHAN.Date == null)
                 return;
             file.WriteLine("1 CHAN");
-            file.WriteLine("2 DATE {0}", rec.CHAN.Date.Value.ToString("dd MMM yyyy").ToUpper());
+            file.WriteLine("2 DATE {0}", rec.CHAN.Date.Value.ToString("d MMM yyyy").ToUpper());
             // TODO change time?
             writeSubNotes(file, rec.CHAN, 2);
 

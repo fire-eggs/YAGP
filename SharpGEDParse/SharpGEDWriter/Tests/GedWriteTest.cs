@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SharpGEDParser;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using SharpGEDParser;
 
 namespace SharpGEDWriter.Tests
 {
@@ -27,11 +23,11 @@ namespace SharpGEDWriter.Tests
             return fr;
         }
 
-        public static string ParseAndWrite(string testString, bool noHead = true)
+        public static string ParseAndWrite(string testString, bool noHead = true, bool unix=true)
         {
             FileRead fr = ReadItHigher(testString);
             MemoryStream mem = new MemoryStream();
-            FileWrite.WriteRecs(mem, fr.Data, noHead);
+            FileWrite.WriteRecs(mem, fr.Data, noHead, unix);
             return Encoding.UTF8.GetString(mem.ToArray(), 0, (int)mem.Length);
         }
     }

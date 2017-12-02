@@ -10,7 +10,7 @@ namespace SharpGEDWriter.Tests
         {
             var indi1 = "0 @I1@ INDI\n1 SEX M";
             var res = ParseAndWrite(indi1);
-            Assert.AreEqual(indi1.Replace("\n","\r\n")+"\r\n", res);
+            Assert.AreEqual(indi1+"\n", res);
         }
     }
 }

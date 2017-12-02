@@ -22,15 +22,19 @@ namespace SharpGEDWriter
             }            
         }
 
-        public static void WriteRecs(Stream outStream, List<GEDCommon> records, bool noHead=false)
+        public static void WriteRecs(Stream outStream, List<GEDCommon> records, bool noHead=false, bool unix=true)
         {
             // TODO CR-LF vs LF
             // TODO submitter info
             StreamWriter sw;
-            if (noHead)
+            if (noHead) // Unit testing
                 sw = new StreamWriter(outStream); // BOM confuses unit tests
             else
                 sw = new StreamWriter(outStream, Encoding.UTF8);
+
+            if (unix)
+                sw.NewLine = "\n";
+
             {
                 if (!noHead)
                     WriteHead(sw);

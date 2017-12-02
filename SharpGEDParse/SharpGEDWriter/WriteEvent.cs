@@ -45,7 +45,7 @@ namespace SharpGEDWriter
             WriteCommon.writeIfNotEmpty(file, "DATE", data.Date, level + 1);
 
             WriteCommon.writeIfNotEmpty(file, "PLAC", data.Place, level + 1);
-            WriteCommon.writeAddr(file, data.Address, level + 1);
+            // TODO place structure
 
             WriteCommon.writeIfNotEmpty(file, "AGNC", data.Agency, level + 1);
             WriteCommon.writeIfNotEmpty(file, "RELI", data.Religion, level + 1);
