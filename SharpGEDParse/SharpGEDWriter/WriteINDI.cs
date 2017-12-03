@@ -1,9 +1,7 @@
-﻿using System.Linq;
-using System.Reflection;
-using SharpGEDParser.Model;
-using System;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 // TODO can record ident be generalized?
 
@@ -40,9 +38,15 @@ namespace SharpGEDWriter
             foreach (var nameRec in indiRecord.Names)
             {
                 writeName(file, nameRec);
-                // TODO parts
-                // TODO notes/cits 
+                foreach (var tuple in nameRec.Parts)
+                {
+                    file.WriteLine("2 {0} {1}", tuple.Item1, tuple.Item2);
+                }
                 // TODO other name types
+
+                // TODO parser missing these???
+                //WriteCommon.writeSubNotes(file, nameRec, 2);
+                //WriteCommon.writeSourCit(file, nameRec, 2);
             }
 
             // TODO original text or corrected?

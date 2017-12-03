@@ -46,7 +46,7 @@ namespace SharpGEDWriter
             // Don't do extra work for short/unsplit lines
             if (text.Length < 247 && !text.Contains("\n"))
             {
-                file.WriteLine("{0} {1} {2}", level, tag, text);
+                file.WriteLine(string.Format("{0} {1} {2}", level, tag, text).Trim());
                 return;
             }
 
@@ -90,15 +90,43 @@ namespace SharpGEDWriter
                 return;
             foreach (var cit in rec.Cits)
             {
-                file.WriteLine("{0} SOUR @{1}@", level, cit.Xref);
-                if (!string.IsNullOrEmpty(cit.Page))
-                    file.WriteLine("{0} PAGE {1}", level+1, cit.Page);
+                if (string.IsNullOrWhiteSpace(cit.Xref))
+                {
+                    // not using source records variant
+                    if (string.IsNullOrWhiteSpace(cit.Desc))
+                        file.WriteLine("{0} SOUR", level);
+                    else
+                        writeExtended(file, level, "SOUR", cit.Desc);
+                }
+                else
+                {
+                    // pointer to source record variant
+                    file.WriteLine("{0} SOUR @{1}@", level, cit.Xref);
+                    // TODO anytext?
+                }
 
-                // TODO events
-                // TODO data
+                writeIfNotEmpty(file, "PAGE", cit.Page, level+1);
+                writeIfNotEmpty(file, "EVEN", cit.Event, level+1);
+                writeIfNotEmpty(file, "ROLE", cit.Role, level+2); // TODO role specified but not event
 
-                if (!string.IsNullOrEmpty(cit.Quay))
-                    file.WriteLine("{0} PAGE {1}", level + 1, cit.Quay);
+                if (cit.Data)
+                {
+                    file.WriteLine("{0} DATA", level+1);
+                    writeIfNotEmpty(file, "DATE", cit.Date, level+2);
+                    foreach (var aTxt in cit.Text)
+                    {
+                        writeExtIfNotEmpty(file, "TEXT", aTxt, level + 2);
+                    }
+                }
+                else
+                {
+                    foreach (var aTxt in cit.Text)
+                    {
+                        writeExtIfNotEmpty(file, "TEXT", aTxt, level + 1);
+                    }
+                }
+
+                writeIfNotEmpty(file, "QUAY", cit.Quay, level+1);
 
                 writeSubNotes(file, cit, level+1);
                 writeObjeLink(file, cit, level+1);

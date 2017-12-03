@@ -40,7 +40,8 @@ namespace SharpGEDWriter
 
         internal static void writeEventCommon(StreamWriter file, EventCommon data, int level)
         {
-            file.WriteLine("{0} {1}", level, data.Tag); // TODO extra/extended (e.g. INDI.DESC)
+            WriteCommon.writeExtended(file, level, data.Tag, data.Descriptor);
+
             WriteCommon.writeIfNotEmpty(file, "TYPE", data.Type, level + 1);
             WriteCommon.writeIfNotEmpty(file, "DATE", data.Date, level + 1);
 

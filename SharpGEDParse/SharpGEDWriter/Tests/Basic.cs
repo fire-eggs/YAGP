@@ -41,25 +41,21 @@ namespace SharpGEDWriter.Tests
             Assert.AreEqual(str, res);
         }
 
+
         [Test]
-        public void SourRepo()
+        public void HeadNote()
         {
-            // SOUR.REPO was missing '@'s
-            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO @R1@\n1 RIN rin-chan";
+            var txt = "0 HEAD\n1 NOTE this is a header note\n0 @I1@ INDI";
             var fr = ReadItHigher(txt);
             Assert.AreEqual(0, fr.AllErrors.Count);
-            var res = Write(fr);
-            Assert.AreEqual(res, txt + "\n");
-        }
-        [Test]
-        public void SourRepo2()
-        {
-            // SOUR.REPO with no xref
-            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO\n2 CALN blah\n1 RIN rin-chan";
-            var fr = ReadItHigher(txt);
-            Assert.AreEqual(0, fr.AllErrors.Count);
-            var res = Write(fr);
-            Assert.AreEqual(res, txt + "\n");
+            var res = Write(fr, noHead:false);
+            // TODO will fail when version change
+            var exp = "﻿0 HEAD\n1 GEDC\n2 VERS 5.5.1\n"+
+                      "2 FORM LINEAGE-LINKED\n1 CHAR UTF-8\n"+
+                      "1 SOUR SharpGEDWriter\n2 VERS V0.2-Alpha\n"+
+                      "1 NOTE this is a header note\n"+
+                      "1 SUBM @S0@\n0 @S0@ SUBM\n0 @I1@ INDI\n0 TRLR\n";
+            Assert.AreEqual(res, exp);
         }
     }
 }

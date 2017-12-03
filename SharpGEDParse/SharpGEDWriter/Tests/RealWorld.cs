@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NUnit.Framework;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
 
 // Example records pulled from real-world GED files
 
@@ -50,7 +46,7 @@ namespace SharpGEDWriter.Tests
             Assert.AreEqual(0, fr.AllErrors.Count);
             var res = Write(fr);
             var ideal = MakeInput(record1, exp);
-            Assert.AreEqual(ideal,res); // TODO write name parts
+            Assert.AreEqual(ideal,res); // TODO failing on custom tags
         }
 
         private string[] record2 = // From Blades.ged
@@ -65,9 +61,10 @@ namespace SharpGEDWriter.Tests
         "2 PAGE n/a",
         "1 BIRT",
         "2 DATE ABT 1660", 
-        "1 DEAT", // 10
+        "2 PLAC prob Talbot County, Maryland", // 10
+        "1 DEAT",
         "2 DATE 1698", 
-        "1 FAMS @F2@", // 12
+        "1 FAMS @F2@", // 13
         };
 
         // INDI expected order is:
@@ -76,8 +73,8 @@ namespace SharpGEDWriter.Tests
         [Test]
         public void BladesSimple()
         {
-            // No EVENT.PLAC, other lines
-            int[] exp = {0, 1, 2, 8, 9, 10, 11, 12, 3, 6, 7, 4, 5};
+            // No custom tags
+            int[] exp = {0, 1, 2, 8, 9, 10, 11, 12, 13, 3, 6, 7, 4, 5};
             Assert.AreEqual(exp.Count(), record2.Count());
             var fr = ReadItHigher(MakeInput(record2));
             Assert.AreEqual(0, fr.AllErrors.Count);
