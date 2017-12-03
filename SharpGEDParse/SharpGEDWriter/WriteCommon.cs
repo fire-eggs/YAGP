@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 
+// ReSharper disable InconsistentNaming
+
 namespace SharpGEDWriter
 {
     class WriteCommon
@@ -13,7 +15,47 @@ namespace SharpGEDWriter
                 return;
             foreach (var note in rec.Notes)
             {
-                file.WriteLine("{0} NOTE @{1}@", level, note.Xref);
+                if (!string.IsNullOrWhiteSpace(note.Xref))
+                    file.WriteLine("{0} NOTE @{1}@", level, note.Xref);
+                else
+                {
+                    writeExtended(file, level, "NOTE", note.Text);
+                }
+            }
+        }
+
+        //static IEnumerable<string> ChunksUpto(string str, int maxChunkSize)
+        //{
+        //    for (int i = 0; i < str.Length; i += maxChunkSize)
+        //        yield return str.Substring(i, Math.Min(maxChunkSize, str.Length - i));
+        //}
+
+        private static void writeWithConc(StreamWriter file, int level, string tag, string text, bool incrLevel)
+        {
+            // TODO really handle CONC tag here!
+            file.WriteLine("{0} {1} {2}", level, tag, text);
+        }
+
+        private static char[] nlSplit = {'\n'};
+
+        public static void writeExtended(StreamWriter file, int level, string tag, string text)
+        {
+            // write a tag which may have extended text (requiring the use of CONC/CONT tags)
+            // GEDCOM standard specifies that line length is limited to 255 chars
+
+            // Don't do extra work for short/unsplit lines
+            if (text.Length < 247 && !text.Contains("\n"))
+            {
+                file.WriteLine("{0} {1} {2}", level, tag, text);
+                return;
+            }
+
+            // original CONT tags were marked as embedded newlines; separate out and add required tags
+            var lines = text.Split(nlSplit);
+            writeWithConc(file, level, tag, lines[0], false);
+            for (int i = 1; i < lines.Length; i++)
+            {
+                writeWithConc(file, level + 1, "CONT", lines[i], true);
             }
         }
 
@@ -77,6 +119,13 @@ namespace SharpGEDWriter
             {
                 file.WriteLine("{0} {1} {2}", level, other.Key, other.Value.Value);
             }
+        }
+
+        public static void writeExtIfNotEmpty(StreamWriter file, string tag, string value, int level)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return;
+            writeExtended(file, level, tag, value);
         }
 
         public static void writeIfNotEmpty(StreamWriter file, string tag, string value, int level)

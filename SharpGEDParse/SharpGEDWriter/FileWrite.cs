@@ -37,7 +37,7 @@ namespace SharpGEDWriter
 
             {
                 if (!noHead)
-                    WriteHead(sw);
+                    WriteHead(sw, records[0] as HeadRecord);
                 WriteINDI.WriteINDIs(sw, records);
                 WriteFAM(sw, records);
                 WriteNOTE(sw, records);
@@ -145,21 +145,20 @@ namespace SharpGEDWriter
                 }
             }
 
-            WriteCommon.writeIfNotEmpty(file, "AUTH", sourceRecord.Author, 1);
-            WriteCommon.writeIfNotEmpty(file, "TITL", sourceRecord.Title, 1);
-            WriteCommon.writeIfNotEmpty(file, "ABBR", sourceRecord.Abbreviation, 1);
-            WriteCommon.writeIfNotEmpty(file, "PUBL", sourceRecord.Publication, 1);
-            WriteCommon.writeIfNotEmpty(file, "TEXT", sourceRecord.Text, 1);
-
-            // TODO PUBL conc/cont
-            // TODO TEXT conc/cont
-            // TODO TITL conc/cont
-            // TODO AUTH conc/cont
+            WriteCommon.writeExtIfNotEmpty(file, "AUTH", sourceRecord.Author, 1);
+            WriteCommon.writeExtIfNotEmpty(file, "TITL", sourceRecord.Title, 1);
+            WriteCommon.writeExtIfNotEmpty(file, "ABBR", sourceRecord.Abbreviation, 1);
+            WriteCommon.writeExtIfNotEmpty(file, "PUBL", sourceRecord.Publication, 1);
+            WriteCommon.writeExtIfNotEmpty(file, "TEXT", sourceRecord.Text, 1);
 
             // TODO have 5.5 repository citations been converted to 5.5.1? E.g. SOUR.REPO.MEDI?
             foreach (var repoCit in sourceRecord.Cits)
             {
-                file.WriteLine("1 REPO {0}", repoCit.Xref);
+                if (string.IsNullOrWhiteSpace(repoCit.Xref))
+                    file.WriteLine("1 REPO");
+                else
+                    file.WriteLine("1 REPO @{0}@", repoCit.Xref);
+
                 foreach (var callNum in repoCit.CallNums)
                 {
                     file.WriteLine("2 CALN {0}", callNum.Number);
@@ -182,7 +181,9 @@ namespace SharpGEDWriter
 
         private static void WriteOneNote(StreamWriter file, NoteRecord noteRecord)
         {
-            file.WriteLine("0 @{0}@ NOTE", noteRecord.Ident);
+            //file.WriteLine("0 @{0}@ NOTE", noteRecord.Ident);
+            var tag = string.Format("@{0}@ NOTE", noteRecord.Ident);
+            WriteCommon.writeExtended(file, 0, tag, noteRecord.Text);
 
             WriteCommon.writeRecordTrailer(file, noteRecord, 1);
         }
@@ -229,7 +230,7 @@ namespace SharpGEDWriter
             WriteCommon.writeRecordTrailer(file, famRecord, 1);
         }
 
-        private static void WriteHead(StreamWriter file)
+        private static void WriteHead(StreamWriter file, HeadRecord rec)
         {
             // TODO SUBM info
             // TODO file notes
@@ -243,6 +244,9 @@ namespace SharpGEDWriter
             file.WriteLine("1 CHAR UTF-8");
             file.WriteLine("1 SOUR SharpGEDWriter"); // TODO not registered
             file.WriteLine("2 VERS V0.2-Alpha");
+
+            WriteCommon.writeSubNotes(file, rec);
+
             file.WriteLine("1 SUBM @S0@");
 
             file.WriteLine("0 @S0@ SUBM");

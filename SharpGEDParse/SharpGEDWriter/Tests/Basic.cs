@@ -1,5 +1,4 @@
-﻿using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace SharpGEDWriter.Tests
 {
@@ -40,6 +39,27 @@ namespace SharpGEDWriter.Tests
             Assert.AreEqual(0, fr.AllErrors.Count);
             var res = Write(fr);
             Assert.AreEqual(str, res);
+        }
+
+        [Test]
+        public void SourRepo()
+        {
+            // SOUR.REPO was missing '@'s
+            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO @R1@\n1 RIN rin-chan";
+            var fr = ReadItHigher(txt);
+            Assert.AreEqual(0, fr.AllErrors.Count);
+            var res = Write(fr);
+            Assert.AreEqual(res, txt + "\n");
+        }
+        [Test]
+        public void SourRepo2()
+        {
+            // SOUR.REPO with no xref
+            var txt = "0 @S1@ SOUR\n1 AUTH Fred\n1 REPO\n2 CALN blah\n1 RIN rin-chan";
+            var fr = ReadItHigher(txt);
+            Assert.AreEqual(0, fr.AllErrors.Count);
+            var res = Write(fr);
+            Assert.AreEqual(res, txt + "\n");
         }
     }
 }
