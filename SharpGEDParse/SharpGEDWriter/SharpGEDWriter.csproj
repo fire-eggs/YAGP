@@ -49,6 +49,7 @@
     <Compile Include="Tests\Events.cs" />
     <Compile Include="Tests\GedWriteTest.cs" />
     <Compile Include="Tests\IndiOrder.cs" />
+    <Compile Include="Tests\Names.cs" />
     <Compile Include="Tests\Notes.cs" />
     <Compile Include="Tests\RealWorld.cs" />
     <Compile Include="Tests\Source.cs" />

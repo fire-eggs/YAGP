@@ -12,12 +12,14 @@ namespace SharpGEDParser.Parser
     {
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
         {
+            { "SPFX", subProc},
             { "NPFX", subProc},
             { "NSFX", subProc},
             { "_AKA", subProc},
             { "NICK", subProc},
             { "SURN", subProc},
             { "GIVN", subProc},
+            { "NOTE", junkProc},
             { "SOUR", junkProc},
             { "DATA", junkProc},
             { "TEXT", junkProc}
@@ -25,7 +27,8 @@ namespace SharpGEDParser.Parser
 
         private static void junkProc(StructParseContext ctx, int linedex, char level)
         {
-            // TODO temp ignore SOUR.DATA.TEXT - see 2524482.ged
+            // TODO temp ignore NAME.SOUR.DATA.TEXT - see 2524482.ged
+            // TODO temp ignore NAME.NOTE
         }
 
         private static void subProc(StructParseContext ctx, int linedex, char level)
@@ -69,28 +72,6 @@ namespace SharpGEDParser.Parser
                 var tmp = LineUtil.RemoveExtraSpaces(line, a, b, ref newlen);
                 rec.Names = new string(tmp, a, newlen).Trim();
             }
-
-            //if (startSur >= max)
-            //{
-            //    //rec.Names = line.Trim();
-            //    //rec.Names = new string(line).Trim();
-
-            //    int newlen = 0;
-            //    var tmp = LineUtil.RemoveExtraSpaces(line, 0, max, ref newlen);
-            //    rec.Names = new string(tmp, 0, newlen).Trim();
-            //}
-            //else
-            //{
-            //    //rec.Names = line.Substring(startName, startSur - startName).Trim();
-            //    //rec.Names = new string(line, startName, startSur - startName).Trim();
-
-            //    int newlen = 0;
-            //    var tmp = LineUtil.RemoveExtraSpaces(line, startName, startSur - startName, ref newlen);
-            //    rec.Names = new string(tmp, 0, newlen).Trim();
-
-            //}
-
-            ////rec.Names = string.Join(" ", rec.Names.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
 
             if (startSur < max) // e.g. "1 NAME LIVING"
             {
