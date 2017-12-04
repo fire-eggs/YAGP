@@ -135,8 +135,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("2", rec.RIN);
             Assert.AreEqual(0, rec.Childs.Count);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(1, rec.Errors[0].Beg);
-            Assert.AreEqual(3, rec.Errors[0].End);
+            Assert.AreEqual(2, rec.Errors[0].Beg);
+            Assert.AreEqual(4, rec.Errors[0].End);
         }
 
         [Test]
@@ -147,8 +147,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("2", rec.RIN);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(4, rec.Errors[0].Beg);
-            Assert.AreEqual(6, rec.Errors[0].End);
+            Assert.AreEqual(5, rec.Errors[0].Beg);
+            Assert.AreEqual(7, rec.Errors[0].End);
         }
 
         [Test]
@@ -159,8 +159,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("2", rec.RIN);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual(1, rec.Unknowns.Count);
-            Assert.AreEqual(2, rec.Unknowns[0].Beg);
-            Assert.AreEqual(2, rec.Unknowns[0].End);
+            Assert.AreEqual(3, rec.Unknowns[0].Beg);
+            Assert.AreEqual(3, rec.Unknowns[0].End);
         }
 
         [Test]
@@ -186,8 +186,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("2", rec.RIN);
             Assert.AreEqual(1, rec.Childs.Count);
             Assert.AreEqual(1, rec.Unknowns.Count);
-            Assert.AreEqual(2, rec.Unknowns[0].Beg);
-            Assert.AreEqual(2, rec.Unknowns[0].End);
+            Assert.AreEqual(3, rec.Unknowns[0].Beg);
+            Assert.AreEqual(3, rec.Unknowns[0].End);
             Assert.AreEqual("Step", rec.Childs[0].MotherRelation);
         }
     }
