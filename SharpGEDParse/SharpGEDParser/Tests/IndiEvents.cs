@@ -70,7 +70,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
             Assert.AreEqual("Y", rec.Events[0].Descriptor);
-            Assert.AreEqual("@FAM99@", rec.Events[0].Famc);
+            Assert.AreEqual("FAM99", rec.Events[0].Famc);
             Assert.AreEqual(null, rec.Events[0].FamcAdop);
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);
@@ -83,7 +83,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
             Assert.AreEqual("Y", rec.Events[0].Descriptor);
-            Assert.AreEqual("@FAM99@", rec.Events[0].Famc);
+            Assert.AreEqual("FAM99", rec.Events[0].Famc);
             Assert.AreEqual("pater", rec.Events[0].FamcAdop);
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);

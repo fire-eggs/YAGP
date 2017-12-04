@@ -63,7 +63,13 @@ namespace SharpGEDParser.Parser
 
         private static void famcProc(StructParseContext context, int linedex, char level)
         {
-            (context.Parent as IndiEvent).Famc = context.Remain;
+            string xref;
+            string extra;
+            StructParser.parseXrefExtra(context.Remain, out xref, out extra);
+            if (string.IsNullOrWhiteSpace(xref))
+                (context.Parent as IndiEvent).Famc = context.Remain; // TODO what file hit this codepath?
+            else
+                (context.Parent as IndiEvent).Famc = xref;
         }
 
         private static void dateProc(StructParseContext context, int linedex, char level)
