@@ -33,7 +33,7 @@ namespace GEDWrap.Tests
             ged.ParseGEDCOM(path);
             Assert.AreEqual(1, ged.Errors.Count);
             Assert.AreEqual(UnkRec.ErrorCode.CustTagsSeen, ged.Errors[0].Error);
-            Assert.AreEqual(2, ged.Unknowns.Count);
+            Assert.AreEqual(0, ged.Unknowns.Count);
 
             var indi = ged.FindIndiByIdent("I26");
             Assert.IsNotNull(indi);
@@ -46,7 +46,7 @@ namespace GEDWrap.Tests
             Forest ged = new Forest();
             ged.ParseGEDCOM(path);
             Assert.AreEqual(0, ged.Errors.Count);
-            Assert.AreEqual(4, ged.Unknowns.Count);
+            Assert.AreEqual(0, ged.Unknowns.Count);
 
             var indi = ged.FindIndiByIdent("I30");
             Assert.IsNotNull(indi);
