@@ -1,4 +1,6 @@
-﻿using SharpGEDParser.Model;
+﻿using System;
+using System.Diagnostics;
+using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
 
@@ -24,16 +26,39 @@ namespace SharpGEDWriter
             }
         }
 
-        //static IEnumerable<string> ChunksUpto(string str, int maxChunkSize)
-        //{
-        //    for (int i = 0; i < str.Length; i += maxChunkSize)
-        //        yield return str.Substring(i, Math.Min(maxChunkSize, str.Length - i));
-        //}
+        private const int MAXLEN = 245; // Must be no more than 247: "n CONC <text>"
 
         private static void writeWithConc(StreamWriter file, int level, string tag, string text, bool incrLevel)
         {
-            // TODO really handle CONC tag here!
-            file.WriteLine("{0} {1} {2}", level, tag, text);
+            // Start by including the tag/ident for the "full" string. This means the initial line will
+            // be shorter than subsequent CONC lines, but not at the risk of being too long because of
+            // a long ident string.
+            var fullStr = string.Format("{0} {1} {2}", level, tag, text);
+            if (fullStr.Length < MAXLEN)
+            {
+                file.WriteLine(fullStr);
+                return;
+            }
+
+            int dex;
+            for (dex = 0; dex+MAXLEN < fullStr.Length; )
+            {
+                int beg = dex;
+                int len = MAXLEN;
+                while (fullStr[beg+len-1] == ' ' ||
+                       fullStr[beg+len] == ' ') // DO NOT end the line on a space! Or start the next
+                    len -= 1;
+
+                if (dex == 0)
+                    file.WriteLine(fullStr.Substring(beg, len)); // Initial level/ident/tag already in place
+                else
+                    file.WriteLine("{0} CONC {1}", level+1, fullStr.Substring(beg, len));
+                dex = beg+len;
+            }
+            if (dex < fullStr.Length) // Write any leftovers
+            {
+                file.WriteLine("{0} CONC {1}", level + 1, fullStr.Substring(dex));
+            }
         }
 
         private static char[] nlSplit = {'\n'};
@@ -66,7 +91,21 @@ namespace SharpGEDWriter
                 return;
             foreach (var mediaLink in rec.Media)
             {
-                file.WriteLine("{0} OBJE @{1}@", level, mediaLink.Xref);
+                if (string.IsNullOrWhiteSpace(mediaLink.Xref))
+                {
+                    // variant
+                    file.WriteLine("{0} OBJE", level);
+                    writeIfNotEmpty(file, "TITL", mediaLink.Title, level+1);
+                    foreach (var fileref in mediaLink.Files)
+                    {
+                        file.WriteLine("{0} FILE {1}", level + 1, fileref.FileRefn);
+                        writeIfNotEmpty(file, "FORM", fileref.Form, level+2);
+                        writeIfNotEmpty(file, "MEDI", fileref.Type, level + 3);
+                    }
+                }
+                else
+                    file.WriteLine("{0} OBJE @{1}@", level, mediaLink.Xref);
+                // TODO other lines
             }
         }
 

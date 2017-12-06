@@ -1,7 +1,9 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 
 namespace SharpGEDWriter.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class Source : GedWriteTest
     {
@@ -56,7 +58,7 @@ namespace SharpGEDWriter.Tests
             var fr = ReadItHigher(txt);
             Assert.AreEqual(0, fr.AllErrors.Count, tag + "ShCt");
             var res = Write(fr);
-            Assert.AreEqual(res, txt + "\n", tag + "ShCt");
+            Assert.AreEqual(txt + "\n", res, tag + "ShCt");
         }
 
         [Test]
@@ -158,5 +160,114 @@ namespace SharpGEDWriter.Tests
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n", res);
         }
+
+        [Test]
+        public void SourCitEven()
+        {
+            // TODO observed issue: this is in error (PAGE tag w/an embedded cit) but is written "as-is"
+            // TODO need to establish how to output when invalid input [do not want to propagate errors]
+            // var inp = "0 @I1@ INDI\n1 SOUR\n2 PAGE 3\n2 ROLE bugger";
+
+            // TODO observed issue: this is not flagged as an error, but is not valid
+            //var inp = "0 @I1@ INDI\n1 SOUR @S1@\n2 PAGE 3\n2 ROLE bugger";
+
+            // TODO the difference is custom tags are written as-is but errors/other would have to be something else?
+        }
+
+        [Test]
+        public void SourCitText()
+        {
+            // TEXT tag w/o DATA
+            var inp = "0 @I1@ INDI\n1 SOUR @S1@\n2 TEXT This is short text";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
+
+        [Test]
+        public void SourCitText2()
+        {
+            // TEXT tag w/o DATA
+            var inp = "0 @I1@ INDI\n1 SOUR @S1@\n2 TEXT This is multi\n3 CONT -line text";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
+
+        [Test]
+        public void SourRecData()
+        {
+            var inp = "0 @S1@ SOUR\n1 DATA\n2 EVEN ice age\n3 DATE FROM 10000 BC\n2 EVEN black plague\n3 PLAC Europe";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
+
+        private void doLongSourTag(string tag)
+        {
+            var inp = string.Format("0 @S1@ SOUR\n1 {0} " +
+                      "MR PERCY JAMES HATCHER was born at Brent Knoll, a village over the othe\n" +
+                      "2 CONC r side of the hill from Rooksbridge, last but one in a family of ten br\n" +
+                      "2 CONC others and sisters. On leaving school Percy helped for a couple of year\n" +
+                      "2 CONC s in the pork butchery business of his late father. However, being very f\n" +
+                      "2 CONC ond of horses, he left the district to go to Cromhall, a village in Glo\n" +
+                      "2 CONC ucestershire, and for a period of three years looked after the hunters b\n" +
+                      "2 CONC elonging to a family there. His father had by that time retired from th\n" +
+                      "2 CONC e butchery and, the brother who had been running it<b> </b>having been c\n" +
+                      "2 CONC alled up to join the Army, Percy returned home to manage the business. B\n" +
+                      "2 CONC esides doing the buying, the slaughtering and the selling in the shop, h\n" +
+                      "2 CONC e drove a horse-and-trap to deliver to customers in the surrounding cou\n" +
+                      "2 CONC ntry­side. It was not long, though.before he himself was of<b> </b>age t\n" +
+                      "2 CONC o<b> </b>join the Army, and in October 1916 Was enrolled in the Royal B\n" +
+                      "2 CONC erkshire Regiment.\n", tag);
+            var fr = ReadItHigher(inp);
+            Assert.AreEqual(0, fr.AllErrors.Count);
+            var res = Write(fr);
+
+            var exp = string.Format(
+"0 @S1@ SOUR\n1 {0} MR PERCY JAMES HATCHER was born at Brent Knoll, a village over the other side of the hill from Rooksbridge, last but one in a family of ten brothers and sisters. On leaving school Percy helped for a couple of years in the pork butchery bu\n" +
+"2 CONC siness of his late father. However, being very fond of horses, he left the district to go to Cromhall, a village in Gloucestershire, and for a period of three years looked after the hunters belonging to a family there. His father had by that tim\n" +
+"2 CONC e retired from the butchery and, the brother who had been running it<b> </b>having been called up to join the Army, Percy returned home to manage the business. Besides doing the buying, the slaughtering and the selling in the shop, he drove a ho\n" +
+"2 CONC rse-and-trap to deliver to customers in the surrounding country­side. It was not long, though.before he himself was of<b> </b>age to<b> </b>join the Army, and in October 1916 Was enrolled in the Royal Berkshire Regiment.\n",
+tag);
+            Assert.AreEqual(exp, res, tag);
+        }
+
+        [Test]
+        public void LongSour()
+        {
+            doLongSourTag("AUTH");
+            doLongSourTag("TITL");
+            doLongSourTag("PUBL");
+            doLongSourTag("TEXT");
+        }
+
+        [Test]
+        public void LongSourCitDesc()
+        {
+            var inp = string.Format("0 @I1@ INDI\n1 SOUR " +
+                      "MR PERCY JAMES HATCHER was born at Brent Knoll, a village over the othe\n" +
+                      "2 CONC r side of the hill from Rooksbridge, last but one in a family of ten br\n" +
+                      "2 CONC others and sisters. On leaving school Percy helped for a couple of year\n" +
+                      "2 CONC s in the pork butchery business of his late father. However, being very f\n" +
+                      "2 CONC ond of horses, he left the district to go to Cromhall, a village in Glo\n" +
+                      "2 CONC ucestershire, and for a period of three years looked after the hunters b\n" +
+                      "2 CONC elonging to a family there. His father had by that time retired from th\n" +
+                      "2 CONC e butchery and, the brother who had been running it<b> </b>having been c\n" +
+                      "2 CONC alled up to join the Army, Percy returned home to manage the business. B\n" +
+                      "2 CONC esides doing the buying, the slaughtering and the selling in the shop, h\n" +
+                      "2 CONC e drove a horse-and-trap to deliver to customers in the surrounding cou\n" +
+                      "2 CONC ntry­side. It was not long, though.before he himself was of<b> </b>age t\n" +
+                      "2 CONC o<b> </b>join the Army, and in October 1916 Was enrolled in the Royal B\n" +
+                      "2 CONC erkshire Regiment.\n");
+            var fr = ReadItHigher(inp);
+            Assert.AreEqual(0, fr.AllErrors.Count);
+            var res = Write(fr);
+
+            var exp = "0 @I1@ INDI\n1 SOUR MR PERCY JAMES HATCHER was born at Brent Knoll, a village over the other side of the hill from Rooksbridge, last but one in a family of ten brothers and sisters. On leaving school Percy helped for a couple of years in the pork butchery bu\n" +
+                      "2 CONC siness of his late father. However, being very fond of horses, he left the district to go to Cromhall, a village in Gloucestershire, and for a period of three years looked after the hunters belonging to a family there. His father had by that tim\n"+
+                      "2 CONC e retired from the butchery and, the brother who had been running it<b> </b>having been called up to join the Army, Percy returned home to manage the business. Besides doing the buying, the slaughtering and the selling in the shop, he drove a ho\n"+
+                      "2 CONC rse-and-trap to deliver to customers in the surrounding country­side. It was not long, though.before he himself was of<b> </b>age to<b> </b>join the Army, and in October 1916 Was enrolled in the Royal Berkshire Regiment.\n";
+
+            Assert.AreEqual(exp, res);
+        }
+
     }
 }

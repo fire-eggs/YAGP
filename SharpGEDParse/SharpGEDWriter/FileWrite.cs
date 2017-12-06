@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 using SharpGEDParser.Model;
@@ -14,6 +15,7 @@ namespace SharpGEDWriter
 {
     public class FileWrite
     {
+        [ExcludeFromCodeCoverage]  // TODO Not used by unit tests: writing to a file path
         public static void WriteGED(List<GEDCommon> records, string path)
         {
             using (var file = File.OpenWrite(path))
@@ -24,7 +26,6 @@ namespace SharpGEDWriter
 
         public static void WriteRecs(Stream outStream, List<GEDCommon> records, bool noHead=false, bool unix=true)
         {
-            // TODO CR-LF vs LF
             // TODO submitter info
             StreamWriter sw;
             if (noHead) // Unit testing

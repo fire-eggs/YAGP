@@ -13,12 +13,12 @@ namespace SharpGEDWriter
                 writeEventCommon(file, familyEvent, level);
                 if (familyEvent.HusbDetail != null)
                 {
-                    file.WriteLine("{0} HUSB {1}", level+1, familyEvent.HusbDetail.Detail); // TODO extra non-standard?
+                    file.WriteLine(string.Format("{0} HUSB {1}", level + 1, familyEvent.HusbDetail.Detail).Trim()); // TODO extra is non-standard : how to deal?
                     file.WriteLine("{0} AGE {1}", level+2, familyEvent.HusbDetail.Age);
                 }
                 if (familyEvent.WifeDetail != null)
                 {
-                    file.WriteLine("{0} WIFE {1}", level+1, familyEvent.WifeDetail.Detail); // TODO extra non-standard?
+                    file.WriteLine(string.Format("{0} WIFE {1}", level+1, familyEvent.WifeDetail.Detail).Trim()); // TODO extra is non-standard : how to deal?
                     file.WriteLine("{0} AGE {1}", level+2, familyEvent.WifeDetail.Age);
                 }
             }

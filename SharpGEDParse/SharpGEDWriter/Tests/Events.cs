@@ -1,7 +1,9 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 
 namespace SharpGEDWriter.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class Events : GedWriteTest
     {
@@ -53,6 +55,14 @@ namespace SharpGEDWriter.Tests
         public void FamcAdop()
         {
             var inp = "0 @I1@ INDI\n1 ADOP Y\n2 FAMC @F1@\n3 ADOP Father";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
+
+        [Test]
+        public void FamEvent()
+        {
+            var inp = "0 @F1@ FAM\n1 MARB\n2 AGNC Signore\n2 HUSB\n3 AGE 16\n2 WIFE\n3 AGE 12";
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n", res);
         }

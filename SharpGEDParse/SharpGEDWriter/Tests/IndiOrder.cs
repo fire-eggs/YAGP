@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using NUnit.Framework;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using System.Threading.Tasks;
 
 // Sub-records of INDI have been fixed to an order which is similar to that of PAF, AncQuest
-using NUnit.Framework;
 
 namespace SharpGEDWriter.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class IndiOrder : GedWriteTest
     {
