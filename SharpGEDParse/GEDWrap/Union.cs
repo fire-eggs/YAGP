@@ -15,6 +15,9 @@ namespace GEDWrap
 
         public Person Wife { get; set; }
 
+        // NOTE: timing runs indicate using HashSet here (and in Person) is faster than List, 
+        // for at least a 15% advantage
+
         public HashSet<Person> Spouses { get; set; }
 
         public HashSet<Person> Childs { get; set; }

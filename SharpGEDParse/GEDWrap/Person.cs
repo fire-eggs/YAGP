@@ -26,17 +26,19 @@ namespace GEDWrap
             _childIn = new HashSet<Union>();
         }
 
+        // NOTE: timing runs indicate using HashSet here (and in Union) is faster than List, 
+        // for at least a 15% advantage
         internal HashSet<Union> _spouseIn;
 
         // Person may be spouse in more than one union; but said 
         // person cannot be the spouse more than once in a union
-        public HashSet<Union> SpouseIn { get { return _spouseIn; }}
+        public HashSet<Union> SpouseIn { get { return _spouseIn; } }
 
         internal HashSet<Union> _childIn;
 
         // Person may be child in more than one union; but said 
         // person cannot be a child more than once in a union
-        public HashSet<Union> ChildIn { get { return _childIn; }}
+        public HashSet<Union> ChildIn { get { return _childIn; } }
             
         public string Name
         {

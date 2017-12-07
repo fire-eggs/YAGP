@@ -101,7 +101,6 @@ namespace GEDWrap
             _issues = new List<Issue>();
 
             _gedReader = new FileRead();
-            //_gedReader.ReadLines(stream);
             _gedReader.ReadGed(null, stream);
             if (_gedReader.Data.Count < 1) // nothing to do!
                 return;
@@ -191,45 +190,48 @@ namespace GEDWrap
         {
             // Wrap INDI and FAM records, collect into hashes
 
-            _indiHash = new Dictionary<string, Person>();
-            _famHash = new Dictionary<string, Union>();
+            _indiHash = new Dictionary<string, Person>(Indi.Count);
+            _famHash = new Dictionary<string, Union>(Fams.Count);
+
+            // NOTE I've tried Parallel.For here, timings suggest it's slightly slower
+            // (probably due to the required locking around the dictionaries).
 
             // 20170520 From Peach fuzzing: missing ident would crash
-            Random ranGen = new Random();
+            // TODO fix missing INDI/FAM ids in parsing
+
             foreach (var indiRecord in Indi)
             {
                 var ident = indiRecord.Ident;
-                if (ident == null) // TODO probably should be done in parser
+                Person iw = new Person(indiRecord);
+                try
                 {
-                    indiRecord.Ident = "A0" + ranGen.Next(1000);
-                    ident = indiRecord.Ident;
+                    _indiHash.Add(ident, iw);
                 }
-                if (_indiHash.ContainsKey(ident))
+                catch (ArgumentNullException)
+                {
+                    // TODO MakeError(Issue.IssueCode.MISS_INDIID, indi.BegLine);
+                }
+                catch (ArgumentException)
                 {
                     MakeError(Issue.IssueCode.DUPL_INDI, ident);
                 }
-                else
-                {
-                    Person iw = new Person(indiRecord);
-                    _indiHash.Add(ident, iw);
-
-                    if (_firstPerson == null)
-                        _firstPerson = ident;
-                }
             }
+
             foreach (var fam in Fams)
             {
                 var ident = fam.Ident;
-                if (string.IsNullOrWhiteSpace(ident))
+                Union iw = new Union(fam);
+                try
+                {
+                    _famHash.Add(ident, iw);
+                }
+                catch (ArgumentNullException)
                 {
                     MakeError(Issue.IssueCode.MISS_FAMID, fam.BegLine);
-                    continue;
                 }
-                if (!_famHash.ContainsKey(ident))
-                    _famHash.Add(ident, new Union(fam));
-                else
+                catch (ArgumentException)
                 {
-                    MakeError(Issue.IssueCode.DUPL_FAM, ident);
+                    MakeError(Issue.IssueCode.DUPL_FAM, ident); // TODO add fam.BegLine
                 }
             }
         }
