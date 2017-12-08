@@ -123,5 +123,13 @@ namespace SharpGEDWriter.Tests
 
         }
 
+        [Test]
+        public void PlacNote()
+        {
+            // TODO <event>.PLAC.NOTE [and all other PLAC sub-tags] not handled
+            var inp = "0 @I1@ INDI\n1 BIRT\n2 PLAC Hospital\n3 NOTE which hospital?";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n",res);
+        }
     }
 }
