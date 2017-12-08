@@ -7,6 +7,8 @@ namespace GEDWrap
 {
     public class Union
     {
+        public int TreeNum { get; set; } // Tracking treenum here during tree calc seems to have a small benefit
+
         public string Id { get { return FamRec.Ident; } }
 
         public FamRecord FamRec { get; set; }
@@ -28,6 +30,7 @@ namespace GEDWrap
 
         public Union(FamRecord fam)
         {
+            TreeNum = -1;
             FamRec = fam;
             Childs = new HashSet<Person>();
             Spouses = new HashSet<Person>();
