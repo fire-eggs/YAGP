@@ -487,7 +487,7 @@ namespace GEDWrap
         private void AllInFamily(Union fu)
         {
             // Add all individuals referenced from this family to the processing stack
-            if (fu == null || fu.TreeNum == -1) // tracking the treenum in the family helps a little
+            if (fu == null)
                 return;
             if (fu.Husband != null)
             {
