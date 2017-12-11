@@ -86,6 +86,7 @@ namespace SharpGEDParser.Parser
 
         private char LookAhead()
         {
+            // NOTE: catching an exception for end-of-string is vastly slower!
             char ch = _pos >= _maxlen ? '\0' : _str[_pos];
             return ch;
         }

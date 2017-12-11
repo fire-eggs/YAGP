@@ -103,7 +103,8 @@ namespace SharpGEDParser.Parser
             // Used by repo cit, sour cit
             // TODO xref is not permitted to start with '#'. Use of '!' and ':' are reserved?
 
-            if (txt.Length < 1 || txt[0] != '@') // No xref specified
+            int len = txt.Length;
+            if (len < 1 || txt[0] != '@') // No xref specified
             {
                 xref = null;
                 extra = txt;
@@ -111,7 +112,7 @@ namespace SharpGEDParser.Parser
             }
 
             // find LAST instance of '@' sign
-            int dex = txt.Length - 1;
+            int dex = len - 1;
             while (dex >= 0 && txt[dex] != '@')
                 dex--;
 
