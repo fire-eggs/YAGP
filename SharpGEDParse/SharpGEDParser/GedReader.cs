@@ -101,6 +101,7 @@ namespace SharpGEDParser
                 if (!StartFile(instream))
                     return;
 
+#if false
 // TODO can't do this with stream
                 if (false)
                 {
@@ -112,6 +113,7 @@ namespace SharpGEDParser
                             return;
                     }
                 }
+#endif
                 // TODO line numbers 'off' due to initial garbage?
                 // TODO unit testing expects no 0HEAD ProcessALine(HEAD0, 1);
                 _lineNum = 2; // "first" line of "0 HEAD" has been read

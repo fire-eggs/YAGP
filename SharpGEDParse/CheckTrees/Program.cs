@@ -29,14 +29,25 @@ namespace CheckTrees
 
             int treenum = _gedtrees.NumberOfTrees;
 
+            // Make a formatter based on the number of digits in tree count
+            int treeCountLen = (int) Math.Floor(Math.Log10(treenum)) + 1;
+            string treeFormat = new string('#', treeCountLen+1);
+            int indiCountLen = (int)Math.Floor(Math.Log10(_gedtrees.AllPeople.Count())) + 1;
+
             // count the number of individuals in each disjoint tree
             _treeCount = new int[treenum+1];
             string[] aTreePerson = new string[treenum+1]; // grab one indi id for the tree
 
+            int orphans = 0;
             foreach (var person in _gedtrees.AllPeople)
             {
-                _treeCount[person.Tree] += 1;
-                aTreePerson[person.Tree] = person.Id;
+                if (person.Tree == -1)
+                    orphans++;
+                else
+                {
+                    _treeCount[person.Tree] += 1;
+                    aTreePerson[person.Tree] = person.Id;
+                }
             }
 
             // we have a list of tree counts. turn this into a map of counts->treenums
@@ -59,13 +70,16 @@ namespace CheckTrees
                 var trees = countToTreeNum[countVal];
                 foreach (var tree in trees)
                 {
-                    Console.WriteLine("People in tree {0}:{1}" + (countVal == 1 ? " ['{2}']" : ""), tree, _treeCount[tree], aTreePerson[tree]);
+                    string treeval = tree.ToString().PadLeft(treeCountLen);
+                    string countval = _treeCount[tree].ToString().PadLeft(indiCountLen);
+                    Console.WriteLine("People in tree {0}:{1}" + (countVal != 1 ? ": sample ": "") + " ['{2}']", treeval, countval, aTreePerson[tree]);
                 }
                 j += 1;
                 if (_summaryOnly && j == 3) // only show first three in summary mode
                     break;
             }
 
+            Console.WriteLine("Total number of orphans:{0}", orphans);
             Console.WriteLine("Total number of trees:{0}", treenum);
             if (_gedtrees.ErrorsCount > 0)
                 Console.WriteLine("Total number of errors: {0}", _gedtrees.ErrorsCount);
