@@ -57,7 +57,7 @@ namespace SharpGEDParser
 
         public int BufferSize { get; set; }
 
-        public void ReadFile(string path)
+        internal void ReadFile(string path)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace SharpGEDParser
             }
         }
 
-        public void ReadFile(StreamReader instream)
+        internal void ReadFile(StreamReader instream)
         {
             try
             {

@@ -9,12 +9,31 @@ using SharpGEDParser.Parser;
 
 namespace SharpGEDParser
 {
+    /// <summary>
+    /// Reads a GEDCOM file into memory.
+    /// 
+    /// Usage:
+    /// 1. Construct a #FileRead instance
+    /// 2. #ReadGed loads a GEDCOM file, parsing GEDCOM records
+    /// 3. You can then access various record types using #Data
+    /// 
+    /// Example:
+    /// (here, path is assumed to be a filename)
+    /// \code{.cs}
+    /// using (var reader = new FileRead())
+    /// {
+    /// reader.ReadGed(path);
+    /// Console.WriteLine("{0} individuals", reader.AllIndividuals.Count);
+    /// }
+    /// \endcode
+    /// </summary>
     public class FileRead : IDisposable
     {
         private int _lineNum;
         private int _emptyLineSeen; // 20170715 only one 'empty line' message per file // TODO show instance count
 
-        public enum GedcomCharset
+        // TODO: expose as public?
+        private enum GedcomCharset
         {
             Unknown,
             Ansel,
@@ -29,29 +48,64 @@ namespace SharpGEDParser
             EmptyFile
         };
 
+        // TODO: expose as public?
         private GedcomCharset Charset { get; set; }
 
+        // TODO: expose as public?
         private Encoding FileEnc { get; set; }
 
         private string FilePath { get; set; }
 
         private GedParser Parser { get; set; }
 
+        /// <summary>
+        /// The number of lines loaded from the GEDCOM file.
+        /// </summary>
         public int NumberLines { get { return _lineNum; } }
 
+        /// <summary>
+        /// All the GEDCOM records contained in the file.
+        /// 
+        /// To differentiate between kinds of GEDCOM records, a given record must be
+        /// cast to determine if it is an INDI, FAM, NOTE, OBJE, SOUR, REPO, etc.
+        /// 
+        /// The other accessors such as #AllIndividuals, #AllFamilies might be more
+        /// convenient.
+        /// 
+        /// Example:
+        /// (reader is assumed to be an instance of #FileRead)
+        /// \code{.cs}
+        /// foreach (var record in reader.Data)
+        /// if (record is IndiRecord)
+        /// Console.Writeline("Person{0}:", ((IndiRecord)record).FullName);
+        /// \endcode
+        /// </summary>
         public List<GEDCommon> Data { get; set; }
 
-        // Top-level (file level) errors, such as blank lines
+        /// <summary>
+        /// All 'top-level' (file level) errors encountered during the parse.
+        /// </summary>
         public List<UnkRec> Errors { get; set; }
 
         private GedRecord _currRec;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="bufferSize">Optional size of the read buffer. If not 
+        /// specified, the default is 32K. If specified, the value probably 
+        /// should not be less than 4K.</param>
         public FileRead(int bufferSize=0)
         {
             _bufferSize = bufferSize;
         }
 
         // Common method for unit testing (instream != null) or file reading (gedPath != null)
+        /// <summary>
+        /// Read GEDCOM data into memory.
+        /// </summary>
+        /// <param name="gedPath">The path to the file. If null, will attempt to read from #instream instead.</param>
+        /// <param name="instream">An input stream to read from instead of a file path.</param>
         public void ReadGed(string gedPath, StreamReader instream=null)
         {
             _emptyLineSeen = 0;
@@ -294,13 +348,23 @@ namespace SharpGEDParser
         }
 
         // TODO this needs to go into an API class?
+        /// <summary>
+        /// All errors encountered during the parse.
+        /// </summary>
         public List<UnkRec> AllErrors { get { return _allErrors; } }
+        /// <summary>
+        /// All 'unknown' records - custom, or non-standard - encountered
+        /// during the parse.
+        /// </summary>
         public List<UnkRec> AllUnknowns { get { return _allUnknowns; } }
 
         private List<IndiRecord> _indis;
         private List<FamRecord> _fams;
 
         // TODO this needs to go into an API class?
+        /// <summary>
+        /// All INDI records encountered during the parse.
+        /// </summary>
         public List<IndiRecord> AllIndividuals
         {
             get
@@ -319,6 +383,9 @@ namespace SharpGEDParser
         }
 
         // TODO this needs to go into an API class?
+        /// <summary>
+        /// All FAM records encountered during the parse.
+        /// </summary>
         public List<FamRecord> AllFamilies
         {
             get
@@ -337,6 +404,9 @@ namespace SharpGEDParser
         }
 
         // TODO this needs to go into an API class?
+        /// <summary>
+        /// All SOUR records encountered during the parse.
+        /// </summary>
         public List<SourceRecord> AllSources
         {
             get
@@ -351,8 +421,9 @@ namespace SharpGEDParser
             }
         }
 
+        // TODO FindById() method?
         private Dictionary<string, GEDCommon> _allRecsDict;
-        private int _bufferSize;
+        private readonly int _bufferSize;
 
         // TODO use for looking up INDI,FAM,etc
         private void GatherRecords()

@@ -1,37 +1,70 @@
 ﻿using System.Collections.Generic;
 
+
+// TODO this should be in GedWrap instead
+// TODO the use of an enum for error ids instead of external lookup may result in release problems
+
 // ReSharper disable InconsistentNaming
 
 namespace SharpGEDParser
 {
+    /// <summary>
+    /// Represents a problem or situation discovered when processing a GEDCOM
+    /// file. These are 'semantic' errors: problems involving record relationships.
+    /// 
+    /// 'Syntax' errors involving parsing issues are tracked via #UnkRec
+    /// </summary>
     public class Issue
     {
-        // A situation has been discovered.
+        /// <summary>
+        /// The error id for the situation.
+        /// </summary>
         public IssueCode IssueId { get; set; } // message string id - localization
 
         private readonly List<object> _evidence = new List<object>();
 
+        /// <summary>
+        /// Provides the human-readable description of the situation.
+        /// </summary>
         public string Message()
         {
             return string.Format(messages[(int) IssueId], _evidence.ToArray());
         }
 
+        /// <summary>
+        /// Possible error ids.
+        /// </summary>
         public enum IssueCode
         {
+            /// A duplicated INDI ident value encountered.
             DUPL_INDI = 0,
+            /// A FAM record is missing its ident value.
             MISS_FAMID,
+            /// A duplicated FAM ident value encountered.
             DUPL_FAM,
+            /// An INDI record with a FAMC/FAMS line with no xref id.
             MISS_XREFID,
+            /// 
             SPOUSE_CONN,
+            /// An INDI record with a FAMS line and the referenced FAM record doesn't exist.
             FAMS_MISSING,
+            /// An INDI record with a FAMC line and the referenced FAM record doesn't exist.
             FAMC_MISSING,
+            /// 
             AMB_CONN,
+            /// A FAM record has a HUSB/WIFE reference to a missing INDI record.
             SPOUSE_CONN_MISS,
+            /// 
             CHIL_MISS,
+            /// 
             CHIL_NOTMATCH,
+            /// 
             SPOUSE_CONN_UNM,
+            /// 
             FAMC_UNM,
+            /// 
             FAMS_UNM,
+            /// 
             UNKLINK
         };
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SharpGEDParser
 {
-    public class GedParser
+    internal class GedParser
     {
         public GedParser(string gedPath)
         {
@@ -155,7 +155,7 @@ namespace SharpGEDParser
         private readonly GedParse _MediaParseSingleton;
     }
 
-    public interface GedParse
+    internal interface GedParse
     {
         void Parse(GEDCommon rec, GedRecord Lines);
     }
