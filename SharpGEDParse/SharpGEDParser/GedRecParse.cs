@@ -20,7 +20,9 @@ namespace SharpGEDParser
         public void Parse(GEDCommon rec, GedRecord Lines)
         {
             ParseContext2 ctx = new ParseContext2();
-            ctx.gs = new GEDSplitter();
+            ctx.gs = new GEDSplitter(GedParser._masterTagCache);
+            ctx.tagCache = GedParser._masterTagCache;
+
             //GEDSplitter gs = new GEDSplitter();
 
             ctx.Lines = Lines;

@@ -80,7 +80,7 @@ namespace SharpGEDParser.Parser
         }
 
         private static readonly LineUtil.LineData ld = new LineUtil.LineData();
-        private static readonly GEDSplitter gs = new GEDSplitter();
+        private static readonly GEDSplitter gs = new GEDSplitter(GedParser._masterTagCache);
 
         private string seekSubRecord(string target, ParseContext2 context)
         {

@@ -13,6 +13,8 @@ namespace SharpGEDParser.Parser
         public int Endline; // index of last line FOUND for this 'record'
         public GEDSplitter gs;
 
+        public StringCache tagCache;
+
         public ParseContextCommon()
         {
         }
@@ -25,6 +27,8 @@ namespace SharpGEDParser.Parser
             Level = ctx.Level;
             Remain1 = ctx.Remain1;
             gs = ctx.gs;
+
+            tagCache = ctx.tagCache;
         }
     }
 

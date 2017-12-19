@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using SharpGEDParser.Model;
@@ -8,7 +9,7 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser
 {
-    public class GedReader
+    public class GedReader : IDisposable
     {
         public int _lineNum;
         private List<int> _spuriousLoc;
@@ -471,6 +472,17 @@ namespace SharpGEDParser
             return line; // NOTE length does NOT take into account spurious chars removed
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_fs != null)
+                _fs.Dispose();
+        }
     }
 }
 

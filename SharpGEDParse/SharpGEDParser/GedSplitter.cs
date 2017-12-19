@@ -27,12 +27,14 @@ namespace SharpGEDParser
         private readonly int[] _lens;
         private int _count;
         private readonly int _max;
+        private StringCache _tagCache;
 
         // A line is <level><ident><tag><remain> - so even 10 is overkill?
         private const int MAX_PARTS = 9;
 
-        public GEDSplitter() : this(MAX_PARTS+1) 
+        public GEDSplitter(StringCache tagCache) : this(MAX_PARTS+1)
         {
+            _tagCache = tagCache; // TODO use a singleton rather than parameter?
         }
 
         public GEDSplitter(int bufferSize)
@@ -115,12 +117,15 @@ namespace SharpGEDParser
             if (_count < 2 || _lens[1] < 1)
                 return null;
             if (value[_starts[1]] != '@')
-                return new string(value, _starts[1], _lens[1]);
+                return _tagCache.GetFromCache(value, _starts[1], _lens[1]);
+                //return new string(value, _starts[1], _lens[1]);
             if (_count < 3)
                 return null;
             if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
-                return new string(value, _starts[3], _lens[3]);
-            return new string(value, _starts[2], _lens[2]);
+                return _tagCache.GetFromCache(value, _starts[3], _lens[3]);
+                //return new string(value, _starts[3], _lens[3]);
+            return _tagCache.GetFromCache(value, _starts[2], _lens[2]);
+            //return new string(value, _starts[2], _lens[2]);
         }
 
         public char [] GetRest(char [] value, int dex)

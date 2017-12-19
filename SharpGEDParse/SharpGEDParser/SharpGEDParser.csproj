@@ -120,6 +120,7 @@
     <Compile Include="Parser\SourceCitParse.cs" />
     <Compile Include="Parser\SourceDataParse.cs" />
     <Compile Include="Parser\SourceRecParse.cs" />
+    <Compile Include="Parser\StringCache.cs" />
     <Compile Include="Parser\StructParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ChanTests.cs" />

@@ -16,6 +16,9 @@ namespace SharpGEDParser
         {
             // TODO dunno yet if the path to the GED is useful
 
+            _masterTagCache = new StringCache();
+            gs = new GEDSplitter(_masterTagCache);
+
             _IndiParseSingleton = new IndiParse();
             _HeadParseSingleton = new HeadParse();
             _FamParseSingleton = new FamParse();
@@ -63,7 +66,7 @@ namespace SharpGEDParser
             return parseSet.Item1 as GEDCommon;
         }
 
-        private readonly GEDSplitter gs = new GEDSplitter(50);
+        private readonly GEDSplitter gs;
 
         private Tuple<object, GedParse> Make(GedRecord rec)
         {
@@ -151,6 +154,8 @@ namespace SharpGEDParser
         private readonly GedParse _RepoParseSingleton;
         private readonly GedParse _NoteParseSingleton;
         private readonly GedParse _MediaParseSingleton;
+
+        internal static StringCache _masterTagCache;
     }
 
     internal interface GedParse
