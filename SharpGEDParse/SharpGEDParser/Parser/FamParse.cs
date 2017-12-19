@@ -193,20 +193,6 @@ namespace SharpGEDParser.Parser
                         }
                         fam.Moms.Add(xref);
                         break;
-                    //case "CHIL":
-                    //    foreach (var child in fam.Childs)
-                    //    {
-                    //        if (child == xref)
-                    //        {
-                    //            UnkRec err = new UnkRec();
-                    //            err.Error = "CHIL ident used more than once (one person cannot be two children)";
-                    //            err.Beg = err.End = context.Begline + context.Parent.BegLine;
-                    //            fam.Errors.Add(err);
-                    //            return;
-                    //        }
-                    //    }
-                    //    fam.Childs.Add(xref);
-                    //    break;
                     case "SUBM":
                         fam.FamSubm.Add(xref); // TODO check if xref specified more than once
                         break;

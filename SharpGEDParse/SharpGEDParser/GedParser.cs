@@ -63,9 +63,7 @@ namespace SharpGEDParser
             return parseSet.Item1 as GEDCommon;
         }
 
-        //private LineUtil.LineData ld = new LineUtil.LineData();
         private readonly GEDSplitter gs = new GEDSplitter(50);
-        //private readonly char[] identTrim = {'@'};
 
         private Tuple<object, GedParse> Make(GedRecord rec)
         {

@@ -206,7 +206,7 @@ namespace SharpGEDParser
                     BomEncoding = "Unicode"; // TODO LE vs BE
             }
 
-            if (_blockLen < 2)
+            if (_blockLen < 5) // completely arbitrary
             {
                 ErrorTracker(UnkRec.ErrorCode.EmptyFile, -1);
                 return false;
