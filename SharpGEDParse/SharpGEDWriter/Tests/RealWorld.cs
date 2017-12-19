@@ -38,7 +38,7 @@ namespace SharpGEDWriter.Tests
         "1 FAMS @F2@",
         };
 
-        [Test]
+        [Test,Ignore("Custom tag writing NYI")]
         public void BladesReal()
         {
             int[] exp = {0,1,2,3,4,14,15,16,17,18,19,20,21,5,8,9,10,11,12,13,6,7};

@@ -47,7 +47,11 @@ namespace GEDWrap.Tests
         public void Empty()
         {
             var txt = "";
-            Forest f = Load(txt);
+
+            Forest f = LoadGEDFromStream(txt);
+            Assert.AreEqual(0, f.ErrorsCount);
+            Assert.AreEqual(1, f.Errors.Count);
+            DateEstimator.Estimate(f);
         }
 
         [Test]

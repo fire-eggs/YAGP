@@ -123,7 +123,7 @@ namespace SharpGEDWriter.Tests
 
         }
 
-        [Test]
+        [Test, Ignore("event.PLAC.NOTE et al NYI")]
         public void PlacNote()
         {
             // TODO <event>.PLAC.NOTE [and all other PLAC sub-tags] not handled
