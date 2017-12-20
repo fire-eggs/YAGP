@@ -120,8 +120,8 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
 			Assert.AreEqual("fumbar", rec.Name);
-			Assert.AreEqual(1, rec.Ids.REFNs.Count);
-			Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+			Assert.AreEqual(1, rec.REFNs.Count);
+			Assert.AreEqual("001", rec.REFNs[0].Value);
 		}
 		[Test]
 		public void TestREFNs()
@@ -135,9 +135,9 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
 			Assert.AreEqual("fumbar", rec.Name);
-			Assert.AreEqual(2, rec.Ids.REFNs.Count);
-			Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-			Assert.AreEqual("002", rec.Ids.REFNs[1].Value);
+			Assert.AreEqual(2, rec.REFNs.Count);
+			Assert.AreEqual("001", rec.REFNs[0].Value);
+			Assert.AreEqual("002", rec.REFNs[1].Value);
 		}
 
 		[Test]
@@ -152,9 +152,9 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
 			Assert.AreEqual("fumbar", rec.Name);
-			Assert.AreEqual(1, rec.Ids.REFNs.Count);
-			Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-			Assert.AreEqual(1, rec.Ids.REFNs[0].Extra.LineCount);
+			Assert.AreEqual(1, rec.REFNs.Count);
+			Assert.AreEqual("001", rec.REFNs[0].Value);
+			Assert.AreEqual(1, rec.REFNs[0].Extra.LineCount);
 		}
 
 		[Test]
@@ -169,9 +169,9 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
 			Assert.AreEqual("fumbar", rec.Name);
-			Assert.AreEqual(1, rec.Ids.REFNs.Count);
-			Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-			Assert.AreEqual(2, rec.Ids.REFNs[0].Extra.LineCount);
+			Assert.AreEqual(1, rec.REFNs.Count);
+			Assert.AreEqual("001", rec.REFNs[0].Value);
+			Assert.AreEqual(2, rec.REFNs[0].Extra.LineCount);
 		}
 
 		[Test]
@@ -211,8 +211,8 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
 			Assert.AreEqual("fumbar", rec.Name);
-			Assert.AreEqual(1, rec.Ids.REFNs.Count);
-			Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+			Assert.AreEqual(1, rec.REFNs.Count);
+			Assert.AreEqual("001", rec.REFNs[0].Value);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("N1", rec.Notes[0].Xref);
 		}
@@ -228,8 +228,8 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual(0, rec.Errors.Count);
 			Assert.AreEqual(0, rec.Unknowns.Count);
 			Assert.AreEqual("fumbar", rec.Name);
-			Assert.AreEqual(1, rec.Ids.REFNs.Count);
-			Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+			Assert.AreEqual(1, rec.REFNs.Count);
+			Assert.AreEqual("001", rec.REFNs[0].Value);
 			Assert.AreEqual(1, rec.Notes.Count);
 			Assert.AreEqual("blah blah blah", rec.Notes[0].Text);
 		}

@@ -35,8 +35,8 @@ namespace SharpGEDParser.Parser
             //_tagSet2.Add("OBJE", objeProc); // GEDCOM 5.5 - intentionally treated as unknown
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", DataProc);
-            _tagSet2.Add("UID", DataProc);
+            _tagSet2.Add("_UID", UidProc);
+            _tagSet2.Add("UID", UidProc);
         }
 
         private MediaFile GetFile(ParseContext2 context)

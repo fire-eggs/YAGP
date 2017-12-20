@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using SharpGEDParser.Model;
+﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 using System.IO;
 
@@ -174,18 +172,20 @@ namespace SharpGEDWriter
 
         internal static void writeIds(StreamWriter file, GEDCommon rec, int level = 1)
         {
-            if (rec.Ids.REFNs.Count < 1 && rec.Ids.Others.Count < 1)
+            if (rec.REFNs.Count < 1 && rec.UID == null && rec.AFN == null && rec.RFN == null)
                 return;
-            foreach (var refN in rec.Ids.REFNs)
+            foreach (var refN in rec.REFNs)
             {
                 file.WriteLine("{0} REFN {1}", level, refN.Value);
                 // TODO don't have original 'TYPE' lines
             }
 
-            foreach (var other in rec.Ids.Others)
-            {
-                file.WriteLine("{0} {1} {2}", level, other.Key, other.Value.Value);
-            }
+            if (rec.UID != null)
+                file.WriteLine("{0} _UID {1}", level, rec.UID.Value);
+            if (rec.AFN != null)
+                file.WriteLine("{0} AFN {1}", level, rec.AFN.Value);
+            if (rec.RFN != null)
+                file.WriteLine("{0} RFN {1}", level, rec.RFN.Value);
         }
 
         public static void writeExtIfNotEmpty(StreamWriter file, string tag, string value, int level)

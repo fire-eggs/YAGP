@@ -115,13 +115,22 @@ namespace SharpGEDParser.Model
 
         public bool AnyErrors { get { return _errors != null && _errors.Count > 0; } }
 
-        // Container for other ids (REFN, UID, AFN, RFN)
-        // NOTE: RIN is not here because used by > 50% of records
-        private IdHold _ids;
-        public IdHold Ids { get { return _ids ?? (_ids = new IdHold()); } }
+        // The IdHold implementation proved to be memory expensive when used with files
+        // containing large numbers of UIDs, AFNs. NOTE: GK uses a <tag,value> sort of
+        // scheme for these and other tags, consider revisiting.
+        public StringPlus UID { get; set; }
+        public StringPlus AFN { get; set; }
+        public StringPlus RFN { get; set; }
 
-        // TODO consider a REFN accessor to Ids?
-        // TODO consider a UID accessor to Ids?
+        private List<StringPlus> _refns;
+        public List<StringPlus> REFNs { get { return _refns ?? (_refns = new List<StringPlus>()); } }
+        public bool AnyREFNs { get { return _refns != null; } }
+
+        // TODO revisit this, esp. not using StringPlus if not required for UID/AFN/RFN/REFN
+        //// Container for other ids (REFN, UID, AFN, RFN)
+        //// NOTE: RIN is not here because used by > 50% of records
+        //private IdHold _ids;
+        //public IdHold Ids { get { return _ids ?? (_ids = new IdHold()); } }
 
         public GEDCommon(GedRecord lines, string ident)
         {

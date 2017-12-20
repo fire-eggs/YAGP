@@ -14,8 +14,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("CONT", contProc);
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", DataProc);
-            _tagSet2.Add("UID", DataProc);
+            _tagSet2.Add("_UID", UidProc);
+            _tagSet2.Add("UID", UidProc);
         }
 
         private void contProc(ParseContext2 ctx)

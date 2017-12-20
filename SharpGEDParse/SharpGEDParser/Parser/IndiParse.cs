@@ -26,10 +26,10 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("ANCI", xrefProc);
             _tagSet2.Add("DESI", xrefProc);
 
-            _tagSet2.Add("_UID", DataProc);
-            _tagSet2.Add("UID",  DataProc);
-            _tagSet2.Add("RFN",  DataProc);
-            _tagSet2.Add("AFN",  DataProc);
+            _tagSet2.Add("_UID", UidProc);
+            _tagSet2.Add("UID", UidProc);
+            _tagSet2.Add("RFN",  RfnProc);
+            _tagSet2.Add("AFN",  AfnProc);
 
             // Events
             _tagSet2.Add("DEAT", EventProc);

@@ -37,8 +37,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("MARS", eventProc);
             _tagSet2.Add("RESI", eventProc);
 
-            _tagSet2.Add("_UID", DataProc);
-            _tagSet2.Add("UID",  DataProc);
+            _tagSet2.Add("_UID", UidProc);
+            _tagSet2.Add("UID",  UidProc);
 
             _tagSet2.Add("_PREF", junkProc);
 

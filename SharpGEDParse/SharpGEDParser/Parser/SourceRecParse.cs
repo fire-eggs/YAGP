@@ -22,8 +22,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("TITL", titlProc);
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", DataProc);
-            _tagSet2.Add("UID", DataProc);
+            _tagSet2.Add("_UID", UidProc);
+            _tagSet2.Add("UID", UidProc);
         }
 
         private void abbrProc(ParseContext2 context)

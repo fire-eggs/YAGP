@@ -109,35 +109,76 @@ namespace SharpGEDParser
             (ctx.Parent as MediaHold).Media.Add(mlink);
         }
 
-        protected void DataProc(ParseContext2 ctx)
+        //protected void DataProc(ParseContext2 ctx)
+        //{
+        //    // Common processing for UID, RFN, AFN
+        //    if (ctx.Parent.Ids.HasId(ctx.Tag))
+        //    {
+        //        var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+        //        rec.Error = UnkRec.ErrorCode.MultId; // reason;
+        //        ctx.Parent.Errors.Add(rec);
+
+        //        //ErrorRec(ctx, string.Format("Multiple {0} encountered; keeping only the first", ctx.Tag));
+        //        // TODO what to do: we're throwing away data!
+        //        return;
+        //    }
+        //    var sp = new StringPlus();
+        //    sp.Value = ctx.Remain;
+        //    LookAhead(ctx);
+        //    sp.Extra.Beg = ctx.Begline + 1;
+        //    sp.Extra.End = ctx.Endline;
+        //    ctx.Parent.Ids.Add(ctx.Tag, sp);
+        //}
+
+        protected void UidProc(ParseContext2 ctx)
         {
-            // Common processing for UID, RFN, AFN
-            if (ctx.Parent.Ids.HasId(ctx.Tag))
+            if (ctx.Parent.UID != null)
             {
                 var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
                 rec.Error = UnkRec.ErrorCode.MultId; // reason;
                 ctx.Parent.Errors.Add(rec);
-
-                //ErrorRec(ctx, string.Format("Multiple {0} encountered; keeping only the first", ctx.Tag));
-                // TODO what to do: we're throwing away data!
                 return;
             }
-            var sp = new StringPlus();
-            sp.Value = ctx.Remain;
-            LookAhead(ctx);
-            sp.Extra.Beg = ctx.Begline + 1;
-            sp.Extra.End = ctx.Endline;
-            ctx.Parent.Ids.Add(ctx.Tag, sp);
+            ctx.Parent.UID = makeId(ctx);
         }
 
-        protected void RefnProc(ParseContext2 ctx)
+        protected void AfnProc(ParseContext2 ctx)
+        {
+            if (ctx.Parent.AFN != null)
+            {
+                var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+                rec.Error = UnkRec.ErrorCode.MultId; // reason;
+                ctx.Parent.Errors.Add(rec);
+                return;
+            }
+            ctx.Parent.AFN = makeId(ctx);
+        }
+
+        protected void RfnProc(ParseContext2 ctx)
+        {
+            if (ctx.Parent.RFN != null)
+            {
+                var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+                rec.Error = UnkRec.ErrorCode.MultId; // reason;
+                ctx.Parent.Errors.Add(rec);
+                return;
+            }
+            ctx.Parent.RFN = makeId(ctx);
+        }
+
+        private StringPlus makeId(ParseContext2 ctx)
         {
             var sp = new StringPlus();
             sp.Value = ctx.Remain;
             LookAhead(ctx);
             sp.Extra.Beg = ctx.Begline + 1;
             sp.Extra.End = ctx.Endline;
-            ctx.Parent.Ids.REFNs.Add(sp);
+            return sp;
+        }
+
+        protected void RefnProc(ParseContext2 ctx)
+        {
+            ctx.Parent.REFNs.Add(makeId(ctx));
         }
 
         public abstract void PostCheck(GEDCommon rec);

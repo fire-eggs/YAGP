@@ -28,8 +28,8 @@ namespace SharpGEDParser.Tests
         {
             var txt = string.Format("0 @I1@ {0}\n1 REFN 001\n{1}", tag, recExtra);
             var rec = Common(txt);
-            Assert.AreEqual(1, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+            Assert.AreEqual(1, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
             return rec;
         }
 
@@ -38,9 +38,9 @@ namespace SharpGEDParser.Tests
             // Multiple REFNs - 2d appended to record
             var txt = string.Format("0 @I1@ {0}\n1 REFN 001\n{1}\n1 REFN number2", tag, recExtra);
             var rec = Common(txt);
-            Assert.AreEqual(2, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-            Assert.AreEqual("number2", rec.Ids.REFNs[1].Value);
+            Assert.AreEqual(2, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
+            Assert.AreEqual("number2", rec.REFNs[1].Value);
             return rec;
         }
 
@@ -49,10 +49,10 @@ namespace SharpGEDParser.Tests
             // Extra on REFN
             var txt = string.Format("0 @I1@ {0}\n1 REFN 001\n2 TYPE blah\n{1}\n1 REFN number2", tag, recExtra);
             var rec = Common(txt);
-            Assert.AreEqual(2, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-            Assert.AreEqual("number2", rec.Ids.REFNs[1].Value);
-            Assert.AreEqual(1, rec.Ids.REFNs[0].Extra.LineCount);
+            Assert.AreEqual(2, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
+            Assert.AreEqual("number2", rec.REFNs[1].Value);
+            Assert.AreEqual(1, rec.REFNs[0].Extra.LineCount);
             return rec;
         }
 
@@ -60,11 +60,11 @@ namespace SharpGEDParser.Tests
         {
             var txt = string.Format("0 @I1@ {0}\n1 REFN 001\n2 TYPE blah\n3 _CUST foo\n{1}\n1 REFN number2", tag, recExtra);
             var rec = Common(txt);
-            Assert.AreEqual(2, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-            Assert.AreEqual("number2", rec.Ids.REFNs[1].Value);
+            Assert.AreEqual(2, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
+            Assert.AreEqual("number2", rec.REFNs[1].Value);
 
-            Assert.AreEqual(2, rec.Ids.REFNs[0].Extra.LineCount);
+            Assert.AreEqual(2, rec.REFNs[0].Extra.LineCount);
             return rec;
         }
 

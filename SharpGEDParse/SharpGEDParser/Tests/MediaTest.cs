@@ -69,8 +69,8 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Ids.REFNs.Count);
-            Assert.AreEqual("007", rec.Ids.REFNs[0].Value);
+            Assert.AreEqual(1, rec.REFNs.Count);
+            Assert.AreEqual("007", rec.REFNs[0].Value);
 
             var res2 = rec.CHAN;
             Assert.IsTrue(Equals(new DateTime(2001, 4, 1), res2.Date));
@@ -254,8 +254,8 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(0, rec.Unknowns.Count);
-            Assert.AreEqual(1, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+            Assert.AreEqual(1, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
         }
 
         [Test]
@@ -275,9 +275,9 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("reference", rec.Files[0].FileRefn);
             Assert.AreEqual("tif", rec.Files[0].Form);
 
-            Assert.AreEqual(2, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-            Assert.AreEqual("002", rec.Ids.REFNs[1].Value);
+            Assert.AreEqual(2, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
+            Assert.AreEqual("002", rec.REFNs[1].Value);
         }
 
         [Test]
@@ -297,9 +297,9 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("reference", rec.Files[0].FileRefn);
             Assert.AreEqual("ole", rec.Files[0].Form);
 
-            Assert.AreEqual(1, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-            Assert.AreEqual(1, rec.Ids.REFNs[0].Extra.LineCount);
+            Assert.AreEqual(1, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
+            Assert.AreEqual(1, rec.REFNs[0].Extra.LineCount);
         }
 
         [Test]
@@ -319,9 +319,9 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("reference", rec.Files[0].FileRefn);
             Assert.AreEqual("pcx", rec.Files[0].Form);
 
-            Assert.AreEqual(1, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
-            Assert.AreEqual(2, rec.Ids.REFNs[0].Extra.LineCount);
+            Assert.AreEqual(1, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
+            Assert.AreEqual(2, rec.REFNs[0].Extra.LineCount);
         }
         #endregion
 
@@ -340,8 +340,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Files.Count);
             Assert.AreEqual("reference", rec.Files[0].FileRefn);
             Assert.AreEqual("bmp", rec.Files[0].Form);
-            Assert.AreEqual(1, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+            Assert.AreEqual(1, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("N1", rec.Notes[0].Xref);
         }
@@ -359,8 +359,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Files.Count);
             Assert.AreEqual("reference", rec.Files[0].FileRefn);
             Assert.AreEqual("bmp", rec.Files[0].Form);
-            Assert.AreEqual(1, rec.Ids.REFNs.Count);
-            Assert.AreEqual("001", rec.Ids.REFNs[0].Value);
+            Assert.AreEqual(1, rec.REFNs.Count);
+            Assert.AreEqual("001", rec.REFNs[0].Value);
             Assert.AreEqual(1, rec.Notes.Count);
             Assert.AreEqual("blah blah blah", rec.Notes[0].Text);
         }

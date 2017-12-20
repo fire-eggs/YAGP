@@ -26,8 +26,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("blah blah blah", rec.Text);
             Assert.AreEqual("N1", rec.Ident);
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["_UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
 
         [Test]
@@ -41,8 +41,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("blah blah blah", rec.Text);
             Assert.AreEqual("N1", rec.Ident);
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
 
         [Test]
@@ -60,8 +60,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(1, rec.Unknowns.Count); // treat BLOB as unknown
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["_UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
 
         [Test]
@@ -79,8 +79,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(1, rec.Unknowns.Count); // treat BLOB as unknown
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
 
         [Test]
@@ -95,8 +95,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foobar", rec.Name);
             Assert.AreEqual("R1", rec.Ident);
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["_UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
 
         [Test]
@@ -111,8 +111,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("foobar", rec.Name);
             Assert.AreEqual("R1", rec.Ident);
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
 
         [Test]
@@ -128,8 +128,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("S1", rec.Ident);
             Assert.AreEqual("Fred", rec.Author);
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["_UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
 
         [Test]
@@ -145,10 +145,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("S1", rec.Ident);
             Assert.AreEqual("Fred", rec.Author);
 
-            Assert.AreEqual(1, rec.Ids.Others.Count);
-            Assert.AreEqual("blah", rec.Ids.Others["UID"].Value);
+            Assert.IsNotNull(rec.UID);
+            Assert.AreEqual("blah", rec.UID.Value);
         }
-
-
     }
 }

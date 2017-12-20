@@ -20,8 +20,8 @@ namespace SharpGEDParser.Parser
             _tagSet2.Add("FAX", commonAddr2);
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", DataProc);
-            _tagSet2.Add("UID", DataProc);
+            _tagSet2.Add("_UID", UidProc);
+            _tagSet2.Add("UID", UidProc);
         }
 
         private void nameproc(ParseContext2 ctx)
