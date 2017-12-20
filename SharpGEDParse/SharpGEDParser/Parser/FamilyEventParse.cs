@@ -5,6 +5,8 @@ namespace SharpGEDParser.Parser
 {
     public class FamilyEventParse : StructParser
     {
+        //private static StringCache2 _placeCache = new StringCache2();
+
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
         {
             {"HUSB", ageProc},
@@ -114,6 +116,7 @@ namespace SharpGEDParser.Parser
         {
             // TODO full PLACE_STRUCTURE support
             var famE = (context.Parent as EventCommon);
+            //famE.Place = _placeCache.GetFromCache(context.Remain1);
             famE.Place = context.Remain;
         }
 

@@ -10,6 +10,8 @@ namespace SharpGEDParser.Parser
 {
     public class NameParse : StructParser
     {
+        //private static StringCache2 _surnameCache = new StringCache2();
+
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
         {
             { "SPFX", subProc},
@@ -30,6 +32,20 @@ namespace SharpGEDParser.Parser
             // TODO temp ignore NAME.SOUR.DATA.TEXT - see 2524482.ged
             // TODO temp ignore NAME.NOTE
         }
+
+        //private static void surnProc(StructParseContext ctx, int linedex, char level)
+        //{
+        //    // TODO punting: grab&store w/o analysis
+        //    var rec = (ctx.Parent as NameRec);
+        //    rec.Parts.Add(new Tuple<string, string>(ctx.Tag, _surnameCache.GetFromCache(ctx.Remain1)));
+        //}
+
+        //private static void givnProc(StructParseContext ctx, int linedex, char level)
+        //{
+        //    // TODO punting: grab&store w/o analysis
+        //    var rec = (ctx.Parent as NameRec);
+        //    rec.Parts.Add(new Tuple<string, string>(ctx.Tag, _nameCache.GetFromCache(ctx.Remain1)));
+        //}
 
         private static void subProc(StructParseContext ctx, int linedex, char level)
         {
@@ -57,6 +73,7 @@ namespace SharpGEDParser.Parser
                 //suffix = string.Join(" ", line.Substring(endSur + 1).Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)); // Remove extra spaces
                 int newlen = 0;
                 var tmp = LineUtil.RemoveExtraSpaces(line, endSur + 1, max, ref newlen);
+                //suffix = _nameCache.GetFromCache(tmp, 0, newlen).Trim(); // TODO trim
                 suffix = new string(tmp, 0, newlen).Trim();
             }
 
@@ -70,12 +87,14 @@ namespace SharpGEDParser.Parser
                 }
                 int newlen = 0;
                 var tmp = LineUtil.RemoveExtraSpaces(line, a, b, ref newlen);
+                //rec.Names = _nameCache.GetFromCache(tmp, a, newlen).Trim(); // TODO trim
                 rec.Names = new string(tmp, a, newlen).Trim();
             }
 
             if (startSur < max) // e.g. "1 NAME LIVING"
             {
                 //rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1).Trim();
+                //rec.Surname = _surnameCache.GetFromCache(line, startSur + 1, endSur - startSur - 1).Trim();// TODO trim
                 rec.Surname = new string(line, startSur + 1, endSur - startSur - 1).Trim();
                 if (rec.Surname.Contains("/"))
                 {

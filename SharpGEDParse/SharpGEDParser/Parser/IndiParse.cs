@@ -102,6 +102,8 @@ namespace SharpGEDParser.Parser
             own.Assocs.Add(res);
         }
 
+        //private static StringCache2 _sexCache = new StringCache2();
+
         private void SexProc(ParseContext2 context)
         {
             var own = (context.Parent as IndiRecord);
@@ -114,6 +116,7 @@ namespace SharpGEDParser.Parser
             else
             {
                 own.Sex = context.Remain[0];
+                //own.FullSex = _sexCache.GetFromCache(context.Remain1);
                 own.FullSex = context.Remain;
             }
         }
