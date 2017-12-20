@@ -192,6 +192,8 @@ namespace GEDWrap
 
             _indiHash = new Dictionary<string, Person>(Indi.Count);
             _famHash = new Dictionary<string, Union>(Fams.Count);
+            if (Indi.Count > 0)
+                _firstPerson = Indi[0].Ident;
 
             // NOTE I've tried Parallel.For here, timings suggest it's slightly slower
             // (probably due to the required locking around the dictionaries).
@@ -209,7 +211,7 @@ namespace GEDWrap
                 }
                 catch (ArgumentNullException)
                 {
-                    // TODO MakeError(Issue.IssueCode.MISS_INDIID, indi.BegLine);
+                    // Not necessary, caught by parser MakeError(Issue.IssueCode.MISS_INDIID, indiRecord.BegLine);
                 }
                 catch (ArgumentException)
                 {
