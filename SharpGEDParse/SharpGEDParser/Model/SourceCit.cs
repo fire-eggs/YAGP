@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
-    // Source Citation record
+    /// <summary>
+    /// Represents a citation to a <b>GEDCOM</b> SOUR record.
+    /// 
+    /// The GEDCOM standard allows two variants of source citations:
+    /// a cross-reference to a SOUR record, or an "embedded" citation.
+    /// 
+    /// \warning Future library releases may convert "embedded" citations to cross-reference.
+    /// </summary>
     public class SourceCit : StructCommon, NoteHold, MediaHold
     {
+        /// <summary>
+        /// The cross-reference to a SOUR record. This will be empty if
+        /// this is an "embedded" citation.
+        /// </summary>
         public string Xref { get; set; } // will be empty if an embedded citation
 
         public string Desc { get; set; }
@@ -22,11 +31,21 @@ namespace SharpGEDParser.Model
         public bool Data { get; set; } // was the DATA tag encountered
 
         // TODO additional parsing/validation for date
-        public string Date { get; set; } // will be null if an embedded citation
+        /// <summary>
+        /// The date this data was entered in the source document. This
+        /// will be null if this is an embedded citation.
+        /// </summary>
+        public string Date { get; set; }
 
         private List<string> _text;
+        /// <summary>
+        /// The text from the source. Will be empty if there is none.
+        /// </summary>
         public List<string> Text { get { return _text ?? (_text = new List<string>()); }}
 
+        /// <summary>
+        /// Is any text provided from the source? Will be true if there is none.
+        /// </summary>
         public bool AnyText { get { return _text != null; } } // Don't force allocation of List during verify
 
         private List<Note> _notes;
@@ -37,8 +56,14 @@ namespace SharpGEDParser.Model
         public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
     }
 
+    /// <summary>
+    /// Represents records which may contain source citations.
+    /// </summary>
     public interface SourceCitHold
     {
+        /// <summary>
+        /// Any source citations associated to a record.
+        /// </summary>
         List<SourceCit> Cits { get; }
     }
 }

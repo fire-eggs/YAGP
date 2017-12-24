@@ -77,53 +77,64 @@ namespace SharpGEDParser.Model
         public ErrorCode Error { get; set; }
     }
 
-    // Properties which are common across the main top-level records (INDI, FAM, OBJE, SOUR, NOTE, REPO)
     // Based on the data from https://www.genealogieonline.nl/en/GEDCOM-tags/ some properties are less
     // frequent and their instances are allocated on an as-needed basis.
-    //
+
+    /// <summary>
+    /// Properties which are common across the main top-level GEDCOM records.
+    ///  
+    /// I.e. INDI, FAM, OBJE, SOUR, NOTE, REPO records.
+    /// </summary>
     public abstract class GEDCommon
     {
+        /// The record's GEDCOM tag.
         public abstract string Tag { get; }
-//    { return ""; }}
 
-        // The record's id
+        /// The record's id
         public string Ident { get; set; }
 
-        // The first line of the record in the original GEDCOM
+        /// The first line of the record in the original GEDCOM
         public int BegLine { get; set; }
 
-        // The last line of the record in the original GEDCOM
+        /// The last line of the record in the original GEDCOM
         public int EndLine { get; set; }
 
-        // Any RIN
+        /// Any RIN
         public string RIN { get; set; }
 
-        // Any CHAN
         private ChangeRec _chan;
+        /// Any change record (CHAN).
         public ChangeRec CHAN
         {
             get { return _chan ?? (_chan = new ChangeRec()); }
         }
 
-        // Unknown and custom tags encountered at this level
+        /// Unknown and custom tags encountered at this level
         private List<UnkRec> _unknowns;
         public List<UnkRec> Unknowns { get { return _unknowns ?? (_unknowns = new List<UnkRec>()); } }
 
-        // Problems, other than 'unknown'/'custom' tags at this _or_children_ level
+        /// Problems, other than 'unknown'/'custom' tags at this _or_children_ level
         private List<UnkRec> _errors;
         public List<UnkRec> Errors { get { return _errors ?? (_errors = new List<UnkRec>()); } }
 
+        /// Are there any errors associated with this record? Returns true if yes.
         public bool AnyErrors { get { return _errors != null && _errors.Count > 0; } }
 
         // The IdHold implementation proved to be memory expensive when used with files
         // containing large numbers of UIDs, AFNs. NOTE: GK uses a <tag,value> sort of
         // scheme for these and other tags, consider revisiting.
+
+        /// An UID (universal identifier) associated with the record.
         public StringPlus UID { get; set; }
+        /// An AFN (ancestral file number) associated with the record.
         public StringPlus AFN { get; set; }
+        /// An RFN (something file number) associated with the record.
         public StringPlus RFN { get; set; }
 
         private List<StringPlus> _refns;
+        /// Any user reference numbers associated with the record. Will be null if none.
         public List<StringPlus> REFNs { get { return _refns ?? (_refns = new List<StringPlus>()); } }
+        /// Returns true if there are any REFNs associated to the record.
         public bool AnyREFNs { get { return _refns != null; } }
 
         // TODO revisit this, esp. not using StringPlus if not required for UID/AFN/RFN/REFN
@@ -132,7 +143,7 @@ namespace SharpGEDParser.Model
         //private IdHold _ids;
         //public IdHold Ids { get { return _ids ?? (_ids = new IdHold()); } }
 
-        public GEDCommon(GedRecord lines, string ident)
+        internal GEDCommon(GedRecord lines, string ident)
         {
             Ident = ident;
             if (lines == null) // DrawAnce creating INDI on-the-fly
