@@ -104,7 +104,7 @@ namespace SharpGEDParser
         /// <summary>
         /// Read GEDCOM data into memory.
         /// </summary>
-        /// <param name="gedPath">The path to the file. If null, will attempt to read from #instream instead.</param>
+        /// <param name="gedPath">The path to the file. If null, will attempt to read from instream instead.</param>
         /// <param name="instream">An input stream to read from instead of a file path.</param>
         public void ReadGed(string gedPath, StreamReader instream=null)
         {
