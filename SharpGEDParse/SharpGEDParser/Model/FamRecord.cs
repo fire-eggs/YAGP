@@ -1,17 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace SharpGEDParser.Model
 {
-    public class Child
-    {
-        public string Xref { get; set; }
-
-        public string MotherRelation { get; set; }
-
-        public string FatherRelation { get; set; }
-    }
-
+    /// <summary>
+    /// Represents a record for a family/relationship (GEDCOM FAM).
+    ///
+    /// \todo useful information
+    /// </summary>
     public class FamRecord : GEDCommon, NoteHold, SourceCitHold, MediaHold
     {
 		/// <summary>
@@ -24,57 +19,87 @@ namespace SharpGEDParser.Model
         private List<MediaLink> _media;
         private List<LDSEvent> _ldsEvents; // TODO common?
 
-        /// Any NOTEs associated with the record. An empty list if none.
+        /// <summary>
+        /// Any NOTEs associated with the record. 
+        /// 
+        /// An empty list if none.
+        /// </summary>
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
-        /// Any Source citations associated with the record. An empty list if none.
+
+        /// <summary>
+        /// Any Source citations associated with the record. 
+        /// 
+        /// An empty list if none.
+        /// </summary>
         public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }
-        /// Any Multimedia objects associated with the record. An empty list if none.
+
+        /// <summary>
+        /// Any Multimedia objects associated with the record. 
+        /// 
+        /// An empty list if none.
+        /// </summary>
         public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
-		///
+
+        ///
         public List<LDSEvent> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSEvent>()); } }
 
         // Identity strings for children
         private List<Child> _childs;
-		/// A list of 'CHIL' cross-references to INDI records.
+
+        /// <summary>
+        /// A list of 'CHIL' cross-references to INDI records.
 		///
-		/// Will be an empty list if there are none. See #Child class for more details.
-		/// Future: use a grammatically correct name
+		/// Will be an empty list if there are none. See Child class for more details.
+		/// \todo: use a grammatically correct name
+        /// </summary>
         public List<Child> Childs { get { return _childs ?? (_childs = new List<Child>()); } }
 
         // Identity strings for HUSB (multiple are possible from some programs)
         private List<string> _dads;
-		/// A list of 'HUSB' cross-references to INDI records.
+
+        /// <summary>
+        /// A list of 'HUSB' cross-references to INDI records.
 		///
 		/// Will be an empty list if there are none. A single entry is GEDCOM standard
 		/// conformant, but this is a list because multiple entries are possible from 
 		/// some programs.
-		/// Future: use a less sexist name
+		/// \todo: use a less sexist name
+        /// </summary>
         public List<string> Dads { get { return _dads ?? (_dads = new List<string>()); } }
 
         // Identity strings for WIFE (multiple are possible from some programs)
         private List<string> _moms;
-		/// A list of 'WIFE' cross-references to INDI records.
+
+        /// <summary>
+        /// A list of 'WIFE' cross-references to INDI records.
 		///
 		/// Will be an empty list if there are none. A single entry is GEDCOM standard
 		/// conformant, but this is a list because multiple entries are possible from 
 		/// some programs.
-		/// Future: use a less sexist name
+		/// \todo: use a less sexist name
+        /// </summary>
         public List<string> Moms { get { return _moms ?? (_moms = new List<string>()); } }
 
         private List<FamilyEvent> _famEvents; // TODO common?
-		/// The events associated to a family. 
+
+        /// <summary>
+        /// The events associated to a family. 
 		///
 		/// Will be an empty list if there are none.
 		///
 		/// Events include the GEDCOM tags MARR, MARB, etc.
+        /// </summary>
         public List<FamilyEvent> FamEvents { get { return _famEvents ?? (_famEvents = new List<FamilyEvent>()); } }
 
         // Identity strings for submitters
         private List<string> _famSubm; // TODO common?
-		/// The list of submitter cross-references for the person.
+
+        /// <summary>
+        /// The list of submitter cross-references for the person.
 		///
 		/// Will be an empty list if there are none.
 		/// The list contains SUBM, ANCI and DESI references.
+        /// </summary>
         public List<string> FamSubm { get { return _famSubm ?? (_famSubm = new List<string>()); } }
 
         internal FamRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
@@ -107,16 +132,22 @@ namespace SharpGEDParser.Model
         //    }
         //}
 
-		/// The value of the NCHI tag from the GEDCOM.
+        /// <summary>
+        /// The value of the NCHI tag from the GEDCOM.
 		///
 		/// Will be -1 if the NCHI tag was not specified. This field value is not
-		/// guaranteed to match the number of entries in the #Childs list.
+		/// guaranteed to match the number of entries in the Childs list.
+		/// 
+		/// If this value is -1 the writer will not emit the NCHI tag.
+        /// </summary>
         public int ChildCount { get; set; }
 
-		/// Any restriction notice applied to the record.
+        /// <summary>
+        /// Any restriction notice applied to the record.
 		///
 		/// Will be an empty string if none.
 		/// The GEDCOM standard values are "confidential", "locked" or "privacy".
+        /// </summary>
         public string Restriction { get; set; }
 
         internal void AddChild(string xref, string frel = null, string mrel = null)
@@ -130,4 +161,29 @@ namespace SharpGEDParser.Model
             Childs.Add(ch);
         }
     }
+
+    /// <summary>
+    /// Represents details of a FAM.CHIL record.
+    /// \todo details
+    /// </summary>
+    public class Child
+    {
+        /// <summary>
+        /// The cross-reference to the individual who is a child.
+        /// </summary>
+        public string Xref { get; set; }
+
+        /// <summary>
+        /// Relationship of the child to the mother.
+        /// \todo details
+        /// </summary>
+        public string MotherRelation { get; set; }
+
+        /// <summary>
+        /// Relationship of the child to the father.
+        /// \todo details
+        /// </summary>
+        public string FatherRelation { get; set; }
+    }
+
 }

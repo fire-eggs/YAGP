@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
+    /// <summary>
+    /// Represents an individual's name.
+    /// </summary>
     public class NameRec : StructCommon
     {
         public string Names { get; set; }

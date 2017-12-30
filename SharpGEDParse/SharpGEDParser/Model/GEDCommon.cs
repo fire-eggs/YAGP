@@ -15,7 +15,9 @@ namespace SharpGEDParser.Model
         public int LineCount { get { return End - Beg + 1; } }
     }
 
-    // Attributes about an unknown tag - custom or not
+    /// <summary>
+    /// Attributes about an unknown tag - custom or not
+    /// </summary>
     public class UnkRec : LineSet
     {
         public enum ErrorCode
