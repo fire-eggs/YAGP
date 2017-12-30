@@ -173,6 +173,17 @@ namespace GEDWrap
             return gedEvent.Date;
         }
 
+        public string GetYear(string eventName) // TODO format
+        {
+            var gedEvent = GetEvent(eventName);
+            if (gedEvent == null)
+                return null;
+            if (gedEvent.GedDate != null &&
+                gedEvent.GedDate.Initialized)
+                return gedEvent.GedDate.Year.ToString();
+            return gedEvent.Date;
+        }
+
         public string GetPlace(string eventName)
         {
             var gedEvent = GetEvent(eventName);
