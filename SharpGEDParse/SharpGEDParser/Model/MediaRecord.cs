@@ -56,10 +56,10 @@ namespace SharpGEDParser.Model
             GedRecParse.NonStandardRemain(remain, this);
         }
 
-        [ExcludeFromCodeCoverage]
-        public override string ToString()
-        {
-            return Tag;
-        }
+        //[ExcludeFromCodeCoverage]
+        //public override string ToString()
+        //{
+        //    return Tag;
+        //}
     }
 }

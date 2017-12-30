@@ -36,7 +36,9 @@ namespace SharpGEDParser.Model
     /// </summary>
     public interface NoteHold
     {
-        // Any NOTE references associated with a record.
+        /// <summary>
+        /// Any NOTE references associated with a record.
+        /// </summary>
         List<Note> Notes { get; }
     }
 }

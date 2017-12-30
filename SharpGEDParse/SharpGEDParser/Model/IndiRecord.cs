@@ -39,6 +39,9 @@ namespace SharpGEDParser.Model
         /// </summary>
         public List<MediaLink> Media { get { return _media ?? (_media = new List<MediaLink>()); } }
 
+        /// <summary>
+        /// Any LDS (Mormon) events.
+        /// </summary>
         public List<LDSEvent> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSEvent>()); } }
 
         // Identity strings for submitters [SUBM/ANCI/DESI]
