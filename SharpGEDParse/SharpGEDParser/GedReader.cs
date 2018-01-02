@@ -401,6 +401,8 @@ namespace SharpGEDParser
                 _lineNum++;
                 line = ReadLine();
             }
+
+            _lineNum--; // Line number off-by-one
         }
 
         private char [] ReadLine()

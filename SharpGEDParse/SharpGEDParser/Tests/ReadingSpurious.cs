@@ -29,7 +29,7 @@ namespace SharpGEDParser.Tests
         public void LFinDOS()
         {
             var r = BuildAndRead(linesLF, GedReader.LB.DOS, false, true);
-            Assert.AreEqual(linesLF.Length, r.NumberLines-1);
+            Assert.AreEqual(linesLF.Length, r.NumberLines);
             Assert.AreEqual(0, r.Errors.Count);
 
             Assert.AreEqual(1, r.Data.Count);
@@ -43,7 +43,7 @@ namespace SharpGEDParser.Tests
         {
             var r = BuildAndRead(linesCR, GedReader.LB.UNIX, false, true);
             Assert.AreEqual(0, r.Errors.Count);
-            Assert.AreEqual(linesCR.Length, r.NumberLines - 1);
+            Assert.AreEqual(linesCR.Length, r.NumberLines);
 
             Assert.AreEqual(1, r.Data.Count);
             var rec = r.Data[0] as HeadRecord;
@@ -55,7 +55,7 @@ namespace SharpGEDParser.Tests
         public void LFinDOSBom()
         {
             var r = BuildAndRead(linesLF, GedReader.LB.DOS, true, true);
-            Assert.AreEqual(linesLF.Length, r.NumberLines - 1);
+            Assert.AreEqual(linesLF.Length, r.NumberLines);
 
             // Error: BOM / Head.Char mismatch
             Assert.AreEqual(1, r.Errors.Count); // TODO eliminate?
@@ -70,7 +70,7 @@ namespace SharpGEDParser.Tests
         public void CRinUnixBom()
         {
             var r = BuildAndRead(linesCR, GedReader.LB.UNIX, true, true);
-            Assert.AreEqual(linesCR.Length, r.NumberLines - 1);
+            Assert.AreEqual(linesCR.Length, r.NumberLines);
 
             // Error: BOM / Head.Char mismatch
             Assert.AreEqual(1, r.Errors.Count); // TODO eliminate?
@@ -86,7 +86,7 @@ namespace SharpGEDParser.Tests
         {
             // No final line terminator
             var r = BuildAndRead(linesLF, GedReader.LB.DOS, false, false);
-            Assert.AreEqual(linesLF.Length, r.NumberLines - 1);
+            Assert.AreEqual(linesLF.Length, r.NumberLines);
             Assert.AreEqual(0, r.Errors.Count);
 
             Assert.AreEqual(1, r.Data.Count);
@@ -100,7 +100,7 @@ namespace SharpGEDParser.Tests
         {
             // No final line terminator
             var r = BuildAndRead(linesCR, GedReader.LB.UNIX, false, false);
-            Assert.AreEqual(linesCR.Length, r.NumberLines - 1);
+            Assert.AreEqual(linesCR.Length, r.NumberLines);
             Assert.AreEqual(0, r.Errors.Count);
 
             Assert.AreEqual(1, r.Data.Count);

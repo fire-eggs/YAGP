@@ -1,15 +1,15 @@
-﻿using NUnit.Framework;
-
-// a legit set of GEDCOM strings larger than the 4K buffer
+﻿// a legit set of GEDCOM strings larger than the 4K buffer
 
 // TODO the lines but w/o the "0 TRLR"
 
+using NUnit.Framework;
+
 // ReSharper disable InconsistentNaming
 
-namespace GEDReadTest.Tests
+namespace SharpGEDParser.Tests
 {
     [TestFixture]
-    public class BigValid : TestUtil
+    public class BigValid : ReadingUtil
     {
         private readonly string[] lines =
         {
@@ -292,50 +292,50 @@ namespace GEDReadTest.Tests
         [Test]
         public void LargeLFNoBom()
         {
-            var r = BuildAndRead(lines, LB.LF, false, true);
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.UNIX, false, true);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
         [Test]
         public void LargeDOSNoBom()
         {
-            var r = BuildAndRead(lines, LB.CRLF, false, true);
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.DOS, false, true);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
         [Test]
         public void LargeLFBom()
         {
-            var r = BuildAndRead(lines, LB.LF, true, true);
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.UNIX, true, true);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
         [Test]
         public void LargeDOSBom()
         {
-            var r = BuildAndRead(lines, LB.CRLF, true, true);
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.DOS, true, true);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
         [Test]
         public void LargeLFNoBomNoTerm()
         {
-            var r = BuildAndRead(lines, LB.LF, false, false );
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.UNIX, false, false);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
         [Test]
         public void LargeDOSNoBomNoTerm()
         {
-            var r = BuildAndRead(lines, LB.CRLF, false, false);
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.DOS, false, false);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
         [Test]
         public void LargeLFBomNoTerm()
         {
-            var r = BuildAndRead(lines, LB.LF, true, false);
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.UNIX, true, false);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
         [Test]
         public void LargeDOSBomNoTerm()
         {
-            var r = BuildAndRead(lines, LB.CRLF, true, false);
-            Assert.AreEqual(lines.Length, r.LineCount);
+            var r = BuildAndRead(lines, GedReader.LB.DOS, true, false);
+            Assert.AreEqual(lines.Length, r.NumberLines);
         }
     }
 }

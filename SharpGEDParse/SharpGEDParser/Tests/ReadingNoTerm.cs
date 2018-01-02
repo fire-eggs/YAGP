@@ -20,7 +20,7 @@ namespace SharpGEDParser.Tests
         public void TinyLFNoBom()
         {
             var r = BuildAndRead(lines0, GedReader.LB.UNIX, false, false);
-            Assert.AreEqual(3, r.NumberLines - 1);
+            Assert.AreEqual(3, r.NumberLines);
             //Assert.AreEqual(0, r.Errors.Count);
             //Assert.AreEqual("0 TRLR", r.Lines[2]);
         }
@@ -29,7 +29,7 @@ namespace SharpGEDParser.Tests
         public void TinyDOSNoBom()
         {
             var r = BuildAndRead(lines0, GedReader.LB.DOS, false, false);
-            Assert.AreEqual(3, r.NumberLines-1);
+            Assert.AreEqual(3, r.NumberLines);
             //Assert.AreEqual(0, r.Errors.Count);
             //Assert.AreEqual("0 TRLR", r.Lines[2]);
         }
@@ -38,7 +38,7 @@ namespace SharpGEDParser.Tests
         public void TinyLFBom()
         {
             var r = BuildAndRead(lines0, GedReader.LB.UNIX, true, false);
-            Assert.AreEqual(3, r.NumberLines-1);
+            Assert.AreEqual(3, r.NumberLines);
             //Assert.AreEqual(0, r.Errors.Count);
             //Assert.AreEqual("0 TRLR", r.Lines[2]);
         }
@@ -47,7 +47,7 @@ namespace SharpGEDParser.Tests
         public void TinyDOSBom()
         {
             var r = BuildAndRead(lines0, GedReader.LB.DOS, true, false);
-            Assert.AreEqual(3, r.NumberLines-1);
+            Assert.AreEqual(3, r.NumberLines);
             //Assert.AreEqual(0, r.Errors.Count);
             //Assert.AreEqual("0 TRLR", r.Lines[2]);
         }

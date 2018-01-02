@@ -39,7 +39,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(UnkRec.ErrorCode.MissCharSet, r.Errors[0].Error);
 
             //Assert.AreEqual("None", r.BomEncoding);
-            Assert.AreEqual(6, r.NumberLines-1); // TODO NumberLines off by one?
+            Assert.AreEqual(6, r.NumberLines);
 
             Assert.AreEqual(1,r.AllIndividuals.Count);
             var rec = r.AllIndividuals[0];
@@ -61,7 +61,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(UnkRec.ErrorCode.MissCharSet, r.Errors[0].Error);
 
             //Assert.AreEqual("UTF8", r.BomEncoding);
-            Assert.AreEqual(6, r.NumberLines - 1); // TODO NumberLines off by one?
+            Assert.AreEqual(6, r.NumberLines);
 
             Assert.AreEqual(1, r.AllIndividuals.Count);
             var rec = r.AllIndividuals[0];
@@ -88,7 +88,7 @@ namespace SharpGEDParser.Tests
 
             //Assert.AreEqual("None", r.BomEncoding);
 
-            Assert.AreEqual(7, r.NumberLines-1);  // TODO NumberLines off by one?
+            Assert.AreEqual(7, r.NumberLines);
 
             Assert.AreEqual(1, r.AllIndividuals.Count);
             var rec = r.AllIndividuals[0];
@@ -110,7 +110,7 @@ namespace SharpGEDParser.Tests
             // BOM and encoding match, data is correct
             var r = BuildAndRead(lines2, GedReader.LB.UNIX, true, true);
             Assert.AreEqual(0, r.Errors.Count);
-            Assert.AreEqual(7, r.NumberLines - 1);  // TODO NumberLines off by one?
+            Assert.AreEqual(7, r.NumberLines);
 
             Assert.AreEqual(1, r.AllIndividuals.Count);
             var rec = r.AllIndividuals[0];

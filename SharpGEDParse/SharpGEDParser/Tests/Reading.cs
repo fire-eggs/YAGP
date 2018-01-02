@@ -33,7 +33,7 @@ namespace SharpGEDParser.Tests
         private FileRead common(GedReader.LB format, bool bom)
         {
             var r = BuildAndRead(lines1, format, bom);
-            Assert.AreEqual(lines1.Length, r.NumberLines-1); // TODO line count off by one?
+            Assert.AreEqual(lines1.Length, r.NumberLines);
             return r;
         }
 
