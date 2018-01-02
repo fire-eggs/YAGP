@@ -39,6 +39,7 @@ namespace SharpGEDParser.Parser
         }
     }
 
+    /// \cond PRIVATE
     public enum TokType
     {
         WHITE,
@@ -216,4 +217,6 @@ namespace SharpGEDParser.Parser
         }
 
     }
+    /// \endcond
+
 }
