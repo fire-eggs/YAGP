@@ -83,7 +83,7 @@ namespace SharpGEDParser.Tests
         public void EmptyId()
         {
             var txt = "0 @ @ FAM".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
+            GEDSplitter gs = new GEDSplitter(5);
             gs.Split(txt, ' ');
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual(null, gs.Ident(txt));
@@ -94,7 +94,7 @@ namespace SharpGEDParser.Tests
         public void BadId()
         {
             var txt = "0 @I1  FAM".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
+            GEDSplitter gs = new GEDSplitter(5);
             gs.Split(txt, ' ');
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual("FAM", gs.Tag(txt));
@@ -106,7 +106,7 @@ namespace SharpGEDParser.Tests
         {
             // See V208252.ged
             var txt = "0 @ 11@  FAM".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
+            GEDSplitter gs = new GEDSplitter(5);
             gs.Split(txt, ' ');
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual("FAM", gs.Tag(txt));
@@ -117,7 +117,7 @@ namespace SharpGEDParser.Tests
         public void MissTag()
         {
             var txt = "0 @Z1@ ".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
+            GEDSplitter gs = new GEDSplitter(5);
             gs.Split(txt, ' ');
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual("Z1", gs.Ident(txt));
@@ -128,7 +128,7 @@ namespace SharpGEDParser.Tests
         public void LongerDefault()
         {
             var txt = "1 Page According to his death certificate, John McGinnis was born in 1776 a real life nephew".ToCharArray();
-            GEDSplitter gs = new GEDSplitter();
+            GEDSplitter gs = new GEDSplitter(5);
             gs.Split(txt, ' ');
             Assert.AreEqual('1', gs.Level(txt));
             Assert.AreEqual("Page", gs.Tag(txt));

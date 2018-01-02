@@ -42,27 +42,13 @@ namespace SharpGEDParser
             _max = bufferSize-1;
             _starts = new int[bufferSize];
             _lens = new int[bufferSize];
+
+            if (_tagCache == null)
+                _tagCache = new StringCache(); // unit testing
         }
 
         public int[] Starts { get { return _starts; } }
         public int[] Lengths {  get { return _lens; } }
-
-        //public string Get(string value, int dex)
-        //{
-        //    return value.Substring(_starts[dex], _lens[dex]);
-        //}
-
-        //public string GetRest(string value, int dex)
-        //{
-        //    if (_count <= dex)
-        //        return null;
-        //    return value.Substring(_starts[dex]);
-        //}
-
-        //public int Split(string value, char separator)
-        //{
-        //    return Split(value.ToCharArray(), separator);
-        //}
 
         public int Split(char [] value, char separator)
         {
