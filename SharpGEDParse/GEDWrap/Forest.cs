@@ -543,9 +543,64 @@ namespace GEDWrap
                 MakeTree(treenum);
                 treenum += 1;
             }
-
             _treeStack = null;
         }
+
+        #region Alternate, Family driven experimental approach
+        // No obvious 'win'
+        //private Stack<Union> _famStack = new Stack<Union>();
+
+        //private void DoPerson(Person p, int treenum)
+        //{
+        //    if (p == null || p.Tree != -1)
+        //        return;
+        //    p.Tree = treenum;
+        //    foreach (var fu in p.SpouseIn)
+        //    {
+        //        _famStack.Push(fu);
+        //    }
+        //    foreach (var fu in p.ChildIn)
+        //    {
+        //        _famStack.Push(fu);
+        //    }
+        //}
+
+        //private void AllInFamily(Union fu, int treenum)
+        //{
+        //    if (fu == null || fu.TreeNum != -1)
+        //        return;
+        //    fu.TreeNum = treenum;
+        //    DoPerson(fu.Husband, treenum);
+        //    DoPerson(fu.Wife, treenum);
+        //    foreach (var person in fu.Childs)
+        //    {
+        //        DoPerson(person, treenum);
+        //    }
+        //}
+
+        //private void MakeTree(int treenum)
+        //{
+        //    while (_famStack.Count > 0)
+        //    {
+        //        var iw = _famStack.Pop();
+        //        AllInFamily(iw, treenum);
+        //    }
+        //}
+
+        //private void CalcTrees()
+        //{
+        //    int treenum = 1;
+        //    foreach (var union in _famHash.Values)
+        //    {
+        //        if (union.TreeNum != -1)
+        //            continue;
+        //        _famStack.Push(union);
+        //        MakeTree(treenum);
+        //        treenum += 1;
+        //    }
+        //}
+        #endregion
+
         #endregion
 
         public void Dispose()
