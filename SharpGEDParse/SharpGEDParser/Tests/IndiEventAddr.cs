@@ -195,5 +195,35 @@ namespace SharpGEDParser.Tests
             }
         }
 
+        [Test]
+        public void AddrOther()
+        {
+            // Exercise other/custom tags subordinate to ADDR
+            // ADDR.MAP from RootsMagic
+            var txt = "0 @I1@ INDI\n1 BIRT\n2 ADDR Someplace\n3 MAP\n4 LAT\n1 NAME /Blah/";
+            var rec = parse(txt);
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("Blah", rec.Names[0].Surname);
+            Address addr = rec.Events[0].Address;
+            Assert.AreEqual("Someplace",addr.Adr);
+            Assert.AreEqual(1, addr.OtherLines.Count);
+            Assert.AreEqual(2, addr.OtherLines[0].LineCount);
+        }
+        [Test]
+        public void AddrOther2()
+        {
+            // Exercise other/custom tags subordinate to ADDR
+            // ADDR.NOTE from Geni.com
+            var txt = "0 @I1@ INDI\n1 BIRT\n2 ADDR Someplace\n3 NOTE blah blah\n4 CONT blah blah\n1 NAME /Blah/";
+            var rec = parse(txt);
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("Blah", rec.Names[0].Surname);
+            Address addr = rec.Events[0].Address;
+            Assert.AreEqual("Someplace", addr.Adr);
+            Assert.AreEqual(1, addr.OtherLines.Count);
+            Assert.AreEqual(2, addr.OtherLines[0].LineCount);
+        }
     }
 }

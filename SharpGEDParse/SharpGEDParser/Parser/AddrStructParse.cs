@@ -5,8 +5,12 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Parser
 {
-    // TODO what common/custom tags from programs?
+    // Some common/custom tags from programs: handled as OtherLines
     // RootsMagic ADDR.MAP, ADDR.MAP.LATI, ADDR.MAP.LONG
+    // ADDR.CHAN - PAF, Reunion
+    // ADDR.NOTE - geni.com
+    // ADDR._NAME
+    // ADDR.OBJE - Legacy
 
     public class AddrStructParse : StructParser
     {
@@ -103,11 +107,6 @@ namespace SharpGEDParser.Parser
                     break;
                 case "FAX":
                     addr.Fax.Add(ctx.Remain);
-                    break;
-                default:
-                    // TODO can't really get here
-                    // TODO punting here, need to perform LookAhead and that requires a StructParseContext
-                    addr.OtherLines.Add(new LineSet {Beg=ctx.Begline});
                     break;
             }
             return addr;
