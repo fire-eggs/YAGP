@@ -69,9 +69,12 @@ namespace SharpGEDParser.Parser
             string xref;
             string extra;
             StructParser.parseXrefExtra(context.Remain, out xref, out extra);
-            if (string.IsNullOrWhiteSpace(xref))
-                (context.Parent as IndiEvent).Famc = context.Remain; // TODO what file hit this codepath?
-            else
+            // No observed hit on this codepath
+            //if (string.IsNullOrWhiteSpace(xref))
+            //{
+            //    (context.Parent as IndiEvent).Famc = context.Remain;
+            //}
+            //else
                 (context.Parent as IndiEvent).Famc = xref;
         }
 

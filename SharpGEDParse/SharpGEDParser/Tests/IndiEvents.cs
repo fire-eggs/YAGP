@@ -18,8 +18,7 @@ namespace SharpGEDParser.Tests
             return parse<IndiRecord>(val);
         }
 
-        // Dunno if this is "cheating" or not but perform common event testing for
-        // a given tag.
+        // Perform common event testing for a given tag.
         public IndiRecord TestEventTag1(string tag)
         {
             string indi =
@@ -308,6 +307,22 @@ namespace SharpGEDParser.Tests
             TestEventTag2(tag);
             TestEventTag3(tag);
             TestBirthExtra(tag);
+        }
+
+        [Test]
+        public void TestADOPFull()
+        {
+            var txt = "0 INDI\n1 ADOP Y\n2 FAMC @F1@\n3 ADOP HUSB\n2 DATE 1774\n2 PLAC Sands, Oldham, Lncshr, Eng";
+            var rec = parse(txt);
+
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual("ADOP", rec.Events[0].Tag);
+            Assert.AreEqual("1774", rec.Events[0].Date);
+            Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
+
+            Assert.AreEqual("HUSB", rec.Events[0].FamcAdop);
+            Assert.AreEqual("F1", rec.Events[0].Famc);
+
         }
 
         [Test]
