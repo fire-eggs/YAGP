@@ -45,13 +45,14 @@ namespace SharpGEDParser.Model
         public List<LDSEvent> LDSEvents { get { return _ldsEvents ?? (_ldsEvents = new List<LDSEvent>()); } }
 
         // Identity strings for submitters [SUBM/ANCI/DESI]
-        private List<Submitter> _submit; // TODO common?
+        // TODO at later point must validate the referenced records exist
+        private List<Submitter> _submit;
         /// <summary>
         /// The list of submitter cross-references for the person.
-		///
+        /// </summary>
+        ///
 		/// Will be an empty list if there are none.
 		/// The list contains SUBM, ANCI and DESI references.
-        /// </summary>
         public List<Submitter> Submitters { get { return _submit ?? (_submit = new List<Submitter>()); } }
 
         private List<IndiEvent> _events;

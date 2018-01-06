@@ -82,7 +82,7 @@ namespace SharpGEDParser.Model
         /// </summary>
         public List<string> Moms { get { return _moms ?? (_moms = new List<string>()); } }
 
-        private List<FamilyEvent> _famEvents; // TODO common?
+        private List<FamilyEvent> _famEvents;
 
         /// <summary>
         /// The events associated to a family. 
@@ -94,14 +94,14 @@ namespace SharpGEDParser.Model
         public List<FamilyEvent> FamEvents { get { return _famEvents ?? (_famEvents = new List<FamilyEvent>()); } }
 
         // Identity strings for submitters
-        private List<string> _famSubm; // TODO common?
+        // TODO at later point must validate the referenced records exist
+        private List<string> _famSubm;
 
         /// <summary>
-        /// The list of submitter cross-references for the person.
-		///
-		/// Will be an empty list if there are none.
-		/// The list contains SUBM, ANCI and DESI references.
+        /// The list of submitter (SUBM) cross-references for the family.
         /// </summary>
+        ///
+		/// Will be an empty list if there are none.
         public List<string> FamSubm { get { return _famSubm ?? (_famSubm = new List<string>()); } }
 
         internal FamRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
@@ -109,30 +109,6 @@ namespace SharpGEDParser.Model
             ChildCount = -1;
             GedRecParse.NonStandardRemain(remain, this);
         }
-
-		// TODO make this disappear
-        //[ExcludeFromCodeCoverage]
-        //public override string ToString()
-        //{
-        //    return Tag;
-        //}
-
-		// TODO make this disappear
-        //[ExcludeFromCodeCoverage]
-        //public string Marriage
-        //{
-        //    get
-        //    {
-        //        foreach (var kbrGedEvent in FamEvents)
-        //        {
-        //            if (kbrGedEvent.Tag == "MARR")
-        //            {
-        //                return kbrGedEvent.Date + " " + kbrGedEvent.Place;
-        //            }
-        //        }
-        //        return "";
-        //    }
-        //}
 
         /// <summary>
         /// The value of the NCHI tag from the GEDCOM.
