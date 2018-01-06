@@ -132,7 +132,7 @@ namespace SharpGEDParser.Parser
 
         private void EventProc(ParseContext2 context)
         {
-            var @event = FamilyEventParse.Parse(context, true); // TODO family flag? post-check? what INDI specific details?
+            var @event = FamilyEventParse.Parse(context, true);
             var indi = (context.Parent as IndiRecord);
             indi.Events.Add(@event as IndiEvent);
         }
@@ -146,7 +146,7 @@ namespace SharpGEDParser.Parser
 
         private void AttribProc(ParseContext2 context)
         {
-            var @event = FamilyEventParse.Parse(context, true); // TODO family flag? post-check? what INDI specific details?
+            var @event = FamilyEventParse.Parse(context, true);
             var indi = (context.Parent as IndiRecord);
             indi.Attribs.Add((IndiEvent)@event);
         }

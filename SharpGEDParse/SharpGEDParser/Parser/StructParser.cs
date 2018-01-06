@@ -70,7 +70,7 @@ namespace SharpGEDParser.Parser
                     ctx.Parent.OtherLines.Add(extra);
                     ctx.Level = oldLevel;
                 }
-                i = Math.Max(ctx.Endline,i);
+                i = Math.Max(ctx.Endline,i); // HACK: extendedText() may have advanced ctx.Endline further
             }
             ctx.Endline = i - 1;
             ld = null;

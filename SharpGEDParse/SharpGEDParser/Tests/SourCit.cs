@@ -296,10 +296,11 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestEmbSourText2()
         {
-            var txt = "0 INDI\n1 SOUR embedded source\n2 NOTE a note\n2 TEXT this is text ex\n3 CONC tended";
+            var txt = "0 INDI\n1 SOUR embedded source\n2 TEXT this is text ex\n3 CONC tended\n2 NOTE a note";
             var rec = parseInd(txt);
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.AreEqual(1, rec.Cits[0].Notes.Count);
+            Assert.AreEqual("a note", rec.Cits[0].Notes[0].Text);
             Assert.AreEqual(null, rec.Cits[0].Xref);
             Assert.AreEqual("embedded source", rec.Cits[0].Desc);
             Assert.AreEqual("this is text extended", rec.Cits[0].Text[0]);

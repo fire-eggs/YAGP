@@ -1,6 +1,8 @@
 ﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
 
+// ReSharper disable PossibleNullReferenceException
+
 namespace SharpGEDParser.Parser
 {
     public class FamilyEventParse : StructParser
@@ -42,14 +44,13 @@ namespace SharpGEDParser.Parser
         private static void dscrProc(StructParseContext ctx, int linedex, char level)
         {
             // handling of CONC/CONT tags for DSCR
-            // TODO not quite the same as other CONC/CONT, can't use extendedText?
+            // NOTE: I experimented with using extendedText instead. Doing so requires adding
+            // a complication [incrementing ctx.Begline when necessary] for the 1% scenario.
+            // E.g. in IndiParse.AttribProc, the call to extendedText() would have to be followed
+            // by something like ctx2.Begline = ctx.Endline, where ctx.Endline has been adjusted by extendedText.
 
             var own = ctx.Parent as EventCommon;
-            if (own.Tag != "DSCR")
-            {
-                // TODO ErrorRec(string.Format("Invalid CONC/CONT for {0}", own.Tag));
-                return;
-            }
+            // 20180106 Allow conc/cont for any tag
 
             string extra = ctx.Remain.TrimStart();
             if (ctx.Tag == "CONC")
