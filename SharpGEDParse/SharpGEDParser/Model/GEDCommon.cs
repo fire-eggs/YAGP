@@ -24,10 +24,10 @@ namespace SharpGEDParser.Model
             Exception = 1,
             UntermIdent,
             MissIdent,
-            MultChan,
+            MultChan, // More than one change record: first one preserved
             InvXref, // 5
             MissName,
-            ChanDate,
+            ChanDate, // Missing/invalid date for CHAN
             InvNCHI,
             MultNCHI,
             MultId,  // 10
@@ -154,6 +154,10 @@ namespace SharpGEDParser.Model
         }
     }
 
+    /// <summary>
+    /// Represents a 'Change record' - a GEDCOM CHAN tag.
+    /// </summary>
+    /// NOTE: any TIME data is preserved in OtherLines.
     public class ChangeRec : StructCommon, NoteHold
     {
         public DateTime? Date { get; set; }

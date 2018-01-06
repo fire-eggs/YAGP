@@ -10,13 +10,8 @@ namespace SharpGEDParser.Parser
         {
             {"DATE", dateProc},
             {"NOTE", noteProc},
-            //{"TIME", timeProc} // treating TIME record as 'other'
+            //{"TIME", timeProc} // NOTE: treating TIME record as 'other'
         };
-
-        //private static void timeProc(StructParseContext ctx, int linedex, char level)
-        //{
-        //    // TODO toss TIME data
-        //}
 
         private static void dateProc(StructParseContext ctx, int linedex, char level)
         {
@@ -41,7 +36,7 @@ namespace SharpGEDParser.Parser
             if (chan.Date != null)
             {
                 UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.MultChan; // TODO "More than one change record";
+                err.Error = UnkRec.ErrorCode.MultChan;
                 GedRecParse.LookAhead(ctx);
                 err.Beg = ctx.Begline + ctx.Parent.BegLine;
                 err.End = ctx.Endline + ctx.Parent.BegLine;
@@ -53,7 +48,7 @@ namespace SharpGEDParser.Parser
             if (chan.Date == null)
             {
                 UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.ChanDate; // TODO "Missing/invalid date for CHAN";
+                err.Error = UnkRec.ErrorCode.ChanDate;
                 err.Beg = ctx.Begline + ctx.Parent.BegLine;
                 err.End = ctx.Endline + ctx.Parent.BegLine;
                 ctx.Parent.Errors.Add(err);
