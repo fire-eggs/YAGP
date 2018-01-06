@@ -116,8 +116,8 @@ namespace SharpGEDParser
                 }
 #endif
                 // TODO line numbers 'off' due to initial garbage?
-                // TODO unit testing expects no 0HEAD ProcessALine(HEAD0, 1);
-                _lineNum = 2; // "first" line of "0 HEAD" has been read
+                // NOTE unit testing expects no 0HEAD ProcessALine(HEAD0, 1);
+                _lineNum = 1; // NOTE unit testing expects no '0 HEAD':"first" line of "0 HEAD" has been read
                 ReadLines();
             }
             finally

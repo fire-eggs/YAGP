@@ -65,8 +65,8 @@ namespace SharpGEDParser.Parser
                     ctx.Begline = i;
                     ctx.Level = ld.Level;
                     GedRecParse.LookAhead(ctx);
-                    extra.Beg = ctx.Begline;
-                    extra.End = ctx.Endline;
+                    extra.Beg = ctx.Begline + ctx.Lines.Beg; // Make line #s relative to file
+                    extra.End = ctx.Endline + ctx.Lines.Beg;
                     ctx.Parent.OtherLines.Add(extra);
                     ctx.Level = oldLevel;
                 }

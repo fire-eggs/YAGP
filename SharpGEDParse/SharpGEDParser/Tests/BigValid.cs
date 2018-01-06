@@ -1,7 +1,5 @@
 ﻿// a legit set of GEDCOM strings larger than the 4K buffer
 
-// TODO the lines but w/o the "0 TRLR"
-
 using NUnit.Framework;
 
 // ReSharper disable InconsistentNaming

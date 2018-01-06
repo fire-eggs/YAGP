@@ -5,10 +5,9 @@ using System.Collections.Generic;
 
 namespace SharpGEDParser.Model
 {
-    // Low-level line range reference
+    // Low-level line range reference [20180106: line #s now relative to file]
     public class LineSet
     {
-        // TODO 20160629 line references are relative to sub-record, not file
         public int Beg { get; set; }
         public int End { get; set; }
 
@@ -69,7 +68,7 @@ namespace SharpGEDParser.Model
 
         public UnkRec(string tag, int beg, int end)
         {
-            Tag = tag; // TODO null=="<unexpected>";
+            Tag = tag;
             Beg = beg;
             End = end;
         }

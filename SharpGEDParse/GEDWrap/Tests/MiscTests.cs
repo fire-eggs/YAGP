@@ -116,7 +116,7 @@ namespace GEDWrap.Tests
             Assert.AreEqual(1, f.AllIndiIds.Count());
             Assert.AreEqual(3, f.AllRecords.Count());
             Assert.IsNull(f.Header);
-            Assert.AreEqual(7, f.NumberOfLines); // TODO seem to be off by a couple?
+            Assert.AreEqual(7, f.NumberOfLines);
         }
 
         [Test]

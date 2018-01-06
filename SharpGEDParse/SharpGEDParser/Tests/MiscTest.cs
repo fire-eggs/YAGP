@@ -329,6 +329,19 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(UnkRec.ErrorCode.MissTag, rec.Errors[0].Error);
         }
 
+        [Test]
+        public void OthersFileLineNums()
+        {
+            // Verify that 'other lines' in a sub-structure are correctly relative to the 'file'
+            var txt = "0 @I1@ INDI\n1 NAME /Blah/\n0 @I2@ INDI\n1 CHAN\n2 DATE 6 JAN 2018\n2 CUSTOM\n1 NAME /Blah/";
+            var res = ReadIt(txt);
+            Assert.AreEqual(2, res.Count);
+            var rec = res[1];
+            Assert.IsNotNull(rec.CHAN);
+            Assert.AreEqual(1, rec.CHAN.OtherLines.Count);
+            Assert.AreEqual(6, rec.CHAN.OtherLines[0].Beg); // NOTE: relies on read-from-stream starting at line '1', with no '0 HEAD'
+        }
+
     }
 }
 
