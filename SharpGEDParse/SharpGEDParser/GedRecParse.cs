@@ -109,61 +109,31 @@ namespace SharpGEDParser
             (ctx.Parent as MediaHold).Media.Add(mlink);
         }
 
-        //protected void DataProc(ParseContext2 ctx)
-        //{
-        //    // Common processing for UID, RFN, AFN
-        //    if (ctx.Parent.Ids.HasId(ctx.Tag))
-        //    {
-        //        var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
-        //        rec.Error = UnkRec.ErrorCode.MultId; // reason;
-        //        ctx.Parent.Errors.Add(rec);
-
-        //        //ErrorRec(ctx, string.Format("Multiple {0} encountered; keeping only the first", ctx.Tag));
-        //        // TODO what to do: we're throwing away data!
-        //        return;
-        //    }
-        //    var sp = new StringPlus();
-        //    sp.Value = ctx.Remain;
-        //    LookAhead(ctx);
-        //    sp.Extra.Beg = ctx.Begline + 1;
-        //    sp.Extra.End = ctx.Endline;
-        //    ctx.Parent.Ids.Add(ctx.Tag, sp);
-        //}
-
         protected void UidProc(ParseContext2 ctx)
         {
-            if (ctx.Parent.UID != null)
-            {
-                var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
-                rec.Error = UnkRec.ErrorCode.MultId; // reason;
-                ctx.Parent.Errors.Add(rec);
-                return;
-            }
-            ctx.Parent.UID = makeId(ctx);
+            ctx.Parent.UID = CheckAndMakeId(ctx, ctx.Parent.UID);
         }
 
         protected void AfnProc(ParseContext2 ctx)
         {
-            if (ctx.Parent.AFN != null)
-            {
-                var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
-                rec.Error = UnkRec.ErrorCode.MultId; // reason;
-                ctx.Parent.Errors.Add(rec);
-                return;
-            }
-            ctx.Parent.AFN = makeId(ctx);
+            ctx.Parent.AFN = CheckAndMakeId(ctx, ctx.Parent.AFN);
         }
 
         protected void RfnProc(ParseContext2 ctx)
         {
-            if (ctx.Parent.RFN != null)
+            ctx.Parent.RFN = CheckAndMakeId(ctx, ctx.Parent.RFN);
+        }
+
+        private StringPlus CheckAndMakeId(ParseContext2 ctx, StringPlus who)
+        {
+            if (who != null)
             {
                 var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
                 rec.Error = UnkRec.ErrorCode.MultId; // reason;
                 ctx.Parent.Errors.Add(rec);
-                return;
+                return who;
             }
-            ctx.Parent.RFN = makeId(ctx);
+            return makeId(ctx);
         }
 
         private StringPlus makeId(ParseContext2 ctx)
@@ -182,29 +152,6 @@ namespace SharpGEDParser
         }
 
         public abstract void PostCheck(GEDCommon rec);
-
-        //private static LineUtil.LineData LevelTagAndRemain(LineUtil.LineData data, string line)
-        //{
-        //    int max = line.Length;
-
-        //    // Move past level
-        //    int dex = LineUtil.FirstChar(line, 0, max);
-        //    data.Level = line[dex];
-        //    data.Tag = ""; // in case of error
-        //    data.Remain = ""; // in case of error
-        //    dex = LineUtil.AllCharsUntil(line, max, dex+1, ' ');
-
-        //    dex = LineUtil.FirstChar(line, dex, max);
-        //    // TODO assuming no ident here!
-        //    int endTag = LineUtil.AllCharsUntil(line, max, dex + 1, ' ');
-        //    data.Tag = line.Substring(dex, endTag - dex);
-            
-        //    if (endTag < max)
-        //        data.Remain = line.Substring(endTag + 1);
-        //    else
-        //        data.Remain = "";
-        //    return data;
-        //}
         
         // Handle a sub-tag with possible CONC / CONT sub-sub-tags.
         public static string extendedText(ParseContextCommon ctx)
@@ -268,7 +215,7 @@ namespace SharpGEDParser
             {
                 UnkRec err = new UnkRec();
                 err.Beg = err.End = rec.BegLine;
-                err.Error = UnkRec.ErrorCode.InvExtra; // TODO string.Format("Non-standard extra text: '{0}'", remain);
+                err.Error = UnkRec.ErrorCode.InvExtra;
                 rec.Errors.Add(err);
 
                 if (rec is NoteHold)

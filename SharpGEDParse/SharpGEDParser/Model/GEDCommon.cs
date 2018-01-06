@@ -42,7 +42,7 @@ namespace SharpGEDParser.Model
             MultWIFE,
             MultRESN, // 20
             InvRestrict,
-            InvExtra,
+            InvExtra, // Non-standard extra text
             InvSex,
             EmptyLine,
             LineTooLong, // 25

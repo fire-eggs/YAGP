@@ -59,6 +59,7 @@ namespace SharpGEDParser.Tests
             var indi = string.Format("0 @I1@ INDI\n1 {0} number\n1 SEX M\n1 {0} number42", id);
             var rec = parse<IndiRecord>(indi);
             Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MultId, rec.Errors[0].Error);
             Assert.AreEqual('M', rec.Sex);
             return rec;
         }
@@ -79,12 +80,14 @@ namespace SharpGEDParser.Tests
             var rec = TestIndiMultiId("AFN");
             Assert.AreEqual("number", rec.AFN.Value);
         }
+
         [Test]
         public void MultiRFN()
         {
             var rec = TestIndiMultiId("RFN");
             Assert.AreEqual("number", rec.RFN.Value);
         }
+
         [Test]
         public void MultiUID()
         {
