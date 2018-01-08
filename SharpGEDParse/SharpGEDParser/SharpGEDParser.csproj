@@ -83,7 +83,6 @@
     <Compile Include="GedRecord.cs" />
     <Compile Include="GedRecParse.cs" />
     <Compile Include="Model\Address.cs" />
-    <Compile Include="Model\Place.cs" />
     <Compile Include="Model\RepoCit.cs" />
     <Compile Include="Model\Repository.cs" />
     <Compile Include="GedParser.cs" />
