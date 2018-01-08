@@ -70,7 +70,7 @@ namespace SharpGEDParser.Parser
             if (!string.IsNullOrEmpty(xref))
             {
                 var self = (context.Parent as HeadRecord);
-                self.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
+                self.AddSubmitter(Submitter.SubmitType.SUBM, xref);
             }
         }
 

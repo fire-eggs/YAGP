@@ -11,8 +11,8 @@ namespace SharpGEDParser.Model
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
 
         // Identity strings for submitters
-        private List<IndiRecord.Submitter> _submit; // TODO common?
-        public List<IndiRecord.Submitter> Submitters { get { return _submit ?? (_submit = new List<IndiRecord.Submitter>()); } }
+        private List<Submitter> _submit; // TODO common?
+        public List<Submitter> Submitters { get { return _submit ?? (_submit = new List<Submitter>()); } }
 
         public string Source { get; set; }
         public string Product { get; set; }
@@ -31,9 +31,9 @@ namespace SharpGEDParser.Model
             Ident = "HEAD";
         }
 
-        public void AddSubmitter(int submType, string ident)
+        public void AddSubmitter(Submitter.SubmitType submType, string ident)
         {
-            Submitters.Add(new IndiRecord.Submitter { SubmitterType = submType, Xref = ident });
+            Submitters.Add(new Submitter { SubmitterType = submType, Xref = ident });
             // TODO at later time must validate the specified xref exists
         }
 

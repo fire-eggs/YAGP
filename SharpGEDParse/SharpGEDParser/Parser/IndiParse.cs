@@ -206,20 +206,11 @@ namespace SharpGEDParser.Parser
             string xref = parseForXref(context);
             if (!string.IsNullOrEmpty(xref))
             {
-                switch (context.Tag)
-                {
-                    case "SUBM":
-                        indi.AddSubmitter(IndiRecord.Submitter.SUBM, xref);
-                        break;
-                    case "DESI":
-                        indi.AddSubmitter(IndiRecord.Submitter.DESI, xref);
-                        break;
-                    case "ANCI":
-                        indi.AddSubmitter(IndiRecord.Submitter.ANCI, xref);
-                        break;
-                    default:
-                        throw new NotSupportedException(); // NOTE: this will be thrown if a tag is added to tagDict but no case added here
-                }
+                Submitter.SubmitType res;
+                if (Submitter.SubmitType.TryParse(context.Tag, out res))
+                    indi.AddSubmitter(res, xref);
+                else
+                    throw new NotSupportedException(); // NOTE: this will be thrown if a tag is added to tagDict but not added to enum
             }
         }
 

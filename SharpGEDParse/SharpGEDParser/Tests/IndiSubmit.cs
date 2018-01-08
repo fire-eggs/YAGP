@@ -18,7 +18,7 @@ namespace SharpGEDParser.Tests
             var txt = "0 @I1@ INDI \n1 ANCI @S1@";
             var rec = parse<IndiRecord>(txt);
             Assert.AreEqual(1, rec.Submitters.Count);
-            Assert.AreEqual(IndiRecord.Submitter.ANCI, rec.Submitters[0].SubmitterType);
+            Assert.AreEqual(Submitter.SubmitType.ANCI, rec.Submitters[0].SubmitterType);
             Assert.AreEqual("S1", rec.Submitters[0].Xref);
         }
         [Test]
@@ -27,7 +27,7 @@ namespace SharpGEDParser.Tests
             var txt = "0 @I1@ INDI \n1 DESI @S1@";
             var rec = parse<IndiRecord>(txt);
             Assert.AreEqual(1, rec.Submitters.Count);
-            Assert.AreEqual(IndiRecord.Submitter.DESI, rec.Submitters[0].SubmitterType);
+            Assert.AreEqual(Submitter.SubmitType.DESI, rec.Submitters[0].SubmitterType);
             Assert.AreEqual("S1", rec.Submitters[0].Xref);
         }
         [Test]
@@ -36,7 +36,7 @@ namespace SharpGEDParser.Tests
             var txt = "0 @I1@ INDI \n1 SUBM @S1@";
             var rec = parse<IndiRecord>(txt);
             Assert.AreEqual(1, rec.Submitters.Count);
-            Assert.AreEqual(IndiRecord.Submitter.SUBM, rec.Submitters[0].SubmitterType);
+            Assert.AreEqual(Submitter.SubmitType.SUBM, rec.Submitters[0].SubmitterType);
             Assert.AreEqual("S1", rec.Submitters[0].Xref);
         }
         [Test]

@@ -155,17 +155,7 @@ namespace SharpGEDParser.Model
             GedRecParse.NonStandardRemain(remain, this);
         }
 
-		// TODO move elsewhere
-        public class Submitter
-        {
-            public static int SUBM = 0;
-            public static int DESI = 1;
-            public static int ANCI = 2;
-            public int SubmitterType;
-            public string Xref;
-        }
-
-        internal void AddSubmitter(int submType, string ident)
+        internal void AddSubmitter(Submitter.SubmitType submType, string ident)
         {
             Submitters.Add(new Submitter {SubmitterType = submType, Xref = ident});
             // TODO at later time must validate the specified xref exists
