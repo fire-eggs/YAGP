@@ -95,5 +95,27 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names[0].Errors.Count);
             Assert.AreEqual(UnkRec.ErrorCode.UntermSurname, rec.Names[0].Errors[0].Error);
         }
+
+        [Test]
+        public void NameSource()
+        {
+            // TODO see 2524482.ged
+            var txt = "0 @I1@ INDI\n1 NAME John /Smith/\n2 SOUR @S1@";
+            var rec = parse(txt);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("Smith", rec.Names[0].Surname);
+            Assert.AreEqual(0, rec.Names[0].Errors.Count);
+            Assert.AreEqual(1, rec.Names[0].Cits.Count);
+        }
+        [Test]
+        public void NameNote()
+        {
+            var txt = "0 @I1@ INDI\n1 NAME John /Smith/\n2 NOTE @N1@";
+            var rec = parse(txt);
+            Assert.AreEqual(1, rec.Names.Count);
+            Assert.AreEqual("Smith", rec.Names[0].Surname);
+            Assert.AreEqual(0, rec.Names[0].Errors.Count);
+            Assert.AreEqual(1, rec.Names[0].Notes.Count);
+        }
     }
 }

@@ -21,31 +21,15 @@ namespace SharpGEDParser.Parser
             { "NICK", subProc},
             { "SURN", subProc},
             { "GIVN", subProc},
-            { "NOTE", junkProc},
-            { "SOUR", junkProc},
-            { "DATA", junkProc},
-            { "TEXT", junkProc}
+            { "NOTE", noteProc},
+            { "SOUR", sourProc},
+//            { "DATA", junkProc},
+//            { "TEXT", junkProc}
         };
 
         private static void junkProc(StructParseContext ctx, int linedex, char level)
         {
-            // TODO temp ignore NAME.SOUR.DATA.TEXT - see 2524482.ged
-            // TODO temp ignore NAME.NOTE
         }
-
-        //private static void surnProc(StructParseContext ctx, int linedex, char level)
-        //{
-        //    // TODO punting: grab&store w/o analysis
-        //    var rec = (ctx.Parent as NameRec);
-        //    rec.Parts.Add(new Tuple<string, string>(ctx.Tag, _surnameCache.GetFromCache(ctx.Remain1)));
-        //}
-
-        //private static void givnProc(StructParseContext ctx, int linedex, char level)
-        //{
-        //    // TODO punting: grab&store w/o analysis
-        //    var rec = (ctx.Parent as NameRec);
-        //    rec.Parts.Add(new Tuple<string, string>(ctx.Tag, _nameCache.GetFromCache(ctx.Remain1)));
-        //}
 
         private static void subProc(StructParseContext ctx, int linedex, char level)
         {
