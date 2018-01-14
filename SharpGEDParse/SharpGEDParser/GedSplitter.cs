@@ -1,5 +1,6 @@
-using System;
 using SharpGEDParser.Parser;
+
+// TODO the places in Remain, RemainLS and Tag where checks have to be made against '@' seem inefficient
 
 namespace SharpGEDParser
 {
@@ -120,7 +121,7 @@ namespace SharpGEDParser
                 return null;
 
             int max = value.Length;
-            while (value[max - 1] == '\0')
+            while (value[max - 1] == '\0') // trim trailing nulls
                 max--;
 
             int len = max - _starts[dex];
@@ -149,5 +150,40 @@ namespace SharpGEDParser
             ctx.Tag = Tag(line);
             ctx.Remain1 = Remain(line) ?? new char[0];
         }
+
+        public string RemainLS(char[] value)
+        {
+            // NOTE records need to keep the (extra) leading spaces from the line remainder
+
+            if (_count < 3)
+                return null;
+            if (_lens[1] > 0 && value[_starts[1]] != '@')
+                return GetRestLS(value, 2);
+            if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
+                return GetRestLS(value, 4);
+            return GetRestLS(value, 3);
+        }
+
+        public string GetRestLS(char[] value, int dex)
+        {
+            if (_count <= dex)
+                return null;
+
+            int max = value.Length;
+            while (value[max - 1] == '\0') // trim trailing nulls
+                max--;
+
+            // Instead of starting at 'this' piece, where the leading spaces have
+            // already been skipped, calculate the start from the previous piece.
+            int start = _starts[dex - 1] + _lens[dex - 1] + 1;
+            int len = max - start;
+            var tmp = new char[len];
+            for (int i = 0; i < len; i++)
+                tmp[i] = value[i + start];
+            return new string(tmp);
+            //return new string(value, _starts[dex], max-_starts[dex]);
+        }
+
+
     }
 }

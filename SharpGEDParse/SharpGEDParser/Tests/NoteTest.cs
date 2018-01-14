@@ -774,6 +774,58 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Cits[0].OtherLines[0].LineCount);
         }
 
+        [Test]
+        public void LeadSpaceCont()
+        {
+            // Leading spaces, trailing spaces are to be preserved for notes
+            var txt = "0 @N1@ NOTE\n1 CONT    Line";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("\n   Line", rec.Text);
+        }
+        [Test]
+        public void LeadSpaceConc()
+        {
+            // Leading spaces, trailing spaces are to be preserved for notes
+            var txt = "0 @N1@ NOTE\n1 CONC    Line";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("   Line", rec.Text);
+        }
+
+        [Test]
+        public void LeadSpaceMult()
+        {
+            // Leading spaces, trailing spaces are to be preserved for notes
+            var txt = "0 @N1@ NOTE\n1 CONT    Line \n1 CONC   more \n1 CONT       and";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("\n   Line   more \n      and", rec.Text);
+        }
+
+        [Test]
+        public void DoubleAt()
+        {
+            // Doubled '@'s are supposed to be replaced with single
+            var txt = "0 @N1@ NOTE Where it's @@";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("Where it's @", rec.Text);
+
+        }
+
         // TODO NOTE+SOUR+EVEN+ROLE
         // TODO NOTE+SOUR+DATA+DATE+TEXT
         // TODO NOTE+SOUR+OBJE - other lines, error scenarios

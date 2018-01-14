@@ -24,14 +24,16 @@ namespace SharpGEDParser.Parser
             //concProc(ctx);
             var dad = ctx.Parent as NoteRecord;
             dad.Builder.Append("\n");
-            dad.Builder.Append(ctx.Remain);
+            dad.Builder.Append(ctx.gs.RemainLS(ctx.Lines.GetLine(ctx.Begline)));
+            //dad.Builder.Append(ctx.Remain);
         }
 
         private void concProc(ParseContext2 ctx)
         {
             //(ctx.Parent as NoteRecord).Text += ctx.Remain;
             var dad = ctx.Parent as NoteRecord;
-            dad.Builder.Append(ctx.Remain);
+            dad.Builder.Append(ctx.gs.RemainLS(ctx.Lines.GetLine(ctx.Begline)));
+            //dad.Builder.Append(ctx.Remain);
         }
 
         public override void PostCheck(GEDCommon rec)
@@ -46,7 +48,7 @@ namespace SharpGEDParser.Parser
                 me.Errors.Add(err);
             }
 
-            me.Text = me.Builder.ToString();
+            me.Text = me.Builder.ToString().Replace("@@", "@"); // TODO faster replace
             me.Builder = null;
         }
 
