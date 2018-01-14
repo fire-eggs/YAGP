@@ -17,13 +17,15 @@ namespace SharpGEDParser.Parser
         {
             Note note = (context.Parent as Note);
             note.Builder.Append("\n");
-            note.Builder.Append(context.Remain);
+            note.Builder.Append(context.gs.RemainLS(context.Lines.GetLine(linedex)));
+//            note.Builder.Append(context.Remain); // NOTE: trailing spaces are preserved, may be confusing
         }
 
         private static void concProc(StructParseContext context, int linedex, char level)
         {
             Note note = (context.Parent as Note);
-            note.Builder.Append(context.Remain);
+            note.Builder.Append(context.gs.RemainLS(context.Lines.GetLine(linedex)));
+            //note.Builder.Append(context.Remain); // NOTE: trailing spaces are preserved, may be confusing
         }
 
         public static Note NoteParser(ParseContextCommon ctx, int linedex, char level)
@@ -38,11 +40,11 @@ namespace SharpGEDParser.Parser
             }
             else
             {
-                note.Builder.Append(ctx.Remain);
+                note.Builder.Append(ctx.Remain); // NOTE: trailing spaces are preserved, may be confusing
             }
 
             StructParse(ctx2, tagDict);
-            note.Text = note.Builder.ToString();
+            note.Text = note.Builder.ToString().Replace("@@", "@"); // TODO faster replace;
             note.Builder = null;
             ctx.Endline = ctx2.Endline;
             return note;

@@ -107,5 +107,49 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Fred", src.Author, "SOUR");
         
         }
+
+        [Test]
+        public void LeadSpaceConc()
+        {
+            // Leading spaces, trailing spaces are to be preserved for notes
+            var txt = "0 @I1@ INDI\n1  NOTE\n2 CONC    Line";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as IndiRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+
+            Assert.AreEqual("   Line", rec.Notes[0].Text);
+        }
+
+        [Test]
+        public void LeadSpaceMult()
+        {
+            // Leading spaces, trailing spaces are to be preserved for notes
+            var txt = "0 @I1@ INDI\n1 NOTE\n2 CONT    Line \n2 CONC   more \n2 CONT       and";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as IndiRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+
+            Assert.AreEqual("\n   Line   more \n      and", rec.Notes[0].Text);
+        }
+
+        [Test]
+        public void DoubleAt()
+        {
+            // Doubled '@'s are supposed to be replaced with single
+            var txt = "0 @I1@ INDI\n1 NOTE Where it's @@";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as IndiRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Notes.Count);
+
+            Assert.AreEqual("Where it's @", rec.Notes[0].Text);
+
+        }
+
     }
 }
