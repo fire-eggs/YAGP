@@ -124,7 +124,10 @@ namespace SharpGEDParser
                     return new Tuple<object, GedParse>(new Repository(rec, ident, remain), _RepoParseSingleton);
 
                 case "NOTE":
-                    return new Tuple<object, GedParse>(new NoteRecord(rec, ident, remain), _NoteParseSingleton);
+                {
+                    string remainLS = gs.RemainLS(rec.FirstLine());
+                    return new Tuple<object, GedParse>(new NoteRecord(rec, ident, remainLS), _NoteParseSingleton);
+                }
 
                 case "OBJE":
                     return new Tuple<object, GedParse>(new MediaRecord(rec, ident, remain), _MediaParseSingleton);

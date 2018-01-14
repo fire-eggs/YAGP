@@ -800,6 +800,19 @@ namespace SharpGEDParser.Tests
         }
 
         [Test]
+        public void LeadSpaceConc2()
+        {
+            // Leading spaces, trailing spaces are to be preserved for notes
+            var txt = "0 @N1@  NOTE    A \n1 CONC    Line";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            var rec = res[0] as NoteRecord;
+            Assert.IsNotNull(rec);
+
+            Assert.AreEqual("   A    Line", rec.Text);
+        }
+
+        [Test]
         public void LeadSpaceMult()
         {
             // Leading spaces, trailing spaces are to be preserved for notes

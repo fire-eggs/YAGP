@@ -40,7 +40,8 @@ namespace SharpGEDParser.Parser
             }
             else
             {
-                note.Builder.Append(ctx.Remain); // NOTE: trailing spaces are preserved, may be confusing
+                note.Builder.Append(ctx.gs.RemainLS(ctx.Lines.GetLine(linedex)));
+                //note.Builder.Append(ctx.Remain); // NOTE: trailing spaces are preserved, may be confusing
             }
 
             StructParse(ctx2, tagDict);
