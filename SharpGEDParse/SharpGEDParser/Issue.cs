@@ -10,10 +10,10 @@ namespace SharpGEDParser
 {
     /// <summary>
     /// Represents a problem or situation discovered when processing a GEDCOM
-    /// file. These are 'semantic' errors: problems involving record relationships.
-    /// 
-    /// 'Syntax' errors involving parsing issues are tracked via UnkRec
+    /// file. 
     /// </summary>
+    /// These are 'semantic' errors, e.g. problems involving record relationships.
+    /// 'Syntax' errors involving parsing issues are tracked via UnkRec.
     public class Issue
     {
         /// <summary>

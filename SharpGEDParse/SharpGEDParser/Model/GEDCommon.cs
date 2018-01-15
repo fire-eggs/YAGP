@@ -110,12 +110,12 @@ namespace SharpGEDParser.Model
             get { return _chan ?? (_chan = new ChangeRec()); }
         }
 
-        /// Unknown and custom tags encountered at this level
         private List<UnkRec> _unknowns;
+        /// Unknown and custom tags encountered at this level
         public List<UnkRec> Unknowns { get { return _unknowns ?? (_unknowns = new List<UnkRec>()); } }
 
-        /// Problems, other than 'unknown'/'custom' tags at this _or_children_ level
         private List<UnkRec> _errors;
+        /// Problems, other than 'unknown'/'custom' tags at this _or_children_ level
         public List<UnkRec> Errors { get { return _errors ?? (_errors = new List<UnkRec>()); } }
 
         /// Are there any errors associated with this record? Returns true if yes.
@@ -160,10 +160,18 @@ namespace SharpGEDParser.Model
     /// NOTE: any TIME data is preserved in OtherLines.
     public class ChangeRec : StructCommon, NoteHold
     {
+        /// <summary>
+        /// The date for the record change.
+        /// </summary>
+        /// This is a 'standard' calendar date, not a GEDCOM date.
         public DateTime? Date { get; set; }
 
         private List<Note> _notes;
 
+        /// <summary>
+        /// Any notes associated with the record change.
+        /// </summary>
+        /// Will be an empty list if there are none.
         public List<Note> Notes { get { return _notes ?? (_notes = new List<Note>()); } }
     }
 

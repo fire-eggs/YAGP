@@ -6,10 +6,11 @@ using System.Linq;
 namespace GEDWrap
 {
     /// <summary>
-    /// Determine a person's ancestry. Calculates an array (indexed by Ahnen number)
+    /// Determine a person's ancestry (pedigree). 
+    /// </summary>
+    /// Calculates an array (indexed by Ahnen number)
     /// of individuals for each possible pedigree. I.e. takes adoption/alternate families
     /// into account as separate pedigrees.
-    /// </summary>
     public class Pedigrees
     {
         private readonly Person _who;
