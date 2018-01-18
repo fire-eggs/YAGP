@@ -7,7 +7,10 @@ namespace SharpGEDParser.Model
 {
     public class IndiLink : StructCommon, NoteHold
     {
-        public string Tag { get; set; } // FAMS vs FAMC
+        public const byte FAMC_TYPE = 0;
+        public const byte FAMS_TYPE = 1;
+
+        public byte Type { get; set; }
 
         public string Xref { get; set; }
 

@@ -45,13 +45,13 @@ namespace SharpGEDParser.Tests
         public void UID()
         {
             var rec = TestIndiId("UID");
-            Assert.AreEqual("number", rec.UID.Value);
+            Assert.AreEqual("number", rec.UID);
             rec = TestIndiId("_UID");
-            Assert.AreEqual("number", rec.UID.Value);
+            Assert.AreEqual("number", rec.UID);
             var rec2 = TestFamId("UID");
-            Assert.AreEqual("number", rec2.UID.Value);
+            Assert.AreEqual("number", rec2.UID);
             rec2 = TestFamId("_UID");
-            Assert.AreEqual("number", rec2.UID.Value);
+            Assert.AreEqual("number", rec2.UID);
         }
 
         public IndiRecord TestIndiMultiId(string id)
@@ -93,17 +93,17 @@ namespace SharpGEDParser.Tests
         {
             IndiRecord recI = TestIndiMultiId("UID");
             Assert.IsNotNull(recI.UID);
-            Assert.AreEqual("number", recI.UID.Value);
+            Assert.AreEqual("number", recI.UID);
             recI = TestIndiMultiId("_UID");
             Assert.IsNotNull(recI.UID);
-            Assert.AreEqual("number", recI.UID.Value);
+            Assert.AreEqual("number", recI.UID);
 
             FamRecord recF = TestFamMultiId("UID");
             Assert.IsNotNull(recF.UID);
-            Assert.AreEqual("number", recF.UID.Value);
+            Assert.AreEqual("number", recF.UID);
             recF = TestFamMultiId("_UID");
             Assert.IsNotNull(recF.UID);
-            Assert.AreEqual("number", recF.UID.Value);
+            Assert.AreEqual("number", recF.UID);
             TestFamMultiId("_UID");
         }
 

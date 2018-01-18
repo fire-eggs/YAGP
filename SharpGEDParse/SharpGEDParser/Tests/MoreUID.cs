@@ -27,7 +27,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("N1", rec.Ident);
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("N1", rec.Ident);
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Unknowns.Count); // treat BLOB as unknown
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Unknowns.Count); // treat BLOB as unknown
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
 
         [Test]
@@ -96,7 +96,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("R1", rec.Ident);
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
 
         [Test]
@@ -112,7 +112,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("R1", rec.Ident);
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
 
         [Test]
@@ -129,7 +129,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Fred", rec.Author);
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
 
         [Test]
@@ -146,7 +146,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Fred", rec.Author);
 
             Assert.IsNotNull(rec.UID);
-            Assert.AreEqual("blah", rec.UID.Value);
+            Assert.AreEqual("blah", rec.UID);
         }
     }
 }

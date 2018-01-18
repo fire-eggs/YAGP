@@ -111,7 +111,8 @@ namespace SharpGEDParser
 
         protected void UidProc(ParseContext2 ctx)
         {
-            ctx.Parent.UID = CheckAndMakeId(ctx, ctx.Parent.UID);
+            var tmp = CheckAndMakeId(ctx, null);
+            ctx.Parent.UID = tmp.Value;
         }
 
         protected void AfnProc(ParseContext2 ctx)

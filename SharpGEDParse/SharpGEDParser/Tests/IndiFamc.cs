@@ -22,7 +22,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, rec.Links.Count);
             Assert.AreEqual("F1", rec.Links[0].Xref);
-            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
             Assert.AreEqual(0, rec.Links[0].OtherLines.Count);
             Assert.AreEqual(1, rec.Links[0].Notes.Count);
             Assert.AreEqual("foster", rec.Links[0].Pedi);
@@ -48,7 +48,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, rec.Links.Count);
             Assert.AreEqual("F1", rec.Links[0].Xref);
-            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
             Assert.AreEqual(2, rec.Links[0].OtherLines.Count);
             Assert.AreEqual(1, rec.Links[0].Notes.Count);
 
@@ -72,7 +72,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, rec.Links.Count);
             Assert.AreEqual("F1", rec.Links[0].Xref);
-            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
             Assert.AreEqual(0, rec.Links[0].OtherLines.Count);
             Assert.AreEqual(1, rec.Links[0].Notes.Count);
 
@@ -95,7 +95,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, rec.Links.Count);
             Assert.AreEqual("F1", rec.Links[0].Xref);
-            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
             Assert.AreEqual(1, rec.Links[0].OtherLines.Count);
             Assert.AreEqual(1, rec.Links[0].Notes.Count);
 

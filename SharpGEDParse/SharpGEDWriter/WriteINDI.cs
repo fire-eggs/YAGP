@@ -21,7 +21,8 @@ namespace SharpGEDWriter
         private static void writeLink(StreamWriter file, IndiLink indiLink)
         {
             // TODO extra text
-            WriteCommon.writeXrefIfNotEmpty(file, indiLink.Tag, indiLink.Xref, 1);
+            var str = indiLink.Type == IndiLink.FAMS_TYPE ? "FAMS" : "FAMC";
+            WriteCommon.writeXrefIfNotEmpty(file, str, indiLink.Xref, 1);
             WriteCommon.writeIfNotEmpty(file, "PEDI", indiLink.Pedi, 2);
             WriteCommon.writeIfNotEmpty(file, "STAT", indiLink.Stat, 2);
             WriteCommon.writeSubNotes(file, indiLink, 2);
@@ -56,11 +57,11 @@ namespace SharpGEDWriter
             WriteEvent.writeEvents(file, indiRecord.Attribs, 1);
 
             // Insure FAMS/FAMC output in consistent order
-            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Tag == "FAMS"))
+            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Type == IndiLink.FAMS_TYPE))
             {
                 writeLink(file, indiLink);
             }
-            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Tag == "FAMC"))
+            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Type == IndiLink.FAMC_TYPE))
             {
                 writeLink(file, indiLink);
             }

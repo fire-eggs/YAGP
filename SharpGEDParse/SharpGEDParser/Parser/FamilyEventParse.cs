@@ -82,8 +82,8 @@ namespace SharpGEDParser.Parser
         {
             // TODO full Date support
             var famE = (context.Parent as EventCommon);
-            famE.Date = context.Remain;
-            famE.GedDate = EventDateParse.DateParser(context.Remain);
+            famE.Date = context.Remain.Trim(); // From GedMill: remove leading/trailing spaces
+            famE.GedDate = EventDateParse.DateParser(famE.Date);
         }
 
         private static void ageProc(StructParseContext context, int linedex, char level)
@@ -121,7 +121,7 @@ namespace SharpGEDParser.Parser
             // TODO full PLACE_STRUCTURE support
             var famE = (context.Parent as EventCommon);
             //famE.Place = _placeCache.GetFromCache(context.Remain1);
-            famE.Place = context.Remain;
+            famE.Place = context.Remain.Trim();
         }
 
         private static void addrProc(StructParseContext ctx, int linedex, char level)
@@ -169,7 +169,7 @@ namespace SharpGEDParser.Parser
             EventCommon gedEvent = indi ? new IndiEvent() as EventCommon : new FamilyEvent() as EventCommon;
             StructParseContext ctx2 = new StructParseContext(ctx, gedEvent);
             gedEvent.Tag = ctx.Tag;
-            gedEvent.Descriptor = ctx.Remain;
+            gedEvent.Descriptor = string.IsNullOrEmpty(ctx.Remain) ? null : ctx.Remain;
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
             return gedEvent;

@@ -32,7 +32,12 @@ namespace SharpGEDParser.Parser
         public static IndiLink LinkParse(ParseContext2 ctx)
         {
             IndiLink link = new IndiLink();
-            link.Tag = ctx.Tag;
+            if (ctx.Tag == "FAMC")
+                link.Type = IndiLink.FAMC_TYPE;
+            else if (ctx.Tag != "FAMS")
+                ; // TODO what to do here?
+            else
+                link.Type = IndiLink.FAMS_TYPE;
 
             string xref;
             string extra;

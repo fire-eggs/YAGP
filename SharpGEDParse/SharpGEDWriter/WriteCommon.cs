@@ -65,6 +65,8 @@ namespace SharpGEDWriter
         {
             // write a tag which may have extended text (requiring the use of CONC/CONT tags)
             // GEDCOM standard specifies that line length is limited to 255 chars
+            if (string.IsNullOrEmpty(text))
+                text = "";
 
             // Don't do extra work for short/unsplit lines
             if (text.Length < 247 && !text.Contains("\n"))
@@ -181,7 +183,7 @@ namespace SharpGEDWriter
             }
 
             if (rec.UID != null)
-                file.WriteLine("{0} _UID {1}", level, rec.UID.Value);
+                file.WriteLine("{0} _UID {1}", level, rec.UID);
             if (rec.AFN != null)
                 file.WriteLine("{0} AFN {1}", level, rec.AFN.Value);
             if (rec.RFN != null)

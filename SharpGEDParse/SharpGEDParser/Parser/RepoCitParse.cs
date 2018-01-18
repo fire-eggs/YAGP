@@ -45,7 +45,11 @@ namespace SharpGEDParser.Parser
             string xref;
             parseXrefExtra(ctx.Remain, out xref, out extra);
 
-            cit.Xref = xref;
+            if (string.IsNullOrEmpty(xref))
+                cit.Xref = null;
+            else
+                cit.Xref = xref;
+
             if (xref != null && (xref.Trim().Length == 0 || cit.Xref.Contains("@"))) // NOTE: missing xref is valid, but NOT empty one!
             {
                 UnkRec unk = new UnkRec();

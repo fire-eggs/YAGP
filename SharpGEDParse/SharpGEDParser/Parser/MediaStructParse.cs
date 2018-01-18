@@ -84,13 +84,17 @@ namespace SharpGEDParser.Parser
 // TODO preserve non-xref remain as note
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
-                mlink.Xref = ctx.Remain.Trim(new char[] { '@' });
+                mlink.Xref = ctx.Remain.Trim(trim);
             }
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
             return mlink;
         }
+
+        public static char[] trim = new[] { '@' };
+
+// TODO copy-pasta
 
         public static MediaLink MediaParser(ParseContext2 ctx)
         {
@@ -100,7 +104,7 @@ namespace SharpGEDParser.Parser
 // TODO preserve non-xref remain as note
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
-                mlink.Xref = ctx.Remain.Trim(new char[] { '@' });
+                mlink.Xref = ctx.Remain.Trim(trim);
             }
 
             StructParse(ctx2, tagDict);

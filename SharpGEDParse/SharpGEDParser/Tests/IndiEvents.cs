@@ -53,7 +53,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
-            Assert.AreEqual("", rec.Events[0].Descriptor);
+            Assert.IsNullOrEmpty(rec.Events[0].Descriptor);
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);
             Assert.AreEqual(null, rec.Events[0].Type);

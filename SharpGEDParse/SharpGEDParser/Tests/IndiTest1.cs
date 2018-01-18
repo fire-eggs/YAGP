@@ -23,13 +23,13 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi2);
             Assert.AreEqual(4, rec.Links.Count);
             Assert.AreEqual("FAMILY2", rec.Links[0].Xref);
-            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
             Assert.AreEqual("FAMILY1", rec.Links[1].Xref);
-            Assert.AreEqual("FAMC", rec.Links[1].Tag);
+            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[1].Type);
             Assert.AreEqual("FAMILY3", rec.Links[2].Xref);
-            Assert.AreEqual("FAMS", rec.Links[2].Tag);
+            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[2].Type);
             Assert.AreEqual("FAMILY4", rec.Links[3].Xref);
-            Assert.AreEqual("FAMC", rec.Links[3].Tag);
+            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[3].Type);
         }
 
         [Test]
@@ -113,14 +113,14 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
             Assert.IsNullOrEmpty(rec.Links[0].Xref);
 
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah";
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
             Assert.IsNullOrEmpty(rec.Links[0].Xref);
             Assert.AreEqual("blah", rec.Links[0].Extra);
 
@@ -128,7 +128,7 @@ namespace SharpGEDParser.Tests
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual("FAMC", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
             Assert.IsNullOrEmpty(rec.Links[0].Xref);
             Assert.IsNullOrEmpty(rec.Links[0].Extra);
         }
@@ -140,7 +140,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
             Assert.IsNullOrEmpty(rec.Links[0].Xref);
             Assert.IsNullOrEmpty(rec.Links[0].Extra);
 
@@ -148,7 +148,7 @@ namespace SharpGEDParser.Tests
             rec = parse(indi);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
             Assert.IsNullOrEmpty(rec.Links[0].Xref);
             Assert.AreEqual("blah", rec.Links[0].Extra);
 
@@ -156,7 +156,7 @@ namespace SharpGEDParser.Tests
             rec = parse(indi);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual("FAMS", rec.Links[0].Tag);
+            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
             Assert.IsNullOrEmpty(rec.Links[0].Xref);
             Assert.IsNullOrEmpty(rec.Links[0].Extra);
         }
@@ -239,7 +239,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi1);
             Assert.AreEqual("1", rec.Ident);
             rec = parse(indi2);
-            Assert.AreEqual(null, rec.Ident);
+            Assert.IsNullOrEmpty(rec.Ident);
             rec = parse(indi3);
             Assert.AreEqual("VERYLONGPERSONID", rec.Ident);
         }

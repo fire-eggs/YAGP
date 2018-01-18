@@ -126,7 +126,7 @@ namespace SharpGEDParser.Model
         // scheme for these and other tags, consider revisiting.
 
         /// An UID (universal identifier) associated with the record.
-        public StringPlus UID { get; set; }
+        public string UID { get; set; }
         /// An AFN (ancestral file number) associated with the record.
         public StringPlus AFN { get; set; }
         /// An RFN (something file number) associated with the record.

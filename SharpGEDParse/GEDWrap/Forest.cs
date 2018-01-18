@@ -223,18 +223,23 @@ namespace GEDWrap
             {
                 var ident = fam.Ident;
                 Union iw = new Union(fam);
-                try
-                {
-                    _famHash.Add(ident, iw);
-                }
-                catch (ArgumentNullException)
+                if (string.IsNullOrEmpty(ident))
                 {
                     MakeError(Issue.IssueCode.MISS_FAMID, fam.BegLine);
                 }
-                catch (ArgumentException)
-                {
-                    MakeError(Issue.IssueCode.DUPL_FAM, ident); // TODO add fam.BegLine
-                }
+                else
+                    try
+                    {
+                        _famHash.Add(ident, iw);
+                    }
+                    catch (ArgumentNullException)
+                    {
+                        MakeError(Issue.IssueCode.MISS_FAMID, fam.BegLine);
+                    }
+                    catch (ArgumentException)
+                    {
+                        MakeError(Issue.IssueCode.DUPL_FAM, ident); // TODO add fam.BegLine
+                    }
             }
         }
 
@@ -289,6 +294,9 @@ namespace GEDWrap
             foreach (var person in _indiHash.Values)
             {
                 var indiId = person.Id;
+                if (person.Indi.Links == null)
+                    continue;
+
                 foreach (var link in person.Indi.Links)
                 {
                     var famId = link.Xref;
@@ -296,20 +304,20 @@ namespace GEDWrap
                     // Some GEDCOM end up with gibberish xref. TODO were these marked during parse?
                     if (string.IsNullOrWhiteSpace(famId))
                     {
-                        MakeError(Issue.IssueCode.MISS_XREFID, indiId, link.Tag);
+                        MakeError(Issue.IssueCode.MISS_XREFID, indiId, link.Type == IndiLink.FAMS_TYPE ? "FAMS" : "FAMC");
                         continue;
                     }
                     Union famU;
                     if (!_famHash.TryGetValue(famId, out famU))
                         continue; // Ignore missing family here, catch later
-                    switch (link.Tag)
+                    switch (link.Type)
                     {
-                        case "FAMS":
+                        case IndiLink.FAMS_TYPE:
                             person.SpouseIn.Add(famU);
                             if (!famU.ReconcileFams(person))
                                 MakeError(Issue.IssueCode.SPOUSE_CONN, famId, indiId);
                             break;
-                        case "FAMC":
+                        case IndiLink.FAMC_TYPE:
                             famU.Childs.Add(person);
                             person.ChildIn.Add(famU);
                             break;
@@ -318,7 +326,7 @@ namespace GEDWrap
             }
         }
 
-        private int verifyFAMLink(string ident, string famIdent, string linkType,
+        private int verifyFAMLink(string ident, string famIdent, byte linkType,
                                   string relType, Issue.IssueCode err1, Issue.IssueCode err2)
         {
             // Verify a single FAM record link
@@ -336,12 +344,15 @@ namespace GEDWrap
 
             // TODO need a simple link accessor
             bool found = false;
-            foreach (var link in indi.Indi.Links)
+            if (indi.Indi.Links != null)
             {
-                if (link.Tag == linkType && link.Xref == famIdent)
+                foreach (var link in indi.Indi.Links)
                 {
-                    found = true;
-                    break;
+                    if (link.Type == linkType && link.Xref == famIdent)
+                    {
+                        found = true;
+                        break;
+                    }
                 }
             }
             if (!found)
@@ -394,18 +405,18 @@ namespace GEDWrap
 
                 foreach (var husbId in familyUnit.FamRec.Dads)
                 {
-                    verifyFAMLink(husbId, famIdent, "FAMS", "HUSB",
+                    verifyFAMLink(husbId, famIdent, IndiLink.FAMS_TYPE, "HUSB",
                         Issue.IssueCode.SPOUSE_CONN_MISS, Issue.IssueCode.SPOUSE_CONN_UNM);
                 }
                 foreach (var wifeId in familyUnit.FamRec.Moms)
                 {
-                    verifyFAMLink(wifeId, famIdent, "FAMS", "WIFE",
+                    verifyFAMLink(wifeId, famIdent, IndiLink.FAMS_TYPE, "WIFE",
                         Issue.IssueCode.SPOUSE_CONN_MISS, Issue.IssueCode.SPOUSE_CONN_UNM);
                 }
                 foreach (var childData in familyUnit.FamRec.Childs)
                 {
                     var childId = childData.Xref;
-                    verifyFAMLink(childId, famIdent, "FAMC", "CHIL",
+                    verifyFAMLink(childId, famIdent, IndiLink.FAMC_TYPE, "CHIL",
                         Issue.IssueCode.CHIL_MISS, Issue.IssueCode.CHIL_NOTMATCH);
                 }
             }
@@ -416,14 +427,17 @@ namespace GEDWrap
             foreach (var person in _indiHash.Values)
             {
                 var indiId = person.Id;
+                if (person.Indi.Links == null)
+                    continue;
+
                 foreach (var link in person.Indi.Links)
                 {
                     // TODO verify parsing error
                     if (string.IsNullOrEmpty(link.Xref))
                         continue; // tabors.ged, twparker.ged
-                    switch (link.Tag)
+                    switch (link.Type)
                     {
-                        case "FAMC":
+                        case IndiLink.FAMC_TYPE:
                             if (!_famHash.ContainsKey(link.Xref))
                             {
                                 MakeError(Issue.IssueCode.FAMC_MISSING, indiId, link.Xref);
@@ -446,7 +460,7 @@ namespace GEDWrap
                                 }
                             }
                             break;
-                        case "FAMS":
+                        case IndiLink.FAMS_TYPE:
                             if (!_famHash.ContainsKey(link.Xref))
                             {
                                 MakeError(Issue.IssueCode.FAMS_MISSING, indiId, link.Xref);

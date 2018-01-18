@@ -28,6 +28,8 @@ namespace SharpGEDParser.Parser
             //note.Builder.Append(context.Remain); // NOTE: trailing spaces are preserved, may be confusing
         }
 
+        public static char[] trim = new[] {'@'};
+        
         public static Note NoteParser(ParseContextCommon ctx, int linedex, char level)
         {
             Note note = new Note();
@@ -36,7 +38,7 @@ namespace SharpGEDParser.Parser
             ctx2.Level = level;
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
-                note.Xref = ctx.Remain.Trim(new char[] { '@' });
+                note.Xref = ctx.Remain.Trim(trim);
             }
             else
             {
