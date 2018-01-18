@@ -107,17 +107,28 @@ namespace SharpGEDParser.Parser
         private void SexProc(ParseContext2 context)
         {
             var own = (context.Parent as IndiRecord);
+            var rem0 = context.Remain1;
+            own.FullSex = null;
+
+            // Hopefully the 99% case: single 'M' or 'F' w/ no trailing space
+            if (rem0.Length == 1)
+            {
+                own.Sex = rem0[0];
+                if (own.Sex != 'M' && own.Sex != 'F')
+                    own.FullSex = context.Remain;
+                return;
+            }
+
             string rem = context.Remain.Trim();
-            if (rem.Length < 1)
+            if (string.IsNullOrEmpty(rem))
             {
                 own.Sex = 'U';
-                own.FullSex = "";
             }
             else
             {
-                own.Sex = context.Remain[0];
-                //own.FullSex = _sexCache.GetFromCache(context.Remain1);
-                own.FullSex = context.Remain;
+                own.Sex = rem[0];
+                if (rem != "M" && rem != "F" )
+                    own.FullSex = rem;
             }
         }
 

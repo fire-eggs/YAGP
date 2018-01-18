@@ -126,26 +126,26 @@ namespace SharpGEDParser.Model
 
         /// <summary>
         /// The GEDCOM-standard indication of the person's sex.
-		///
-		/// Values are limited to the GEDCOM standard 'M','F', and 'U'.
         /// </summary>
+        ///
+		/// Values are limited to the GEDCOM standard 'M','F', and 'U'.
         public char Sex { get; set; }
 
         /// <summary>
         /// The value imported from the GEDCOM file representing the person's sex.
-		///
-		/// May be any string.
         /// </summary>
+        ///
+		/// Will be null if "M", "F". Otherwise, may be any string.
         public string FullSex { get; set; } // full details of sex
 
         private List<NameRec> _names;
         /// <summary>
         /// The collection of an individual's names.
-		///
+        /// </summary>
+        ///
 		/// Will return an empty list if none.
 		/// 
 		/// See NameRec for more details.
-        /// </summary>
         public List<NameRec> Names { get { return _names ?? (_names = new List<NameRec>()); } }
 
         internal IndiRecord(GedRecord lines, string ident, string remain) : base(lines, ident)

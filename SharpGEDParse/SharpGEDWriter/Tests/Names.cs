@@ -30,18 +30,16 @@ namespace SharpGEDWriter.Tests
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n", res);
         }
-        [Test,Ignore("INDI.NAME.NOTE NYI")]
+        [Test]
         public void Note()
         {
-            // TODO INDI.NAME.NOTE not parsed!
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NOTE This is a note";
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n", res);
         }
-        [Test, Ignore("INDI.NAME.SOUR NYI")]
+        [Test]
         public void SourCit()
         {
-            // TODO INDI.NAME.SOUR not parsed!
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 SOUR @S3@";
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n", res);

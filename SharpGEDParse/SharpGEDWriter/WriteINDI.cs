@@ -57,13 +57,16 @@ namespace SharpGEDWriter
             WriteEvent.writeEvents(file, indiRecord.Attribs, 1);
 
             // Insure FAMS/FAMC output in consistent order
-            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Type == IndiLink.FAMS_TYPE))
+            if (indiRecord.Links != null)
             {
-                writeLink(file, indiLink);
-            }
-            foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Type == IndiLink.FAMC_TYPE))
-            {
-                writeLink(file, indiLink);
+                foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Type == IndiLink.FAMS_TYPE))
+                {
+                    writeLink(file, indiLink);
+                }
+                foreach (var indiLink in indiRecord.Links.Where(indiLink => indiLink.Type == IndiLink.FAMC_TYPE))
+                {
+                    writeLink(file, indiLink);
+                }
             }
 
             // TODO LDS events
