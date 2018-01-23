@@ -342,6 +342,38 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(6, rec.CHAN.OtherLines[0].Beg); // NOTE: relies on read-from-stream starting at line '1', with no '0 HEAD'
         }
 
+        [Test]
+        public void SourCitText()
+        {
+            // TODO repeat for InvXref, EmbSourEven, EmbSourPage
+
+            // During GedValid development, INDI.SOUR.TEXT error did not have correct end line
+            var txt = "0 @I1@ INDI\n1 NAME /Blah/\n1 SOUR @S37@\n2 TEXT Blah\n1 BIRT\n2 DATE 21 Feb 1696\n2 PLAC North Hampton, Rockingham County, New Hampshire";
+
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            IndiRecord rec = res[0] as IndiRecord;
+            Assert.AreEqual(1, rec.Events.Count);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(3, rec.Errors[0].Beg);
+            Assert.AreEqual(4, rec.Errors[0].End);
+        }
+
+        [Test]
+        public void SourCitTextOwner()
+        {
+            // Errors were only going to 'owning' structure. E.g. errors were tracked in NameRec, not the Indi.
+            var txt =
+                "0 @I1246@ INDI\n1 NAME Mehitable /DEARBORN/\n2 SOUR @S36@\n3 TEXT Mehitable Dearborn\n1 SEX F\n1 SOUR @S37@\n2 TEXT Mehetabel Dearborn" +
+                "\n1 BIRT\n2 DATE 21 Feb 1696/97\n2 PLAC North Hampton, Rockingham County, New Hampshire\n2 SOUR @S37@\n3 TEXT 21 Feb 1696/97 (Rauch Files, Adam Rauch, manuscript)" +
+                "\n2 SOUR @S36@\n3 TEXT 21 Feb 1696/97\n2 SOUR @S44@\n3 TEXT 21 Feb 1696/97, North Hampton, Rockingham County, New Hampshire\n1 DEAT\n2 DATE 1 AUG 1758" +
+                "2 SOUR @S44@\n1 FAMC @F565@\n1 FAMS @F964@\n1 CHAN\n2 DATE 28 MAR 2001";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            IndiRecord rec = res[0] as IndiRecord;
+            Assert.AreEqual(5, rec.Errors.Count); // all errors owned by parent
+            
+        }
     }
 }
 

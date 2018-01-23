@@ -99,7 +99,7 @@ namespace SharpGEDParser.Parser
                 var unk = new UnkRec();
                 unk.Error = UnkRec.ErrorCode.InvXref; // TODO {Error = "Invalid source citation xref id"};
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
-                unk.End = ctx.Endline + ctx.Lines.End;
+                unk.End = ctx.Endline + ctx.Lines.Beg;
                 errs.Add(unk);
             }
             if (!string.IsNullOrEmpty(extra))
@@ -115,7 +115,7 @@ namespace SharpGEDParser.Parser
                 var unk = new UnkRec();
                 unk.Error = UnkRec.ErrorCode.RefSourText; // TODO { Error = "TEXT tag used for reference source citation" };
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
-                unk.End = ctx.Endline + ctx.Lines.End;
+                unk.End = ctx2.Endline + ctx.Lines.Beg;
                 errs.Add(unk);
             }
             if (cit.Xref == null && cit.Event != null)
@@ -123,7 +123,7 @@ namespace SharpGEDParser.Parser
                 var unk = new UnkRec();
                 unk.Error = UnkRec.ErrorCode.EmbSourEven; // TODO { Error = "EVEN tag used for embedded source citation" };
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
-                unk.End = ctx.Endline + ctx.Lines.End;
+                unk.End = ctx2.Endline + ctx.Lines.Beg;
                 errs.Add(unk);
             }
             if (cit.Xref == null && cit.Page != null)
@@ -131,7 +131,7 @@ namespace SharpGEDParser.Parser
                 var unk = new UnkRec();
                 unk.Error = UnkRec.ErrorCode.EmbSourPage; // TODO { Error = "PAGE tag used for embedded source citation" };
                 unk.Beg = ctx.Begline + ctx.Lines.Beg;
-                unk.End = ctx.Endline + ctx.Lines.End;
+                unk.End = ctx.Endline + ctx.Lines.Beg;
                 errs.Add(unk);
             }
             return cit;
