@@ -234,6 +234,7 @@ namespace SharpGEDParser.Parser
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.MissIdent; // TODO "INDI missing identifier"; // TODO assign one?
                 err.Beg = err.End = me.BegLine;
+                err.Tag = rec.Tag;
                 me.Errors.Add(err);
             }
 

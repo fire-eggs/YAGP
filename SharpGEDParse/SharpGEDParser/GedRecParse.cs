@@ -248,6 +248,7 @@ namespace SharpGEDParser
                 UnkRec err = new UnkRec();
                 err.Error = errVal;
                 err.Beg = err.End = context.Begline + context.Parent.BegLine;
+                err.Tag = context.Tag;
                 context.Parent.Errors.Add(err);
             }
             return xref;

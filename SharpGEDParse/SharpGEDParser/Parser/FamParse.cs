@@ -106,6 +106,7 @@ namespace SharpGEDParser.Parser
                 err.Error = UnkRec.ErrorCode.MissIdent; // TODO "Missing/unterminated identifier: " + context.Tag;
                 err.Beg = context.Begline + context.Parent.BegLine;
                 err.End = context.Endline + context.Parent.BegLine;
+                err.Tag = context.Tag;
                 fam.Errors.Add(err);
                 return;
             }
@@ -235,6 +236,7 @@ namespace SharpGEDParser.Parser
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.MissIdent; // "Missing identifier"; // TODO assign one?
                 err.Beg = err.End = me.BegLine;
+                err.Tag = rec.Tag;
                 me.Errors.Add(err);
             }
 
