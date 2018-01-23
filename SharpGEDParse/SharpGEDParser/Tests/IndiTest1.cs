@@ -50,7 +50,7 @@ namespace SharpGEDParser.Tests
 
             var rec = parse(indiU1);
             Assert.AreEqual('F', rec.Sex);
-            Assert.AreEqual("F", rec.FullSex);
+            Assert.IsNullOrEmpty(rec.FullSex); // default value not stored
 
             rec = parse(indiU2);
             Assert.AreEqual('F', rec.Sex);
