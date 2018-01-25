@@ -51,11 +51,11 @@ namespace SharpGEDWriter
                     if (tuple.Item1 == "GIVN")
                         didGivn = true;
                 }
-                if (!didGivn) // TODO would be nice if could be done before other parts
+                if (!didGivn && !string.IsNullOrEmpty(nameRec.Names)) // TODO would be nice if could be done before other parts
                 {
                     file.WriteLine("2 GIVN {0}", nameRec.Names);
                 }
-                if (!didSurn)
+                if (!didSurn && !string.IsNullOrEmpty(nameRec.Surname))
                 {
                     file.WriteLine("2 SURN {0}", nameRec.Surname);
                 }

@@ -82,6 +82,8 @@ namespace SharpGEDWriter.Tests
             var res = Write(fr);
             var ideal = MakeInput(record2, exp);
             Assert.AreEqual(ideal, res);
+
+            // TODO GIVN and SURN now written, need to add to 'exp' somehow
         }
 
     }

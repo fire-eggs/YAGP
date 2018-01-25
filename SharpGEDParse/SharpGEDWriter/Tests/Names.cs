@@ -11,14 +11,16 @@ namespace SharpGEDWriter.Tests
         public void Basic()
         {
             var inp = "0 @I1@ INDI\n1 NAME Fred";
+            var exp = "0 @I1@ INDI\n1 NAME Fred\n2 GIVN Fred\n";
             var res = ParseAndWrite(inp);
-            Assert.AreEqual(inp+"\n", res);
+            Assert.AreEqual(exp, res);
         }
 
         [Test]
         public void Suffix()
         {
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/ Jr.";
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/ Jr.\n2 GIVN Fred\n2 SURN Flintstone\n2 NSFX Jr.\n";
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n", res);
         }
@@ -35,15 +37,17 @@ namespace SharpGEDWriter.Tests
         public void Note()
         {
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NOTE This is a note";
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 GIVN Fred\n2 SURN Flintstone\n2 NOTE This is a note\n";
             var res = ParseAndWrite(inp);
-            Assert.AreEqual(inp + "\n", res);
+            Assert.AreEqual(exp, res);
         }
         [Test]
         public void SourCit()
         {
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 SOUR @S3@";
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 GIVN Fred\n2 SURN Flintstone\n2 SOUR @S3@\n";
             var res = ParseAndWrite(inp);
-            Assert.AreEqual(inp + "\n", res);
+            Assert.AreEqual(exp, res);
         }
     }
 }

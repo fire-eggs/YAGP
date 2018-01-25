@@ -14,6 +14,7 @@ namespace SharpGEDWriter.Tests
         {
             "0 @I1@ INDI",
             "1 NAME Fred",
+            "2 GIVN Fred",
             "1 SEX M",
             "1 FAMS @F1@",
             "1 FAMC @F2@",
