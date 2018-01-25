@@ -183,7 +183,10 @@ namespace SharpGEDWriter
             }
 
             if (rec.UID != null)
-                file.WriteLine("{0} _UID {1}", level, rec.UID);
+            {
+                var val = System.Text.Encoding.ASCII.GetString(rec.UID);
+                file.WriteLine("{0} _UID {1}", level, val);
+            }
             if (rec.AFN != null)
                 file.WriteLine("{0} AFN {1}", level, rec.AFN.Value);
             if (rec.RFN != null)
