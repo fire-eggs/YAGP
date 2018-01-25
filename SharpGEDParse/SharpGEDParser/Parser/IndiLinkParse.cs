@@ -31,6 +31,8 @@ namespace SharpGEDParser.Parser
 
         public static IndiLink LinkParse(ParseContext2 ctx)
         {
+            UnkRec err = null;
+
             IndiLink link = new IndiLink();
 
             // Can't get here for values other than FAMC/FAMS [unless caller changes!]
@@ -42,11 +44,11 @@ namespace SharpGEDParser.Parser
 
             if (string.IsNullOrEmpty(xref))
             {
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.UntermIdent; // TODO "Missing/unterminated identifier: " + ctx.Tag;
+                err = new UnkRec();
+                err.Error = UnkRec.ErrorCode.MissIdent;
                 err.Beg = err.End = ctx.Begline + ctx.Parent.BegLine;
                 err.Tag = ctx.Tag;
-                ctx.Parent.Errors.Add(err); // TODO parent level or structure level?
+                ctx.Parent.Errors.Add(err);
             }
             else
             {
@@ -59,6 +61,14 @@ namespace SharpGEDParser.Parser
             StructParseContext ctx2 = new StructParseContext(ctx, link);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+
+            if (err != null)
+            {
+                // Fallout from GedValid: an error in the link should not create an IndiLink
+                err.End = ctx.Endline + ctx.Parent.BegLine; // entire structure in error
+                return null;
+            }
+
             return link;
         }
     }

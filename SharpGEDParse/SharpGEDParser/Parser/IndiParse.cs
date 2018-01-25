@@ -181,6 +181,8 @@ namespace SharpGEDParser.Parser
         private static void famLink(ParseContext2 context)
         {
             var res = IndiLinkParse.LinkParse(context);
+            if (res == null)
+                return; // Fallout from GedValid: on error don't record the link
             var own = (context.Parent as IndiRecord);
             own.Links.Add(res);
         }

@@ -105,60 +105,86 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
         }
 
-
         [Test]
         public void FamcXrefMissing()
         {
+            // 20180125 invalid FAMC/FAMS xref won't create IndiLink
             var indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
-            Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            Assert.AreEqual(3, rec.Errors[0].Beg);
+            Assert.AreEqual(0, rec.Links.Count);
+            //Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
+            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
 
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah";
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
-            Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            Assert.AreEqual("blah", rec.Links[0].Extra);
+            Assert.AreEqual(3, rec.Errors[0].Beg);
+            Assert.AreEqual(0, rec.Links.Count);
+            //Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
+            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.AreEqual("blah", rec.Links[0].Extra);
 
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC @@";
             rec = parse(indi2);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
-            Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            Assert.IsNullOrEmpty(rec.Links[0].Extra);
+            Assert.AreEqual(3, rec.Errors[0].Beg);
+            Assert.AreEqual(0, rec.Links.Count);
+            //Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
+            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.IsNullOrEmpty(rec.Links[0].Extra);
+
+            // Make sure the sub-struct is in the error & doesn't botch other tags
+            indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah\n2 STAT blah\n1 SEX U";
+            rec = parse(indi2);
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(3, rec.Errors[0].Beg);
+            Assert.AreEqual(4, rec.Errors[0].End);
+            Assert.AreEqual(0, rec.Links.Count);
         }
 
         [Test]
         public void FamsXrefMissing()
         {
+            // 20180125 missing xref for FAMS/FAMC will not create a link
             var indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS";
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
-            Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            Assert.IsNullOrEmpty(rec.Links[0].Extra);
+            Assert.AreEqual(4, rec.Errors[0].Beg);
+            Assert.AreEqual(0, rec.Links.Count);
+            //Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
+            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.IsNullOrEmpty(rec.Links[0].Extra);
 
             indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS blah";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
-            Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            Assert.AreEqual("blah", rec.Links[0].Extra);
+            Assert.AreEqual(4, rec.Errors[0].Beg);
+            Assert.AreEqual(0, rec.Links.Count);
+            //Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
+            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.AreEqual("blah", rec.Links[0].Extra);
 
             indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS @@";
             rec = parse(indi);
             Assert.AreEqual(1, rec.Errors.Count);
-            Assert.AreEqual(1, rec.Links.Count);
-            Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
-            Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            Assert.IsNullOrEmpty(rec.Links[0].Extra);
+            Assert.AreEqual(4, rec.Errors[0].Beg);
+            Assert.AreEqual(0, rec.Links.Count);
+            //Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
+            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.IsNullOrEmpty(rec.Links[0].Extra);
+
+            // Make sure the sub-struct is in the error & doesn't botch other tags
+            indi = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMS blah\n2 STAT blah\n1 SEX U";
+            rec = parse(indi);
+            Assert.AreEqual('U', rec.Sex);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(3, rec.Errors[0].Beg);
+            Assert.AreEqual(4, rec.Errors[0].End);
+            Assert.AreEqual(0, rec.Links.Count);
+
         }
 
         [Test]
