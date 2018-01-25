@@ -182,10 +182,9 @@ namespace SharpGEDWriter
                 // TODO don't have original 'TYPE' lines
             }
 
-            if (rec.UID != null)
+            if (!string.IsNullOrEmpty(rec.UID))
             {
-                var val = System.Text.Encoding.ASCII.GetString(rec.UID);
-                file.WriteLine("{0} _UID {1}", level, val);
+                file.WriteLine("{0} _UID {1}", level, rec.UID);
             }
             if (rec.AFN != null)
                 file.WriteLine("{0} AFN {1}", level, rec.AFN.Value);

@@ -111,7 +111,7 @@ namespace SharpGEDParser
 
         protected void UidProc(ParseContext2 ctx)
         {
-            if (ctx.Parent.UID != null)
+            if (ctx.Parent._uid != null)
             {
                 var rec = new UnkRec(ctx.Tag, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
                 rec.Error = UnkRec.ErrorCode.MultId; // reason;
@@ -119,9 +119,9 @@ namespace SharpGEDParser
                 return;
             }
             int len = ctx.Remain1.Length;
-            ctx.Parent.UID = new byte[len];
+            ctx.Parent._uid = new byte[len];
             for (int i = 0; i < len; i++)
-                ctx.Parent.UID[i] = (byte) ctx.Remain1[i];
+                ctx.Parent._uid[i] = (byte) ctx.Remain1[i];
         }
 
         protected void AfnProc(ParseContext2 ctx)

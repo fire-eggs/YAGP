@@ -36,12 +36,15 @@ namespace GEDWrap.Tests
         [Test]
         public void BadIndiLink()
         {
+            // 20180125 missing/bad xref for FAMS/FAMC will not create an IndiLink
             // Error in INDI link out
             var txt = "0 @I1@ INDI\n1 FAMC\n0 @F1@ FAM";
             Forest f = LoadGEDFromStream(txt);
-            Assert.AreEqual(1, f.ErrorsCount);
-            Assert.AreEqual(Issue.IssueCode.MISS_XREFID, f.Issues.First().IssueId);
-            Assert.AreEqual(1, f.Errors.Count); // TODO verify details
+            Assert.AreEqual(1, f.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, f.Errors[0].Error);
+
+            //Assert.AreEqual(1, f.ErrorsCount);
+            //Assert.AreEqual(Issue.IssueCode.MISS_XREFID, f.Issues.First().IssueId);
         }
 
         [Test]
@@ -51,7 +54,8 @@ namespace GEDWrap.Tests
             var txt = "0 @I1@ INDI\n0 @F1@ FAM\n1 CHIL";
             Forest f = LoadGEDFromStream(txt);
             Assert.AreEqual(0, f.ErrorsCount);
-            Assert.AreEqual(1, f.Errors.Count); // TODO verify error details
+            Assert.AreEqual(1, f.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, f.Errors[0].Error);
         }
 
         [Test]
@@ -90,7 +94,7 @@ namespace GEDWrap.Tests
             }
         }
 
-        [Test]
+        [Test,Ignore]
         public void MissIndiId()
         {
             // code coverage - generated id
