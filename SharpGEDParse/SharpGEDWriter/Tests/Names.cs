@@ -27,8 +27,9 @@ namespace SharpGEDWriter.Tests
         public void Parts()
         {
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 SURN Flintstone\n2 GIVN Fred\n2 NICK Yabba dabba do\n2 NPFX blah\n2 SPFX blah\n2 NSFX blah";
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NICK Yabba dabba do\n2 NPFX blah\n2 SPFX blah\n2 NSFX blah\n2 GIVN Fred\n2 SURN Flintstone\n";
             var res = ParseAndWrite(inp);
-            Assert.AreEqual(inp + "\n", res);
+            Assert.AreEqual(exp, res);
         }
         [Test]
         public void Note()

@@ -39,15 +39,30 @@ namespace SharpGEDWriter
             foreach (var nameRec in indiRecord.Names)
             {
                 writeName(file, nameRec);
+
+                bool didGivn = false;
+                bool didSurn = false;
+
                 foreach (var tuple in nameRec.Parts)
                 {
                     file.WriteLine("2 {0} {1}", tuple.Item1, tuple.Item2);
+                    if (tuple.Item1 == "SURN")
+                        didSurn = true;
+                    if (tuple.Item1 == "GIVN")
+                        didGivn = true;
+                }
+                if (!didGivn) // TODO would be nice if could be done before other parts
+                {
+                    file.WriteLine("2 GIVN {0}", nameRec.Names);
+                }
+                if (!didSurn)
+                {
+                    file.WriteLine("2 SURN {0}", nameRec.Surname);
                 }
                 // TODO other name types
 
-                // TODO parser missing these???
-                //WriteCommon.writeSubNotes(file, nameRec, 2);
-                //WriteCommon.writeSourCit(file, nameRec, 2);
+                WriteCommon.writeSubNotes(file, nameRec, 2);
+                WriteCommon.writeSourCit(file, nameRec, 2);
             }
 
             if (string.IsNullOrEmpty(indiRecord.FullSex) && indiRecord.Sex != '\0')
