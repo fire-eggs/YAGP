@@ -125,8 +125,17 @@ namespace SharpGEDParser.Model
         // containing large numbers of UIDs, AFNs. NOTE: GK uses a <tag,value> sort of
         // scheme for these and other tags, consider revisiting.
 
+        internal byte[] _uid;
+
         /// An UID (universal identifier) associated with the record.
-        public byte [] UID { get; set; }
+        public string UID
+        {
+            get
+            {
+                if (_uid == null) return "";
+                return System.Text.Encoding.ASCII.GetString(_uid);
+            }
+        }
         /// An AFN (ancestral file number) associated with the record.
         public StringPlus AFN { get; set; }
         /// An RFN (something file number) associated with the record.
