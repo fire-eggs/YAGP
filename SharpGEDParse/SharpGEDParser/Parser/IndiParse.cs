@@ -240,16 +240,18 @@ namespace SharpGEDParser.Parser
 
             // TODO should this be checked in the SEX routine so line # points at the actual line???
             // Make sure sex is set
-            if (!"MFU".Contains(me.Sex.ToString(CultureInfo.InvariantCulture).ToUpper()))
+            if (me.Sex != '\0')
             {
-                me.Sex = 'U'; // TODO warning
+                if (!"MFU".Contains(me.Sex.ToString(CultureInfo.InvariantCulture).ToUpper()))
+                {
+                    me.Sex = 'U'; // TODO warning
 
-                UnkRec err = new UnkRec();
-                err.Error = UnkRec.ErrorCode.InvSex; // "Non-standard SEX value corrected to U";
-                err.Beg = err.End = me.BegLine;
-                me.Errors.Add(err);
+                    UnkRec err = new UnkRec();
+                    err.Error = UnkRec.ErrorCode.InvSex; // "Non-standard SEX value corrected to U";
+                    err.Beg = err.End = me.BegLine;
+                    me.Errors.Add(err);
+                }
             }
-
             CheckRestriction(me, me.Restriction);
 
             // TODO check restriction value on events

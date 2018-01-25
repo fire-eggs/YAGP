@@ -150,8 +150,6 @@ namespace SharpGEDParser.Model
 
         internal IndiRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
         {
-            Sex = 'U'; // TODO is this the best thing to do?
-
             GedRecParse.NonStandardRemain(remain, this);
         }
 

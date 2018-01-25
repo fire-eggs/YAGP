@@ -50,8 +50,10 @@ namespace SharpGEDWriter
                 //WriteCommon.writeSourCit(file, nameRec, 2);
             }
 
-            // TODO original text or corrected?
-            WriteCommon.writeIfNotEmpty(file, "SEX", indiRecord.FullSex, 1);
+            if (string.IsNullOrEmpty(indiRecord.FullSex) && indiRecord.Sex != '\0')
+                WriteCommon.writeIfNotEmpty(file, "SEX", indiRecord.Sex.ToString(), 1);
+            else
+                WriteCommon.writeIfNotEmpty(file, "SEX", indiRecord.FullSex, 1);
 
             WriteEvent.writeEvents(file, indiRecord.Events, 1);
             WriteEvent.writeEvents(file, indiRecord.Attribs, 1);
