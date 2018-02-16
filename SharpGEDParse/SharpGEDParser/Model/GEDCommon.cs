@@ -6,19 +6,39 @@ using System.Collections.Generic;
 namespace SharpGEDParser.Model
 {
     // Low-level line range reference [20180106: line #s now relative to file]
+    /// <summary>
+    /// A line range container. 
+    /// </summary>
+    /// Line numbers are relative to the file.
     public class LineSet
     {
+        /// <summary>
+        /// Beginning line number of the set.
+        /// </summary>
         public int Beg { get; set; }
+        /// <summary>
+        /// Ending line number of the set.
+        /// </summary>
         public int End { get; set; }
 
+        /// <summary>
+        /// Number of lines in the set.
+        /// </summary>
         public int LineCount { get { return End - Beg + 1; } }
     }
 
     /// <summary>
-    /// Attributes about an unknown tag - custom or not
+    /// An unknown tag or error.
     /// </summary>
+    /// If this represents an unknown tag, the ErrorCode will be zero.
+    /// 
+    /// If this represents an error, the ErrorCode will have a non-zero value.
+    /// Some errors may not have a line range, being a global or breaking problem.
     public class UnkRec : LineSet
     {
+        /// <summary>
+        /// Possible error codes.
+        /// </summary>
         public enum ErrorCode
         {
             Exception = 1,
@@ -61,20 +81,26 @@ namespace SharpGEDParser.Model
             UntermSurname, // Surname is not terminated with slash
         }
 
-        public UnkRec()
+        internal UnkRec()
         {
             Beg = End = -1;
         }
 
-        public UnkRec(string tag, int beg, int end)
+        internal UnkRec(string tag, int beg, int end)
         {
             Tag = tag;
             Beg = beg;
             End = end;
         }
 
+        /// <summary>
+        /// The tag associated with the record.
+        /// </summary>
         public string Tag { get; set; }
 
+        /// <summary>
+        /// Any error code associated with the record.
+        /// </summary>
         public ErrorCode Error { get; set; }
     }
 

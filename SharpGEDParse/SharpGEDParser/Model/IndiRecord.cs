@@ -4,9 +4,9 @@ namespace SharpGEDParser.Model
 {
     /// <summary>
     /// Represents a record for an individual (GEDCOM INDI).
+    /// </summary>
     ///
     /// \todo useful information
-    /// </summary>
     public class IndiRecord : GEDCommon, NoteHold, SourceCitHold, MediaHold
     {
 		/// <summary>
