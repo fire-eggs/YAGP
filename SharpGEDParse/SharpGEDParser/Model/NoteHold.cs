@@ -6,12 +6,15 @@ namespace SharpGEDParser.Model
     /// <summary>
     /// Represents a NOTE reference within a record.
     /// 
-    /// The GEDCOM standard specifies two variants of NOTE references: a cross-reference
+    /// The GEDCOM standards specify two variants of NOTE references: a cross-reference
     /// to a NOTE record, or an "embedded" note.
     /// 
+    /// The GEDCOM 5.5 standard permits source citations for a NOTE reference.
+    /// 
     /// \warning Future library releases may convert "embedded" notes to cross-reference.
+    /// \warning Future library releases may move note source citations to a note record.
     /// </summary>
-    public class Note : StructCommon
+    public class Note : StructCommon, SourceCitHold
     {
         /// <summary>
         /// A NOTE record cross-reference.
@@ -29,6 +32,11 @@ namespace SharpGEDParser.Model
         public string Text { get; set; }
 
         internal StringBuilder Builder { get; set; } // Accumulate text during parse
+
+        private List<SourceCit> _cits;
+
+        // GEDCOM 5.5 standard allows source citations on NOTE structure
+        public List<SourceCit> Cits { get { return _cits ?? (_cits = new List<SourceCit>()); } }
     }
 
     /// <summary>

@@ -10,7 +10,8 @@ namespace SharpGEDParser.Parser
         private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
         {
             {"CONC", concProc},
-            {"CONT", contProc}
+            {"CONT", contProc},
+            {"SOUR", sourProc}
         };
 
         private static void contProc(StructParseContext context, int linedex, char level)

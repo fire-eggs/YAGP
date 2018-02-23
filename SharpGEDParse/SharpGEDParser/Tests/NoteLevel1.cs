@@ -4,6 +4,8 @@ using SharpGEDParser.Model;
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable InconsistentNaming
 
+// Testing for 'Note structure': not a note record
+
 namespace SharpGEDParser.Tests
 {
     [TestFixture]
@@ -105,7 +107,6 @@ namespace SharpGEDParser.Tests
             var src = res as SourceRecord;
             Assert.IsNotNull(src, "SOUR");
             Assert.AreEqual("Fred", src.Author, "SOUR");
-        
         }
 
         [Test]
@@ -165,5 +166,46 @@ namespace SharpGEDParser.Tests
 
         }
 
+        private NoteHold SimpleXrefSourCit(string tag)
+        {
+            string format = "0 {0}\n1 NOTE @N123@\n2 SOUR @S1@";
+            var txt = string.Format(format, tag);
+            var rec = NoteCommon(txt, 1, tag);
+            Assert.AreEqual("N123", rec.Notes[0].Xref, "Note ref "+tag);
+            Assert.AreEqual(1, rec.Notes[0].Cits.Count, "Cit count " + tag);
+            Assert.AreEqual("S1", rec.Notes[0].Cits[0].Xref, "Cit val " + tag);
+            return rec;
+        }
+
+        [Test]
+        public void SourceCit1()
+        {
+            // GEDCOM 5.5 - source cit under a note structure (note ref)
+            var rec = SimpleXrefSourCit(_INDI);
+            rec = SimpleXrefSourCit(_FAM);
+            rec = SimpleXrefSourCit(_SOUR);
+            rec = SimpleXrefSourCit(_REPO);
+            rec = SimpleXrefSourCit(_OBJE);
+        }
+
+        public NoteHold EmbNoteSourCit(string tag)
+        {
+            var txt = string.Format("0 {0}\n1 NOTE notes\n2 CONT more detail\n2 SOUR @S1@", tag);
+            var rec = NoteCommon(txt, 1, tag);
+            Assert.AreEqual("notes\nmore detail", rec.Notes[0].Text, "Note text " + tag);
+            Assert.AreEqual(1, rec.Notes[0].Cits.Count, "Cit count "+ tag);
+            Assert.AreEqual("S1", rec.Notes[0].Cits[0].Xref, "Cit val " + tag);
+            return rec;
+        }
+        [Test]
+        public void SourceCit2()
+        {
+            // GEDCOM 5.5 - source cit under a note structure (embedded note)
+            var rec = EmbNoteSourCit(_INDI);
+            rec = EmbNoteSourCit(_FAM);
+            rec = EmbNoteSourCit(_SOUR);
+            rec = EmbNoteSourCit(_REPO);
+            rec = EmbNoteSourCit(_OBJE);
+        }
     }
 }
