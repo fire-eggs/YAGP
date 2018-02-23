@@ -45,7 +45,7 @@ namespace SharpGEDParser.Model
             UntermIdent,
             MissIdent,
             MultChan, // More than one change record: first one preserved
-            InvXref, // 5
+            InvXref, // 5 Invalid cross reference
             MissName,
             ChanDate, // Missing/invalid date for CHAN
             InvNCHI,
@@ -53,8 +53,8 @@ namespace SharpGEDParser.Model
             MultId,  // 10
             MissFile,
             MissForm,
-            RefSourText,
-            EmbSourEven,
+            RefSourText,  // TEXT tag used for reference source citation
+            EmbSourEven,  // EVEN tag used for embedded source citation
             MultCHIL, // 15
             MissHEAD,
             EmbSourPage,
