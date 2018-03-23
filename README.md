@@ -17,6 +17,6 @@ General status:
 - Demo programs need print/preview consistently implemented.
 - A couple of statistics programs exist but still need a _useful_ validation program.
 
-Additional details and documentation-in-progress can be found in the Wiki.
+Additional details and documentation-in-progress can be found in the [Wiki](../../wiki).
 
 Some related material in my [Github pages (http://fire-eggs.github.io/ )]
