@@ -9,7 +9,9 @@ Several "demo" programs and WinForms controls will be provided to show off and e
 Very much a work-in-progress.
 
 General status:
-- Released V0.1-Alpha: stable, performant, nearly complete GEDCOM parsing.
+- Released V0.2-Alpha: stable, performant, nearly complete GEDCOM parsing.
+- GEDCOM writing in-progress.
+- Library reference documentation in-progress.
 - Documentation, samples, localization, and memory usage all need improvement.
 - Date parsing/estimation is partially working: needs to be more robust, handle more cases and calendars.
 - Demo programs and controls are crude and not yet refactored cleanly.
