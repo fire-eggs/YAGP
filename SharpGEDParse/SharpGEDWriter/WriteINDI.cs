@@ -40,8 +40,17 @@ namespace SharpGEDWriter
             {
                 writeName(file, nameRec);
 
+                // this convolution below due to:
+                // 1 NAME Joe /Blow/ Jr.
+                // vs
+                // 1 NAME Joe
+                // 2 GIVN Joe
+                // 2 SURN Blow
+                // TODO nice to output parts in specific order despite how they came in
+
                 bool didGivn = false;
                 bool didSurn = false;
+                bool didNSFX = false;
 
                 foreach (var tuple in nameRec.Parts)
                 {
@@ -50,8 +59,10 @@ namespace SharpGEDWriter
                         didSurn = true;
                     if (tuple.Item1 == "GIVN")
                         didGivn = true;
+                    if (tuple.Item1 == "NSFX")
+                        didNSFX = true;
                 }
-                if (!didGivn && !string.IsNullOrEmpty(nameRec.Names)) // TODO would be nice if could be done before other parts
+                if (!didGivn && !string.IsNullOrEmpty(nameRec.Names))
                 {
                     file.WriteLine("2 GIVN {0}", nameRec.Names);
                 }
@@ -59,7 +70,11 @@ namespace SharpGEDWriter
                 {
                     file.WriteLine("2 SURN {0}", nameRec.Surname);
                 }
-                // TODO other name types
+                if (!didNSFX && !string.IsNullOrEmpty(nameRec.Suffix))
+                {
+                    file.WriteLine("2 NSFX {0}", nameRec.Suffix);
+                }
+                // TODO other name pieces
 
                 WriteCommon.writeSubNotes(file, nameRec, 2);
                 WriteCommon.writeSourCit(file, nameRec, 2);

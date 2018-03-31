@@ -269,5 +269,15 @@ tag);
             Assert.AreEqual(exp, res);
         }
 
+        [Test]
+        public void NameSource()
+        {
+            // INDI.NAME.SOUR now handled
+            var inp = "0 @I1@ INDI\n1 NAME Frances\n2 GIVN Frances\n2 SOUR @S1@";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
+
+
     }
 }

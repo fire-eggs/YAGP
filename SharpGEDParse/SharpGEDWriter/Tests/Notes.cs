@@ -131,5 +131,30 @@ namespace SharpGEDWriter.Tests
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n",res);
         }
+
+        [Test]
+        public void NameNote()
+        {
+            // INDI.NAME.NOTE now handled
+            var inp = "0 @I1@ INDI\n1 NAME Frances\n2 GIVN Frances\n2 NOTE no surname, name";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
+
+        [Test]
+        public void NoteAmper()
+        {
+            var txt = "0 @N1@ NOTE this is @@ a note";
+            var res = ParseAndWrite(txt);
+            Assert.AreEqual(res, txt + "\n");
+        }
+        [Test]
+        public void NoteAmper2()
+        {
+            var inp = "0 @I1@ INDI\n1 NAME Frances\n2 GIVN Frances\n2 NOTE no sur@@name, name";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
+
     }
 }

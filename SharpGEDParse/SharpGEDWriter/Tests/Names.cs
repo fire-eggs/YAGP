@@ -22,7 +22,7 @@ namespace SharpGEDWriter.Tests
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/ Jr.";
             var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/ Jr.\n2 GIVN Fred\n2 SURN Flintstone\n2 NSFX Jr.\n";
             var res = ParseAndWrite(inp);
-            Assert.AreEqual(inp + "\n", res);
+            Assert.AreEqual(exp, res);
         }
 
         [Test]
@@ -49,5 +49,47 @@ namespace SharpGEDWriter.Tests
             var res = ParseAndWrite(inp);
             Assert.AreEqual(exp, res);
         }
+
+        [Test]
+        public void Suffix2()
+        {
+            var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NSFX Jr.";
+            // TODO note ordering issue - parts output in specific order despite how they came in
+            // TODO should suffix have been appended to the "1 NAME" line???
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NSFX Jr.\n2 GIVN Fred\n2 SURN Flintstone\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(exp, res);
+        }
+
+        [Test]
+        public void Prefix()
+        {
+            var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NPFX Prof.";
+            // TODO note ordering issue - parts output in specific order despite how they came in
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NPFX Prof.\n2 GIVN Fred\n2 SURN Flintstone\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(exp, res);
+        }
+
+        [Test]
+        public void SurPrefix()
+        {
+            var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 SPFX van";
+            // TODO note ordering issue - parts output in specific order despite how they came in
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 SPFX van\n2 GIVN Fred\n2 SURN Flintstone\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(exp, res);
+        }
+
+        [Test]
+        public void Nick()
+        {
+            var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NICK yabba dabba doo";
+            // TODO note ordering issue - parts output in specific order despite how they came in
+            var exp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NICK yabba dabba doo\n2 GIVN Fred\n2 SURN Flintstone\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(exp, res);
+        }
+
     }
 }

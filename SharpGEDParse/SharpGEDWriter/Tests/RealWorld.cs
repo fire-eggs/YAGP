@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using NUnit.Framework;
 
 // Example records pulled from real-world GED files
@@ -75,15 +76,34 @@ namespace SharpGEDWriter.Tests
         public void BladesSimple()
         {
             // No custom tags
-            int[] exp = {0, 1, 2, 8, 9, 10, 11, 12, 13, 3, 6, 7, 4, 5};
-            Assert.AreEqual(exp.Length, record2.Length);
+            int[] exp = {0, 1, -1, -2, 2, 8, 9, 10, 11, 12, 13, 3, 6, 7, 4, 5};
+            string[] extra =
+            {
+                "",
+                "2 GIVN Frances",
+                "2 SURN Unknown"
+            };
+
+            //Assert.AreEqual(exp.Length, record2.Length);
             var fr = ReadItHigher(MakeInput(record2));
             Assert.AreEqual(0, fr.AllErrors.Count);
             var res = Write(fr);
-            var ideal = MakeInput(record2, exp);
+            var ideal = MakeInput(record2, exp, extra);
             Assert.AreEqual(ideal, res);
+        }
 
-            // TODO GIVN and SURN now written, need to add to 'exp' somehow
+        public string MakeInput(string[] recs, int[] order, string [] extra)
+        {
+            StringBuilder inp = new StringBuilder();
+            foreach (var dex in order)
+            {
+                if (dex < 0)
+                    inp.Append(extra[-dex]);
+                else
+                    inp.Append(recs[dex]);
+                inp.Append("\n");
+            }
+            return inp.ToString();
         }
 
     }

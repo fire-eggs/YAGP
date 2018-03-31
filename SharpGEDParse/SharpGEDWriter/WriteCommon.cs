@@ -68,6 +68,9 @@ namespace SharpGEDWriter
             if (string.IsNullOrEmpty(text))
                 text = "";
 
+            // Need to double up any ampersands
+            text = text.Replace("@", "@@");
+
             // Don't do extra work for short/unsplit lines
             if (text.Length < 247 && !text.Contains("\n"))
             {
