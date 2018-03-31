@@ -1,9 +1,11 @@
-﻿using SharpGEDParser;
+﻿using System.Diagnostics.CodeAnalysis;
+using SharpGEDParser;
 using System.IO;
 using System.Text;
 
 namespace SharpGEDWriter.Tests
 {
+    [ExcludeFromCodeCoverage]
     class GedWriteTest
     {
 

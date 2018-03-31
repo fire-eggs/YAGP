@@ -177,7 +177,7 @@ namespace SharpGEDWriter
 
         internal static void writeIds(StreamWriter file, GEDCommon rec, int level = 1)
         {
-            if (rec.REFNs.Count < 1 && rec.UID == null && rec.AFN == null && rec.RFN == null)
+            if (rec.REFNs.Count < 1 && string.IsNullOrEmpty(rec.UID) && rec.AFN == null && rec.RFN == null)
                 return;
             foreach (var refN in rec.REFNs)
             {

@@ -116,10 +116,23 @@ namespace SharpGEDWriter
                 WriteCommon.writeSourCit(file, assoRec, 2);
             }
 
-            // TODO why are INDI and FAM submitters treated different?
+            // Different from FAM because there are different types
             foreach (var submitter in indiRecord.Submitters)
             {
-                file.WriteLine("1 SUBM @{0}@", submitter.Xref);
+                string tag = "";
+                switch (submitter.SubmitterType)
+                {
+                    case Submitter.SubmitType.SUBM:
+                        tag = "SUBM";
+                        break;
+                    case Submitter.SubmitType.ANCI:
+                        tag = "ANCI";
+                        break;
+                    case Submitter.SubmitType.DESI:
+                        tag = "DESI";
+                        break;
+                }
+                file.WriteLine("1 {0} @{1}@", tag, submitter.Xref);
             }
 
             WriteCommon.writeRecordTrailer(file, indiRecord, 1);

@@ -48,6 +48,7 @@
     <Compile Include="Tests\Basic.cs" />
     <Compile Include="Tests\Events.cs" />
     <Compile Include="Tests\GedWriteTest.cs" />
+    <Compile Include="Tests\Indi.cs" />
     <Compile Include="Tests\IndiOrder.cs" />
     <Compile Include="Tests\Media.cs" />
     <Compile Include="Tests\Names.cs" />
