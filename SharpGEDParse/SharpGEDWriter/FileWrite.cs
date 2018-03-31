@@ -204,7 +204,7 @@ namespace SharpGEDWriter
 
             WriteCommon.writeIfNotEmpty(file, "RESN", famRecord.Restriction, 1);
 
-            // TODO multiple HUSB/WIFE
+            // TODO multiple HUSB/WIFE?
             if (famRecord.Dads.Count > 0)
                 file.WriteLine("1 HUSB @{0}@", famRecord.Dads[0]);
             if (famRecord.Moms.Count > 0)
@@ -212,7 +212,10 @@ namespace SharpGEDWriter
             foreach (var child in famRecord.Childs)
             {
                 file.WriteLine("1 CHIL @{0}@", child.Xref);
-                // TODO parent relations
+                if (!string.IsNullOrEmpty(child.FatherRelation))
+                    file.WriteLine("2 _FREL {0}", child.FatherRelation);
+                if (!string.IsNullOrEmpty(child.MotherRelation))
+                    file.WriteLine("2 _MREL {0}", child.MotherRelation);
             }
 
             if (famRecord.ChildCount > 0)

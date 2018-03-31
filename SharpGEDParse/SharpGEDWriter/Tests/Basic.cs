@@ -88,5 +88,13 @@ namespace SharpGEDWriter.Tests
             var res = ParseAndWrite(inp);
             Assert.AreEqual(inp + "\n", res);
         }
+
+        [Test]
+        public void MRel()
+        {
+            string inp = "0 @F1@ FAM\n1 HUSB @p1@\n1 WIFE @p2@\n1 CHIL @p3@\n2 _FREL Natural\n2 _MREL Natural\n1 CHIL @p4@\n2 _FREL Adopted\n2 _MREL Step\n1 RIN 2";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp + "\n", res);
+        }
     }
 }

@@ -101,7 +101,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("I1", gs.Ident(txt));
         }
 
-        [Test]
+        [Test, Ignore("Better error recovery?")]
         public void BadId2()
         {
             // See V208252.ged
