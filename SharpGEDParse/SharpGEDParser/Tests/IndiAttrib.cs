@@ -172,7 +172,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, rec.Attribs.Count);
 
-            Assert.AreEqual(0, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);  // From mutation testing: verify sub-record parsing
 
             Assert.AreEqual("FACT", rec.Attribs[0].Tag);
@@ -200,7 +200,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, rec.Attribs.Count);
 
-            Assert.AreEqual(0, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);  // From mutation testing: verify sub-record parsing
 
             Assert.AreEqual("FACT", rec.Attribs[0].Tag);

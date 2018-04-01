@@ -29,14 +29,25 @@ namespace SharpGEDParser.Parser
             //note.Builder.Append(context.Remain); // NOTE: trailing spaces are preserved, may be confusing
         }
 
-        public static char[] trim = new[] {'@'};
+        public static char[] trim = {'@'};
         
         public static Note NoteParser(ParseContextCommon ctx, int linedex, char level)
         {
             Note note = new Note();
             note.Builder = new StringBuilder(512);
-            StructParseContext ctx2 = new StructParseContext(ctx, note, linedex);
+            StructParseContext ctx2 = new StructParseContext(ctx, note, linedex); // TODO no record for context!
             ctx2.Level = level;
+
+            if (ctx as ParseContext2 != null)
+            {
+                ctx2.Record = (ctx as ParseContext2).Parent;
+            }
+            // FAM.NOTE.SOUR crapped out 'cause Record was null
+            if (ctx as StructParseContext != null)
+            {
+                ctx2.Record = (ctx as StructParseContext).Record;
+            }
+
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
             {
                 note.Xref = ctx.Remain.Trim(trim);

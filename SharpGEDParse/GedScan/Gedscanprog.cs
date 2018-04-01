@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.IO;
 using SharpGEDParser.Model;
 
-// TODO errors in sub-records
 // TODO lost track of 'custom' records/sub-records?
 // TODO Need to pull unknown text from original file?
 // TODO don't repeat the same error more than once
@@ -213,11 +212,11 @@ namespace GedScan
         private enum DateState { Success=0, WftEst, Fail, FailAndDump, Empty, Exact }
         private static DateState dumpDate(EventCommon evt)
         {
-            if (evt.GedDate != null && evt.GedDate.Type != GEDDate.Types.Unknown)
+            if (evt.GedDate != null && evt.GedDate.Type != (byte)GEDDate.Types.Unknown)
                 return evt.GedDate.Type == GEDDate.Types.Exact ? DateState.Exact : DateState.Success;
 
             // skip empty or successful dates
-            if (evt.GedDate == null || evt.GedDate.Type != GEDDate.Types.Unknown || string.IsNullOrWhiteSpace(evt.Date))
+            if (evt.GedDate == null || evt.GedDate.Type != (byte)GEDDate.Types.Unknown || string.IsNullOrWhiteSpace(evt.Date))
                 return DateState.Empty;
 
             // Ignore common entries
@@ -414,7 +413,7 @@ namespace GedScan
                 //if (index == 52790) // wemightbekin testing
                 //    Debugger.Break();
 
-                errs += gedRec2.Errors.Count; // TODO errors in sub-records
+                errs += gedRec2.Errors.Count;
                 if (gedRec2.Errors.Count > 0 && showErrors)
                 {
                     foreach (var errRec in gedRec2.Errors)
@@ -547,7 +546,6 @@ namespace GedScan
             int counter = 0;
 
             // f.Errors is a rollup of f.AllRecords.Errors; ditto for unks
-            // TODO errors in sub-records?
 
             foreach (var err in f.Errors)
             {

@@ -81,6 +81,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSexU()
         {
+            // TODO initialization of sex to 'U' not happening
             var indi1 = "0 INDI\n1 SEX";
             var indiU1 = "0 INDI\n1 NAME kludge";
             var indiU2 = "0 INDI\n1 NAME kludge\n1 SEX U";
@@ -99,6 +100,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestMethod1()
         {
+            // TODO initialization of sex to 'U' not happening
             var simpleInd = "0 @I1@ INDI\n1 NAME One /Note/\n2 SURN Note\n2 GIVN One\n1 NOTE First line of a note.\n2 @IDENT@ CONT Second line of a note.\n2 CONT Third line of a note.";
             var rec = parse(simpleInd);
             Assert.AreEqual('U', rec.Sex);

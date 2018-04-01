@@ -173,11 +173,11 @@ namespace SharpGEDParser.Tests
         [Test]
         public void Empty()
         {
-            var indi1 = "0 INDI\n1 NAME   ";
+            var indi1 = "0 @I1@ INDI\n1 NAME   ";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
-            Assert.AreEqual(1, rec.Names[0].Errors.Count);
-            Assert.AreEqual(UnkRec.ErrorCode.EmptyName, rec.Names[0].Errors[0].Error);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.EmptyName, rec.Errors[0].Error);
             Assert.IsNullOrEmpty(rec.Names[0].Names);
             Assert.IsNullOrEmpty(rec.Names[0].Surname);
         }
@@ -195,13 +195,13 @@ namespace SharpGEDParser.Tests
         public void BadSlash()
         {
             // kartei.ged had this
-            var indi1 = "0 INDI\n1 NAME John /Doe/Roe/";
+            var indi1 = "0 @I1@ INDI\n1 NAME John /Doe/Roe/";
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("John", rec.Names[0].Names);
             Assert.AreEqual("Doe/Roe", rec.Names[0].Surname);
-            Assert.AreEqual(1, rec.Names[0].Errors.Count);
-            Assert.AreEqual(UnkRec.ErrorCode.SlashInName, rec.Names[0].Errors[0].Error);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.SlashInName, rec.Errors[0].Error);
         }
 
     }

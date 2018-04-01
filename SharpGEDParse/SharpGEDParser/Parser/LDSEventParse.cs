@@ -36,7 +36,7 @@ namespace SharpGEDParser.Parser
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.UntermIdent;// TODO "Missing/unterminated identifier: " + context.Tag;
                 err.Beg = err.End = context.Begline;
-                me.Errors.Add(err); // TODO do I really want to add another field to the child record?
+                context.Record.Errors.Add(err); // TODO is Record only for errors?
             }
             else
             {

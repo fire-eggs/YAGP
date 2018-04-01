@@ -80,6 +80,7 @@ namespace SharpGEDParser.Parser
             MediaLink mlink = new MediaLink();
             StructParseContext ctx2 = new StructParseContext(ctx, mlink, linedex);
             ctx2.Level = level;
+            ctx2.Record = ctx.Record;
 // TODO parse xref using standard xref parser
 // TODO preserve non-xref remain as note
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')

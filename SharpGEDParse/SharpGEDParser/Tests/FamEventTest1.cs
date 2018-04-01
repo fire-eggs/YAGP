@@ -146,9 +146,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", evt.Place, tag);
             Assert.AreEqual("Blah blah this is a note continued on a second line.", evt.Notes[0].Text);
 
-            // relying on an error container within the sub-record
-            Assert.AreEqual(1, evt.Errors.Count, "Error expected " + tag);
-            Assert.AreNotEqual(0, (int)evt.Errors[0].Error);
+            Assert.AreEqual(1, rec.Errors.Count, "Error expected " + tag);
+            Assert.AreNotEqual(0, (int)rec.Errors[0].Error); // TODO use enum
         }
 
         public void EventSimpleSourErr2(string tag)
@@ -178,9 +177,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", evt.Place, tag);
             Assert.AreEqual("Blah blah this is a note continued on a second line.", evt.Notes[0].Text);
 
-            // relying on an error container within the sub-record
-            Assert.AreEqual(2, evt.Errors.Count, "2 Errors expected " + tag);
-            Assert.AreNotEqual(0, (int)evt.Errors[0].Error);
+            Assert.AreEqual(2, rec.Errors.Count, "2 Errors expected " + tag);
+            Assert.AreNotEqual(0, (int)rec.Errors[0].Error); // TODO use error enum
         }
 
         [Test]

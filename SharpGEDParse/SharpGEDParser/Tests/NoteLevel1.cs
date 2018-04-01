@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Text;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 
 // ReSharper disable ConvertToConstant.Local
@@ -206,6 +207,51 @@ namespace SharpGEDParser.Tests
             rec = EmbNoteSourCit(_SOUR);
             rec = EmbNoteSourCit(_REPO);
             rec = EmbNoteSourCit(_OBJE);
+        }
+
+        // TODO push to common test utility
+        public string MakeInput(string[] recs)
+        {
+            StringBuilder inp = new StringBuilder();
+            foreach (var rec in recs)
+            {
+                inp.Append(rec);
+                inp.Append("\n");
+            }
+            return inp.ToString();
+        }
+
+
+        [Test]
+        public void FamNoteSour()
+        {
+            // Hambleden-Tasmania_update.ged [via zDoAll551] showed a crash not caught by any other test
+            // FAM.NOTE.SOUR
+            string[] lines =
+            {
+                "0 @F1@ FAM",
+                "1 HUSB @I40@",
+                "1 WIFE @I39@",
+                "1 MARR",
+                "2 DATE 01 JAN 1828",
+                "2 PLAC St George Hanover Square, Middlesex, England",
+                "2 SOUR @S2@",
+                "3 PAGE Email message 21 Apr 2011",
+                "3 QUAY 3",
+                "2 NOTE @NF1@",
+                "3 SOUR @S2@",
+                "4 PAGE Email message 21 Apr 2011",
+                "4 QUAY 3",
+                "2 SOUR @S10@",
+                "1 CHAN",
+                "2 DATE 15 NOV 2015",
+                "3 TIME 00:00:13"
+            };
+            var inp = MakeInput(lines);
+            var res = ReadIt(inp);
+            Assert.AreEqual(1, res.Count);
+            Assert.AreEqual(0, res[0].Errors.Count);
+            Assert.IsNotNull(res[0] as FamRecord);
         }
     }
 }

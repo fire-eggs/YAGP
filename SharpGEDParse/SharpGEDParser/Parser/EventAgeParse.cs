@@ -21,6 +21,7 @@ namespace SharpGEDParser.Parser
             AgeDetail det = new AgeDetail();
             StructParseContext ctx2 = new StructParseContext(ctx, det, linedex);
             ctx2.Level = level;
+            ctx2.Record = ctx.Record;
             if (!string.IsNullOrWhiteSpace(ctx.Remain))
             {
                 det.Detail = ctx.Remain;

@@ -47,7 +47,7 @@ namespace SharpGEDParser.Parser
             rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
         }
 
-        private static bool parseName(NameRec rec, char [] line, int linenum)
+        private static bool parseName(NameRec rec, char[] line, int linenum, List<UnkRec> errors)
         {
             int max = line.Length;
 
@@ -84,7 +84,9 @@ namespace SharpGEDParser.Parser
                 rec.Names = new string(tmp, a, newlen).Trim();
             }
 
-            if (startSur < max) // e.g. "1 NAME LIVING"
+            // Observed bug from ege.ged: empty surname was not parsed properly
+            int surnameLen = endSur - startSur - 2; // Will be zero if empty, e.g. "1 NAME Liz //"
+            if (startSur < max && surnameLen > 0) // e.g. "1 NAME LIVING"
             {
                 //rec.Surname = line.Substring(startSur + 1, endSur - startSur - 1).Trim();
                 //rec.Surname = _surnameCache.GetFromCache(line, startSur + 1, endSur - startSur - 1).Trim();// TODO trim
@@ -94,14 +96,14 @@ namespace SharpGEDParser.Parser
                     UnkRec err = new UnkRec();
                     err.Beg = err.End = linenum;
                     err.Error = UnkRec.ErrorCode.SlashInName;
-                    rec.Errors.Add(err);
+                    errors.Add(err);
                 }
                 if (endSur == max && startSur < max)
                 {
                     UnkRec err = new UnkRec();
                     err.Beg = err.End = linenum;
                     err.Error = UnkRec.ErrorCode.UntermSurname;
-                    rec.Errors.Add(err);
+                    errors.Add(err);
                 }
             }
             if (suffix.Length > 0)
@@ -113,12 +115,12 @@ namespace SharpGEDParser.Parser
         {
             // TODO can this be shortcut when context length is only 1 line?
             var name = new NameRec();
-            if (!parseName(name, ctx.Remain1, ctx.Begline))
+            if (!parseName(name, ctx.Remain1, ctx.Begline, ctx.Parent.Errors))
             {
                 UnkRec err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.EmptyName;
                 err.Beg = err.End = ctx.Begline;
-                name.Errors.Add(err);
+                ctx.Parent.Errors.Add(err);
             }
             StructParseContext ctx2 = new StructParseContext(ctx, name);
             StructParse(ctx2, tagDict);

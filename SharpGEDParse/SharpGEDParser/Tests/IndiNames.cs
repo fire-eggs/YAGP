@@ -27,7 +27,6 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
             Assert.AreEqual(null, rec.Names[0].Surname);
-            Assert.AreEqual(0, rec.Names[0].Errors.Count);
         }
 
         [Test]
@@ -92,8 +91,8 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("Smith", rec.Names[0].Surname);
-            Assert.AreEqual(1, rec.Names[0].Errors.Count);
-            Assert.AreEqual(UnkRec.ErrorCode.UntermSurname, rec.Names[0].Errors[0].Error);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.UntermSurname, rec.Errors[0].Error);
         }
 
         [Test]
@@ -104,7 +103,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(txt);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("Smith", rec.Names[0].Surname);
-            Assert.AreEqual(0, rec.Names[0].Errors.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(1, rec.Names[0].Cits.Count);
         }
         [Test]
@@ -114,7 +113,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(txt);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("Smith", rec.Names[0].Surname);
-            Assert.AreEqual(0, rec.Names[0].Errors.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(1, rec.Names[0].Notes.Count);
         }
     }

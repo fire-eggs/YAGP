@@ -15,16 +15,5 @@ namespace SharpGEDParser.Model
         /// It may also include lines which fail to be parsed for some reason.
         /// </summary>
         public List<LineSet> OtherLines { get { return _other ?? (_other = new List<LineSet>()); } }
-
-        private List<UnkRec> _errors;
-        /// <summary>
-        /// Problems encountered at this level.
-        /// 
-        /// These are typically 'syntactic' errors, i.e. the parser was unable to process
-        /// these lines.
-        /// 
-        /// <b>TBD</b> at this level or also from children?
-        /// </summary>
-        public List<UnkRec> Errors { get { return _errors ?? (_errors = new List<UnkRec>()); } }
     }
 }

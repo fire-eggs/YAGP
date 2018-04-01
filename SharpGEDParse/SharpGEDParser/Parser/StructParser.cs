@@ -32,7 +32,7 @@ namespace SharpGEDParser.Parser
                     exc.Beg = exc.End = i;
                     exc.Error = UnkRec.ErrorCode.Exception;
                     // TODO exc.Error = "Exception during parse, skipping line";
-                    ctx.Parent.Errors.Add(exc);
+                    ctx.Record.Errors.Add(exc); // TODO is Record only for errors?
                     continue;
                 }
 
@@ -47,7 +47,7 @@ namespace SharpGEDParser.Parser
                     exc.Error = UnkRec.ErrorCode.MissTag;
                     // TODO exc.Error = "Exception during parse, skipping line";
                     // TODO not exception - missing tag / invalid linebreak
-                    ctx.Parent.Errors.Add(exc);
+                    ctx.Record.Errors.Add(exc); // TODO is Record only for errors?
                     continue;
                 }
 
@@ -132,5 +132,23 @@ namespace SharpGEDParser.Parser
             var cit = SourceCitParse.SourceCitParser(context, linedex, level);
             (context.Parent as SourceCitHold).Cits.Add(cit);
         }
+
+        public static void LookAhead(StructParseContext ctx)
+        {
+            // TODO copy-pasta from GedRecParse!
+
+            if (ctx.Begline == ctx.Lines.LineCount)
+            {
+                ctx.Endline = ctx.Begline;
+                return; // Nothing to do: already at last line
+            }
+            int linedex = ctx.Begline;
+            int sublinedex;
+            while (ctx.Lines.GetLevel(linedex + 1, out sublinedex) > ctx.Level &&
+                   linedex + 1 <= ctx.Lines.LineCount)
+                linedex++;
+            ctx.Endline = linedex;
+        }
+
     }
 }

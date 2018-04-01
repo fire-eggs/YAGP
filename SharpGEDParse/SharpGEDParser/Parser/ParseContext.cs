@@ -35,6 +35,7 @@ namespace SharpGEDParser.Parser
     public class StructParseContext : ParseContextCommon
     {
         public StructCommon Parent;
+        public GEDCommon Record;
 
         [ExcludeFromCodeCoverage]
         public StructParseContext()
@@ -46,11 +47,13 @@ namespace SharpGEDParser.Parser
             : base(ctx)
         {
             Parent = parent;
+            Record = ctx.Parent;
         }
 
         public StructParseContext(ParseContextCommon ctx, StructCommon parent, int linedex = 0)
             : base(ctx)
         {
+            // TODO pass Level, Record into here?
             Parent = parent;
             Begline = linedex;
             Endline = linedex;

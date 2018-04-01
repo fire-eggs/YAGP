@@ -87,7 +87,7 @@ namespace SharpGEDParser.Parser
         private static SourceCit CommonParser(ParseContextCommon ctx, int linedex, char level, List<UnkRec> errs )
         {
             SourceCit cit = new SourceCit();
-            StructParseContext ctx2 = new StructParseContext(ctx, linedex, level, cit);
+            StructParseContext ctx2 = new StructParseContext(ctx, linedex, level, cit); // TODO no record for context!
 
             string extra;
             string xref;
@@ -141,10 +141,7 @@ namespace SharpGEDParser.Parser
         {
             List<UnkRec> errs = new List<UnkRec>();
             var cit = CommonParser(ctx, linedex, level, errs);
-
-            // TODO errors actually should go in the Cit??
-
-            ctx.Parent.Errors.AddRange(errs);
+            ctx.Record.Errors.AddRange(errs); // TODO is record only for errors?
             return cit;
         }
 
@@ -152,10 +149,7 @@ namespace SharpGEDParser.Parser
         {
             List<UnkRec> errs = new List<UnkRec>();
             var cit = CommonParser(ctx, ctx.Begline, ctx.Level, errs);
-
-            // TODO errors actually should go in the Cit??
-
-            ctx.Parent.Errors.AddRange(errs);
+            ctx.Parent.Errors.AddRange(errs); 
             return cit;
         }
     }

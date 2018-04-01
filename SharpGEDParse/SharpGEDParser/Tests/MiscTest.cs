@@ -169,8 +169,8 @@ namespace SharpGEDParser.Tests
 
             // The 'other line' here is on the sub-structure
             Assert.AreEqual(1, rec.Attribs.Count);
-            Assert.AreEqual(1, rec.Attribs[0].Errors.Count);
-            Assert.AreEqual(UnkRec.ErrorCode.MissTag, rec.Attribs[0].Errors[0].Error);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissTag, rec.Errors[0].Error);
             // TODO the MissTag handling prevents saving the error line in OtherLines
             Assert.AreEqual(1, rec.Attribs[0].OtherLines.Count);
             Assert.AreEqual(5, rec.Attribs[0].OtherLines[0].Beg);
@@ -189,7 +189,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('M', rec.Sex);
 
             Assert.AreEqual(1, rec.Attribs.Count);
-            Assert.AreEqual(0, rec.Attribs[0].Errors.Count);
+            Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);
 
             // The 'unknown' line has been recorded in the parent record
