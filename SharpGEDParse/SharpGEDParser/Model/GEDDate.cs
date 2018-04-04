@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using SharpGEDParser.Parser;
 
 namespace SharpGEDParser.Model
 {
@@ -31,6 +32,16 @@ namespace SharpGEDParser.Model
             Type = _type;
             Year = Month = Day = -1;
             JDN = -1;
+        }
+
+        public GEDDate(int day, int month, int year)
+        {
+            IsBC = false;
+            Type = Types.Exact;
+            Year = year;
+            Month = month;
+            Day = day;
+            JDN = EventDateParse.ToJulianDay(day, month, year, false);
         }
 
         public bool Initialized { get { return JDN != -1; } }

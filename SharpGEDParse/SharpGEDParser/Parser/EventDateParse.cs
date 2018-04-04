@@ -470,7 +470,7 @@ namespace SharpGEDParser.Parser
             return false;
        }
 
-        private static int ToJulianDay(int d, int m, int y, bool isBC)
+        public static int ToJulianDay(int d, int m, int y, bool isBC)
         {
             // there's no year 0 - anything B.C. has to be shifted
             if (isBC)
