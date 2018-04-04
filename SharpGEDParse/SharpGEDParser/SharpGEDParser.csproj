@@ -28,11 +28,12 @@
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;PARALLEL</DefineConstants>
+    <DefineConstants>TRACE;PARALLEL,NOTESTREAM</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <DebugSymbols>true</DebugSymbols>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.core">
@@ -111,6 +112,7 @@
     <Compile Include="Parser\LineUtil.cs" />
     <Compile Include="Parser\NameParse.cs" />
     <Compile Include="Parser\NoteParse.cs" />
+    <Compile Include="Parser\NoteStream.cs" />
     <Compile Include="Parser\ParseContext.cs" />
     <Compile Include="Parser\RepoCitParse.cs" />
     <Compile Include="Parser\RepoParse.cs" />

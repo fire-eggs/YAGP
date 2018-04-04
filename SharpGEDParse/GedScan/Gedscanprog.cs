@@ -440,7 +440,8 @@ namespace GedScan
                     subN += gr.Notes.Count;
                     foreach (var anote in gr.Notes)
                     {
-                        subNLen += anote.Text.Length;
+                        string txt = anote.Text;
+                        subNLen += txt.Length;
                     }
                 }
                 // TODO this is awkward
@@ -630,7 +631,8 @@ namespace GedScan
                     subN += gr.Notes.Count;
                     foreach (var anote in gr.Notes)
                     {
-                        subNLen += anote.Text.Length;
+                        string txt = anote.Text;
+                        subNLen += txt.Length;
                     }
                 }
                 // TODO this is awkward

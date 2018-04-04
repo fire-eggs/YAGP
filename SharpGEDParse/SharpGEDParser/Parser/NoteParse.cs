@@ -48,7 +48,26 @@ namespace SharpGEDParser.Parser
                 me.Errors.Add(err);
             }
 
-            me.Text = me.Builder.ToString().Replace("@@", "@"); // TODO faster replace
+            if (me.Builder.Length > 0)
+            {
+                // Store an in-line note to the database
+                string text = me.Builder.ToString().Replace("@@", "@");
+#if SQLITE
+                me.Key = SQLite.Instance.StoreNote(text); 
+#elif LITEDB
+                me.Key = LiteDB.Instance.StoreNote(text);
+#elif NOTESTREAM
+                me.Key = NoteStream.Instance.StoreNote(text);
+#else
+                me.Text = text;
+#endif
+            }
+            else
+            {
+                me.Text = "";
+            }
+
+            //me.Text = me.Builder.ToString().Replace("@@", "@"); // TODO faster replace
             me.Builder = null;
         }
 

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using SharpGEDParser.Parser;
+#if LITEDB
+using LiteDB = SharpGEDParser.Parser.LiteDB;
+#endif
 
 // ReSharper disable InconsistentNaming
 
@@ -122,6 +125,13 @@ namespace SharpGEDParser
             if (Errors == null)
                 Errors = new List<UnkRec>();
             _currRec = new GedRecord();
+#if SQLITE
+            var foo = SQLite.Instance;
+#elif LITEDB
+            var foo = SharpGEDParser.Parser.LiteDB.Instance;
+#elif NOTESTREAM
+            var foo = NoteStream.Instance;
+#endif
 
             try
             {

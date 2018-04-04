@@ -1,5 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using LiteDB;
+using SharpGEDParser.Parser;
+#if LITEDB
+using LiteDB = SharpGEDParser.Parser.LiteDB;
+#endif
 
 namespace SharpGEDParser.Model
 {
@@ -29,7 +34,37 @@ namespace SharpGEDParser.Model
         /// Will typically be empty if this is a cross-reference, barring non-standard
         /// GEDCOM files.
         /// </summary>
-        public string Text { get; set; }
+        public string Text
+        {
+#if SQLITE
+            get { return Key == -1 ? _text : SQLite.Instance.GetNote(Key); }
+            set { Key = -1;
+                _text = value;
+            }
+#elif LITEDB
+            get { return Key == null ? _text : Parser.LiteDB.Instance.GetNote(Key); }
+            set { Key = null;
+                _text = value;
+            }
+#elif NOTESTREAM
+            get { return Key == -1 ? _text : NoteStream.Instance.GetNote(Key); }
+            set { Key = -1;
+                _text = value;
+            }
+
+#else
+            get { return _text; }
+            set { _text = value; }
+#endif
+        }
+
+        private string _text = null;
+
+#if LITEDB
+        public BsonValue Key { get; set; }
+#else
+        public int Key { get; set; }
+#endif
 
         internal StringBuilder Builder { get; set; } // Accumulate text during parse
 

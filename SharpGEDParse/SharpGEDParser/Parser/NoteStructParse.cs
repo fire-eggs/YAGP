@@ -59,7 +59,27 @@ namespace SharpGEDParser.Parser
             }
 
             StructParse(ctx2, tagDict);
-            note.Text = note.Builder.ToString().Replace("@@", "@"); // TODO faster replace;
+
+            if (note.Builder.Length > 0)
+            {
+                // Store an in-line note to the database
+                string text = note.Builder.ToString().Replace("@@", "@");
+#if SQLITE
+                note.Key = SQLite.Instance.StoreNote(text); 
+#elif LITEDB
+                note.Key = LiteDB.Instance.StoreNote(text);
+#elif NOTESTREAM
+                note.Key = NoteStream.Instance.StoreNote(text);
+#else
+                note.Text = text;
+#endif
+            }
+            else
+            {
+                note.Text = "";
+            }
+
+            //note.Text = note.Builder.ToString().Replace("@@", "@"); // TODO faster replace;
             note.Builder = null;
             ctx.Endline = ctx2.Endline;
             return note;
