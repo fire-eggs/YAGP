@@ -73,8 +73,8 @@ namespace FamilyGroup
          */
         private static readonly Tuple<string, bool, bool, int>[] STYLE_STRINGS2 =
         {
-            Tuple.Create(".tt{<color><font>font-weight:bold;}",true,true,0),
-            Tuple.Create(".tg{width:100%;border-collapse:collapse;border-spacing:0;<color>}",true,false,0),
+            Tuple.Create(".tt{<color><font>font-weight:bold;margin-top:10px;}",true,true,0),
+            Tuple.Create(".tg{width:100%;border-collapse:collapse;border-spacing:0;border-width:1px;<color>}",true,false,0),
             Tuple.Create(".tg td{<font>padding:4px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;<color>}",true,true,-1),
             Tuple.Create(".tg th{<font>font-weight:normal;padding:5px 4px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;<color>}",true,true,0),
             Tuple.Create(".tNest td{<font>padding:1px 1px;border-width:0px;overflow:hidden;word-break:normal;<color>}",true,true,-1),
@@ -83,7 +83,7 @@ namespace FamilyGroup
             Tuple.Create(".tg .tg-9hboPH{font-weight:bold;vertical-align:top;width:15%;}",false,false,0), /* person header */
             Tuple.Create(".tg .tg-dzk6{<color>text-align:center;vertical-align:top}",true,false,0),
             Tuple.Create(".tg .tg-b7b8{<color>vertical-align:top}",true,false,0),
-            Tuple.Create(".tg .tg-b7b8PD{<color>vertical-align:top;width:30%;}",true,false,0), /* person data */
+            Tuple.Create(".tg .tg-b7b8PD{<color>vertical-align:top;width:30%;border-width:1px;}",true,false,0), /* person data */
             Tuple.Create(".tg .tg-yw4l{vertical-align:top}",false,false,0),
             Tuple.Create(".tg .tg-baqh{text-align:center;vertical-align:top}",false,false,0),
             Tuple.Create(".tNest {width:100%;border-collapse:collapse;}",false,false,0),
@@ -124,7 +124,7 @@ namespace FamilyGroup
             Tuple.Create(4, "border-color:#ccc;color:#333;"), // tnest td
             Tuple.Create(8, "background-color:#D2E4FC;"), // .tg .tg-dzk6
             Tuple.Create(9, "background-color:#D2E4FC;"), // .tg .tg-b7b8
-            Tuple.Create(10, "background-color:#D2E4FC;"),
+            Tuple.Create(10, "border-color:#aabcfe;background-color:#D2E4FC;"),
             Tuple.Create(14, "border-color:#aabcfe;"),
             Tuple.Create(15, "background-color:#D2E4FC;"),
             Tuple.Create(16, "border-color:#aabcfe;background-color:#D2E4FC;"),
@@ -265,8 +265,11 @@ namespace FamilyGroup
             // Opt: Buried Place
             // Parent Parent
             // Other spouses?
+
+            // HTMLRenderer doesn't support table captions
+            sb.AppendFormat("<div class=\"tt\">{0}</div>", caption);
             sb.AppendLine("<table class=\"tg\">");
-            sb.AppendFormat("<caption class=\"tt\">{0}</caption>", caption);
+
             if (who == null)
                 sb.AppendLine("<tr><td>None</td></tr>");
             else
@@ -277,7 +280,7 @@ namespace FamilyGroup
                 string flag = inclMarr ? "P" : "S";
                 if (showUrl)
                 {
-                    occu = "<a href='' onclick='window.external.doEdit(\"" + flag + "-OCCU\")'>Occupation</a>";
+                    occu = "<a href=\"" + flag + "-OCCU\">Occupation</a>"; // TODO test: OCCU hyperlink
                 }
                 else
                 {
@@ -332,8 +335,10 @@ namespace FamilyGroup
         private void fillChildren()
         {
             var sb = DrawTo;
+
+            // HTML Renderer doesn't support table caption
+            sb.AppendLine("<div class=\"tt\">Children</div>");
             sb.AppendLine("<table class=\"tg\">");
-            sb.AppendLine("<caption class=\"tt\">Children</caption>");
 
             if (_childs.Count < 1)
             {

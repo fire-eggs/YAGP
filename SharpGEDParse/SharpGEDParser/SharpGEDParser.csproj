@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PARALLEL</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;PARALLEL,NOTESTREAM</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -167,8 +167,6 @@
     <Compile Include="Tests\GedParseTest.cs" />
     <Compile Include="Tests\SourceTest.cs" />
     <Compile Include="Tests\SourCit.cs" />
-    <Compile Include="TestTrie.cs" />
-    <Compile Include="Trie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OtherRecords.cd" />

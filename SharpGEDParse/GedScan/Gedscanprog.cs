@@ -1,12 +1,13 @@
 ﻿// A q&d program to scan GEDCOM files and report statistics
 
-using System.Linq;
 using GEDWrap;
 using SharpGEDParser;
+using SharpGEDParser.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using SharpGEDParser.Model;
+using System.Linq;
 
 // TODO lost track of 'custom' records/sub-records?
 // TODO Need to pull unknown text from original file?

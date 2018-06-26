@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using LiteDB;
 using SharpGEDParser.Parser;
 #if LITEDB
+using LiteDB;
 using LiteDB = SharpGEDParser.Parser.LiteDB;
 #endif
 

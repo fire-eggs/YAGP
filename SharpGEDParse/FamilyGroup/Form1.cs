@@ -1,4 +1,5 @@
-﻿using System.Security.Permissions;
+﻿using System.Drawing;
+using System.Security.Permissions;
 using DrawAnce;
 using GEDWrap;
 using PrintPreview;
@@ -9,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TheArtOfDev.HtmlRenderer.WinForms;
+using Blah=TheArtOfDev.HtmlRenderer.Core.Entities.HtmlLinkClickedEventArgs;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable LocalizableElement
@@ -48,18 +51,13 @@ namespace FamilyGroup
             cmbFontSize.DataSource = _fontSizes;
             cmbFontSize.SelectedIndex = cmbFontSize.FindStringExact("14");
 
-            cmbPerson.DisplayMember = "Text";
-            cmbPerson.ValueMember = "Value";
-            cmbPerson.DataSource = _cmbPedItems;
-
+            rbFamGroup.Checked = true;
             rbFamGroup.CheckedChanged += chartType_Change;
             rbPed4.CheckedChanged += chartType_Change;
             rbPed5.CheckedChanged += chartType_Change;
 
-            rbFamGroup.Checked = true;
-
             _famEdit = new EditFamSheet();
-            webBrowser1.ObjectForScripting = this;
+            htmlPanel1.LinkClicked += htmlPanel1_LinkClicked;
         }
 
         #region Settings
@@ -253,41 +251,79 @@ namespace FamilyGroup
             fillWeb();
         }
 
+        void htmlPanel1_LinkClicked(object sender, Blah e)
+        {
+            // TODO what could we do with active hyperlinks? Navigation? Editing?
+            var val = e.Link;
+            e.Handled = true;
+        }
+
+        private HtmlContainer _hc;
+        private int _iPage;
+
         public PrintDocument PrintAncTree()
         {
-            // TODO how/when is this disposed? 
-            // TODO can this be pre-created somehow?
+            _hc = new HtmlContainer();
+            _hc.UseGdiPlusTextRendering = true;
+            string html = MakeWeb(false);
+            _hc.SetHtml(html);
 
             PrintDocument pdoc = new PrintDocument();
-            pdoc.DocumentName = "foobar";
+            pdoc.DocumentName = "foobar"; // TODO
             pdoc.BeginPrint += BeginPrint;
             pdoc.PrintPage += PrintPage;
-            pdoc.QueryPageSettings += QueryPageSettings;
-            pdoc.EndPrint += EndPrint;
+            //pdoc.QueryPageSettings += QueryPageSettings;
+            //pdoc.EndPrint += EndPrint;
             return pdoc;
         }
 
         void BeginPrint(object sender, PrintEventArgs e)
         {
+            _iPage = 0;
         }
 
         private void PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.HasMorePages = false; // TODO calculate
+            if (_iPage == 0)
+            {
+                //_hc.SetHtml(MakeWeb(false));
+                // KBR layout is only working as desired if location is (0,0)!!
+                // TODO KBR need to modify <page> CSS style to use desired margins
+                //_hc.Location = new PointF(e.MarginBounds.Left, e.MarginBounds.Top);
+                _hc.MaxSize = new SizeF(e.PageBounds.Width, 0);
+                _hc.PerformLayout(e.Graphics);
+            }
+
+            if (_hc.PageListCount > 0)
+            {
+                _hc.PerformPrint(e.Graphics, _iPage);
+                e.HasMorePages = (_iPage < (_hc.PageListCount-1));
+                _iPage++;
+            }
+            else
+            {
+                //e.Graphics.IntersectClip(new RectangleF(e.MarginBounds.Left, e.MarginBounds.Top,
+                //                                        e.PageBounds.Width, e.PageBounds.Height));
+                    //e.MarginBounds.Width, e.MarginBounds.Height));
+                _hc.ScrollOffset = new Point(0, 0);
+                //_hc.Location = new PointF(e.MarginBounds.Left, e.MarginBounds.Top);
+                //_hc.MaxSize = new SizeF(e.PageBounds.Width, e.PageBounds.Height);
+                _hc.PerformPaint(e.Graphics);
+                //scrollOffset -= pageSize.Height;
+                e.HasMorePages = false;
+            }
         }
-        private void QueryPageSettings(object sender, QueryPageSettingsEventArgs e)
-        {
-        }
-        private void EndPrint(object sender, PrintEventArgs e)
-        {
-        }
+
+        //private void QueryPageSettings(object sender, QueryPageSettingsEventArgs e)
+        //{
+        //}
+        //private void EndPrint(object sender, PrintEventArgs e)
+        //{
+        //}
 
         private void previewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EnhancedPrintPreviewDialog newPreview = new EnhancedPrintPreviewDialog();
-            newPreview.Owner = this;
-            newPreview.Document = PrintAncTree();
-            newPreview.ShowDialog();
+            ppreview_Click(null,null);
         }
 
         private void printerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -300,11 +336,8 @@ namespace FamilyGroup
 
         }
 
-        private void fillWeb(bool showUrl=true)
+        private string MakeWeb(bool showUrl = true)
         {
-            if (_family == null) // Invoked from event handlers
-                return;
-
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<html>");
 
@@ -337,8 +370,12 @@ namespace FamilyGroup
 
             sb.AppendLine("<style type=\"text/css\">");
             //sb.AppendFormat("body{{font-family: {0};font-size: 14px;padding: 30px 50px 50px 50px;margin: 0;}}",
-            sb.AppendFormat("body{{font-family: {0};font-size: {1}px;margin: 0;}}",
+
+            sb.AppendFormat("body{{font-family: {0};font-size: {1}px;margin: 0;padding: 10px 10px 10px 10px;}}",
                 fontFamily, fSize).AppendLine();
+
+            // TODO set margins as necessary
+            sb.AppendLine("page {background: white;display: block;margin-top: 0.5cm;margin-bottom: 0.5cm;margin-left: 0.5cm;overflow: hidden;background-color: white;padding: 0.5cm 0.5cm;}");
 
             if (rbFamGroup.Checked)
             {
@@ -351,7 +388,9 @@ namespace FamilyGroup
                 _ped5Draw.FillStyle();
 
             sb.AppendLine("</style>");
+
             sb.AppendLine("<body>");
+            sb.AppendLine("<page>"); // print+preview working only with page
 
             if (rbFamGroup.Checked)
             {
@@ -363,23 +402,34 @@ namespace FamilyGroup
             if (rbPed5.Checked)
                 _ped5Draw.DrawChart();
 
-            sb.AppendLine("</body></html>");
-            webBrowser1.DocumentText = sb.ToString();
+            sb.AppendLine("</page></body></html>");
+            return sb.ToString();
         }
 
-        private bool _printPreviewing;
-
-        private void button1_Click(object sender, EventArgs e)
+        private void fillWeb(bool showUrl=true)
         {
-            _printPreviewing = true;
-            fillWeb(false);
-//            webBrowser1.ShowPrintPreviewDialog();
+            if (_family == null) // Invoked from event handlers
+                return;
+            htmlPanel1.Text = MakeWeb(showUrl);
+        }
+
+//        private bool _printPreviewing;
+
+        private void ppreview_Click(object sender, EventArgs e)
+        {
+            // TODO KBR how to remember print/preview config?
+            // TODO KBR set to reasonable defaults
+
+            EnhancedPrintPreviewDialog newPreview = new EnhancedPrintPreviewDialog();
+            newPreview.Owner = this;
+            newPreview.Document = PrintAncTree();
+            newPreview.ShowDialog();
         }
 
         private void btnAutoSave_Click(object sender, EventArgs e)
         {
             var f = File.Open(@"z:\host_e\fam_grp_sht.html", FileMode.Create);
-            var str = webBrowser1.DocumentText;
+            var str = MakeWeb(false);
             var bytes = Encoding.UTF8.GetBytes(str);
             f.Write(bytes,0,bytes.Length);
             f.Close();
@@ -493,6 +543,7 @@ namespace FamilyGroup
                 cmbSelectPerson_SelectedIndexChanged(null,null);
         }
 
+#if false
         private bool firstTime = true;
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
@@ -532,16 +583,15 @@ namespace FamilyGroup
         {
             _famEdit.doEdit(param);
             fillWeb();
-            webBrowser1.Refresh();
         }
+#endif
 
-        private void Form1_Activated(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            // when print preview is complete, this message is invoked
-            if (_printPreviewing)
+            using (var sr = File.OpenText(@"Z:\host_e\proj\ged\html\fam_ped5_myhtml_tweak2_test.html"))
             {
-                fillWeb(); 
-                _printPreviewing = false;
+                var txt = sr.ReadToEnd();
+                htmlPanel1.Text = txt;
             }
         }
     }

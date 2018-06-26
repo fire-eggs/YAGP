@@ -36,10 +36,10 @@ namespace FamilyGroup
 
         protected string HtmlText(string inT)
         {
-            if (inT == null)
-                inT = Filler;
+            //if (inT == null)
+            //    inT = Filler;
             if (string.IsNullOrWhiteSpace(inT))
-                return "&nbsp;";
+                return Filler; //"&nbsp;";
             return WebUtility.HtmlEncode(inT);
         }
     }

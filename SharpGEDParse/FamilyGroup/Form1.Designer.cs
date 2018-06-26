@@ -48,7 +48,6 @@
             this.cmbPerson = new System.Windows.Forms.ComboBox();
             this.ppreview = new System.Windows.Forms.Button();
             this.btnAutoSave = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,6 +62,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbWebFont = new System.Windows.Forms.ComboBox();
             this.cmbFontSize = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.htmlPanel1 = new TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -180,6 +181,7 @@
             // rbFamGroup
             // 
             this.rbFamGroup.AutoSize = true;
+            this.rbFamGroup.Checked = true;
             this.rbFamGroup.Location = new System.Drawing.Point(3, 3);
             this.rbFamGroup.Name = "rbFamGroup";
             this.rbFamGroup.Size = new System.Drawing.Size(86, 17);
@@ -195,7 +197,6 @@
             this.rbPed4.Name = "rbPed4";
             this.rbPed4.Size = new System.Drawing.Size(105, 17);
             this.rbPed4.TabIndex = 1;
-            this.rbPed4.TabStop = true;
             this.rbPed4.Text = "Pedigree (4-Gen)";
             this.rbPed4.UseVisualStyleBackColor = true;
             // 
@@ -206,7 +207,6 @@
             this.rbPed5.Name = "rbPed5";
             this.rbPed5.Size = new System.Drawing.Size(105, 17);
             this.rbPed5.TabIndex = 2;
-            this.rbPed5.TabStop = true;
             this.rbPed5.Text = "Pedigree (5-Gen)";
             this.rbPed5.UseVisualStyleBackColor = true;
             // 
@@ -245,7 +245,7 @@
             this.ppreview.TabIndex = 3;
             this.ppreview.Text = "Print Preview";
             this.ppreview.UseVisualStyleBackColor = true;
-            this.ppreview.Click += new System.EventHandler(this.button1_Click);
+            this.ppreview.Click += new System.EventHandler(this.ppreview_Click);
             // 
             // btnAutoSave
             // 
@@ -257,25 +257,14 @@
             this.btnAutoSave.UseVisualStyleBackColor = true;
             this.btnAutoSave.Click += new System.EventHandler(this.btnAutoSave_Click);
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(263, 55);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(777, 488);
-            this.webBrowser1.TabIndex = 2;
-            this.webBrowser1.WebBrowserShortcutsEnabled = false;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.webBrowser1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.htmlPanel1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -302,15 +291,17 @@
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.cmbWebFont, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.cmbFontSize, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 6);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 55);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(254, 340);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
@@ -431,6 +422,31 @@
             this.cmbFontSize.TabIndex = 10;
             this.cmbFontSize.SelectedIndexChanged += new System.EventHandler(this.cmbFontSize_SelectedIndexChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 199);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // htmlPanel1
+            // 
+            this.htmlPanel1.AutoScroll = true;
+            this.htmlPanel1.AutoScrollMargin = new System.Drawing.Size(2, 2);
+            this.htmlPanel1.AutoScrollMinSize = new System.Drawing.Size(10, 0);
+            this.htmlPanel1.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlPanel1.BaseStylesheet = null;
+            this.htmlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.htmlPanel1.Location = new System.Drawing.Point(263, 55);
+            this.htmlPanel1.Name = "htmlPanel1";
+            this.htmlPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.htmlPanel1.Size = new System.Drawing.Size(777, 488);
+            this.htmlPanel1.TabIndex = 4;
+            this.htmlPanel1.Text = null;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,7 +458,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -476,7 +491,6 @@
         private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printItToolStripMenuItem;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button ppreview;
         private System.Windows.Forms.Button btnAutoSave;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -497,6 +511,8 @@
         private System.Windows.Forms.RadioButton rbFamGroup;
         private System.Windows.Forms.RadioButton rbPed4;
         private System.Windows.Forms.RadioButton rbPed5;
+        private TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel htmlPanel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
