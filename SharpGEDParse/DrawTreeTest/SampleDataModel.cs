@@ -10,7 +10,10 @@ namespace DrawTreeTest
             Parents = new List<string>();
             CurrentMarriage = -1;
             CurrentParents = -1;
+            IsDup = false;
         }
+
+        public bool IsDup { get; set; } // A person with this ID exists more than once in the tree
 
         public string Id { get; set; }
 

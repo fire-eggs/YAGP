@@ -49,6 +49,7 @@
       <Link>MruStripMenu.cs</Link>
     </Compile>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="DataSet.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +61,7 @@
     <Compile Include="SampleDataModel.cs" />
     <Compile Include="TreeHelpers.cs" />
     <Compile Include="TreeNodeModel.cs" />
+    <Compile Include="UnionData.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -34,12 +35,16 @@ namespace DrawTreeTest
         private const int NODE_MARGIN_Y = 40;
 
         private static Pen NODE_PEN = Pens.Gray;
+        private static Pen DUPL_PEN = Pens.LawnGreen;
         
         private List<SampleDataModel> _data;
         private TreeNodeModel<SampleDataModel> _tree;
 
         readonly List<object> _cmbItems = new List<object>();
         protected MruStripMenu mnuMRU;
+
+        private DataSet _data2;
+        private TreeNodeModel<UnionData> _tree2;
 
         public Form1()
         {
@@ -53,12 +58,6 @@ namespace DrawTreeTest
             mnuMRU.MaxEntries = 7;
 
             LoadSettings(); // NOTE: must go after mnuMRU init
-
-            //_data = GetSampleData();
-            //_tree = GetSampleTree(_data);
-            //TreeHelpers<SampleDataModel>.CalculateNodePositions(_tree);
-
-            //CalculateControlSize();
 
             DoubleBuffered = true;
             treePanel.Paint += treePanel_Paint;
@@ -255,11 +254,16 @@ namespace DrawTreeTest
         //}
 
         // converts list of sample items to hierarchial list of TreeNodeModels
-        
+
+        private Dictionary<string, TreeNodeModel<SampleDataModel>> _idsToNodes;
+
         private TreeNodeModel<SampleDataModel> GetSampleTree(List<SampleDataModel> data)
         {
             var root = data.FirstOrDefault(p => p.ParentId == string.Empty);
             var rootTreeNode = new TreeNodeModel<SampleDataModel>(root, null);
+
+            _idsToNodes = new Dictionary<string, TreeNodeModel<SampleDataModel>>();
+            _idsToNodes.Add(root.Id, rootTreeNode);
 
             // add tree node children recursively
             rootTreeNode.Children = GetChildNodes(data, rootTreeNode);
@@ -267,13 +271,24 @@ namespace DrawTreeTest
             return rootTreeNode;
         }
 
-        private static List<TreeNodeModel<SampleDataModel>> GetChildNodes(List<SampleDataModel> data, TreeNodeModel<SampleDataModel> parent)
+        private List<TreeNodeModel<SampleDataModel>> GetChildNodes(List<SampleDataModel> data, TreeNodeModel<SampleDataModel> parent)
         {
             var nodes = new List<TreeNodeModel<SampleDataModel>>();
 
             foreach (var item in data.Where(p => p.ParentId == parent.Item.Id))
             {
                 var treeNode = new TreeNodeModel<SampleDataModel>(item, parent);
+
+                if (_idsToNodes.ContainsKey(item.Id))
+                {
+                    var tnm = _idsToNodes[item.Id];
+                    tnm.Item.IsDup = true;
+
+                    item.IsDup = true;
+                }
+                else
+                    _idsToNodes.Add(item.Id, treeNode);
+
                 treeNode.Children = GetChildNodes(data, treeNode);
                 nodes.Add(treeNode);
             }
@@ -290,45 +305,62 @@ namespace DrawTreeTest
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
             e.Graphics.Clear(Color.AntiqueWhite);
-            if (_tree != null)
-                DrawNode(_tree, e.Graphics);
+
+            //if (_tree != null)
+            //    DrawNode(_tree, e.Graphics);
+            if (_tree2 != null)
+                DrawNode2(_tree2, e.Graphics);
         }
         
-        private void CalculateControlSize()
+//        private void CalculateControlSize()
+//        {
+//            // tree sizes are 0-based, so add 1
+//            var treeWidth = _tree.Width + 1;
+//            var treeHeight = _tree.Height + 1;
+
+//            Size calcSize = new Size(
+//                Convert.ToInt32((treeWidth * NODE_WIDTH) + ((treeWidth + 1) * NODE_MARGIN_X)),
+//                (treeHeight * NODE_HEIGHT) + ((treeHeight + 1) * NODE_MARGIN_Y));
+////            treePanel.Size = calcSize;
+//            treePanel.ClientSize = calcSize;
+//        }
+
+        private void CalculateControlSize2()
         {
             // tree sizes are 0-based, so add 1
-            var treeWidth = _tree.Width + 1;
-            var treeHeight = _tree.Height + 1;
+            var treeWidth = _tree2.Width + 1;
+            var treeHeight = _tree2.Height + 1;
 
             Size calcSize = new Size(
                 Convert.ToInt32((treeWidth * NODE_WIDTH) + ((treeWidth + 1) * NODE_MARGIN_X)),
                 (treeHeight * NODE_HEIGHT) + ((treeHeight + 1) * NODE_MARGIN_Y));
-//            treePanel.Size = calcSize;
+            //            treePanel.Size = calcSize;
             treePanel.ClientSize = calcSize;
         }
 
-        private void DrawNode(TreeNodeModel<SampleDataModel> node, Graphics g)
+        private void DrawNode2(TreeNodeModel<UnionData> node, Graphics g)
         {
             // rectangle where node will be positioned
             var nodeRect = this.nodeRect(node);
 
             // draw box
-            g.DrawRectangle(NODE_PEN, nodeRect);
+            g.DrawRectangle(node.Item.Link != -1 ? DUPL_PEN : NODE_PEN, nodeRect);
 
             // draw content
             {
                 string txt = node.ToString();
                 SizeF txtSz = g.MeasureString(txt, Font, 1000, StringFormat.GenericTypographic);
-                float txtX = nodeRect.X + nodeRect.Width/2.0f - txtSz.Width/2.0f;
+                float txtX = nodeRect.X + nodeRect.Width / 2.0f - txtSz.Width / 2.0f;
                 float txtY = nodeRect.Y + nodeRect.Height / 2.0f - txtSz.Height / 2.0f;
                 g.DrawString(node.ToString(), Font, Brushes.Black, txtX, txtY, StringFormat.GenericTypographic);
 
                 if (node.Item.CurrentMarriage != -1)
-                    g.DrawString("M", Font, Brushes.Black, nodeRect.Right + 1, nodeRect.Top+1, StringFormat.GenericTypographic);
-                if (node.Item.Parents.Count > 0)
-                    g.DrawString("P", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+                    g.DrawString("M", Font, Brushes.Black, nodeRect.Right + 1, nodeRect.Top + 1, StringFormat.GenericTypographic);
+
                 if (node.Item.CurrentParents != -1)
                     g.DrawString("A", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+                else if (node.Item.Parents.Count > 0)
+                    g.DrawString("P", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
 
             }
 
@@ -360,27 +392,134 @@ namespace DrawTreeTest
                 }
             }
 
+            DrawDupLink(node, g);
 
             foreach (var item in node.Children)
             {
-                DrawNode(item, g);
+                DrawNode2(item, g);
             }
+
         }
+
+        private TreeNodeModel<UnionData> FindNodeById(TreeNodeModel<UnionData> thisroot, int id)
+        {
+            if (thisroot.Item.Id == id)
+                return thisroot;
+            foreach (var child in thisroot.Children)
+            {
+                var res = FindNodeById(child, id);
+                if (res != null)
+                    return res;
+            }
+            return null;
+        }
+
+        private void DrawDupLink(TreeNodeModel<UnionData> node, Graphics g)
+        {
+            if (node.Item.Link == -1)
+                return;
+
+            TreeNodeModel<UnionData> destNode = FindNodeById(_tree2, node.Item.Link);
+            Debug.Assert(destNode != null);
+
+            var thisRect = this.nodeRect(node);
+            var destRect = this.nodeRect(destNode);
+
+            int midXDest = destRect.Left + (destRect.Right - destRect.Left)/2;
+            int midXthis = thisRect.Left + (thisRect.Right - thisRect.Left) / 2;
+            int midmidX = midXDest + (midXthis - midXDest)/2;
+
+            int midY = Math.Max(thisRect.Bottom, destRect.Bottom) + 10;
+
+            Point p1 = new Point(midXthis, thisRect.Bottom);
+            Point p2 = new Point(midmidX, midY);
+            Point p3 = new Point(midXDest, destRect.Bottom);
+
+            g.DrawCurve(DUPL_PEN, new Point[]{p1,p2,p3});
+        }
+
+        //private void DrawNode(TreeNodeModel<SampleDataModel> node, Graphics g)
+        //{
+        //    // rectangle where node will be positioned
+        //    var nodeRect = this.nodeRect(node);
+
+        //    // draw box
+        //    g.DrawRectangle(node.Item.IsDup ? DUPL_PEN : NODE_PEN, nodeRect);
+
+        //    // draw content
+        //    {
+        //        string txt = node.ToString();
+        //        SizeF txtSz = g.MeasureString(txt, Font, 1000, StringFormat.GenericTypographic);
+        //        float txtX = nodeRect.X + nodeRect.Width/2.0f - txtSz.Width/2.0f;
+        //        float txtY = nodeRect.Y + nodeRect.Height / 2.0f - txtSz.Height / 2.0f;
+        //        g.DrawString(node.ToString(), Font, Brushes.Black, txtX, txtY, StringFormat.GenericTypographic);
+
+        //        if (node.Item.CurrentMarriage != -1)
+        //            g.DrawString("M", Font, Brushes.Black, nodeRect.Right + 1, nodeRect.Top+1, StringFormat.GenericTypographic);
+        //        if (node.Item.Parents.Count > 0)
+        //            g.DrawString("P", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+        //        if (node.Item.CurrentParents != -1)
+        //            g.DrawString("A", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+
+        //    }
+
+        //    // draw line to parent
+        //    if (node.Parent != null)
+        //    {
+        //        var nodeTopMiddle = new Point(nodeRect.X + (nodeRect.Width / 2), nodeRect.Y);
+        //        g.DrawLine(NODE_PEN, nodeTopMiddle, new Point(nodeTopMiddle.X, nodeTopMiddle.Y - (NODE_MARGIN_Y / 2)));
+        //    }
+
+        //    // draw line to children
+        //    if (node.Children.Count > 0)
+        //    {
+        //        var nodeBottomMiddle = new Point(nodeRect.X + (nodeRect.Width / 2), nodeRect.Y + nodeRect.Height);
+        //        g.DrawLine(NODE_PEN, nodeBottomMiddle, new Point(nodeBottomMiddle.X, nodeBottomMiddle.Y + (NODE_MARGIN_Y / 2)));
+
+
+        //        // draw line over children
+        //        if (node.Children.Count > 1)
+        //        {
+        //            var childrenLineStart = new Point(
+        //                Convert.ToInt32(NODE_MARGIN_X + (node.GetRightMostChild().X * (NODE_WIDTH + NODE_MARGIN_X)) + (NODE_WIDTH / 2)),
+        //                nodeBottomMiddle.Y + (NODE_MARGIN_Y / 2));
+        //            var childrenLineEnd = new Point(
+        //                Convert.ToInt32(NODE_MARGIN_X + (node.GetLeftMostChild().X * (NODE_WIDTH + NODE_MARGIN_X)) + (NODE_WIDTH / 2)),
+        //                nodeBottomMiddle.Y + (NODE_MARGIN_Y / 2));
+
+        //            g.DrawLine(NODE_PEN, childrenLineStart, childrenLineEnd);
+        //        }
+        //    }
+
+
+        //    foreach (var item in node.Children)
+        //    {
+        //        DrawNode(item, g);
+        //    }
+        //}
 
         #endregion
 
         private void TreePerson(Person val)
         {
-            _data = GetDescendants(val);
+            _data2 = new DataSet(val);
+            _data2.GetDescendants();
+
+            //_data = GetDescendants(val);
             RebuildTree();
         }
 
         private void RebuildTree()
         {
             toolTip1.SetToolTip(treePanel, "");
-            _tree = GetSampleTree(_data);
-            TreeHelpers<SampleDataModel>.CalculateNodePositions(_tree);
-            CalculateControlSize();
+            //_tree = GetSampleTree(_data);
+            _tree2 = _data2.GetTree();
+
+            //TreeHelpers<SampleDataModel>.CalculateNodePositions(_tree);
+            TreeHelpers<UnionData>.CalculateNodePositions(_tree2);
+
+            //CalculateControlSize();
+            CalculateControlSize2();
             treePanel.Invalidate();
         }
 
@@ -437,12 +576,12 @@ namespace DrawTreeTest
 
             // TODO need a 'get spouse' method in Union!
             // spousein.count > 0 but may not have a spouse!
-            if (union.DadId == root.Id)
+            if (union.DadId == node.Id)
             {
                 node.HasSpouse = !string.IsNullOrEmpty(union.MomId);
                 node.SpouseId = union.MomId;
             }
-            if (union.MomId == root.Id)
+            if (union.MomId == node.Id)
             {
                 node.HasSpouse = !string.IsNullOrEmpty(union.DadId);
                 node.SpouseId = union.DadId;
@@ -512,83 +651,112 @@ namespace DrawTreeTest
             }
             personSel.DisplayMember = "Text";
             personSel.ValueMember = "Value";
+            personSel.SelectedIndex = -1;
             personSel.DataSource = _cmbItems;
             personSel.Enabled = true;
         }
 
-        private enum HitType { Person, Parent, Marriage, None };
+        private enum HitType { Person, Parent, Marriage, Adoptive, None };
 
         private void treePanel_Click(object sender, EventArgs eventArgs)
         {
             MouseEventArgs e = eventArgs as MouseEventArgs;
-            string pId;
-            HitType what;
-            if (!treeIntersect(e.X, e.Y, out pId, out what))
+
+            TreeNodeModel<UnionData> node = null;
+            HitType what = TreeIntersect(e.X, e.Y, ref node, _tree2);
+            if (what == HitType.None)
                 return;
-            Person p = gedtrees.PersonById(pId);
-            if (what == HitType.Parent)
+
+            Person p = gedtrees.PersonById(node.Item.PersonId);
+            switch (what)
             {
-                Union u = p.ChildIn.First();
-                Debug.Assert(p.ChildIn.Count < 2); // TODO adoption case
-                personSel.SelectedIndex = -1;
-                TreePerson(u.Husband ?? u.Wife);
-            }
-            else if (what == HitType.Person)
-            {
+            case HitType.Person:
                 personSel.SelectedIndex = -1;
                 TreePerson(p);
-            }
-            else if (what == HitType.Marriage)
-            {
-                SampleDataModel item = _data.Find(x => x.Id == pId);
-                Debug.Assert(item != null);
-                item.CurrentMarriage++;
-                if (p.SpouseIn.Count <= item.CurrentMarriage)
-                    item.CurrentMarriage = 0;
-                RebuildChildren(item, p);
-                RebuildTree();
-            }
-        }
-
-        // TODO wouldn't a Hash be better?
-
-        private void DeleteChildrenOf(string id)
-        {
-            List<string> toDelete = new List<string>();
-            foreach (var sampleDataModel in _data)
-            {
-                if (sampleDataModel.ParentId == id)
-                    toDelete.Add(sampleDataModel.Id);
-            }
-            foreach (var todel in toDelete)
-            {
-                DeleteChildrenOf(todel);
-            }
-            _data.RemoveAll(x => x.ParentId == id);
-        }
-
-        private void RebuildChildren(SampleDataModel node, Person person)
-        {
-            // TODO rebuild spouse
-
-            // Marriage has been changed. 
-            // 1. Existing children AND descendants need to be removed.
-            // 2. Children from selected marriage need to be added.
-            DeleteChildrenOf(person.Id);
-
-            int index = 0;
-            foreach (var union1 in person.SpouseIn)
-            {
-                if (index == node.CurrentMarriage)
+                break;
+            case HitType.Parent:
                 {
-                    foreach (var achild in union1.Childs)
-                    {
-                        GetDescendants(_data, achild, node.Id);
-                    }
+                Union u = p.ChildIn.First();
+                Debug.Assert(p.ChildIn.Count < 2); // TODO adoptive parents for root
+                personSel.SelectedIndex = -1;
+                TreePerson(u.Husband ?? u.Wife);
                 }
-                index++;
+                break;
+            case HitType.Adoptive:
+                {
+                int parentDex = node.Item.CurrentParents + 1;
+                if (parentDex >= p.ChildIn.Count)
+                    parentDex = 0;
+                // TODO why is ChildIn a HashSet?
+                Union u = p.ChildIn.ToArray()[parentDex];
+                personSel.SelectedIndex = -1;
+                TreePerson(u.Husband ?? u.Wife);
+                // TODO update CurrentParents value in new node!!
+                }
+                break;
+            case HitType.Marriage:
+                RebuildChildren(node.Item, p);
+                RebuildTree();
+                break;
             }
         }
+
+        //private void DeleteChildrenOf(string id)
+        //{
+        //    List<string> toDelete = new List<string>();
+        //    foreach (var sampleDataModel in _data)
+        //    {
+        //        if (sampleDataModel.ParentId == id)
+        //            toDelete.Add(sampleDataModel.Id);
+        //    }
+        //    foreach (var todel in toDelete)
+        //    {
+        //        DeleteChildrenOf(todel);
+        //    }
+        //    _data.RemoveAll(x => x.ParentId == id);
+        //}
+
+        private void RebuildChildren(UnionData node, Person p)
+        {
+            // Marriage has been changed. 
+            // 1. Existing node, children AND descendants need to be removed.
+            // 2. Sub-tree with selected marriage needs to be added.
+
+            int newUnionNum = node.CurrentMarriage + 1;
+            if (newUnionNum >= p.SpouseIn.Count)
+                newUnionNum = 0;
+
+            UnionData newItem = node.ShallowCopy();
+            newItem.CurrentMarriage = newUnionNum;
+
+            Union u = p.SpouseIn.ToArray()[newUnionNum];
+            newItem.UnionId = u.Id;
+
+            _data2.Replace(newItem, u);
+        }
+
+        //private void RebuildChildren(SampleDataModel node, Person person)
+        //{
+        //    // TODO rebuild spouse
+
+        //    // Marriage has been changed. 
+        //    // 1. Existing children AND descendants need to be removed.
+        //    // 2. Children from selected marriage need to be added.
+        //    DeleteChildrenOf(person.Id);
+
+        //    int index = 0;
+        //    foreach (var union1 in person.SpouseIn)
+        //    {
+        //        if (index == node.CurrentMarriage)
+        //        {
+        //            foreach (var achild in union1.Childs)
+        //            {
+        //                GetDescendants(_data, achild, node.Id);
+        //            }
+        //        }
+        //        index++;
+        //    }
+        //}
 
         private Point oldLocation = Point.Empty;
 
@@ -596,39 +764,51 @@ namespace DrawTreeTest
         {
             base.OnMouseMove(e);
 
-            if (e.Location == oldLocation || _tree == null) // TODO tooltip causing infinite mouse move events?
+            if (e.Location == oldLocation || _tree2 == null) // TODO tooltip causing infinite mouse move events?
                 return;
             oldLocation = e.Location;
 
-            string pId;
-            HitType what;
-            if (!treeIntersect(e.X, e.Y, out pId, out what))
-            {
-                treePanel.Cursor = Cursors.Arrow;
-            }
-
+            TreeNodeModel<UnionData> node = null;
+            HitType what = TreeIntersect(e.X, e.Y, ref node, _tree2);
             string ttxt = "";
             treePanel.Cursor = Cursors.Hand;
             switch (what)
             {
-            case HitType.Person:
-                {
-                    Person p = gedtrees.PersonById(pId);
+                case HitType.Person:
+                    Person p = gedtrees.PersonById(node.Item.PersonId);
                     string bdate = p.Birth == null ? "" : "\n" + p.Birth.Date;
                     ttxt = String.Format("{0}{1}", p.Name, bdate);
-                }
-                break;
-            case HitType.Marriage:
-                ttxt = "Another marriage";
-                break;
-            case HitType.Parent:
-                ttxt = "View parent";
-                break;
-            default:
-                treePanel.Cursor = Cursors.Arrow;
-                break;
+                    break;
+                case HitType.Marriage:
+                    ttxt = "Another marriage";
+                    break;
+                case HitType.Parent:
+                    ttxt = "View parent";
+                    break;
+                case HitType.Adoptive:
+                    ttxt = "Another parent";
+                    break;
+                case HitType.None:
+                    treePanel.Cursor = Cursors.Arrow;
+                    break;
             }
             toolTip1.Show(ttxt, treePanel, e.X + 15, e.Y + 15); // TODO use cursor size for offset
+        }
+
+        private Rectangle nodeRect(TreeNodeModel<UnionData> node)
+        {
+            // TODO This changes only on paint - store in data
+            int x = (int)(NODE_MARGIN_X + (node.X * (NODE_WIDTH + NODE_MARGIN_X)));
+            int w = NODE_WIDTH;
+            if (node.Item.IsUnion)
+            {
+                w += NODE_WIDTH;
+                x -= NODE_WIDTH / 2;
+            }
+            var rect = new Rectangle(x,
+                NODE_MARGIN_Y + (node.Y * (NODE_HEIGHT + NODE_MARGIN_Y))
+                , w, NODE_HEIGHT);
+            return rect;
         }
 
         private Rectangle nodeRect(TreeNodeModel<SampleDataModel> node)
@@ -648,55 +828,111 @@ namespace DrawTreeTest
             return rect;
         }
 
-        private bool treeIntersect(int x, int y, ref string who, ref HitType what, TreeNodeModel<SampleDataModel> tree )
+        private HitType TreeIntersect(int x, int y, ref TreeNodeModel<UnionData> node, TreeNodeModel<UnionData> thisroot)
         {
-            who = tree.Item.Id;
-            what = HitType.None;
-
-            var rect = nodeRect(tree);
+            var rect = nodeRect(thisroot);
             if (rect.Contains(x, y))
             {
-                what = HitType.Person;
-                return true;
+                node = thisroot;
+                return HitType.Person;
             }
 
-            // Marriage toggle
-            if (tree.Item.CurrentMarriage != -1)
+            // alternate marriage
+            if (thisroot.Item.CurrentMarriage != -1)
             {
                 // TODO calc and store during draw when we have actual sizes
                 var marrRect = new Rectangle(rect.Right + 1, rect.Top + 1, 10, 19);
                 if (marrRect.Contains(x, y))
                 {
-                    what = HitType.Marriage;
-                    return true;
+                    node = thisroot;
+                    return HitType.Marriage;
                 }
             }
 
-            // Parent(s)
-            if (tree.Item.Parents.Count > 0)
+            // Root, parents
+            if (thisroot.Parent == null)
+            {
+                // TODO root adoptive parents
+                // TODO calc and store during draw with actual sizes
+                var parRect = new Rectangle(rect.Left + 1, rect.Top - 20, 10, 19);
+                if (parRect.Contains(x, y))
+                {
+                    node = thisroot;
+                    return HitType.Parent;
+                }
+            }
+
+            // Alternate parents
+            if (thisroot.Item.Parents.Count > 0)
             {
                 // TODO calc and store during draw when we have actual sizes
                 var parRect = new Rectangle(rect.Left + 1, rect.Top - 20, 10, 19);
                 if (parRect.Contains(x, y))
                 {
-                    what = HitType.Parent;
-                    return true;
+                    node = thisroot;
+                    return HitType.Adoptive;
                 }
             }
 
-            foreach (var child in tree.Children)
+            // No hit on this node, try its children
+            foreach (var child in thisroot.Children)
             {
-                if (treeIntersect(x, y, ref who, ref what, child))
-                    return true;
+                var res = TreeIntersect(x, y, ref node, child);
+                if (res != HitType.None)
+                    return res;
             }
-            return false;
+            return HitType.None;
         }
 
-        private bool treeIntersect(int x, int y, out string who, out HitType what)
-        {
-            who = "";
-            what = HitType.Person;
-            return treeIntersect(x, y, ref who, ref what, _tree);
-        }
+        //private bool treeIntersect(int x, int y, ref string who, ref HitType what, TreeNodeModel<SampleDataModel> tree )
+        //{
+        //    who = tree.Item.Id;
+        //    what = HitType.None;
+
+        //    var rect = nodeRect(tree);
+        //    if (rect.Contains(x, y))
+        //    {
+        //        what = HitType.Person;
+        //        return true;
+        //    }
+
+        //    // Marriage toggle
+        //    if (tree.Item.CurrentMarriage != -1)
+        //    {
+        //        // TODO calc and store during draw when we have actual sizes
+        //        var marrRect = new Rectangle(rect.Right + 1, rect.Top + 1, 10, 19);
+        //        if (marrRect.Contains(x, y))
+        //        {
+        //            what = HitType.Marriage;
+        //            return true;
+        //        }
+        //    }
+
+        //    // Parent(s)
+        //    if (tree.Item.Parents.Count > 0)
+        //    {
+        //        // TODO calc and store during draw when we have actual sizes
+        //        var parRect = new Rectangle(rect.Left + 1, rect.Top - 20, 10, 19);
+        //        if (parRect.Contains(x, y))
+        //        {
+        //            what = HitType.Parent;
+        //            return true;
+        //        }
+        //    }
+
+        //    foreach (var child in tree.Children)
+        //    {
+        //        if (treeIntersect(x, y, ref who, ref what, child))
+        //            return true;
+        //    }
+        //    return false;
+        //}
+
+        //private bool treeIntersect(int x, int y, out string who, out HitType what)
+        //{
+        //    who = "";
+        //    what = HitType.Person;
+        //    return treeIntersect(x, y, ref who, ref what, _tree);
+        //}
     }
 }
