@@ -307,11 +307,6 @@ namespace DrawTreeTest
 
         private void ProcessGED(string gedPath)
         {
-            personSel.SelectedIndexChanged -= personSel_SelectedIndexChanged;
-            personSel.Enabled = false;
-            personSel.BeginUpdate();
-            _cmbItems.Clear();
-
             Text = gedPath;
             Application.DoEvents(); // Cycle events so image updates in case GED load/process takes a while
             LoadGed();
@@ -345,6 +340,12 @@ namespace DrawTreeTest
 
             // TODO people should be distinguished by date range [as seen on tamurajones.net... where?]
 
+            personSel.SelectedIndexChanged -= personSel_SelectedIndexChanged;
+            personSel.Enabled = false;
+            personSel.BeginUpdate();
+            personSel.DataSource = null;
+            _cmbItems.Clear();
+
             HashSet<string> comboNames = new HashSet<string>();
             foreach (var indiId in gedtrees.AllIndiIds)
             {
@@ -362,6 +363,7 @@ namespace DrawTreeTest
 
             personSel.DisplayMember = "Text";
             personSel.ValueMember = "Value";
+            personSel.DataSource = _cmbItems;
             personSel.EndUpdate();
             personSel.Enabled = true;
             personSel.SelectedIndexChanged += personSel_SelectedIndexChanged;
