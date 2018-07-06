@@ -35,6 +35,9 @@ namespace DrawTreeTest
         // Drives alternate marriages / adoption
         public string PersonId { get; set; }
 
+        // The INDI id for the spouse, iff a union
+        public string SpouseId { get; set; }
+
         // In the case of a duplicate, children of this node
         // have been removed and a link should be drawn to
         // the other node.
@@ -50,10 +53,9 @@ namespace DrawTreeTest
 
         public override string ToString()
         {
-            if (IsUnion)
-                return UnionId; // TODO show spouse IDs
-            else
+            if (!IsUnion)
                 return PersonId;
+            return string.Format("{0}:{1}+{2}", UnionId, PersonId, SpouseId);
         }
     }
 }

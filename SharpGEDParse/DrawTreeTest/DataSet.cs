@@ -67,7 +67,8 @@ namespace DrawTreeTest
             var union = thisroot.SpouseIn.First();
             thisNode.CurrentMarriage = thisroot.SpouseIn.Count > 1 ? 0 : -1;
             thisNode.UnionId = union.Id;
-            // TODO spouse ids
+            Person spouse = union.Spouse(thisroot);
+            thisNode.SpouseId = spouse == null ? "??" : spouse.Id;
 
             // Marriage may appear more than once. If already exists,
             // link this node to the first one, and do NOT fetch children
