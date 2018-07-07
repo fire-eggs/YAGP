@@ -390,7 +390,7 @@ namespace DrawTreeTest
                 break;
             case HitType.Parent:
                 {
-                Union u = p.ChildIn.First();
+                Union u = p.ChildIn.FirstOrDefault();
                 Debug.Assert(p.ChildIn.Count < 2); // TODO adoptive parents for root
                 personSel.SelectedIndex = -1;
                 TreePerson(u.Husband ?? u.Wife);
@@ -509,7 +509,7 @@ namespace DrawTreeTest
             }
 
             // Root, parents
-            if (thisroot.Parent == null)
+            if (thisroot.Parent == null && thisroot.Item.CurrentParents != -1)
             {
                 // TODO root adoptive parents
                 // TODO calc and store during draw with actual sizes
