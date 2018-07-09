@@ -548,21 +548,38 @@ namespace DrawTreeTest
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            Console.WriteLine("{0}|{1}", e.KeyCode, e.Control);
+//            Console.WriteLine("{0}|{1}", e.KeyCode, e.Control);
             if (!e.Control)
                 return;
             if (e.KeyCode == Keys.Oemplus)
             {
-                _zoom += 0.1f;
-                CalculateControlSize2();
-                treePanel.Invalidate();
+                btnZoomIn_Click(null,null);
             }
             else if (e.KeyCode == Keys.OemMinus)
             {
-                _zoom -= 0.1f;
-                CalculateControlSize2();
-                treePanel.Invalidate();
+                btnZoomOut_Click(null,null);
             }
+        }
+
+        private void btn100Percent_Click(object sender, EventArgs e)
+        {
+            _zoom = 1.0f;
+            CalculateControlSize2();
+            treePanel.Invalidate();
+        }
+
+        private void btnZoomIn_Click(object sender, EventArgs e)
+        {
+            _zoom += 0.1f;
+            CalculateControlSize2();
+            treePanel.Invalidate();
+        }
+
+        private void btnZoomOut_Click(object sender, EventArgs e)
+        {
+            _zoom -= 0.1f;
+            CalculateControlSize2();
+            treePanel.Invalidate();
         }
     }
 }
