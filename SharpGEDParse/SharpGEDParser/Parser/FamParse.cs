@@ -110,10 +110,16 @@ namespace SharpGEDParser.Parser
                 fam.Errors.Add(err);
                 return;
             }
-
+#if XREFTRACK
+            int key = XrefTrack.Instance.StoreXref(xref);
+#endif
             foreach (var child in fam.Childs)
             {
+#if XREFTRACK
+                if (child.Key == key)
+#else
                 if (child.Xref == xref)
+#endif
                 {
                     UnkRec err = new UnkRec();
                     err.Error = UnkRec.ErrorCode.MultCHIL; // TODO "CHIL ident used more than once (one person cannot be two children)";

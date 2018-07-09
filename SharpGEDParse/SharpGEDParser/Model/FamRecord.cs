@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SharpGEDParser.Parser;
 
 namespace SharpGEDParser.Model
 {
@@ -149,7 +150,17 @@ namespace SharpGEDParser.Model
         /// <summary>
         /// The cross-reference to the individual who is a child.
         /// </summary>
+#if XREFTRACK
+        public int Key { get; set; }
+        public string Xref
+        {
+            get { return XrefTrack.Instance.GetXref(Key); }
+            set { Key = XrefTrack.Instance.StoreXref(value); }
+        }
+#else
         public string Xref { get; set; }
+#endif
+
 
         /// <summary>
         /// Relationship of the child to the mother.

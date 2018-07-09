@@ -132,7 +132,9 @@ namespace SharpGEDParser
 #elif NOTESTREAM
             var foo = NoteStream.Instance;
 #endif
-
+#if XREFTRACK
+            var bar = XrefTrack.Instance;
+#endif
             try
             {
                 if (gedPath == null)

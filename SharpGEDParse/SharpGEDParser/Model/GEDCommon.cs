@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SharpGEDParser.Parser;
 
 // ReSharper disable InconsistentNaming
 
@@ -118,7 +119,16 @@ namespace SharpGEDParser.Model
         public abstract string Tag { get; }
 
         /// The record's id
+#if XREFTRACK
+        private int _identKey;
+        public string Ident
+        {
+            get { return XrefTrack.Instance.GetXref(_identKey); }
+            set { _identKey = XrefTrack.Instance.StoreXref(value); }
+        }
+#else
         public string Ident { get; set; }
+#endif
 
         /// The first line of the record in the original GEDCOM
         public int BegLine { get; set; }
