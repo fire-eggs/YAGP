@@ -29,13 +29,14 @@ namespace DrawTreeTest
 {
     public partial class Form1 : Form
     {
-        private const int NODE_HEIGHT = 30;
-        private const int NODE_WIDTH = 40;
-        private const int NODE_MARGIN_X = 50;
-        private const int NODE_MARGIN_Y = 40;
+        private const int NODE_HEIGHT = 40;
+        private const int NODE_WIDTH = 120;
+        private const int NODE_MARGIN_X = 40;
+        private const int NODE_MARGIN_Y = 50;
 
         private static Pen NODE_PEN = Pens.Gray;
         private static Pen DUPL_PEN = new Pen(Color.CornflowerBlue) {DashStyle = DashStyle.Dash};
+        private static Pen MMARG_PEN = new Pen(Color.Coral) { DashStyle = DashStyle.Dash };
         
         readonly List<object> _cmbItems = new List<object>();
         protected MruStripMenu mnuMRU;
@@ -49,7 +50,7 @@ namespace DrawTreeTest
 
             personSel.DisplayMember = "Text";
             personSel.ValueMember = "Value";
-            personSel.DataSource = _cmbItems;
+            try { personSel.DataSource = _cmbItems; } catch { }
 
             mnuMRU = new MruStripMenuInline(fileToolStripMenuItem, recentFilesToolStripMenuItem, OnMRU);
             mnuMRU.MaxEntries = 7;
@@ -190,7 +191,12 @@ namespace DrawTreeTest
             // draw content
             {
                 string txt = node.ToString();
-                SizeF txtSz = g.MeasureString(txt, Font, 1000, StringFormat.GenericTypographic);
+#if NOTTEST
+                SizeF txtSz = g.MeasureString(txt, Font, NODE_WIDTH, StringFormat.GenericTypographic);
+#else
+                SizeF txtSz = g.MeasureString(txt, Font, 1000, StringFormat.GenericTypographic); // multi-line
+                SizeF txtSz2 = g.MeasureString("W", Font, 5, StringFormat.GenericTypographic);  // single-line
+#endif
                 float txtX = nodeRect.X + nodeRect.Width / 2.0f - txtSz.Width / 2.0f;
                 float txtY = nodeRect.Y + nodeRect.Height / 2.0f - txtSz.Height / 2.0f;
                 g.DrawString(node.ToString(), Font, Brushes.Black, txtX, txtY, StringFormat.GenericTypographic);
@@ -199,17 +205,27 @@ namespace DrawTreeTest
                     g.DrawString("M", Font, Brushes.Black, nodeRect.Right + 1, nodeRect.Top + 1, StringFormat.GenericTypographic);
 
                 if (node.Item.CurrentParents != -1)
-                    g.DrawString("A", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+                    g.DrawString("A", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz2.Height - 1, StringFormat.GenericTypographic);
                 else if (node.Item.Parents.Count > 0)
-                    g.DrawString("P", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz.Height - 1, StringFormat.GenericTypographic);
+                    g.DrawString("P", Font, Brushes.Black, nodeRect.Left + 1, nodeRect.Top - txtSz2.Height - 1, StringFormat.GenericTypographic);
 
             }
 
             // draw line to parent
-            if (node.Parent != null)
+            if (node.Parent != null && node.Item.DrawParentLink)
             {
                 var nodeTopMiddle = new Point(nodeRect.X + (nodeRect.Width / 2), nodeRect.Y);
                 g.DrawLine(NODE_PEN, nodeTopMiddle, new Point(nodeTopMiddle.X, nodeTopMiddle.Y - (NODE_MARGIN_Y / 2)));
+            }
+
+            // draw line to other marriage
+            if (!node.Item.DrawParentLink)
+            {
+                var sib = node.GetPreviousSibling();
+                var sibRect = this.nodeRect(sib);
+                var myLeftMiddle = new Point(nodeRect.X, nodeRect.Y + (nodeRect.Height/2));
+                var sibRightMiddle = new Point(sibRect.X + sibRect.Width, sibRect.Y + (sibRect.Height/2));
+                g.DrawLine(MMARG_PEN, myLeftMiddle, sibRightMiddle); // TODO 3rd marriage etc not have distinct line
             }
 
             // draw line to children
@@ -222,8 +238,12 @@ namespace DrawTreeTest
                 // draw line over children
                 if (node.Children.Count > 1)
                 {
+                    var rmc = node.GetRightMostChild(); // take multi-marriage into account
+                    while (!rmc.Item.DrawParentLink)
+                        rmc = rmc.GetPreviousSibling();
+
                     var childrenLineStart = new Point(
-                        Convert.ToInt32(NODE_MARGIN_X + (node.GetRightMostChild().X * (NODE_WIDTH + NODE_MARGIN_X)) + (NODE_WIDTH / 2)),
+                        Convert.ToInt32(NODE_MARGIN_X + (rmc.X * (NODE_WIDTH + NODE_MARGIN_X)) + (NODE_WIDTH / 2)),
                         nodeBottomMiddle.Y + (NODE_MARGIN_Y / 2));
                     var childrenLineEnd = new Point(
                         Convert.ToInt32(NODE_MARGIN_X + (node.GetLeftMostChild().X * (NODE_WIDTH + NODE_MARGIN_X)) + (NODE_WIDTH / 2)),
@@ -479,11 +499,11 @@ namespace DrawTreeTest
             // TODO This changes only on paint - store in data
             int x = (int)(NODE_MARGIN_X + (node.X * (NODE_WIDTH + NODE_MARGIN_X)));
             int w = NODE_WIDTH;
-            if (node.Item.IsUnion)
-            {
-                w += NODE_WIDTH;
-                x -= NODE_WIDTH / 2;
-            }
+            //if (node.Item.IsUnion)
+            //{
+            //    w += NODE_WIDTH;
+            //    x -= (int)(NODE_WIDTH * 0.5);
+            //}
             var rect = new Rectangle(x,
                 NODE_MARGIN_Y + (node.Y * (NODE_HEIGHT + NODE_MARGIN_Y))
                 , w, NODE_HEIGHT);

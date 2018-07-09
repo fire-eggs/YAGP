@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DrawTreeTest
 {
@@ -91,7 +89,11 @@ namespace DrawTreeTest
             else
             {
                 var leftChild = node.GetLeftMostChild();
+#if NOTTEST
                 var rightChild = node.GetRightMostChild();
+#else
+                var rightChild = node.GetRightMostChild2();
+#endif 
                 var mid = (leftChild.X + rightChild.X) / 2;
  
                 if (node.IsLeftMost())

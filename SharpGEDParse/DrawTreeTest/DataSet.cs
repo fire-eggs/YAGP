@@ -24,7 +24,7 @@ namespace DrawTreeTest
             GetDescendants(_root, -1);
         }
 
-        private void GetDescendants(Person thisroot, int parentNodeId)
+        private UnionData InitNode(Person thisroot, int parentNodeId)
         {
             UnionData thisNode = new UnionData();
             thisNode.Id = _dex;
@@ -33,9 +33,13 @@ namespace DrawTreeTest
             thisNode.ParentId = parentNodeId;
             thisNode.Who = thisroot;
             _tree.Add(thisNode);
+            return thisNode;
+        }
 
+        private void RootNav(UnionData thisNode, Person thisroot) // TODO can use Who
+        {
             // Navigation to parents - for root only
-            if (parentNodeId == -1 && thisroot.ChildIn.Count > 0)
+            if (thisNode.ParentId == -1 && thisroot.ChildIn.Count > 0)
             {
                 foreach (var union1 in thisroot.ChildIn)
                 {
@@ -43,9 +47,12 @@ namespace DrawTreeTest
                     thisNode.Parents.Add(union1.MomId);
                 }
             }
+        }
 
+        private void MultiParent(UnionData thisNode, Person thisroot)// TODO can use Who
+        {
             // Non-root node: multiple parents
-            if (thisroot.ChildIn.Count > 1 && parentNodeId != -1)
+            if (thisroot.ChildIn.Count > 1 && thisNode.ParentId != -1)
             {
                 thisNode.CurrentParents = 0;
                 foreach (var union1 in thisroot.ChildIn)
@@ -54,20 +61,34 @@ namespace DrawTreeTest
                     thisNode.Parents.Add(union1.MomId);
                 }
             }
+        }
 
-            // Is this node a union or a person?
-            if (thisroot.SpouseIn.Count < 1)
-            {
-                // Not married: no descendants, no spouse
-                thisNode.IsUnion = false;
-                return;
-            }
+        private void AddSingleton(Person thisroot, int parentNodeId)
+        {
+            // Not married: no descendants, no spouse
 
-            // Is a union. Initialize to the first marriage.
+            var thisNode = InitNode(thisroot, parentNodeId);
+            RootNav(thisNode, thisroot);
+            MultiParent(thisNode, thisroot);
+            thisNode.IsUnion = false;
+            thisNode.DrawParentLink = true;
+        }
+
+        private void AddUnion(Person thisroot, int parentNodeId, Union union, bool first)
+        {
+            var thisNode = InitNode(thisroot, parentNodeId);
+            RootNav(thisNode, thisroot);
+            MultiParent(thisNode, thisroot);
+
+            thisNode.DrawParentLink = first;
             thisNode.IsUnion = true;
+
+#if NOTTEST
             var union = thisroot.SpouseIn.First();
             thisNode.CurrentMarriage = thisroot.SpouseIn.Count > 1 ? 0 : -1;
+#else
             thisNode.UnionId = union.Id;
+#endif
             Person spouse = union.Spouse(thisroot);
             thisNode.Spouse = spouse;
             thisNode.SpouseId = spouse == null ? "??" : spouse.Id;
@@ -88,6 +109,22 @@ namespace DrawTreeTest
             foreach (var achild in union.Childs)
             {
                 GetDescendants(achild, thisNode.Id);
+            }
+        }
+
+        private void GetDescendants(Person thisroot, int parentNodeId)
+        {
+            // Test: treat a person's multiple marriages as multiple nodes
+            if (thisroot.SpouseIn.Count == 0)
+            {
+                AddSingleton(thisroot, parentNodeId);
+                return;
+            }
+            bool first = true;
+            foreach (var union1 in thisroot.SpouseIn)
+            {
+                AddUnion(thisroot, parentNodeId, union1, first);
+                first = false;
             }
         }
 

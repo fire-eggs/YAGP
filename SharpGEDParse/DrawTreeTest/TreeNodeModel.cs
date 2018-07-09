@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GEDWrap;
 
 namespace DrawTreeTest
 {
@@ -76,6 +77,25 @@ namespace DrawTreeTest
                 return null;
 
             return Children[0];
+        }
+
+        public TreeNodeModel<T> GetRightMostChild2()
+        {
+            if (Children.Count == 0)
+                return null;
+
+            var rmc = Children[Children.Count - 1];
+
+            UnionData it = rmc.Item as UnionData;
+            if (it == null)
+                return rmc;
+
+            while (!it.DrawParentLink)
+            {
+                rmc = rmc.GetPreviousSibling();
+                it = rmc.Item as UnionData;
+            }
+            return rmc;
         }
 
         public TreeNodeModel<T> GetRightMostChild()

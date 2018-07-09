@@ -50,7 +50,10 @@ namespace DrawTreeTest
 
         public List<string> Parents { get; private set; }
 
-        public int CurrentParents { get; set; } // More than one parent set if not -1
+        public int CurrentParents { get; set; }
+        public bool DrawParentLink { get; set; } // will be false if 2d and larger in a person's multi-marriages
+
+// More than one parent set if not -1
 
         public override string ToString()
         {
