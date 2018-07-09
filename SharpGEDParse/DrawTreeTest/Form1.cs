@@ -347,20 +347,23 @@ namespace DrawTreeTest
             _cmbItems.Clear();
 
             HashSet<string> comboNames = new HashSet<string>();
+            Dictionary<string, Person> comboPersons = new Dictionary<string, Person>();
             foreach (var indiId in gedtrees.AllIndiIds)
             {
                 Person p = gedtrees.PersonById(indiId);
 
-                //// for each person, show the # of individuals available in (first) pedigree
-                //Pedigrees pd = new Pedigrees(p, firstOnly: true);
-                //p.Ahnen = pd.GetPedigreeMax(0);
-                //var text = string.Format("{0} [{1}] ({2})", p.Name, indiId, p.Ahnen);
-
-                var text = string.Format("{0} [{1}]", p.Name, indiId);
+                var text = string.Format("{0},{1} [{2}]", p.Surname, p.Given, indiId);
                 comboNames.Add(text);
-                _cmbItems.Add(new { Text = text, Value = p });
+                comboPersons.Add(text, p);
             }
 
+            var nameSort = comboNames.ToArray();
+            Array.Sort(nameSort);
+            foreach (var s in nameSort)
+            {
+                _cmbItems.Add(new {Text=s,Value=comboPersons[s]});
+            }
+            
             personSel.DisplayMember = "Text";
             personSel.ValueMember = "Value";
             personSel.DataSource = _cmbItems;
