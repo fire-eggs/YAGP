@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
+// A singleton to persist NOTE text to file storage.
 
 namespace SharpGEDParser.Parser
 {
@@ -46,7 +46,7 @@ namespace SharpGEDParser.Parser
             {
                 Int64 pos = _data.Position;
                 int bLen = Encoding.UTF8.GetByteCount(text);
-                if (bLen < 512)
+                if (bLen < 1024)
                 {
                     Encoding.UTF8.GetBytes(text, 0, text.Length, _buf, 0);
                     _data.Write(_buf, 0, bLen);

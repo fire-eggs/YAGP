@@ -93,7 +93,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void FamcBadSub()
         {
-            var indi2 = "0 INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
+            var indi2 = "0 @I1@ INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreNotEqual(0, rec.Errors.Count);
