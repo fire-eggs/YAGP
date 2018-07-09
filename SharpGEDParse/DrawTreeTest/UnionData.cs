@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using GEDWrap;
 
 namespace DrawTreeTest
 {
@@ -31,6 +33,9 @@ namespace DrawTreeTest
         // Drives alternate marriages / adoption
         public string PersonId { get; set; }
 
+        public Person Who { get; set; }
+        public Person Spouse { get; set; }
+
         // The INDI id for the spouse, iff a union
         public string SpouseId { get; set; }
 
@@ -50,8 +55,11 @@ namespace DrawTreeTest
         public override string ToString()
         {
             if (!IsUnion)
-                return PersonId;
-            return string.Format("{0}:{1}+{2}", UnionId, PersonId, SpouseId);
+                return PersonId + Environment.NewLine + Who.Name;
+            string line1 = string.Format("{0}:{1}+{2}", UnionId, PersonId, SpouseId);
+            string line2 = Who != null ? Who.Name : "";
+            string line3 = Spouse != null ? Spouse.Name : "";
+            return line1 + Environment.NewLine + line2 + Environment.NewLine + line3;
         }
     }
 }

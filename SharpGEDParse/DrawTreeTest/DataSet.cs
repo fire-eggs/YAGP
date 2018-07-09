@@ -31,6 +31,7 @@ namespace DrawTreeTest
             _dex = _dex + 1;
             thisNode.PersonId = thisroot.Id;
             thisNode.ParentId = parentNodeId;
+            thisNode.Who = thisroot;
             _tree.Add(thisNode);
 
             // Navigation to parents - for root only
@@ -68,6 +69,7 @@ namespace DrawTreeTest
             thisNode.CurrentMarriage = thisroot.SpouseIn.Count > 1 ? 0 : -1;
             thisNode.UnionId = union.Id;
             Person spouse = union.Spouse(thisroot);
+            thisNode.Spouse = spouse;
             thisNode.SpouseId = spouse == null ? "??" : spouse.Id;
 
             // Marriage may appear more than once. If already exists,
