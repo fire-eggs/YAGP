@@ -167,8 +167,6 @@
     <Compile Include="Tests\GedParseTest.cs" />
     <Compile Include="Tests\SourceTest.cs" />
     <Compile Include="Tests\SourCit.cs" />
-    <Compile Include="TestTrie.cs" />
-    <Compile Include="Trie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OtherRecords.cd" />

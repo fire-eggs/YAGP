@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using SharpGEDParser.Model;
+using System.Diagnostics;
 
 // TODO lost track of 'custom' records/sub-records?
 // TODO Need to pull unknown text from original file?
