@@ -52,10 +52,10 @@ namespace SharpGEDParser
         };
 
         // TODO: expose as public?
-        private GedcomCharset Charset { get; set; }
+        //private GedcomCharset Charset { get; set; }
 
         // TODO: expose as public?
-        private Encoding FileEnc { get; set; }
+        //private Encoding FileEnc { get; set; }
 
         private string FilePath { get; set; }
 
@@ -158,7 +158,6 @@ namespace SharpGEDParser
 
             _lineNum = _reader._lineNum;
             _currRec = null;
-            _reader = null;
         }
 
         #region Old Character Encoding code - re-use?
@@ -232,7 +231,6 @@ namespace SharpGEDParser
         /// </summary>
         /// <param name="line"></param>
         /// <param name="lineNum"></param>
-        //private void ProcessLine(string line, int lineNum)
         private bool ProcessLine(char [] line, int lineNum)
         {
             int len = line.Length;
@@ -261,10 +259,6 @@ namespace SharpGEDParser
 
             if (level == '0' && _currRec.LineCount > 0)
             {
-                // TODO this may not be a reasonable error: 58000.GED has a large number of single line NOTE records
-                //if (_currRec.LineCount == 1)
-                //    Errors.Add(new UnkRec { Error = "Empty (single line) top-level record", Beg = lineNum});
-
                 // start of a new record. deal with the previous record first
 
                 // TODO records should go into a 'to parse' list and asynchronously turned into head/indi/fam/etc
@@ -273,8 +267,6 @@ namespace SharpGEDParser
                     return false;
 
                 Data.Add(parsed);
-                //if (Data.Count % 10000 == 0) // TODO force garbage collection every few records: major performance hit
-                //    GC.Collect();
                 _currRec = new GedRecord(lineNum, line);
             }
             else
@@ -307,6 +299,12 @@ namespace SharpGEDParser
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
             // TODO any explicit disposal required?
             Parser = null;
             Data = null;
@@ -338,8 +336,7 @@ namespace SharpGEDParser
                             _allErrors.Add(err);
                     }
                 }
-                //if (gedCommon.Errors != null)
-                //    _allErrors.AddRange(gedCommon.Errors);
+
                 foreach (var unknown in gedCommon.Unknowns)
                 {
                     if (!string.IsNullOrEmpty(unknown.Tag) && unknown.Tag.StartsWith("_"))
@@ -347,8 +344,6 @@ namespace SharpGEDParser
                     else
                         _allUnknowns.Add(unknown);
                 }
-                //if (gedCommon.Unknowns != null)
-                //    _allUnknowns.AddRange(gedCommon.Unknowns);
             }
 
             // TODO errors/unknown in sub-records - gather via gedCommon
@@ -364,6 +359,7 @@ namespace SharpGEDParser
         /// All errors encountered during the parse.
         /// </summary>
         public List<UnkRec> AllErrors { get { return _allErrors; } }
+
         /// <summary>
         /// All 'unknown' records - custom, or non-standard - encountered
         /// during the parse.
@@ -475,6 +471,7 @@ namespace SharpGEDParser
                 return null;
             return _allRecsDict[fam.Dads[0]] as IndiRecord;
         }
+
         public IndiRecord GetMom(FamRecord fam)
         {
             if (fam.Moms.Count < 1)

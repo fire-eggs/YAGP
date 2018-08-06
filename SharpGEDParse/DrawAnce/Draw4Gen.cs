@@ -21,7 +21,6 @@ namespace DrawAnce
         private Font _nameFont;
         private Font _textFont;
         private Brush _textBrush;
-        private StringFormat _sf;
 
         public Draw4Gen()
         {
@@ -54,22 +53,12 @@ namespace DrawAnce
             int maxW = bounds.Right;
 
             using (Pen connPen = new Pen(Color.Black, 2.0f))
-            using (_sf = new StringFormat())
+            using (StringFormat _sf = new StringFormat())
             {
-                //Pen linePen = new Pen(Color.Blue, 1.0f);
-
-                //{
-                //    int mid = bounds.Top + bounds.Height/2;
-                //    gr.DrawLine(linePen, bounds.Left, mid, bounds.Right, mid);
-                //}
-
-                //                _sf.Trimming = StringTrimming.EllipsisCharacter;
                 _sf.FormatFlags = StringFormatFlags.NoWrap | StringFormatFlags.NoClip;
 
-                //Point boxSz = calcBoxDims(gr, 8, 15);
-
                 // 3. draw gen 3 on right side
-                int right = maxW - MoreGenW; // maxW - OuterMargin - MoreGenW;
+                int right = maxW - MoreGenW;
                 int left = right - boxSz[3].X;
                 int top = OuterMargin + bounds.Top;
                 Rectangle box3Rect = new Rectangle(left, top, boxSz[3].X, BOXH);
@@ -92,7 +81,6 @@ namespace DrawAnce
                     if (i == 11)
                     {
                         midline = top + BOXH + GEN3VM / 2; // this was the easiest way to figure out the position of the Gen0 box...
-                                                           //gr.DrawLine(linePen, bounds.Left, midline, bounds.Right, midline);
                     }
                     top += BOXH + GEN3VM;
                     box3Rect.Location = new Point(left, top);
@@ -159,11 +147,9 @@ namespace DrawAnce
                 gr.DrawLine(connPen, left, conn3Y, conn3X, conn3Y);
 
                 // 6. Draw gen 0.
-                int top0 = midline - BOXH / 2; // bounds.Top + finalGen3Bottom / 2 - BOXH / 2;
+                int top0 = midline - BOXH / 2;
                 int left0 = 5; // 20161123 fixed left side: GEDCOM_Amssoms
-                               //int left0 = left - (int)(0.5 * boxSz[0].X);
-                               //if (left0 < bounds.Left)
-                               //    left0 = bounds.Left; // TODO past bounds of printing?
+
                 Rectangle box0Rect = new Rectangle(left0, top0, boxSz[0].X, BOXH);
                 DrawAnc(1, gr, box0Rect);
                 // finish connectors, gen1 to gen0
@@ -216,10 +202,7 @@ namespace DrawAnce
 
             PrintDocument pdoc = new PrintDocument();
             pdoc.DocumentName = AncData[1].Name;
-            pdoc.BeginPrint += BeginPrint;
             pdoc.PrintPage += PrintPage;
-            pdoc.QueryPageSettings += QueryPageSettings;
-            pdoc.EndPrint += EndPrint;
             return pdoc;
         }
 
@@ -313,18 +296,8 @@ namespace DrawAnce
             return new Point(maxW, maxH);
         }
 
-        void BeginPrint(object sender, PrintEventArgs e)
-        {
-        }
-
         void PrintPage(object sender, PrintPageEventArgs e)
         {
-            //using (Pen dashed_pen = new Pen(Color.Red, 5))
-            //{
-            //    dashed_pen.DashPattern = new float[] { 10, 10 };
-            //    e.Graphics.DrawRectangle(dashed_pen, e.MarginBounds);
-            //}
-
             using (_boxPen = new Pen(Color.Chocolate, 2.0f))
             using (_nameFont = new Font("Arial", 12))
             using (_textFont = new Font("Arial", 9))
@@ -336,14 +309,5 @@ namespace DrawAnce
 
             e.HasMorePages = false; //(Lines < LINES_TO_PRINT);
         }
-
-        private void QueryPageSettings(object sender, QueryPageSettingsEventArgs e)
-        {
-        }
-
-        private void EndPrint(object sender, PrintEventArgs e)
-        {
-        }
-
     }
 }

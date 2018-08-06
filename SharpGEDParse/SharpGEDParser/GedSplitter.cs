@@ -28,7 +28,7 @@ namespace SharpGEDParser
         private readonly int[] _lens;
         private int _count;
         private readonly int _max;
-        private StringCache _tagCache;
+        private readonly StringCache _tagCache;
 
         // A line is <level><ident><tag><remain> - so even 10 is overkill?
         private const int MAX_PARTS = 9;

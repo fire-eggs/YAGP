@@ -112,14 +112,12 @@
             this.printSettingsToolStripMenuItem.Name = "printSettingsToolStripMenuItem";
             this.printSettingsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.printSettingsToolStripMenuItem.Text = "Print Settings";
-            this.printSettingsToolStripMenuItem.Click += new System.EventHandler(this.printSettingsToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem1
             // 
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
             this.printToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
             this.printToolStripMenuItem1.Text = "Print";
-            this.printToolStripMenuItem1.Click += new System.EventHandler(this.printToolStripMenuItem1_Click);
             // 
             // tableLayoutPanel1
             // 

@@ -20,7 +20,7 @@ namespace DrawAnce
             Init();
         }
 
-        private void DrawAncCirc(Graphics gr, Rectangle bounds)
+        private void DrawAncCirc(Graphics gr)
         {
             Color[] genColors = SwatchPick.Swatch(Palette);
 
@@ -128,7 +128,7 @@ namespace DrawAnce
                 {
                     gr.SmoothingMode = SmoothingMode.AntiAlias;
                     gr.Clear(Color.Cornsilk);
-                    DrawAncCirc(gr, new Rectangle(0, 0, maxw, maxh));
+                    DrawAncCirc(gr);
                 }
                 return bmp;
             }

@@ -50,9 +50,14 @@ namespace WordCloud
 
             IEnumerable<LayoutItem> wordsToRedraw = m_Layout.GetWordsInArea(e.ClipRectangle);
             using (Graphics graphics = e.Graphics)
-            using (IGraphicEngine graphicEngine =
-                    new GdiGraphicEngine(graphics, Font.FontFamily, FontStyle.Regular, m_Palette, MinFontSize, MaxFontSize, m_MinWordWeight, m_MaxWordWeight))
+            using (GdiGraphicEngine graphicEngine =
+                    new GdiGraphicEngine(graphics, m_Palette, m_MinWordWeight, m_MaxWordWeight))
             {
+                graphicEngine.FontFamily = Font.FontFamily;
+                graphicEngine.FontStyle = FontStyle.Regular;
+                graphicEngine.MinFontSize = MinFontSize;
+                graphicEngine.MaxFontSize = MaxFontSize;
+
                 foreach (LayoutItem currentItem in wordsToRedraw)
                 {
                     if (m_ItemUderMouse == currentItem)
@@ -72,10 +77,14 @@ namespace WordCloud
             if (m_Words == null) { return; }
 
             using (Graphics graphics = CreateGraphics())
+            using (GdiGraphicEngine graphicEngine =
+                    new GdiGraphicEngine(graphics, m_Palette, m_MinWordWeight, m_MaxWordWeight))
             {
-                IGraphicEngine graphicEngine =
-                    new GdiGraphicEngine(graphics, Font.FontFamily, FontStyle.Regular, m_Palette, MinFontSize, MaxFontSize, m_MinWordWeight, m_MaxWordWeight);
-                m_Layout = LayoutFactory.CrateLayout(m_LayoutType, Size);
+                graphicEngine.FontFamily = Font.FontFamily;
+                graphicEngine.FontStyle = FontStyle.Regular;
+                graphicEngine.MinFontSize = MinFontSize;
+                graphicEngine.MaxFontSize = MaxFontSize;
+                m_Layout = LayoutFactory.CreateLayout(m_LayoutType, Size);
                 m_Layout.Arrange(m_Words, graphicEngine);
             }
         }

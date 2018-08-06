@@ -7,7 +7,6 @@ namespace DrawAnce
     public class Draw5gen : DrawGen
     {
         private const int BOXH = 30;
-        private const int BOXW = 250;
         private const int GEN4VM = 8; // vertical margin between boxes for Gen 3
         private const int OuterMargin = 5;
         private const int GEN3HM = 20;
@@ -62,9 +61,6 @@ namespace DrawAnce
         {
             int maxW = bounds.Right;
 
-            //            _boxPen = new Pen(Color.Chocolate, 2.0f);
-            //            _nameFont = new Font("Arial", 12);
-            //            _textBrush = new SolidBrush(Color.Black);
             using (Pen connPen = new Pen(Color.Black, 2.0f))
             {
                 SizeF moreSize = gr.MeasureString(MORE_GEN, _nameFont);
@@ -175,19 +171,8 @@ namespace DrawAnce
 
             PrintDocument pdoc = new PrintDocument();
             pdoc.DocumentName = AncData[1].Name;
-            pdoc.BeginPrint += BeginPrint;
             pdoc.PrintPage += PrintPage;
-            pdoc.QueryPageSettings += QueryPageSettings;
-            pdoc.EndPrint += EndPrint;
             return pdoc;
-        }
-
-        void BeginPrint(object sender, PrintEventArgs e)
-        {
-        }
-
-        private void EndPrint(object sender, PrintEventArgs e)
-        {
         }
 
         void PrintPage(object sender, PrintPageEventArgs e)
@@ -207,10 +192,6 @@ namespace DrawAnce
             }
 
             e.HasMorePages = false; //(Lines < LINES_TO_PRINT);
-        }
-
-        private void QueryPageSettings(object sender, QueryPageSettingsEventArgs e)
-        {
         }
 
         private void DrawAnce(int i, Graphics gr, Rectangle boxRect)

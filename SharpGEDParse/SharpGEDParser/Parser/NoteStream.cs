@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SharpGEDParser.Parser
 {
-    public sealed class NoteStream
+    public sealed class NoteStream : IDisposable
     {
         static NoteStream()
         {
@@ -27,6 +27,7 @@ namespace SharpGEDParser.Parser
         private FileStream _data;
         private List<Tuple<Int64, int>> _index;
         private byte[] _buf;
+        private readonly object _lock = new object();
 
         private static NoteStream Initialize()
         {
@@ -42,7 +43,7 @@ namespace SharpGEDParser.Parser
 
         public int StoreNote(string text)
         {
-            lock (_buf)
+            lock (_lock)
             {
                 Int64 pos = _data.Position;
                 int bLen = Encoding.UTF8.GetByteCount(text);
@@ -76,6 +77,11 @@ namespace SharpGEDParser.Parser
                 _data.Read(buf, 0, item.Item2);
                 return Encoding.UTF8.GetString(buf);
             }
+        }
+
+        public void Dispose()
+        {
+            instance._data.Dispose();
         }
     }
 }

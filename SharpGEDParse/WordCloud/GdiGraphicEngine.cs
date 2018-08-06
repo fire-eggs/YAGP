@@ -30,17 +30,12 @@ namespace WordCloud
         public float MinFontSize { get; set; }
         public float MaxFontSize { get; set; }
 
-        public GdiGraphicEngine(Graphics graphics, FontFamily fontFamily, FontStyle fontStyle, Color[] palette, float minFontSize, float maxFontSize, int minWordWeight, int maxWordWeight)
+        public GdiGraphicEngine(Graphics graphics, Color[] palette, int minWordWeight, int maxWordWeight)
         {
             m_MinWordWeight = minWordWeight;
             m_MaxWordWeight = maxWordWeight;
             _graphics = graphics;
-            FontFamily = fontFamily;
-            FontStyle = fontStyle;
             Palette = palette;
-            MinFontSize = minFontSize;
-            MaxFontSize = maxFontSize;
-            m_LastUsedFont = new Font(FontFamily, maxFontSize, FontStyle);
             _graphics.SmoothingMode = SmoothingMode.AntiAlias;
             _graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
         }
@@ -50,10 +45,7 @@ namespace WordCloud
             Font font = GetFont(weight);
 
             Size proposedSize = new Size(int.MaxValue, int.MaxValue);
-            //return TextRenderer.MeasureText(_graphics, text, font, proposedSize, _flags);
-
             return _graphics.MeasureString(text, font, proposedSize, StringFormat.GenericTypographic);
-            //return TextRenderer.MeasureText(_graphics, text, font);
         }
 
         public void Draw(LayoutItem layoutItem)
@@ -62,32 +54,12 @@ namespace WordCloud
             Color color = GetPresudoRandomColorFromPalette(layoutItem);
             Brush brush = new SolidBrush(color);
             _graphics.DrawString(layoutItem.Word.Text, font, brush, layoutItem.Rectangle, StringFormat.GenericTypographic);
-
-            // Debugging: what is the word's actual rectangle?
-            //_graphics.DrawRectangle(new Pen(color), Rectangle.Round(layoutItem.Rectangle));
-
-            //Point point = new Point((int)layoutItem.Rectangle.X, (int)layoutItem.Rectangle.Y);
-            //TextRenderer.DrawText(_graphics, layoutItem.Word.Text, font, point, color, _flags);
-
-//            TextRenderer.DrawText(_graphics, layoutItem.Word.Text, font, point, color);
-
-            //_graphics.DrawRectangle(new Pen(color), layoutItem.Rectangle.X, layoutItem.Rectangle.Y,
-            //    layoutItem.Rectangle.Width, layoutItem.Rectangle.Height);
-
-            //CharacterRange[] cr = {new CharacterRange(0, layoutItem.Word.Text.Length)};
-            //StringFormat sf = new StringFormat(StringFormat.GenericTypographic);
-            //sf.SetMeasurableCharacterRanges(cr);
-            //RectangleF mcr = new RectangleF(layoutItem.Rectangle.X,layoutItem.Rectangle.Y,1000,1000);
-            //Region[] regio = _graphics.MeasureCharacterRanges(layoutItem.Word.Text, font, mcr, sf);
-            //RectangleF mr = regio[0].GetBounds(_graphics);
-            //_graphics.DrawRectangle(new Pen(color), Rectangle.Truncate(mr) );
         }
 
         public void DrawEmphasized(LayoutItem layoutItem)
         {
             Font font = GetFont(layoutItem.Word.Occurrences);
             Color color = GetPresudoRandomColorFromPalette(layoutItem);
-            //_graphics.DrawString(layoutItem.Word, font, brush, layoutItem.Rectangle);
             Point point = new Point((int)layoutItem.Rectangle.X, (int)layoutItem.Rectangle.Y);
             // TODO is this out-of-sync with the measure / draw code?
             TextRenderer.DrawText(_graphics, layoutItem.Word.Text, font, point, Color.LightGray, FLAGS);
@@ -99,7 +71,8 @@ namespace WordCloud
         private Font GetFont(int weight)
         {
             float fontSize = (float)(weight - m_MinWordWeight) / (m_MaxWordWeight - m_MinWordWeight) * (MaxFontSize - MinFontSize) + MinFontSize;
-            if (Math.Abs(m_LastUsedFont.Size - fontSize) > float.Epsilon)
+            if (m_LastUsedFont == null ||
+                Math.Abs(m_LastUsedFont.Size - fontSize) > float.Epsilon)
             {
                 m_LastUsedFont = new Font(FontFamily, fontSize, FontStyle);
             }
@@ -113,6 +86,11 @@ namespace WordCloud
         }
 
         public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
         {
             _graphics.Dispose();
         }

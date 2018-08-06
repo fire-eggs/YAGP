@@ -355,11 +355,13 @@ namespace SharpGEDParser
                         return false;
                     }
                     gedEnc = System.Text.Encoding.Unicode;
+#if false
                     var macintosh = false;
                     if (macintosh)
                         gedEnc = System.Text.Encoding.BigEndianUnicode;
                     // TODO error if BOM doesn't match
                     // TODO Unicode vs BigEndianUnicode
+#endif
                     return true; // TODO only necessary if BOM is not Unicode
                 }
                 else
@@ -444,8 +446,6 @@ namespace SharpGEDParser
                     return null;
                 }
             }
-
-            return null; 
         }
 
         private char[] FetchLine(int start, int end)

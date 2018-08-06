@@ -84,8 +84,10 @@ namespace IndiTable
 
 	    void ListViewRetrieveItem (object o, RetrieveVirtualItemEventArgs args)
 	    {
-	        if (args.ItemIndex == ItemsCount - 1 && !IsHandleCreated)
+#if false
+            if (args.ItemIndex == ItemsCount - 1 && !IsHandleCreated)
 	            ;//warning_label.Text = "Warning: The very last item was requested, which should not happen in load time (not visible yet)";
+#endif
 
 	        Person p = _data[args.ItemIndex];
 

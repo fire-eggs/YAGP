@@ -29,6 +29,7 @@ namespace GedCloud
             LoadSettings(); // must go after mnuMRU init
         }
 
+#if LOGGING
         private int tick;
         private void logit(string msg, bool first = false)
         {
@@ -39,7 +40,7 @@ namespace GedCloud
                 delta = Environment.TickCount - tick;
             Console.WriteLine(msg + "|" + delta);
         }
-
+#endif
         private static void incr(Dictionary<string, int> dict, string key)
         {
             if (dict.ContainsKey(key))
@@ -56,11 +57,8 @@ namespace GedCloud
 
         private void Form1_LoadGed(object sender, EventArgs e)
         {
-            //logit("LoadGed 1", true);
             Forest gedtrees = new Forest();
-            // TODO Using LastFile is a hack... pass path in args? not as event?            
             gedtrees.LoadGEDCOM(LastFile);
-            //logit("LoadGed 2");
 
             Dictionary<string, int> surCount = new Dictionary<string, int>();
             Dictionary<string, int> givenCount = new Dictionary<string, int>();
@@ -99,7 +97,6 @@ namespace GedCloud
 
             // 4. Update the cloud
             ChangeCloud();
-            //cloudControl1.WeightedWords = _surnames.OrderByDescending(word => word.Occurrences);
         }
 
         private void OnMRU(int number, string filename)
@@ -147,39 +144,7 @@ namespace GedCloud
             Close();
         }
 
-        //private bool HavePerson(int index)
-        //{
-        //    if (index == -1 || _ancIndi[index] == null)
-        //        return false;
-        //    return !string.IsNullOrWhiteSpace(_ancIndi[index].Name);
-        //}
-
-        private void picTree_MouseMove(object sender, MouseEventArgs e)
-        {
-            //if (drawer == null )
-            //    picTree.Cursor = Cursors.Arrow;
-            //else
-            //{
-            //    int index = drawer.HitIndex(e.Location);
-
-            //    picTree.Cursor = !HavePerson(index) ?
-            //        Cursors.Arrow :
-            //        Cursors.Hand;
-            //}
-        }
-
-        private void picTree_MouseClick(object sender, MouseEventArgs e)
-        {
-            //if (drawer == null)
-            //    return;
-            //int index = drawer.HitIndex(e.Location);
-            //if (!HavePerson(index))
-            //    return;
-            //TreePerson(_ancIndi[index]);
-            //cmbPerson.SelectedIndex = -1;
-        }
-
-        #region Settings
+#region Settings
         private DASettings _mysettings;
 
         private List<string> _fileHistory = new List<string>();
@@ -238,7 +203,7 @@ namespace GedCloud
             _mysettings.PathHistory = mnuMRU.GetFiles().ToList();
             _mysettings.Save();
         }
-        #endregion
+#endregion
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -268,26 +233,14 @@ namespace GedCloud
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-//            drawer.AncData = _ancIndi;
             EnhancedPrintPreviewDialog newPreview = new EnhancedPrintPreviewDialog();
             newPreview.Owner = this;
-//            newPreview.Document = drawer.PrintAncTree();
             newPreview.ShowDialog();
-//            drawer.AncData = null;
-        }
-
-        private void printSettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void printToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnPal_Click(object sender, EventArgs e)
         {
+#if PALETTE
             //SwatchPick dlg = new SwatchPick();
             //dlg.StartPosition = FormStartPosition.CenterParent;
             //dlg.SwatchIndex = _paletteIndex;
@@ -297,6 +250,7 @@ namespace GedCloud
             //_paletteIndex = dlg.SwatchIndex;
             //drawer.Palette = _paletteIndex;
             //DoAncTree(); // TODO the 'control' should redraw itself
+#endif
         }
 
         private class One // TODO copy-pasta from LocationsList
