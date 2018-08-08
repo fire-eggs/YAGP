@@ -232,7 +232,8 @@ namespace GEDWrap.Tests
             Assert.IsNotNull(b);
             Assert.AreNotEqual(GEDDate.Types.Estimated, b.Type);
             Assert.AreEqual(2455653, b.JDN);
-            b = f.PersonById("I2").BirthDate;
+            var p = f.PersonById("I2");
+            b = p.BirthDate;
             Assert.IsNotNull(b);
             Assert.AreEqual(GEDDate.Types.Estimated, b.Type);
         }

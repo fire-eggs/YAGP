@@ -77,6 +77,26 @@ namespace GEDWrap
             }
         }
 
+        private static long FirstParentMarriage(Person p, out long lastParentBorn, out long firstParentDead)
+        {
+            lastParentBorn = long.MinValue;
+            firstParentDead = long.MaxValue;
+            long firstParentMarriage = long.MaxValue;
+
+            foreach (var union in p._childIn)
+            {
+                // TODO this is not taking adoption into account!
+
+                RangeCheck(union.Husband, ref lastParentBorn, ref firstParentDead);
+                RangeCheck(union.Wife, ref lastParentBorn, ref firstParentDead);
+
+                GEDDate md = union.MarriageDate;
+                if (md != null && md.Type != GEDDate.Types.Unknown && md.JDN < firstParentMarriage)
+                    firstParentMarriage = md.JDN;
+            }
+            return firstParentMarriage;
+        }
+
         // Attempt to estimate a person's birth date range
         // TODO establish range
         // TODO average age of marriage for women before 1800: 20, after: 23
@@ -92,38 +112,13 @@ namespace GEDWrap
             // 5. person not born before child-16
             // 6. person not born before spouse-birth-20
 
-            long firstParentMarriage = long.MaxValue;
-            long firstOwnMarriage = long.MaxValue;
-            long lastParentBorn = long.MinValue;
-            long firstParentDead = long.MaxValue;
-            long firstSpouseBorn = long.MinValue;
-            long firstChildBorn = long.MinValue;
-            foreach (var union in p._childIn)
-            {
-                // TODO this is not taking adoption into account!
+            long lastParentBorn;  // last birth date of parents
+            long firstParentDead; // first death date of parents
+            long firstSpouseBorn; // first birth date of spouses
+            long firstChildBorn;  // first birth date of children
 
-                RangeCheck(union.Husband, ref lastParentBorn, ref firstParentDead);
-                RangeCheck(union.Wife, ref lastParentBorn, ref firstParentDead);
-
-                GEDDate md = union.MarriageDate;
-                if (md != null && md.Type != GEDDate.Types.Unknown && md.JDN < firstParentMarriage)
-                    firstParentMarriage = md.JDN;
-            }
-            foreach (var union in p._spouseIn)
-            {
-                long junk = 0;
-                GEDDate md = union.MarriageDate;
-                if (md != null && md.Type != GEDDate.Types.Unknown && md.JDN < firstOwnMarriage)
-                    firstOwnMarriage = md.JDN;
-                if (union.Husband != p) // TODO 'otherspouse' accessor?
-                    RangeCheck(union.Husband, ref firstSpouseBorn, ref junk);
-                else
-                    RangeCheck(union.Wife, ref firstSpouseBorn, ref junk);
-                foreach (var child in union.Childs)
-                {
-                    RangeCheck(child, ref firstChildBorn, ref junk);
-                }
-            }
+            long firstParentMarriage = FirstParentMarriage(p, out lastParentBorn, out firstParentDead);
+            long firstOwnMarriage = FirstOwnMarriage(p, out firstSpouseBorn, out firstChildBorn);
 
             long result = 0;
             if (lastParentBorn != long.MinValue)
@@ -139,7 +134,10 @@ namespace GEDWrap
             if (firstParentDead != long.MaxValue)
             {
                 // 2. person not born after parent-death+1
-                result = Math.Min(result, firstParentDead + 365);
+                if (result == 0)
+                    result = firstParentDead + 365;
+                else
+                    result = Math.Min(result, firstParentDead + 365);
             }
             if (firstOwnMarriage != long.MaxValue)
             {
@@ -149,10 +147,10 @@ namespace GEDWrap
             if (firstChildBorn != long.MinValue)
             {
                 // 5. person not born before child-16
-                if (result == 0) // TODO init to MAXVALUE?
-                    result = firstChildBorn - 16 * 365;
+                if (result == 0)
+                    result = firstChildBorn - (16 * 365);
                 else
-                    result = Math.Min(result, firstChildBorn - 16 * 365);
+                    result = Math.Min(result, firstChildBorn - (16 * 365));
             }
             if (firstSpouseBorn != long.MinValue)
             {
@@ -166,6 +164,30 @@ namespace GEDWrap
             output.JDN = result;
             p._estimatedBirth = output;
             return true;
+        }
+
+        private static long FirstOwnMarriage(Person p, out long firstSpouseBorn, out long firstChildBorn)
+        {
+            long firstOwnMarriage = long.MaxValue;
+            firstSpouseBorn = long.MinValue;
+            firstChildBorn = long.MinValue;
+
+            foreach (var union in p._spouseIn)
+            {
+                long junk = 0;
+                GEDDate md = union.MarriageDate;
+                if (md != null && md.Type != GEDDate.Types.Unknown && md.JDN < firstOwnMarriage)
+                    firstOwnMarriage = md.JDN;
+                if (union.Husband != p) // TODO 'otherspouse' accessor?
+                    RangeCheck(union.Husband, ref firstSpouseBorn, ref junk);
+                else
+                    RangeCheck(union.Wife, ref firstSpouseBorn, ref junk);
+                foreach (var child in union.Childs)
+                {
+                    RangeCheck(child, ref firstChildBorn, ref junk);
+                }
+            }
+            return firstOwnMarriage;
         }
     }
 }
