@@ -1,0 +1,30 @@
+0 HEAD
+1 SOUR Généamania
+2 VERS 4.0.1
+2 NAME Généamania-PHP
+2 CORP JLS Corp
+3 ADR jlservin@yahoo.fr
+1 DATE 11 Dec 2012
+1 CHAR ASCII
+1 SUBM @S0@
+1 FILE export_ged_919.ged
+1 GEDC
+2 VERS 5.5
+2 FORM LINEAGE_LINKED
+1 PLAC
+2 FORM Ville,Département,Région,Pays
+0 @S0@ SUBM
+1 NAME Jean-Luc SERVIN
+0 @I919@ INDI
+1 NAME Augustin/Rousseau/
+1 CHAN 
+2 DATE 02 Jul 2011
+3 TIME 21:29:37 
+1 SEX M
+1 FAMS @F919_920@
+0 @I920@ INDI
+1 FAMS @F919_920@
+0 @F919_920@ FAM
+1 HUSB @I919@
+1 WIFE @I920@
+0 TRLR

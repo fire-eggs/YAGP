@@ -1,0 +1,827 @@
+0 HEAD
+1 SOUR FTW
+2 VERS 6.00
+2 NAME Family Tree Maker for Windows
+2 CORP The Learning Company, Inc., Banner Blue Division
+3 ADDR 39500 Stevenson Pl.  #204
+4 CONT Fremont, CA 95439
+3 PHON (510) 794-6850
+1 DEST FTW
+1 DATE 25 JUL 2000
+1 CHAR ASCII
+1 SUBM @SUBM@
+1 FILE C:\My Documents\Genealogy\ged\Ege.GED
+1 GEDC
+2 VERS 5.5
+1 _SCHEMA
+2 INDI
+3 _FA1
+4 LABL Fact 1
+3 _FA2
+4 LABL Fact 2
+3 _FA3
+4 LABL Fact 3
+3 _FA4
+4 LABL Fact 4
+3 _FA5
+4 LABL Fact 5
+3 _FA6
+4 LABL Fact 6
+3 _FA7
+4 LABL Fact 7
+3 _FA8
+4 LABL Fact 8
+3 _FA9
+4 LABL Fact 9
+3 _FA10
+4 LABL Fact 10
+3 _FA11
+4 LABL Fact 11
+3 _FA12
+4 LABL Fact 12
+3 _FA13
+4 LABL Fact 13
+3 _MREL
+4 LABL Relationship to Mother
+3 _FREL
+4 LABL Relationship to Father
+2 FAM
+3 _FA1
+4 LABL Marriage fact
+3 _FA2
+4 LABL Fact 2
+3 _MSTAT
+4 LABL Marriage Beginning Status
+3 _MEND
+4 LABL Marriage Ending Status
+0 @SUBM@ SUBM
+0 @I01@ INDI
+1 NAME Henry /EGE/
+1 SEX M
+1 BIRT
+2 DATE 9 MAR 1777
+2 PLAC Orwigsburg, Schuylkill, PA
+1 DEAT
+2 DATE 20 DEC 1842
+2 PLAC Orwigsburg, Schuylkill, PA
+1 _FA1
+2 PLAC 2JB1-8P
+1 _FA2
+2 DATE 1 MAR 1938
+1 _FA3
+2 PLAC (Red Church), Orwigsburg, Schuylkill, PA
+1 _FA4
+2 DATE 17 JUN 1938
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMS @F01@
+1 FAMC @F02@
+1 NOTE @NI01@
+0 @NI01@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I02@ INDI
+1 NAME Catharine /STROHECKER/
+1 SEX F
+1 _FA1
+2 PLAC 2JB1-9V
+1 FAMS @F01@
+1 NOTE @NI02@
+0 @NI02@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I03@ INDI
+1 NAME Paul /EGE/
+1 SEX M
+1 BIRT
+2 DATE 27 APR 1756
+2 PLAC West Brunswick Twp, Berks, PA
+1 DEAT
+2 DATE 19 NOV 1799
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB1-B2
+1 _FA2
+2 DATE 1 MAR 1938
+1 _FA3
+2 DATE 22 NOV 1799
+1 _FA4
+2 DATE 10 JUN 1938
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMS @F02@
+1 FAMC @F03@
+1 NOTE @NI03@
+0 @NI03@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I04@ INDI
+1 NAME Anna Maria /SETLEY/
+1 SEX F
+1 BIRT
+2 DATE 12 NOV 1757
+2 PLAC Of Reading, Berks, PA
+1 DEAT
+2 DATE 11 NOV 1783
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB1-C7
+1 _FA2
+2 DATE 4 MAR 1938
+1 _FA4
+2 DATE 24 MAR 1938
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F02@
+1 FAMC @F04@
+1 NOTE @NI04@
+0 @NI04@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I05@ INDI
+1 NAME Adam Or Johann Adam /EGE/
+1 SEX M
+1 BIRT
+2 DATE MAY 1724
+2 PLAC Wrttm, Germ.
+1 DEAT
+2 DATE 28 MAY 1812
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB1-GQ
+1 _FA2
+2 DATE 1 MAR 1938
+1 _FA4
+2 DATE 21 NOV 1938
+1 FAMS @F03@
+1 FAMC @F05@
+1 NOTE @NI05@
+0 @NI05@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I06@ INDI
+1 NAME Anna /EVE/
+1 SEX F
+1 BIRT
+2 DATE 26 JUL 1720
+2 PLAC Of Derby, Wstmrl, PA
+1 _FA1
+2 PLAC 2JB1-HW
+1 _FA2
+2 DATE 4 MAR 1938
+1 _FA4
+2 DATE 21 MAR 1938
+1 FAMS @F03@
+1 FAMC @F06@
+1 NOTE @NI06@
+0 @NI06@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I07@ INDI
+1 NAME George Henry /SETLEY/
+1 SEX M
+1 BIRT
+2 DATE 10 FEB 1720/21
+2 PLAC Waeysinger, Wrtt, Germ.
+1 DEAT
+2 DATE 4 FEB 1784
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB1-J3
+1 _FA2
+2 DATE 17 JAN 1967
+1 _FA4
+2 DATE 1 FEB 1967
+1 FAMS @F04@
+1 NOTE @NI07@
+0 @NI07@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I08@ INDI
+1 NAME Mary Barbara /KAEPPLE/
+1 SEX F
+1 BIRT
+2 DATE ABT. 1723
+2 PLAC Homheim, Wrtt, Germ.
+1 DEAT
+2 DATE 11 MAY 1790
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB1-K8
+1 _FA2
+2 DATE 16 JAN 1967
+1 _FA4
+2 DATE 1 FEB 1967
+1 FAMS @F04@
+1 NOTE @NI08@
+0 @NI08@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I09@ INDI
+1 NAME Eva Elizabeth /EGE/
+1 SEX F
+1 BIRT
+2 DATE 1 MAY 1779
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB1-ZB
+1 _FA2
+2 DATE 19 MAR 1966
+1 _FA4
+2 DATE 25 MAR 1966
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMS @F07@
+1 FAMC @F02@
+1 NOTE @NI09@
+0 @NI09@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I10@ INDI
+1 NAME Margaret /EGE/
+1 SEX F
+1 BIRT
+2 DATE 11 NOV 1783
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB2-0G
+1 _FA2
+2 DATE 8 APR 1968
+1 _FA4
+2 DATE 25 APR 1968
+1 _FA5
+2 DATE 27 NOV 1968
+1 FAMS @F08@
+1 FAMC @F02@
+1 NOTE @NI10@
+0 @NI10@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I11@ INDI
+1 NAME George Michael /EGE/
+1 SEX M
+1 BIRT
+2 DATE 12 APR 1787
+2 PLAC Reading, Berks, PA
+1 DEAT
+2 DATE 22 NOV 1787
+1 _FA1
+2 PLAC 2JB2-1M
+1 _FA2
+2 DATE Child
+1 _FA4
+2 DATE Child
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMC @F02@
+1 NOTE @NI11@
+0 @NI11@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I12@ INDI
+1 NAME Michael /EGE/
+1 SEX M
+1 BIRT
+2 DATE 3 JAN 1789
+2 PLAC Reading, Berks, PA
+1 DEAT
+2 DATE 22 JAN 1851
+1 FAMS @F09@
+1 FAMC @F02@
+1 NOTE @NI12@
+0 @NI12@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I13@ INDI
+1 NAME Margaretha /EGE/
+1 SEX F
+1 BIRT
+2 DATE 13 MAR 1790
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB2-30
+1 _FA2
+2 DATE 19 MAR 1966
+1 _FA4
+2 DATE 25 MAR 1966
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMC @F02@
+1 NOTE @NI13@
+0 @NI13@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I14@ INDI
+1 NAME Catharine /EGE/
+1 SEX F
+1 BIRT
+2 DATE 15 APR 1795
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB2-45
+1 _FA2
+2 DATE 19 MAR 1966
+1 _FA4
+2 DATE 25 MAR 1966
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMC @F02@
+1 NOTE @NI14@
+0 @NI14@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I15@ INDI
+1 NAME Margaret /EGE/
+1 SEX F
+1 BIRT
+2 DATE ABT. 1758
+2 PLAC West Brunswick, Berks, PA
+1 _FA1
+2 PLAC 2JB2-H2
+1 _FA2
+2 DATE 19 MAR 1966
+1 _FA4
+2 DATE 24 MAR 1966
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMS @F10@
+1 FAMC @F03@
+1 NOTE @NI15@
+0 @NI15@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I16@ INDI
+1 NAME Matilda /EGE/
+1 SEX F
+1 BIRT
+2 DATE ABT. 1760
+2 PLAC West Brunswick, Berks, PA
+1 _FA1
+2 PLAC 2JB2-J7
+1 _FA2
+2 DATE 19 MAR 1966
+1 _FA4
+2 DATE 24 MAR 1966
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMC @F03@
+1 NOTE @NI16@
+0 @NI16@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I17@ INDI
+1 NAME Mary /EGE/
+1 SEX F
+1 BIRT
+2 DATE ABT. 1762
+2 PLAC West Brunswick, Berks, PA
+1 _FA1
+2 PLAC 2JB2-KD
+1 _FA2
+2 DATE 19 MAR 1966
+1 _FA4
+2 DATE 24 MAR 1966
+1 _FA5
+2 DATE 10 OCT 1966
+1 FAMC @F03@
+1 NOTE @NI17@
+0 @NI17@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I18@ INDI
+1 NAME Christian /SETLEY/
+1 SEX M
+1 BIRT
+2 DATE 30 NOV 1748
+2 PLAC Waeysinger, Wrtt, Germ.
+1 DEAT
+2 DATE 1820
+1 _FA1
+2 PLAC 2JB2-LK
+1 _FA2
+2 DATE 17 JAN 1967
+1 _FA4
+2 DATE 1 FEB 1967
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F11@
+1 FAMC @F04@
+1 NOTE @NI18@
+0 @NI18@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I19@ INDI
+1 NAME Henrich /SETLEY/
+1 SEX M
+1 BIRT
+2 DATE 28 JAN 1751/52
+2 PLAC Waeysinger, Wrtt, Germ.
+1 DEAT
+2 DATE 24 JUN 1818
+1 _FA1
+2 PLAC 2JB2-MQ
+1 _FA2
+2 DATE 14 JAN 1967
+1 _FA4
+2 DATE 10 JUN 1967
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F12@
+1 FAMC @F04@
+1 NOTE @NI19@
+0 @NI19@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I20@ INDI
+1 NAME Ottelia Margaret /SETLEY/
+1 SEX F
+1 BIRT
+2 DATE 8 JUL 1754
+2 PLAC Waeysinger, Wrtt, Germ.
+1 DEAT
+2 DATE 8 AUG 1823
+1 _FA1
+2 PLAC 2JB2-NW
+1 _FA2
+2 DATE 16 JAN 1967
+1 _FA4
+2 DATE 2 FEB 1967
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F13@
+1 FAMC @F04@
+1 NOTE @NI20@
+0 @NI20@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I21@ INDI
+1 NAME Margaret /SETLEY/
+1 SEX F
+1 BIRT
+2 DATE 7 FEB 1759
+2 PLAC Reading, Berks, PA
+1 DEAT
+2 DATE 23 MAR 1826
+1 _FA1
+2 PLAC 2JB2-P3
+1 _FA2
+2 DATE 16 JAN 1967
+1 _FA4
+2 DATE 2 FEB 1967
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F14@
+1 FAMC @F04@
+1 NOTE @NI21@
+0 @NI21@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I22@ INDI
+1 NAME Jacob /SETLEY/
+1 SEX M
+1 BIRT
+2 DATE 28 APR 1760
+2 PLAC Reading, Berks, PA
+1 DEAT
+2 DATE 7 MAY 1816
+1 _FA1
+2 PLAC 2JB2-Q8
+1 _FA2
+2 DATE 14 NOV 1967
+1 _FA4
+2 DATE 9 DEC 1966
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F15@
+1 FAMC @F04@
+1 NOTE @NI22@
+0 @NI22@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I23@ INDI
+1 NAME Elizabeth /SETLEY/
+1 SEX F
+1 BIRT
+2 DATE ABT. 1762
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB2-RF
+1 _FA2
+2 DATE 11 JAN 1967
+1 _FA4
+2 DATE 4 APR 1967
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F16@
+1 FAMC @F04@
+1 NOTE @NI23@
+0 @NI23@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I24@ INDI
+1 NAME Susanna /SETLEY/
+1 SEX F
+1 BIRT
+2 DATE ABT. 1764
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 PLAC 2JB2-SL
+1 _FA2
+2 DATE 16 JAN 1967
+1 _FA4
+2 DATE 2 FEB 1967
+1 _FA5
+2 DATE 4 FEB 1970
+1 FAMS @F17@
+1 FAMC @F04@
+1 NOTE @NI24@
+0 @NI24@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I25@ INDI
+1 NAME Anna Barbara /SETLEY/
+1 SEX F
+1 BIRT
+2 DATE 10 OCT 1759
+2 PLAC Reading, Berks, PA
+1 DEAT
+2 DATE 30 OCT 1808
+1 _FA1
+2 PLAC 2JB2-TR
+1 FAMS @F18@
+1 FAMC @F04@
+1 NOTE @NI25@
+0 @NI25@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I26@ INDI
+1 NAME Bernard /EGE/
+1 SEX M
+1 BIRT
+2 DATE ABT. 1698
+2 PLAC <Wrttm, Germ.>
+1 NOTE @NI26@
+1 _FA1
+2 PLAC BSH2-JK
+3 JUNK kbr added
+1 FAMS @F05@
+0 @NI26@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I27@ INDI
+1 NAME John /EVE/
+1 SEX M
+1 BIRT
+2 DATE ABT. 1694
+2 PLAC <Of Derby, Wstmrl, PA>
+1 _FA1
+2 PLAC BSH2-KQ
+1 FAMS @F06@
+1 NOTE @NI27@
+0 @NI27@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I28@ INDI
+1 NAME Elizabeth //
+1 SEX F
+1 BIRT
+2 DATE ABT. 1698
+2 PLAC <Of Derby, Wstmrl, PA>
+1 _FA1
+2 PLAC BSH2-LW
+1 FAMS @F06@
+1 NOTE @NI28@
+0 @NI28@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I29@ INDI
+1 NAME John /MILLER/
+1 SEX M
+1 _FA1
+2 PLAC BSH2-XM
+1 FAMS @F07@
+1 NOTE @NI29@
+0 @NI29@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I30@ INDI
+1 NAME Daniel /GERBER/
+1 SEX M
+1 _FA1
+2 PLAC BSH2-ZS
+1 FAMS @F08@
+1 NOTE @NI30@
+0 @NI30@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I31@ INDI
+1 NAME Rosanna /GRABER/
+1 SEX F
+1 BIRT
+2 DATE ABT. 1793
+2 PLAC <Reading, Berks, PA>
+1 FAMS @F09@
+1 NOTE @NI31@
+0 @NI31@ NOTE
+1 CONC
+0 @I32@ INDI
+1 NAME /YEAGER/
+1 SEX M
+1 _FA1
+2 PLAC BSH3-60
+1 FAMS @F10@
+1 NOTE @NI32@
+0 @NI32@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I33@ INDI
+1 NAME Eve /ARMEL/
+1 SEX F
+1 _FA1
+2 PLAC BSH3-75
+1 FAMS @F11@
+1 NOTE @NI33@
+0 @NI33@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I34@ INDI
+1 NAME Maria Margaretha /RAPPOLD/
+1 SEX F
+1 _FA1
+2 PLAC BSH3-8B
+1 FAMS @F12@
+1 NOTE @NI34@
+0 @NI34@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I35@ INDI
+1 NAME Christopher /DIEMS/
+1 SEX M
+1 _FA1
+2 PLAC BSH3-9H
+1 FAMS @F13@
+1 NOTE @NI35@
+0 @NI35@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I36@ INDI
+1 NAME Mr. /RAPPOLD/
+1 SEX M
+1 _FA1
+2 PLAC BSH3-BN
+1 FAMS @F14@
+1 NOTE @NI36@
+0 @NI36@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I37@ INDI
+1 NAME Esther /OHUMACHT/
+1 SEX F
+1 _FA1
+2 PLAC BSH3-CT
+1 FAMS @F15@
+1 NOTE @NI37@
+0 @NI37@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I38@ INDI
+1 NAME John Daniel /BEYERLE/
+1 SEX M
+1 _FA1
+2 PLAC BSH3-D1
+1 FAMS @F16@
+1 NOTE @NI38@
+0 @NI38@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I39@ INDI
+1 NAME Henrich /WOLF/
+1 SEX M
+1 _FA1
+2 PLAC BSH3-F6
+1 FAMS @F17@
+1 NOTE @NI39@
+0 @NI39@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @I40@ INDI
+1 NAME Nicholas /SEITZINGER/
+1 SEX M
+1 _FA1
+2 PLAC BSH3-GC
+1 FAMS @F18@
+1 NOTE @NI40@
+0 @NI40@ NOTE
+1 CONC From Ancestral File (TM), data as of 2 January 1996.
+0 @F01@ FAM
+1 HUSB @I01@
+1 WIFE @I02@
+1 MARR
+2 DATE 21 JUL 1799
+1 _FA1
+2 DATE 20 JAN 1972
+0 @F02@ FAM
+1 HUSB @I03@
+1 WIFE @I04@
+1 CHIL @I01@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I09@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I10@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I11@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I12@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I13@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I14@
+2 _FREL Natural
+2 _MREL Natural
+1 MARR
+2 DATE 19 APR 1784
+2 PLAC Reading, Berks, PA
+1 _FA1
+2 DATE 10 OCT 1966
+0 @F03@ FAM
+1 HUSB @I05@
+1 WIFE @I06@
+1 CHIL @I03@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I15@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I16@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I17@
+2 _FREL Natural
+2 _MREL Natural
+1 _FA1
+2 DATE 10 OCT 1966
+0 @F04@ FAM
+1 HUSB @I07@
+1 WIFE @I08@
+1 CHIL @I18@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I19@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I20@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I04@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I21@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I25@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I22@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I23@
+2 _FREL Natural
+2 _MREL Natural
+1 CHIL @I24@
+2 _FREL Natural
+2 _MREL Natural
+1 MARR
+2 DATE 7 FEB 1746/47
+2 PLAC Waeysinger, Wrtt, Germ.
+1 _FA1
+2 DATE 4 FEB 1970
+0 @F05@ FAM
+1 HUSB @I26@
+1 CHIL @I05@
+2 _FREL Natural
+2 _MREL Natural
+0 @F06@ FAM
+1 HUSB @I27@
+1 WIFE @I28@
+1 CHIL @I06@
+2 _FREL Natural
+2 _MREL Natural
+0 @F07@ FAM
+1 HUSB @I29@
+1 WIFE @I09@
+1 MARR
+2 DATE 1 FEB 1799
+0 @F08@ FAM
+1 HUSB @I30@
+1 WIFE @I10@
+1 MARR
+2 DATE 1 JAN 1799
+0 @F09@ FAM
+1 HUSB @I12@
+1 WIFE @I31@
+1 MARR
+2 DATE 1 JUN 1814
+0 @F10@ FAM
+1 HUSB @I32@
+1 WIFE @I15@
+0 @F11@ FAM
+1 HUSB @I18@
+1 WIFE @I33@
+1 MARR
+2 DATE 1772
+0 @F12@ FAM
+1 HUSB @I19@
+1 WIFE @I34@
+1 MARR
+2 DATE 20 OCT 1773
+0 @F13@ FAM
+1 HUSB @I35@
+1 WIFE @I20@
+0 @F14@ FAM
+1 HUSB @I36@
+1 WIFE @I21@
+0 @F15@ FAM
+1 HUSB @I22@
+1 WIFE @I37@
+0 @F16@ FAM
+1 HUSB @I38@
+1 WIFE @I23@
+1 MARR
+2 DATE 15 JUL 1783
+0 @F17@ FAM
+1 HUSB @I39@
+1 WIFE @I24@
+0 @F18@ FAM
+1 HUSB @I40@
+1 WIFE @I25@
+1 MARR
+2 DATE 20 JUN 1780
+0 TRLR
