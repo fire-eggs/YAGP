@@ -244,14 +244,14 @@ namespace SharpGEDParser.Parser
             // Make sure sex is set
             if (me.Sex != '\0')
             {
-                if (!"MFU".Contains(me.Sex.ToString(CultureInfo.InvariantCulture).ToUpper()))
+                if (!"MFUmfu".Contains(me.Sex.ToString(CultureInfo.InvariantCulture)))
                 {
-                    me.Sex = 'U'; // TODO warning
+                    me.Sex = 'U';
 
                     UnkRec err = new UnkRec();
                     err.Error = UnkRec.ErrorCode.InvSex; // "Non-standard SEX value corrected to U";
                     err.Beg = err.End = me.BegLine;
-                    me.Errors.Add(err);
+                    me.Errors.Add(err);  // TODO as warning
                 }
             }
             CheckRestriction(me, me.Restriction);
