@@ -50,11 +50,20 @@ namespace SharpGEDParser.Parser
                 var hashCode = 0;
                 for (var i = 0; i < obj.Length; i++)
                 {
-                    var bytes = BitConverter.GetBytes(obj[i]);
+                    char val = obj[i];
 
-                    // Rotate by 3 bits and XOR the new value.
-                    for ( var j= 0; j < bytes.Length; j++)
-                        hashCode = (hashCode << 3) | (hashCode >> (29)) ^ bytes[j];
+                    // BitConverter.GetBytes is overkill for chars
+                    byte byte1 = (byte)(val & 0xFF);
+                    byte byte2 = (byte)((val >> 8) & 0xFF);
+
+                    hashCode = (hashCode << 3) | (hashCode >> (29)) ^ byte1;
+                    hashCode = (hashCode << 3) | (hashCode >> (29)) ^ byte2;
+
+                    //var bytes = BitConverter.GetBytes(obj[i]);
+
+                    //// Rotate by 3 bits and XOR the new value.
+                    //for ( var j= 0; j < bytes.Length; j++)
+                    //    hashCode = (hashCode << 3) | (hashCode >> (29)) ^ bytes[j];
                 }
                 return hashCode;
             }
