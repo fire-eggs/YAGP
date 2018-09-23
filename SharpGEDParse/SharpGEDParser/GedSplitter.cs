@@ -24,26 +24,31 @@ namespace SharpGEDParser
     //
     public class GEDSplitter
     {
-        private readonly int[] _starts;
-        private readonly int[] _lens;
+        private int[] _starts;
+        private int[] _lens;
         private int _count;
-        private readonly int _max;
-        private readonly StringCache _tagCache;
+        private int _max;
+        private StringCache _tagCache;
 
         // A line is <level><ident><tag><remain> - so even 10 is overkill?
         private const int MAX_PARTS = 9;
 
-        public GEDSplitter(StringCache tagCache) : this(MAX_PARTS+1)
+        public GEDSplitter(StringCache tagCache)
         {
             _tagCache = tagCache; // TODO use a singleton rather than parameter?
+            Init(MAX_PARTS + 1);
         }
 
         public GEDSplitter(int bufferSize)
         {
-            _max = bufferSize-1;
+            Init(bufferSize);
+        }
+
+        private void Init(int bufferSize)
+        {
+            _max = bufferSize - 1;
             _starts = new int[bufferSize];
             _lens = new int[bufferSize];
-
             if (_tagCache == null)
                 _tagCache = new StringCache(); // unit testing
         }
