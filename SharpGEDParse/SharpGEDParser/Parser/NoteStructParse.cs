@@ -35,7 +35,7 @@ namespace SharpGEDParser.Parser
         {
             Note note = new Note();
             note.Builder = new StringBuilder(512);
-            StructParseContext ctx2 = new StructParseContext(ctx, note, linedex); // TODO no record for context!
+            var ctx2 = PContextFactory.Alloc(ctx, note, linedex); // TODO no record for context!
             ctx2.Level = level;
 
             if (ctx as ParseContext2 != null)
@@ -82,6 +82,7 @@ namespace SharpGEDParser.Parser
             //note.Text = note.Builder.ToString().Replace("@@", "@"); // TODO faster replace;
             note.Builder = null;
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return note;
         }
     }

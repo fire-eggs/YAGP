@@ -55,21 +55,29 @@ namespace SharpGEDParser.Parser
             Record = ctx.Parent;
         }
 
-        public StructParseContext(ParseContext2 ctx, StructCommon parent)
-            : base(ctx)
+        public void Init(ParseContextCommon ctx, StructCommon parent, int linedex=0)
         {
-            Parent = parent;
-            Record = ctx.Parent;
-        }
-
-        public StructParseContext(ParseContextCommon ctx, StructCommon parent, int linedex = 0)
-            : base(ctx)
-        {
-            // TODO pass Level, Record into here?
+            base.Init(ctx);
             Parent = parent;
             Begline = linedex;
             Endline = linedex;
         }
+
+        //public StructParseContext(ParseContext2 ctx, StructCommon parent)
+        //    : base(ctx)
+        //{
+        //    Parent = parent;
+        //    Record = ctx.Parent;
+        //}
+
+        //public StructParseContext(ParseContextCommon ctx, StructCommon parent, int linedex = 0)
+        //    : base(ctx)
+        //{
+        //    // TODO pass Level, Record into here?
+        //    Parent = parent;
+        //    Begline = linedex;
+        //    Endline = linedex;
+        //}
 
         public StructParseContext(ParseContextCommon ctx, int linedex, char level, StructCommon parent)
             : base(ctx)
@@ -94,6 +102,12 @@ namespace SharpGEDParser.Parser
         {
             var spc = _pool.GetObject();
             spc.Init(ctx, parent);
+            return spc;
+        }
+        public static StructParseContext Alloc(ParseContextCommon ctx, StructCommon parent, int linedex)
+        {
+            var spc = _pool.GetObject();
+            spc.Init(ctx, parent, linedex);
             return spc;
         }
         public static void Free(StructParseContext spc)

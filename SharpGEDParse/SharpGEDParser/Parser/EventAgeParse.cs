@@ -19,7 +19,7 @@ namespace SharpGEDParser.Parser
         public static AgeDetail AgeParser(StructParseContext ctx, int linedex, char level)
         {
             AgeDetail det = new AgeDetail();
-            StructParseContext ctx2 = new StructParseContext(ctx, det, linedex);
+            var ctx2 = PContextFactory.Alloc(ctx, det, linedex);
             ctx2.Level = level;
             ctx2.Record = ctx.Record;
             if (!string.IsNullOrWhiteSpace(ctx.Remain))
@@ -28,6 +28,7 @@ namespace SharpGEDParser.Parser
             }
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return det;
         }
     }

@@ -83,12 +83,13 @@ namespace SharpGEDParser.Parser
         public static Address AddrParse(StructParseContext ctx, int linedex, char level)
         {
             Address addr = new Address();
-            StructParseContext ctx2 = new StructParseContext(ctx, addr, linedex);
+            var ctx2 = PContextFactory.Alloc(ctx, addr, linedex);
             ctx2.Record = ctx.Record;
             ctx2.Level = level;
             addr.Adr += ctx.Remain;
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return addr;
         }
 
