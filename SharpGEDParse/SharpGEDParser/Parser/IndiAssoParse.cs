@@ -41,9 +41,11 @@ namespace SharpGEDParser.Parser
             {
                 asso.Ident = xref;
             }
-            StructParseContext ctx2 = new StructParseContext(ctx, asso);
+            //StructParseContext ctx2 = new StructParseContext(ctx, asso);
+            StructParseContext ctx2 = PContextFactory.Alloc(ctx, asso);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return asso;
             // TODO validate relation specified
             // TODO validate ident existance

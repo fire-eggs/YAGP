@@ -98,6 +98,7 @@
     <Compile Include="Model\StructCommon.cs" />
     <Compile Include="Model\Submitter.cs" />
     <Compile Include="Model\Unknown.cs" />
+    <Compile Include="ObjectPool.cs" />
     <Compile Include="Parser\AddrStructParse.cs" />
     <Compile Include="Parser\DateTokens.cs" />
     <Compile Include="Parser\EventAgeParse.cs" />

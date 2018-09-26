@@ -58,9 +58,11 @@ namespace SharpGEDParser.Parser
             if (!string.IsNullOrEmpty(extra))
                 link.Extra = extra;
 
-            StructParseContext ctx2 = new StructParseContext(ctx, link);
+            //StructParseContext ctx2 = new StructParseContext(ctx, link);
+            StructParseContext ctx2 = PContextFactory.Alloc(ctx, link);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
 
             if (err != null)
             {

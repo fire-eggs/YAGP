@@ -100,7 +100,8 @@ namespace SharpGEDParser.Parser
         public static MediaLink MediaParser(ParseContext2 ctx)
         {
             MediaLink mlink = new MediaLink();
-            StructParseContext ctx2 = new StructParseContext(ctx, mlink);
+            //StructParseContext ctx2 = new StructParseContext(ctx, mlink);
+            StructParseContext ctx2 = PContextFactory.Alloc(ctx, mlink);
 // TODO parse xref using standard xref parser
 // TODO preserve non-xref remain as note
             if (!string.IsNullOrEmpty(ctx.Remain) && ctx.Remain[0] == '@')
@@ -110,6 +111,7 @@ namespace SharpGEDParser.Parser
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return mlink;
         }
     }

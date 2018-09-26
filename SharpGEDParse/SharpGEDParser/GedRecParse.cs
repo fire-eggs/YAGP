@@ -17,10 +17,10 @@ namespace SharpGEDParser
 
         protected abstract void BuildTagSet();
 
-        public void Parse(GEDCommon rec, GedRecord Lines)
+        public void Parse(GEDCommon rec, GedRecord Lines, GSFactory gsfact)
         {
             ParseContext2 ctx = new ParseContext2();
-            ctx.gs = new GEDSplitter(GedParser._masterTagCache);
+            ctx.gs = gsfact.Alloc(); // new GEDSplitter(GedParser._masterTagCache);
             ctx.tagCache = GedParser._masterTagCache;
 
             ctx.Lines = Lines;
@@ -52,6 +52,7 @@ namespace SharpGEDParser
             // TODO post parse error checking on sub-structures
             PostCheck(ctx.Parent); // post parse error checking
 
+            gsfact.Free(ctx.gs);
             ctx.gs = null;
         }
 

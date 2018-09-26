@@ -26,6 +26,8 @@ namespace SharpGEDParser
             _RepoParseSingleton = new RepoParse();
             _NoteParseSingleton = new NoteParse();
             _MediaParseSingleton = new MediaParse();
+
+            _GedSplitFactory = new GSFactory(_masterTagCache);
         }
 
 #if PARALLEL
@@ -59,9 +61,9 @@ namespace SharpGEDParser
 
             GEDCommon recC2 = parseSet.Item1 as GEDCommon;
 #if PARALLEL
-            _allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC2, rec)));
+            _allTasks.Add(Task.Run(() => parseSet.Item2.Parse(recC2, rec,_GedSplitFactory)));
 #else
-            parseSet.Item2.Parse(recC2, rec);
+            parseSet.Item2.Parse(recC2, rec,_GedSplitFactory);
 #endif
             return parseSet.Item1 as GEDCommon;
         }
@@ -157,13 +159,14 @@ namespace SharpGEDParser
         private readonly GedParse _RepoParseSingleton;
         private readonly GedParse _NoteParseSingleton;
         private readonly GedParse _MediaParseSingleton;
+        private readonly GSFactory _GedSplitFactory;
 
         internal static StringCache _masterTagCache;
     }
 
     internal interface GedParse
     {
-        void Parse(GEDCommon rec, GedRecord Lines);
+        void Parse(GEDCommon rec, GedRecord Lines, GSFactory gsfact);
     }
 }
 

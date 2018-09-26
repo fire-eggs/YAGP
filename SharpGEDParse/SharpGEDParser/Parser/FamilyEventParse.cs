@@ -167,11 +167,14 @@ namespace SharpGEDParser.Parser
         public static EventCommon Parse(ParseContext2 ctx, bool indi)
         {
             EventCommon gedEvent = indi ? new IndiEvent() as EventCommon : new FamilyEvent() as EventCommon;
-            StructParseContext ctx2 = new StructParseContext(ctx, gedEvent);
+
+            StructParseContext ctx2 = PContextFactory.Alloc(ctx, gedEvent);
+            //StructParseContext ctx2 = new StructParseContext(ctx, gedEvent);
             gedEvent.Tag = ctx.Tag;
             gedEvent.Descriptor = string.IsNullOrEmpty(ctx.Remain) ? null : ctx.Remain;
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return gedEvent;
         }
     }

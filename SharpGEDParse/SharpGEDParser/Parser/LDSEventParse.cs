@@ -70,9 +70,11 @@ namespace SharpGEDParser.Parser
         {
             LDSEvent evt = new LDSEvent();
             evt.Tag = ctx.Tag;
-            StructParseContext ctx2 = new StructParseContext(ctx, evt);
+            //StructParseContext ctx2 = new StructParseContext(ctx, evt);
+            StructParseContext ctx2 = PContextFactory.Alloc(ctx, evt);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return evt;
         }
     }

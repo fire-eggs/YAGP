@@ -55,7 +55,8 @@ namespace SharpGEDParser.Parser
         public static SourceData DataParser(ParseContext2 ctx)
         {
             SourceData data = new SourceData();
-            StructParseContext ctx2 = new StructParseContext(ctx, data);
+            //StructParseContext ctx2 = new StructParseContext(ctx, data);
+            var ctx2 = PContextFactory.Alloc(ctx, data);
 
             if (!string.IsNullOrWhiteSpace(ctx.Remain))
             {
@@ -64,6 +65,7 @@ namespace SharpGEDParser.Parser
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return data;
         }
     }

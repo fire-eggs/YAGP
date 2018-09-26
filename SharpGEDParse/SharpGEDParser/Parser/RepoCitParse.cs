@@ -39,7 +39,8 @@ namespace SharpGEDParser.Parser
         public static RepoCit CitParser(ParseContext2 ctx)
         {
             RepoCit cit = new RepoCit();
-            StructParseContext ctx2 = new StructParseContext(ctx, cit);
+            //StructParseContext ctx2 = new StructParseContext(ctx, cit);
+            var ctx2 = PContextFactory.Alloc(ctx, cit);
 
             string extra;
             string xref;
@@ -65,6 +66,7 @@ namespace SharpGEDParser.Parser
 
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return cit;
         }
     }

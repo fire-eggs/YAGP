@@ -122,9 +122,11 @@ namespace SharpGEDParser.Parser
                 err.Beg = err.End = ctx.Begline;
                 ctx.Parent.Errors.Add(err);
             }
-            StructParseContext ctx2 = new StructParseContext(ctx, name);
+            //StructParseContext ctx2 = new StructParseContext(ctx, name);
+            var ctx2 = PContextFactory.Alloc(ctx, name);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
             return name;
         }
     }

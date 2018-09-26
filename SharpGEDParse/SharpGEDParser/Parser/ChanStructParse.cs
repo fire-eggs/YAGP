@@ -25,9 +25,11 @@ namespace SharpGEDParser.Parser
 
         public static void ChanParse(ParseContext2 ctx, ChangeRec chan)
         {
-            StructParseContext ctx2 = new StructParseContext(ctx, chan);
+            //StructParseContext ctx2 = new StructParseContext(ctx, chan);
+            StructParseContext ctx2 = PContextFactory.Alloc(ctx, chan);
             StructParse(ctx2, tagDict);
             ctx.Endline = ctx2.Endline;
+            PContextFactory.Free(ctx2);
         }
 
         public static void ChanProc(ParseContext2 ctx)

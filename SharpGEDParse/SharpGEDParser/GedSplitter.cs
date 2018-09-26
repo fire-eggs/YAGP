@@ -182,13 +182,37 @@ namespace SharpGEDParser
             // already been skipped, calculate the start from the previous piece.
             int start = _starts[dex - 1] + _lens[dex - 1] + 1;
             int len = max - start;
-            var tmp = new char[len];
-            for (int i = 0; i < len; i++)
-                tmp[i] = value[i + start];
-            return new string(tmp);
+            return new string(value, start, len);
+
+            //var tmp = new char[len]; // don't need a buffer!
+            //for (int i = 0; i < len; i++)
+            //    tmp[i] = value[i + start];
+            //return new string(tmp);
             //return new string(value, _starts[dex], max-_starts[dex]);
         }
 
 
+    }
+
+    public class GSFactory
+    {
+        private StringCache _cache;
+        ObjectPool<GEDSplitter> pool;
+
+        public GSFactory(StringCache cache)
+        {
+            _cache = cache;
+            pool = new ObjectPool<GEDSplitter>(() => new GEDSplitter(_cache));
+        }
+
+        public GEDSplitter Alloc()
+        {
+            return pool.GetObject();
+        }
+
+        public void Free(GEDSplitter gs)
+        {
+            pool.PutObject(gs);
+        }
     }
 }
