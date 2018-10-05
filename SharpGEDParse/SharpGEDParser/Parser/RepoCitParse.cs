@@ -1,15 +1,16 @@
 ﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
     public class RepoCitParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"CALN", calnProc},
-            {"MEDI", mediProc},
-            {"NOTE", noteProc},
+            {GedTag.CALN, calnProc},
+            {GedTag.MEDI, mediProc},
+            {GedTag.NOTE, noteProc},
         };
 
         private static RepoCit.CallNum GetCallNum(RepoCit dad)

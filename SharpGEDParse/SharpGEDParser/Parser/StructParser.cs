@@ -1,7 +1,7 @@
 ﻿using SharpGEDParser.Model;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // Common support / logic when parsing GED 'structures'. E.g. CHAN, NOTE-structure, Source-Citation, ADDR, etc
 
@@ -11,10 +11,9 @@ namespace SharpGEDParser.Parser
     {
         protected delegate void TagProc(StructParseContext context, int linedex, char level);
 
-        protected static void StructParse(StructParseContext ctx, Dictionary<string, TagProc> tagSet)
+        protected static void StructParse(StructParseContext ctx, Dictionary<GedTag, TagProc> tagSet)
         {
             LineUtil.LineData ld = new LineUtil.LineData();
-            //GEDSplitter gs = new GEDSplitter();
 
             int i = ctx.Begline + 1;
             int max = ctx.Lines.Max;
@@ -24,7 +23,6 @@ namespace SharpGEDParser.Parser
                 try
                 {
                     ctx.gs.LevelTagAndRemain(ctx.Lines.GetLine(i), ld);
-                    //LineUtil.LevelTagAndRemain(ld, ctx.Lines.GetLine(i));
                 }
                 catch (Exception)
                 {
@@ -40,7 +38,9 @@ namespace SharpGEDParser.Parser
                     break; // end of sub-record
                 ctx.Remain1 = ld.Remain1;
 
-                if (ld.Tag == null)
+                // TODO 1 really needs to be for a missing tag
+                // TODO 2 will crash if ctx.Record is null, which is true in SourceCitParse.CommonParser
+                if (ld.Tag == GedTag.MISSING) // TODO would this be MISSING?
                 {
                     UnkRec exc = new UnkRec();
                     exc.Beg = exc.End = i;

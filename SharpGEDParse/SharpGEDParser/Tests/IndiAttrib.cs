@@ -28,7 +28,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Attribs.Count);
-            Assert.AreEqual(tag, rec.Attribs[0].Tag);
+            Assert.AreEqual(tag, rec.Attribs[0].Tag.ToString());
             Assert.AreEqual("attrib_value", rec.Attribs[0].Descriptor);
             Assert.AreEqual("17", rec.Attribs[0].Age);
             Assert.AreEqual("1774", rec.Attribs[0].Date);
@@ -58,7 +58,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Attribs.Count);
-            Assert.AreEqual("DSCR", rec.Attribs[0].Tag);
+            Assert.AreEqual("DSCR", rec.Attribs[0].Tag.ToString());
             Assert.AreEqual("attrib_valuea big man\nI don't know the\nsecret handshake", rec.Attribs[0].Descriptor);
             Assert.AreEqual("17", rec.Attribs[0].Age);
             Assert.AreEqual("1774", rec.Attribs[0].Date);
@@ -73,7 +73,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Attribs.Count);
-            Assert.AreEqual("DSCR", rec.Attribs[0].Tag);
+            Assert.AreEqual("DSCR", rec.Attribs[0].Tag.ToString());
             Assert.AreEqual("attrib_value a big man \nI don't know the secret handshake", rec.Attribs[0].Descriptor);
             Assert.AreEqual("17", rec.Attribs[0].Age);
             Assert.AreEqual("1774", rec.Attribs[0].Date);
@@ -175,7 +175,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);  // From mutation testing: verify sub-record parsing
 
-            Assert.AreEqual("FACT", rec.Attribs[0].Tag);
+            Assert.AreEqual("FACT", rec.Attribs[0].Tag.ToString());
             Assert.AreEqual("attrib_value", rec.Attribs[0].Descriptor);
             Assert.AreEqual("17", rec.Attribs[0].Age);
             Assert.AreEqual("1774", rec.Attribs[0].Date);
@@ -203,7 +203,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual(0, rec.Attribs[0].OtherLines.Count);  // From mutation testing: verify sub-record parsing
 
-            Assert.AreEqual("FACT", rec.Attribs[0].Tag);
+            Assert.AreEqual("FACT", rec.Attribs[0].Tag.ToString());
             Assert.AreEqual("attrib_value", rec.Attribs[0].Descriptor);
             Assert.AreEqual("17", rec.Attribs[0].Age);
             Assert.AreEqual("1774", rec.Attribs[0].Date);

@@ -1,5 +1,6 @@
 ﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -7,11 +8,11 @@ namespace SharpGEDParser.Parser
 {
     class IndiAssoParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>
         {
-            {"RELA", relaProc},
-            {"NOTE", noteProc},
-            {"SOUR", sourProc}
+            {GedTag.RELA, relaProc},
+            {GedTag.NOTE, noteProc},
+            {GedTag.SOUR, sourProc}
         };
 
         private static void relaProc(StructParseContext context, int linedex, char level)
@@ -34,7 +35,7 @@ namespace SharpGEDParser.Parser
                 err.Error = UnkRec.ErrorCode.UntermIdent;
                 // TODO err.Error = "Missing/unterminated identifier: " + ctx.Tag;
                 err.Beg = err.End = ctx.Begline + ctx.Parent.BegLine;
-                err.Tag = ctx.Tag;
+                err.Tag = ctx.TagAsString;
                 ctx.Parent.Errors.Add(err); // TODO parent level or structure level?
             }
             else

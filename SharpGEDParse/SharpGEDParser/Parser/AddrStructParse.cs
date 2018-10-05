@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -16,16 +17,16 @@ namespace SharpGEDParser.Parser
     {
         // TODO could reflection be used to replace these copy-pasta methods? Would it be better?
 
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>
         {
-            {"CONT", contProc},
-            {"ADR1", adr1Proc},
-            {"ADR2", adr2Proc},
-            {"ADR3", adr3Proc},
-            {"CITY", cityProc},
-            {"STAE", staeProc},
-            {"POST", postProc},
-            {"CTRY", ctryProc},
+            {GedTag.CONT, contProc},
+            {GedTag.ADR1, adr1Proc},
+            {GedTag.ADR2, adr2Proc},
+            {GedTag.ADR3, adr3Proc},
+            {GedTag.CITY, cityProc},
+            {GedTag.STAE, staeProc},
+            {GedTag.POST, postProc},
+            {GedTag.CTRY, ctryProc},
         };
 
         private static void ctryProc(StructParseContext context, int linedex, char level)
@@ -93,23 +94,23 @@ namespace SharpGEDParser.Parser
             return addr;
         }
 
-        public static Address OtherTag(ParseContextCommon ctx, string Tag, Address exist)
+        public static Address OtherTag(ParseContextCommon ctx, GedTag Tag, Address exist)
         {
             // These tags are not subordinate to the ADDR struct. Strictly speaking,
             // the ADDR tag is required, but allow it not to exist.
             Address addr = exist ?? new Address();
             switch (Tag)
             {
-                case "PHON":
+                case GedTag.PHON:
                     addr.Phon.Add(ctx.Remain);
                     break;
-                case "WWW":
+                case GedTag.WWW:
                     addr.WWW.Add(ctx.Remain);
                     break;
-                case "EMAIL":
+                case GedTag.EMAIL:
                     addr.Email.Add(ctx.Remain);
                     break;
-                case "FAX":
+                case GedTag.FAX:
                     addr.Fax.Add(ctx.Remain);
                     break;
             }

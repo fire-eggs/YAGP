@@ -85,7 +85,7 @@ namespace GEDWrap
         {
             foreach (var kbrGedEvent in Indi.Events)
             {
-                if (kbrGedEvent.Tag == tag)
+                if (kbrGedEvent.Tag.ToString() == tag) // TODO gedtag?
                 {
                     return kbrGedEvent;
                 }
@@ -97,7 +97,7 @@ namespace GEDWrap
         {
             foreach (var kbrGedEvent in Indi.Attribs)
             {
-                if (kbrGedEvent.Tag == tag)
+                if (kbrGedEvent.Tag.ToString() == tag) // TODO Gedtag?
                 {
                     return kbrGedEvent;
                 }

@@ -71,7 +71,7 @@ namespace LocationsList
                 IndiRecord ged = person.Indi;
                 foreach (var familyEvent in ged.Events)
                 {
-                    string tag = familyEvent.Tag;
+                    string tag = familyEvent.Tag.ToString(); // TODO use gedtag?
                     if (!string.IsNullOrEmpty(familyEvent.Place))
                     {
                         dataSet.Add(new One {Location = familyEvent.Place, Tag = tag, PersonId = ged.Ident, Indi=person});
@@ -79,7 +79,7 @@ namespace LocationsList
                 }
                 foreach (var familyEvent in ged.Attribs)
                 {
-                    string tag = familyEvent.Tag;
+                    string tag = familyEvent.Tag.ToString(); // TODO use gedtag?
                     if (!string.IsNullOrEmpty(familyEvent.Place))
                     {
                         dataSet.Add(new One { Location = familyEvent.Place, Tag = tag, PersonId = ged.Ident, Indi = person});
@@ -92,7 +92,7 @@ namespace LocationsList
                 FamRecord fam = union.FamRec;
                 foreach (var familyEvent in fam.FamEvents)
                 {
-                    string tag = familyEvent.Tag;
+                    string tag = familyEvent.Tag.ToString(); // TODO use gedtag?
                     if (!string.IsNullOrEmpty(familyEvent.Place))
                     {
                         dataSet.Add(new One { Location = familyEvent.Place, Tag = tag, FamId = fam.Ident, Fam=union });

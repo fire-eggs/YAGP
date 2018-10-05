@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Model
 {
@@ -12,8 +13,8 @@ namespace SharpGEDParser.Model
 		/// </summary>
 		/// Example
 		/// 1 BAPM
-		/// the tag is 'BAPM'
-        public string Tag { get; set; }
+		/// the tag is GedTag.BAPM
+        public GedTag Tag { get; set; }
 
 		/// <summary>
 		/// Any descriptor or other details associated with the event.

@@ -41,7 +41,7 @@ namespace SharpGEDParser.Tests
             GEDSplitter gs = new GEDSplitter(10);
             Assert.AreEqual(1, gs.Split(txt, ' '));
             Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual(null, gs.Tag(txt));
+            Assert.AreEqual("INVALID", gs.Tag(txt).ToString());
             Assert.AreEqual(null, gs.Remain(txt));
         }
 
@@ -53,7 +53,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(3, gs.Split(txt, ' '));
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual("I1", gs.Ident(txt));
-            Assert.AreEqual("INDI", gs.Tag(txt));
+            Assert.AreEqual("INDI", gs.Tag(txt).ToString());
         }
 
         [Test]
@@ -63,7 +63,8 @@ namespace SharpGEDParser.Tests
             GEDSplitter gs = new GEDSplitter(20);
             Assert.AreEqual(11, gs.Split(txt, ' '));
             Assert.AreEqual('1', gs.Level(txt));
-            Assert.AreEqual("Page", gs.Tag(txt));
+            Assert.AreEqual("Page", gs.TagAsString(txt));
+            Assert.AreEqual("INVALID", gs.Tag(txt).ToString());
             Assert.AreEqual("According to his death certificate, John McGinnis was bor", gs.Remain(txt));
         }
 
@@ -87,7 +88,7 @@ namespace SharpGEDParser.Tests
             gs.Split(txt, ' ');
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual(null, gs.Ident(txt));
-            Assert.AreEqual("FAM", gs.Tag(txt));
+            Assert.AreEqual("FAM", gs.Tag(txt).ToString());
         }
 
         [Test]
@@ -97,7 +98,7 @@ namespace SharpGEDParser.Tests
             GEDSplitter gs = new GEDSplitter(5);
             gs.Split(txt, ' ');
             Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("FAM", gs.Tag(txt));
+            Assert.AreEqual("FAM", gs.Tag(txt).ToString());
             Assert.AreEqual("I1", gs.Ident(txt));
         }
 
@@ -121,7 +122,7 @@ namespace SharpGEDParser.Tests
             gs.Split(txt, ' ');
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual("Z1", gs.Ident(txt));
-            Assert.AreEqual("", gs.Tag(txt));
+            Assert.AreEqual("MISSING", gs.Tag(txt).ToString());
         }
 
         [Test]
@@ -131,7 +132,8 @@ namespace SharpGEDParser.Tests
             GEDSplitter gs = new GEDSplitter(5);
             gs.Split(txt, ' ');
             Assert.AreEqual('1', gs.Level(txt));
-            Assert.AreEqual("Page", gs.Tag(txt));
+            Assert.AreEqual("Page", gs.TagAsString(txt));
+            Assert.AreEqual("INVALID", gs.Tag(txt).ToString());
         }
 
         [Test, Ignore("Can't split on tabs")]
@@ -142,7 +144,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(3, gs.Split(txt, ' '));
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual("I1", gs.Ident(txt));
-            Assert.AreEqual("INDI", gs.Tag(txt));
+            Assert.AreEqual("INDI", gs.Tag(txt).ToString());
         }
 
         [Test,Ignore("Can't split on tabs")]
@@ -153,7 +155,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(3, gs.Split(txt, ' '));
             Assert.AreEqual('0', gs.Level(txt));
             Assert.AreEqual("I1", gs.Ident(txt));
-            Assert.AreEqual("INDI", gs.Tag(txt));
+            Assert.AreEqual("INDI", gs.Tag(txt).ToString());
         }
     }
 }

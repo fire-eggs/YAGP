@@ -36,7 +36,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.LDSEvents.Count);
-            Assert.AreEqual(tag, rec.LDSEvents[0].Tag);
+            Assert.AreEqual(tag, rec.LDSEvents[0].Tag.ToString());
             Assert.AreEqual("statdate", rec.LDSEvents[0].Date); // TODO real date parsing
             Assert.AreEqual("salt lake", rec.LDSEvents[0].Temple);
             Assert.AreEqual("salty", rec.LDSEvents[0].Place);
@@ -71,7 +71,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.LDSEvents.Count);
-            Assert.AreEqual("SLGC", rec.LDSEvents[0].Tag);
+            Assert.AreEqual("SLGC", rec.LDSEvents[0].Tag.ToString());
             Assert.AreEqual("statdate", rec.LDSEvents[0].Date); // TODO real date parsing
             Assert.AreEqual("salt lake", rec.LDSEvents[0].Temple);
             Assert.AreEqual("salty", rec.LDSEvents[0].Place);
@@ -88,7 +88,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.LDSEvents.Count);
-            Assert.AreEqual("SLGC", rec.LDSEvents[0].Tag);
+            Assert.AreEqual("SLGC", rec.LDSEvents[0].Tag.ToString());
             Assert.AreEqual("statdate", rec.LDSEvents[0].Date); // TODO real date parsing
             Assert.AreEqual("salt lake", rec.LDSEvents[0].Temple);
             Assert.AreEqual("salty", rec.LDSEvents[0].Place);

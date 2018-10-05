@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Model
 {
@@ -31,14 +32,14 @@ namespace SharpGEDParser.Model
         public string Suffix { get; set; }
 
         // TODO do something better/complete with NAME sub-records
-        private List<Tuple<string, string>> _parts;
+        private List<Tuple<GedTag, string>> _parts;
         /// <summary>
         /// The person's name data, as represented with extra sub-records.
         /// </summary>
         /// \todo More details
-        public List<Tuple<string, string>> Parts
+        public List<Tuple<GedTag, string>> Parts
         {
-            get { return _parts ?? (_parts = new List<Tuple<string,string>>()); }             
+            get { return _parts ?? (_parts = new List<Tuple<GedTag,string>>()); }             
         }
 
         private List<Note> _notes;

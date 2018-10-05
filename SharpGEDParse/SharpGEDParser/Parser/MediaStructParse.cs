@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
@@ -17,13 +18,13 @@ namespace SharpGEDParser.Parser
     
     public class MediaStructParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"FILE", fileProc},
-            {"FORM", formProc},
-            {"TITL", titlProc},
-            {"MEDI", mediProc},
-            {"NOTE", noteProc}
+            {GedTag.FILE, fileProc},
+            {GedTag.FORM, formProc},
+            {GedTag.TITL, titlProc},
+            {GedTag.MEDI, mediProc},
+            {GedTag.NOTE, noteProc}
         };
 
         private static MediaFile getFile(MediaLink dad)

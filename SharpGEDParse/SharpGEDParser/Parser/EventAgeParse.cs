@@ -1,13 +1,14 @@
 ﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
     class EventAgeParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"AGE", ageProc}
+            {GedTag.AGE, ageProc}
         };
 
         private static void ageProc(StructParseContext context, int linedex, char level)

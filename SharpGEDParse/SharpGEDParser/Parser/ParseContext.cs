@@ -13,7 +13,7 @@ namespace SharpGEDParser.Parser
         public int Endline; // index of last line FOUND for this 'record'
         public GEDSplitter gs;
 
-        public StringCache tagCache;
+        public TagCache tagCache; // TODO isn't there one in GedSplitter?
 
         public ParseContextCommon()
         {
@@ -35,6 +35,8 @@ namespace SharpGEDParser.Parser
 
             tagCache = ctx.tagCache;
         }
+
+        public string TagAsString { get { return "GARBAGE"; } } // TODO need a solution
     }
 
     public class StructParseContext : ParseContextCommon

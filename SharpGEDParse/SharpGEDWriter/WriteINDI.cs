@@ -55,11 +55,11 @@ namespace SharpGEDWriter
                 foreach (var tuple in nameRec.Parts)
                 {
                     file.WriteLine("2 {0} {1}", tuple.Item1, tuple.Item2);
-                    if (tuple.Item1 == "SURN")
+                    if (tuple.Item1 == Tag.GedTag.SURN)
                         didSurn = true;
-                    if (tuple.Item1 == "GIVN")
+                    if (tuple.Item1 == Tag.GedTag.GIVN)
                         didGivn = true;
-                    if (tuple.Item1 == "NSFX")
+                    if (tuple.Item1 == Tag.GedTag.NSFX)
                         didNSFX = true;
                 }
                 if (!didGivn && !string.IsNullOrEmpty(nameRec.Names))

@@ -1,4 +1,5 @@
 ﻿using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
@@ -6,22 +7,22 @@ namespace SharpGEDParser.Parser
     {
         protected override void BuildTagSet()
         {
-            _tagSet2.Add("NAME", nameproc);
-            _tagSet2.Add("ADDR", addrproc);
-            _tagSet2.Add("NOTE", NoteProc);
-            _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN",  RinProc);
-            _tagSet2.Add("CHAN", ChanProc);
+            _tagSet2.Add(GedTag.NAME, nameproc);
+            _tagSet2.Add(GedTag.ADDR, addrproc);
+            _tagSet2.Add(GedTag.NOTE, NoteProc);
+            _tagSet2.Add(GedTag.REFN, RefnProc);
+            _tagSet2.Add(GedTag.RIN,  RinProc);
+            _tagSet2.Add(GedTag.CHAN, ChanProc);
 
             // Unfortunately the spec does NOT have these as subordinate to ADDR
-            _tagSet2.Add("PHON", commonAddr2);
-            _tagSet2.Add("WWW", commonAddr2);
-            _tagSet2.Add("EMAIL", commonAddr2);
-            _tagSet2.Add("FAX", commonAddr2);
+            _tagSet2.Add(GedTag.PHON, commonAddr2);
+            _tagSet2.Add(GedTag.WWW, commonAddr2);
+            _tagSet2.Add(GedTag.EMAIL, commonAddr2);
+            _tagSet2.Add(GedTag.FAX, commonAddr2);
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID", UidProc);
+            _tagSet2.Add(GedTag._UID, UidProc);
+            _tagSet2.Add(GedTag.UID, UidProc);
         }
 
         private void nameproc(ParseContext2 ctx)

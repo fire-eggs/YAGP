@@ -1,4 +1,5 @@
 ﻿using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
@@ -6,16 +7,16 @@ namespace SharpGEDParser.Parser
     {
         protected override void BuildTagSet()
         {
-            _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN",  RinProc);
-            _tagSet2.Add("CHAN", ChanProc);
-            _tagSet2.Add("SOUR", SourCitProc);
-            _tagSet2.Add("CONC", concProc);
-            _tagSet2.Add("CONT", contProc);
+            _tagSet2.Add(GedTag.REFN, RefnProc);
+            _tagSet2.Add(GedTag.RIN,  RinProc);
+            _tagSet2.Add(GedTag.CHAN, ChanProc);
+            _tagSet2.Add(GedTag.SOUR, SourCitProc);
+            _tagSet2.Add(GedTag.CONC, concProc);
+            _tagSet2.Add(GedTag.CONT, contProc);
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID", UidProc);
+            _tagSet2.Add(GedTag._UID, UidProc);
+            _tagSet2.Add(GedTag.UID, UidProc);
         }
 
         private void contProc(ParseContext2 ctx)

@@ -47,7 +47,7 @@ namespace GEDWrap
         {
             foreach (var kbrGedEvent in FamRec.FamEvents)
             {
-                if (kbrGedEvent.Tag == tag)
+                if (kbrGedEvent.Tag.ToString() == tag) // TODO use GedTag?
                 {
                     return kbrGedEvent;
                 }

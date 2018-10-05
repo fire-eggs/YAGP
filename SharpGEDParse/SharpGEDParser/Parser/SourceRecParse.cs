@@ -1,4 +1,5 @@
 ﻿using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
@@ -7,23 +8,23 @@ namespace SharpGEDParser.Parser
     {
         protected override void BuildTagSet()
         {
-            _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN", RinProc);
-            _tagSet2.Add("CHAN", ChanProc);
+            _tagSet2.Add(GedTag.REFN, RefnProc);
+            _tagSet2.Add(GedTag.RIN, RinProc);
+            _tagSet2.Add(GedTag.CHAN, ChanProc);
 
-            _tagSet2.Add("ABBR", abbrProc);
-            _tagSet2.Add("AUTH", authProc);
-            _tagSet2.Add("DATA", dataProc);
-            _tagSet2.Add("NOTE", NoteProc);
-            _tagSet2.Add("OBJE", ObjeProc);
-            _tagSet2.Add("PUBL", publProc);
-            _tagSet2.Add("REPO", repoProc);
-            _tagSet2.Add("TEXT", textProc);
-            _tagSet2.Add("TITL", titlProc);
+            _tagSet2.Add(GedTag.ABBR, abbrProc);
+            _tagSet2.Add(GedTag.AUTH, authProc);
+            _tagSet2.Add(GedTag.DATA, dataProc);
+            _tagSet2.Add(GedTag.NOTE, NoteProc);
+            _tagSet2.Add(GedTag.OBJE, ObjeProc);
+            _tagSet2.Add(GedTag.PUBL, publProc);
+            _tagSet2.Add(GedTag.REPO, repoProc);
+            _tagSet2.Add(GedTag.TEXT, textProc);
+            _tagSet2.Add(GedTag.TITL, titlProc);
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID", UidProc);
+            _tagSet2.Add(GedTag._UID, UidProc);
+            _tagSet2.Add(GedTag.UID, UidProc);
         }
 
         private void abbrProc(ParseContext2 context)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -10,84 +11,84 @@ namespace SharpGEDParser.Parser
     {
         protected override void BuildTagSet()
         {
-            _tagSet2.Add("CHAN", ChanProc);
-            _tagSet2.Add("NOTE", NoteProc);
-            _tagSet2.Add("OBJE", ObjeProc);
-            _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN", RinProc);
-            _tagSet2.Add("SOUR", SourCitProc);
+            _tagSet2.Add(GedTag.CHAN, ChanProc);
+            _tagSet2.Add(GedTag.NOTE, NoteProc);
+            _tagSet2.Add(GedTag.OBJE, ObjeProc);
+            _tagSet2.Add(GedTag.REFN, RefnProc);
+            _tagSet2.Add(GedTag.RIN, RinProc);
+            _tagSet2.Add(GedTag.SOUR, SourCitProc);
 
-            _tagSet2.Add("RESN", resnProc);
-            _tagSet2.Add("NAME", NameProc);
-            _tagSet2.Add("SEX",  SexProc);
-            _tagSet2.Add("SUBM", xrefProc);
-            _tagSet2.Add("ASSO", AssocProc);
-            _tagSet2.Add("ALIA", aliasProc);
-            _tagSet2.Add("ANCI", xrefProc);
-            _tagSet2.Add("DESI", xrefProc);
+            _tagSet2.Add(GedTag.RESN, resnProc);
+            _tagSet2.Add(GedTag.NAME, NameProc);
+            _tagSet2.Add(GedTag.SEX,  SexProc);
+            _tagSet2.Add(GedTag.SUBM, xrefProc);
+            _tagSet2.Add(GedTag.ASSO, AssocProc);
+            _tagSet2.Add(GedTag.ALIA, aliasProc);
+            _tagSet2.Add(GedTag.ANCI, xrefProc);
+            _tagSet2.Add(GedTag.DESI, xrefProc);
 
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID", UidProc);
-            _tagSet2.Add("RFN",  RfnProc);
-            _tagSet2.Add("AFN",  AfnProc);
+            _tagSet2.Add(GedTag._UID, UidProc);
+            _tagSet2.Add(GedTag.UID, UidProc);
+            _tagSet2.Add(GedTag.RFN,  RfnProc);
+            _tagSet2.Add(GedTag.AFN,  AfnProc);
 
             // Events
-            _tagSet2.Add("DEAT", EventProc);
-            _tagSet2.Add("CREM", EventProc);
-            _tagSet2.Add("BURI", EventProc);
-            _tagSet2.Add("NATU", EventProc);
-            _tagSet2.Add("IMMI", EventProc);
-            _tagSet2.Add("WILL", EventProc);
-            _tagSet2.Add("EMIG", EventProc);
-            _tagSet2.Add("BAPM", EventProc);
-            _tagSet2.Add("BARM", EventProc);
-            _tagSet2.Add("BASM", EventProc);
-            _tagSet2.Add("BLES", EventProc);
-            _tagSet2.Add("CHRA", EventProc);
-            _tagSet2.Add("CONF", EventProc);
-            _tagSet2.Add("FCOM", EventProc);
-            _tagSet2.Add("ORDN", EventProc);
-            _tagSet2.Add("PROB", EventProc);
-            _tagSet2.Add("GRAD", EventProc);
-            _tagSet2.Add("RETI", EventProc);
-            _tagSet2.Add("CENS", EventProc); // 20170518 Actually an event, not an attribute!!!
-            _tagSet2.Add("EVEN", EventProc);
+            _tagSet2.Add(GedTag.DEAT, EventProc);
+            _tagSet2.Add(GedTag.CREM, EventProc);
+            _tagSet2.Add(GedTag.BURI, EventProc);
+            _tagSet2.Add(GedTag.NATU, EventProc);
+            _tagSet2.Add(GedTag.IMMI, EventProc);
+            _tagSet2.Add(GedTag.WILL, EventProc);
+            _tagSet2.Add(GedTag.EMIG, EventProc);
+            _tagSet2.Add(GedTag.BAPM, EventProc);
+            _tagSet2.Add(GedTag.BARM, EventProc);
+            _tagSet2.Add(GedTag.BASM, EventProc);
+            _tagSet2.Add(GedTag.BLES, EventProc);
+            _tagSet2.Add(GedTag.CHRA, EventProc);
+            _tagSet2.Add(GedTag.CONF, EventProc);
+            _tagSet2.Add(GedTag.FCOM, EventProc);
+            _tagSet2.Add(GedTag.ORDN, EventProc);
+            _tagSet2.Add(GedTag.PROB, EventProc);
+            _tagSet2.Add(GedTag.GRAD, EventProc);
+            _tagSet2.Add(GedTag.RETI, EventProc);
+            _tagSet2.Add(GedTag.CENS, EventProc); // 20170518 Actually an event, not an attribute!!!
+            _tagSet2.Add(GedTag.EVEN, EventProc);
 
             // Birth, Christening, Adoption: extra FAMC tag
-            _tagSet2.Add("BIRT", EventProc); 
-            _tagSet2.Add("ADOP", EventProc); 
-            _tagSet2.Add("CHR",  EventProc); 
+            _tagSet2.Add(GedTag.BIRT, EventProc); 
+            _tagSet2.Add(GedTag.ADOP, EventProc); 
+            _tagSet2.Add(GedTag.CHR,  EventProc); 
 
             // Attributes
-            _tagSet2.Add("CAST", AttribProc);
-            _tagSet2.Add("TITL", AttribProc);
-            _tagSet2.Add("OCCU", AttribProc);
-            _tagSet2.Add("FACT", AttribProc);
-            _tagSet2.Add("DSCR", AttribProc);
-            _tagSet2.Add("EDUC", AttribProc);
-            _tagSet2.Add("IDNO", AttribProc);
-            _tagSet2.Add("NATI", AttribProc);
-            _tagSet2.Add("NCHI", AttribProc);
-            _tagSet2.Add("NMR", AttribProc);
-            _tagSet2.Add("PROP", AttribProc);
-            _tagSet2.Add("RELI", AttribProc);
-            _tagSet2.Add("SSN", AttribProc);
-            _tagSet2.Add("RESI", AttribProc);
+            _tagSet2.Add(GedTag.CAST, AttribProc);
+            _tagSet2.Add(GedTag.TITL, AttribProc);
+            _tagSet2.Add(GedTag.OCCU, AttribProc);
+            _tagSet2.Add(GedTag.FACT, AttribProc);
+            _tagSet2.Add(GedTag.DSCR, AttribProc);
+            _tagSet2.Add(GedTag.EDUC, AttribProc);
+            _tagSet2.Add(GedTag.IDNO, AttribProc);
+            _tagSet2.Add(GedTag.NATI, AttribProc);
+            _tagSet2.Add(GedTag.NCHI, AttribProc);
+            _tagSet2.Add(GedTag.NMR, AttribProc);
+            _tagSet2.Add(GedTag.PROP, AttribProc);
+            _tagSet2.Add(GedTag.RELI, AttribProc);
+            _tagSet2.Add(GedTag.SSN, AttribProc);
+            _tagSet2.Add(GedTag.RESI, AttribProc);
 
             // LDS events
-            _tagSet2.Add("BAPL", LdsOrdProc);
-            _tagSet2.Add("CONL", LdsOrdProc);
-            _tagSet2.Add("ENDL", LdsOrdProc);
-            _tagSet2.Add("SLGC", LdsOrdProc);
-            _tagSet2.Add("SLGS", LdsOrdProc);
+            _tagSet2.Add(GedTag.BAPL, LdsOrdProc);
+            _tagSet2.Add(GedTag.CONL, LdsOrdProc);
+            _tagSet2.Add(GedTag.ENDL, LdsOrdProc);
+            _tagSet2.Add(GedTag.SLGC, LdsOrdProc);
+            _tagSet2.Add(GedTag.SLGS, LdsOrdProc);
 
             // Family association
-            _tagSet2.Add("FAMC", famLink);
-            _tagSet2.Add("FAMS", famLink);
+            _tagSet2.Add(GedTag.FAMC, famLink);
+            _tagSet2.Add(GedTag.FAMS, famLink);
 
             // Non-standard tags
-            _tagSet2.Add("LVG", LivingProc); // "Family Tree Maker for Windows" custom
-            _tagSet2.Add("LVNG", LivingProc); // "Generations" custom
+            _tagSet2.Add(GedTag.LVG, LivingProc); // "Family Tree Maker for Windows" custom
+            _tagSet2.Add(GedTag.LVNG, LivingProc); // "Generations" custom
         }
 
         private void LivingProc(ParseContext2 context)
@@ -200,7 +201,7 @@ namespace SharpGEDParser.Parser
             if (string.IsNullOrEmpty(xref))
             {
                 IndiEvent nick = new IndiEvent();
-                nick.Tag = "ALIA";
+                nick.Tag = GedTag.ALIA;
                 nick.Descriptor = context.Remain.Trim(aliasTrimChars);
                 indi.Attribs.Add(nick);
             }
@@ -220,7 +221,7 @@ namespace SharpGEDParser.Parser
             if (!string.IsNullOrEmpty(xref))
             {
                 Submitter.SubmitType res;
-                if (Submitter.SubmitType.TryParse(context.Tag, out res))
+                if (Submitter.SubmitType.TryParse(context.Tag.ToString(), out res)) // TODO can this be improved?
                     indi.AddSubmitter(res, xref);
                 else
                     throw new NotSupportedException(); // NOTE: this will be thrown if a tag is added to tagDict but not added to enum

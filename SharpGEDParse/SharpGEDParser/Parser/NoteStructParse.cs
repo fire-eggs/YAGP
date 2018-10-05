@@ -1,17 +1,18 @@
 ﻿using System.Text;
 using SharpGEDParser.Model;
 using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
     // Parse a set of lines for a Note structure
     public class NoteStructParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"CONC", concProc},
-            {"CONT", contProc},
-            {"SOUR", sourProc}
+            {GedTag.CONC, concProc},
+            {GedTag.CONT, contProc},
+            {GedTag.SOUR, sourProc}
         };
 
         private static void contProc(StructParseContext context, int linedex, char level)

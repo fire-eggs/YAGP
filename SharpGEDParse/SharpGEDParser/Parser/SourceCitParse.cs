@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -14,18 +15,18 @@ namespace SharpGEDParser.Parser
 
     public class SourceCitParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>
         {
-            {"CONC", concProc}, // embedded citation
-            {"CONT", contProc}, // embedded citation
-            {"DATA", dataProc}, // reference citation
-            {"DATE", dateProc}, // reference citation
-            {"NOTE", noteProc},
-            {"EVEN", eventProc}, // reference citation
-            {"PAGE", pageProc}, // reference citation
-            {"QUAY", quayProc}, 
-            {"OBJE", objeProc},
-            {"TEXT", textProc}  
+            {GedTag.CONC, concProc}, // embedded citation
+            {GedTag.CONT, contProc}, // embedded citation
+            {GedTag.DATA, dataProc}, // reference citation
+            {GedTag.DATE, dateProc}, // reference citation
+            {GedTag.NOTE, noteProc},
+            {GedTag.EVEN, eventProc}, // reference citation
+            {GedTag.PAGE, pageProc}, // reference citation
+            {GedTag.QUAY, quayProc}, 
+            {GedTag.OBJE, objeProc},
+            {GedTag.TEXT, textProc}  
         };
 
         private static void textProc(StructParseContext context, int linedex, char level)

@@ -1,5 +1,6 @@
 ﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -12,11 +13,11 @@ namespace SharpGEDParser.Parser
 {
     public class IndiLinkParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>
         {
-            {"PEDI", pediProc},
-            {"STAT", statProc},
-            {"NOTE", noteProc}
+            {GedTag.PEDI, pediProc},
+            {GedTag.STAT, statProc},
+            {GedTag.NOTE, noteProc}
         };
 
         private static void pediProc(StructParseContext context, int linedex, char level)
@@ -36,7 +37,7 @@ namespace SharpGEDParser.Parser
             IndiLink link = new IndiLink();
 
             // Can't get here for values other than FAMC/FAMS [unless caller changes!]
-            link.Type = ctx.Tag == "FAMC" ? IndiLink.FAMC_TYPE : IndiLink.FAMS_TYPE;
+            link.Type = ctx.Tag == GedTag.FAMC ? IndiLink.FAMC_TYPE : IndiLink.FAMS_TYPE;
 
             string xref;
             string extra;
@@ -47,7 +48,7 @@ namespace SharpGEDParser.Parser
                 err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.MissIdent;
                 err.Beg = err.End = ctx.Begline + ctx.Parent.BegLine;
-                err.Tag = ctx.Tag;
+                err.Tag = ctx.TagAsString;
                 ctx.Parent.Errors.Add(err);
             }
             else

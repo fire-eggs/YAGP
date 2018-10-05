@@ -1,5 +1,6 @@
 ﻿using SharpGEDParser.Model;
 using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -9,36 +10,36 @@ namespace SharpGEDParser.Parser
     {
         //private static StringCache2 _placeCache = new StringCache2();
 
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"HUSB", ageProc},
-            {"WIFE", ageProc},
+            {GedTag.HUSB, ageProc},
+            {GedTag.WIFE, ageProc},
 
-            {"ADDR", addrProc},
-            {"AGNC", remainProc},
-            {"CAUS", remainProc},
-            {"DATE", dateProc},
-            {"PLAC", placProc},
-            {"RELI", remainProc},
-            {"RESN", remainProc},
-            {"TYPE", remainProc},
+            {GedTag.ADDR, addrProc},
+            {GedTag.AGNC, remainProc},
+            {GedTag.CAUS, remainProc},
+            {GedTag.DATE, dateProc},
+            {GedTag.PLAC, placProc},
+            {GedTag.RELI, remainProc},
+            {GedTag.RESN, remainProc},
+            {GedTag.TYPE, remainProc},
 
             // Unfortunately the spec does NOT have these as subordinate to ADDR
-            {"PHON", commonAddr2},
-            {"WWW",  commonAddr2},
-            {"EMAIL", commonAddr2},
-            {"FAX", commonAddr2},
+            {GedTag.PHON, commonAddr2},
+            {GedTag.WWW,  commonAddr2},
+            {GedTag.EMAIL, commonAddr2},
+            {GedTag.FAX, commonAddr2},
 
-            {"NOTE", noteProc},
-            {"OBJE", objeProc},
-            {"SOUR", sourProc},
+            {GedTag.NOTE, noteProc},
+            {GedTag.OBJE, objeProc},
+            {GedTag.SOUR, sourProc},
 
-            {"FAMC", famcProc}, // ADOP, BIRT, CHR
-            {"ADOP", adopProc}, // ADOP
-            {"AGE",  ageProc},   // INDI attributes
+            {GedTag.FAMC, famcProc}, // ADOP, BIRT, CHR
+            {GedTag.ADOP, adopProc}, // ADOP
+            {GedTag.AGE,  ageProc},   // INDI attributes
 
-            {"CONT", dscrProc},
-            {"CONC", dscrProc}
+            {GedTag.CONT, dscrProc},
+            {GedTag.CONC, dscrProc}
         };
 
         private static void dscrProc(StructParseContext ctx, int linedex, char level)
@@ -53,9 +54,9 @@ namespace SharpGEDParser.Parser
             // 20180106 Allow conc/cont for any tag
 
             string extra = ctx.Remain.TrimStart();
-            if (ctx.Tag == "CONC")
+            if (ctx.Tag == GedTag.CONC)
                 own.Descriptor += extra;
-            if (ctx.Tag == "CONT")
+            if (ctx.Tag == GedTag.CONT)
                 own.Descriptor += "\n" + extra;
         }
 
@@ -88,7 +89,7 @@ namespace SharpGEDParser.Parser
 
         private static void ageProc(StructParseContext context, int linedex, char level)
         {
-            if (context.Tag == "AGE")
+            if (context.Tag == GedTag.AGE)
             {
                 (context.Parent as EventCommon).Age = context.Remain;
                 //evt.Age = context.Remain;
@@ -99,11 +100,11 @@ namespace SharpGEDParser.Parser
                 var det = EventAgeParse.AgeParser(context, linedex, level);
                 switch (context.Tag)
                 {
-                    case "HUSB":
+                    case GedTag.HUSB:
                     default: // TODO when might this happen?
                         evt.HusbDetail = det;
                         break;
-                    case "WIFE":
+                    case GedTag.WIFE:
                         evt.WifeDetail = det;
                         break;
                 }
@@ -141,19 +142,19 @@ namespace SharpGEDParser.Parser
             var famE = (context.Parent as EventCommon);
             switch (context.Tag) // TODO consider using reflection and property name?
             {
-                case "TYPE":
+                case GedTag.TYPE:
                     famE.Type = context.Remain;
                     break;
-                case "AGNC":
+                case GedTag.AGNC:
                     famE.Agency = context.Remain;
                     break;
-                case "RELI":
+                case GedTag.RELI:
                     famE.Religion = context.Remain;
                     break;
-                case "CAUS":
+                case GedTag.CAUS:
                     famE.Cause = context.Remain;
                     break;
-                case "RESN":
+                case GedTag.RESN:
                     famE.Restriction = context.Remain;
                     break;
             }

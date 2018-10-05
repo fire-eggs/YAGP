@@ -310,7 +310,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.AliasLinks.Count);
             Assert.AreEqual(1, rec.Attribs.Count);
             var attrib = rec.Attribs[0];
-            Assert.AreEqual("ALIA", attrib.Tag);
+            Assert.AreEqual("ALIA", attrib.Tag.ToString());
             Assert.AreEqual("nickname", attrib.Descriptor);
 
             Assert.AreEqual(1, rec.Errors.Count);

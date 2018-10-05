@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -11,16 +12,16 @@ namespace SharpGEDParser.Parser
 {
     public class LDSEventParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"DATE", remainProc},
-            {"PLAC", remainProc},
-            {"STAT", remainProc},
-            {"TEMP", remainProc},
-            {"FAMC", xrefproc}, // INDI-SLGC support
+            {GedTag.DATE, remainProc},
+            {GedTag.PLAC, remainProc},
+            {GedTag.STAT, remainProc},
+            {GedTag.TEMP, remainProc},
+            {GedTag.FAMC, xrefproc}, // INDI-SLGC support
 
-            {"NOTE", noteProc},
-            {"SOUR", sourProc}
+            {GedTag.NOTE, noteProc},
+            {GedTag.SOUR, sourProc}
         };
 
         private static void xrefproc(StructParseContext context, int linedex, char level)
@@ -49,16 +50,16 @@ namespace SharpGEDParser.Parser
             var me = (context.Parent as LDSEvent);
             switch (context.Tag)
             {
-                case "DATE":
+                case GedTag.DATE:
                     me.Date = context.Remain;
                     break;
-                case "PLAC":
+                case GedTag.PLAC:
                     me.Place = context.Remain;
                     break;
-                case "STAT":
+                case GedTag.STAT:
                     me.Status = context.Remain;
                     break;
-                case "TEMP":
+                case GedTag.TEMP:
                     me.Temple = context.Remain;
                     break;
                 default:

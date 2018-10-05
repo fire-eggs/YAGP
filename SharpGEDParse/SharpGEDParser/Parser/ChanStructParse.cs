@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
     public class ChanStructParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"DATE", dateProc},
-            {"NOTE", noteProc},
-            //{"TIME", timeProc} // NOTE: treating TIME record as 'other'
+            {GedTag.DATE, dateProc},
+            {GedTag.NOTE, noteProc},
+            //{GedTag.TIME, timeProc} // NOTE: treating TIME record as 'other'
         };
 
         private static void dateProc(StructParseContext ctx, int linedex, char level)

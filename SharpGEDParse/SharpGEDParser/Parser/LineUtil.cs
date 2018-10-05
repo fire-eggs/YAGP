@@ -1,4 +1,5 @@
-﻿
+﻿using GedTag = SharpGEDParser.Model.Tag.GedTag;
+
 namespace SharpGEDParser.Parser
 {
     // TODO one LineUtil instance per parsing thread
@@ -7,7 +8,7 @@ namespace SharpGEDParser.Parser
         public class LineData
         {
             public char Level;
-            public string Tag;
+            public GedTag Tag;
             public string Ident;
 
             public string Remain

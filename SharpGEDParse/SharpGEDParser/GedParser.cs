@@ -5,6 +5,7 @@ using SharpGEDParser.Parser;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 #endif
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -16,7 +17,7 @@ namespace SharpGEDParser
         {
             // TODO dunno yet if the path to the GED is useful
 
-            _masterTagCache = new StringCache();
+            _masterTagCache = new TagCache();
             gs = new GEDSplitter(_masterTagCache);
 
             _IndiParseSingleton = new IndiParse();
@@ -81,7 +82,7 @@ namespace SharpGEDParser
             //if (head[firstDex] != '0')
             if (lvl != '0')
             {
-                var rec2 = new Unknown(rec, null, gs.Tag(head));
+                var rec2 = new Unknown(rec, null, gs.TagAsString(head));
                 //rec2.Error = UnkRec.ErrorCode.InvLevel;
                 return new Tuple<object, GedParse>(rec2, null);
                 //throw new Exception("record head not zero"); // TODO should this be an error record instead?
@@ -95,60 +96,66 @@ namespace SharpGEDParser
 
             // 3. create a GedCommon derived class
             var remain = new string(gs.Remain(head));
-            return GedRecFactory(rec, gs.Ident(head), gs.Tag(head), remain);
-            //return GedRecFactory(rec, ld.Ident, ld.Tag, ld.Remain);
-        }
+            GedTag tag = gs.Tag(head);
 
-        private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, string tag, string remain)
-        {
-            if (string.IsNullOrWhiteSpace(tag))
+            // TODO push into factory
+            if (tag == GedTag.MISSING)
             {
+                var ident = gs.Ident(head);
                 var foo = new Unknown(rec, ident, "");
-                foo.Errors.Add(new UnkRec{Error = UnkRec.ErrorCode.MissTag});
+                foo.Errors.Add(new UnkRec { Error = UnkRec.ErrorCode.MissTag });
                 return new Tuple<object, GedParse>(foo, null);
             }
 
+            // TODO push into factory
+            if (tag == GedTag.INVALID)
+            {
+                var ident = gs.Ident(head);
+                var foo2 = new Unknown(rec, ident, gs.TagAsString(head));
+                return new Tuple<object, GedParse>(foo2, null);
+            }
+
+            return GedRecFactory(rec, gs.Ident(head), gs.Tag(head), remain);
+        }
+
+        private Tuple<object, GedParse> GedRecFactory(GedRecord rec, string ident, GedTag tag, string remain)
+        {
             // Parse 'top level' records. Parsing of some record types (e.g. NOTE, SOUR, etc) are likely to be in 'common' with sub-record parsing
 
             // TODO Very much brute force. If/until this is found to be optimizable
-            switch (tag.ToUpper())
+            switch (tag)
             {
-                case "INDI":
+                case GedTag.INDI:
                     return new Tuple<object, GedParse>(new IndiRecord(rec, ident, remain), _IndiParseSingleton);
 
-                case "FAM":
+                case GedTag.FAM:
                     return new Tuple<object, GedParse>(new FamRecord(rec, ident, remain), _FamParseSingleton);
 
-                case "SOUR":
+                case GedTag.SOUR:
                     return new Tuple<object, GedParse>(new SourceRecord(rec, ident, remain), _SourParseSingleton);
 
-                case "REPO":
+                case GedTag.REPO:
                     return new Tuple<object, GedParse>(new Repository(rec, ident, remain), _RepoParseSingleton);
 
-                case "NOTE":
+                case GedTag.NOTE:
                 {
                     string remainLS = gs.RemainLS(rec.FirstLine());
                     return new Tuple<object, GedParse>(new NoteRecord(rec, ident, remainLS), _NoteParseSingleton);
                 }
 
-                case "OBJE":
+                case GedTag.OBJE:
                     return new Tuple<object, GedParse>(new MediaRecord(rec, ident, remain), _MediaParseSingleton);
 
-                case "HEAD":
+                case GedTag.HEAD:
                     return new Tuple<object, GedParse>(new HeadRecord(rec), _HeadParseSingleton);
 
-                case "TRLR":
+                case GedTag.TRLR:
                     return null;
 
-                case "SUBM": // TODO temp ignore
-                case "SUBN": // TODO temp ignore
-                    return new Tuple<object, GedParse>(new DontCare(rec, tag), null);
-
-                default:
-                {
-                    var foo = new Unknown(rec, ident, tag);
-                    return new Tuple<object, GedParse>(foo, null);
-                }
+                case GedTag.SUBM: // TODO temp ignore
+                case GedTag.SUBN: // TODO temp ignore
+                default:          // TODO needs to be error case???
+                    return new Tuple<object, GedParse>(new DontCare(rec, tag.ToString()), null);
             }
         }
 
@@ -161,7 +168,7 @@ namespace SharpGEDParser
         private readonly GedParse _MediaParseSingleton;
         private readonly GSFactory _GedSplitFactory;
 
-        internal static StringCache _masterTagCache;
+        internal static TagCache _masterTagCache;
     }
 
     internal interface GedParse

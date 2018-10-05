@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Model
 {
     public class LDSEvent : StructCommon, NoteHold, SourceCitHold
     {
-        public string Tag { get; set; } // which event is this
+        public GedTag Tag { get; set; } // which event is this
 
         public string Date { get; set; }
 

@@ -26,7 +26,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.AreEqual("1774", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
 
@@ -39,7 +39,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.AreEqual("1776", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
             Assert.AreEqual("suspicious", rec.Events[0].Type);
@@ -52,7 +52,7 @@ namespace SharpGEDParser.Tests
             string indi3 = string.Format("0 INDI\n1 {0}\n2 PLAC Sands, Oldham, Lncshr, Eng", tag);
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.IsNullOrEmpty(rec.Events[0].Descriptor);
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);
@@ -67,7 +67,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.AreEqual("Y", rec.Events[0].Descriptor);
             Assert.AreEqual("FAM99", rec.Events[0].Famc);
             Assert.AreEqual(null, rec.Events[0].FamcAdop);
@@ -80,7 +80,7 @@ namespace SharpGEDParser.Tests
             rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.AreEqual("Y", rec.Events[0].Descriptor);
             Assert.AreEqual("FAM99", rec.Events[0].Famc);
             Assert.AreEqual("pater", rec.Events[0].FamcAdop);
@@ -106,7 +106,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual("BIRT", rec.Events[0].Tag);
+            Assert.AreEqual("BIRT", rec.Events[0].Tag.ToString());
             Assert.AreEqual("1774", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
 
@@ -114,7 +114,7 @@ namespace SharpGEDParser.Tests
             rec = parse(indi2);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual("BIRT", rec.Events[0].Tag);
+            Assert.AreEqual("BIRT", rec.Events[0].Tag.ToString());
             Assert.AreEqual("1776", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
             Assert.AreEqual("suspicious", rec.Events[0].Type);
@@ -123,7 +123,7 @@ namespace SharpGEDParser.Tests
             rec = parse(indi3);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual("BIRT", rec.Events[0].Tag);
+            Assert.AreEqual("BIRT", rec.Events[0].Tag.ToString());
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);
             Assert.AreEqual(null, rec.Events[0].Type);
@@ -156,7 +156,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.AreEqual("17", rec.Events[0].Age);
             Assert.AreEqual("1776", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
@@ -316,7 +316,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(txt);
 
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual("ADOP", rec.Events[0].Tag);
+            Assert.AreEqual("ADOP", rec.Events[0].Tag.ToString());
             Assert.AreEqual("1774", rec.Events[0].Date);
             Assert.AreEqual("Sands, Oldham, Lncshr, Eng", rec.Events[0].Place);
 

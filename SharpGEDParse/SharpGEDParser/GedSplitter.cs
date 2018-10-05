@@ -1,5 +1,7 @@
 using SharpGEDParser.Parser;
 
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
+
 // TODO the places in Remain, RemainLS and Tag where checks have to be made against '@' seem inefficient
 
 namespace SharpGEDParser
@@ -28,14 +30,14 @@ namespace SharpGEDParser
         private int[] _lens;
         private int _count;
         private int _max;
-        private StringCache _tagCache;
+        private TagCache _tagCache;
 
         // A line is <level><ident><tag><remain> - so even 10 is overkill?
         private const int MAX_PARTS = 9;
 
-        public GEDSplitter(StringCache tagCache)
+        public GEDSplitter(TagCache cache)
         {
-            _tagCache = tagCache; // TODO use a singleton rather than parameter?
+            _tagCache = cache;
             Init(MAX_PARTS + 1);
         }
 
@@ -50,7 +52,7 @@ namespace SharpGEDParser
             _starts = new int[bufferSize];
             _lens = new int[bufferSize];
             if (_tagCache == null)
-                _tagCache = new StringCache(); // unit testing
+                _tagCache = new TagCache(); // unit testing
         }
 
         public int[] Starts { get { return _starts; } }
@@ -102,22 +104,37 @@ namespace SharpGEDParser
             //return new string(value, _starts[1]+1, _lens[1]-2); // trimming lead+trail '@'... assumes both exist
         }
 
-        public string Tag(char [] value)
+        public GedTag Tag(char [] value)
         {
             // substring 1 doesn't start with '@' == tag
             // else substring 2
             if (_count < 2 || _lens[1] < 1)
-                return null;
+                return GedTag.INVALID;
             if (value[_starts[1]] != '@')
                 return _tagCache.GetFromCache(value, _starts[1], _lens[1]);
                 //return new string(value, _starts[1], _lens[1]);
             if (_count < 3)
-                return null;
+                return GedTag.INVALID;
             if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
                 return _tagCache.GetFromCache(value, _starts[3], _lens[3]);
                 //return new string(value, _starts[3], _lens[3]);
             return _tagCache.GetFromCache(value, _starts[2], _lens[2]);
             //return new string(value, _starts[2], _lens[2]);
+        }
+
+        public string TagAsString(char[] value)
+        {
+            // substring 1 doesn't start with '@' == tag
+            // else substring 2
+            if (_count < 2 || _lens[1] < 1)
+                return "";
+            if (value[_starts[1]] != '@')
+                return new string(value, _starts[1], _lens[1]);
+            if (_count < 3)
+                return "";
+            if (_lens[2] > 0 && value[_starts[2]] == '@') // empty tag scenario
+                return new string(value, _starts[3], _lens[3]);
+            return new string(value, _starts[2], _lens[2]);
         }
 
         public char [] GetRest(char [] value, int dex)
@@ -183,23 +200,15 @@ namespace SharpGEDParser
             int start = _starts[dex - 1] + _lens[dex - 1] + 1;
             int len = max - start;
             return new string(value, start, len);
-
-            //var tmp = new char[len]; // don't need a buffer!
-            //for (int i = 0; i < len; i++)
-            //    tmp[i] = value[i + start];
-            //return new string(tmp);
-            //return new string(value, _starts[dex], max-_starts[dex]);
         }
-
-
     }
 
     public class GSFactory
     {
-        private StringCache _cache;
+        private TagCache _cache;
         ObjectPool<GEDSplitter> pool;
 
-        public GSFactory(StringCache cache)
+        public GSFactory(TagCache cache)
         {
             _cache = cache;
             pool = new ObjectPool<GEDSplitter>(() => new GEDSplitter(_cache));

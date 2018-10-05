@@ -1,4 +1,5 @@
 ﻿using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
@@ -8,43 +9,43 @@ namespace SharpGEDParser.Parser
     {
         protected override void BuildTagSet()
         {
-            _tagSet2.Add("CHAN", ChanProc);
-            _tagSet2.Add("NOTE", NoteProc);
-            _tagSet2.Add("OBJE", ObjeProc);
-            _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN",  RinProc);
-            _tagSet2.Add("SOUR", SourCitProc);
+            _tagSet2.Add(GedTag.CHAN, ChanProc);
+            _tagSet2.Add(GedTag.NOTE, NoteProc);
+            _tagSet2.Add(GedTag.OBJE, ObjeProc);
+            _tagSet2.Add(GedTag.REFN, RefnProc);
+            _tagSet2.Add(GedTag.RIN,  RinProc);
+            _tagSet2.Add(GedTag.SOUR, SourCitProc);
 
-            _tagSet2.Add("CHIL", childProc);
-            _tagSet2.Add("HUSB", xrefProc);
-            _tagSet2.Add("NCHI", nchiProc);
-            _tagSet2.Add("RESN", resnProc);
-            _tagSet2.Add("SUBM", xrefProc);
-            _tagSet2.Add("WIFE", xrefProc);
+            _tagSet2.Add(GedTag.CHIL, childProc);
+            _tagSet2.Add(GedTag.HUSB, xrefProc);
+            _tagSet2.Add(GedTag.NCHI, nchiProc);
+            _tagSet2.Add(GedTag.RESN, resnProc);
+            _tagSet2.Add(GedTag.SUBM, xrefProc);
+            _tagSet2.Add(GedTag.WIFE, xrefProc);
 
-            _tagSet2.Add("SLGS", ldsSpouseSeal);
+            _tagSet2.Add(GedTag.SLGS, ldsSpouseSeal);
 
-            _tagSet2.Add("ANUL", eventProc);
-            _tagSet2.Add("CENS", eventProc);
-            _tagSet2.Add("DIV",  eventProc);
-            _tagSet2.Add("DIVF", eventProc);
-            _tagSet2.Add("ENGA", eventProc);
-            _tagSet2.Add("EVEN", eventProc);
-            _tagSet2.Add("MARB", eventProc);
-            _tagSet2.Add("MARC", eventProc);
-            _tagSet2.Add("MARR", eventProc);
-            _tagSet2.Add("MARL", eventProc);
-            _tagSet2.Add("MARS", eventProc);
-            _tagSet2.Add("RESI", eventProc);
+            _tagSet2.Add(GedTag.ANUL, eventProc);
+            _tagSet2.Add(GedTag.CENS, eventProc);
+            _tagSet2.Add(GedTag.DIV,  eventProc);
+            _tagSet2.Add(GedTag.DIVF, eventProc);
+            _tagSet2.Add(GedTag.ENGA, eventProc);
+            _tagSet2.Add(GedTag.EVEN, eventProc);
+            _tagSet2.Add(GedTag.MARB, eventProc);
+            _tagSet2.Add(GedTag.MARC, eventProc);
+            _tagSet2.Add(GedTag.MARR, eventProc);
+            _tagSet2.Add(GedTag.MARL, eventProc);
+            _tagSet2.Add(GedTag.MARS, eventProc);
+            _tagSet2.Add(GedTag.RESI, eventProc);
 
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID",  UidProc);
+            _tagSet2.Add(GedTag._UID, UidProc);
+            _tagSet2.Add(GedTag.UID,  UidProc);
 
-            _tagSet2.Add("_PREF", junkProc);
+            _tagSet2.Add(GedTag._PREF, junkProc);
 
             // Drat. These are sub-tags per-child. Child doesn't yet have more than an id string.
-            //_tagSet2.Add("_FREL", UidProc); // Commonly encountered non-standard tags
-            //_tagSet2.Add("_MREL", UidProc);
+            //_tagSet2.Add(GedTag._FREL, UidProc); // Commonly encountered non-standard tags
+            //_tagSet2.Add(GedTag._MREL, UidProc);
         }
 
         private void junkProc(ParseContext2 context)
@@ -106,7 +107,7 @@ namespace SharpGEDParser.Parser
                 err.Error = UnkRec.ErrorCode.MissIdent; // TODO "Missing/unterminated identifier: " + context.Tag;
                 err.Beg = context.Begline + context.Parent.BegLine;
                 err.End = context.Endline + context.Parent.BegLine;
-                err.Tag = context.Tag;
+                err.Tag = context.TagAsString;
                 fam.Errors.Add(err);
                 return;
             }
@@ -144,20 +145,20 @@ namespace SharpGEDParser.Parser
                     context.gs.LevelTagAndRemain(context.Lines.GetLine(i), ld);
                     switch (ld.Tag)
                     {
-                        case "_MREL":
+                        case GedTag._MREL:
                             if (!string.IsNullOrWhiteSpace(ld.Remain)) // FTA expects 'Natural' and I canna see why not && ld.Remain != "Natural")
                                 mrel = ld.Remain;
                             break;
-                        case "_FREL":
+                        case GedTag._FREL:
                             if (!string.IsNullOrWhiteSpace(ld.Remain)) // FTA expects 'Natural' and I canna see why not && ld.Remain != "Natural")
                                 frel = ld.Remain;
                             break;
-                        case "_PREF":
-                        case "_STAT":
+                        case GedTag._PREF:
+                        case GedTag._STAT:
                             // TODO temporarily ignore: see 2524482.ged
                             break;
                         default:
-                            UnkRec unk = new UnkRec(ld.Tag, i + context.Parent.BegLine, i + context.Parent.BegLine);
+                            UnkRec unk = new UnkRec(context.gs.TagAsString(context.Lines.GetLine(i)), i + context.Parent.BegLine, i + context.Parent.BegLine);
                             fam.Unknowns.Add(unk);
                             break;
                     }
@@ -180,7 +181,7 @@ namespace SharpGEDParser.Parser
             {
                 switch (context.Tag)
                 {
-                    case "HUSB":
+                    case GedTag.HUSB:
                         if (fam.Dads.Count != 0) // HUSB already specified
                         {
                             UnkRec err = new UnkRec();
@@ -190,7 +191,7 @@ namespace SharpGEDParser.Parser
                         }
                         fam.Dads.Add(xref);
                         break;
-                    case "WIFE":
+                    case GedTag.WIFE:
                         if (fam.Moms.Count != 0) // WIFE already specified
                         {
                             UnkRec err = new UnkRec();
@@ -200,7 +201,7 @@ namespace SharpGEDParser.Parser
                         }
                         fam.Moms.Add(xref);
                         break;
-                    case "SUBM":
+                    case GedTag.SUBM:
                         fam.FamSubm.Add(xref); // TODO check if xref specified more than once
                         break;
                 }

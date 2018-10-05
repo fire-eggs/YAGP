@@ -24,7 +24,7 @@ namespace SharpGEDParser.Tests
             var indi = string.Format("0 INDI\n1 {0}\n2 ADDR This is a test", tag);
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.AreEqual("This is a test", rec.Events[0].Address.Adr);
             return rec;
         }
@@ -40,7 +40,7 @@ namespace SharpGEDParser.Tests
             var indi = string.Format("0 INDI\n1 {0}\n2 PHON This is a test", tag);
             var rec = parse(indi);
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreEqual(tag, rec.Events[0].Tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString());
             Assert.AreEqual(1, rec.Events[0].Address.Phon.Count);
             Assert.AreEqual("This is a test", rec.Events[0].Address.Phon[0]);
             return rec;
@@ -60,7 +60,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(val);
 
             Assert.AreEqual(1, rec.Events.Count, tag);
-            Assert.AreEqual(tag, rec.Events[0].Tag, tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString(), tag);
             Assert.AreEqual(null, rec.Events[0].Date, tag);
             Assert.AreEqual(null, rec.Events[0].Age, tag);
             Assert.AreEqual(null, rec.Events[0].Type, tag);
@@ -105,7 +105,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(val);
 
             Assert.AreEqual(1, rec.Attribs.Count, tag);
-            Assert.AreEqual(tag, rec.Attribs[0].Tag, tag);
+            Assert.AreEqual(tag, rec.Attribs[0].Tag.ToString(), tag);
             Assert.AreEqual(null, rec.Attribs[0].Date, tag);
             Assert.AreEqual(null, rec.Attribs[0].Age, tag);
             Assert.AreEqual(null, rec.Attribs[0].Type, tag);
@@ -134,7 +134,7 @@ namespace SharpGEDParser.Tests
                 tag);
             var rec = parse(val);
             Assert.AreEqual(1, rec.Events.Count, tag);
-            Assert.AreEqual(tag, rec.Events[0].Tag, tag);
+            Assert.AreEqual(tag, rec.Events[0].Tag.ToString(), tag);
             Assert.AreEqual(null, rec.Events[0].Date, tag);
 
             Address addr = rec.Events[0].Address;
@@ -169,7 +169,7 @@ namespace SharpGEDParser.Tests
                 tag, extra);
             var rec = parse(val);
             Assert.AreEqual(1, rec.Attribs.Count, tag);
-            Assert.AreEqual(tag, rec.Attribs[0].Tag, tag);
+            Assert.AreEqual(tag, rec.Attribs[0].Tag.ToString(), tag);
             Assert.AreEqual(null, rec.Attribs[0].Date, tag);
 
             Address addr = rec.Attribs[0].Address;

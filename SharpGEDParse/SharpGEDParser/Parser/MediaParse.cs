@@ -1,4 +1,5 @@
 ﻿using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
@@ -22,21 +23,21 @@ namespace SharpGEDParser.Parser
     {
         protected override void BuildTagSet()
         {
-            _tagSet2.Add("REFN", RefnProc);
-            _tagSet2.Add("RIN",  RinProc);
-            _tagSet2.Add("CHAN", ChanProc);
-            _tagSet2.Add("NOTE", NoteProc);
-            _tagSet2.Add("SOUR", SourCitProc); // GEDCOM 5.5.1
-            _tagSet2.Add("FILE", fileProc); // GEDCOM 5.5.1
-            _tagSet2.Add("FORM", formProc);
-            _tagSet2.Add("TITL", titlProc);
-            _tagSet2.Add("TYPE", typeProc); // GEDCOM 5.5.1
-            //_tagSet2.Add("BLOB", blobProc); // GEDCOM 5.5 - intentionally treated as unknown
-            //_tagSet2.Add("OBJE", objeProc); // GEDCOM 5.5 - intentionally treated as unknown
+            _tagSet2.Add(GedTag.REFN, RefnProc);
+            _tagSet2.Add(GedTag.RIN,  RinProc);
+            _tagSet2.Add(GedTag.CHAN, ChanProc);
+            _tagSet2.Add(GedTag.NOTE, NoteProc);
+            _tagSet2.Add(GedTag.SOUR, SourCitProc); // GEDCOM 5.5.1
+            _tagSet2.Add(GedTag.FILE, fileProc); // GEDCOM 5.5.1
+            _tagSet2.Add(GedTag.FORM, formProc);
+            _tagSet2.Add(GedTag.TITL, titlProc);
+            _tagSet2.Add(GedTag.TYPE, typeProc); // GEDCOM 5.5.1
+            //_tagSet2.Add(GedTag.BLOB, blobProc); // GEDCOM 5.5 - intentionally treated as unknown
+            //_tagSet2.Add(GedTag.OBJE, objeProc); // GEDCOM 5.5 - intentionally treated as unknown
 
             // NOTE: technically not required: FamilySearch recommends INDI/FAM only. Used by MyHeritage.
-            _tagSet2.Add("_UID", UidProc);
-            _tagSet2.Add("UID", UidProc);
+            _tagSet2.Add(GedTag._UID, UidProc);
+            _tagSet2.Add(GedTag.UID, UidProc);
         }
 
         private MediaFile GetFile(ParseContext2 context)

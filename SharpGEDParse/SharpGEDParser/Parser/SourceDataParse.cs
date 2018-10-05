@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 namespace SharpGEDParser.Parser
 {
     public class SourceDataParse : StructParser
     {
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>()
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>()
         {
-            {"EVEN", evenProc},
-            {"PLAC", placProc},
-            {"NOTE", noteProc},
-            {"AGNC", agncProc},
-            {"DATE", dateProc}
+            {GedTag.EVEN, evenProc},
+            {GedTag.PLAC, placProc},
+            {GedTag.NOTE, noteProc},
+            {GedTag.AGNC, agncProc},
+            {GedTag.DATE, dateProc}
         };
 
         private static SourEvent GetEvent(SourceData dad)

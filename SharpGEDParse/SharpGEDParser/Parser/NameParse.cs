@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SharpGEDParser.Model;
+using GedTag = SharpGEDParser.Model.Tag.GedTag;
 
 // ReSharper disable InconsistentNaming
 
@@ -12,17 +13,17 @@ namespace SharpGEDParser.Parser
     {
         //private static StringCache2 _surnameCache = new StringCache2();
 
-        private static readonly Dictionary<string, TagProc> tagDict = new Dictionary<string, TagProc>
+        private static readonly Dictionary<GedTag, TagProc> tagDict = new Dictionary<GedTag, TagProc>
         {
-            { "SPFX", subProc},
-            { "NPFX", subProc},
-            { "NSFX", subProc},
-            { "_AKA", subProc},
-            { "NICK", subProc},
-            { "SURN", surnProc},
-            { "GIVN", givnProc},
-            { "NOTE", noteProc},
-            { "SOUR", sourProc},
+            { GedTag.SPFX, subProc},
+            { GedTag.NPFX, subProc},
+            { GedTag.NSFX, subProc},
+            { GedTag._AKA, subProc},
+            { GedTag.NICK, subProc},
+            { GedTag.SURN, surnProc},
+            { GedTag.GIVN, givnProc},
+            { GedTag.NOTE, noteProc},
+            { GedTag.SOUR, sourProc},
         };
 
         private static void givnProc(StructParseContext ctx, int linedex, char level)
@@ -30,21 +31,21 @@ namespace SharpGEDParser.Parser
             // TODO punting: grab&store w/o analysis
             var rec = (ctx.Parent as NameRec);
             if (ctx.Remain != rec.Names) // only store if different
-                rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
+                rec.Parts.Add(new Tuple<GedTag, string>(ctx.Tag, ctx.Remain));
         }
         private static void surnProc(StructParseContext ctx, int linedex, char level)
         {
             // TODO punting: grab&store w/o analysis
             var rec = (ctx.Parent as NameRec);
             if (ctx.Remain != rec.Surname) // only store if different
-                rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
+                rec.Parts.Add(new Tuple<GedTag, string>(ctx.Tag, ctx.Remain));
         }
 
         private static void subProc(StructParseContext ctx, int linedex, char level)
         {
             // TODO punting: grab&store w/o analysis
             var rec = (ctx.Parent as NameRec);
-            rec.Parts.Add(new Tuple<string, string>(ctx.Tag, ctx.Remain));
+            rec.Parts.Add(new Tuple<GedTag, string>(ctx.Tag, ctx.Remain));
         }
 
         private static bool parseName(NameRec rec, char[] line, int linenum, List<UnkRec> errors)

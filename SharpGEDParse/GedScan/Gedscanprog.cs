@@ -314,14 +314,14 @@ namespace GedScan
                 IndiRecord ged = person.Indi;
                 foreach (var familyEvent in ged.Events)
                 {
-                    string tag = familyEvent.Tag;
+                    string tag = familyEvent.Tag.ToString(); // TODO use gedtag?
                     incr(indiEventCounts, tag);
                     if (!string.IsNullOrEmpty(familyEvent.Place))
                         indiEventLoc++;
                 }
                 foreach (var familyEvent in ged.Attribs)
                 {
-                    string tag = familyEvent.Tag;
+                    string tag = familyEvent.Tag.ToString(); // TODO use gedtag?
                     incr(indiAttribCounts, tag);
                     if (!string.IsNullOrEmpty(familyEvent.Place))
                         attribLoc++;
@@ -333,7 +333,7 @@ namespace GedScan
                 FamRecord ged = union.FamRec;
                 foreach (var familyEvent in ged.FamEvents)
                 {
-                    string tag = familyEvent.Tag;
+                    string tag = familyEvent.Tag.ToString(); // TODO use gedtag?
                     incr(famEventCounts, tag);
                     if (!string.IsNullOrEmpty(familyEvent.Place))
                         famEventLoc++;
