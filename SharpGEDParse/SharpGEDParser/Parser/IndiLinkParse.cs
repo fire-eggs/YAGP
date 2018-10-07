@@ -48,7 +48,7 @@ namespace SharpGEDParser.Parser
                 err = new UnkRec();
                 err.Error = UnkRec.ErrorCode.MissIdent;
                 err.Beg = err.End = ctx.Begline + ctx.Parent.BegLine;
-                err.Tag = ctx.TagAsString;
+                err.Tag = ctx.Tag.ToString();
                 ctx.Parent.Errors.Add(err);
             }
             else

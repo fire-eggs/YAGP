@@ -103,5 +103,38 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Notes.Count);    // FAMS-NOTE treated as INDI-NOTE
 
         }
+
+        [Test]
+        public void FamcMissing()
+        {
+            // 5.5.1 standard sub-tags
+            var indi = "0 @I1@ INDI\n1 FAMC @@\n2 NOTE @N1@\n1 RIN blah";
+            var rec = parse<IndiRecord>(indi);
+
+            Assert.AreEqual("I1", rec.Ident);
+            Assert.AreEqual("blah", rec.RIN);
+
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, rec.Errors[0].Error);
+            Assert.AreEqual(2, rec.Errors[0].LineCount); // FAMC-NOTE included
+            Assert.AreEqual("FAMC", rec.Errors[0].Tag);
+        }
+
+        [Test]
+        public void FamsMissing()
+        {
+            // 5.5.1 standard sub-tags
+            var indi = "0 @I1@ INDI\n1 FAMS @@\n2 NOTE @N1@\n1 RIN blah";
+            var rec = parse<IndiRecord>(indi);
+
+            Assert.AreEqual("I1", rec.Ident);
+            Assert.AreEqual("blah", rec.RIN);
+
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, rec.Errors[0].Error);
+            Assert.AreEqual(2, rec.Errors[0].LineCount); // FAMC-NOTE included
+            Assert.AreEqual("FAMS", rec.Errors[0].Tag);
+        }
+
     }
 }

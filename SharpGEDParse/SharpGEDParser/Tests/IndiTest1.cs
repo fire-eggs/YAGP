@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser.Model;
+using System.Diagnostics.CodeAnalysis;
 
 // TODO a surname with space? e.g. "von neumann"? extra spaces?
 // TODO saving of extra, see IndiLinkParse
@@ -8,6 +9,7 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class IndiTest1 : GedParseTest
     {
@@ -395,5 +397,33 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("refn3", rec.Media[0].Files[2].FileRefn);
         }
 
+        public void MissingIdent(string tag, string id)
+        {
+            string fam = string.Format("0 @F1@ INDI\n1 {0}{1}\n1 RIN 2", tag, id);
+            var rec = parse(fam);
+            Assert.AreEqual("2", rec.RIN);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, rec.Errors[0].Error);
+            Assert.AreEqual(tag, rec.Errors[0].Tag);
+        }
+
+        [Test]
+        public void MissingSubm()
+        {
+            MissingIdent("SUBM", "");
+            MissingIdent("SUBM", " @@");
+        }
+        [Test]
+        public void MissingAnci()
+        {
+            MissingIdent("ANCI", "");
+            MissingIdent("ANCI", " @@");
+        }
+        [Test]
+        public void MissingDesi()
+        {
+            MissingIdent("DESI", "");
+            MissingIdent("DESI", " @@");
+        }
     }
 }

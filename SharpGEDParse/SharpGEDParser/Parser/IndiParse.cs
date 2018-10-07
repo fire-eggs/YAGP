@@ -211,7 +211,7 @@ namespace SharpGEDParser.Parser
             }
         }
 
-        // Common processing for SUBM, FAMC, FAMS
+        // Common processing for SUBM, ANCI, DESI
         // TODO what additional error handling?
         private static void xrefProc(ParseContext2 context)
         {

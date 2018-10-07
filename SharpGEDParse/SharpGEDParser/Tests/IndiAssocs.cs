@@ -42,6 +42,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Assocs.Count);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(UnkRec.ErrorCode.UntermIdent, rec.Errors[0].Error);
+            Assert.AreEqual("ASSO", rec.Errors[0].Tag);
             Assert.AreEqual("godfather", rec.Assocs[0].Relation);
         }
         [Test]
@@ -53,6 +54,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Assocs.Count);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(UnkRec.ErrorCode.UntermIdent, rec.Errors[0].Error);
+            Assert.AreEqual("ASSO", rec.Errors[0].Tag);
             Assert.AreEqual("godfather", rec.Assocs[0].Relation);
         }
         [Test]

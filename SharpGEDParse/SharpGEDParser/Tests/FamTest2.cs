@@ -190,5 +190,34 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(3, rec.Unknowns[0].End);
             Assert.AreEqual("Step", rec.Childs[0].MotherRelation);
         }
+
+        public void MissingIdent(string tag, string id)
+        {
+            string fam = string.Format("0 @F1@ FAM\n1 {0}{1}\n1 RIN 2", tag, id);
+            var rec = parse(fam);
+            Assert.AreEqual("2", rec.RIN);
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, rec.Errors[0].Error);
+            Assert.AreEqual(tag, rec.Errors[0].Tag);
+        }
+
+        [Test]
+        public void MissingSubm()
+        {
+            MissingIdent("SUBM", "");
+            MissingIdent("SUBM", " @@");
+        }
+        [Test]
+        public void MissingHusb()
+        {
+            MissingIdent("HUSB", "");
+            MissingIdent("HUSB", " @@");
+        }
+        [Test]
+        public void MissingWife()
+        {
+            MissingIdent("WIFE", "");
+            MissingIdent("WIFE", " @@");
+        }
     }
 }

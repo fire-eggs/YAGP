@@ -367,5 +367,19 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("p3", rec.Childs[0].Xref);
             Assert.AreEqual(1, rec.Errors.Count);
         }
+
+        [Test]
+        public void FamMissChilIdent()
+        {
+            // missing child xref
+            string fam = "0 @F1@ FAM\n1 HUSB @p1@\n1 CHIL\n1 NCHI 1";
+            var rec = parse(fam);
+            Assert.AreEqual("p1", rec.Dads[0]);
+            Assert.AreEqual(1, rec.ChildCount); // verify NCHI parse
+            Assert.AreEqual(0, rec.Childs.Count); // verify saw no child TODO desired behavior?
+            Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, rec.Errors[0].Error);
+            Assert.AreEqual("CHIL", rec.Errors[0].Tag);
+        }
     }
 }

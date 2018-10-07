@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser.Model;
+using System.Diagnostics.CodeAnalysis;
 
 // TODO CHAN
 // TODO OBJE
@@ -10,6 +11,7 @@ using SharpGEDParser.Model;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class IndiEvents : GedParseTest
     {
@@ -93,6 +95,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void FamcBadSub()
         {
+            // TODO INDI-FAMC-BOGUS not as error? Otherlines?
             var indi2 = "0 @I1@ INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);

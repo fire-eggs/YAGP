@@ -1,8 +1,10 @@
 ﻿using NUnit.Framework;
 using SharpGEDParser.Model;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SharpGEDParser.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class HeadTest : GedParseTest
     {
@@ -27,6 +29,8 @@ namespace SharpGEDParser.Tests
             var rec = ReadOne(txt);
             Assert.AreEqual("HEAD", rec.Tag);
             Assert.AreEqual(1, rec.Errors.Count);
+            Assert.AreEqual(UnkRec.ErrorCode.MissIdent, rec.Errors[0].Error);
+            Assert.AreEqual("SUBM", rec.Errors[0].Tag);
         }
         [Test]
         public void ExtraSubm()

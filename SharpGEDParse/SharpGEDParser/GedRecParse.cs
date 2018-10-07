@@ -109,7 +109,7 @@ namespace SharpGEDParser
         {
             if (ctx.Parent._uid != null)
             {
-                var rec = new UnkRec(ctx.TagAsString, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+                var rec = new UnkRec(ctx.Tag.ToString(), ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
                 rec.Error = UnkRec.ErrorCode.MultId;
                 ctx.Parent.Errors.Add(rec);
                 return;
@@ -134,7 +134,7 @@ namespace SharpGEDParser
         {
             if (who != null)
             {
-                var rec = new UnkRec(ctx.TagAsString, ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
+                var rec = new UnkRec(ctx.Tag.ToString(), ctx.Begline + ctx.Lines.Beg, ctx.Endline + ctx.Lines.Beg);
                 rec.Error = UnkRec.ErrorCode.MultId;
                 ctx.Parent.Errors.Add(rec);
                 return who;
@@ -238,7 +238,7 @@ namespace SharpGEDParser
                 UnkRec err = new UnkRec();
                 err.Error = errVal;
                 err.Beg = err.End = context.Begline + context.Parent.BegLine;
-                err.Tag = context.TagAsString;
+                err.Tag = context.Tag.ToString();
                 context.Parent.Errors.Add(err);
             }
             return xref;

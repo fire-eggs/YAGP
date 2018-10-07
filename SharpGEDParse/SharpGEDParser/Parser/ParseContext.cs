@@ -36,7 +36,7 @@ namespace SharpGEDParser.Parser
             tagCache = ctx.tagCache;
         }
 
-        public string TagAsString { get { return "GARBAGE"; } } // TODO need a solution
+        public string TagAsString { get { return gs.TagAsString(Lines.GetLine(Begline)); } }
     }
 
     public class StructParseContext : ParseContextCommon
