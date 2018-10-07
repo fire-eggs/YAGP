@@ -32,18 +32,12 @@ namespace SharpGEDParser.Parser
                 var hashCode = 0;
                 for (var i = 0; i < obj.Length; i++)
                 {
-                    if (obj[i] == '\0') // re-use single buffer
-                        return hashCode;
-
-                    for (var j = 0; j < obj.Length; j++)
-                    {
-                        // avoid a major allocation by skipping BitConverter.GetBytes
-                        char val = obj[j];
-                        byte byte1 = (byte)(val & 0xFF);
-                        byte byte2 = (byte)((val >> 8) & 0xFF);
-                        hashCode = (hashCode << 3) | (hashCode >> (29)) ^ byte1;
-                        hashCode = (hashCode << 3) | (hashCode >> (29)) ^ byte2;
-                    }
+                    // avoid a major allocation by skipping BitConverter.GetBytes
+                    char val = obj[i];
+                    byte byte1 = (byte)(val & 0xFF);
+                    byte byte2 = (byte)((val >> 8) & 0xFF);
+                    hashCode = (hashCode << 3) | (hashCode >> (29)) ^ byte1;
+                    hashCode = (hashCode << 3) | (hashCode >> (29)) ^ byte2;
                 }
                 return hashCode;
             }
@@ -83,9 +77,19 @@ namespace SharpGEDParser.Parser
         {
             if (len == 0)
                 return Tag.GedTag.MISSING;
+#if ARRAYPOOL
+            var temp = _bufferPool.Allocate(len);
+#else
             var temp = new char[len];
+#endif
+
             Array.Copy(value, index, temp, 0, len);
-            return GetFromCache(temp);
+            var tag = GetFromCache(temp);
+
+#if ARRAYPOOL
+            _bufferPool.Free(temp);
+#endif
+            return tag;
             //Array.Clear(_buffer, 0, BUFF_LEN);
             //Array.Copy(value, index, _buffer, 0, len);
             //return GetFromCache(_buffer);
@@ -97,6 +101,10 @@ namespace SharpGEDParser.Parser
             foreach (Tag.GedTag foo in vals)
                 Add(foo, foo.ToString());
         }
+
+#if ARRAYPOOL
+        private ConcurrentArrayPool<char> _bufferPool = new ConcurrentArrayPool<char>();
+#endif
 
     }
 }
