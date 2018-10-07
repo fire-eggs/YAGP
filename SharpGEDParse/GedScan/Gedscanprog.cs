@@ -44,6 +44,7 @@ namespace GedScan
                 return;
             }
 
+
             _showDiags = args.FirstOrDefault(s => s == "-d") != null;
             var showErrors = args.FirstOrDefault(s => s == "-e") != null;
             var recurse = args.FirstOrDefault(s => s == "-r") != null;
@@ -52,6 +53,9 @@ namespace GedScan
             _ged = args.FirstOrDefault(s => s == "-b") != null;
             _dumpAllErrors = args.FirstOrDefault(s => s == "-edump") != null;
             _noforest = args.FirstOrDefault(s => s == "-f") != null;
+
+            if (_showDiags)
+                AppDomain.MonitoringIsEnabled = true;
 
             for (int i = 0; i < args.Length; i++)
             {
@@ -83,6 +87,19 @@ namespace GedScan
             }
             if (_bsize != 0)
                 logit("__All load complete (ms)");
+
+            if (_showDiags)
+            {
+                long allocK = AppDomain.CurrentDomain.MonitoringTotalAllocatedMemorySize / 1024;
+                long allocM = allocK / 1024;
+
+                Console.WriteLine($"Time: {AppDomain.CurrentDomain.MonitoringTotalProcessorTime.TotalMilliseconds:#,###} ms");
+                Console.WriteLine($"Allo: {allocK: #,#}K ({allocM:#,#}M)");
+                Console.WriteLine($"WSet: {Process.GetCurrentProcess().PeakWorkingSet64 / 1024: #,#} kb");
+
+                for (var dex = 0; dex < GC.MaxGeneration; dex++)
+                    Console.WriteLine($"Gen {dex} coll: {GC.CollectionCount(dex)}");
+            }
         }
 
         private static void parseTree(string path, bool recurse, bool showErrors)
