@@ -109,7 +109,7 @@ namespace SharpGEDParser
             // substring 1 doesn't start with '@' == tag
             // else substring 2
             if (_count < 2 || _lens[1] < 1)
-                return GedTag.INVALID;
+                return GedTag.MISSING;
             if (value[_starts[1]] != '@')
                 return _tagCache.GetFromCache(value, _starts[1], _lens[1]);
                 //return new string(value, _starts[1], _lens[1]);

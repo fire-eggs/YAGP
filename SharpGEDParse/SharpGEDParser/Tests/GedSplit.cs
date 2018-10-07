@@ -41,7 +41,7 @@ namespace SharpGEDParser.Tests
             GEDSplitter gs = new GEDSplitter(10);
             Assert.AreEqual(1, gs.Split(txt, ' '));
             Assert.AreEqual('0', gs.Level(txt));
-            Assert.AreEqual("INVALID", gs.Tag(txt).ToString());
+            Assert.AreEqual("MISSING", gs.Tag(txt).ToString());
             Assert.AreEqual(null, gs.Remain(txt));
         }
 

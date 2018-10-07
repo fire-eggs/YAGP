@@ -108,7 +108,7 @@ namespace SharpGEDParser.Parser
                 cit.Desc = extra;
             }
 
-            StructParse(ctx2, tagDict);
+            StructParse(ctx2, tagDict, errs);
             ctx.Endline = ctx2.Endline;
 
             if (!cit.Data && cit.Xref != null && cit.AnyText)

@@ -11,7 +11,7 @@ namespace SharpGEDParser.Parser
     {
         protected delegate void TagProc(StructParseContext context, int linedex, char level);
 
-        protected static void StructParse(StructParseContext ctx, Dictionary<GedTag, TagProc> tagSet)
+        protected static void StructParse(StructParseContext ctx, Dictionary<GedTag, TagProc> tagSet, List<UnkRec> errs=null)
         {
             LineUtil.LineData ld = new LineUtil.LineData();
 
@@ -30,7 +30,10 @@ namespace SharpGEDParser.Parser
                     exc.Beg = exc.End = i;
                     exc.Error = UnkRec.ErrorCode.Exception;
                     // TODO exc.Error = "Exception during parse, skipping line";
-                    ctx.Record.Errors.Add(exc); // TODO is Record only for errors?
+                    if (ctx.Record != null)
+                        ctx.Record.Errors.Add(exc);
+                    if (errs != null)
+                        errs.Add(exc);
                     continue;
                 }
 
@@ -47,7 +50,10 @@ namespace SharpGEDParser.Parser
                     exc.Error = UnkRec.ErrorCode.MissTag;
                     // TODO exc.Error = "Exception during parse, skipping line";
                     // TODO not exception - missing tag / invalid linebreak
-                    ctx.Record.Errors.Add(exc); // TODO is Record only for errors?
+                    if (ctx.Record != null)
+                        ctx.Record.Errors.Add(exc);
+                    if (errs != null)
+                        errs.Add(exc);
                     continue;
                 }
 

@@ -195,7 +195,7 @@ namespace SharpGEDParser.Tests
             // The 'unknown' line has been recorded in the parent record
             Assert.AreEqual(1, rec.Unknowns.Count);
             Assert.AreEqual(10, rec.Unknowns[0].Beg);
-            Assert.IsNull(rec.Unknowns[0].Tag);
+            Assert.IsEmpty(rec.Unknowns[0].Tag);
         }
 
         //[Test]

@@ -339,5 +339,19 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Errors.Count, "No error");
         }
 
+        [Test]
+        public void MissingTag()
+        {
+            // Source Citation parsing would crash if missing tag
+            string fam = "0 @F1@ FAM\n1 SOUR inbed\n2 TEXT textual\n2 \n2 CONC descrip";
+            var rec = parseFam(fam);
+            Assert.AreEqual(1, rec.Cits.Count);
+            Assert.AreEqual(null, rec.Cits[0].Xref);
+            Assert.AreEqual("textual", rec.Cits[0].Text[0]);
+            Assert.AreEqual("inbeddescrip", rec.Cits[0].Desc);
+
+            Assert.AreEqual(1, rec.Errors.Count, "No error");
+            Assert.AreEqual(UnkRec.ErrorCode.MissTag, rec.Errors[0].Error);
+        }
     }
 }
