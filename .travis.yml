@@ -1,2 +1,2 @@
 language: csharp
-solution: SharpGedParse/SharpGedParse.sln
+solution: TravisCore.sln

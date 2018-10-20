@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravisCore", "TravisCore\TravisCore.csproj", "{DA2EFC4D-7588-4434-8642-1F87F66F42DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpGEDParser", "SharpGEDParse\SharpGEDParser\SharpGEDParser.csproj", "{58B3C8E5-2E1C-402E-BA60-AE97DE0A6621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA2EFC4D-7588-4434-8642-1F87F66F42DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2EFC4D-7588-4434-8642-1F87F66F42DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2EFC4D-7588-4434-8642-1F87F66F42DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2EFC4D-7588-4434-8642-1F87F66F42DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B3C8E5-2E1C-402E-BA60-AE97DE0A6621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B3C8E5-2E1C-402E-BA60-AE97DE0A6621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B3C8E5-2E1C-402E-BA60-AE97DE0A6621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B3C8E5-2E1C-402E-BA60-AE97DE0A6621}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49867F5C-AE30-4387-9357-FF84D6E639C8}
+	EndGlobalSection
+EndGlobal
