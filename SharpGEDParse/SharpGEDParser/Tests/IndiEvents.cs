@@ -53,7 +53,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi3);
             Assert.AreEqual(1, rec.Events.Count);
             Assert.AreEqual(tag, rec.Events[0].Tag);
-            Assert.IsEmpty(rec.Events[0].Descriptor);
+            Assert.IsNull(rec.Events[0].Descriptor);
             Assert.AreEqual(null, rec.Events[0].Date);
             Assert.AreEqual(null, rec.Events[0].Age);
             Assert.AreEqual(null, rec.Events[0].Type);
@@ -93,6 +93,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void FamcBadSub()
         {
+            // TODO unknown sub-tag: error or unknown?
             var indi2 = "0 @I1@ INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);

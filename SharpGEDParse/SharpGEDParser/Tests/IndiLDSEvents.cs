@@ -95,7 +95,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("insane", rec.LDSEvents[0].Status);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreNotEqual(0, (int)rec.Errors[0].Error); // TODO use error enum
-            Assert.IsEmpty(rec.LDSEvents[0].FamilyXref);
+            Assert.IsNull(rec.LDSEvents[0].FamilyXref);
         }
 
         [Test]

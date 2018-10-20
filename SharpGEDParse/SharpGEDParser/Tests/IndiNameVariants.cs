@@ -25,8 +25,8 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi1);
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
-            Assert.IsEmpty(rec.Names[0].Surname);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Surname);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
             Assert.AreEqual("clan", rec.Names[0].Surname);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("kludge", rec.Names[0].Names);
             Assert.AreEqual("clan", rec.Names[0].Surname);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.IsEmpty(rec.Names[0].Names);
             Assert.AreEqual("clan", rec.Names[0].Surname);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
             Assert.IsEmpty(rec.Names[0].Names);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
             Assert.AreEqual("john damm", rec.Names[0].Names);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("von Neumann", rec.Names[0].Surname);
             Assert.AreEqual("john damm", rec.Names[0].Names);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         #endregion
@@ -129,7 +129,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual("clan", rec.Names[0].Surname);
             Assert.IsEmpty(rec.Names[0].Names);
-            Assert.IsEmpty(rec.Names[0].Suffix);
+            Assert.IsNull(rec.Names[0].Suffix);
         }
 
         [Test]
@@ -178,8 +178,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Names.Count);
             Assert.AreEqual(1, rec.Errors.Count);
             Assert.AreEqual(UnkRec.ErrorCode.EmptyName, rec.Errors[0].Error);
-            Assert.IsEmpty(rec.Names[0].Names);
-            Assert.IsEmpty(rec.Names[0].Surname);
+            Assert.IsNull(rec.Names[0].Names);
+            Assert.IsNull(rec.Names[0].Surname);
         }
 
         [Test]

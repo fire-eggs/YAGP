@@ -130,7 +130,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.AreEqual("p1", rec.Cits[0].Xref);
             Assert.IsNotEmpty(rec.Cits[0].Event);
-            Assert.IsEmpty(rec.Cits[0].Page);
+            Assert.IsNull(rec.Cits[0].Page);
             Assert.AreEqual(0, res[0].Errors.Count, "No error");
         }
 
@@ -146,7 +146,7 @@ namespace SharpGEDParser.Tests
 
             Assert.AreEqual(1, rec.Cits.Count);
             Assert.AreEqual("p1", rec.Cits[0].Xref);
-            Assert.IsEmpty(rec.Cits[0].Event);
+            Assert.IsNull(rec.Cits[0].Event);
             Assert.IsNotEmpty(rec.Cits[0].Page);
             Assert.AreEqual(0, res[0].Errors.Count, "No error");
         }

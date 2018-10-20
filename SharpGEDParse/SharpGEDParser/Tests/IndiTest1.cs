@@ -50,7 +50,7 @@ namespace SharpGEDParser.Tests
 
             var rec = parse(indiU1);
             Assert.AreEqual('F', rec.Sex);
-            Assert.IsEmpty(rec.FullSex); // default value not stored
+            Assert.IsNull(rec.FullSex); // default value not stored
 
             rec = parse(indiU2);
             Assert.AreEqual('F', rec.Sex);
@@ -267,7 +267,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi1);
             Assert.AreEqual("1", rec.Ident);
             rec = parse(indi2);
-            Assert.IsEmpty(rec.Ident);
+            Assert.IsNull(rec.Ident);
             rec = parse(indi3);
             Assert.AreEqual("VERYLONGPERSONID", rec.Ident);
         }
@@ -326,7 +326,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             Assert.AreEqual("o1", rec.Media[0].Xref);
-            Assert.IsEmpty(rec.Media[0].Title);
+            Assert.IsNull(rec.Media[0].Title);
         }
 
         [Test]
@@ -339,8 +339,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
-            Assert.IsEmpty(rec.Media[0].Xref);
-            Assert.IsEmpty(rec.Media[0].Title);
+            Assert.IsNull(rec.Media[0].Xref);
+            Assert.IsNull(rec.Media[0].Title);
         }
 
         [Test]
@@ -354,7 +354,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             Assert.AreEqual("gibber", rec.Media[0].Xref);
-            Assert.IsEmpty(rec.Media[0].Title);
+            Assert.IsNull(rec.Media[0].Title);
         }
 
         [Test]
@@ -370,7 +370,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             // TODO what happened w/ the extra? Assert.AreEqual("gibber", rec.Media[0].Xref);
-            Assert.IsEmpty(rec.Media[0].Title);
+            Assert.IsNull(rec.Media[0].Title);
             Assert.AreEqual(1, rec.Media[0].Files.Count);
             Assert.AreEqual("refn", rec.Media[0].Files[0].FileRefn);
         }
@@ -388,7 +388,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             // TODO what happened w/ the extra? Assert.AreEqual("gibber", rec.Media[0].Xref);
-            Assert.IsEmpty(rec.Media[0].Title);
+            Assert.IsNull(rec.Media[0].Title);
             Assert.AreEqual(3, rec.Media[0].Files.Count);
             Assert.AreEqual("refn", rec.Media[0].Files[0].FileRefn);
             Assert.AreEqual("refn2", rec.Media[0].Files[1].FileRefn);

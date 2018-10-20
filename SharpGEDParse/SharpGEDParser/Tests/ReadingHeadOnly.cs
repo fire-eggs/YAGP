@@ -68,6 +68,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void HeadPlusNoBom()
         {
+            // TODO now getting an InvLevel error as well
             var r = ReadFile("0 HEAD extra");
             var errs = r.Errors;
             Assert.AreEqual(1, errs.Count);
@@ -95,6 +96,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void HeadPlusBom()
         {
+            // TODO now getting an InvLevel error as well
             var r = ReadFile("0 HEAD extra", true);
             var errs = r.Errors;
             Assert.AreEqual(1, errs.Count);
