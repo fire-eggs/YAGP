@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\FileRead.cs" Link="FileRead.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\GedParser.cs" Link="GedParser.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\GedReader.cs" Link="GedReader.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\GedRecord.cs" Link="GedRecord.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\GedRecParse.cs" Link="GedRecParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\GedSplitter.cs" Link="GedSplitter.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Issue.cs" Link="Issue.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\Address.cs" Link="Model\Address.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\AgeDetail.cs" Link="Model\AgeDetail.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\AssoRec.cs" Link="Model\AssoRec.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\EventCommon.cs" Link="Model\EventCommon.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\FamilyEvent.cs" Link="Model\FamilyEvent.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\FamRecord.cs" Link="Model\FamRecord.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\GEDCommon.cs" Link="Model\GEDCommon.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\GEDDate.cs" Link="Model\GEDDate.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\HeadRecord.cs" Link="Model\HeadRecord.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\IndiLink.cs" Link="Model\IndiLink.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\IndiRecord.cs" Link="Model\IndiRecord.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\LDSEvent.cs" Link="Model\LDSEvent.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\MediaLink.cs" Link="Model\MediaLink.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\MediaRecord.cs" Link="Model\MediaRecord.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\NameRec.cs" Link="Model\NameRec.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\NoteHold.cs" Link="Model\NoteHold.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\NoteRecord.cs" Link="Model\NoteRecord.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\RepoCit.cs" Link="Model\RepoCit.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\Repository.cs" Link="Model\Repository.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\SourceCit.cs" Link="Model\SourceCit.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\SourceData.cs" Link="Model\SourceData.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\SourceRecord.cs" Link="Model\SourceRecord.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\SourEvent.cs" Link="Model\SourEvent.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\StructCommon.cs" Link="Model\StructCommon.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\Submitter.cs" Link="Model\Submitter.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\Unknown.cs" Link="Model\Unknown.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\ObjectPool.cs" Link="ObjectPool.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\AddrStructParse.cs" Link="Parser\AddrStructParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\ChanStructParse.cs" Link="Parser\ChanStructParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\DateTokens.cs" Link="Parser\DateTokens.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\EventAgeParse.cs" Link="Parser\EventAgeParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\EventDateParse.cs" Link="Parser\EventDateParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\FamilyEventParse.cs" Link="Parser\FamilyEventParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\FamParse.cs" Link="Parser\FamParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\HeadParse.cs" Link="Parser\HeadParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\IndiAssoParse.cs" Link="Parser\IndiAssoParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\IndiLinkParse.cs" Link="Parser\IndiLinkParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\IndiParse.cs" Link="Parser\IndiParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\LDSEventParse.cs" Link="Parser\LDSEventParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\LineUtil.cs" Link="Parser\LineUtil.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\MediaParse.cs" Link="Parser\MediaParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\MediaStructParse.cs" Link="Parser\MediaStructParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\NameParse.cs" Link="Parser\NameParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\NoteParse.cs" Link="Parser\NoteParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\NoteStream.cs" Link="Parser\NoteStream.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\NoteStructParse.cs" Link="Parser\NoteStructParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\ParseContext.cs" Link="Parser\ParseContext.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\RepoCitParse.cs" Link="Parser\RepoCitParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\RepoParse.cs" Link="Parser\RepoParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\SourceCitParse.cs" Link="Parser\SourceCitParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\SourceDataParse.cs" Link="Parser\SourceDataParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\SourceRecParse.cs" Link="Parser\SourceRecParse.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\StringCache.cs" Link="Parser\StringCache.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\StructParser.cs" Link="Parser\StructParser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Parser\" />
+  </ItemGroup>
+
+</Project>
