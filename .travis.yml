@@ -6,5 +6,5 @@ install:
     - dotnet restore
 script:
     - dotnet build
-    - dotnet test ./TravisCore/bin/Release/SharpGedParser.dll
+    - dotnet test ./TravisCore/bin/Debug/TravisParse.dll
   
