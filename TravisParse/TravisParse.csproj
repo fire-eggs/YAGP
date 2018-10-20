@@ -66,11 +66,57 @@
     <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\SourceRecParse.cs" Link="Parser\SourceRecParse.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\StringCache.cs" Link="Parser\StringCache.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\Parser\StructParser.cs" Link="Parser\StructParser.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\BigValid.cs" Link="Tests\BigValid.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ChanTests.cs" Link="Tests\ChanTests.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\DateParsing.cs" Link="Tests\DateParsing.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\DateToken.cs" Link="Tests\DateToken.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\FamEventTest1.cs" Link="Tests\FamEventTest1.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\FamTest1.cs" Link="Tests\FamTest1.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\FamTest2.cs" Link="Tests\FamTest2.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\GedParseTest.cs" Link="Tests\GedParseTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\GedSplit.cs" Link="Tests\GedSplit.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\HeadTest.cs" Link="Tests\HeadTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiAssocs.cs" Link="Tests\IndiAssocs.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiAttrib.cs" Link="Tests\IndiAttrib.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiEventAddr.cs" Link="Tests\IndiEventAddr.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiEvents.cs" Link="Tests\IndiEvents.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiFamc.cs" Link="Tests\IndiFamc.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiLDSEvents.cs" Link="Tests\IndiLDSEvents.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiNames.cs" Link="Tests\IndiNames.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiNameVariants.cs" Link="Tests\IndiNameVariants.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiSubmit.cs" Link="Tests\IndiSubmit.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\IndiTest1.cs" Link="Tests\IndiTest1.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\Media55Test.cs" Link="Tests\Media55Test.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\MediaTest.cs" Link="Tests\MediaTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\MiscIdTests.cs" Link="Tests\MiscIdTests.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\MiscTest.cs" Link="Tests\MiscTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\MoreUID.cs" Link="Tests\MoreUID.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\NoteLevel1.cs" Link="Tests\NoteLevel1.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\NoteTest.cs" Link="Tests\NoteTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\Reading.cs" Link="Tests\Reading.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingEmpty.cs" Link="Tests\ReadingEmpty.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingHeadOnly.cs" Link="Tests\ReadingHeadOnly.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingLeadJunk.cs" Link="Tests\ReadingLeadJunk.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingNoHead.cs" Link="Tests\ReadingNoHead.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingNoTerm.cs" Link="Tests\ReadingNoTerm.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingSpurious.cs" Link="Tests\ReadingSpurious.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingUnicode.cs" Link="Tests\ReadingUnicode.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\ReadingUtil.cs" Link="Tests\ReadingUtil.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\RefnTests.cs" Link="Tests\RefnTests.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\RepositoryTest.cs" Link="Tests\RepositoryTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\SourceTest.cs" Link="Tests\SourceTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\SourCit.cs" Link="Tests\SourCit.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDParser\Tests\zFileTest.cs" Link="Tests\zFileTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="Tests\" />
     <Folder Include="Parser\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.11.0" />
   </ItemGroup>
 
 </Project>
