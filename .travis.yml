@@ -6,5 +6,5 @@ install:
     - dotnet restore
 script:
     - dotnet build
-    - dotnet test ./TravisParse/bin/Debug/TravisParse.dll
+    - dotnet test --logger "console;verbosity=detailed" ./TravisParse/bin/Debug/TravisParse.dll
   
