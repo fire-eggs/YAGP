@@ -131,12 +131,14 @@ namespace SharpGEDParser.Tests
             Assert.AreNotEqual(0, fam, path);
         }
 
+#if !NETCORE // TODO paths for Travis
         [Test]
         public void AllGed()
         {
             var path = @"E:\projects\YAGP\Sample GED\allged.ged"; // TODO project-relative path
             DoFile(path);
         }
+#endif
 
         // Not supporting carriage-return delimited files
         //[Test]
