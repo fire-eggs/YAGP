@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fire-eggs/yagp.svg?branch=master)](https://travis-ci.org/fire-eggs/yagp)
+[![Build Status](https://travis-ci.org/fire-eggs/YAGP.svg?branch=master)](https://travis-ci.org/fire-eggs/YAGP)
 
 # YAGP
 "Yet Another GEDCOM Parser" - newer/faster/complete GEDCOM parser in C#
