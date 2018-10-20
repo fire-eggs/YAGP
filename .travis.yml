@@ -1,9 +1,10 @@
 language: csharp
+mono: none
+dotnet: 2.1.403
 solution: TravisCore.sln
 install:
-    - nuget restore TravisCore.sln
-    - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+    - dotnet restore
 script:
-  - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./TravisCore/bin/Release/SharpGedParser.dll
+    - dotnet build
+    - dotnet test ./TravisCore/bin/Release/SharpGedParser.dll
   
