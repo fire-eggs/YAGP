@@ -50,7 +50,7 @@ namespace SharpGEDParser.Tests
 
             var rec = parse(indiU1);
             Assert.AreEqual('F', rec.Sex);
-            Assert.IsNullOrEmpty(rec.FullSex); // default value not stored
+            Assert.IsEmpty(rec.FullSex); // default value not stored
 
             rec = parse(indiU2);
             Assert.AreEqual('F', rec.Sex);
@@ -117,7 +117,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(3, rec.Errors[0].Beg);
             Assert.AreEqual(0, rec.Links.Count);
             //Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
-            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.IsEmpty(rec.Links[0].Xref);
 
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah";
             rec = parse(indi2);
@@ -125,7 +125,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(3, rec.Errors[0].Beg);
             Assert.AreEqual(0, rec.Links.Count);
             //Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
-            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.IsEmpty(rec.Links[0].Xref);
             //Assert.AreEqual("blah", rec.Links[0].Extra);
 
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC @@";
@@ -134,8 +134,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(3, rec.Errors[0].Beg);
             Assert.AreEqual(0, rec.Links.Count);
             //Assert.AreEqual(IndiLink.FAMC_TYPE, rec.Links[0].Type);
-            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            //Assert.IsNullOrEmpty(rec.Links[0].Extra);
+            //Assert.IsEmpty(rec.Links[0].Xref);
+            //Assert.IsEmpty(rec.Links[0].Extra);
 
             // Make sure the sub-struct is in the error & doesn't botch other tags
             indi2 = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMC blah\n2 STAT blah\n1 SEX U";
@@ -157,8 +157,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(4, rec.Errors[0].Beg);
             Assert.AreEqual(0, rec.Links.Count);
             //Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
-            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            //Assert.IsNullOrEmpty(rec.Links[0].Extra);
+            //Assert.IsEmpty(rec.Links[0].Xref);
+            //Assert.IsEmpty(rec.Links[0].Extra);
 
             indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS blah";
             rec = parse(indi);
@@ -166,7 +166,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(4, rec.Errors[0].Beg);
             Assert.AreEqual(0, rec.Links.Count);
             //Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
-            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
+            //Assert.IsEmpty(rec.Links[0].Xref);
             //Assert.AreEqual("blah", rec.Links[0].Extra);
 
             indi = "0 @PERSON2@ INDI\n1 NAME /Wife/\n1 SEX F\n1 FAMS @@";
@@ -175,8 +175,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(4, rec.Errors[0].Beg);
             Assert.AreEqual(0, rec.Links.Count);
             //Assert.AreEqual(IndiLink.FAMS_TYPE, rec.Links[0].Type);
-            //Assert.IsNullOrEmpty(rec.Links[0].Xref);
-            //Assert.IsNullOrEmpty(rec.Links[0].Extra);
+            //Assert.IsEmpty(rec.Links[0].Xref);
+            //Assert.IsEmpty(rec.Links[0].Extra);
 
             // Make sure the sub-struct is in the error & doesn't botch other tags
             indi = "0 @PERSON3@ INDI\n1 NAME /Child 1/\n1 FAMS blah\n2 STAT blah\n1 SEX U";
@@ -267,7 +267,7 @@ namespace SharpGEDParser.Tests
             var rec = parse(indi1);
             Assert.AreEqual("1", rec.Ident);
             rec = parse(indi2);
-            Assert.IsNullOrEmpty(rec.Ident);
+            Assert.IsEmpty(rec.Ident);
             rec = parse(indi3);
             Assert.AreEqual("VERYLONGPERSONID", rec.Ident);
         }
@@ -326,7 +326,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             Assert.AreEqual("o1", rec.Media[0].Xref);
-            Assert.IsNullOrEmpty(rec.Media[0].Title);
+            Assert.IsEmpty(rec.Media[0].Title);
         }
 
         [Test]
@@ -339,8 +339,8 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Errors.Count);
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
-            Assert.IsNullOrEmpty(rec.Media[0].Xref);
-            Assert.IsNullOrEmpty(rec.Media[0].Title);
+            Assert.IsEmpty(rec.Media[0].Xref);
+            Assert.IsEmpty(rec.Media[0].Title);
         }
 
         [Test]
@@ -354,7 +354,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             Assert.AreEqual("gibber", rec.Media[0].Xref);
-            Assert.IsNullOrEmpty(rec.Media[0].Title);
+            Assert.IsEmpty(rec.Media[0].Title);
         }
 
         [Test]
@@ -370,7 +370,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             // TODO what happened w/ the extra? Assert.AreEqual("gibber", rec.Media[0].Xref);
-            Assert.IsNullOrEmpty(rec.Media[0].Title);
+            Assert.IsEmpty(rec.Media[0].Title);
             Assert.AreEqual(1, rec.Media[0].Files.Count);
             Assert.AreEqual("refn", rec.Media[0].Files[0].FileRefn);
         }
@@ -388,7 +388,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual('U', rec.Sex);
             Assert.AreEqual(1, rec.Media.Count);
             // TODO what happened w/ the extra? Assert.AreEqual("gibber", rec.Media[0].Xref);
-            Assert.IsNullOrEmpty(rec.Media[0].Title);
+            Assert.IsEmpty(rec.Media[0].Title);
             Assert.AreEqual(3, rec.Media[0].Files.Count);
             Assert.AreEqual("refn", rec.Media[0].Files[0].FileRefn);
             Assert.AreEqual("refn2", rec.Media[0].Files[1].FileRefn);

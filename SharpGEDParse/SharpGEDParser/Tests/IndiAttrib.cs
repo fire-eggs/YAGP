@@ -185,7 +185,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, rec.Attribs[0].Media.Count);
             Assert.AreEqual(1, rec.Attribs[0].Media[0].Files.Count);
             Assert.AreEqual("refn", rec.Attribs[0].Media[0].Files[0].FileRefn);
-            Assert.IsNullOrEmpty(rec.Attribs[0].Media[0].Xref);
+            Assert.IsEmpty(rec.Attribs[0].Media[0].Xref);
         }
 
         [Test]

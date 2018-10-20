@@ -168,7 +168,7 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(null, rec.FamEvents[0].Date, tag);
 
             Assert.AreEqual(1, evt.Cits.Count, tag);
-            Assert.IsNullOrEmpty(evt.Cits[0].Xref, tag);
+            Assert.IsEmpty(evt.Cits[0].Xref, tag);
             Assert.AreEqual("description", evt.Cits[0].Desc);
             Assert.AreEqual("blah", evt.Cits[0].Text[0], tag);
             Assert.AreEqual("foo", evt.Cits[0].Page);

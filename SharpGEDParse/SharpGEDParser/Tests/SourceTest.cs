@@ -770,14 +770,14 @@ namespace SharpGEDParser.Tests
 
             HasErrors(rec, 1);
             Assert.AreEqual(1, rec.Cits.Count);
-            Assert.IsNullOrEmpty(rec.Cits[0].Xref);
+            Assert.IsEmpty(rec.Cits[0].Xref);
 
             txt = "0 @S1@ SOUR\n1 REPO @ gibberish";
             rec = ReadOne(txt);
 
             HasErrors(rec, 1);
             Assert.AreEqual(1, rec.Cits.Count);
-            Assert.IsNullOrEmpty(rec.Cits[0].Xref);
+            Assert.IsEmpty(rec.Cits[0].Xref);
         }
 
         [Test]
@@ -842,9 +842,9 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("number1", rec.Cits[1].CallNums[0].Number);
             Assert.AreEqual("type", rec.Cits[1].CallNums[0].Media);
             Assert.AreEqual("number2", rec.Cits[1].CallNums[1].Number);
-            Assert.IsNullOrEmpty(rec.Cits[1].CallNums[1].Media);
+            Assert.IsEmpty(rec.Cits[1].CallNums[1].Media);
             Assert.AreEqual("number3", rec.Cits[1].CallNums[2].Number);
-            Assert.IsNullOrEmpty(rec.Cits[1].CallNums[2].Media);
+            Assert.IsEmpty(rec.Cits[1].CallNums[2].Media);
             Assert.AreEqual(1, rec.Cits[1].Notes.Count);
             Assert.AreEqual("repo note", rec.Cits[1].Notes[0].Text);
         }
@@ -869,16 +869,16 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(0, rec.Cits[0].CallNums.Count);
             Assert.AreEqual(4, rec.Cits[1].CallNums.Count);
 
-            Assert.IsNullOrEmpty(rec.Cits[1].CallNums[0].Number);
+            Assert.IsEmpty(rec.Cits[1].CallNums[0].Number);
             Assert.AreEqual("type", rec.Cits[1].CallNums[0].Media);
 
             Assert.AreEqual("number1", rec.Cits[1].CallNums[1].Number);
             Assert.AreEqual("foob", rec.Cits[1].CallNums[1].Media); // TODO is this correct?
 
             Assert.AreEqual("number2", rec.Cits[1].CallNums[2].Number);
-            Assert.IsNullOrEmpty(rec.Cits[1].CallNums[2].Media);
+            Assert.IsEmpty(rec.Cits[1].CallNums[2].Media);
             Assert.AreEqual("number3", rec.Cits[1].CallNums[3].Number);
-            Assert.IsNullOrEmpty(rec.Cits[1].CallNums[3].Media);
+            Assert.IsEmpty(rec.Cits[1].CallNums[3].Media);
             Assert.AreEqual(1, rec.Cits[1].Notes.Count);
             Assert.AreEqual("repo note", rec.Cits[1].Notes[0].Text);
         }
