@@ -1,2 +1,2 @@
 language: csharp
-solution: SharpGedParse.sln
+solution: SharpGedParse/SharpGedParse.sln
