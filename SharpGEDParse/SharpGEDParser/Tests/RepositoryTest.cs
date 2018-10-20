@@ -39,7 +39,7 @@ namespace SharpGEDParser.Tests
 	    public void TestMissingName()
 	    {
 	        // NAME record is required
-	        var txt = "0 @R1@ REPO";
+	        var txt = "0 @R1@ REPO\n";
 	        var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             Repository rec = res[0] as Repository;
@@ -178,7 +178,7 @@ namespace SharpGEDParser.Tests
 		public void TestMissingId()
 		{
 			// empty record; missing id
-			var txt = "0 REPO";
+			var txt = "0 REPO\n";
 			var res = ReadItHigher(txt);
             // TODO 'empty record' no longer occurring. Valid?
 			Assert.AreEqual(0, res.Errors.Count);

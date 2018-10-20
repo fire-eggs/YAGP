@@ -137,7 +137,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestMissingFile()
         {
-            var txt = "0 @M1@ OBJE";
+            var txt = "0 @M1@ OBJE\n";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             MediaRecord rec = res[0] as MediaRecord;

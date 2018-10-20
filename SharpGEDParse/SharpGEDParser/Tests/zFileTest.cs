@@ -146,6 +146,7 @@ namespace SharpGEDParser.Tests
         //    DoFile(path);
         //}
 
+#if !NETCORE // TODO file paths not available on Travis
         [Test]
         public void DoSpecial()
         {
@@ -153,7 +154,9 @@ namespace SharpGEDParser.Tests
             string path = @"Z:\HOST_E\proj\GED\GED\OtherGEDFiles\5.5.1\aside\index7_kbr.ged";
             DoFile(path);
         }
+#endif
 
+#if !NETCORE // TODO file paths not available on Travis
         [Test]
         public void zDoAll551()
         {
@@ -163,7 +166,9 @@ namespace SharpGEDParser.Tests
                 DoFile(file);
             }
         }
+#endif
 
+#if !NETCORE // TODO file paths not available on Travis
         [Test]
         public void BlankFiles()
         {
@@ -180,6 +185,6 @@ namespace SharpGEDParser.Tests
             }
 
         }
-
+#endif
     }
 }

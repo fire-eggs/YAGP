@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using SharpGEDParser.Model;
 
 // ReSharper disable InconsistentNaming
 
@@ -17,7 +18,7 @@ namespace SharpGEDParser.Tests
             var r = ReadFile("0 HEAD");
             var errs = r.Errors;
             Assert.AreEqual(1, errs.Count);
-            //Assert.AreEqual("ERR", r.LineBreaks);
+            Assert.AreEqual(UnkRec.ErrorCode.UnsuppLB, errs[0].Error);
         }
 
         [Test]
@@ -44,7 +45,7 @@ namespace SharpGEDParser.Tests
             var r = ReadFile("0 HEAD", true);
             var errs = r.Errors;
             Assert.AreEqual(1, errs.Count);
-            //Assert.AreEqual("ERR", r.LineBreaks);
+            Assert.AreEqual(UnkRec.ErrorCode.UnsuppLB, errs[0].Error);
         }
 
         [Test]
@@ -68,11 +69,10 @@ namespace SharpGEDParser.Tests
         [Test]
         public void HeadPlusNoBom()
         {
-            // TODO now getting an InvLevel error as well
             var r = ReadFile("0 HEAD extra");
             var errs = r.Errors;
             Assert.AreEqual(1, errs.Count);
-            //Assert.AreEqual("ERR", r.LineBreaks);
+            Assert.AreEqual(UnkRec.ErrorCode.UnsuppLB, errs[0].Error);
         }
 
         [Test]
@@ -96,11 +96,10 @@ namespace SharpGEDParser.Tests
         [Test]
         public void HeadPlusBom()
         {
-            // TODO now getting an InvLevel error as well
             var r = ReadFile("0 HEAD extra", true);
             var errs = r.Errors;
             Assert.AreEqual(1, errs.Count);
-            //Assert.AreEqual("ERR", r.LineBreaks);
+            Assert.AreEqual(UnkRec.ErrorCode.UnsuppLB, errs[0].Error);
         }
 
         [Test]

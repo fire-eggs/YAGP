@@ -22,7 +22,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void TestSimple1()
         {
-            var txt = "0 @N1@ NOTE blah blah blah";
+            var txt = "0 @N1@ NOTE blah blah blah\n";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;
@@ -187,7 +187,7 @@ namespace SharpGEDParser.Tests
         public void TestMissingId()
         {
             // empty record; missing id
-            var txt = "0 NOTE";
+            var txt = "0 NOTE\n";
             var res = ReadItHigher(txt);
             Assert.AreEqual(0, res.Errors.Count);
             Assert.AreEqual(1, res.Data.Count);
@@ -829,7 +829,7 @@ namespace SharpGEDParser.Tests
         public void DoubleAt()
         {
             // Doubled '@'s are supposed to be replaced with single
-            var txt = "0 @N1@ NOTE Where it's @@";
+            var txt = "0 @N1@ NOTE Where it's @@\n";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             var rec = res[0] as NoteRecord;

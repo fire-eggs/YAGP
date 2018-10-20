@@ -286,10 +286,9 @@ namespace SharpGEDParser
                 dex++;
             }
 
-            // TODO unit tests might not have a terminator
-            //Errors.Add("Supported linebreaks don't exist!"); // CR broken file
-            //return false;
-            return true;
+            // NOTE: unit tests need a terminator, unless explicitly testing for missing!
+            ErrorTracker(UnkRec.ErrorCode.UnsuppLB, -1);
+            return false;
         }
 
         private bool FindHeadEncoding(out Encoding gedEnc)

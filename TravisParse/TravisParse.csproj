@@ -7,6 +7,10 @@
     <StartupObject />
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NETCORE,PARALLEL</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\SharpGEDParse\SharpGEDParser\FileRead.cs" Link="FileRead.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\GedParser.cs" Link="GedParser.cs" />

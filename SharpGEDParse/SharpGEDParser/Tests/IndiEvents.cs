@@ -93,11 +93,12 @@ namespace SharpGEDParser.Tests
         [Test]
         public void FamcBadSub()
         {
-            // TODO unknown sub-tag: error or unknown?
+            // Unknown sub-tag: stored as other line in sub-record (i.e. the event)
             var indi2 = "0 @I1@ INDI\n1 BIRT Y\n2 PLAC Sands, Oldham, Lncshr, Eng\n2 FAMC @FAM99@\n3 BOGUS pater";
             var rec = parse(indi2);
             Assert.AreEqual(1, rec.Events.Count);
-            Assert.AreNotEqual(0, rec.Errors.Count);
+            Assert.IsNotNull(rec.Events[0].OtherLines);
+            Assert.AreEqual(1, rec.Events[0].OtherLines.Count);
         }
 
         [Test]

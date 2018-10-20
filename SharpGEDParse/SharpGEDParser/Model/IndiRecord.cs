@@ -151,6 +151,7 @@ namespace SharpGEDParser.Model
         internal IndiRecord(GedRecord lines, string ident, string remain) : base(lines, ident)
         {
             GedRecParse.NonStandardRemain(remain, this);
+            Sex = 'U';
         }
 
         internal void AddSubmitter(Submitter.SubmitType submType, string ident)

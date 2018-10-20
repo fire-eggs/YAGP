@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 #endif
 
-
 // ReSharper disable InconsistentNaming
 
 namespace SharpGEDParser

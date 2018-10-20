@@ -57,7 +57,7 @@ namespace SharpGEDParser.Tests
         {
             // simpliest valid family record
             // TODO is this truly valid? isn't one family event required? see FAMILY_EVENT_STRUCTURE
-            string fam = "0 @F1@ FAM";
+            string fam = "0 @F1@ FAM\n";
             var rec = parse(fam);
             Assert.AreEqual("F1", rec.Ident);
             Assert.AreEqual(0, rec.Errors.Count);
@@ -282,7 +282,7 @@ namespace SharpGEDParser.Tests
         public void TestMissingId()
         {
             // empty record; missing id
-            var txt = "0 FAM";
+            var txt = "0 FAM\n";
             var res = ReadItHigher(txt);
             // TODO 'empty record' disabled intentionally: valid?
             Assert.AreEqual(0, res.Errors.Count);

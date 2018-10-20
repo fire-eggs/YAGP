@@ -277,7 +277,7 @@ namespace SharpGEDParser.Tests
         [Test]
         public void Unk()
         {
-            var txt = "0 BLAH";
+            var txt = "0 BLAH\n";
             var res = ReadIt(txt);
 
             Assert.AreEqual(1, res.Count);
@@ -308,7 +308,7 @@ namespace SharpGEDParser.Tests
         public void InvalidLevel()
         {
             // code coverage
-            string txt = "1 CHAN";
+            string txt = "1 CHAN\n";
             var fr = ReadItHigher(txt);
             Assert.AreEqual(1, fr.Data.Count);
             var rec = fr.Data[0];
@@ -320,7 +320,7 @@ namespace SharpGEDParser.Tests
         public void EmptyTag()
         {
             // code coverage
-            string txt = "0 @Z1@ ";
+            string txt = "0 @Z1@ \n";
             var fr = ReadItHigher(txt);
             Assert.AreEqual(1, fr.AllErrors.Count);
             Assert.AreEqual(1, fr.Data.Count);
