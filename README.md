@@ -24,3 +24,6 @@ General status:
 Additional details and documentation-in-progress can be found in the [Wiki](../../wiki).
 
 Some related material in my [Github pages (http://fire-eggs.github.io/ )]
+
+
+[![GitHub license](https://img.shields.io/github/license/fire-eggs/YAGP.svg?style=plastic)](https://github.com/fire-eggs/YAGP/blob/master/LICENSE)
