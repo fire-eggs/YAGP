@@ -3,7 +3,7 @@ mono: none
 dotnet: 2.1.403
 solution: TravisCore.sln
 install:
-    - cat $HOME/.config/lxterminal/lxterminal.conf
+    - ls -l $HOME/.config
     - dotnet restore
     - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools   
 script:
@@ -15,5 +15,10 @@ script:
     - dotnet test --no-build ./TravisParse/TravisParse.csproj
     - cd minicover
     - dotnet minicover report --workdir ../ --threshold 75
+    - dotnet minicover coveralssreport --workdir ../ \
+                                       --root-path ../ \
+                                       --output "coveralls.json" \
+                                       --service-name "travis-ci" \
+                                       --service-job-id "$TRAVIS_JOB_ID"
     - cd ..
     - tools/csmacnz.Coveralls --help
