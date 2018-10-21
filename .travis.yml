@@ -17,6 +17,7 @@ script:
     - cd minicover
     - dotnet minicover report --workdir ../ --threshold 75
     - cd ..
-    - pwd
-    - csmacnz.coveralls --help
+    - ls -l
+    - ls -l tools
+    - tools/csmacnz.coveralls --help
   
