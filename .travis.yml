@@ -3,7 +3,7 @@ mono: none
 dotnet: 2.1.403
 solution: TravisCore.sln
 install:
-    - setfont /usr/share/consolefonts/Lat2-Fixed18.psf.gz
+    #- setfont /usr/share/consolefonts/Lat2-Fixed18.psf.gz
     # - ls /usr/share/consolefonts
     # - cat /etc/default/console-setup
     - dotnet restore
