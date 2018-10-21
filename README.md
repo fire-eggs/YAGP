@@ -1,3 +1,4 @@
+Net Core 2.1:
 [![Build Status](https://travis-ci.org/fire-eggs/YAGP.svg?branch=master)](https://travis-ci.org/fire-eggs/YAGP)
 
 # YAGP
@@ -27,3 +28,4 @@ Some related material in my [Github pages (http://fire-eggs.github.io/ )]
 
 
 [![GitHub license](https://img.shields.io/github/license/fire-eggs/YAGP.svg?style=plastic)](https://github.com/fire-eggs/YAGP/blob/master/LICENSE)
+
