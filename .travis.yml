@@ -7,9 +7,12 @@ install:
 script:
     - dotnet build
     - cd minicover
-    - dotnet minicover instrument --workdir ../ --assemblies TravisParse/**/bin/**/TravisParse.dll -- sources src/**/*.cs
+    - dotnet minicover instrument --workdir ../ --assemblies TravisParse/**/bin/**/TravisParse.dll --sources src/**/*.cs
     - dotnet minicover reset
     - cd ..
     - dotnet test --no-build ./TravisParse/TravisParse.csproj
+    - cd minicover
+    - dotnet minicover report --workdir ../ --threshold 75
+    - cd ..
     
   
