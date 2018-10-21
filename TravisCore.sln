@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravisCore", "TravisCore\TravisCore.csproj", "{DA2EFC4D-7588-4434-8642-1F87F66F42DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravisCore", "TravisCore\TravisCore.csproj", "{DA2EFC4D-7588-4434-8642-1F87F66F42DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravisParse", "TravisParse\TravisParse.csproj", "{07D7421A-5901-484F-9E62-5F721114C8C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravisParse", "TravisParse\TravisParse.csproj", "{07D7421A-5901-484F-9E62-5F721114C8C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "minicover", "minicover\minicover.csproj", "{9C586049-54AE-41A9-87C7-FF229AC75D05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{07D7421A-5901-484F-9E62-5F721114C8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07D7421A-5901-484F-9E62-5F721114C8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07D7421A-5901-484F-9E62-5F721114C8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C586049-54AE-41A9-87C7-FF229AC75D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C586049-54AE-41A9-87C7-FF229AC75D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C586049-54AE-41A9-87C7-FF229AC75D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C586049-54AE-41A9-87C7-FF229AC75D05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
