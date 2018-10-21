@@ -6,7 +6,7 @@ install:
     - dotnet restore
     - mkdir tools
     - ls -l
-    - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools    
+    - dotnet tool install coveralls.net --version 1.0.0    
     - ls -l
 script:
     - dotnet build
@@ -19,5 +19,5 @@ script:
     - dotnet minicover report --workdir ../ --threshold 75
     - cd ..
     - pwd
-    - tools/csmacnz.coveralls.exe --help
+    - csmacnz.coveralls --help
   
