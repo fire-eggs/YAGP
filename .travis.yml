@@ -3,6 +3,7 @@ mono: none
 dotnet: 2.1.403
 solution: TravisCore.sln
 install:
+    - cat $HOME/.config/lxterminal/lxterminal.conf
     - dotnet restore
     - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools   
 script:
