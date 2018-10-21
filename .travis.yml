@@ -15,5 +15,5 @@ script:
     - cd minicover
     - dotnet minicover report --workdir ../ --threshold 75
     - cd ..
-    - csmacnz.coveralls --help
+    - dotnet csmacnz.coveralls --help
   
