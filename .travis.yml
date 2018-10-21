@@ -3,6 +3,7 @@ mono: none
 dotnet: 2.1.403
 solution: TravisCore.sln
 install:
+    - ls /usr/share/consolefonts
     - cat /etc/default/console-setup
     - dotnet restore
     - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools   
@@ -16,7 +17,6 @@ script:
     - cd minicover
     - dotnet minicover report --workdir ../ --threshold 75
     - dotnet minicover coverallsreport --workdir ../ \
-                                       --output "coveralls.json" \
                                        --service-name "travis-ci" \
                                        --service-job-id "$TRAVIS_JOB_ID"
     - cd ..
