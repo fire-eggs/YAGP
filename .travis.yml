@@ -5,7 +5,9 @@ solution: TravisCore.sln
 install:
     - dotnet restore
     - mkdir tools
+    - ls -l
     - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools    
+    - ls -l tools
 script:
     - dotnet build
     - cd minicover
