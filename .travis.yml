@@ -4,6 +4,7 @@ dotnet: 2.1.403
 solution: TravisCore.sln
 install:
     - dotnet restore
+    - dotnet tool install -g coveralls.net --version 1.0.0    
 script:
     - dotnet build
     - cd minicover
@@ -14,5 +15,5 @@ script:
     - cd minicover
     - dotnet minicover report --workdir ../ --threshold 75
     - cd ..
-    
+    - csmacnz.coveralls --help
   
