@@ -5,8 +5,6 @@ solution: TravisCore.sln
 install:
     - dotnet restore
     - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools   
-    - ls -l
-    - ls -l tools
 script:
     - dotnet build
     - cd minicover
@@ -17,7 +15,4 @@ script:
     - cd minicover
     - dotnet minicover report --workdir ../ --threshold 75
     - cd ..
-    - ls -l
-    - ls -l tools
-    - tools/csmacnz.coveralls --help
-  
+    - tools/csmacnz.Coveralls --help
