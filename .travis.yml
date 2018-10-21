@@ -7,7 +7,7 @@ install:
     - mkdir tools
     - ls -l
     - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools    
-    - ls -l tools
+    - ls -l
 script:
     - dotnet build
     - cd minicover
