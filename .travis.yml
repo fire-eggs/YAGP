@@ -18,8 +18,6 @@ script:
     - cd minicover
     - dotnet minicover report --workdir ../ --threshold 75
     - dotnet minicover coverallsreport --help
-#    - dotnet minicover coverallsreport --workdir ../ \
-#                                       --service-name "travis-ci" \
-#                                       --service-job-id "$TRAVIS_JOB_ID"
+    - dotnet minicover coverallsreport --root-path ../ --workdir ../ --service-name "travis-ci" --service-job-id "$TRAVIS_JOB_ID"
 #    - cd ..
 #    - tools/csmacnz.Coveralls --help
