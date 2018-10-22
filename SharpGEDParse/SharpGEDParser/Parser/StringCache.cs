@@ -78,10 +78,10 @@ namespace SharpGEDParser.Parser
             _stringCache = new ConcurrentDictionary<char[], string>(new TagComparer());
         }
 
-        public string GetFromCache(string inval)
-        {
-            return GetFromCache(inval.ToCharArray());
-        }
+        //public string GetFromCache(string inval)
+        //{
+        //    return GetFromCache(inval.ToCharArray());
+        //}
 
         public string GetFromCache(char[] inval)
         {

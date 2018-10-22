@@ -166,7 +166,7 @@ namespace GedScan
                         double maxM = maxMem / (1024 * 1024.0);
                         Console.WriteLine("\t===MaxWSet:{0:0.00}M", maxM);
                     }
-                    dump(reader.Data, reader.AllErrors, null, false);
+                    dump(reader.Data, reader.AllErrors, false);
                 }
             }
             //else
@@ -401,7 +401,7 @@ namespace GedScan
         }
 #endif
         // -b output
-        private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, IEnumerable<Issue> issues, bool showErrors)
+        private static void dump(IEnumerable<GEDCommon> kbrGedRecs, List<UnkRec> errors, bool showErrors)
         {
             if (kbrGedRecs == null)
                 return;
@@ -510,7 +510,6 @@ namespace GedScan
                 // index++; // testing
             }
 
-            var issRollup = new Dictionary<Issue.IssueCode, string>();
             if (showErrors)
             {
                 //foreach (var err in errCounts.Keys)
@@ -525,12 +524,6 @@ namespace GedScan
                         errRollup.Add((int)errRec.Error, errRec);
                     //Console.WriteLine("\t\tError:{0}", unkRec.Error);
                 }
-                if (issues != null)
-                    foreach (var issue in issues)
-                    {
-                        if (!issRollup.ContainsKey(issue.IssueId))
-                            issRollup.Add(issue.IssueId, issue.Message());
-                    }
             }
             Console.WriteLine("\tINDI: {0}\n\tFAM: {1}\n\tSource: {5}\n\tRepository:{6}\n\tNote: {7}[{10}]\n\tUnknown: {2}\n\tMedia: {9}\n\tOther: {3}\n\t*Errors: {4}; Sub-Notes:{11}[{12}]", 
                 inds, fams, unks, oths, errs, src, repo, note, 0, media, nLen, subN, subNLen);
@@ -538,10 +531,6 @@ namespace GedScan
                 nLen / (note==0?1:note), subNLen / (subN==0?1:subN), subNLen / ((fams+inds) == 0 ? 1 : (fams+inds)));
             if (showErrors)
             {
-                foreach (var err in issRollup)
-                {
-                    Console.WriteLine("\t\tIss:{0}", err.Value);
-                }
                 foreach (var err in errRollup)
                 {
                     Console.WriteLine("\t\tErr:{0} [line {1}]", err.Key, err.Value.Beg);

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;NETCORE,PARALLEL</DefineConstants>
+    <DefineConstants>TRACE;NETCORE,PARALLEL,NOTESTREAM</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +18,6 @@
     <Compile Include="..\SharpGEDParse\SharpGEDParser\GedRecord.cs" Link="GedRecord.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\GedRecParse.cs" Link="GedRecParse.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\GedSplitter.cs" Link="GedSplitter.cs" />
-    <Compile Include="..\SharpGEDParse\SharpGEDParser\Issue.cs" Link="Issue.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\Address.cs" Link="Model\Address.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\AgeDetail.cs" Link="Model\AgeDetail.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDParser\Model\AssoRec.cs" Link="Model\AssoRec.cs" />
