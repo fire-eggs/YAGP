@@ -81,6 +81,20 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("S1", cit.Xref);
         }
 
+        [Test]
+        public void AssoNote()
+        {
+            var indi = "0 @I1@ INDI\n1 ASSO @I2@\n2 NOTE Four score and seven years ago\n2 RELA godfather";
+            var rec = parse(indi);
+            Assert.AreEqual("I1", rec.Ident);
+            Assert.AreEqual(1, rec.Assocs.Count);
+            Assert.AreEqual("I2", rec.Assocs[0].Ident);
+            Assert.AreEqual("godfather", rec.Assocs[0].Relation);
+            Assert.AreEqual(1, rec.Assocs[0].Notes.Count);
+            var note = rec.Assocs[0].Notes[0];
+            Assert.AreEqual("Four score and seven years ago", note.Text);
+        }
+
         // TODO parsing for 'extra' text after ident but not saving it - in any code path
         //[Test]
         //public void AssoExtra()
