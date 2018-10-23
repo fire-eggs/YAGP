@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\FileWrite.cs" Link="FileWrite.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Basic.cs" Link="Tests\Basic.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Events.cs" Link="Tests\Events.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\GedWriteTest.cs" Link="Tests\GedWriteTest.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Indi.cs" Link="Tests\Indi.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\IndiOrder.cs" Link="Tests\IndiOrder.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Media.cs" Link="Tests\Media.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Names.cs" Link="Tests\Names.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Notes.cs" Link="Tests\Notes.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\RealWorld.cs" Link="Tests\RealWorld.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Source.cs" Link="Tests\Source.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\WriteCommon.cs" Link="WriteCommon.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\WriteEvent.cs" Link="WriteEvent.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\WriteINDI.cs" Link="WriteINDI.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="NUnit" Version="3.11.0" />
+    <PackageReference Include="NUnit.ConsoleRunner" Version="3.9.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TravisParse\TravisParse.csproj" />
+  </ItemGroup>
+
+</Project>
