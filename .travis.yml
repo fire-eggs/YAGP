@@ -16,7 +16,7 @@ script:
     - cd ..
     - dotnet test --no-build ./TravisParse/TravisParse.csproj
     - cd minicover
-    - dotnet minicover report --workdir ../ --threshold 75
+    - dotnet minicover report --workdir ../ --threshold 95
     - dotnet minicover coverallsreport --help
     - dotnet minicover coverallsreport --root-path ../ --workdir ../ --service-name "travis-ci" --service-job-id "$TRAVIS_JOB_ID"
 #    - cd ..

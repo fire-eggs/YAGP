@@ -1,6 +1,5 @@
 Net Core 2.1:
 [![Build Status](https://travis-ci.org/fire-eggs/YAGP.svg?branch=master)](https://travis-ci.org/fire-eggs/YAGP)
-
 [![Coverage Status](https://coveralls.io/repos/github/fire-eggs/YAGP/badge.svg?branch=master)](https://coveralls.io/github/fire-eggs/YAGP?branch=master)
 
 # YAGP
