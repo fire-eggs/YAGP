@@ -10,7 +10,7 @@ namespace SharpGEDParser
 
         public ObjectPool(Func<T> objectGenerator)
         {
-            if (objectGenerator == null) throw new ArgumentNullException("objectGenerator");
+            //if (objectGenerator == null) throw new ArgumentNullException("objectGenerator");
             _objects = new ConcurrentBag<T>();
             _objectGenerator = objectGenerator;
         }

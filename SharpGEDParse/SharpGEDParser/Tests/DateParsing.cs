@@ -484,5 +484,31 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(-1, res.Year);
         }
 
+        [Test]
+        public void Basic()
+        {
+            GEDDate res = new GEDDate(1, 4, 1975);
+            Assert.IsTrue(res.Initialized);
+            Assert.AreEqual(2442504, res.JDN);
+        }
+
+        [Test]
+        public void BasicRange()
+        {
+            string val = "FROM 1 May 1915 TO 2 May 1915";
+            var res = ParseForDate(val);
+            Assert.IsTrue(res.Initialized);
+            Assert.AreEqual(1, res.JDR);
+        }
+
+        [Test]
+        public void BasicString()
+        {
+            // TODO BC, AD, etc
+            string val = "FROM 1 May 1915 TO 2 May 1915";
+            var res = ParseForDate(val);
+            Assert.IsTrue(res.Initialized);
+            Assert.AreEqual("1-May-1915", res.ToString());
+        }
     }
 }

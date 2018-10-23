@@ -53,8 +53,8 @@ namespace SharpGEDParser
                 _tagCache = new StringCache(); // unit testing
         }
 
-        public int[] Starts { get { return _starts; } }
-        public int[] Lengths {  get { return _lens; } }
+        //public int[] Starts { get { return _starts; } }
+        //public int[] Lengths {  get { return _lens; } }
 
         public int Split(char [] value, char separator)
         {

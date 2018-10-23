@@ -33,7 +33,7 @@ namespace SharpGEDParser.Parser
             {
                 if (x == null && y == null)
                     return true;
-                if (x == null | y == null) // One but not both?
+                if (x == null || y == null) // One but not both?
                     return false;
                 if (x.Length != y.Length)
                     return false;
@@ -102,6 +102,7 @@ namespace SharpGEDParser.Parser
         }
     }
 
+#if false
     // DotMemory claims the Dictionary based string cache is not memory efficient,
     // with lots of empty 'buckets'. This is an attempt to use a SortedList, but
     // when used for surnames, places, and sex, causes an extreme slowdown in 
@@ -173,4 +174,5 @@ namespace SharpGEDParser.Parser
         }
         
     }
+#endif
 }

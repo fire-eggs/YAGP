@@ -29,6 +29,7 @@ namespace SharpGEDParser.Parser
             return dex;
         }
 
+#if false
         internal static int FirstChar(string line, int dex, int max)
         {
             while (dex < max && (line[dex] == ' ' || line[dex] == '\t'))
@@ -37,6 +38,7 @@ namespace SharpGEDParser.Parser
                 return -1;
             return dex;
         }
+#endif
 
         public static int AllCharsUntil(char [] line, int max, int dex, char target)
         {
