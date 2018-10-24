@@ -43,9 +43,9 @@ namespace SharpGEDWriter.Tests
         [Test]
         public void ShortRec()
         {
-            var txt = "0 @N1@ NOTE this is a note";
+            var txt = "0 @N1@ NOTE this is a note\n"; // TODO problem with line terminator?
             var res = ParseAndWrite(txt);
-            Assert.AreEqual(res, txt + "\n");
+            Assert.AreEqual(txt, res);
         }
 
         [Test]
@@ -144,9 +144,9 @@ namespace SharpGEDWriter.Tests
         [Test]
         public void NoteAmper()
         {
-            var txt = "0 @N1@ NOTE this is @@ a note";
+            var txt = "0 @N1@ NOTE this is @@ a note\n"; // TODO problem with line term?
             var res = ParseAndWrite(txt);
-            Assert.AreEqual(res, txt + "\n");
+            Assert.AreEqual(txt, res);
         }
         [Test]
         public void NoteAmper2()

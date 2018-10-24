@@ -66,6 +66,7 @@
     <Compile Include="Tests\Indi.cs" />
     <Compile Include="Tests\IndiOrder.cs" />
     <Compile Include="Tests\Media.cs" />
+    <Compile Include="Tests\Misc.cs" />
     <Compile Include="Tests\Names.cs" />
     <Compile Include="Tests\Notes.cs" />
     <Compile Include="Tests\RealWorld.cs" />

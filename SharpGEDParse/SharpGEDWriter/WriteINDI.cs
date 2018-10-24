@@ -80,7 +80,8 @@ namespace SharpGEDWriter
                 WriteCommon.writeSourCit(file, nameRec, 2);
             }
 
-            if (string.IsNullOrEmpty(indiRecord.FullSex) && indiRecord.Sex != '\0')
+            // TODO want to init sex to 'U' but don't want to output it if not initialized as such
+            if (string.IsNullOrEmpty(indiRecord.FullSex) && indiRecord.Sex != '\0' && indiRecord.Sex != 'U')
                 WriteCommon.writeIfNotEmpty(file, "SEX", indiRecord.Sex.ToString(), 1);
             else
                 WriteCommon.writeIfNotEmpty(file, "SEX", indiRecord.FullSex, 1);

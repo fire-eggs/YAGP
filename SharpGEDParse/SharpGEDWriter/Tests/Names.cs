@@ -34,6 +34,15 @@ namespace SharpGEDWriter.Tests
             Assert.AreEqual(exp, res);
         }
         [Test]
+        public void Parts2()
+        {
+            // TODO should the output include the "1 NAME givn /surn/" form if not provided?
+            var inp = "0 @I1@ INDI\n1 NAME\n2 SURN Flintstone\n2 GIVN Fred\n2 NICK Yabba dabba do\n2 NPFX blah\n2 SPFX blah\n2 NSFX blah";
+            var exp = "0 @I1@ INDI\n1 NAME\n2 SURN Flintstone\n2 GIVN Fred\n2 NICK Yabba dabba do\n2 NPFX blah\n2 SPFX blah\n2 NSFX blah\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(exp, res);
+        }
+        [Test]
         public void Note()
         {
             var inp = "0 @I1@ INDI\n1 NAME Fred /Flintstone/\n2 NOTE This is a note";

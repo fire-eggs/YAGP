@@ -278,6 +278,42 @@ tag);
             Assert.AreEqual(inp + "\n", res);
         }
 
+        [Test]
+        public void Sour_Rfn()
+        {
+            var inp = "0 @S1@ SOUR\n1 RFN blah\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp, res);
+        }
+        [Test]
+        public void Sour_Caln()
+        {
+            var inp = "0 @S1@ SOUR\n1 CALN blah\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp, res);
+        }
 
+        [Test]
+        public void Sour_Refn()
+        {
+            var inp = "0 @S1@ SOUR\n1 REFN blah\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp, res);
+        }
+        [Test]
+        public void Sour_Refn_Type()
+        {
+            var inp = "0 @S1@ SOUR\n1 REFN blah\n2 TYPE User-defined\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp, res);
+        }
+
+        [Test]
+        public void Sour_Chan()
+        {
+            var inp = "0 @S1@ SOUR\n1 CHAN\n2 DATE 1 APR 2000\n2 NOTE Change note\n";
+            var res = ParseAndWrite(inp);
+            Assert.AreEqual(inp, res);
+        }
     }
 }
