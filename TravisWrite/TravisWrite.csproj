@@ -12,6 +12,7 @@
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Indi.cs" Link="Tests\Indi.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\IndiOrder.cs" Link="Tests\IndiOrder.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Media.cs" Link="Tests\Media.cs" />
+    <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Misc.cs" Link="Tests\Misc.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Names.cs" Link="Tests\Names.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\Notes.cs" Link="Tests\Notes.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\Tests\RealWorld.cs" Link="Tests\RealWorld.cs" />
@@ -19,10 +20,6 @@
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\WriteCommon.cs" Link="WriteCommon.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\WriteEvent.cs" Link="WriteEvent.cs" />
     <Compile Include="..\SharpGEDParse\SharpGEDWriter\WriteINDI.cs" Link="WriteINDI.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Tests\" />
   </ItemGroup>
 
   <ItemGroup>
