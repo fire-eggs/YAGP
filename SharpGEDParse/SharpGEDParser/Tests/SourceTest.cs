@@ -883,5 +883,38 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual("repo note", rec.Cits[1].Notes[0].Text);
         }
 
+        [Test]
+        public void Sour_Rfn()
+        {
+            // TODO Non-standard tag. Apparently exists from FamilyTreeMaker? See Gene.Genie.
+            // 20181025 Current behavior is to store as an 'unknown'.
+            var txt = "0 @S1@ SOUR\n1 RFN blah\n";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            SourceRecord rec = res[0] as SourceRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(2, rec.Unknowns[0].Beg);
+        }
+
+        [Test]
+        public void Repo_Caln()
+        {
+            // TODO Non-standard tag. Apparently exists from FamilyTreeMaker? See Gene.Genie. Should convert to standard?
+            // 20181025 Current behavior is to store as an 'unknown'.
+            var txt = "0 @S1@ SOUR\n1 CALN blah\n";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            SourceRecord rec = res[0] as SourceRecord;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(2, rec.Unknowns[0].Beg);
+
+            // TODO consider?
+            //Assert.AreEqual(1,rec.Cits.Count);
+            //Assert.AreEqual(1, rec.Cits[0].CallNums.Count);
+            //Assert.AreEqual("blah", rec.Cits[0].CallNums[0].Number);
+        }
+
     }
 }

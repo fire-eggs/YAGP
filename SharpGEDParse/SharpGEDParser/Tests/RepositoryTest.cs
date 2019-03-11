@@ -383,6 +383,28 @@ namespace SharpGEDParser.Tests
 			Assert.AreEqual("blah", rec.Addr.WWW[0]);
 		}
 
-	}
+        [Test]
+        public void Repo_Rfn()
+        {
+            var txt = "0 @R1@ REPO\n1 RFN blah\n";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            Repository rec = res[0] as Repository;
+            Assert.IsNotNull(rec);
+            Assert.AreEqual("blah", rec.RFN);
+        }
+
+        [Test]
+        public void Repo_Caln()
+        {
+            // TODO not a standard tag. Apparently exists from FamilyTreeMaker? See Gene.Genie
+            var txt = "0 @R1@ REPO\n1 CALN blah\n";
+            var res = ReadIt(txt);
+            Assert.AreEqual(1, res.Count);
+            Repository rec = res[0] as Repository;
+            Assert.IsNotNull(rec);
+            Assert.IsFalse(true); // TODO validate results
+        }
+    }
 }
 

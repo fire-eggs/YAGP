@@ -184,6 +184,8 @@ namespace SharpGEDWriter.Tests
 
             // TODO actual validation of results
             Assert.IsTrue(false, "Must validate results");
+
+            // TODO SOUR.CALN is not valid ... SOUR.REPO.CALN is valid [but both PAF and FTM do SOUR.CALN]
         }
     }
 }
