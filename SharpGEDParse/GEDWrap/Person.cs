@@ -154,6 +154,19 @@ namespace GEDWrap
             }
         }
 
+        public GEDDate DeathDate
+        {
+            get
+            {
+                var b = Death;
+                if (b != null &&
+                    b.GedDate != null &&
+                    b.GedDate.Type != GEDDate.Types.Unknown)
+                    return b.GedDate;
+                return null;
+            }
+        }
+
         public string GetWhat(string eventName)
         {
             var gedEvent = GetEvent(eventName);
