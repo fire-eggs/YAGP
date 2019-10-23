@@ -1,3 +1,10 @@
+**With a Little Help From ...**
+
+[](https://github.com/fire-eggs/YAGP/blob/master/Files\jetbrains.png) - [JetBrains](https://www.jetbrains.com/) : the Acme of .NET tool suites!
+
+[](https://github.com/fire-eggs/YAGP/blob/master/Files\deleaker_logo.png) - [Deleaker](https://www.deleaker.com) : the _best_ tool for finding memory, GDI and other leaks!
+
+
 **Net Core 2.1:**
 
 Parser: [![Build Status](https://travis-ci.org/fire-eggs/YAGP.svg?branch=master)](https://travis-ci.org/fire-eggs/YAGP)
