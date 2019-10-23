@@ -1,8 +1,8 @@
 **With a Little Help From ...**
 
-[](https://github.com/fire-eggs/YAGP/blob/master/Files\jetbrains.png) - [JetBrains](https://www.jetbrains.com/) : the Acme of .NET tool suites!
+![logo1](Files/jetbrains_sm.png) - [JetBrains](https://www.jetbrains.com/) : the Acme of .NET tool suites!
 
-[](https://github.com/fire-eggs/YAGP/blob/master/Files\deleaker_logo.png) - [Deleaker](https://www.deleaker.com) : the _best_ tool for finding memory, GDI and other leaks!
+![logo2](Files/deleaker_logo.png) - [Deleaker](https://www.deleaker.com) : the _best_ tool for finding memory, GDI and other leaks!
 
 
 **Net Core 2.1:**
