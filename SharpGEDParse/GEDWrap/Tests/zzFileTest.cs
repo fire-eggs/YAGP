@@ -1,14 +1,20 @@
-﻿using NUnit.Framework;
+﻿using System.ComponentModel.Design.Serialization;
+using System.IO;
+using NUnit.Framework;
 using SharpGEDParser.Model;
 
 namespace GEDWrap.Tests
 {
     class zzFileTest
     {
+        private string rootPath = Path.Combine(
+            TestContext.CurrentContext.TestDirectory,
+            @"..\..\..\..\Sample GED\");
+
         [Test]
         public void SimpleGed()
         {
-            var path = @"E:\projects\YAGP\Sample GED\export_ged_919.ged";// TODO project-relative path
+            var path = Path.Combine(rootPath, "export_ged_919.ged");
 
             Forest ged = new Forest();
             ged.ParseGEDCOM(path);
@@ -28,7 +34,7 @@ namespace GEDWrap.Tests
         [Test]
         public void SimpleGed2()
         {
-            var path = @"E:\projects\YAGP\Sample GED\ege.ged"; // TODO project-relative path
+            var path = Path.Combine(rootPath, "ege.ged");
             Forest ged = new Forest();
             ged.ParseGEDCOM(path);
             Assert.AreEqual(1, ged.Errors.Count);
