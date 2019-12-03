@@ -173,18 +173,19 @@ namespace SharpGEDWriter.Tests
             "0 TRLR",
         };
 
-        [Test]
+        [Test,Ignore("Echo-ing unknown tags is NYI")]
         public void Genie()
         {
-            var fr = ReadItHigher(MakeInput(record3));
+            var inp = MakeInput(record3);
+            var fr = ReadItHigher(inp);
             // The blank lines are an error [only one reported]
             Assert.AreEqual(1, fr.AllErrors.Count);
             Assert.AreEqual(SharpGEDParser.Model.UnkRec.ErrorCode.EmptyLine, fr.AllErrors[0].Error);
             var res = Write(fr, noHead: false);
 
-            // TODO actual validation of results
-            Assert.IsTrue(false, "Must validate results");
+            Assert.AreEqual(inp,res);
 
+            // TODO output header is different
             // TODO SOUR.CALN is not valid ... SOUR.REPO.CALN is valid [but both PAF and FTM do SOUR.CALN]
         }
     }
