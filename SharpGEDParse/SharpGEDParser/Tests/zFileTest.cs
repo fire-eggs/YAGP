@@ -135,7 +135,10 @@ namespace SharpGEDParser.Tests
         [Test]
         public void AllGed()
         {
-            var path = @"E:\projects\YAGP\Sample GED\allged.ged"; // TODO project-relative path
+            var path = Path.Combine(
+                TestContext.CurrentContext.TestDirectory, 
+                @"..\..\..\..\", 
+                @"Sample GED\allged.ged");
             DoFile(path);
         }
 #endif
