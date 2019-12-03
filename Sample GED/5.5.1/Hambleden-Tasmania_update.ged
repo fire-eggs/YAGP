@@ -1,0 +1,2309 @@
+0 HEAD
+1 SOUR webtrees
+2 NAME webtrees
+2 VERS 1.7.2
+1 DEST DISKETTE
+1 DATE 10 FEB 2016
+2 TIME 17:17:40
+1 GEDC
+2 VERS 5.5.1
+2 FORM Lineage-Linked
+1 CHAR UTF-8
+1 FILE Hambleden-Tasmania
+1 PLAC
+2 FORM City, County, State/Province, Country
+1 SUBM @S0@
+0 @I10@ INDI
+1 NAME Martin /Lovelock/
+2 GIVN Martin
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 20 SEP 1748
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1748 Sep 20 Martin s. Thomas & Elizabeth Lovelock
+1 DEAT Y
+1 BURI
+2 DATE 19 JAN 1836
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1836 Jan 19 Martin Lovelock age 88, Lane End, Gt Marlow
+1 _UID 68CBB1ADE0BA4412BEB507CD7A03C25C6383
+1 FAMS @F14@
+1 FAMC @F12@
+0 @I11@ INDI
+1 NAME Ann /Lappeth/
+2 GIVN Ann
+2 SURN Lappeth
+1 SEX F
+1 BIRT
+2 DATE ABT 1753
+1 DEAT Y
+1 BURI
+2 DATE 26 MAR 1833
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1833 Mar 26 Ann Lovelock age 80
+1 _UID 3A715CC344E5468DA35CC7B4C8BFD8862543
+1 FAMS @F14@
+0 @I12@ INDI
+1 NAME Thomas /Lovelock/
+2 GIVN Thomas
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 20 FEB 1774
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1774 Feb 20 Thomas s. Martin & Ann Lovelock
+1 DEAT
+2 DATE BET JAN 1839 AND MAR 1839
+2 PLAC Wycombe RD, Wycombe, Buckinghamshire, England
+2 SOUR @S6@
+3 PAGE Deaths 1Q 1839 Wycombe RD vol 6 page 281
+3 QUAY 3
+2 SOUR @S19@
+3 PAGE Mar 1839 Loveluck Thomas Wycombe ref 6 2_1
+3 QUAY 3
+1 BURI
+2 DATE 1839
+2 PLAC Great Marlow, Buckinghamshire, England
+2 SOUR @S7@
+3 DATA
+4 TEXT 1839 Thomas Loveluck
+2 SOUR @S9@
+3 PAGE 1839 Thomas Loveluck
+3 QUAY 3
+1 WILL
+2 DATE DEC 1839
+2 PLAC Fingest, Buckinghamshire, England
+2 NOTE In the will Thomas leaves property to his lawful wife Mary. He asks for his children to share goods and names them Mary, Emma, Henry, Martin and Thomas and also leaves to his youngest son Thomas an acre of land. His brother Henry is executor.
+3 CONT
+3 CONT Will: pr Mary L wit Henry L pr PCC 26 Dec 39
+3 CONT
+3 CONT Note:
+3 CONT This is almost certainly the PCC will dated 26 Dec 1839 for Thomas Loveluck, gentleman of Fingest, Buckinghamshire
+3 CONT http://www.nationalarchives.gov.uk/documentsonline/details-result.asp?Edoc_Id=317688&queryType=1&resultcount=1
+2 SOUR @S2@
+3 PAGE Email message 9 May 2011
+3 QUAY 3
+1 _UID 430A4EE78ED44DF98DA0E872B5D4E01933E7
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:03
+1 FAMS @F15@
+1 FAMC @F14@
+1 FAMC @F27@
+1 NOTE @NI12@
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+0 @I13@ INDI
+1 NAME Mary /Wright/
+2 GIVN Mary
+2 SURN Wright
+2 SOUR @S2@
+3 PAGE Email message 9 May 2011
+3 QUAY 3
+1 SEX F
+1 DEAT
+2 DATE SEP 1850
+2 PLAC Chelsea RD, Chelsea, Middlesex, England
+2 SOUR @S6@
+3 PAGE Death 3Q 1850 Chelsea RD vol 3 page 32
+3 QUAY 3
+1 CENS British Census 1841
+2 DATE 1841
+2 PLAC Mount St, St George Hanover Square, Westminster, Middlesex, England
+2 NOTE Mount St, St George Hanover Square,
+3 CONT Westminster, Middlesex, England
+3 CONT HO107 734/6 F25 P13
+3 CONT Name Age Occupation Birthplace
+3 CONT Among 19 people apparently in the same dwelling and not marked as separate households:
+3 CONT Mary Loveluck 60 Ind Not born in Middx
+2 SOUR @S8@
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+3 DATA
+4 TEXT I found in the 1841 census Mary Loveluck living at Mount Street with Charles and Emma Morgan. I eventually found that Emma Morgan was a Loveluck and was born in Hambledon, Buckingham and also married there
+1 _UID AF4D4F564D9E4A6599CE191FECA5C2C2EF7A
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:01
+1 FAMS @F15@
+1 NOTE @NI13@
+0 @I14@ INDI
+1 NAME James Lapper /Lovelock/
+2 GIVN James Lapper
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 4 NOV 1809
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1809 Dec 3 (born Nov 4, 1809) James Lapper s. Thomas & Mary Lovelock
+1 CHR
+2 DATE 3 DEC 1809
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1809 Dec 3 (born Nov 4, 1809) James Lapper s. Thomas & Mary Lovelock
+1 DEAT Y
+1 _UID A9E14B960E124E79AB85F09A6829D2087796
+1 FAMC @F15@
+0 @I15@ INDI
+1 NAME Emma /Lovelock/
+2 GIVN Emma
+2 SURN Lovelock
+1 SEX F
+1 BIRT
+2 DATE 5 JUN 1812
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1813 Jun 6 (born Jun 5, 1812) Emma d. Thomas, Servant & Mary Lovelock
+1 CHR
+2 DATE 6 JUN 1813
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1813 Jun 6 (born Jun 5, 1812) Emma d. Thomas, Servant & Mary Lovelock
+1 DEAT Y
+1 CENS British Census 1841
+2 DATE 1841
+2 PLAC Mount St, St George Hanover Square, Westminster, Middlesex, England
+2 NOTE Mount St, St George Hanover Square,
+3 CONT Westminster, Middlesex, England
+3 CONT HO107 734/6 F25 P13
+3 CONT Name Age Occupation Birthplace
+3 CONT Among 19 people apparently in the same dwelling and not marked as separate households:
+3 CONT Mary Loveluck 60 Ind Not born in Middx
+2 SOUR @S8@
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+3 DATA
+4 TEXT I found in the 1841 census Mary Loveluck living at Mount Street with Charles and Emma Morgan. I eventually found that Emma Morgan was a Loveluck and was born in Hambledon, Buckingham and also married there
+1 _UID 66A14472CA074A41B41204D2C8DF335CEB12
+1 FAMS @F16@
+1 FAMC @F15@
+0 @I16@ INDI
+1 NAME Charles /Morgan/
+2 GIVN Charles
+2 SURN Morgan
+1 SEX M
+1 DEAT Y
+1 _UID F954DD79B6B641289B6AAE897CCA48A1E301
+1 FAMS @F16@
+0 @I17@ INDI
+1 NAME Henry /Lovelock/
+2 GIVN Henry
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 14 SEP 1815
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1816 Aug 25 (born Sep 14, 1815) Henry s. Thomas, Menial Servant & Mary Lovelock, Fingest, Bucks
+1 CHR
+2 DATE 25 AUG 1816
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1816 Aug 25 (born Sep 14, 1815) Henry s. Thomas, Menial Servant & Mary Lovelock, Fingest, Bucks
+1 DEAT Y
+1 _UID 86E2E1A4F034455DB7480587E62B98452CB2
+1 FAMC @F15@
+0 @I18@ INDI
+1 NAME Martin /Lovelock/
+2 GIVN Martin
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 26 SEP 1819
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1819 Sep 26 (born Sep 26, 1819) Martin s. Thomas, Menial Servant and Mary Lovelock
+1 CHR
+2 DATE 26 SEP 1819
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1819 Sep 26 (born Sep 26, 1819) Martin s. Thomas, Menial Servant and Mary Lovelock
+1 DEAT Y
+1 _UID EAF58AE3C4EC4987B37F8805E05753C2D742
+1 FAMC @F15@
+0 @I19@ INDI
+1 NAME Thomas /Lovelock/
+2 GIVN Thomas
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 1 JUN 1821
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1822 Sep 1 (born June 1, 1821) Thomas s. Thomas, Menial Servant & Mary Lovelock, Great Marlow, Bucks
+1 CHR
+2 DATE 1 SEP 1822
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1822 Sep 1 (born June 1, 1821) Thomas s. Thomas, Menial Servant & Mary Lovelock, Great Marlow, Bucks
+1 DEAT Y
+1 _UID 055169EC5D0745C99052803B14AC3F8E477A
+1 FAMC @F15@
+0 @I20@ INDI
+1 NAME Sal (sic) /Lovelock/
+2 GIVN Sal (sic)
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 29 OCT 1775
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1775 Oct 29 Sal d. Martin & Ann Lovelock
+1 DEAT Y
+1 _UID DCF1E684BD7343C5ADE2BA9C67A7ADF4035C
+1 FAMC @F14@
+1 BURI
+2 DATE 14 JUN 1779
+2 PLAC Great Marlow, Buckinghamshire, England
+2 SOUR @S7@
+0 @I21@ INDI
+1 NAME James /Lovelock/
+2 GIVN James
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 2 NOV 1777
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1777 Nov 2 James s. Martin & Ann Lovelock
+1 DEAT Y
+1 BURI
+2 DATE 31 JAN 1811
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1811 Jan 31 James Lovelock age 33
+1 _UID B86303D8801E47819E54548DC8E740466498
+1 FAMC @F14@
+1 DEAT
+2 DATE 24 JAN 1811
+2 SOUR @S23@
+0 @I22@ INDI
+1 NAME Sarah /Lovelock/
+2 GIVN Sarah
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 9 JAN 1780
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1780 Jan 9 Sarah d. Martin & Ann Lovelock
+1 DEAT Y
+1 _UID 55FED75D5923479D916B1DCF42721638D195
+1 FAMS @F17@
+1 FAMC @F14@
+0 @I23@ INDI
+1 NAME James /Jones/
+2 GIVN James
+2 SURN Jones
+1 SEX M
+1 DEAT Y
+1 _UID B5DE53E2948240CCB57AFA3DE30E6F9242B9
+1 FAMS @F17@
+1 BIRT Y
+1 CHAN
+2 DATE 15 NOV 2015
+3 TIME 00:06:55
+0 @I24@ INDI
+1 NAME Elizabeth /Lovelock/
+2 GIVN Elizabeth
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 28 OCT 1781
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1781 Oct 28 Elizabeth d. Martin & Ann Lovelock
+1 DEAT Y
+1 _UID DEB49465482D48D5B31B6AC934B7582687CA
+1 FAMC @F14@
+0 @I25@ INDI
+1 NAME Mary-Ann /Lovelock/
+2 GIVN Mary-Ann
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 12 OCT 1783
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1783 Oct 12 Mary-Ann d. Martin & Ann Lovelock
+1 DEAT Y
+1 _UID 74E4F1281573499099189BE5ACDC2B550B23
+1 FAMC @F14@
+0 @I26@ INDI
+1 NAME Maria /Lovelock/
+2 GIVN Maria
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 30 OCT 1785
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1785 Oct 30 Maria d. Martin & Ann Lovelock
+1 DEAT Y
+1 _UID 8270C37EBA6D4F6687F723498229F6C05A3A
+1 FAMS @F18@
+1 FAMC @F14@
+0 @I27@ INDI
+1 NAME Mark /Gray/
+2 GIVN Mark
+2 SURN Gray
+1 SEX M
+1 DEAT Y
+1 _UID 647F25059F724EEBA7F7BB9D9B234DFD5579
+1 FAMS @F18@
+1 BIRT Y
+1 CHAN
+2 DATE 15 NOV 2015
+3 TIME 00:04:35
+0 @I28@ INDI
+1 NAME Henry /Lovelock/
+2 GIVN Henry
+2 SURN Lovelock
+2 SOUR @S15@
+2 SOUR @S16@
+1 SEX M
+1 BIRT
+2 DATE BET 1786 AND 1787
+2 SOUR @S15@
+2 SOUR @S16@
+2 NOTE @BI28@
+1 CHR
+2 DATE 10 JUN 1787
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1787 Jun 10 Henry s. Martin & Ann Lovelock
+1 DEAT
+2 DATE 11 APR 1871
+2 PLAC Brentford RD, Brentford, Middlesex, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S19@
+3 PAGE Jun 1871 Loveluck Henry 84 Brentford ref 3a 31
+3 QUAY 3
+2 NOTE @DI28@
+1 WILL
+2 DATE APR 1871
+2 PLAC Brentford, Middlesex, England
+2 NOTE 
+3 CONT Will: d 11-4-7l, gent, Hounslow, Widow Sarah
+2 SOUR @S22@
+1 _UID 4BBA6DB1B5064F849D6F92E5C8EF68FD5091
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:08
+1 FAMS @F2@
+1 FAMS @F21@
+1 FAMC @F14@
+1 FAMC @F27@
+1 NOTE @NI28@
+2 SOUR @S15@
+2 SOUR @S21@
+3 PAGE email message 15-Jan-08
+3 QUAY 3
+0 @I29@ INDI
+1 NAME Ann /Lovelock/
+2 GIVN Ann
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 5 JUL 1789
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1789 Jul 5 Ann d. Martin & Ann Lovelock
+1 DEAT Y
+1 BURI
+2 DATE 27 APR 1814
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1814 Apr 27 Ann Lovelock age 24
+1 _UID 74D65FEBE4D6432D91E89817A36D88F472BA
+1 FAMC @F14@
+0 @I3@ INDI
+1 NAME Thomas /Lovelock/
+2 GIVN Thomas
+2 SURN Lovelock
+1 SEX M
+1 BURI
+2 DATE 22 JUN 1766
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 NOTE Assignment uncertain
+3 DATA
+4 TEXT 1766 Jun 22 Thomas Lovelock, labourer
+1 _UID 06F1889D406A424A8BD40BC72E5DEA837B13
+1 FAMS @F12@
+1 CHAN
+2 DATE 30 APR 2014
+3 TIME 18:23:19
+1 NOTE The origins of Thomas Lovelock are uncertain.
+2 CONT
+2 CONT Initially he was identified as the Thomas Lovelock, son of William and Catherine, who was baptised on 3 Nov 1723 at Hambleden. However, if he married Elizabeth Willis in Hambleden on 1 Oct 1738 that would make him only 14, or perhaps just 15, yea
+2 CONC rs old at marriage, which is very unlikely.
+2 CONT
+2 CONT Furthermore, there is also at Hambleden, from the FamilySearch website, the burial of Thomas the son of William and Catherine on 14 Dec 1723.
+2 CONT
+2 CONT Nigel Gerdes has proposed that Elizabeth Willis' husband was Thomas baptised at Wickham, Berks on 24 Jan 1707 (New Style), and that said Thomas had previously married Ann Druce at Hambleden in 1732, and fathered Hannah who was baptised there in 1
+2 CONC 734.
+2 CONT
+2 CONT Nigel has further speculated that William baptised at Wickham on 9 Sep 1701 was the brother of Thomas from Wickham, the husband of Catherine Rider and the father therefore of the Thomas baptised and buried at Hambleden in 1723.
+1 BIRT Y
+0 @I30@ INDI
+1 NAME John /Lovelock/
+2 GIVN John
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 8 MAY 1791
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1791 May 8 John s. Martin & Ann Lovelock
+1 DEAT Y
+1 BURI
+2 DATE 31 JUL 1791
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1791 Jul 31 John s. Martin & Ann Lovelock
+1 _UID A5C9487FEEA2402FA704DFA6E880130AE9DB
+1 FAMC @F14@
+0 @I31@ INDI
+1 NAME William /Lovelock/
+2 GIVN William
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 24 JAN 1798
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1798 Jan 24 William s. Martin & Ann Lovelock
+1 DEAT Y
+1 BURI
+2 DATE 26 JUN 1798
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1798 Jun 26 William s. Martin & Ann Lovelock
+1 _UID CDD453A8C57F49A49BDB86B7179202CAF509
+1 FAMC @F14@
+0 @I32@ INDI
+1 NAME Susanna /Lovelock/
+2 GIVN Susanna
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 29 MAY 1751
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1751 May 29 Susanna d. Thomas & Elizabeth Lovelock
+1 DEAT Y
+1 _UID A152595B60F34590B267647858E26481E36E
+1 FAMS @F19@
+1 FAMC @F12@
+0 @I33@ INDI
+1 NAME William /West/
+2 GIVN William
+2 SURN West
+1 SEX M
+1 DEAT Y
+1 _UID B5D07A0BABF84667A60748BE2D091D91F123
+1 FAMS @F19@
+0 @I39@ INDI
+1 NAME Mary Ann /Lovelock/
+2 GIVN Mary Ann
+2 SURN Lovelock
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE ABT 1805
+2 PLAC East Ham, Essex, England
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+1 DEAT Y
+1 _UID B629685836884D70A17117A28F53B0067DAF
+1 FAMS @F1@
+1 FAMC @F15@
+1 NOTE @NI39@
+2 SOUR @S2@
+3 PAGE Email message 9 May 2011
+3 QUAY 3
+0 @I4@ INDI
+1 NAME Elizabeth /Willis/
+2 GIVN Elizabeth
+2 SURN Willis
+1 SEX F
+1 DEAT Y
+1 BURI
+2 DATE 28 MAR 1796
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1796 Mar 28 Elizabeth Lovelock, widow
+1 _UID D2A0642693BB454F8CE014260FA981C27FFD
+1 FAMS @F12@
+0 @I40@ INDI
+1 NAME Simeon /Frazer/
+2 GIVN Simeon
+2 SURN Frazer
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+1 SEX M
+1 DEAT Y
+1 _UID FBFFBAD458E54764BEA715E942389F473393
+1 FAMS @F1@
+1 NOTE @NI40@
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+1 BIRT Y
+1 CHAN
+2 DATE 14 NOV 2015
+3 TIME 23:55:51
+0 @I41@ INDI
+1 NAME Amey /Makey/
+2 GIVN Amey
+2 SURN Makey
+1 SEX F
+1 DEAT Y
+1 _UID 04D4728E3B8B4212A5D9EFD1BCC8E9A34094
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:06
+1 FAMS @F2@
+0 @I43@ INDI
+1 NAME Phyllis Mary /Loveluck/
+2 GIVN Phyllis Mary
+2 SURN Loveluck
+2 SOUR @S16@
+1 SEX F
+1 BIRT
+2 DATE 1 MAR 1906
+2 PLAC Hobart, Tasmania, Australia
+2 SOUR @S16@
+2 SOUR @S15@
+1 DEAT
+2 DATE 10 FEB 2003
+2 SOUR @S15@
+3 PAGE Email from Brenda Gregory 5 Mar 2003
+3 QUAY 4
+1 _UID E85A139513B04F1CBF399AE420F5417054CF
+1 CHAN
+2 DATE 7 MAR 2003
+3 TIME 18:54
+1 FAMS @F6@
+1 FAMC @F5@
+1 NOTE @NI43@
+2 SOUR @S16@
+2 SOUR @S15@
+0 @I44@ INDI
+1 NAME Francis Charles Howell /Blundell/
+2 GIVN Francis Charles Howell
+2 SURN Blundell
+2 SOUR @S16@
+2 SOUR @S15@
+1 SEX M
+1 BIRT
+2 DATE 4 SEP 1901
+2 SOUR @S15@
+1 DEAT
+2 DATE 16 JAN 1985
+2 PLAC Hobart, Tasmania, Australia
+2 SOUR @S15@
+1 _UID C07C5042B0204B23BF2456980C746F0FDB30
+1 CHAN
+2 DATE 9 FEB 2003
+3 TIME 18:02
+1 FAMS @F6@
+0 @I45@ INDI
+1 NAME Brenda Mary /Blundell/
+2 GIVN Brenda Mary
+2 SURN Blundell
+2 SOUR @S16@
+1 FAMS @F7@
+1 FAMC @F6@
+1 SEX F
+0 @I46@ INDI
+1 NAME Clifford Trevor /Gregory/
+2 GIVN Clifford Trevor
+2 SURN Gregory
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMS @F7@
+1 SEX M
+0 @I47@ INDI
+1 NAME Kay Jean /Blundell/
+2 GIVN Kay Jean
+2 SURN Blundell
+2 SOUR @S16@
+1 FAMS @F8@
+1 FAMS @F22@
+1 FAMC @F6@
+1 SEX F
+0 @I48@ INDI
+1 NAME Peter Cecil /Rule/
+2 GIVN Peter Cecil
+2 SURN Rule
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMS @F8@
+1 SEX M
+0 @I49@ INDI
+1 NAME Ian /Newton/
+2 GIVN Ian
+2 SURN Newton
+2 SOUR @S16@
+1 FAMS @F22@
+1 SEX M
+0 @I5@ INDI
+1 NAME William /Lovelock/
+2 GIVN William
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 25 JUN 1739
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1739 Jun 25 William s. Thomas & Elizabeth Lovelock
+1 DEAT Y
+1 BURI
+2 DATE 19 JUL 1748
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1748 Jul 19 William s. Thomas Lovelock & Elizabeth his wife
+1 _UID 5D0A005E9FF94993A7F50E6CBF9248A28A97
+1 FAMC @F12@
+0 @I50@ INDI
+1 NAME Harry Alfred /Loveluck/
+2 GIVN Harry Alfred
+2 SURN Loveluck
+2 SOUR @S16@
+1 SEX M
+1 BIRT
+2 DATE 25 OCT 1908
+2 PLAC Fitzgerald, Tasmania, Australia
+2 SOUR @S16@
+2 SOUR @S15@
+1 DEAT
+2 DATE 30 MAR 1977
+2 PLAC Kettering, Tasmania, Australia
+2 SOUR @S16@
+2 SOUR @S15@
+1 _UID BD0E1AF0908246C6BD37973F294249DD4E4D
+1 CHAN
+2 DATE 15 JAN 2008
+3 TIME 09:17
+1 FAMS @F23@
+1 FAMC @F5@
+1 NOTE @NI50@
+2 SOUR @S16@
+2 SOUR @S15@
+0 @I51@ INDI
+1 NAME Edna Eliza Victoria /Milbourne/
+2 GIVN Edna Eliza Victoria
+2 SURN Milbourne
+2 SOUR @S16@
+1 SEX F
+1 BIRT
+2 DATE 30 APR 1911
+2 PLAC Launceston, Tasmania, Australia
+2 SOUR @S15@
+1 DEAT Y
+1 BURI
+2 PLAC Kettering cemetery, Kettering, Tasmania, Australia
+2 SOUR @S15@
+1 _UID 343B3203C4B445598ADF2F2F5B16468AC289
+1 CHAN
+2 DATE 9 FEB 2003
+3 TIME 19:29
+1 FAMS @F23@
+0 @I52@ INDI
+1 NAME Gary Alfred /Loveluck/
+2 GIVN Gary Alfred
+2 SURN Loveluck
+2 SOUR @S16@
+1 FAMS @F24@
+1 FAMC @F23@
+1 SEX M
+0 @I53@ INDI
+1 NAME Sarah /Fisher/
+2 GIVN Sarah
+2 SURN Fisher
+2 SOUR @S15@
+2 SOUR @S16@
+1 SEX F
+1 BIRT
+2 DATE 1796
+2 SOUR @S15@
+2 SOUR @S16@
+2 NOTE @BI53@
+1 DEAT
+2 DATE 27 MAR 1881
+2 PLAC Brentford RD, Brentford, Middlesex, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S19@
+3 PAGE Mar 1881 Loveluck Sarah 84 Brentford ref 3a 45
+3 QUAY 3
+2 NOTE @DI53@
+1 WILL
+2 DATE MAR 1881
+2 PLAC Brentford, Middlesex, England
+2 NOTE 
+3 CONT Will: d 27-3-8l, widow of Hounslow, £800
+2 SOUR @S22@
+1 _UID F0778B7FD560414C8914669CAA11501DFA34
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:06
+1 FAMS @F21@
+1 NOTE @NI53@
+0 @I54@ INDI
+1 NAME Jillian Damaris /Loveluck/
+2 GIVN Jillian Damaris
+2 SURN Loveluck
+2 SOUR @S16@
+1 FAMS @F25@
+1 FAMC @F23@
+1 SEX F
+0 @I55@ INDI
+1 NAME Gaylene Joy /Loveluck/
+2 GIVN Gaylene Joy
+2 SURN Loveluck
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMS @F26@
+1 FAMC @F23@
+1 SEX F
+0 @I56@ INDI
+1 NAME Maureen /Hart/
+2 GIVN Maureen
+2 SURN Hart
+2 SOUR @S16@
+1 FAMS @F24@
+1 SEX F
+0 @I57@ INDI
+1 NAME Gregory Mark /Loveluck/
+2 GIVN Gregory Mark
+2 SURN Loveluck
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMC @F24@
+1 SEX M
+0 @I58@ INDI
+1 NAME Paul Gary /Loveluck/
+2 GIVN Paul Gary
+2 SURN Loveluck
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMC @F24@
+1 SEX M
+0 @I59@ INDI
+1 NAME Mary Louise /Loveluck/
+2 GIVN Mary Louise
+2 SURN Loveluck
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMC @F24@
+1 SEX F
+0 @I6@ INDI
+1 NAME Mary /Lovelock/
+2 GIVN Mary
+2 SURN Lovelock
+1 SEX F
+1 CHR
+2 DATE 6 DEC 1741
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1741 Dec 6 Mary d. Thomas & Elizabeth Lovelock
+1 DEAT Y
+1 _UID CDBF1AB7C6114B138FA2B6C31864058C496F
+1 FAMS @F13@
+1 FAMC @F12@
+0 @I60@ INDI
+1 NAME John Clive /Loveluck/
+2 GIVN John Clive
+2 SURN Loveluck
+2 SOUR @S16@
+1 FAMC @F24@
+1 SEX M
+0 @I61@ INDI
+1 NAME Donald Albert /Sward/
+2 GIVN Donald Albert
+2 SURN Sward
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMS @F25@
+1 SEX M
+0 @I62@ INDI
+1 NAME Glen Donald /Sward/
+2 GIVN Glen Donald
+2 SURN Sward
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMC @F25@
+1 SEX M
+0 @I63@ INDI
+1 NAME Dianne Damaris /Sward/
+2 GIVN Dianne Damaris
+2 SURN Sward
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMC @F25@
+1 SEX F
+0 @I64@ INDI
+1 NAME George /Loveluck/
+2 GIVN George
+2 SURN Loveluck
+2 SOUR @S15@
+2 SOUR @S16@
+1 SEX M
+1 BIRT
+2 DATE ABT 1819
+2 PLAC St George Hanover Square, Middlesex, England
+2 NOTE @BI64@
+1 DEAT
+2 DATE 19 MAY 1863
+2 PLAC St George Hanover Square, Middlesex, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 OBJE @M1@
+3 _PRIM Y
+1 _UID F0778B7FD560414C8914669CAA11501DFA34
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+1 FAMS @F28@
+1 FAMC @F2@
+0 @I65@ INDI
+1 NAME Wolfgang Eric Rudolph /Brill/
+2 GIVN Wolfgang Eric Rudolph
+2 SURN Brill
+2 SOUR @S16@
+1 FAMS @F26@
+1 SEX M
+0 @I66@ INDI
+1 NAME Steven Gary Eric /Brill/
+2 GIVN Steven Gary Eric
+2 SURN Brill
+2 SOUR @S16@
+2 SOUR @S15@
+1 FAMC @F26@
+1 SEX M
+0 @I67@ INDI
+1 NAME Samantha Edna /Brill/
+2 GIVN Samantha Edna
+2 SURN Brill
+2 SOUR @S16@
+2 SOUR @S15@
+1 SEX F
+1 BIRT
+2 DATE 20 MAR 1980
+2 SOUR @S15@
+1 DEAT
+2 DATE 27 MAY 1984
+2 SOUR @S15@
+2 NOTE @DI67@
+1 _UID D550C428C948413385BF33CBC24665FD42C4
+1 CHAN
+2 DATE 9 FEB 2003
+3 TIME 19:40
+1 FAMC @F26@
+1 NOTE @NI67@
+2 SOUR @S16@
+0 @I68@ INDI
+1 NAME Lynn Frances /Gregory/
+2 GIVN Lynn Frances
+2 SURN Gregory
+2 SOUR @S15@
+1 FAMC @F7@
+1 SEX F
+0 @I69@ INDI
+1 NAME Wayne Philip /Gregory/
+2 GIVN Wayne Philip
+2 SURN Gregory
+2 SOUR @S15@
+1 FAMC @F7@
+1 SEX M
+0 @I7@ INDI
+1 NAME William /Johnson/
+2 GIVN William
+2 SURN Johnson
+1 SEX M
+1 DEAT Y
+1 _UID EF11850D3C96458188A84FF80E8FF80D43C7
+1 FAMS @F13@
+1 BIRT Y
+1 CHAN
+2 DATE 15 NOV 2015
+3 TIME 00:06:29
+0 @I70@ INDI
+1 NAME Ian Trevor /Gregory/
+2 GIVN Ian Trevor
+2 SURN Gregory
+2 SOUR @S15@
+1 FAMC @F7@
+1 SEX M
+0 @I71@ INDI
+1 NAME Debra Anne /Rule/
+2 GIVN Debra Anne
+2 SURN Rule
+2 SOUR @S15@
+1 FAMC @F8@
+1 SEX F
+0 @I72@ INDI
+1 NAME Sharen Dianne /Rule/
+2 GIVN Sharen Dianne
+2 SURN Rule
+2 SOUR @S15@
+1 FAMC @F8@
+1 SEX F
+0 @I73@ INDI
+1 NAME Judith Carolyn /Rule/
+2 GIVN Judith Carolyn
+2 SURN Rule
+2 SOUR @S15@
+1 FAMC @F8@
+1 SEX F
+0 @I74@ INDI
+1 NAME Unknown /Loveluck/
+2 GIVN Unknown
+2 SURN Loveluck
+1 SEX M
+1 DEAT Y
+1 _UID 63081E920D5140D497EC3A8ABAC084A072CB
+1 CHAN
+2 DATE 14 MAR 2008
+3 TIME 18:56
+1 FAMS @F27@
+0 @I75@ INDI
+1 NAME Martha /Wilding/
+2 GIVN Martha
+2 SURN Wilding
+2 SOUR @S15@
+2 SOUR @S16@
+1 SEX F
+1 BIRT
+2 DATE BET 1826 AND 1827
+2 PLAC Nantmel, Radnorshire, Wales
+2 NOTE @BI75@
+1 DEAT
+2 DATE 11 MAR 1895
+2 PLAC Brentford RD, Brentford, Middlesex, England
+2 SOUR @S19@
+3 PAGE Mar 1895 Loveluck Martha 68 Brentford ref 3a 86
+3 QUAY 3
+2 NOTE @DI75@
+1 CENS
+2 DATE 1881
+2 PLAC St Christopher Le Stocks, City of London, London, England
+2 NOTE 
+3 CONT Bank Of England
+3 CONT St Christopher Le Stocks, London, Middlesex, England
+3 CONT RG11 0381 F85 P17
+3 CONT Name Relation Marr Age Sex Occupation Birthplace
+3 CONT Martha LOVELOCK Head W 54 F Housekeeper In Bank Radnorshire, Wales
+3 CONT Emma CRONTE Serv U 30 F Cook Dom Serv London St Georges Hanover Sq, Middlesex, England
+3 CONT Jane BRADLEY Serv U 20 F Kitchenmaid Serv Denchworth, Berkshire, England
+2 SOUR @S20@
+1 WILL
+2 DATE MAR 1895
+2 PLAC Brentford, Middlesex, England
+2 NOTE 
+3 CONT Will:  d 11-3-95, wdw to Thos B Gregory £879
+2 SOUR @S22@
+1 _UID 703B6DC52AB84CCD94A139B7FDBBE5A33DFB
+1 CHAN
+2 DATE 15 MAR 2008
+3 TIME 19:59
+1 FAMS @F28@
+1 NOTE @NI75@
+0 @I76@ INDI
+1 NAME Unknown /Unknown/
+2 GIVN Unknown
+2 SURN Unknown
+1 SEX F
+1 DEAT Y
+1 _UID 5DA090381CE245A9BF23E8A057B8F2A0BC16
+1 CHAN
+2 DATE 14 MAR 2008
+3 TIME 18:56
+1 FAMS @F27@
+0 @I8@ INDI
+1 NAME Thomas /Lovelock/
+2 GIVN Thomas
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 18 MAR 1743
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1743 Mar 18 Thomas s. Thomas & Elizabeth Lovelock
+1 DEAT Y
+1 BURI
+2 DATE 20 FEB 1755
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Burials 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1755 Feb 20 Thomas s. Thomas Lovelock & Elizabeth his wife
+1 _UID 9F723578D825492AB90C8380D5B954663EE2
+1 FAMC @F12@
+0 @I80@ INDI
+1 NAME Frederick /Loveluck/
+2 GIVN Frederick
+2 SURN Loveluck
+1 SEX M
+1 DEAT
+2 DATE ABT JUN 1840
+2 PLAC Wycombe RD, Wycombe, Buckinghamshire, England
+2 SOUR @S19@
+3 PAGE Jun 1840 LOVELUCK Frederick Wycombe ref 6 280
+3 QUAY 3
+1 BURI
+2 DATE 1840
+2 PLAC Marlow, Buckinghamshire, England
+2 SOUR @S9@
+3 PAGE 1840 Frederick Loveluck
+3 QUAY 3
+1 _UID 18F26DA4395F4E25B4FED735A47841A8E9D9
+1 CHAN
+2 DATE 15 MAR 2008
+3 TIME 15:02
+1 FAMC @F27@
+1 NOTE @NI80@
+0 @I81@ INDI
+1 NAME Henry /Loveluck/
+2 GIVN Henry
+2 SURN Loveluck
+1 SEX M
+1 BIRT
+2 DATE ABT 1815
+2 NOTE @BI81@
+1 DEAT
+2 DATE ABT JUN 1839
+2 PLAC London RD, City of London, London, England
+2 SOUR @S19@
+3 PAGE Jun 1839 Loveluck Henry London ref 2 117
+3 QUAY 3
+1 BURI
+2 DATE 1839
+2 PLAC St Mildred, Bread St, City of London, London, England
+2 SOUR @S11@
+3 PAGE Burials 1813-1853 (Burial Index)
+3 QUAY 3
+3 DATA
+4 TEXT 1839 Henry Loveluck, 24
+1 _UID 70B187CBB85C4E789F947FBF7EF061F68321
+1 CHAN
+2 DATE 15 MAR 2008
+3 TIME 19:53
+1 FAMS @F30@
+1 FAMC @F2@
+1 NOTE @NI81@
+0 @I82@ INDI
+1 NAME Susan Eleanor /Stevens/
+2 GIVN Susan Eleanor
+2 SURN Stevens
+1 SEX F
+1 DEAT
+2 DATE ABT MAR 1850
+2 PLAC Rotherhithe RD, Rotherhithe, Surrey, England
+2 SOUR @S19@
+3 PAGE Susan Eleanor Leask died in 1Q 1850 in Rotherhithe RD, ref 4 310 (provided by Graham Lovelock 7 Mar 08)
+3 QUAY 3
+1 _UID 21C8237238A7496BB888026EDACAF182D8BA
+1 CHAN
+2 DATE 15 MAR 2008
+3 TIME 17:57
+1 FAMS @F30@
+1 FAMS @F31@
+0 @I83@ INDI
+1 NAME Susannah M /Loveluck/
+2 GIVN Susannah M
+2 SURN Loveluck
+1 SEX F
+1 BIRT
+2 DATE ABT 1837
+2 PLAC St Giles, Camberwell, Surrey, England
+2 NOTE @BI83@
+1 DEAT
+2 DATE ABT SEP 1897
+2 PLAC Croydon RD, Croydon, Surrey, England
+2 SOUR @S19@
+3 PAGE Sep 1897 Loveluck Susannah M 59 Croydon ref 2a 124
+3 QUAY 3
+1 CENS
+2 DATE 1851
+2 PLAC St George in the East, Tower Hamlets, Poplar, Middlesex, England
+2 NOTE 
+3 CONT From Robert's file on the Lovelock Web site:
+3 CONT 239     St George in the East: St Paul (HO/107/1548): 14 Upper John St
+3 CONT LEARK      George      Head   40  widr     Aberdeenshire Scotland  Agent (Beer)
+3 CONT LOVELUCK     Susannah     Daur  13     St Giles Camberwell Surrey
+3 CONT LOVELUCK     Agnes          Dau    12     City of London Middx
+3 CONT LOVELUCK     Emma          Dau      7     Croydon Surrey
+3 CONT
+3 CONT Also transcribed by Graham Lovelock as follows:
+3 CONT 14 Upper John St, St George in the East, Tower Hamlets
+3 CONT HO107 1548 F239 P33
+3 CONT George Leash;Head;Widr;40;Agent (beer);Aberdeenshire, Scotland
+3 CONT Susannah M Loveluck;Daur;;13;St Giles, Camberwell, Surrey
+3 CONT Agnes A Loveluck;Daur;;12;City of London, Middx
+3 CONT Emma Loveluck;Daur;;7;Croydon, Surrey
+3 CONT
+3 CONT Graham (email 11 Mar 08) argued as follows:
+3 CONT On reflection, I think we can reasonably say that the 1851 entry is in error. Instead of Agnes A and Emma being Lovelucks like their sister Susannah, only Emma is. Emma and Agnes have been transposed in the entry, so that Emma should be 12 and bo
+3 CONC rn in London, and Agnes should be 7 and born in Croydon.
+2 SOUR @S14@
+1 _UID 56319205DBAD48DF89B63F18E29363ABE6BC
+1 CHAN
+2 DATE 16 MAR 2008
+3 TIME 11:53
+1 FAMC @F30@
+1 NOTE @NI83@
+0 @I84@ INDI
+1 NAME Emma /Loveluck/
+2 GIVN Emma
+2 SURN Loveluck
+1 SEX F
+1 BIRT
+2 DATE BET OCT 1838 AND DEC 1838
+2 PLAC City of London, London, England
+2 SOUR @S21@
+3 PAGE email 11 Mar 08
+3 QUAY 3
+2 SOUR @S19@
+3 PAGE Dec 1838 Loveluck, Emma London ref 2 152
+3 QUAY 3
+2 NOTE @BI84@
+1 DEAT Y
+1 CENS
+2 DATE 1851
+2 PLAC St George in the East, Tower Hamlets, Poplar, Middlesex, England
+2 NOTE 
+3 CONT From Robert's file on the Lovelock Web site:
+3 CONT 239     St George in the East: St Paul (HO/107/1548): 14 Upper John St
+3 CONT LEARK      George      Head   40  widr     Aberdeenshire Scotland  Agent (Beer)
+3 CONT LOVELUCK     Susannah     Daur  13     St Giles Camberwell Surrey
+3 CONT LOVELUCK     Agnes          Dau    12     City of London Middx
+3 CONT LOVELUCK     Emma          Dau      7     Croydon Surrey
+3 CONT
+3 CONT Also transcribed by Graham Lovelock as follows:
+3 CONT 14 Upper John St, St George in the East, Tower Hamlets
+3 CONT HO107 1548 F239 P33
+3 CONT George Leash;Head;Widr;40;Agent (beer);Aberdeenshire, Scotland
+3 CONT Susannah M Loveluck;Daur;;13;St Giles, Camberwell, Surrey
+3 CONT Agnes A Loveluck;Daur;;12;City of London, Middx
+3 CONT Emma Loveluck;Daur;;7;Croydon, Surrey
+3 CONT
+3 CONT Graham (email 11 Mar 08) argued as follows:
+3 CONT On reflection, I think we can reasonably say that the 1851 entry is in error. Instead of Agnes A and Emma being Lovelucks like their sister Susannah, only Emma is. Emma and Agnes have been transposed in the entry, so that Emma should be 12 and bo
+3 CONC rn in London, and Agnes should be 7 and born in Croydon.
+2 SOUR @S14@
+1 _UID B33D2A4220B94829B5E6653DF784F8106606
+1 FAMS @F32@
+1 FAMC @F30@
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 19:24:35
+2 _WT_USER graham rl
+0 @I85@ INDI
+1 NAME William /Cousins/
+2 GIVN William
+2 SURN Cousins
+1 SEX M
+1 DEAT Y
+1 _UID 95A61AAEBEE2453BAFF5F1C20F61BF0AB331
+1 CHAN
+2 DATE 14 NOV 2015
+3 TIME 23:36:29
+1 FAMS @F32@
+1 BIRT
+2 DATE BET OCT 1842 AND DEC 1842
+2 PLAC Croydon, Surrey, England
+2 SOUR @s13@
+2 SOUR @S19@
+3 DATA
+4 TEXT Croydon RD, ref 4 84
+0 @I86@ INDI
+1 NAME Harry George /Loveluck/
+2 GIVN Harry George
+2 SURN Loveluck
+2 SOUR @S15@
+2 SOUR @S16@
+1 SEX M
+1 BIRT
+2 DATE 27 NOV 1859
+2 PLAC Holborn, Middlesex, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S17@
+2 NOTE @BI86@
+1 CHR
+2 DATE 19 FEB 1860
+2 PLAC St Andrew's, Holborn, Middlesex, England
+2 SOUR @S17@
+3 PAGE 1860 Feb 19 (bn 27 Nov 1859) Harry George s. George Loveluck & Martha
+3 QUAY 1
+1 DEAT
+2 DATE 3 APR 1885
+2 PLAC Ealing, Middlesex, England
+2 SOUR @S15@
+2 SOUR @S16@
+1 CENS
+2 DATE 1861
+2 PLAC Holborn, Middlesex, England
+2 NOTE 
+3 CONT Holborn, Middx
+3 CONT Red Lion, 5 Green St
+3 CONT RG9 183 F12 P10
+3 CONT Name          RelationAgeOccupationBirthplace
+3 CONT George LovelockHead41VictuallerSt George, Hanover Square, Middx
+3 CONT Martha LovelockWife33Nantmel, Radnor
+3 CONT Henry G LovelockSon1St Andrews Holborn, Middx
+2 SOUR @S18@
+1 CENS
+2 DATE 1881
+2 PLAC Ealing, Middlesex, England
+2 NOTE 44 Oxford Road
+3 CONT Ealing, Middlesex, England
+3 CONT RG11 1345 F26 P46
+3 CONT Name Relation Marr Age Sex Occupation Birthplace
+3 CONT Richard EDWARDS Head M 62 M Formerly Butler (Domestic Serv) Baldock, Hertford, England
+3 CONT Sarah EDWARDS Wife M 64 F Formerly Housekeeper Rhayader, Radnorshire, Wales
+3 CONT George R. EDWARDS Son U 26 M Valet Unemployed St Georges W, Middlesex, England
+3 CONT Harry G. LOVELUCK Nephew U 21 M Booksellers Assistant Holborn, Middlesex, England
+3 CONT
+3 CONT Note that Sarah Edwards, wife of the head of household Richard Edwards, was presumably the sister of Harry George Loveluck's mother Martha nee Wilding. Indeed, there is a GRO marriage record as follows:
+3 CONT Marriages Dec 1854
+3 CONT Edwards Richard  Shoreditch 1c 473
+3 CONT Reynolds Ann   Shoreditch 1c 473
+3 CONT Saunders John   Shoreditch 1c 473
+3 CONT Wilding Sarah   Shoreditch 1c 473
+2 SOUR @S20@
+1 WILL
+2 DATE JUN 1885
+2 PLAC Ealing, Middlesex, England
+2 NOTE 
+3 CONT Letters of administration: d 3-4-85 stationer, Ealing, wid Eliz £400
+2 SOUR @S22@
+1 _UID 3290E90C31A544F68A4B67469ED0122CF5F8
+1 CHAN
+2 DATE 16 MAR 2008
+3 TIME 16:51
+1 FAMS @F3@
+1 FAMC @F28@
+1 NOTE @NI86@
+2 SOUR @S15@
+0 @I87@ INDI
+1 NAME William Henry /Cousins/
+2 GIVN William Henry
+2 SURN Cousins
+1 SEX M
+1 BIRT
+2 DATE ABT 1866
+2 PLAC Croydon, Surrey, England
+2 NOTE @BI87@
+1 DEAT
+2 DATE BET OCT 1937 AND DEC 1937
+2 SOUR @S6@
+3 DATA
+4 TEXT Croydon RD, ref 2a 749  (age 71)
+1 _UID 3DABDDAA546849B69B0610C3D007F25EC5FD
+1 FAMC @F32@
+1 CENS
+2 DATE 1871
+2 NOTE Selhurst Road, Croydon, Surrey, England
+3 CONT RG10 846  F71  P10
+3 CONT
+3 CONT William Cousins;Head;28;Butcher & Dealer;Croydon, Surrey
+3 CONT Emma Cousins;Wife;31;;London, Middlesex
+3 CONT Wm (sic) Henry Cousins;4;;Croydon, Surrey
+3 CONT Lucy Miller;Servt;14;Servant;Croydon, Surrey
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 18:59:46
+2 _WT_USER graham rl
+0 @I88@ INDI
+1 NAME George /Leask/
+2 GIVN George
+2 SURN Leask
+1 SEX M
+1 BIRT
+2 DATE ABT 1810
+2 PLAC Aberdeenshire, Scotland
+2 NOTE @BI88@
+1 DEAT Y
+1 _UID F4886F5961324E95B367AB532CBF5A2F46A4
+1 CHAN
+2 DATE 15 MAR 2008
+3 TIME 18:38
+1 FAMS @F31@
+0 @I89@ INDI
+1 NAME Agnes Ann /Leash/
+2 GIVN Agnes Ann
+2 SURN Leash
+2 SOUR @s6@
+3 DATA
+4 TEXT Croydon RD, ref 4 94
+1 SEX F
+1 BIRT
+2 DATE BET APR 1843 AND JUN 1843
+2 PLAC Croydon RD, Croydon, Surrey, England
+2 SOUR @S19@
+3 PAGE Birth Agnes Ann Leash born 2Q 1843 in Croydon RD (provided by Graham Lovelock 11 Mar 08)
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1851
+2 PLAC St George in the East, Tower Hamlets, Poplar, Middlesex, England
+2 NOTE 
+3 CONT From Robert's file on the Lovelock Web site:
+3 CONT 239     St George in the East: St Paul (HO/107/1548): 14 Upper John St
+3 CONT LEARK      George      Head   40  widr     Aberdeenshire Scotland  Agent (Beer)
+3 CONT LOVELUCK     Susannah     Daur  13     St Giles Camberwell Surrey
+3 CONT LOVELUCK     Agnes          Dau    12     City of London Middx
+3 CONT LOVELUCK     Emma          Dau      7     Croydon Surrey
+3 CONT
+3 CONT Also transcribed by Graham Lovelock as follows:
+3 CONT 14 Upper John St, St George in the East, Tower Hamlets
+3 CONT HO107 1548 F239 P33
+3 CONT George Leash;Head;Widr;40;Agent (beer);Aberdeenshire, Scotland
+3 CONT Susannah M Loveluck;Daur;;13;St Giles, Camberwell, Surrey
+3 CONT Agnes A Loveluck;Daur;;12;City of London, Middx
+3 CONT Emma Loveluck;Daur;;7;Croydon, Surrey
+3 CONT
+3 CONT Graham (email 11 Mar 08) argued as follows:
+3 CONT On reflection, I think we can reasonably say that the 1851 entry is in error. Instead of Agnes A and Emma being Lovelucks like their sister Susannah, only Emma is. Emma and Agnes have been transposed in the entry, so that Emma should be 12 and bo
+3 CONC rn in London, and Agnes should be 7 and born in Croydon.
+2 SOUR @S14@
+1 _UID 2B97DC15D61041408909519323F803610F4B
+1 FAMC @F31@
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 19:22:24
+2 _WT_USER graham rl
+0 @I9@ INDI
+1 NAME John /Lovelock/
+2 GIVN John
+2 SURN Lovelock
+1 SEX M
+1 CHR
+2 DATE 25 MAY 1746
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Baptisms 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1746 May 25 John s. Thomas & Elizabeth Lovelock
+1 DEAT Y
+1 _UID AB7D368DC6474079BDA7AC33FF75CE9DD34A
+1 FAMC @F12@
+0 @I90@ INDI
+1 NAME Elizabeth /Rice/
+2 GIVN Elizabeth
+2 SURN Rice
+2 SOUR @S15@
+2 SOUR @S16@
+1 SEX F
+1 BIRT
+2 DATE ABT MAR 1861
+2 PLAC Lymington RD, Lymington, Hampshire, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S19@
+3 PAGE Birth Elizabeth Rice b Lymington RD, Jan-Mar 1861, ref 2b 5_3
+3 QUAY 3
+2 NOTE @BI90@
+1 DEAT Y
+1 _UID 1BF8ED0557DC4D16866A1DB817F2A2606BF1
+1 FAMS @F3@
+1 FAMS @F4@
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 19:41:03
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1891
+2 NOTE 21 Ealing Road South, Ealing, Middlesex, England
+3 CONT RG12 1030  F147  P1
+3 CONT
+3 CONT James T Porter;Head;43;Farmer;Ealing, Middx
+3 CONT Elizabeth Porter;Wife;30;;Lymington, Hants
+3 CONT James H Porter;Son;3;;Northolt, Middx
+3 CONT Leslie Porter;Son;2;;Northolt, Middx
+3 CONT Frederick J Porter;Son;6mos;Ealing, Middx
+3 CONT Ada Oakley;Servant;17;Domestic Servant;Northolt, Middx
+0 @I91@ INDI
+1 NAME James Thomas /Porter/
+2 GIVN James Thomas
+2 SURN Porter
+2 SOUR @S15@
+1 SEX M
+1 DEAT Y
+1 _UID 27E8E067C45742109078299D8F30BCFF0BA6
+1 FAMS @F4@
+1 NOTE @NI91@
+2 SOUR @S15@
+1 BIRT
+2 DATE BET 1847 AND 1848
+2 SOUR @S294@
+2 PLAC Ealing, Middlesex, England
+1 CENS
+2 DATE 1891
+2 NOTE 21 Ealing Road South, Ealing, Middlesex, England
+3 CONT RG12 1030  F147  P1
+3 CONT
+3 CONT James T Porter;Head;43;Farmer;Ealing, Middx
+3 CONT Elizabeth Porter;Wife;30;;Lymington, Hants
+3 CONT James H Porter;Son;3;;Northolt, Middx
+3 CONT Leslie Porter;Son;2;;Northolt, Middx
+3 CONT Frederick J Porter;Son;6mos;Ealing, Middx
+3 CONT Ada Oakley;Servant;17;Domestic Servant;Northolt, Middx
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 19:40:49
+2 _WT_USER graham rl
+0 @I92@ INDI
+1 NAME Harry Frederick /Loveluck/
+2 GIVN Harry Frederick
+2 SURN Loveluck
+2 SOUR @S15@
+2 SOUR @S16@
+1 SEX M
+1 BIRT
+2 DATE 5 OCT 1883
+2 PLAC Putney, Surrey, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S19@
+3 PAGE Births Dec 1883 LOVELUCK, Harry Frederick Wandsworth 1d 732
+3 QUAY 3
+1 DEAT
+2 DATE 9 JUN 1934
+2 PLAC New Norfolk, Tasmania, Australia
+2 SOUR @S15@
+1 BURI
+2 PLAC Tyenna cemetery, Tyenna, Tasmania, Australia
+2 SOUR @S15@
+1 _UID 54D9C6028FDC434DA41D774F7212F50DFD95
+1 CHAN
+2 DATE 15 MAR 2008
+3 TIME 22:08
+1 FAMS @F5@
+1 FAMC @F3@
+1 NOTE @NI92@
+2 SOUR @S16@
+2 SOUR @S15@
+0 @I93@ INDI
+1 NAME Mary Eldridge /Abbott/
+2 GIVN Mary Eldridge
+2 SURN Abbott
+2 SOUR @S16@
+1 SEX F
+1 BIRT
+2 DATE 3 MAR 1885
+2 PLAC Green Lane, Hanwell, Middlesex, England
+2 SOUR @S16@
+1 DEAT
+2 DATE 29 MAR 1949
+2 PLAC Hobart, Tasmania, Australia
+2 SOUR @S15@
+1 BURI
+2 PLAC Tyenna cemetery, Tyenna, Tasmania, Australia
+2 SOUR @S15@
+1 _UID A8E74506CD0B4EEAB40ED068AD84C8C3A0F5
+1 CHAN
+2 DATE 2 MAR 2008
+3 TIME 18:40
+1 FAMS @F5@
+0 @F1@ FAM
+1 HUSB @I40@
+1 WIFE @I39@
+1 MARR
+2 DATE 01 JAN 1828
+2 PLAC St George Hanover Square, Middlesex, England
+2 SOUR @S2@
+3 PAGE Email message 21 Apr 2011
+3 QUAY 3
+2 NOTE @NF1@
+3 SOUR @S2@
+4 PAGE Email message 21 Apr 2011
+4 QUAY 3
+2 SOUR @S10@
+1 CHAN
+2 DATE 15 NOV 2015
+3 TIME 00:00:13
+0 @F12@ FAM
+1 HUSB @I3@
+1 WIFE @I4@
+1 MARR
+2 DATE 1 OCT 1738
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Marriages 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1738 Oct 1 Thomas Lovelock & Elizabeth Willis
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I8@
+1 CHIL @I9@
+1 CHIL @I10@
+1 CHIL @I32@
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+0 @F13@ FAM
+1 HUSB @I7@
+1 WIFE @I6@
+1 MARR
+2 DATE 23 SEP 1762
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Marriages 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1762 Sep 23 William Johnson of Medmenham & Mary Lovelock
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+0 @F14@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+1 MARR
+2 DATE 26 SEP 1773
+2 PLAC Great Marlow, Buckinghamshire, England
+2 SOUR @S5@
+3 PAGE Marriages, provided by John Lovelock
+3 QUAY 3
+3 DATA
+4 TEXT 1773 Sep 26 Martin Lovelock of the parish of Hambleton & Ann Lappeth spinster of this parish. By banns. Wit: John Lovelock
+1 CHIL @I12@
+1 CHIL @I20@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHIL @I24@
+1 CHIL @I25@
+1 CHIL @I26@
+1 CHIL @I28@
+1 CHIL @I29@
+1 CHIL @I30@
+1 CHIL @I31@
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+0 @F15@ FAM
+1 HUSB @I12@
+1 WIFE @I13@
+1 MARR
+2 DATE 1805
+2 PLAC St George Hanover Square, Middlesex, England
+2 SOUR @S2@
+3 PAGE Email message 9 May 2011
+3 QUAY 3
+2 SOUR @S3@
+3 PAGE Marriages 1725-1837 (Modern Transcript)
+3 QUAY 3
+3 NOTE Also in IGN
+3 DATA
+4 TEXT 1805 Jun 22 Thomas Loveluck & Mary Wright (Also in Boyd's Marriages. 'Wright' spelt 'Right')
+2 NOTE @NF15@
+1 CHIL @I39@
+1 CHIL @I14@
+1 CHIL @I15@
+1 CHIL @I17@
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:01
+0 @F16@ FAM
+1 HUSB @I16@
+1 WIFE @I15@
+1 MARR
+2 DATE 9 JUL 1832
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Marriages 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1832 Jul 9 Charles Morgan of St Geo Hanover Square, Middx and Emma Lovelock by lic. Wit: Thos Loveluck
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+0 @F17@ FAM
+1 HUSB @I23@
+1 WIFE @I22@
+1 MARR
+2 DATE 27 APR 1801
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Marriages 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1801 Apr 27 James Jones & Sarah Lovelock Wit: James Lovelock, Thomas Loveluck
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+0 @F18@ FAM
+1 HUSB @I27@
+1 WIFE @I26@
+1 MARR
+2 DATE 15 NOV 1806
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Marriages 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1806 Nov 15 Mark Gray & Maria Lovelock Wit: Elizabeth Lovelock, Martin Lovelock
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+0 @F19@ FAM
+1 HUSB @I33@
+1 WIFE @I32@
+1 MARR
+2 DATE 20 JAN 1777
+2 PLAC Hambleden, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Marriages 1566-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1777 Jan 20 William West & Susanna Lovelock Wit: Martin Lovelock
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 15:46
+0 @F2@ FAM
+1 HUSB @I28@
+1 WIFE @I41@
+1 MARR
+2 DATE 31 JUL 1815
+2 PLAC St George Hanover Square, Middlesex, England
+2 SOUR @S3@
+3 PAGE Marriages 1725-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1815 Jul 31 Henry Loveluck, bachelor & Amey Makey, spinster (Also in Boyd's Marriages)
+2 SOUR @S10@
+3 PAGE Marriages 1725-1837 (Modern Transcript)
+3 QUAY 3
+3 DATA
+4 TEXT 1815 Jul 31 Henry Loveluck, bachelor & Amey Makey, spinster
+2 NOTE @NF2@
+1 CHIL @I81@
+1 CHIL @I64@
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:06
+0 @F21@ FAM
+1 HUSB @I28@
+1 WIFE @I53@
+1 MARR
+2 DATE BET APR 1847 AND JUN 1847
+2 PLAC Marylebone, London, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S19@
+3 PAGE Marriages Jun 1847 Loveluck, Henry Marylebone 1 285
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Jun 1847
+5 CONT Fisher Sarah  Marylebone 1285
+5 CONT Loveluck Henry   Marylebone 1285
+5 CONT PAINE Sarah Ann Marylebone 1285
+5 CONT Ramsden  Rosina                Marylebone 1285
+5 CONT TAYLOR Anne   Marylebone 1285
+5 CONT Tucker Henry   Marylebone 1285
+5 CONT Tyley James   Marylebone 1285
+5 CONT WALKER Henry   Marylebone 1285
+1 CHAN
+2 DATE 10 OCT 2011
+3 TIME 16:06
+0 @F22@ FAM
+1 HUSB @I49@
+1 WIFE @I47@
+0 @F23@ FAM
+1 HUSB @I50@
+1 WIFE @I51@
+1 CHIL @I52@
+1 CHIL @I54@
+1 CHIL @I55@
+0 @F24@ FAM
+1 HUSB @I52@
+1 WIFE @I56@
+1 CHIL @I57@
+1 CHIL @I58@
+1 CHIL @I59@
+1 CHIL @I60@
+0 @F25@ FAM
+1 HUSB @I61@
+1 WIFE @I54@
+1 CHIL @I62@
+1 CHIL @I63@
+0 @F26@ FAM
+1 HUSB @I65@
+1 WIFE @I55@
+1 CHIL @I66@
+1 CHIL @I67@
+0 @F27@ FAM
+1 HUSB @I74@
+1 WIFE @I76@
+1 MARR
+1 CHIL @I12@
+1 CHIL @I28@
+1 CHIL @I80@
+1 CHAN
+2 DATE 14 MAR 2008
+3 TIME 18:56
+0 @F28@ FAM
+1 HUSB @I64@
+1 WIFE @I75@
+1 MARR
+2 DATE ABT JUN 1858
+2 PLAC W London RD, City of London, London, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S19@
+3 PAGE Marriages Jun 1858 Loveluck, George W. London 1c 79 (NB ref incorrectly recorded as 1a 79 on FreeBMD)
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Jun 1858
+5 CONT Clarke Emma  W London 1c79
+5 CONT Wilcocks James Francis W London 1c79
+5 CONT Wilding Martha   W London 1c79
+2 SOUR @S21@
+3 PAGE email message 15-Jan-08
+3 QUAY 3
+3 DATA
+4 TEXT The Jun 1858 marriage of a George in West London RD doesn't apparently have a matching Martha, but as the Free BMD entry points out West London should be in Vol 1c not 1a. If we look in the same quarter in the same RD for Martha's we find Martha
+5 CONC  Wilding, ref 1c 79. So there's the wife of George for you. (And I checked the image for George's entry and it is 1c as well.)
+1 CENS
+2 DATE 1861
+2 PLAC Holborn, Middlesex, England
+2 NOTE 
+3 CONT Holborn, Middx
+3 CONT Red Lion, 5 Green St
+3 CONT RG9 183 F12 P10
+3 CONT Name          RelationAgeOccupationBirthplace
+3 CONT George LovelockHead41VictuallerSt George, Hanover Square, Middx
+3 CONT Martha LovelockWife33Nantmel, Radnor
+3 CONT Henry G LovelockSon1St Andrews Holborn, Middx
+2 SOUR @S18@
+1 CHIL @I86@
+1 CHAN
+2 DATE 17 MAR 2008
+3 TIME 16:25
+0 @F3@ FAM
+1 HUSB @I86@
+1 WIFE @I90@
+1 MARR
+2 DATE BET APR 1883 AND JUN 1883
+2 PLAC Lymington, Hampshire, England
+2 SOUR @S15@
+2 SOUR @S16@
+2 SOUR @S19@
+3 PAGE Marriages Jun 1883 LOVELUCK, Henry George Lymington 2b 1009
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Jun 1883
+5 CONT LOVELUCK  Henry George  Lymington 2b1009
+5 CONT RICE Elizabeth                 Lymington 2b1009
+5 CONT STRIDE Alice Ann   Lymington 2b1009
+5 CONT Worthy Charles George   Lymington 2b1009
+1 CHIL @I92@
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 19:31:59
+2 _WT_USER graham rl
+0 @F30@ FAM
+1 HUSB @I81@
+1 WIFE @I82@
+1 MARR
+2 DATE 4 JUL 1836
+2 PLAC St Giles, Camberwell, Surrey, England
+2 SOUR @S12@
+3 PAGE From the IGI
+3 QUAY 3
+3 DATA
+4 TEXT 1836 Jul 4 Henry Loveluck & Susan Eleanor Stevens
+1 CHIL @I83@
+1 CHIL @I84@
+1 CHAN
+2 DATE 15 MAR 2008
+3 TIME 17:53
+0 @F31@ FAM
+1 HUSB @I88@
+1 WIFE @I82@
+1 MARR
+2 DATE ABT SEP 1840
+2 PLAC London RD, City of London, London, England
+2 SOUR @S19@
+3 PAGE Mariage Sep 1840 LOVELUCK Susan Elleanor London ref 2 159
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Sep 1840
+5 CONT Jarvis               Sarah                 Whitechapel     2    159
+5 CONT LEASK           George               London            2    159
+5 CONT LOVELUCK   Susan Elleanor   London            2    159
+1 CENS
+2 DATE 1851
+2 PLAC St George in the East, Tower Hamlets, Poplar, Middlesex, England
+2 NOTE 
+3 CONT From Robert's file on the Lovelock Web site:
+3 CONT 239     St George in the East: St Paul (HO/107/1548): 14 Upper John St
+3 CONT LEARK      George      Head   40  widr     Aberdeenshire Scotland  Agent (Beer)
+3 CONT LOVELUCK     Susannah     Daur  13     St Giles Camberwell Surrey
+3 CONT LOVELUCK     Agnes          Dau    12     City of London Middx
+3 CONT LOVELUCK     Emma          Dau      7     Croydon Surrey
+3 CONT
+3 CONT Also transcribed by Graham Lovelock as follows:
+3 CONT 14 Upper John St, St George in the East, Tower Hamlets
+3 CONT HO107 1548 F239 P33
+3 CONT George Leash;Head;Widr;40;Agent (beer);Aberdeenshire, Scotland
+3 CONT Susannah M Loveluck;Daur;;13;St Giles, Camberwell, Surrey
+3 CONT Agnes A Loveluck;Daur;;12;City of London, Middx
+3 CONT Emma Loveluck;Daur;;7;Croydon, Surrey
+3 CONT
+3 CONT Graham (email 11 Mar 08) argued as follows:
+3 CONT On reflection, I think we can reasonably say that the 1851 entry is in error. Instead of Agnes A and Emma being Lovelucks like their sister Susannah, only Emma is. Emma and Agnes have been transposed in the entry, so that Emma should be 12 and bo
+3 CONC rn in London, and Agnes should be 7 and born in Croydon.
+2 SOUR @S14@
+1 CHIL @I89@
+1 CHAN
+2 DATE 16 MAR 2008
+3 TIME 16:49
+0 @F32@ FAM
+1 HUSB @I85@
+1 WIFE @I84@
+1 MARR
+2 DATE 26 SEP 1865
+2 PLAC St Paul, Deptford, Kent, England
+2 SOUR @S19@
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Sep 1865
+5 CONT Cousins      William         Greenwich     1d    1044
+5 CONT Loveluck     Emma          Greenwich     1d    1044
+5 CONT Swinbourn   Eliza            Greenwich     1d    1044
+5 CONT Swinburn     Frederick    Greenwich     1d    1044
+2 NOTE @NF32@
+2 SOUR @s24@
+1 CENS
+2 DATE 1871
+2 NOTE Selhurst Road, Croydon, Surrey, England
+3 CONT RG10 846  F71  P10
+3 CONT
+3 CONT William Cousins;Head;28;Butcher & Dealer;Croydon, Surrey
+3 CONT Emma Cousins;Wife;31;;London, Middlesex
+3 CONT Wm (sic) Henry Cousins;4;;Croydon, Surrey
+3 CONT Lucy Miller;Servt;14;Servant;Croydon, Surrey
+3 CONT
+3 CONT and next door are:
+3 CONT
+3 CONT Saml (sic) Cousins;Head;58;Butcher;Robertsbridge, Sussex
+3 CONT Esther Cousins;Wife;56;;Staplehurst, Kent
+3 CONT Mary Ann Brown;Servt;16;Housemaid;Croydon, Surrey
+1 CHIL @I87@
+1 CHAN
+2 DATE 14 NOV 2015
+3 TIME 23:34:07
+0 @F4@ FAM
+1 HUSB @I91@
+1 WIFE @I90@
+1 MARR
+2 DATE BET OCT 1887 AND DEC 1887
+2 PLAC Islington RD, Islington, Middlesex, England
+2 SOUR @S19@
+3 PAGE Marriage Dec 1887 LOVELUCK Elizabeth Islington ref 1b 508
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Dec 1887
+5 CONT KILLBY Arthur Thomas  Islington 1b508
+5 CONT LOVELUCK Elizabeth Islington 1b508
+5 CONT PORTER James Thomas   Islington 1b508
+5 CONT Whiting Frances Lottie   Islington 1b508
+2 NOTE @NF4@
+3 SOUR @S15@
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 19:29:05
+2 _WT_USER graham rl
+0 @F5@ FAM
+1 HUSB @I92@
+1 WIFE @I93@
+1 MARR
+2 DATE 3 JUN 1905
+2 PLAC St. Stephen's Church, Ealing, Middlesex, England
+2 SOUR @S16@
+2 SOUR @S15@
+2 SOUR @S19@
+3 PAGE Marriages Jun 1905 Loveluck, Harry Frederick Brentford 3a 189
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Jun 1905
+5 CONT Abbott Mary Eldridge E Brentford 3a189
+5 CONT GATES William   Brentford 3a189
+5 CONT Loveluck Harry Frederick Brentford 3a189
+5 CONT WALTON Florence Annie Brentford 3a189
+1 CHIL @I43@
+1 CHIL @I50@
+1 CHAN
+2 DATE 16 MAR 2008
+3 TIME 12:00
+0 @F6@ FAM
+1 HUSB @I44@
+1 WIFE @I43@
+1 CHIL @I45@
+1 CHIL @I47@
+0 @F7@ FAM
+1 HUSB @I46@
+1 WIFE @I45@
+1 CHIL @I68@
+1 CHIL @I69@
+1 CHIL @I70@
+0 @F8@ FAM
+1 HUSB @I48@
+1 WIFE @I47@
+1 CHIL @I71@
+1 CHIL @I72@
+1 CHIL @I73@
+0 @M1@ OBJE
+1 FILE George-Loveluck-GRO-death-jun-1863.jpg
+2 TITL GRO Image
+1 _PRIM Y
+1 _SCBK Y
+1 _TYPE PHOTO
+1 CHAN
+2 DATE 26 NOV 2015
+3 TIME 10:22:12
+2 _WT_USER james-l
+0 @S10@ SOUR
+1 ABBR St George Hanover Square, parish register
+1 TITL St George Hanover Square, parish register
+0 @S11@ SOUR
+1 ABBR St Mildred, Bread Street - parish register
+1 TITL St Mildred, Bread Street - parish register
+0 @S12@ SOUR
+1 ABBR St Giles Camberwell - parish register
+1 TITL St Giles Camberwell - parish register
+0 @S13@ SOUR
+1 ABBR 1871 British Census
+1 TITL 1871 British Census
+0 @S14@ SOUR
+1 ABBR 1851 British Census
+1 TITL 1851 British Census
+0 @S15@ SOUR
+1 MEDI Letter
+1 ABBR Tasmanian Lovelucks - Brenda Gregory
+1 TITL Tasmanian Lovelucks - Brenda Gregory
+1 AUTH Brenda Gregory
+1 PUBL Email correspondence starting 25 Sep 1999.
+2 CONT Latest data from Brenda 10 Jan 03
+0 @S16@ SOUR
+1 ABBR Gwen Eastment
+1 TITL Gwen Eastment
+1 AUTH Gwen Eastment
+1 PUBL Compiled for Janet Hearle who made it into a book. Copy in Melburne Genealogical Society Library
+0 @S17@ SOUR
+1 ABBR Holborn, St Andrews - baptisms (IGI)
+1 TITL Holborn, St Andrews - baptisms (IGI)
+1 PUBL From LDS IGI. Compiled by Robert Sterry. Lovelock Web site:
+2 CONT http://lovelock.free.fr/documents/lovelocks-in-middlesex.html
+0 @S18@ SOUR
+1 ABBR 1861 British Census
+1 TITL 1861 British Census
+0 @S19@ SOUR
+1 ABBR GRO - FreeBMD
+1 TITL GRO - FreeBMD
+0 @S2@ SOUR
+1 ABBR Carol Tait
+1 TITL Carol Tait
+1 PUBL Email correspondence, beginning 23 Feb 2010
+0 @S20@ SOUR
+1 ABBR 1881 British Census
+1 TITL 1881 British Census
+0 @S21@ SOUR
+1 ABBR Graham Lovelock
+1 TITL Graham Lovelock
+1 PUBL email correspondence
+0 @S22@ SOUR
+1 ABBR John Dixon - Loveluck births, marriages, deaths and wills
+1 TITL John Dixon - Loveluck births, marriages, deaths and wills
+1 PUBL Document provided by John Dixon 5-Apr-03
+0 @S23@ SOUR
+1 TITL 'Lovelocks in Buckinghamshire' data on main Lovelock website
+1 CHAN
+2 DATE 01 APR 2014
+3 TIME 12:05:32
+0 @S24@ SOUR
+1 TITL 'Lovelocks in Kent' data on main Lovelock website
+1 CHAN
+2 DATE 14 NOV 2015
+3 TIME 23:33:21
+0 @S294@ SOUR
+1 TITL 1891 British Census
+1 CHAN
+2 DATE 15 JAN 2016
+3 TIME 19:40:29
+2 _WT_USER graham rl
+0 @S3@ SOUR
+1 ABBR St George Hanover Square, parish register
+1 TITL St George Hanover Square, parish register
+1 PUBL Records transcribed and compiled by Robert Sterry
+0 @S4@ SOUR
+1 ABBR Hambleden (St Mary the Virgin) parish records
+1 TITL Hambleden (St Mary the Virgin) parish records
+1 PUBL Records extracted by John Lovelock and Robert Sterry, compiled by Robert Sterry
+0 @S5@ SOUR
+1 ABBR Great Marlow parish register
+1 TITL Great Marlow parish register
+1 PUBL Records extracted by John Lovelock and Robert Sterry, compiled by Robert Sterry
+0 @S6@ SOUR
+1 ABBR GRO
+1 TITL GRO
+1 PUBL FreeBMD Web site
+0 @S7@ SOUR
+1 ABBR Great Marlow Burials
+1 TITL Great Marlow Burials
+1 PUBL From Bucks FHS Name Search
+0 @S8@ SOUR
+1 ABBR British Census 1841
+1 TITL British Census 1841
+0 @S9@ SOUR
+1 ABBR Great Marlow - burials
+1 TITL Great Marlow - burials
+1 PUBL Bucks FHS Name Search
+0 @BI28@ NOTE Gwen Eastment and Brenda Gregory had Henry Loveluck born 1783.
+1 CONT
+1 CONT Date of birth of 1786/87 deduced from age (84) at death 11 Apr 1871
+0 @BI53@ NOTE Date of birth agrees with age (84) at death abt Mar 1881
+0 @BI64@ NOTE Date and place of birth from 1861 census record
+0 @BI75@ NOTE Date and place of birth from 1881 census record
+0 @BI81@ NOTE Date of birth from age (24) at death in 1839
+0 @BI83@ NOTE Date and place of birth from 1851 census record. Date of birth also agrees with age (59) at death in 1897
+0 @BI84@ NOTE Graham Lovelock 11 Mar -08:
+1 CONT  The 1851 entry of George Leash/Leask includes Agnes A Loveluck aged 12 born City of London, Middx. However, Free BMD has Agnes Ann Leash born 2Q 1843 in Croydon RD, ref 4 94. On reflection, I think we can reasonably say that the 1851 entry is in
+1 CONC  error. Instead of Agnes A and Emma being Lovelucks like their sister Susannah, only Emma is. Emma and Agnes have been transposed in the entry, so that Emma should be 12 and born in London, and Agnes should be 7 and born in Croydon.
+0 @BI86@ NOTE Couldn't find birth on FreeBMD
+0 @BI87@ NOTE Date and place of birth from 1871 census record
+0 @BI88@ NOTE Date and place of birth from 1861 census record
+0 @BI90@ NOTE Gwen Eastment and Brenda Gregory had Elizabeth Rice born 9 Dec 1863, but there is no corresponding GRO record
+0 @DI28@ NOTE Gwen Eastment and Brenda Gregory had Henry Loveluck died 1867 in  Marylebone.
+0 @DI53@ NOTE Gwen Eastment and Brenda Gregory had Sarad died 1882
+0 @DI67@ NOTE Cause Leukemia
+0 @DI75@ NOTE Precise date of death from will details
+0 @NF1@ NOTE Emma Loveluck was a witness to the wedding
+1 CHAN
+2 DATE 15 NOV 2015
+3 TIME 00:00:13
+0 @NF15@ NOTE Possible marriage:
+1 CONT St George Hanover Square
+1 CONT Marriages 1725-1837 (Modern Transcript)
+1 CONT 1805 Jun 22 Thomas Loveluck & Mary Wright
+0 @NF2@ NOTE The identification of the parents of George Loveluck is uncertain. However, if Henry Loveluck was George's father, it is unlikely that it wa by his marriage to Sarah Fisher (?) since this marriage took place in 1847, whereas George was born
+1 CONC  1819
+0 @NF32@ NOTE James Loveluck 11 Mar 08
+1 CONT  I couldn't find either a plausible [...] Swinburn family in the 1881 census,
+1 CONT [...] there is a possible Cousins family: William and Emily Cousins with 4 children, eldest age 13 (b1867/8), living at Walton on Thames, Surrey. Emma is age 45 (b 1835/6) which is not far off, but she was born Richmond Surrey, which is not exact
+1 CONC ly Croydon.
+1 CONT [In fact this probably isn't the right family, but see the 1871 entry found by Graham Lovelock]
+1 CHAN
+2 DATE 14 NOV 2015
+3 TIME 23:33:31
+0 @NF4@ NOTE 6 children
+0 @NF6@ NOTE Private
+0 @NI12@ NOTE General the Honourable Edmond Phipps, brother to the Earl of Mulgrave, employed Thomas Loveluck as his coachman. The General, and his household, lived at Mount Street, Westminster. The General died in 1837 left £50 and an annuity to Thomas
+1 CONC  Loveluck.
+1 CONT
+1 CONT The fact that Henry L was a witness for the will of Thomas L who d 1839 indicates that they could have been brothers.
+0 @NI13@ NOTE Possibly died 3Q 1850 Chelsea RD ref 3 32
+0 @NI28@ NOTE Brenda Gregory:
+1 CONT In 1839 he was licensee of Red Lion Inn, 21 Basing Lane.
+1 CONT
+1 CONT Graham Lovelock email 15-Jan-08:
+1 CONT There was a Henry LovelUck in Upper East Sheen, Mortlake in 1841, aged 54, apparently without family, and not born in Surrey.
+1 CONT
+1 CONT James Loveluck 7-Mar-08:
+1 CONT The fact that Henry L was a witness for the will of Thomas L who d 1839 indicates that they could have been brothers,
+0 @NI39@ NOTE Mary is mentioned as one of the children of Thomas Lovelock in his will.
+0 @NI40@ NOTE General the Honourable Edmond Phipps, brother to the Earl of Mulgrave, employed Simeon Fraser as his footman. The General, and his household, lived at Mount Street, Westminster. The General died in 1837 and Simeon Fraser was a beneficiary
+1 CONC  of his Will, as was his late coachman Thomas Loveluck, who was provided with an anuity.
+0 @NI43@ NOTE As of 1999 living in retirement home.
+1 CONT
+1 CONT Notes from Brenda Gregory:
+1 CONT Phyllis lives in Queen Victoria Home for the Aged
+0 @NI45@ NOTE Private
+0 @NI46@ NOTE Private
+0 @NI47@ NOTE Private
+0 @NI48@ NOTE Private
+0 @NI49@ NOTE Private
+0 @NI50@ NOTE Harry was a fruit farmer in Tasmania. Got burnt out in 1967 in a bushfire. Orchard at Kettering.
+1 CONT
+1 CONT James Loveluck 15-Jan-2008:
+1 CONT The following text was initially found on the Web site:
+1 CONT http://www.derwentvalley.tascom.net/
+1 CONT under the title "Tiger Tales from South West Tasmania".
+1 CONT However, the document is no longer available on this Web site, but as of today, is available at:
+1 CONT http://wassonhuntingservices.com/phpBB/viewtopic.php?t=1674&sid=434ce73032f6849f7a6e7a03aa287298
+1 CONT
+1 CONT " Fitzgerald trapper, Jim Salter is on the record books as having caught a tiger at Adamsfield in July 1923. In company with his hunting companion, Harry Loveluck, they managed to transport the young tiger back to Loveluck's Fitzgerald home where
+1 CONC  it was kept overnight in a wooden box. The next day it arrived by train in Hobart where it was sold to Beaumaris Zoo for twenty five pounds. It is believed that this animal died shortly after of natural causes. "
+0 @NI52@ NOTE Private
+0 @NI53@ NOTE Could be Sarah FISHER, or possibly Sarah Ann PAINE (see GRO marr record)
+0 @NI54@ NOTE Private
+0 @NI55@ NOTE Private
+0 @NI56@ NOTE Private
+0 @NI57@ NOTE Private
+0 @NI58@ NOTE Private
+0 @NI59@ NOTE Private
+0 @NI60@ NOTE Private
+0 @NI61@ NOTE Private
+0 @NI62@ NOTE Private
+0 @NI63@ NOTE Private
+0 @NI65@ NOTE Private
+0 @NI66@ NOTE Private
+0 @NI67@ NOTE Adopted
+0 @NI68@ NOTE Private
+0 @NI69@ NOTE Private
+0 @NI70@ NOTE Private
+0 @NI71@ NOTE Private
+0 @NI72@ NOTE Private
+0 @NI73@ NOTE Private
+0 @NI75@ NOTE James Loveluck 3-Mar-08:
+1 CONT Martha identified as Martha WILDING from freeBMD record for marriage
+0 @NI80@ NOTE Some uncertainty that Frederick was a brother of Thomas and Henry, but he was buried at Great Marlow, as was Thomas
+0 @NI81@ NOTE It is uncertain whether Henry was the son of Henry Lovelock and Amey Makey
+0 @NI83@ NOTE Graham Lovelock found this 1841 census record which could be relevant:
+1 CONT
+1 CONT Household in Thornton Heath, Croydon in 1841
+1 CONT HO107 1078/9  F31  P20
+1 CONT Aylik (?) Place,
+1 CONT Charles Stevens;45;Saddler;Not born in Surrey
+1 CONT Susan Stevens;45;Not born in Surrey
+1 CONT Joseph Stevens;15;Baker;Not born in Surrey
+1 CONT Susan Lovelock;5;Born in Surrey
+1 CONT Emily Lovelock;3;Born in Surrey
+1 CONT Julia Baker;13;F S;Born in Surrey
+1 CONT
+1 CONT Susan Lovlweokc could be Susannah M Loveluck, dau of Hemry Loveluck and Susan Eleanor Stevens. However, this would mean there was another daughter, Emily
+0 @NI86@ NOTE Worked at Bank of England, then later a bookseller in Ealing. Lived 12 March's Place, Putney
+0 @NI91@ NOTE See attached sources.
+0 @NI92@ NOTE Lived at 44 Oxford St., Ealing, London. Emigrated to Tasmania in 1905 as delicate - probably on advice of Rice family who also emigrated. Settled in Fitzgerald.
+1 CONT
+1 CONT Brenda Gregory's notes:
+1 CONT Worked at Bank of England in London before emigrating to Tasmania, where he worked trapping and prospecting to supplement his income from England.
+1 CONT
+1 CONT He acquired land at Fitzgerald, where he built his own home. When his daughter married he built another house on the property.
+0 @S0@ SUBM
+1 NAME James Loveluck
+0 TRLR

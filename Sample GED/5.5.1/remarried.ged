@@ -1,0 +1,84 @@
+﻿0 HEAD
+1 SOUR 0
+2 CORP Behold Genealogy (Louis Kessler)
+3 WWW http://www.beholdgenealogy.com/
+1 SUBM @U@
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @U@ SUBM
+1 NAME X
+0 @I1@ INDI
+1 NAME Guy /Main/
+1 SEX M
+1 BIRT
+2 DATE 1880
+2 NOTE Preferred birth date
+1 BIRT
+2 DATE 1870
+2 NOTE Alternate birth date
+1 CENS
+2 DATE 1881
+2 NOTE First Census event
+1 CENS
+2 DATE 1891
+2 NOTE Second Census event
+1 FAMS @F1@
+1 FAMS @F2@
+1 FAMS @F3@
+0 @I2@ INDI
+1 NAME Gal /One/
+1 SEX F
+1 FAMS @F1@
+1 FAMS @F3@
+0 @I3@ INDI
+1 NAME Gal /Two/
+1 SEX F
+1 FAMS @F2@
+0 @I4@ INDI
+1 NAME MarriageOne /Child/
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME MarriageTwo /Child/
+1 FAMC @F2@
+0 @I6@ INDI
+1 NAME MarriageThree /Child/
+1 FAMC @F3@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I4@
+1 MARR
+2 DATE 1912
+2 NOTE Preferred date of first marriage to Gal One
+1 MARR
+2 DATE 1911
+2 NOTE Alternate date of first marriage to Gal One
+1 DIV
+2 DATE 1922
+2 NOTE Preferred date of divorce of first marriage to Gal One
+1 DIV
+2 DATE 1921
+2 NOTE Alternate date of divorce of first marriage to Gal One
+0 @F2@ FAM
+1 HUSB @I1@
+1 WIFE @I3@
+1 CHIL @I5@
+1 MARR
+2 DATE 1932
+2 NOTE Preferred date of marriage to Gal Two
+1 MARR
+2 DATE 1931
+2 NOTE Alternate date of marriage to Gal Two
+0 @F3@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I6@
+1 MARR
+2 DATE 1942
+2 NOTE Preferred date of second marriage to Gal One
+1 MARR
+2 DATE 1941
+2 NOTE Alternate date of second marriage to Gal One
+0 TRLR

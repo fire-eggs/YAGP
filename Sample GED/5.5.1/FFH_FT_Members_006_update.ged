@@ -1,0 +1,1748 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Goodwin of Northfleet, Kent
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:08
+1 FILE FFH_FT_Members_006
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Goodwin of Northfleet, Kent
+0 @I00000000694@ INDI
+1 NAME William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1738
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 15 Sep 1812
+2 PLAC Southfleet, St. Nicholas, Kent
+2 AGE 74y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000694@
+1 FAMS @F10000000694@
+1 SOUR @S01@
+0 @I00000000690@ INDI
+1 NAME Anne /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 18 Aug 1765
+2 PLAC Southfleet, St. Nicholas, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000694@
+1 SOUR @S01@
+0 @I00000000691@ INDI
+1 NAME Sarah /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 28 Sep 1766
+2 PLAC Southfleet, St. Nicholas, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 11 Jan 1767
+2 PLAC Southfleet, St. Nicholas, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000694@
+1 SOUR @S01@
+0 @I00000000692@ INDI
+1 NAME Elizabeth /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 8 Jan 1769
+2 PLAC Southfleet, St. Nicholas, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000692@
+1 SOUR @S01@
+0 @I00000000693@ INDI
+1 NAME William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 14 Jul 1771
+2 PLAC Southfleet, St. Nicholas, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 27 Aug 1834
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 63y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000694@
+1 SOUR @S01@
+0 @I00000000190@ INDI
+1 NAME William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 14 Jan 1798
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 22 Jan 1854
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 56y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000694@
+1 FAMS @F10000000190@
+1 FAMS @F20000000190@
+1 SOUR @S01@
+0 @I00000000191@ INDI
+1 NAME Sarah /Venner/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1799
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 6 Dec 1840
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 41y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000191@
+1 FAMS @F10000000190@
+1 SOUR @S01@
+0 @I00000000305@ INDI
+1 NAME Rebecca /Whiskin/
+1 SEX F
+1 CHR
+2 DATE 19 Oct 1817
+2 PLAC Northfleet, St. Botolph, Kent
+1 BURI
+2 DATE 8 Jun 1856
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 40y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000305@
+1 FAMS @F20000000190@
+1 SOUR @S01@
+0 @I00000000192@ INDI
+1 NAME William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 16 May 1819
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 16 Mar 1901
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 81y
+2 NOTE Of Longfield Hill, Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000190@
+1 FAMS @F10000000192@
+1 SOUR @S01@
+0 @I00000000593@ INDI
+1 NAME Joseph /Harman/
+1 SEX M
+1 CHR
+2 DATE 31 Dec 1820
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000593@
+1 FAMS @F10000000593@
+1 SOUR @S01@
+0 @I00000000193@ INDI
+1 NAME Sarah /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 23 Apr 1821
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000190@
+1 FAMS @F10000000593@
+1 SOUR @S01@
+0 @I00000000194@ INDI
+1 NAME John /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 20 Mar 1824
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 22 Jan 1832
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 7y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000190@
+1 SOUR @S01@
+0 @I00000000195@ INDI
+1 NAME Richard /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 2 Apr 1826
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 7 Jan 1827
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 10m
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000190@
+1 SOUR @S01@
+0 @I00000000196@ INDI
+1 NAME Richard /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 10 Feb 1828
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000190@
+1 SOUR @S01@
+0 @I00000000351@ INDI
+1 NAME Mary Anne /Howard/
+1 SEX F
+1 CHR
+2 DATE 20 Apr 1828
+2 PLAC Eynsford, St. Martin, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 15 Feb 1882
+2 PLAC Darenth, St. Margaret, Kent
+2 AGE 53y
+2 NOTE Of Darenth.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000351@
+1 FAMS @F10000000197@
+1 SOUR @S01@
+0 @I00000000197@ INDI
+1 NAME Henry /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 11 Apr 1830
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 22 Oct 1887
+2 PLAC Darenth, St. Margaret, Kent
+2 AGE 56y
+2 NOTE Of Darenth.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000190@
+1 FAMS @F10000000197@
+1 SOUR @S01@
+0 @I00000000198@ INDI
+1 NAME Amelia /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 2 Mar 1833
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000190@
+1 SOUR @S01@
+0 @I00000000207@ INDI
+1 NAME James Valentine /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 31 May 1835
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Apr 1895
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 59y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000190@
+1 FAMS @F10000000207@
+1 SOUR @S01@
+0 @I00000000208@ INDI
+1 NAME Emma /Fuller/
+1 SEX F
+1 CHR
+2 DATE 25 Jun 1837
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 5 Feb 1921
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 83y
+2 NOTE Of 60 Perry Street, Northfleet. Buried in private grave 4923.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000208@
+1 FAMS @F10000000207@
+1 SOUR @S01@
+0 @I00000000199@ INDI
+1 NAME Thomas /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 11 Feb 1838
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 15 Jul 1899
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 63y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000190@
+1 FAMS @F10000000199@
+1 SOUR @S01@
+0 @I00000000380@ INDI
+1 NAME Richard /Rye/
+1 SEX M
+1 CHR
+2 DATE 3 Jun 1838
+2 PLAC Sevenoaks, St. Nicholas, Kent
+2 NOTE Record Source: Vital Records Index
+1 FAMC @F70000000380@
+1 FAMS @F10000000380@
+1 SOUR @S01@
+0 @I00000001115@ INDI
+1 NAME Eliza /Blackman/
+1 SEX F
+1 CHR
+2 DATE 30 Dec 1838
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001115@
+1 FAMS @F10000000192@
+1 SOUR @S01@
+0 @I00000000594@ INDI
+1 NAME Joseph /Harman/
+1 SEX M
+1 CHR
+2 DATE 3 May 1840
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 12 Apr 1840
+1 BURI
+2 DATE 12 Jan 1852
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 12y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000209@ INDI
+1 NAME William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 21 Feb 1841
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 9 Nov 1842
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 22m
+2 NOTE Of Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000192@
+1 SOUR @S01@
+0 @I00000000598@ INDI
+1 NAME Mary Ann /Harman/
+1 SEX F
+1 CHR
+2 DATE 10 Oct 1841
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 10 Sep 1841
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000349@ INDI
+1 NAME Charlotte /Blackman/
+1 SEX F
+1 CHR
+2 DATE 6 Feb 1842
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 Jan 1893
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 51y
+2 NOTE Of Pinden.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000349@
+1 FAMS @F10000000199@
+1 SOUR @S01@
+0 @I00000000308@ INDI
+1 NAME Eliza /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 5 Nov 1843
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000192@
+1 FAMS @F10000000380@
+1 SOUR @S01@
+0 @I00000000596@ INDI
+1 NAME John /Harman/
+1 SEX M
+1 CHR
+2 DATE 16 Jul 1844
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 10 Apr 1844
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000306@ INDI
+1 NAME Mary Rebecca /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 5 Jul 1846
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F20000000190@
+1 FAMS @F81000000306@
+1 SOUR @S01@
+0 @I00000000595@ INDI
+1 NAME James /Harman/
+1 SEX M
+1 CHR
+2 DATE 20 Sep 1846
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 19 Aug 1846
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000599@ INDI
+1 NAME Sarah /Harman/
+1 SEX F
+1 CHR
+2 DATE 9 Jul 1848
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 2 Jun 1848
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000350@ INDI
+1 NAME Caroline Lucy /Willey/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1849
+2 PLAC <Unknown>, England
+2 NOTE Date unknown
+1 BURI
+2 DATE 6 Dec 1902
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 53y
+2 NOTE Of Longfield Hill, Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000350@
+1 FAMS @F10000000309@
+1 SOUR @S01@
+0 @I00000000309@ INDI
+1 NAME John /Goodden/
+1 SEX M
+1 CHR
+2 DATE 14 Apr 1850
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Dec 1884
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 34y
+2 NOTE Of Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000192@
+1 FAMS @F10000000309@
+1 SOUR @S01@
+0 @I00000000307@ INDI
+1 NAME Frederick /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 22 Jun 1851
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 18 Apr 1852
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 11m
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F20000000190@
+1 SOUR @S01@
+0 @I00000000597@ INDI
+1 NAME Joseph Frederick /Harman/
+1 SEX M
+1 CHR
+2 DATE 17 Apr 1853
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000600@ INDI
+1 NAME William /Harman/
+1 SEX M
+1 CHR
+2 DATE 24 Dec 1854
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000311@ INDI
+1 NAME Henry William Albert /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 27 May 1855
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Jul 1873
+2 PLAC Darenth, St. Margaret, Kent
+2 AGE 18y
+2 NOTE Of Darenth.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000197@
+1 SOUR @S01@
+0 @I00000000310@ INDI
+1 NAME George /Goodden/
+1 SEX M
+1 CHR
+2 DATE 6 Jul 1856
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 16 Mar 1940
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 83y
+2 NOTE Of Honeysuckle House, Longfield Hill.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000192@
+1 FAMS @F10000000310@
+1 SOUR @S01@
+0 @I00000000201@ INDI
+1 NAME Henry James /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 5 Oct 1856
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 31 Aug 1914
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 58y
+2 NOTE Of 18 East Milton Road. Buried in private grave 4171.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000207@
+1 FAMS @F10000000201@
+1 SOUR @S01@
+0 @I00000000601@ INDI
+1 NAME Edward /Harman/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1858
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000593@
+1 SOUR @S01@
+0 @I00000000200@ INDI
+1 NAME Eliza /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 30 Jan 1859
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000207@
+1 SOUR @S01@
+0 @I00000001114@ INDI
+1 NAME Emma Jane Caroline /Clayton/
+1 SEX F
+1 CHR
+2 DATE 14 Aug 1859
+2 PLAC Seal, St. Peter and St. Paul, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 27 Jan 1934
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 73y
+2 NOTE Of Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001114@
+1 FAMS @F10000000310@
+1 SOUR @S01@
+0 @I00000000395@ INDI
+1 NAME Dinah /Price/
+1 SEX F
+1 CHR
+2 DATE 8 Apr 1860
+2 PLAC Downham, St. Margaret, Essex
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Aug 1929
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 69y
+2 NOTE Of 18 East Milton Road, Gravesend. Buried in private grave 4171.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000395@
+1 FAMS @F10000000201@
+1 SOUR @S01@
+0 @I00000000312@ INDI
+1 NAME Richard /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 1 Oct 1860
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 BURI
+2 DATE 3 Jul 1861
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 8m
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000207@
+1 SOUR @S01@
+0 @I00000000570@ INDI
+1 NAME Sarah Jane /Rye/
+1 SEX F
+1 CHR
+2 DATE 12 Jul 1863
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000380@
+1 SOUR @S01@
+0 @I00000000202@ INDI
+1 NAME Ellen /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 23 Oct 1864
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 22 Sep 1928
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 64y
+2 NOTE Of 11 Dashwood Road, Gravesend. Buried in private grave 5784.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000207@
+1 FAMS @F10000000396@
+1 SOUR @S01@
+0 @I00000000203@ INDI
+1 NAME Robert /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 23 Oct 1864
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000207@
+1 FAMS @F10000000203@
+1 SOUR @S01@
+0 @I00000000335@ INDI
+1 NAME James /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 1 Jul 1866
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000207@
+1 FAMS @F10000000335@
+1 SOUR @S01@
+0 @I00000000571@ INDI
+1 NAME William George /Rye/
+1 SEX M
+1 CHR
+2 DATE 5 Aug 1866
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000380@
+1 SOUR @S01@
+0 @I00000000327@ INDI
+1 NAME Amelia /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1868
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000207@
+1 SOUR @S01@
+0 @I00000001163@ INDI
+1 NAME Annie Eliza /Turner/
+1 SEX F
+1 CHR
+2 DATE 20 Sep 1868
+2 PLAC Bethnal Green, St. Matthias, Middlesex
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 13 Sep 1868
+1 FAMC @F70000001163@
+1 FAMS @F10000000203@
+1 SOUR @S01@
+0 @I00000000572@ INDI
+1 NAME George William L. /Stone/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1870
+2 PLAC <Unknown>, England
+2 NOTE Day and month unknown. Born at Leigh, Kent according to census returns.
+1 FAMC @F70000000572@
+1 FAMS @F10000000572@
+1 SOUR @S01@
+0 @I00000000879@ INDI
+1 NAME Eliza /Simmonette/
+1 SEX F
+1 BIRT
+2 DATE 23 Jan 1870
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 23 Jan 1870
+1 FAMC @F70000000879@
+1 FAMS @F10000000335@
+1 SOUR @S01@
+0 @I00000000328@ INDI
+1 NAME William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 1 Jun 1870
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000207@
+1 SOUR @S01@
+0 @I00000000396@ INDI
+1 NAME George /Webb/
+1 SEX M
+1 CHR
+2 DATE 20 Mar 1872
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 15 Oct 1923
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 55y
+2 NOTE Of 18 Chevening Road, Greenwich. Buried in private grave 5784.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000396@
+1 FAMS @F10000000396@
+1 SOUR @S01@
+0 @I00000000329@ INDI
+1 NAME Elizabeth /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1873
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000207@
+1 FAMS @F81000000329@
+1 SOUR @S01@
+0 @I00000000573@ INDI
+1 NAME Eliza Caroline /Rye/
+1 SEX F
+1 CHR
+2 DATE 11 Jan 1874
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000380@
+1 SOUR @S01@
+0 @I00000000313@ INDI
+1 NAME John /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 8 Aug 1875
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000309@
+1 SOUR @S01@
+0 @I00000000330@ INDI
+1 NAME Emily /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1876
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000207@
+1 FAMS @F10000000397@
+1 SOUR @S01@
+0 @I00000000319@ INDI
+1 NAME Matilda /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1876
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Longfield according to census returns.
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000397@ INDI
+1 NAME Ernest Edward /Cooper/
+1 SEX M
+1 CHR
+2 DATE 19 Nov 1876
+2 PLAC Hartley, All Saints, Kent
+2 NOTE Record Source: Vital Records Index
+1 FAMC @F70000000397@
+1 SOUR @S01@
+0 @I00000000574@ INDI
+1 NAME Richard /Rye/
+1 SEX M
+1 CHR
+2 DATE 9 Dec 1877
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000380@
+1 SOUR @S01@
+0 @I00000000331@ INDI
+1 NAME Annie /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1878
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000207@
+1 FAMS @F81000000331@
+1 SOUR @S01@
+0 @I00000000333@ INDI
+1 NAME Ellen /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1879
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 BURI
+2 DATE 30 Mar 1911
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 31y
+2 NOTE Of Ingress(?) Terrace, Betsham. Buried in private grave 4171.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000201@
+1 FAMS @F10000000572@
+1 SOUR @S01@
+0 @I00000000320@ INDI
+1 NAME George Robert /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 8 Jun 1879
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000315@ INDI
+1 NAME William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 12 Oct 1879
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000309@
+1 SOUR @S01@
+0 @I00000000314@ INDI
+1 NAME Eliza Anne /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 12 Oct 1879
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000309@
+1 SOUR @S01@
+0 @I00000000321@ INDI
+1 NAME Charles Edward /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 20 Jun 1880
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Nov 1892
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 12y
+2 NOTE Of Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000332@ INDI
+1 NAME Thomas /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 1 Oct 1880
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000207@
+1 FAMS @F10000000332@
+1 SOUR @S01@
+0 @I00000000338@ INDI
+1 NAME Lily /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1881
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000323@ INDI
+1 NAME Margaret Anne /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 10 Jul 1881
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 5 Apr 1972
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 90y
+2 NOTE Of Honeysuckle House, Main Road, Longfield Hill.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000316@ INDI
+1 NAME Thomas Alfred /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 14 Aug 1881
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000309@
+1 SOUR @S01@
+0 @I00000000339@ INDI
+1 NAME Kate /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1882
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 BURI
+2 DATE 17 May 1905
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 22y
+2 NOTE Of the Hospital, Bath Street, Gravesend. Buried in common grave 4171.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000322@ INDI
+1 NAME Harry William /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 9 Jul 1882
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 Nov 1956
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 74y
+2 NOTE Of 1 Vestry Cottages, Longfield Hill.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000340@ INDI
+1 NAME Rose /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1883
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000318@ INDI
+1 NAME Alice /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 3 May 1883
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000309@
+1 SOUR @S01@
+0 @I00000000317@ INDI
+1 NAME Edward /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 3 May 1883
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000309@
+1 SOUR @S01@
+0 @I00000000324@ INDI
+1 NAME Percy John /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 9 Sep 1883
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 28 Jul 1883
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000575@ INDI
+1 NAME Agnes Mercy /Rye/
+1 SEX F
+1 CHR
+2 DATE 9 Sep 1883
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000380@
+1 SOUR @S01@
+0 @I00000000325@ INDI
+1 NAME John Clayton /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 12 Jul 1885
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000341@ INDI
+1 NAME Florence /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1886
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000326@ INDI
+1 NAME William Thomas /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 15 Jun 1890
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Oct 1887
+1 BURI
+2 DATE 10 May 1944
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 57y
+2 NOTE Of 8 Wood View, Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000342@ INDI
+1 NAME Henry /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1888
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000343@ INDI
+1 NAME Amelia /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 26 May 1889
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000602@ INDI
+1 NAME Wallace Warnham /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 15 Jun 1890
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Aug 1890
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 6m
+2 NOTE Of Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000398@ INDI
+1 NAME Emily Frances /Cook/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1891
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F70000000398@
+1 FAMS @F10000000332@
+1 SOUR @S01@
+0 @I00000000344@ INDI
+1 NAME Emily /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 3 May 1891
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000549@ INDI
+1 NAME Alice Lilian May /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 14 Feb 1892
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 3 Apr 1916
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 24y
+2 NOTE Of 2 Siding Cottages, Longfield.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000345@ INDI
+1 NAME Ruth /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Jul 1892
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000334@ INDI
+1 NAME Sidella /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 20 Jul 1892
+2 PLAC Greenwich, East, Christ Church, Kent
+1 FAMC @F10000000335@
+1 SOUR @S01@
+0 @I00000000550@ INDI
+1 NAME Elsie Constance /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 11 Jun 1893
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 23 Apr 1893
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000551@ INDI
+1 NAME Nellie May /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 4 Nov 1894
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 23 Aug 1894
+1 BURI
+2 DATE 18 Feb 1955
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 AGE 60y
+2 NOTE Of Honeysuckle House, Longfield Hill.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000346@ INDI
+1 NAME Maud /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1895
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000354@ INDI
+1 NAME Spencer Keith /Stone/
+1 SEX M
+1 CHR
+2 DATE 13 Nov 1895
+2 PLAC Greenwich, East, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000354@
+1 SOUR @S01@
+0 @I00000000352@ INDI
+1 NAME Vera Ellen /Webb/
+1 SEX F
+1 CHR
+2 DATE 13 Nov 1895
+2 PLAC Greenwich, East, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000396@
+1 SOUR @S01@
+0 @I00000000336@ INDI
+1 NAME James Valentine /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 3 Jun 1896
+2 PLAC Greenwich, East, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Apr 1898
+2 PLAC <Unknown>, England
+2 AGE 2y
+2 NOTE Date unknown, at Greenwich.
+1 FAMC @F10000000335@
+1 SOUR @S01@
+0 @I00000000347@ INDI
+1 NAME Annie Victoria /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1897
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000353@ INDI
+1 NAME George /Webb/
+1 SEX M
+1 CHR
+2 DATE 5 Aug 1897
+2 PLAC Greenwich, East, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000396@
+1 SOUR @S01@
+0 @I00000000553@ INDI
+1 NAME Albert Edward /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 19 Jun 1899
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 23 Nov 1897
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000552@ INDI
+1 NAME Hilda Bertha /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 19 Jun 1899
+2 PLAC Longfield, St. Mary Magdalene, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 23 Mar 1899
+1 FAMC @F10000000310@
+1 SOUR @S01@
+0 @I00000000348@ INDI
+1 NAME Elizabeth /Goodwin/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1899
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Northfleet according to census returns.
+1 FAMC @F10000000201@
+1 SOUR @S01@
+0 @I00000000337@ INDI
+1 NAME Alan Hugh /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1899
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Lee, Kent according to census returns.
+1 FAMC @F10000000335@
+1 SOUR @S01@
+0 @F10000000190@ FAM
+1 MARR
+2 DATE 20 Oct 1818
+2 PLAC Northfleet, St. Botolph, Kent
+1 HUSB @I00000000190@
+1 WIFE @I00000000191@
+1 CHIL @I00000000192@
+1 CHIL @I00000000193@
+1 CHIL @I00000000194@
+1 CHIL @I00000000195@
+1 CHIL @I00000000196@
+1 CHIL @I00000000197@
+1 CHIL @I00000000198@
+1 CHIL @I00000000199@
+1 CHIL @I00000000207@
+1 SOUR @S01@
+0 @F10000000192@ FAM
+1 MARR
+2 DATE 4 Oct 1840
+2 PLAC Milton-by-Gravesend, St. Peter and St. Paul, Kent
+1 HUSB @I00000000192@
+1 WIFE @I00000001115@
+1 CHIL @I00000000209@
+1 CHIL @I00000000308@
+1 CHIL @I00000000309@
+1 CHIL @I00000000310@
+1 SOUR @S01@
+0 @F10000000197@ FAM
+1 MARR
+2 DATE 27 Nov 1853
+2 PLAC Eynsford, St. Martin, Kent
+1 HUSB @I00000000197@
+1 WIFE @I00000000351@
+1 CHIL @I00000000311@
+1 SOUR @S01@
+0 @F10000000199@ FAM
+1 MARR
+2 DATE 18 Jun 1870
+2 PLAC Bromley, St. Peter and St. Paul, Kent
+1 HUSB @I00000000199@
+1 WIFE @I00000000349@
+1 SOUR @S01@
+0 @F10000000201@ FAM
+1 MARR
+2 DATE 21 Sep 1879
+2 PLAC Gravesend, St. Andrew Presbyterian, Kent
+1 HUSB @I00000000201@
+1 WIFE @I00000000395@
+1 CHIL @I00000000333@
+1 CHIL @I00000000338@
+1 CHIL @I00000000339@
+1 CHIL @I00000000340@
+1 CHIL @I00000000341@
+1 CHIL @I00000000342@
+1 CHIL @I00000000343@
+1 CHIL @I00000000344@
+1 CHIL @I00000000345@
+1 CHIL @I00000000346@
+1 CHIL @I00000000347@
+1 CHIL @I00000000348@
+1 SOUR @S01@
+0 @F10000000203@ FAM
+1 MARR
+2 DATE 22 Oct 1898
+2 PLAC London, St. Dunstan in the West, City of London
+1 HUSB @I00000000203@
+1 WIFE @I00000001163@
+1 SOUR @S01@
+0 @F10000000207@ FAM
+1 MARR
+2 DATE 25 Nov 1855
+2 PLAC Rosherville, St. Mark, Kent
+1 HUSB @I00000000207@
+1 WIFE @I00000000208@
+1 CHIL @I00000000200@
+1 CHIL @I00000000201@
+1 CHIL @I00000000202@
+1 CHIL @I00000000203@
+1 CHIL @I00000000312@
+1 CHIL @I00000000327@
+1 CHIL @I00000000328@
+1 CHIL @I00000000329@
+1 CHIL @I00000000330@
+1 CHIL @I00000000331@
+1 CHIL @I00000000332@
+1 CHIL @I00000000335@
+1 SOUR @S01@
+0 @F10000000309@ FAM
+1 MARR
+2 DATE 20 Jun 1874
+2 PLAC Longfield, St. Mary Magdalene, Kent
+1 HUSB @I00000000309@
+1 WIFE @I00000000350@
+1 CHIL @I00000000313@
+1 CHIL @I00000000314@
+1 CHIL @I00000000315@
+1 CHIL @I00000000316@
+1 CHIL @I00000000317@
+1 CHIL @I00000000318@
+1 SOUR @S01@
+0 @F10000000310@ FAM
+1 MARR
+2 DATE 4 Aug 1878
+2 PLAC Eltham, Holy Trinity, Kent
+1 HUSB @I00000000310@
+1 WIFE @I00000001114@
+1 CHIL @I00000000319@
+1 CHIL @I00000000320@
+1 CHIL @I00000000321@
+1 CHIL @I00000000322@
+1 CHIL @I00000000323@
+1 CHIL @I00000000324@
+1 CHIL @I00000000325@
+1 CHIL @I00000000326@
+1 CHIL @I00000000549@
+1 CHIL @I00000000550@
+1 CHIL @I00000000551@
+1 CHIL @I00000000552@
+1 CHIL @I00000000553@
+1 CHIL @I00000000602@
+1 SOUR @S01@
+0 @F10000000332@ FAM
+1 MARR
+2 DATE 3 Nov 1909
+2 PLAC Northfleet, Dover Road Congregational, Kent
+1 HUSB @I00000000332@
+1 WIFE @I00000000398@
+1 SOUR @S01@
+0 @F10000000335@ FAM
+1 MARR
+2 DATE 1 Sep 1891
+2 PLAC Middleton-in-Teesdale, County Durham
+1 HUSB @I00000000335@
+1 WIFE @I00000000879@
+1 CHIL @I00000000334@
+1 CHIL @I00000000336@
+1 CHIL @I00000000337@
+1 SOUR @S01@
+0 @F10000000380@ FAM
+1 MARR
+2 DATE 25 Dec 1862
+2 PLAC Longfield, St. Mary Magdalene, Kent
+1 HUSB @I00000000380@
+1 WIFE @I00000000308@
+1 CHIL @I00000000570@
+1 CHIL @I00000000571@
+1 CHIL @I00000000573@
+1 CHIL @I00000000574@
+1 CHIL @I00000000575@
+1 SOUR @S01@
+0 @F10000000396@ FAM
+1 MARR
+2 DATE 1 Feb 1891
+2 PLAC Greenwich, East, Christ Church, Kent
+1 HUSB @I00000000396@
+1 WIFE @I00000000202@
+1 CHIL @I00000000352@
+1 CHIL @I00000000353@
+1 SOUR @S01@
+0 @F10000000397@ FAM
+1 MARR
+2 DATE 25 Dec 1904
+2 PLAC Northfleet, Perry Street, All Saints, Kent
+1 HUSB @I00000000397@
+1 WIFE @I81000000397@
+1 SOUR @S01@
+0 @F10000000571@ FAM
+1 MARR
+2 DATE 7 Dec 1886
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+1 HUSB @I00000000571@
+1 WIFE @I81000000571@
+1 SOUR @S01@
+0 @F10000000572@ FAM
+1 MARR
+2 DATE 10 Sep 1905
+2 PLAC Gravesend, St. James, Kent
+1 HUSB @I00000000572@
+1 WIFE @I00000000333@
+1 SOUR @S01@
+0 @F10000000593@ FAM
+1 MARR
+2 DATE 13 May 1839
+2 PLAC Milton-by-Gravesend, St. Peter and St. Paul, Kent
+1 HUSB @I00000000593@
+1 WIFE @I00000000193@
+1 CHIL @I00000000594@
+1 CHIL @I00000000595@
+1 CHIL @I00000000596@
+1 CHIL @I00000000597@
+1 CHIL @I00000000598@
+1 CHIL @I00000000599@
+1 CHIL @I00000000600@
+1 CHIL @I00000000601@
+1 SOUR @S01@
+0 @F10000000694@ FAM
+1 MARR
+2 DATE 15 Oct 1764
+2 PLAC Southfleet, St. Nicholas, Kent
+1 HUSB @I00000000694@
+1 WIFE @I81000000694@
+1 CHIL @I00000000190@
+1 CHIL @I00000000690@
+1 CHIL @I00000000691@
+1 CHIL @I00000000693@
+1 SOUR @S01@
+0 @F20000000190@ FAM
+1 MARR
+2 DATE 10 Apr 1846
+2 PLAC Northfleet, St. Botolph, Kent
+1 HUSB @I00000000190@
+1 WIFE @I00000000305@
+1 CHIL @I00000000306@
+1 CHIL @I00000000307@
+1 SOUR @S01@
+0 @F81000000306@ FAM
+1 MARR
+2 DATE 28 Feb 1869
+2 PLAC Shorne, St. Peter and St. Paul, Kent
+1 HUSB @I81000000306@
+1 WIFE @I00000000306@
+1 SOUR @S01@
+0 @F81000000329@ FAM
+1 MARR
+2 DATE 18 Feb 1894
+2 PLAC Greenwich, East, Christ Church, Kent
+1 HUSB @I81000000329@
+1 WIFE @I00000000329@
+1 SOUR @S01@
+0 @F81000000331@ FAM
+1 MARR
+2 DATE 5 Nov 1899
+2 PLAC Greenwich, East, Christ Church, Kent
+1 HUSB @I81000000331@
+1 WIFE @I00000000331@
+1 SOUR @S01@
+0 @F70000000191@ FAM
+1 HUSB @I92000000191@
+1 CHIL @I00000000191@
+1 SOUR @S01@
+0 @I92000000191@ INDI
+1 NAME (?)/Venner/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000208@ FAM
+1 HUSB @I92000000208@
+1 WIFE @I91000000208@
+1 CHIL @I00000000208@
+1 SOUR @S01@
+0 @I92000000208@ INDI
+1 NAME Jacob/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000208@ INDI
+1 NAME Amey/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000305@ FAM
+1 HUSB @I92000000305@
+1 WIFE @I91000000305@
+1 CHIL @I00000000305@
+1 SOUR @S01@
+0 @I92000000305@ INDI
+1 NAME Daniel/Whiskin/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000305@ INDI
+1 NAME Catherine/Whiskin/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000349@ FAM
+1 HUSB @I92000000349@
+1 WIFE @I91000000349@
+1 CHIL @I00000000349@
+1 SOUR @S01@
+0 @I92000000349@ INDI
+1 NAME Thomas/Blackman/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000349@ INDI
+1 NAME Sarah/Blackman/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000350@ FAM
+1 HUSB @I92000000350@
+1 WIFE @I91000000350@
+1 CHIL @I00000000350@
+1 SOUR @S01@
+0 @I92000000350@ INDI
+1 NAME William/Willey/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000350@ INDI
+1 NAME Anne/Willey/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000351@ FAM
+1 HUSB @I92000000351@
+1 WIFE @I91000000351@
+1 CHIL @I00000000351@
+1 SOUR @S01@
+0 @I92000000351@ INDI
+1 NAME William/Howard/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000351@ INDI
+1 NAME Elizabeth/Howard/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000354@ FAM
+1 HUSB @I92000000354@
+1 WIFE @I91000000354@
+1 CHIL @I00000000354@
+1 SOUR @S01@
+0 @I92000000354@ INDI
+1 NAME George William Leslie/Stone/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000354@ INDI
+1 NAME Elizabeth/Stone/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000380@ FAM
+1 HUSB @I92000000380@
+1 WIFE @I91000000380@
+1 CHIL @I00000000380@
+1 SOUR @S01@
+0 @I92000000380@ INDI
+1 NAME George/Rye/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000380@ INDI
+1 NAME Harriet/Rye/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000395@ FAM
+1 HUSB @I92000000395@
+1 WIFE @I91000000395@
+1 CHIL @I00000000395@
+1 SOUR @S01@
+0 @I92000000395@ INDI
+1 NAME Peter Wycot/Price/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000395@ INDI
+1 NAME Maria/Price/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000396@ FAM
+1 HUSB @I92000000396@
+1 WIFE @I91000000396@
+1 CHIL @I00000000396@
+1 SOUR @S01@
+0 @I92000000396@ INDI
+1 NAME John/Webb/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000396@ INDI
+1 NAME Ann/Webb/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000397@ FAM
+1 HUSB @I92000000397@
+1 WIFE @I91000000397@
+1 CHIL @I00000000397@
+1 SOUR @S01@
+0 @I92000000397@ INDI
+1 NAME Elvey/Cooper/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000397@ INDI
+1 NAME Eliza/Cooper/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000398@ FAM
+1 HUSB @I92000000398@
+1 WIFE @I91000000398@
+1 CHIL @I00000000398@
+1 SOUR @S01@
+0 @I92000000398@ INDI
+1 NAME Frank/Cook/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000398@ INDI
+1 NAME Emily J./Cook/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000572@ FAM
+1 HUSB @I92000000572@
+1 WIFE @I91000000572@
+1 CHIL @I00000000572@
+1 SOUR @S01@
+0 @I92000000572@ INDI
+1 NAME Charles/Stone/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000572@ INDI
+1 NAME Elizabeth/Stone/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000593@ FAM
+1 HUSB @I92000000593@
+1 WIFE @I91000000593@
+1 CHIL @I00000000593@
+1 SOUR @S01@
+0 @I92000000593@ INDI
+1 NAME John/Harman/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000593@ INDI
+1 NAME Sarah/Harman/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000692@ FAM
+1 HUSB @I92000000692@
+1 WIFE @I91000000692@
+1 CHIL @I00000000692@
+1 SOUR @S01@
+0 @I92000000692@ INDI
+1 NAME William/Goodwin/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000692@ INDI
+1 NAME Ann/Goodwin/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000694@ FAM
+1 HUSB @I92000000694@
+1 CHIL @I00000000694@
+1 SOUR @S01@
+0 @I92000000694@ INDI
+1 NAME (?)/Goodwin/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000879@ FAM
+1 WIFE @I91000000879@
+1 CHIL @I00000000879@
+1 SOUR @S01@
+0 @I91000000879@ INDI
+1 NAME Jessy/Simmonette/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001114@ FAM
+1 HUSB @I92000001114@
+1 WIFE @I91000001114@
+1 CHIL @I00000001114@
+1 SOUR @S01@
+0 @I92000001114@ INDI
+1 NAME John/Clayton/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001114@ INDI
+1 NAME Ann/Clayton/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001115@ FAM
+1 HUSB @I92000001115@
+1 WIFE @I91000001115@
+1 CHIL @I00000001115@
+1 SOUR @S01@
+0 @I92000001115@ INDI
+1 NAME John/Blackman/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001115@ INDI
+1 NAME Jane/Blackman/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001163@ FAM
+1 HUSB @I92000001163@
+1 WIFE @I91000001163@
+1 CHIL @I00000001163@
+1 SOUR @S01@
+0 @I92000001163@ INDI
+1 NAME Thomas John/Turner/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001163@ INDI
+1 NAME Ann/Turner/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000306@ INDI
+1 NAME Joseph /Carter/
+1 SEX M
+1 FAMS @F81000000306@
+1 SOUR @S01@
+0 @I81000000329@ INDI
+1 NAME George William L. /Stone/
+1 SEX M
+1 FAMS @F81000000329@
+1 SOUR @S01@
+0 @I81000000331@ INDI
+1 NAME John Henry /Finch/
+1 SEX M
+1 FAMS @F81000000331@
+1 SOUR @S01@
+0 @I81000000397@ INDI
+1 NAME Emily /Goodwin/
+1 SEX F
+1 FAMS @F10000000397@
+1 SOUR @S01@
+0 @I81000000571@ INDI
+1 NAME Maria /Vincent/
+1 SEX F
+1 FAMS @F10000000571@
+1 SOUR @S01@
+0 @I81000000694@ INDI
+1 NAME Anne /Masters/
+1 SEX F
+1 FAMS @F10000000694@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

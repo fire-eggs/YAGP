@@ -1,0 +1,193 @@
+﻿0 HEAD
+1 SOUR RootsMagic
+2 NAME RootsMagic
+2 VERS 6.3.3.2
+2 CORP RootsMagic, Inc.
+3 ADDR PO Box 495
+4 CONT Springville, UT 84663
+4 CONT USA
+3 PHON 1-800-ROOTSMAGIC
+3 WWW www.RootsMagic.com
+1 DEST RootsMagic
+1 DATE 15 JAN 2017
+1 FILE 2017jan15caa.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @I511029@ INDI
+1 NAME George Washington /Gunter/
+2 GIVN George Washington
+2 SURN Gunter
+2 NSFX , Sr
+1 SEX M
+1 _UID EFF5DB0BC240B94ABCCFFA7EE21BF39E60B8
+1 CHAN
+2 DATE 8 JAN 2015
+1 SOUR @S59931@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S59949@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE ABT 1810
+2 _SDATE 1 JUL 1810
+2 SOUR @S59931@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S59949@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 EVEN
+2 TYPE 1835 Census rol
+2 PLAC Creek Path, AL
+2 SOUR @S59931@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S59949@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 EVEN
+2 TYPE 1851 Drennan ro
+2 PLAC Skin Bayou, 285
+2 SOUR @S59931@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S59949@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT Y
+1 FAMS @F160791@
+1 FAMC @F161488@
+1 NOTE @DWNLNOTE@
+0 @I512872@ INDI
+1 NAME Samuel /Gunter/
+2 GIVN Samuel
+2 SURN Gunter
+1 SEX M
+1 _UID 19F4EE2489347C4294DC77567CC8AF8F59D7
+1 CHAN
+2 DATE 25 JUN 2001
+1 SOUR @S59949@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1796
+2 _SDATE 1 JUL 1796
+2 PLAC Gunterville, AL
+2 SOUR @S59949@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 EVEN
+2 TYPE Clan
+2 PLAC Paint Clan (Ghi-go-ne-li)
+2 SOUR @S59949@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 EVEN
+2 TYPE 1835 Census rol
+2 PLAC Creek Path, AL
+2 SOUR @S59949@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT Y
+1 FAMS @F161488@
+1 FAMC @F161510@
+1 NOTE @DWNLNOTE@
+0 @I512892@ INDI
+1 NAME  /A-yo-ku/
+2 SURN A-yo-ku
+1 SEX F
+1 _UID 23C1F58E893BCD43B1FBEDBDAEFF5E88240A
+1 CHAN
+2 DATE 25 JUN 2001
+1 SOUR @S59949@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE ABT 1790
+2 _SDATE 1 JUL 1790
+2 SOUR @S59949@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT Y
+1 FAMS @F161488@
+1 NOTE @DWNLNOTE@
+0 @F160791@ FAM
+1 HUSB @I511029@
+0 @F161488@ FAM
+1 HUSB @I512872@
+1 WIFE @I512892@
+1 CHIL @I511029@
+0 @F161510@ FAM
+1 CHIL @I512872@
+0 @S59931@ SOUR
+1 ABBR GEDCOM file imported on 5 Jan 2015
+1 TITL GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+2 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+2 CONC orted on 5 Jan 2015.
+1 _SUBQ GEDCOM file, Swift/Melugin - Denise Swift Rootsweb Database - dswift55@
+2 CONC yahoo.com.
+1 _BIBL GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+2 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+2 CONC orted on 5 Jan 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+4 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+4 CONC orted on 5 Jan 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Swift/Melugin - Denise Swift Rootsweb Database - dswift55@
+4 CONC yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+4 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+4 CONC orted on 5 Jan 2015.
+0 @S59949@ SOUR
+1 ABBR GEDCOM file imported on 5 Jan 2015
+1 TITL GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+2 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+2 CONC orted on 5 Jan 2015.
+1 _SUBQ GEDCOM file, Swift/Melugin - Denise Swift Rootsweb Database - dswift55@
+2 CONC yahoo.com.
+1 _BIBL GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+2 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+2 CONC orted on 5 Jan 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+4 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+4 CONC orted on 5 Jan 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Swift/Melugin - Denise Swift Rootsweb Database - dswift55@
+4 CONC yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Swift/Melugin - Denise Swift Rootsweb Database - d
+4 CONC swift55@yahoo.com, http://www.rootsweb.com. Created on 19 JUL 2004. Imp
+4 CONC orted on 5 Jan 2015.
+0 @DWNLNOTE@ NOTE
+1 CONT Verify details of data for yourself; use this only as a guide
+0 TRLR

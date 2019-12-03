@@ -1,0 +1,671 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Howe of Wetherden, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:09
+1 FILE FFH_FT_Members_007
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Howe of Wetherden, Suffolk
+0 @I00000000232@ INDI
+1 NAME Henry /Howe/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1735
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 10 Nov 1783
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000232@
+1 FAMS @F10000000232@
+1 SOUR @S01@
+0 @I00000000233@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1736
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 7 May 1787
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000233@
+1 FAMS @F10000000232@
+1 SOUR @S01@
+0 @I00000000235@ INDI
+1 NAME Henry /How/
+1 SEX M
+1 CHR
+2 DATE 28 May 1758
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 7 Nov 1804
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 6 Dec 1804
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F10000000232@
+1 SOUR @S01@
+0 @I00000000236@ INDI
+1 NAME Thomas /How/
+1 SEX M
+1 CHR
+2 DATE 19 Apr 1759
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000232@
+1 SOUR @S01@
+0 @I00000000234@ INDI
+1 NAME Elizabeth /Howe/
+1 SEX F
+1 CHR
+2 DATE 31 Jul 1760
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000232@
+1 FAMS @F81000000234@
+1 SOUR @S01@
+0 @I00000000299@ INDI
+1 NAME Samuel /Fayres/
+1 SEX M
+1 CHR
+2 DATE 3 Mar 1761
+2 PLAC Brent Eleigh, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 Mar 1838
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 AGE 76y
+2 NOTE Of Ipswich.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000299@
+1 FAMS @F10000000299@
+1 SOUR @S01@
+0 @I00000000298@ INDI
+1 NAME Sarah /Howe/
+1 SEX F
+1 CHR
+2 DATE 16 Apr 1762
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Jul 1833
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 AGE 69y
+2 NOTE Of Ipswich.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000232@
+1 FAMS @F10000000299@
+1 SOUR @S01@
+0 @I00000000237@ INDI
+1 NAME Mary /Howe/
+1 SEX F
+1 CHR
+2 DATE 4 Jun 1763
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Jun 1763
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 0y
+2 NOTE An infant from Wetherden.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000232@
+1 SOUR @S01@
+0 @I00000000670@ INDI
+1 NAME John /Howe/
+1 SEX M
+1 CHR
+2 DATE 15 Jul 1767
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Feb 1822
+2 PLAC Wetherden, St. Mary, Suffolk
+2 AGE 56y
+2 NOTE Of Halstead, Essex.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000232@
+1 SOUR @S01@
+0 @I00000000671@ INDI
+1 NAME William /Howe/
+1 SEX M
+1 CHR
+2 DATE 28 Jan 1769
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000232@
+1 SOUR @S01@
+0 @I00000000672@ INDI
+1 NAME Susan /Howe/
+1 SEX F
+1 CHR
+2 DATE 27 Jun 1770
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 17 Nov 1770
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Daughter of Henry and Elizabeth Howe.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000232@
+1 SOUR @S01@
+0 @I00000000673@ INDI
+1 NAME Robert /Howe/
+1 SEX M
+1 CHR
+2 DATE 15 Jul 1771
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 May 1826
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 55y
+2 NOTE Of Haughley.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000232@
+1 FAMS @F10000000673@
+1 SOUR @S01@
+0 @I00000000674@ INDI
+1 NAME Alice /Howe/
+1 SEX F
+1 CHR
+2 DATE 12 Feb 1773
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000232@
+1 SOUR @S01@
+0 @I00000000675@ INDI
+1 NAME Susan /Howe/
+1 SEX F
+1 CHR
+2 DATE 10 Sep 1777
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000232@
+1 FAMS @F81000000675@
+1 SOUR @S01@
+0 @I00000000676@ INDI
+1 NAME Sarah /Harvey/
+1 SEX F
+1 CHR
+2 DATE 19 Feb 1782
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Base daughter.
+3 CONT Record Source: Church Register
+1 FAMC @F00000000298@
+1 SOUR @S01@
+0 @I00000000300@ INDI
+1 NAME Elizabeth /Faires/
+1 SEX F
+1 CHR
+2 DATE 14 May 1788
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000299@
+1 SOUR @S01@
+0 @I00000000301@ INDI
+1 NAME Mary Ann /Fairs/
+1 SEX F
+1 CHR
+2 DATE 13 Oct 1789
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000299@
+1 SOUR @S01@
+0 @I00000000302@ INDI
+1 NAME Samuel /Faires/
+1 SEX M
+1 CHR
+2 DATE 15 Oct 1792
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000299@
+1 SOUR @S01@
+0 @I00000000303@ INDI
+1 NAME John /Faiers/
+1 SEX M
+1 CHR
+2 DATE 17 Mar 1797
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000299@
+1 SOUR @S01@
+0 @I00000000304@ INDI
+1 NAME Henry /Faiers/
+1 SEX M
+1 CHR
+2 DATE 5 May 1800
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000299@
+1 FAMS @F10000000304@
+1 SOUR @S01@
+0 @I00000001151@ INDI
+1 NAME Henry /Howe/
+1 SEX M
+1 CHR
+2 DATE 7 Aug 1800
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 19 Aug 1803
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 2y
+2 NOTE Son of Robert Howe.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001152@ INDI
+1 NAME Mary Ann /Howe/
+1 SEX F
+1 CHR
+2 DATE 11 Apr 1802
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 8 Apr 1802
+1 BURI
+2 DATE 6 Oct 1806
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 4y
+2 NOTE Daughter of Robert Howe.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001153@ INDI
+1 NAME Henry /Howe/
+1 SEX M
+1 CHR
+2 DATE 4 Jan 1804
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001154@ INDI
+1 NAME Susanna Maria /Howe/
+1 SEX F
+1 CHR
+2 DATE 14 Oct 1804
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000673@
+1 FAMS @F81000001154@
+1 SOUR @S01@
+0 @I00000001155@ INDI
+1 NAME John Edwards /Howe/
+1 SEX M
+1 CHR
+2 DATE 31 Jan 1806
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 6 Nov 1805
+1 BURI
+2 DATE 10 Jan 1814
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 8y
+2 NOTE Of Haughley.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001156@ INDI
+1 NAME Charlotte /Howe/
+1 SEX F
+1 CHR
+2 DATE 9 Feb 1809
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 9 Jan 1809
+1 BURI
+2 DATE 23 Nov 1810
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 23m
+2 NOTE Daughter of Robert and Ann (late Edwards, spinster).
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001157@ INDI
+1 NAME Robert /Howe/
+1 SEX M
+1 CHR
+2 DATE 5 Oct 1810
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 26 Sep 1810
+1 BURI
+2 DATE 30 Jun 1811
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 10m
+2 NOTE Son of Robert and Ann (late Edwards, spinster).
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001158@ INDI
+1 NAME Mary Ann Catherine /Howe/
+1 SEX F
+1 CHR
+2 DATE 27 Feb 1812
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000673@
+1 FAMS @F81000001158@
+1 SOUR @S01@
+0 @I00000001159@ INDI
+1 NAME Charlotte Mildred /Howe/
+1 SEX F
+1 CHR
+2 DATE 10 Jan 1814
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001161@ INDI
+1 NAME Robert /Howe/
+1 SEX M
+1 CHR
+2 DATE 20 Nov 1815
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Twin.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 24 Nov 1815
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 35d
+2 NOTE Son of Robert and Ann How.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001160@ INDI
+1 NAME John /Howe/
+1 SEX M
+1 CHR
+2 DATE 20 Nov 1815
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Twin.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 24 Nov 1815
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 35d
+2 NOTE Son of Robert and Ann How.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000001162@ INDI
+1 NAME Isabella /Howe/
+1 SEX F
+1 CHR
+2 DATE 22 Dec 1816
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 17 Jun 1817
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 6m
+2 NOTE Of Haughley.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000673@
+1 SOUR @S01@
+0 @I00000000680@ INDI
+1 NAME Henry Laws /Faiers/
+1 SEX M
+1 CHR
+2 DATE 26 Aug 1833
+2 PLAC London, St. Martin Ludgate, City of London
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 Jul 1833
+1 FAMC @F10000000304@
+1 SOUR @S01@
+0 @I00000000678@ INDI
+1 NAME Emma Laws /Faiers/
+1 SEX F
+1 CHR
+2 DATE 19 Dec 1835
+2 PLAC London, St. Martin Ludgate, City of London
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 Nov 1835
+1 FAMC @F10000000304@
+1 SOUR @S01@
+0 @I00000000679@ INDI
+1 NAME Emma Elizabeth /Faiers/
+1 SEX F
+1 CHR
+2 DATE 19 Feb 1838
+2 PLAC London, St. Martin Ludgate, City of London
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 27 Jan 1838
+1 FAMC @F10000000304@
+1 SOUR @S01@
+0 @I00000000681@ INDI
+1 NAME Henry Laws /Faiers/
+1 SEX M
+1 CHR
+2 DATE 18 Dec 1841
+2 PLAC London, St. Martin Ludgate, City of London
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Dec 1841
+1 FAMC @F10000000304@
+1 SOUR @S01@
+0 @F00000000298@ FAM
+1 WIFE @I00000000298@
+1 CHIL @I00000000676@
+1 SOUR @S01@
+0 @F10000000232@ FAM
+1 MARR
+2 DATE 10 Mar 1757
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000232@
+1 WIFE @I00000000233@
+1 CHIL @I00000000234@
+1 CHIL @I00000000235@
+1 CHIL @I00000000236@
+1 CHIL @I00000000237@
+1 CHIL @I00000000298@
+1 CHIL @I00000000670@
+1 CHIL @I00000000671@
+1 CHIL @I00000000672@
+1 CHIL @I00000000673@
+1 CHIL @I00000000674@
+1 CHIL @I00000000675@
+1 SOUR @S01@
+0 @F10000000299@ FAM
+1 MARR
+2 DATE 12 Jun 1787
+2 PLAC Hadleigh, St. Mary, Suffolk
+1 HUSB @I00000000299@
+1 WIFE @I00000000298@
+1 CHIL @I00000000300@
+1 CHIL @I00000000301@
+1 CHIL @I00000000302@
+1 CHIL @I00000000303@
+1 CHIL @I00000000304@
+1 SOUR @S01@
+0 @F10000000302@ FAM
+1 MARR
+2 DATE 3 Apr 1815
+2 PLAC Colchester, St. Mary at the Walls, Essex
+1 HUSB @I00000000302@
+1 WIFE @I81000000302@
+1 SOUR @S01@
+0 @F10000000304@ FAM
+1 MARR
+2 DATE 8 Aug 1824
+2 PLAC Norwich, St. John Timberhill, Norfolk
+1 HUSB @I00000000304@
+1 WIFE @I81000000304@
+1 CHIL @I00000000678@
+1 CHIL @I00000000679@
+1 CHIL @I00000000680@
+1 CHIL @I00000000681@
+1 SOUR @S01@
+0 @F10000000673@ FAM
+1 MARR
+2 DATE 30 Sep 1799
+2 PLAC Haughley, St. Mary, Suffolk
+1 HUSB @I00000000673@
+1 WIFE @I81000000673@
+1 CHIL @I00000001151@
+1 CHIL @I00000001152@
+1 CHIL @I00000001153@
+1 CHIL @I00000001154@
+1 CHIL @I00000001155@
+1 CHIL @I00000001156@
+1 CHIL @I00000001157@
+1 CHIL @I00000001158@
+1 CHIL @I00000001159@
+1 CHIL @I00000001160@
+1 CHIL @I00000001161@
+1 CHIL @I00000001162@
+1 SOUR @S01@
+0 @F20000000302@ FAM
+1 MARR
+2 DATE 7 Aug 1849
+2 PLAC Ipswich, St. Matthew, Suffolk
+1 HUSB @I00000000302@
+1 WIFE @I82000000302@
+1 SOUR @S01@
+0 @F81000000234@ FAM
+1 MARR
+2 DATE 10 Nov 1788
+2 PLAC Wetherden, St. Mary, Suffolk
+1 HUSB @I81000000234@
+1 WIFE @I00000000234@
+1 SOUR @S01@
+0 @F81000000675@ FAM
+1 MARR
+2 DATE 2 Sep 1805
+2 PLAC Shelland, King Charles the Martyr, Suffolk
+1 HUSB @I81000000675@
+1 WIFE @I00000000675@
+1 SOUR @S01@
+0 @F81000001154@ FAM
+1 MARR
+2 DATE 19 Sep 1825
+2 PLAC Haughley, St. Mary, Suffolk
+1 HUSB @I81000001154@
+1 WIFE @I00000001154@
+1 SOUR @S01@
+0 @F81000001158@ FAM
+1 MARR
+2 DATE 27 Feb 1833
+2 PLAC Haughley, St. Mary, Suffolk
+1 HUSB @I81000001158@
+1 WIFE @I00000001158@
+1 SOUR @S01@
+0 @F70000000232@ FAM
+1 HUSB @I92000000232@
+1 CHIL @I00000000232@
+1 SOUR @S01@
+0 @I92000000232@ INDI
+1 NAME (?)/Howe/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000233@ FAM
+1 HUSB @I92000000233@
+1 WIFE @I91000000233@
+1 CHIL @I00000000233@
+1 SOUR @S01@
+0 @I92000000233@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000233@ INDI
+1 NAME Sarah/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000299@ FAM
+1 HUSB @I92000000299@
+1 WIFE @I91000000299@
+1 CHIL @I00000000299@
+1 SOUR @S01@
+0 @I92000000299@ INDI
+1 NAME Samuel/Fayres/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000299@ INDI
+1 NAME Mary/Fayres/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000234@ INDI
+1 NAME John /Bird/
+1 SEX M
+1 FAMS @F81000000234@
+1 SOUR @S01@
+0 @I81000000302@ INDI
+1 NAME Elizabeth /Plamplin/
+1 SEX F
+1 FAMS @F10000000302@
+1 SOUR @S01@
+0 @I81000000304@ INDI
+1 NAME Elizabeth /Laws/
+1 SEX F
+1 FAMS @F10000000304@
+1 SOUR @S01@
+0 @I81000000673@ INDI
+1 NAME Ann /Edwards/
+1 SEX F
+1 FAMS @F10000000673@
+1 SOUR @S01@
+0 @I81000000675@ INDI
+1 NAME Robert /Lusher/
+1 SEX M
+1 FAMS @F81000000675@
+1 SOUR @S01@
+0 @I81000001154@ INDI
+1 NAME Thomas /Mudd/
+1 SEX M
+1 FAMS @F81000001154@
+1 SOUR @S01@
+0 @I81000001158@ INDI
+1 NAME Zephaniah /Rye/
+1 SEX M
+1 FAMS @F81000001158@
+1 SOUR @S01@
+0 @I82000000302@ INDI
+1 NAME Mary Ann /Garrod/
+1 SEX F
+1 FAMS @F20000000302@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

@@ -1,0 +1,1068 @@
+0 HEAD
+1 SOUR webtrees
+2 NAME webtrees
+2 VERS 1.7.2
+1 DEST DISKETTE
+1 DATE 29 JAN 2016
+2 TIME 11:58:38
+1 GEDC
+2 VERS 5.5.1
+2 FORM Lineage-Linked
+1 CHAR UTF-8
+1 FILE BRIDGWATER
+1 PLAC
+2 FORM City, County, State/Province, Country
+1 SUBM @SUB1@
+0 @I1@ INDI
+1 NAME Charles /LOVELOCK/
+2 GIVN Charles
+2 SURN LOVELOCK
+1 SEX M
+1 NOTE Charles was buried in Bridgwater on either 17 Oct 1756 or 7 Jan 1759.
+1 SOUR @S1@
+2 QUAY 3
+1 DEAT Y
+1 FAMS @F1@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:13:07
+0 @I10@ INDI
+1 NAME Elizabeth /LOVELOCK/
+2 GIVN Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+1 DEAT
+1 CHR
+2 DATE 30 JUL 1738
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMS @F4@
+1 FAMC @F1@
+0 @I11@ INDI
+1 NAME Joseph /LOVELOCK/
+2 GIVN Joseph
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 11 MAR 1740
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMS @F5@
+1 FAMC @F1@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:22:17
+0 @I12@ INDI
+1 NAME Sarah /HEAPE/
+2 GIVN Sarah
+2 SURN HEAPE
+1 SEX F
+1 FAMS @F2@
+1 BIRT Y
+1 DEAT Y
+1 CHAN
+2 DATE 27 DEC 2015
+3 TIME 00:03:06
+2 _WT_USER graham rl
+0 @I13@ INDI
+1 NAME Sarah /WEEKS/
+2 GIVN Sarah
+2 SURN WEEKS
+1 SEX F
+1 BIRT
+1 DEAT
+1 FAMS @F3@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 14:16:52
+1 DEAT Y
+0 @I14@ INDI
+1 NAME Thomas /CALLADINE/
+2 GIVN Thomas
+2 SURN CALLADINE
+1 SEX M
+1 BIRT
+1 DEAT
+1 FAMS @F4@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 13:34:06
+1 DEAT Y
+0 @I15@ INDI
+1 NAME Mary /RICHARDS/
+2 GIVN Mary
+2 SURN RICHARDS
+1 SEX F
+1 BIRT
+1 DEAT
+1 FAMS @F5@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 14:15:46
+1 DEAT Y
+0 @I16@ INDI
+1 NAME Ann /LOVELOCK/
+2 GIVN Ann
+2 SURN LOVELOCK
+1 SEX F
+1 CHR
+2 DATE 1 FEB 1771
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F2@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 14:21:56
+1 DEAT Y
+0 @I17@ INDI
+1 NAME Betty /LOVELOCK/
+2 GIVN Betty
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 9 OCT 1771
+2 PLAC Bridgwater, Somerset, England
+2 NOTE Baptism Register records Betty's surname as LOVELUCK.
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F2@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:11:59
+0 @I18@ INDI
+1 NAME Henry /LOVELOCK/
+2 GIVN Henry
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+1 CHR
+2 DATE 16 JAN 1774
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 BURI
+2 DATE 30 DEC 1778
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F2@
+1 DEAT Y
+1 CHAN
+2 DATE 27 DEC 2015
+3 TIME 00:02:26
+2 _WT_USER graham rl
+0 @I19@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 CHR
+2 DATE 9 DEC 1776
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F2@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:18:50
+1 DEAT Y
+0 @I2@ INDI
+1 NAME Catherine /PLAYER/
+2 GIVN Catherine
+2 SURN PLAYER
+1 SEX F
+1 CHR
+2 DATE 9 NOV 1698
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 BURI
+2 DATE 26 MAR 1769
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMS @F1@
+1 BIRT Y
+1 DEAT Y
+1 CHAN
+2 DATE 27 DEC 2015
+3 TIME 00:04:14
+2 _WT_USER graham rl
+0 @I20@ INDI
+1 NAME John /LOVELOCK/
+2 GIVN John
+2 SURN LOVELOCK
+1 SEX M
+1 CHR
+2 DATE 6 OCT 1779
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F2@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:20:24
+1 DEAT Y
+0 @I21@ INDI
+1 NAME Unknown /LOVELOCK/
+2 GIVN Unknown
+2 SURN LOVELOCK
+1 SEX M
+1 DEAT Y
+1 BURI
+2 DATE 24 AUG 1760
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F3@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:26:41
+0 @I22@ INDI
+1 NAME Sarah /LOVELOCK/
+2 GIVN Sarah
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 25 SEP 1761
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F3@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:24:37
+0 @I23@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 24 APR 1763
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 BURI
+2 DATE 16 AUG 1778
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F3@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:19:51
+0 @I24@ INDI
+1 NAME Charles /LOVELOCK/
+2 GIVN Charles
+2 SURN LOVELOCK
+1 SEX M
+1 NOTE Charles may be the man who married Eleanor CLELAND on 7 Jul 1786 at St Bride's, Fleet Street, London, England, and became the progenitor of the 'St Pancras (Main) Tree'.
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 17 MAY 1765
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F3@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:14:08
+0 @I25@ INDI
+1 NAME Unknown /LOVELOCK/
+2 GIVN Unknown
+2 SURN LOVELOCK
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 3 FEB 1768
+2 PLAC Bridgwater, Somerset, England
+2 NOTE This child was recorded only as 'A child of James LOVELUCK'.
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F3@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:27:26
+0 @I26@ INDI
+1 NAME Elizabeth /LOVELOCK/
+2 GIVN Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 DEAT Y
+1 BURI
+2 DATE 8 OCT 1769
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F3@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:15:19
+0 @I27@ INDI
+1 NAME John /LOVELOCK/
+2 GIVN John
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE ABT 1771
+2 SOUR @S1@
+3 QUAY 3
+1 DEAT Y
+1 CHR
+2 DATE 4 APR 1774
+2 PLAC Bridgwater, Somerset, England
+2 NOTE Received into the church when 3 years old.
+3 CONT
+3 CONT Baptism Register records John's surname as LOVELUCK.
+2 SOUR @S1@
+3 QUAY 3
+1 BURI
+2 DATE 24 SEP 1775
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F3@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:21:32
+0 @I28@ INDI
+1 NAME Thomas /LOVELOCK/
+2 GIVN Thomas
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 2 MAR 1769
+2 PLAC Bath, Somerset, England
+2 SOUR @S4@
+3 QUAY 3
+1 FAMC @F5@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:26:10
+0 @I29@ INDI
+1 NAME Joseph Calladine /LOVELOCK/
+2 GIVN Joseph Calladine
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 12 JUN 1775
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 CHR
+2 DATE 15 SEP 1780
+2 PLAC Holborn, Middlesex, England
+2 SOUR @S5@
+3 QUAY 3
+1 BURI
+2 DATE 4 SEP 1825
+2 PLAC Hampstead, Middlesex, England
+2 NOTE Burial Register records the entry as Joseph Balladine Lovelock.
+2 SOUR @S6@
+3 QUAY 3
+1 FAMS @F6@
+1 FAMS @F7@
+1 FAMC @F5@
+1 CHAN
+2 DATE 27 JAN 2016
+3 TIME 17:37:24
+2 _WT_USER graham rl
+0 @I3@ INDI
+1 NAME Sarah /LOVELOCK/
+2 GIVN Sarah
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 3 FEB 1726
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F1@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:25:44
+0 @I30@ INDI
+1 NAME Benjamin /LOVELOCK/
+2 GIVN Benjamin
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE ABT MAR 1780
+2 SOUR @S5@
+3 QUAY 3
+1 DEAT Y
+1 CHR
+2 DATE 15 SEP 1780
+2 PLAC Holborn, Middlesex, England
+2 NOTE Baptism Register records that Benjamin was 6 months old.
+2 SOUR @S5@
+3 QUAY 3
+1 FAMC @F5@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:10:01
+0 @I31@ INDI
+1 NAME Catherine Mary /LOVELOCK/
+2 GIVN Catherine Mary
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE ABT 1782
+2 SOUR @S5@
+3 QUAY 3
+1 DEAT Y
+1 CHR
+2 DATE 15 DEC 1794
+2 PLAC Holborn, Middlesex, England
+2 NOTE Baptism Register records that Catherine was 12 years old.
+2 SOUR @S5@
+3 QUAY 3
+1 FAMC @F5@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:12:35
+0 @I32@ INDI
+1 NAME Ann /ARMSTRONG/
+2 GIVN Ann
+2 SURN ARMSTRONG
+1 SEX F
+1 BIRT
+1 DEAT
+1 FAMS @F6@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 12:29:55
+1 DEAT Y
+0 @I33@ INDI
+1 NAME Alfred /LOVELOCK/
+2 GIVN Alfred
+2 SURN LOVELOCK
+1 SEX M
+1 CHR
+2 DATE 4 OCT 1801
+2 PLAC Holborn, Middlesex, England
+2 SOUR @S5@
+3 QUAY 3
+1 BURI
+2 DATE 24 JUN 1831
+2 PLAC Rotherhithe, Surrey, England
+2 NOTE Burial Register records that Alfred was a Butcher aged 28 of RussellStreet.
+2 SOUR @S7@
+3 QUAY 3
+1 FAMC @F6@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 14:21:01
+1 DEAT Y
+0 @I34@ INDI
+1 NAME Ann Elizabeth /LOVELOCK/
+2 GIVN Ann Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 28 APR 1804
+2 SOUR @S8@
+3 QUAY 3
+1 CHR
+2 DATE 30 JUL 1809
+2 PLAC Soho, Westminster, England
+2 SOUR @S8@
+3 QUAY 3
+1 FAMC @F6@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:56:05
+1 DEAT Y
+0 @I35@ INDI
+1 NAME Charlotte /LOVELOCK/
+2 GIVN Charlotte
+2 SURN LOVELOCK
+1 SEX F
+1 NOTE Charlotte's existence is apparently only documented in her father'sLast Will and Testament.
+1 DEAT Y
+1 FAMC @F6@
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:14:46
+0 @I36@ INDI
+1 NAME William /LOVELOCK/
+2 GIVN William
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 25 OCT 1815
+2 SOUR @S9@
+3 QUAY 3
+1 DEAT Y
+1 CHR
+2 DATE 26 NOV 1815
+2 PLAC Marylebone, Middlesex, England
+2 NOTE The IGI transcription of the Baptism Register entry names William'sparents as Joseph and Elizabeth, but this is assumed to be in error.
+2 SOUR @S9@
+3 QUAY 3
+1 FAMC @F6@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:27:57
+0 @I37@ INDI
+1 NAME Ann /HALE/
+2 GIVN Ann
+2 SURN HALE
+1 SEX F
+1 BIRT
+1 DEAT
+1 CHR
+2 DATE 18 SEP 1791
+2 PLAC Hampstead, Middlesex, England
+2 SOUR @S6@
+3 QUAY 3
+1 FAMS @F7@
+1 CENS
+2 DATE 1841
+2 NOTE Southworth, Rotherhithe, Surrey
+3 CONT HO107 1067/8 F4 P1
+3 CONT
+3 CONT Jonathan Hall;40;Publican;Not Surrey
+3 CONT Ann Hall;43;Wife;Not Surrey
+3 CONT Ann Lovelock;15;;Not Surrey
+3 CONT Joseph Lovelock;17;Apprentice;Surrey
+3 CONT Emma Lovelock;13;;Surrey
+3 CONT ...(?) Hall (Female);6;;Surrey
+3 CONT Jane Hall;3;;Surrey
+3 CONT Hannah Murphy;19;F Servant;I(reland)
+3 CONT Jane ...(?);20;F Servant;Not Surrey
+3 CONT Henry Grosvenor (?) ;20;Male Servant;Not Surrey
+3 CONT James Earl;16;Male Servant;Not Surrey
+1 BIRT Y
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 12:51:05
+1 DEAT Y
+0 @I38@ INDI
+1 NAME Ann /LOVELOCK/
+2 GIVN Ann
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 10 OCT 1819
+2 SOUR @S9@
+3 QUAY 3
+1 DEAT
+2 DATE 11 NOV 1850
+2 SOUR @S11@
+3 PAGE Wandsworth RD, ref 4 430
+3 QUAY 3
+2 SOUR @S14@
+3 PAGE National Probate Calendar noted 'Letters of Administration. Of theStar and Garter, Putney, Surrey, spinster, died 11 Nov 1850 leftunadministered by Joseph Hale Lovelock, brother.'.
+3 QUAY 3
+1 CHR
+2 DATE 3 NOV 1819
+2 PLAC Marylebone, Middlesex, England
+2 SOUR @S9@
+3 QUAY 3
+1 BURI
+2 DATE 15 NOV 1850
+2 PLAC Putney, Surrey, England
+2 SOUR @S10@
+3 QUAY 3
+1 FAMC @F7@
+1 CENS
+2 DATE 1841
+2 NOTE Southworth, Rotherhithe, Surrey
+3 CONT HO107 1067/8 F4 P1
+3 CONT
+3 CONT Jonathan Hall;40;Publican;Not Surrey
+3 CONT Ann Hall;43;Wife;Not Surrey
+3 CONT Ann Lovelock;15;;Not Surrey
+3 CONT Joseph Lovelock;17;Apprentice;Surrey
+3 CONT Emma Lovelock;13;;Surrey
+3 CONT ...(?) Hall (Female);6;;Surrey
+3 CONT Jane Hall;3;;Surrey
+3 CONT Hannah Murphy;19;F Servant;I(reland)
+3 CONT Jane ...(?);20;F Servant;Not Surrey
+3 CONT Henry Grosvenor (?) ;20;Male Servant;Not Surrey
+3 CONT James Earl;16;Male Servant;Not Surrey
+0 @I39@ INDI
+1 NAME Joseph Hale /LOVELOCK/
+2 GIVN Joseph Hale
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 26 AUG 1821
+2 SOUR @S7@
+3 QUAY 3
+1 DEAT
+2 DATE 22 OCT 1860
+2 SOUR @S11@
+3 PAGE Medway RD, ref 2a 208
+3 QUAY 3
+2 SOUR @S14@
+3 PAGE Joseph's address was noted in the National Probate Calendar as 5 ParkTerrace, New Brompton, Gillingham, Kent.
+3 QUAY 3
+1 CHR
+2 DATE 23 SEP 1821
+2 PLAC Rotherhithe, Surrey, England
+2 SOUR @S7@
+3 QUAY 3
+1 FAMS @F8@
+1 FAMC @F7@
+1 CENS
+2 DATE 1841
+2 NOTE Southworth, Rotherhithe, Surrey
+3 CONT HO107 1067/8 F4 P1
+3 CONT
+3 CONT Jonathan Hall;40;Publican;Not Surrey
+3 CONT Ann Hall;43;Wife;Not Surrey
+3 CONT Ann Lovelock;15;;Not Surrey
+3 CONT Joseph Lovelock;17;Apprentice;Surrey
+3 CONT Emma Lovelock;13;;Surrey
+3 CONT ...(?) Hall (Female);6;;Surrey
+3 CONT Jane Hall;3;;Surrey
+3 CONT Hannah Murphy;19;F Servant;I(reland)
+3 CONT Jane ...(?);20;F Servant;Not Surrey
+3 CONT Henry Grosvenor (?) ;20;Male Servant;Not Surrey
+3 CONT James Earl;16;Male Servant;Not Surrey
+1 CENS
+2 DATE 1851
+2 NOTE Star and Garter Tavern, 1 Windsor Street, Wandsworth, Surrey, England
+3 CONT HO107 1579  F98  P7
+3 CONT
+3 CONT Joseph Lovelock;Head;29;Licensed Victualler;Rotherhithe, Surrey
+3 CONT Emma Lovelock;Sister;26;Licensed Victualler;Rotherhithe, Surrey
+3 CONT Martha Speck;Servt;30;Cook;Wroughton, Wilts
+3 CONT Mary Laurence;Servt;20;House Maid;New Romney, Kent
+3 CONT Edward Babington;Visitor;30;Gentleman;Kead, Lincs
+3 CONT Jane H Babington;Visitor;31;;Hampton, Wilts
+3 CONT John Babington;Visitor;24;Gentleman;Spilsby, Lincs
+0 @I4@ INDI
+1 NAME Betty /LOVELOCK/
+2 GIVN Betty
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 5 JUL 1728
+2 PLAC Bridgwater, Somerset, England
+2 NOTE Baptism Register records Betty's surname as LOVELUCK.
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F1@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:11:10
+0 @I40@ INDI
+1 NAME Emma /LOVELOCK/
+2 GIVN Emma
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 10 NOV 1824
+2 SOUR @S7@
+3 QUAY 3
+1 DEAT
+2 DATE 15 AUG 1863
+2 SOUR @S11@
+3 PAGE Kensington RD, ref 1a 79
+3 QUAY 3
+2 SOUR @S14@
+3 PAGE The National Probate Calendar for 1870 notes 'Of 27A MontpelierSquare, Brompton, Middx. Died 15 Aug 1863.'.
+4 CONT
+4 CONT
+3 QUAY 3
+1 CHR
+2 DATE 5 DEC 1824
+2 PLAC Rotherhithe, Surrey, England
+2 SOUR @S7@
+3 QUAY 3
+1 FAMC @F7@
+1 CENS
+2 DATE 1841
+2 NOTE Southworth, Rotherhithe, Surrey
+3 CONT HO107 1067/8 F4 P1
+3 CONT
+3 CONT Jonathan Hall;40;Publican;Not Surrey
+3 CONT Ann Hall;43;Wife;Not Surrey
+3 CONT Ann Lovelock;15;;Not Surrey
+3 CONT Joseph Lovelock;17;Apprentice;Surrey
+3 CONT Emma Lovelock;13;;Surrey
+3 CONT ...(?) Hall (Female);6;;Surrey
+3 CONT Jane Hall;3;;Surrey
+3 CONT Hannah Murphy;19;F Servant;I(reland)
+3 CONT Jane ...(?);20;F Servant;Not Surrey
+3 CONT Henry Grosvenor (?) ;20;Male Servant;Not Surrey
+3 CONT James Earl;16;Male Servant;Not Surrey
+1 CENS
+2 DATE 1851
+2 NOTE Star and Garter Tavern, 1 Windsor Street, Wandsworth, Surrey, England
+3 CONT HO107 1579  F98  P7
+3 CONT
+3 CONT Joseph Lovelock;Head;29;Licensed Victualler;Rotherhithe, Surrey
+3 CONT Emma Lovelock;Sister;26;Licensed Victualler;Rotherhithe, Surrey
+3 CONT Martha Speck;Servt;30;Cook;Wroughton, Wilts
+3 CONT Mary Laurence;Servt;20;House Maid;New Romney, Kent
+3 CONT Edward Babington;Visitor;30;Gentleman;Kead, Lincs
+3 CONT Jane H Babington;Visitor;31;;Hampton, Wilts
+3 CONT John Babington;Visitor;24;Gentleman;Spilsby, Lincs
+1 CENS
+2 DATE 1861
+2 NOTE Halliford Green, Shepperton, Middlesex, England
+3 CONT RG9 762 F97 P8
+3 CONT
+3 CONT Thomas L Peacock;Head, Widr;75;Retired Civil Officer, East India Compy's Home Service;Weymouth, Dorset
+3 CONT Mary Rosewell;Adopted Daughter;37;;Shepperton, Middx
+3 CONT Jane R Hart;Serv;47;House Servant;Acton, Middx
+3 CONT Eliza Smith;Serv;40;House Servant;City of London
+3 CONT Edward G Peacock;Son;35;Solicitor's Articled Clerk;Christchurch, Surrey
+3 CONT Mary Peacock;Daur in law;30;;Rotherhithe, Surrey
+3 CONT Thomas L Peacock;Grandson;9;;St Johns Wood, Middx
+3 CONT Emma Lovelock;Visitor;36;;Rotherhithe, Surrey
+0 @I41@ INDI
+1 NAME Martha /SPECK/
+2 GIVN Martha
+2 SURN SPECK
+1 SEX F
+1 CHR
+2 DATE 6 FEB 1820
+2 PLAC Wroughton, Wiltshire, England
+2 SOUR @S13@
+3 QUAY 3
+1 FAMS @F8@
+1 CENS
+2 DATE 1851
+2 NOTE Star and Garter Tavern, 1 Windsor Street, Wandsworth, Surrey, England
+3 CONT HO107 1579  F98  P7
+3 CONT
+3 CONT Joseph Lovelock;Head;29;Licensed Victualler;Rotherhithe, Surrey
+3 CONT Emma Lovelock;Sister;26;Licensed Victualler;Rotherhithe, Surrey
+3 CONT Martha Speck;Servt;30;Cook;Wroughton, Wilts
+3 CONT Mary Laurence;Servt;20;House Maid;New Romney, Kent
+3 CONT Edward Babington;Visitor;30;Gentleman;Kead, Lincs
+3 CONT Jane H Babington;Visitor;31;;Hampton, Wilts
+3 CONT John Babington;Visitor;24;Gentleman;Spilsby, Lincs
+1 DEAT
+2 DATE BET JUL 1882 AND SEP 1882
+2 SOUR @S11@
+3 DATA
+4 TEXT Medway RD, ref 2a 269  (age 63)
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 14:16:25
+1 CENS
+2 DATE 1861
+2 NOTE Mansion Row, Gillingham, Kent, England
+3 CONT RG9 480  F20  P46
+3 CONT
+3 CONT Martha Lovelock;Head, Wid;40;Fundholder;Wroughton, Wilts
+3 CONT Ann Hall;Visitor, Wid;69;Fundholder;Hampsted (sic), Middx
+1 FAMS @F9@
+1 BIRT Y
+0 @I42@ INDI
+1 NAME John /WELLS/
+2 GIVN John
+2 SURN WELLS
+1 SEX M
+1 BIRT
+2 DATE BET 1817 AND 1818
+2 PLAC Gillingham, Kent, England
+2 SOUR @s17@
+1 DEAT Y
+1 FAMS @F9@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 13:33:13
+0 @I5@ INDI
+1 NAME Charles /LOVELOCK/
+2 GIVN Charles
+2 SURN LOVELOCK
+1 SEX M
+1 NOTE Charles was buried in Bridgwater on either 17 Oct 1756 or 7 Jan 1759.
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 27 SEP 1730
+2 PLAC Bridgwater, Somerset, England
+2 NOTE Baptism Register records Charles' surname as LOVELACE.
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F1@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:13:42
+0 @I6@ INDI
+1 NAME Elizabeth /LOVELOCK/
+2 GIVN Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+1 DEAT
+1 CHR
+2 DATE 19 APR 1732
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F1@
+0 @I7@ INDI
+1 NAME John /LOVELOCK/
+2 GIVN John
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 19 AUG 1733
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 BURI
+2 DATE 1 MAR 1783
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMS @F2@
+1 FAMC @F1@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:20:52
+0 @I8@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 31 JAN 1734
+2 PLAC Bridgwater, Somerset, England
+2 NOTE Baptism Register records James' surname as LOVELUCK.
+2 SOUR @S1@
+3 QUAY 3
+1 FAMS @F3@
+1 FAMC @F1@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:19:19
+0 @I9@ INDI
+1 NAME Frances /LOVELOCK/
+2 GIVN Frances
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT Y
+1 DEAT Y
+1 CHR
+2 DATE 20 FEB 1736
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+1 FAMC @F1@
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:17:34
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 CHIL @I9@
+1 CHIL @I10@
+1 CHIL @I11@
+1 MARR
+2 DATE 7 FEB 1725
+2 PLAC Glastonbury, Somerset, England
+2 SOUR @S3@
+3 QUAY 3
+0 @F2@ FAM
+1 HUSB @I7@
+1 WIFE @I12@
+1 CHIL @I16@
+1 CHIL @I17@
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHIL @I20@
+1 MARR
+2 DATE 16 OCT 1770
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+0 @F3@ FAM
+1 HUSB @I8@
+1 WIFE @I13@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHIL @I23@
+1 CHIL @I24@
+1 CHIL @I25@
+1 CHIL @I26@
+1 CHIL @I27@
+1 MARR
+2 DATE 4 NOV 1759
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+0 @F4@ FAM
+1 HUSB @I14@
+1 WIFE @I10@
+1 MARR
+2 DATE 16 OCT 1768
+2 PLAC St Clement Danes, London, Middlesex, England
+2 SOUR @S2@
+3 QUAY 3
+0 @F5@ FAM
+1 HUSB @I11@
+1 WIFE @I15@
+1 CHIL @I28@
+1 CHIL @I29@
+1 CHIL @I30@
+1 CHIL @I31@
+1 MARR
+2 DATE 20 JAN 1765
+2 PLAC Bridgwater, Somerset, England
+2 SOUR @S1@
+3 QUAY 3
+0 @F6@ FAM
+1 HUSB @I29@
+1 WIFE @I32@
+1 CHIL @I33@
+1 CHIL @I34@
+1 CHIL @I35@
+1 CHIL @I36@
+1 MARR
+0 @F7@ FAM
+1 HUSB @I29@
+1 WIFE @I37@
+1 CHIL @I38@
+1 CHIL @I39@
+1 CHIL @I40@
+1 MARR
+2 DATE 1818
+2 PLAC Hampstead, Middlesex, England
+2 NOTE Joseph was 'of St Ann, Blackfriars', and the witnesses were Philip Hale and Mary Ann Hale.
+2 SOUR @S6@
+3 QUAY 3
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 15:57:26
+0 @F8@ FAM
+1 HUSB @I39@
+1 WIFE @I41@
+1 MARR
+2 DATE 01 DEC 1851
+2 SOUR @S12@
+3 PAGE West Ham RD, ref 12 539
+3 QUAY 3
+2 TYPE Religious
+2 PLAC St John the Baptist, Leytonstone, Essex, England
+2 SOUR @s15@
+2 NOTE Both apparently claimed to be aged 21 at their marriage, but this may be a 'FamilySearch' interpretation of 'Full Age'.
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 12:44:45
+0 @F9@ FAM
+1 HUSB @I42@
+1 WIFE @I41@
+1 MARR
+2 DATE 21 AUG 1867
+2 PLAC St Mary the Virgin, Dover, Kent, England
+2 SOUR @s16@
+2 SOUR @S12@
+3 DATA
+4 TEXT Dover RD, ref 2a 1301
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 13:21:07
+0 @S1@ SOUR
+1 ABBR Bridgwater Parish Registers
+1 TITL Bridgwater Parish Registers
+0 @S10@ SOUR
+1 ABBR St Mary Putney Parish Registers
+1 TITL St Mary Putney Parish Registers
+0 @S11@ SOUR
+1 ABBR GRO Index of Deaths
+1 TITL GRO Index of Deaths
+0 @S12@ SOUR
+1 ABBR GRO Index of Marriages
+1 TITL GRO Index of Marriages
+0 @S13@ SOUR
+1 ABBR Wroughton Parish Registers
+1 TITL Wroughton Parish Registers
+0 @S14@ SOUR
+1 ABBR National Probate Calendars
+1 TITL National Probate Calendars
+0 @S15@ SOUR
+1 TITL 'Lovelocks in Essex' data on main Lovelock website
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 12:43:00
+0 @S16@ SOUR
+1 TITL 'Lovelocks in Kent' data on main Lovelock website
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 13:17:16
+0 @S17@ SOUR
+1 TITL 1871 Census
+1 CHAN
+2 DATE 13 MAY 2015
+3 TIME 13:33:04
+0 @S2@ SOUR
+1 ABBR St Clement Danes Parish Registers
+1 TITL St Clement Danes Parish Registers
+0 @S3@ SOUR
+1 ABBR Glastonbury Parish Registers
+1 TITL Glastonbury Parish Registers
+0 @S4@ SOUR
+1 ABBR St Peter and St Paul Bath Parish Registers
+1 TITL St Peter and St Paul Parish Registers
+0 @S5@ SOUR
+1 ABBR St Andrew Holborn Parish Registers
+1 TITL St Andrew Parish Registers
+0 @S6@ SOUR
+1 ABBR St John Hampstead Parish Registers
+1 TITL St John Parish Registers
+0 @S7@ SOUR
+1 ABBR St Mary Rotherhithe Parish Registers
+1 TITL St Mary Rotherhithe Parish Registers
+0 @S8@ SOUR
+1 ABBR St Anne Soho Parish Registers
+1 TITL St Anne Soho Parish Registers
+0 @S9@ SOUR
+1 ABBR St Marylebone Parish Registers
+1 TITL St Marylebone Parish Registers
+0 @SUB1@ SUBM
+1 NAME gl
+0 TRLR

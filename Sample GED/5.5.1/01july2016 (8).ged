@@ -1,0 +1,161 @@
+﻿0 HEAD
+1 SOUR RootsMagic
+2 NAME RootsMagic
+2 VERS 6.3.3.2
+2 CORP RootsMagic, Inc.
+3 ADDR PO Box 495
+4 CONT Springville, UT 84663
+4 CONT USA
+3 PHON 1-800-ROOTSMAGIC
+3 WWW www.RootsMagic.com
+1 DEST RootsMagic
+1 DATE 15 JAN 2017
+1 FILE 2017jan15caa.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @I277408@ INDI
+1 NAME James /Beall/
+2 GIVN James
+2 SURN Beall
+2 NICK +Margaret Smith Benson, 1780
+1 SEX M
+1 _UID 0A48AAF5737D2840B0F909754A91A7A092BF
+1 CHAN
+2 DATE 27 JUL 2012
+1 _COLOR 6
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1774
+2 _SDATE 1 JUL 1774
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT Y
+1 FAMS @F83421@
+1 FAMC @F83402@
+1 NOTE @DWNLNOTE@
+0 @I277409@ INDI
+1 NAME Margaret Smith /Benson/
+2 GIVN Margaret Smith
+2 SURN Benson
+2 NICK +James Beall, 1774
+1 SEX F
+1 _UID 4BF56F57D8EE6249B7865F8B16D71A25CAD0
+1 CHAN
+2 DATE 27 JUL 2012
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1780
+2 _SDATE 1 JUL 1780
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT Y
+1 FAMS @F83421@
+1 NOTE @DWNLNOTE@
+0 @I277410@ INDI
+1 NAME Emory Montgomery /Beall/
+2 GIVN Emory Montgomery
+2 SURN Beall
+2 NSFX [8 children]
+2 NICK +Margaret Pyles
+1 SEX M
+1 _UID BD6C957149A313408FD52435D69BB9FE5337
+1 CHAN
+2 DATE 27 JUL 2012
+1 _COLOR 6
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1806
+2 _SDATE 1 JUL 1806
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT Y
+1 FAMS @F83422@
+1 FAMC @F83421@
+1 NOTE @DWNLNOTE@
+0 @I277411@ INDI
+1 NAME Margaret /Pyles/
+2 GIVN Margaret
+2 SURN Pyles
+2 NICK +Emory Montgomery Beall, 1806
+1 SEX F
+1 _UID 00547BDB7F1A714EBE7F5B827A7FCDC4A6D7
+1 CHAN
+2 DATE 27 JUL 2012
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 FAMS @F83422@
+1 NOTE @DWNLNOTE@
+0 @F83402@ FAM
+1 CHIL @I277408@
+1 MARR
+2 DATE 3 APR 1752
+2 PLAC Beltsville, Maryland
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F83421@ FAM
+1 HUSB @I277408@
+1 WIFE @I277409@
+1 CHIL @I277410@
+1 MARR
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F83422@ FAM
+1 HUSB @I277410@
+1 WIFE @I277411@
+1 MARR
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @S1@ SOUR
+1 ABBR GEDCOM file imported on 14 Mar 2014
+1 TITL GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+2 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+2 CONC ed on 14 Mar 2014.
+1 _SUBQ GEDCOM file, Cathy Abernathy - GEDCOM archive from harddrive - recovere
+2 CONC d file.
+1 _BIBL GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+2 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+2 CONC ed on 14 Mar 2014.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+4 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+4 CONC ed on 14 Mar 2014.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Cathy Abernathy - GEDCOM archive from harddrive - recovere
+4 CONC d file.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+4 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+4 CONC ed on 14 Mar 2014.
+0 @DWNLNOTE@ NOTE
+1 CONT Verify details of data for yourself; use this only as a guide
+0 TRLR

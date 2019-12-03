@@ -1,0 +1,3276 @@
+﻿0 HEAD
+1 SOUR RootsMagic
+2 NAME RootsMagic
+2 VERS 4.0
+2 CORP RootsMagic, Inc.
+3 ADDR PO Box 495
+4 CONT Springville, UT 84663
+4 CONT USA
+3 PHON 1-800-ROOTSMAGIC
+3 WWW www.RootsMagic.com
+1 DEST RootsMagic
+1 DATE 7 MAY 2010
+1 SUBM @SUB1@
+1 FILE Blades.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @SUB1@ SUBM
+1 NAME Scott Edward Blades
+1 ADDR 1729 S Lark CT
+2 CONT Wichita KS 67209-4400
+2 CONT USA
+1 _EMAIL scott.kelly@skblades.net
+0 @I1@ INDI
+1 NAME James /Blades/
+2 GIVN James
+2 SURN Blades
+2 NSFX (I)
+1 SEX M
+1 _UID 37FD4AB05B760345979AD34E3F3E9128CF86
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT Photo: Above Swaledale, near Grinton, North Yorkshire, England.
+2 CONT This is the general vicinity of a small hamlet called Blades near the t
+2 CONC own of Grinton.
+1 SOUR @S1@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE ABT 1630
+2 _SDATE 1 JUL 1630
+2 PLAC Spring End, Grinton Parish, Yorkshire, England
+1 DEAT Y
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\grinton3in.jpg
+2 FORM jpg
+2 TITL Above Swaledale, near Grinton, North Yorkshire
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM Y
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\coatofarms.gif
+2 FORM gif
+2 TITL Blades Coat of Arms
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM N
+1 FAMS @F1@
+0 @I2@ INDI
+1 NAME George /Blades/
+2 GIVN George
+2 SURN Blades
+1 SEX M
+1 _UID 35139D208F0D1B4AA265D42ABB60849E48DD
+1 CHAN
+2 DATE 18 APR 2008
+1 NOTE
+2 CONT
+2 CONT George Blades (1650/1698), settled in St. Michaels, Maryland, in 1670 a
+2 CONC fter leaving his home in Blades, Yorkshire Dales, England. (<i>Robert E
+2 CONC . Blades Letter</i>)
+1 SOUR @S1@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S2@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S3@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE 1650
+2 _SDATE 1 JUL 1650
+2 PLAC Spring End, Grinton Parish, Yorkshire, England
+2 SOUR @S1@
+3 PAGE n/a
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE n/a
+1 DEAT
+2 DATE 1698
+2 _SDATE 1 JUL 1698
+2 PLAC Talbot County, Maryland
+2 SOUR @S2@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F2@
+1 FAMC @F1@
+0 @I3@ INDI
+1 NAME Spouse /Unknown/
+2 GIVN Spouse
+2 SURN Unknown
+1 SEX F
+1 _UID 9DC8797D9E8B5446B1C74B41F0C2ACE060DC
+1 CHAN
+2 DATE 13 APR 2008
+1 FAMS @F1@
+0 @I4@ INDI
+1 NAME Frances /Unknown/
+2 GIVN Frances
+2 SURN Unknown
+1 SEX F
+1 _UID 5D1461CFCB53DF439EA8F56D8146A6D4CA50
+1 CHAN
+2 DATE 13 APR 2008
+1 SOUR @S2@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE ABT 1660
+2 _SDATE 1 JUL 1660
+2 PLAC prob Talbot County, Maryland
+1 DEAT
+2 DATE 1698
+2 _SDATE 1 JUL 1698
+1 FAMS @F2@
+0 @I5@ INDI
+1 NAME Mary /Blades/
+2 GIVN Mary
+2 SURN Blades
+1 SEX F
+1 _UID BE9A373F05E9204FAAD79E163555474C7D61
+1 CHAN
+2 DATE 13 APR 2008
+1 BIRT
+2 DATE 4 MAY 1687
+2 PLAC prob Talbot County, Maryland
+1 DEAT
+2 DATE 1709
+2 _SDATE 1 JUL 1709
+2 PLAC prob Talbot County, Maryland
+1 FAMC @F2@
+0 @I6@ INDI
+1 NAME James /Blades/
+2 GIVN James
+2 SURN Blades
+2 NSFX (II)
+1 SEX M
+1 _UID 643E4C1A601B4C4D8DCDDA2EB0C126758A7B
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT 1732, Acquired tract of land called "Goodwill" or "Goodwell" (50 a.) in w
+2 CONC hat is now Caroline Co. (formerly Queen Annes Co.) on main branch of Ch
+2 CONC optank River (<i>Caroline County MD Land Records</i>)
+2 CONT
+2 CONT 13 Aug 1741, James Blades, Queen Anne's Co. planter, purchases 50 acres o
+2 CONC f "Long Range" at head of Great Choptank River in what is now Caroline C
+2 CONC ounty (formerly Dorchester Co.) from Joseph and Sarah Fisher of Dorches
+2 CONC ter Co. Witnessed their purchase of "Codhead Manor" on the same day. (<
+2 CONC i>Dorchester County MD Land Records</i>)
+2 CONT
+2 CONT 1747, Acquired tract of land called "Blades Lott" (60 a.) in Dorchester C
+2 CONC o. (<i>Dorchester County MD Land Records</i>)
+2 CONT
+2 CONT 22 May 1753, [Probate] Part of tract of land called "Long Range' to son
+2 CONC , Edmond Blades of Dorchester Co. (<i>Dorchester County MD Land Records
+2 CONC </i>)
+2 CONT
+2 CONT 22 May 1753,  [Probate] Tract of land called "Blades Lott" adj. to "Lon
+2 CONC g Range", at head of Great Choptank River, to Edward Garrat (<i>Dorches
+2 CONC ter County MD Land Records</i>)
+1 SOUR @S2@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S3@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S4@
+2 PAGE Long Range - 31 Aug 1741, 10 Old 82
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Long Range - 31 Aug 1741, 10 Old 82
+2 DATA
+3 TEXT Joseph Fisher and Sarah his wife of Dor. Co., planter and spinster, to J
+4 CONC ames Blaids of Queen Anns Co., planter: part of a tract called "Long Ra
+4 CONC nge" containing 50 a. more or less. Wit: Henry Hooper, John Moffett. Ac
+4 CONC kn: before Henry Hooper, Justice of Provincial Court
+1 SOUR @S4@
+2 PAGE Long Range - 22 May 1753, 14 Old 723
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Long Range - 22 May 1753, 14 Old 723
+2 DATA
+3 TEXT James Blades of QA Co, planter to his son Edmon Blades of Dor. Co: part o
+4 CONC f tract called "Long Range," containing 50 a. more or less. Wit: Cha. D
+4 CONC ickinson, Thos. Foster. Ackn before Cha Dickinson and Thos. Foster, Jus
+4 CONC tices.
+1 SOUR @S4@
+2 PAGE Blades Lott - 22 May 1753, 14 Old 725
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Blades Lott - 22 May 1753, 14 Old 725
+2 DATA
+3 TEXT James Blades of QA Co planter and Sarah his wife to Edward Garratt of t
+4 CONC he same co, Taylor: "Blades Lott" adj. "Long Range" at the head of Grea
+4 CONC t Choptank River, containing 60 a. more or less. Wit: Cha Dickinson, Th
+4 CONC os. Foster. Ackn before Cha Dickinson and Thos Foster, Justices.
+1 SOUR @S4@
+2 PAGE Blades Lott - 1747, 60 a., Liber T.I.#1, folio 219, Liber B.T. & B.Y.#3, folio 180
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Blades Lott - 1747, 60 a., Liber T.I.#1, folio 219, Liber B.T. & B.Y.#3, folio 180
+1 SOUR @S5@
+2 PAGE Goodwill - 1732, 50 a., Liber A.M.#1, folio 18, Liber P.L.#8, folio 535
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Goodwill - 1732, 50 a., Liber A.M.#1, folio 18, Liber P.L.#8, folio 535
+1 BIRT
+2 DATE 10 MAR 1688
+2 PLAC prob Dorchester County, Maryland
+1 DEAT
+2 DATE 1753
+2 _SDATE 1 JUL 1753
+2 PLAC prob Queen Annes County, Maryland
+1 FAMS @F3@
+1 FAMC @F2@
+0 @I7@ INDI
+1 NAME Edmund [Edmond] /Blades/
+2 GIVN Edmund [Edmond]
+2 SURN Blades
+1 SEX M
+1 _UID 053A7DE49EE1904DA7DC79CC46DC4C2254FC
+1 CHAN
+2 DATE 7 MAY 2010
+1 SOUR @S2@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 PLAC prob Talbot County, Maryland
+1 DEAT Y
+1 FAMC @F2@
+0 @I8@ INDI
+1 NAME Susannah /Blades/
+2 GIVN Susannah
+2 SURN Blades
+1 SEX F
+1 _UID 1B1D437EC90FC240935D674EA7F319739E85
+1 CHAN
+2 DATE 13 APR 2008
+1 SOUR @S2@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 PLAC Talbot County, Maryland
+1 FAMC @F2@
+0 @I9@ INDI
+1 NAME Sarah /Tucker/
+2 GIVN Sarah
+2 SURN Tucker
+1 SEX F
+1 _UID 537610DC48F2B84E90DED5B39A860B0D2306
+1 CHAN
+2 DATE 15 APR 2008
+1 FAMS @F3@
+0 @I10@ INDI
+1 NAME Edmond /Blades/
+2 GIVN Edmond
+2 SURN Blades
+1 SEX M
+1 _UID F6C70D986BBD0D41846F26144002026EB74E
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT The spelling of this name is seen records rendered as "Edmond", "Edmund
+2 CONC " and "Edward". The "Edmond" spelling has been chosen from the military s
+2 CONC ervice notations.
+2 CONT
+2 CONT Enlisted for service in the French & Indian War under Captain Benjamin N
+2 CONC oxon. Presumably died circa 1758 during his service. A land record stat
+2 CONC es "whereas the said Edmond Blades sometime past went of to the war in t
+2 CONC he backwoods and has never since been heard of". (<i>Caroline County La
+2 CONC nd Records, Delaware Archives</i>)
+1 SOUR @S2@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S5@
+2 PAGE A/213
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE A/213
+1 SOUR @S4@
+2 PAGE 14 Old 723
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE 14 Old 723
+1 SOUR @S5@
+2 PAGE 5 Feb 1777, A/294
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE 5 Feb 1777, A/294
+2 DATA
+3 TEXT Tilghman Blades, heir at law to Edmond (Edward?) Blades late of Queen A
+4 CONC nnes Co. to Benson Stainton of Caroline Co. "Whereas a certain Joseph F
+4 CONC isher and Sarah conveyed unto James Blades [II] (who, was the father of E
+4 CONC dmond part of a tract called "Long Range" in Dorchester Co., now Caroli
+4 CONC ne, for 50 acres and conveyed by James Blades [II] and wife to son Edmo
+4 CONC nd and his heirs forever, and whereas the said Edmond Blades sometime p
+4 CONC ast went of to the war in the backwoods and has never since been heard o
+4 CONC f; Tilghman Blades only son of and heir of said Edmond in consideration o
+4 CONC f 10 pds. conveys "Longe Range"..."
+1 SOUR @S6@
+2 PAGE Pg. 18
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 18
+2 DATA
+3 TEXT French & Indian War Rolls, 1754-1763
+4 CONT "A Return of The Recruits Rais'd by Capt'n Benj'n Noxon, 1758"
+4 CONT Blades, Edmond
+4 CONT Ages: 26
+4 CONT Where Born: Maryland
+4 CONT Date of Enlistment: May 2
+4 CONT Occupations: Carpenter
+1 SOUR @S5@
+2 PAGE 8 Sep 1784, A/806
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE 8 Sep 1784, A/806
+2 DATA
+3 TEXT Arnold Blades of Caroline Co., planter to Richard Tilghman Earle of Que
+4 CONC en Annes Co., farmer. James Blades [II - Tilghman & Arnold's Grandfathe
+4 CONC r] gave bond to R.T. Earle 13 May 1767, signing himself and heirs to ma
+4 CONC ke good..the land called Goodwill or Goodwell, 50 Acres, formerly Queen A
+4 CONC nnes Co., now Caroline Co. on main branch Choptank River.
+1 SOUR @S5@
+2 PAGE 2 Sep 1778, A/294 
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE 2 Sep 1778, A/294
+2 DATA
+3 TEXT James Blades of Caroline Co., brother to Edmond Blades late of Queen An
+4 CONC nes Co...
+1 SOUR @S22@
+2 PAGE H:358
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE H:358
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE 1732
+2 _SDATE 1 JUL 1732
+2 PLAC prob Dorchester or Queen Annes County, Maryland
+1 DEAT
+2 DATE ABT 1758
+2 _SDATE 1 JUL 1758
+1 FAMS @F4@
+1 FAMC @F3@
+0 @I11@ INDI
+1 NAME James Tucker /Blades/
+2 GIVN James Tucker
+2 SURN Blades
+1 SEX M
+1 _UID DC366B9675C08048B1C877680476E9632E1F
+1 CHAN
+2 DATE 19 APR 2008
+1 NOTE m. Elizabeth Rouse, 18 Aug 1755, Queen Annes County, Maryland, St. Luke
+2 CONC s Parish
+1 SOUR @S20@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE ABT 1735
+2 _SDATE 1 JUL 1735
+2 PLAC Queen Annes County Maryland
+2 SOUR @S19@
+3 PAGE n/a
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE n/a
+1 DEAT Y
+1 FAMC @F3@
+0 @I12@ INDI
+1 NAME Nancy /Unknown/
+2 GIVN Nancy
+2 SURN Unknown
+1 SEX F
+1 _UID 020FF0ED40F46D49861F3E4E52E788E2AC6B
+1 CHAN
+2 DATE 14 APR 2008
+1 SOUR @S14@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 FAMS @F4@
+0 @I13@ INDI
+1 NAME Tilghman /Blades/
+2 GIVN Tilghman
+2 SURN Blades
+1 SEX M
+1 _UID 5C4C9DFFA3FBB24FA3F460AAAB442AE27FE9
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT The spelling of this name is seen in records rendered as "Tilghman", "T
+2 CONC ilmun", "Tillman" and "Tilman". The "Tilghman" spelling has been chosen b
+2 CONC ased on the assumption that the name was taken from Richard Tilghman Ea
+2 CONC rle who was possibly a neighbor in Caroline County whom the family purc
+2 CONC hased land from. (<i>Caroline County Land Records</i>)
+2 CONT
+2 CONT Enlisted with the Maryland Militia in 1777 during Revolutionary War. Ea
+2 CONC st Battalion: 7th Company, Chilton, Garey's and Denton neighborhoods, C
+2 CONC aptain Andrew Fountain. (<i>Maryland Militia in the Revolutionary War, H
+2 CONC istory of Caroline County</i>)
+1 SOUR @S5@
+2 PAGE 5 Feb 1777, A/294
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE 5 Feb 1777, A/294
+2 DATA
+3 TEXT Tilghman Blades, heir at law to Edmond (Edward?) Blades late of Queen A
+4 CONC nnes Co. to Benson Stainton of Caroline Co. "Whereas a certain Joseph F
+4 CONC isher and Sarah conveyed unto James Blades [II] (who, was the father of E
+4 CONC dmond) part of a tract called "Long Range" in Dorchester Co., now Carol
+4 CONC ine, for 50 acres and conveyed by James Blades [II] and wife to son Edm
+4 CONC ond and his heirs forever, and whereas the said Edmond Blades sometime p
+4 CONC ast went of to the war in the backwoods and never since been heard of; T
+4 CONC ilghman Blades only son of and heir of said Edmond in consideration of 1
+4 CONC 0 pds. conveys "Long Range"..."
+1 SOUR @S8@
+2 PAGE Pg. 157
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 157
+2 DATA
+3 TEXT "A return of the 14th Battalion of Militia belonging to Caroline County a
+4 CONC nd the State of Maryland dated 13 Aug 1777 ....Tilghman Blades"
+1 SOUR @S9@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+2 DATA
+3 TEXT Records Tilghman Blades as head of househould in Caroline County.
+1 SOUR @S11@
+2 PAGE MdHR 8849-2 2-1-5-1, Pgs. 74 & 76
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE MdHR 8849-2 2-1-5-1, Pgs. 74 & 76
+2 DATA
+3 TEXT Pg. 74 - A list of persons who did not take the Oath of Fidelity requir
+4 CONC ed by the Act for the Better Security of the Government on or before th
+4 CONC e first day of March and who have made it appear to the County Court of Q
+4 CONC ueen Anne's County this twenty fourth day of March 1778 that they are n
+4 CONC ot persons offending against the Act afo and have taken the said Oath b
+4 CONC y permission of the Court.
+4 CONT Pg. 76 - Tilghman Blades, His Mark
+1 SOUR @S5@
+2 PAGE 3 Mar 1792, D/54
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE 3 Mar 1792, D/54
+2 DATA
+3 TEXT Tilghman Blades of Caroline Co., Yeoman, and Ann his wife; and Arnold B
+4 CONC lades, Caroline, Co., Yeoman and Elizabeth his wife (Tilghman and Arnol
+4 CONC d are the grandchildren of a certain James Blades, late of Queen Annes C
+4 CONC o., now Caroline, deceased) to William Jackson their rights to land, 51 a
+4 CONC cres it being the same piece a certain James Blades conveyed unto Edwar
+4 CONC d Blades the father of said Tilghman; together with a parcel, part of "
+4 CONC Long Range"...
+1 SOUR @S5@
+2 PAGE 8 Sep 1784, A/806
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE 8 Sep 1784, A/806
+2 DATA
+3 TEXT Arnold Blades of Caroline Co., planter to Richard Tilghman Earle of Que
+4 CONC en Annes Co., farmer. James Blades [II - Tilghman & Arnold's Grandfathe
+4 CONC r] gave bond to R.T. Earle 13 May 1767, signing himself and heirs to ma
+4 CONC ke good..the land called Goodwill or Goodwell, 50 Acres, formerly Queen A
+4 CONC nnes Co., now Caroline Co. on main branch Choptank River.
+1 SOUR @S13@
+2 PAGE Pg. 67, VI.
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 67, VI.
+2 DATA
+3 TEXT In 1777 the militial of Caroline County was continued in two batallions
+4 CONC , one east of and the other west of the Choptank River.
+4 CONT East Battalion: 7th Company, Chilton, Garey's and Denton neighborhoods, C
+4 CONC aptain Andrew Fountain.
+1 SOUR @S17@
+2 PAGE Vol. H, Pg. 358
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Vol. H, Pg. 358
+2 DATA
+3 TEXT BLADES, Tilman
+4 CONT Co. - 085 (Rowan)
+4 CONT Recorded Copy - WB-H/358
+4 CONT Orignal - AR
+4 CONT Date - 1826
+1 SOUR @S22@
+2 PAGE H:358
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE H:358
+1 SOUR @S24@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S27@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE ABT 1758
+2 _SDATE 1 JUL 1758
+2 PLAC Caroline County, Maryland
+1 DEAT
+2 DATE 9 MAY 1825
+2 PLAC Rowan County, North Carolina
+1 FAMS @F5@
+1 FAMC @F4@
+0 @I14@ INDI
+1 NAME Ann /Lawfull/
+2 GIVN Ann
+2 SURN Lawfull
+2 NICK Nancy
+1 SEX F
+1 _UID 15C01C187BD7894684E3D24CCB48D6F1897F
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE ABT 1759
+2 _SDATE 1 JUL 1759
+2 PLAC prob Caroline County, Maryland
+1 FAMS @F5@
+0 @I15@ INDI
+1 NAME Edward A. /Blades/
+2 GIVN Edward A.
+2 SURN Blades
+1 SEX M
+1 _UID FF9CA425C665B2419C76C0CEDDBEC8D3587A
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT Photo: Edward and Ellen's six sons (circa 1890's). Ranson Dudley and Is
+2 CONC aac Tillman are in the center.
+2 CONT
+2 CONT "Edward Blades, the father of R. D. Blades, settled in section ten [Pon
+2 CONC d Creek Township, Greene County, MO], in the year 1836. He was a native o
+2 CONC f North Carolina, but emigrated to Missouri from McMinn county, East Te
+2 CONC nnessee." (<i>History of Greene County</i>)
+2 CONT
+2 CONT "His father [R. D. Blades], Edward Blades, and his mother, Ellen (Mayno
+2 CONC r) Blades, were natives of North Carolina, but at an early day they emi
+2 CONC grated to McMinn County, Tennessee, where our subject was born on the 2
+2 CONC 9th of January, 1821. The father came to Greene County, Missouri, as ea
+2 CONC rly as 1836 and settled in Pond Creek Township, where his death occurre
+2 CONC d in 1848. Farming was his principal occupation in life, but he also fo
+2 CONC llowed the hatter's trade for some time. He prospered in this new count
+2 CONC ry and became fairly well off. He enjoyed hunting and had many opportun
+2 CONC ities of trying his skill as a marksman, for the woods abounded in game o
+2 CONC f all kinds. In politics he was a Democrat. His wife died on the old fa
+2 CONC rm. For a number of years this worthy couple and two other families wer
+2 CONC e about the only settlers in the township, and only a few lived in Spri
+2 CONC ngfield or around that town. For forty miles south of them there were n
+2 CONC o settlers. The mother made all the clothing for the large family and n
+2 CONC o small task it was, for there were sixteen children, twelve of whom gr
+2 CONC ew to mature years. These children were named as follows: Sally A.; R. D
+2 CONC ., subject; Nancy; Isaac; Edward; Cynthia; William; Rebecca; James; Eli
+2 CONC zabeth; Fannie and George. Sally, Nancy and Rebecca are now deceased." (
+2 CONC <i>A Reminiscent History of the Ozark Region</i>)
+2 CONT
+2 CONT "Edward and Ellen (Maner) Blades, were natives of North Carolina, where t
+2 CONC hey grew to mature years and united their fort-unes. From there they re
+2 CONC moved to Tennessee, and about 1836 came by ox-team to Greene County, Mi
+2 CONC ssouri, being about two months on the road. They located in the woods o
+2 CONC n the Pickerel, and there was but one house within a distance of five m
+2 CONC iles. Mr. Blades spent the rest of his life there engaged in cultivatin
+2 CONC g the soil, and died about 1847. He was a great hunter and sports-man, e
+2 CONC tc., and a man well and favorably known for miles around. He was one of t
+2 CONC he pioneers of Greene County, settling there when Springfield was but a m
+2 CONC ere hamlet of log houses, and he contributed his full share toward the i
+2 CONC mprovement and development of the county. He was of English origin. His w
+2 CONC ife died in Greene County in 1855. They were the parents of an old-fash
+2 CONC ioned family of fourteen children, as follows: Sally Ann, deceased; R. D
+2 CONC ., of Billings; Nancy, deceased; Isaac T., Cynthia, Edward A., Rebecca L
+2 CONC ., William, Elizabeth, James R., Frances, George Washington, and two di
+2 CONC ed young." (<i>A Reminiscent History of the Ozark Region</i>)
+2 CONT
+2 CONT Family tradition says that Ellen (Penelope) was of French-Indian descen
+2 CONC t and knew no English when she first met Edward. They were said to have c
+2 CONC ommunicated with each other through Indian sign language.
+2 CONT
+2 CONT Edward is apparently in the household of his father, Tilghman, age 16-2
+2 CONC 6 years in the census of 1800, Rockingham Co., North Carolina By the ce
+2 CONC nsus of 1810 both Tilghman and Edward are heads of household in the Sal
+2 CONC isbury Burrough, Rowan Co., North Carolina. His age is 26-45; one femal
+2 CONC e 16-26 (wife?); and one female under 10. This indicates a probable mar
+2 CONC riage between 1800 & 1810. On 31 July 1815, Edward A. Blades was marrie
+2 CONC d to Sally Nichols in Rowan Co., NC. Edward has not been found in the N
+2 CONC C or TN census of 1820, but Sarah Blades is recorded as head of househo
+2 CONC ld in 1820 Rowan Co. and 1830-1840 Cabarrus Co., NC. Before 1820 (circa 1
+2 CONC 817 according to OGS577, Chart 42, Springfield Mo. Library), Edward was m
+2 CONC arried to Ellen Penelope Maynor (born 28 April 1801 in NC, according to s
+2 CONC ame record). (<i>Lucille Siefferman</i>)
+2 CONT
+2 CONT Edward and Ellen (Penelope) are buried in the Old Reynolds Cemetery jus
+2 CONC t 3/4 of a mile from where they settled. The cemetery is located on lan
+2 CONC d owned by Dwayne Gray (1983).
+2 CONT
+2 CONT
+1 SOUR @S14@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S15@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S16@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 SOUR @S24@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE 6 JAN 1780
+2 PLAC Caroline County, Maryland
+2 SOUR @S18@
+3 PAGE Headstone
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE Headstone
+3 DATA
+4 TEXT Edward A. Blades, born 6 Jan 1779
+1 DEAT
+2 DATE 19 MAY 1844
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Old Reynolds Cemetery, Republic, MO
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\sixbros.jpg
+2 FORM jpg
+2 TITL Edward & Ellen's Six Sons
+2 _DATE ABT 1890
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM Y
+1 FAMS @F7@
+1 FAMS @F6@
+1 FAMS @F8@
+1 FAMC @F5@
+0 @I16@ INDI
+1 NAME Sally (Sarah) /Nichols/
+2 GIVN Sally (Sarah)
+2 SURN Nichols
+1 SEX F
+1 _UID F23BEEE47D30D642AB5553FF3BEC7805BA04
+1 CHAN
+2 DATE 15 APR 2008
+1 FAMS @F6@
+0 @I17@ INDI
+1 NAME Ellen Penelope /Maynor/
+2 GIVN Ellen Penelope
+2 SURN Maynor
+1 SEX F
+1 _UID 65E9700BE07F65458C7511E2C8A100336293
+1 CHAN
+2 DATE 19 APR 2008
+1 BIRT
+2 DATE 28 APR 1801
+2 PLAC North Carolina
+1 DEAT
+2 DATE 1 SEP 1855
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Old Reynolds Cemetery, Republic, MO
+1 FAMS @F7@
+0 @I18@ INDI
+1 NAME John Tucker /Blades/
+2 GIVN John Tucker
+2 SURN Blades
+1 SEX M
+1 _UID 517F62A24561B640B37E969AFC2B039D987E
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE 16 AUG 1738
+2 PLAC Queen Annes County Maryland, St. Lukes Parish
+2 SOUR @S19@
+3 PAGE n/a
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE n/a
+2 SOUR @S20@
+3 PAGE n/a
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE n/a
+1 DEAT Y
+1 FAMC @F3@
+0 @I19@ INDI
+1 NAME Rebecca /Blades/
+2 GIVN Rebecca
+2 SURN Blades
+1 SEX F
+1 _UID D38B69D8CB33EB488E745C0E4E01B82B6E56
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE BET 1721 AND 1750
+2 _SDATE 1 JUL 1721
+2 PLAC Queen Annes County Maryland
+1 DEAT Y
+1 FAMC @F3@
+0 @I20@ INDI
+1 NAME Mary /Blades/
+2 GIVN Mary
+2 SURN Blades
+1 SEX F
+1 _UID AC1EE85FD6A4554FB01C8FDBC51080DC9637
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE BET 1721 AND 1750
+2 _SDATE 1 JUL 1721
+2 PLAC Queen Annes County Maryland
+1 DEAT Y
+1 FAMC @F3@
+0 @I21@ INDI
+1 NAME Rosannah /Blades/
+2 GIVN Rosannah
+2 SURN Blades
+1 SEX F
+1 _UID 0612CE6E89607F4B9C34C61557DFF573501C
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE BET 1774 AND 1803
+2 _SDATE 1 JUL 1774
+2 PLAC Queen Annes or Caroline County, Maryland
+1 DEAT Y
+1 FAMC @F5@
+0 @I22@ INDI
+1 NAME Isaac /Blades/
+2 GIVN Isaac
+2 SURN Blades
+1 SEX M
+1 _UID 5F12A650C3BEBB4399DD75FA7442FBD753EF
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE BET 1774 AND 1803
+2 _SDATE 1 JUL 1774
+2 PLAC Queen Annes or Caroline County, Maryland
+1 DEAT Y
+1 FAMC @F5@
+0 @I23@ INDI
+1 NAME Ann /Blades/
+2 GIVN Ann
+2 SURN Blades
+1 SEX F
+1 _UID 1F2B44C4282F664A8D2E622D4F5ABD525B89
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE BET 1774 AND 1803
+2 _SDATE 1 JUL 1774
+2 PLAC Queen Annes or Caroline County, Maryland
+1 DEAT Y
+1 FAMC @F5@
+0 @I24@ INDI
+1 NAME Sarah /Blades/
+2 GIVN Sarah
+2 SURN Blades
+1 SEX F
+1 _UID 45660D7AE8F8CF45A2C023C9EC7FEE1AE76F
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE BET 1774 AND 1803
+2 _SDATE 1 JUL 1774
+2 PLAC Queen Annes or Caroline County, Maryland
+1 DEAT Y
+1 FAMC @F5@
+0 @I25@ INDI
+1 NAME Samuel /Blades/
+2 GIVN Samuel
+2 SURN Blades
+1 SEX F
+1 _UID 44319B43E0E47B4180FEE2A6CB848BD68983
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S19@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE BET 1774 AND 1803
+2 _SDATE 1 JUL 1774
+2 PLAC Queen Annes or Caroline County, Maryland
+1 DEAT Y
+1 FAMC @F5@
+0 @I26@ INDI
+1 NAME Unkown /UNKNOWN/
+2 GIVN Unkown
+2 SURN UNKNOWN
+1 SEX F
+1 _UID 545C9AAE482F994A8F17435BC6CA6CF88A97
+1 CHAN
+2 DATE 15 APR 2008
+1 FAMS @F8@
+0 @I27@ INDI
+1 NAME Sarah (Sally)  Ann /Blades/
+2 GIVN Sarah (Sally)  Ann
+2 SURN Blades
+1 SEX F
+1 _UID 0E9C89E958EED045A83E1F930DDFBA5E136C
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 13 JUN 1819
+2 PLAC McMinn County, Tennesee
+1 DEAT
+2 DATE 14 DEC 1891
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Wade Chapel Cemetery, Republic, MO
+1 FAMC @F7@
+0 @I28@ INDI
+1 NAME Ranson Dudley /Blades/
+2 GIVN Ranson Dudley
+2 SURN Blades
+1 SEX M
+1 _UID 89906D3215D9084BA6941958D456447E90A4
+1 CHAN
+2 DATE 15 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 29 JAN 1821
+2 PLAC McMinn County, Tennesee
+1 DEAT
+2 DATE 2 DEC 1901
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Blades Cemetery, Billings, MO
+1 FAMC @F7@
+0 @I29@ INDI
+1 NAME Nancy Ellen L. /Blades/
+2 GIVN Nancy Ellen L.
+2 SURN Blades
+1 SEX F
+1 _UID 7DB85FC27EC92E479FB9EC933CCEE4633A6D
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 4 FEB 1824
+2 PLAC McMinn County, Tennesee
+1 DEAT
+2 DATE 18 MAR 1887
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Prospect Cemetery, Greene Co., MO
+1 FAMC @F7@
+0 @I30@ INDI
+1 NAME Isaac Tillman /Blades/
+2 GIVN Isaac Tillman
+2 SURN Blades
+1 SEX M
+1 _UID FFDB2E09E1E60B4788F0D3B10511D50D1E4E
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT Photo: Isaac Tillman Blades, circa 1890's
+2 CONT
+2 CONT During Civil War enlisted with Phelps Missouri Infantry, Company A on 0
+2 CONC 8 Aug 1861. Honorably discharged 04 Apr 1862 after serving in the Battl
+2 CONC e of Pea Ridge, Arkansas during March of 1862. It is also known as the B
+2 CONC attle of Elkhorn Tavern.
+2 CONT
+2 CONT "I was born in the state of Tenn Mar 16th 1826. My family record is as m
+2 CONC y mother give it to me to place in my Bible during her lifetime, which I d
+2 CONC id. I enlisted August 28, 1861 at the age of 36 years in Co. A. John S. P
+2 CONC helps Regt. Mo. Inf. to serve 6 months. Was discharged on the 11th day o
+2 CONC f April 1862 by Reason of Expiration of Term of Service at Springfield, G
+2 CONC reene Co. Mo." (<i>Isaac T. Blades - General Affidavit</i>)
+2 CONT
+2 CONT "Feb 28 - 62 absent on det service at Cassville, Mo" [Cassville is 40 m
+2 CONC iles north of Pea Ridge, Arkansas] (<i>I.T. Blades, Statement of Servic
+2 CONC e, Record and Pension Office, War Department</i>)
+2 CONT
+2 CONT "Colonel Phelps, Commanding Phelps' regiment of six-months' Missourians
+2 CONC ...being on detached service, made a march of 40 miles the day before t
+2 CONC he battle to join us." (<i>Compendium of The War of the Rebellion</i>)
+2 CONT
+2 CONT The Pea Ridge Campaign, March 7, 1862. Concerning action in the area of E
+2 CONC lkhorn Tavern. "...The fight on this part of the field was, at the begi
+2 CONC nning, a wild, isolated, irregular struggle of single batteries and the
+2 CONC ir supports, sometimes almost hand to hand, instead of in serried and w
+2 CONC ell-defined lines;- this accounts for the great losses on both sides. I
+2 CONC t was here that two brigades of Vandever and Dodge, with the 9th and 4t
+2 CONC h Iowa, the 35th Illinois, the 24th and Phelp's Missouri regiment,... w
+2 CONC ithstood the incessant onslaught of the two Confederate brigades of Col
+2 CONC onel Little and General Slack and the Missouri State Guards with greate
+2 CONC st tenacity, yielding only step by step, when exhausted by losses and w
+2 CONC ithout ammunition..." (<i>Battle's and Leader's of the Civil War, Vol. 1
+2 CONC </i>). The battlefield is now a United States Military Park. It is loca
+2 CONC ted in Benton County, Arkansas near the town of Garfield (http://www.np
+2 CONC s.gov/peri)
+2 CONT
+2 CONT "PHELP'S INDEPENDENT REGIMENT INFANTRY. Organized at Rolla, Mo, Septemb
+2 CONC er 22 to December 27, 1861. Served unattached, Army of Southwest Missou
+2 CONC ri, to February, 1862. 2nd Brigade, 4th Division, Army of Southwest Mis
+2 CONC souri, to May, 1862. SERVICE.-Duty at Rolla, Mo, till February, 1862. C
+2 CONC urtis' Campaign against Price in Missouri and Arkansas February and Mar
+2 CONC ch. Actions at Sugar Creek and Bentonville February 17. Battles of Pea R
+2 CONC idge, Ark., March 6-8. Mountain Grove March 9. Mustered out May 13. 186
+2 CONC 2. Lost 2 Officers and 23 Enlisted men killed and 3 Officers and 91 Enl
+2 CONC isted men by disease. Total 119." (<i>Compendium of The War of the Rebe
+2 CONC llion Pg. 1340</i>)
+2 CONT
+2 CONT "Around the beginning of the Civil War, Ranson and his younger brother I
+2 CONC saac Tillman, were instrumental in constructing the first school (which l
+2 CONC ater burned), in Pond Creek Township. Isaac had donated the land, which w
+2 CONC as located on the southwest corner of his father's farm [near the site o
+2 CONC f the current Blades Chapel cemetery]. This 14x15 log building, was thu
+2 CONC sly named "Blades" school." (<i>Blades Lott, Pg. 32</i>)
+2 CONT
+2 CONT "METHODIST PROTESTANT. BLADES CHAPEL. ...Among the early members occur t
+2 CONC he names Garoutte, Laney and Blades. ...A recent statement dates the or
+2 CONC ganization of this church in 1889, by Rev. James Turrentine, in which y
+2 CONC ear a frame houe of worship was erected, valued at two thouasnd dallars
+2 CONC . This house is located four miles north of Billings," <i>(History of G
+2 CONC reene County-?, History of Ozark Region-?) </i> "Ranson and his family, w
+2 CONC ere Methodists, and he brought the chance to worship that faith, into h
+2 CONC is home township. In 1889, Ranson, donated the land and $400.00, toward t
+2 CONC he construction of what is called, Blades Chapel." (<i>Blades Lott, Pg.
+2 CONC 33</i>)
+2 CONT
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 SOUR @S29@
+2 PAGE Pgs. 256-268, 1340
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 256-268, 1340
+1 SOUR @S30@
+2 PAGE Pg. 334
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 334
+1 SOUR @S25@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S26@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 16 MAR 1826
+2 PLAC McMinn County, Tennesee
+1 DEAT
+2 DATE 25 JAN 1907
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Evergreen Cemetery, Republic, MO
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\itblades.jpg
+2 FORM jpg
+2 TITL Isaac T. Blades
+2 _DATE ABT 1890
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM Y
+1 FAMS @F9@
+1 FAMC @F7@
+0 @I31@ INDI
+1 NAME Cynthia C. /Blades/
+2 GIVN Cynthia C.
+2 SURN Blades
+1 SEX F
+1 _UID 2B53166450E7E24CA1729D2E4F72A07B1709
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 1828
+2 _SDATE 1 JUL 1828
+2 PLAC Tennesee
+1 DEAT
+2 DATE 11 FEB 1847
+2 PLAC Greene County, Missouri
+1 FAMC @F7@
+0 @I32@ INDI
+1 NAME Edward A.F. /Blades/
+2 GIVN Edward A.F.
+2 SURN Blades
+1 SEX M
+1 _UID 8EBFC88243DD4740A360293DF02214C39034
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 16 MAR 1830
+2 PLAC Monroe County, Tennesee
+1 DEAT
+2 DATE 4 NOV 1900
+2 PLAC Stone County, Missouri
+1 BURI
+2 PLAC Crane Cemetery, Stone Co., MO
+1 FAMC @F7@
+0 @I33@ INDI
+1 NAME Rebecca L. /Blades/
+2 GIVN Rebecca L.
+2 SURN Blades
+1 SEX F
+1 _UID 43C24F7088E7674F80CBD794B8573E604CE6
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 1833
+2 _SDATE 1 JUL 1833
+2 PLAC Tennesee
+1 DEAT
+2 DATE 1863
+2 _SDATE 1 JUL 1863
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Old Reynolds Cemetery, Republic, MO
+1 FAMC @F7@
+0 @I34@ INDI
+1 NAME William Willis /Blades/
+2 GIVN William Willis
+2 SURN Blades
+1 SEX M
+1 _UID A327BBC58BF8774A90ABEEE7F825DC67FED2
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 1834/5
+2 _SDATE 1 JUL 1835
+2 PLAC Tennesee
+1 DEAT
+2 PLAC Kidder, Missouri
+1 FAMC @F7@
+0 @I35@ INDI
+1 NAME James Reynolds /Blades/
+2 GIVN James Reynolds
+2 SURN Blades
+1 SEX M
+1 _UID 137B1268142F504E81112E82E4C94BE003FA
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 15 NOV 1839
+2 PLAC Greene County, Missouri
+1 DEAT
+2 DATE 18 NOV 1907
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Blades Cemetery, Billings, MO
+1 FAMC @F7@
+0 @I36@ INDI
+1 NAME Frances Catherine /Blades/
+2 GIVN Frances Catherine
+2 SURN Blades
+2 NICK Fannie
+1 SEX F
+1 _UID 1EAC2E4C841B95459AC181E58E881D3FF0CB
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 1840/1
+2 _SDATE 1 JUL 1841
+2 PLAC Greene County, Missouri
+1 DEAT
+2 DATE 1928
+2 _SDATE 1 JUL 1928
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Wade Chapel Cemetery, Republic, MO
+1 FAMC @F7@
+0 @I37@ INDI
+1 NAME George Washington /Blades/
+2 GIVN George Washington
+2 SURN Blades
+1 SEX M
+1 _UID 46DB07875B97F145AD10B7A364749062B8C9
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S23@
+2 PAGE Pg. 75
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 75
+1 BIRT
+2 DATE 1843/4
+2 _SDATE 1 JUL 1844
+2 PLAC Greene County, Missouri
+1 DEAT
+2 DATE 1928
+2 _SDATE 1 JUL 1928
+1 BURI
+2 PLAC Wright Cemetery, Clever, MO
+1 FAMC @F7@
+0 @I38@ INDI
+1 NAME Elizabeth M. /Blades/
+2 GIVN Elizabeth M.
+2 SURN Blades
+2 NICK Betsy
+1 SEX F
+1 _UID E05AC4CD6CE19A428555B9F81D75D6DDC47D
+1 CHAN
+2 DATE 19 APR 2008
+1 SOUR @S23@
+2 PAGE n/a
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE n/a
+1 BIRT
+2 DATE 1837
+2 _SDATE 1 JUL 1837
+2 PLAC Greene County, Missouri
+1 DEAT Y
+1 FAMC @F7@
+0 @I39@ INDI
+1 NAME Nancy Ann /Hood/
+2 GIVN Nancy Ann
+2 SURN Hood
+1 SEX F
+1 _UID 328483DD70BF394498617C7340E0D69D3DC9
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 1824/5
+2 _SDATE 1 JUL 1825
+2 PLAC Knox (?), Tennesee
+1 DEAT
+2 DATE 1 MAR 1894
+2 PLAC Greene County, Missouri
+1 BURI
+2 DATE 1 MAR 1894
+2 PLAC Evergreen Cemetery, Republic, MO
+1 FAMS @F9@
+0 @I40@ INDI
+1 NAME Ranson Dudley /Blades/
+2 GIVN Ranson Dudley
+2 SURN Blades
+1 SEX M
+1 _UID C49993D8C177EC4A92E81546976F6D25A3A0
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 1846/7
+2 _SDATE 1 JUL 1847
+1 DEAT Y
+1 FAMC @F9@
+0 @I41@ INDI
+1 NAME William H. /Blades/
+2 GIVN William H.
+2 SURN Blades
+1 SEX M
+1 _UID 01713227D111DD43978C58216FEFD840DFA4
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE APR 1848
+2 _SDATE 15 APR 1848
+1 DEAT Y
+1 FAMC @F9@
+0 @I42@ INDI
+1 NAME Edward Alexander Benton /Blades/
+2 GIVN Edward Alexander Benton
+2 SURN Blades
+2 NICK Ned
+1 SEX M
+1 _UID 0C9F3F549CA686409A1BA10E46592079E22A
+1 CHAN
+2 DATE 19 SEP 2008
+1 NOTE
+2 CONT
+2 CONT Photo: Ned & Suzy Blades, circa 1890's
+2 CONT
+2 CONT A family story has been passed down about Ned's shooting skills. When a
+2 CONC ttending quail shoots he would use two shotguns, a double-barrel and a s
+2 CONC ingle-barrel. Three quail were released and Ned would knock down two wi
+2 CONC th the double-barrel and then still have time to pick up the single-bar
+2 CONC rel and get the third one.
+1 BIRT
+2 DATE 19 APR 1850
+1 DEAT Y
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\nedsuzy.jpg
+2 FORM jpg
+2 TITL Ned & Suzy Blades
+2 _DATE ABT 1890
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM Y
+1 FAMS @F11@
+1 FAMS @F10@
+1 FAMC @F9@
+0 @I43@ INDI
+1 NAME Gideon P. /Blades/
+2 GIVN Gideon P.
+2 SURN Blades
+1 SEX M
+1 _UID C3D11C0A73503D4EB6ACA2BB1EF1B74EDB4B
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 1851/2
+2 _SDATE 1 JUL 1852
+1 DEAT Y
+1 FAMC @F9@
+0 @I44@ INDI
+1 NAME Sarah Jane /Blades/
+2 GIVN Sarah Jane
+2 SURN Blades
+1 SEX F
+1 _UID C21A6FA384EB754D971788A4D5D5663C4527
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 1858/9
+2 _SDATE 1 JUL 1859
+1 DEAT Y
+1 FAMC @F9@
+0 @I45@ INDI
+1 NAME Eliza Ann /Blades/
+2 GIVN Eliza Ann
+2 SURN Blades
+1 SEX F
+1 _UID 6B2E9C597B21C74F80EE07B3CE1E6D02C3C4
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 12 AUG 1860
+1 DEAT Y
+1 FAMC @F9@
+0 @I46@ INDI
+1 NAME Isaac Sigel /Blades/
+2 GIVN Isaac Sigel
+2 SURN Blades
+1 SEX M
+1 _UID 9240D03172E9494392DE4F7E161B55F37085
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 13 JUN 1863
+1 DEAT Y
+1 FAMC @F9@
+0 @I47@ INDI
+1 NAME James U. Grant /Blades/
+2 GIVN James U. Grant
+2 SURN Blades
+1 SEX M
+1 _UID E8C22AC40541414CA1A09161BD72727BBAB7
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE MAY 1866
+2 _SDATE 15 MAY 1866
+1 DEAT Y
+1 FAMC @F9@
+0 @I48@ INDI
+1 NAME Nancy M /Blades/
+2 GIVN Nancy M
+2 SURN Blades
+1 SEX F
+1 _UID 905B068DE2DBBF46A1F79F42D5E73227CE20
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 1869
+2 _SDATE 1 JUL 1869
+1 DEAT Y
+1 FAMC @F9@
+0 @I49@ INDI
+1 NAME Elizabeth T. /Blades/
+2 GIVN Elizabeth T.
+2 SURN Blades
+1 SEX F
+1 _UID BEE0DB147DB19C42B5EEAA9D56A2818F8BE5
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 1871
+2 _SDATE 1 JUL 1871
+1 DEAT Y
+1 FAMC @F9@
+0 @I50@ INDI
+1 NAME Ruth J. /Blades/
+2 GIVN Ruth J.
+2 SURN Blades
+1 SEX F
+1 _UID CC3F2D7056AB8B4290585EBA892DAF8F6A0E
+1 CHAN
+2 DATE 16 APR 2008
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 BIRT
+2 DATE 1876
+2 _SDATE 1 JUL 1876
+1 DEAT Y
+1 FAMC @F9@
+0 @I51@ INDI
+1 NAME Unknown /Unknown/
+2 GIVN Unknown
+2 SURN Unknown
+1 SEX F
+1 _UID F66D5A7859BF9448924162D285D62128D435
+1 CHAN
+2 DATE 18 APR 2008
+1 FAMS @F10@
+0 @I52@ INDI
+1 NAME Susan Bethia /Laney/
+2 GIVN Susan Bethia
+2 SURN Laney
+2 NICK Suzy
+1 SEX F
+1 _UID 45CA1A3593C3C045BA06F69033843F51462A
+1 CHAN
+2 DATE 18 APR 2008
+1 NOTE
+2 CONT
+2 CONT Daughter of:
+2 CONT Archibald McAfee Laney, 1834-1914
+2 CONT Mary Anne Garoutte, 1834-1901
+2 CONT
+1 BIRT
+2 DATE JUN 1848
+2 _SDATE 15 JUN 1848
+2 PLAC Barry County, Missouri
+1 DEAT
+2 DATE 1 DEC 1936
+2 PLAC Greene County, Missouri
+1 BURI
+2 PLAC Rose Hill Cemetery, Billings, MO
+1 FAMS @F11@
+0 @I53@ INDI
+1 NAME Archibald McAfee /Blades/
+2 GIVN Archibald McAfee
+2 SURN Blades
+1 SEX M
+1 _UID EEB2C02901B1AC4687D808593DC4A842D897
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT Photo: Archive & Olive Blades, circa 1930's
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 20 NOV 1879
+2 PLAC Greene County, Missouri
+1 DEAT
+2 DATE 7 NOV 1967
+2 PLAC Portland, Oregon
+1 BURI
+2 PLAC Portland, Oregon
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\archolive.jpg
+2 FORM jpg
+2 TITL Archie & Oliive Blades
+2 _DATE ABT 1930
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM Y
+1 FAMS @F12@
+1 FAMS @F13@
+1 FAMC @F11@
+0 @I54@ INDI
+1 NAME Nancy Ann /Blades/
+2 GIVN Nancy Ann
+2 SURN Blades
+1 SEX F
+1 _UID 654FDB27C4C55B4497031AB084D6ECDF67A1
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 4 APR 1879
+1 DEAT
+2 DATE 30 APR 1958
+2 PLAC California
+1 FAMC @F11@
+0 @I55@ INDI
+1 NAME Ransom Tillman /Blades/
+2 GIVN Ransom Tillman
+2 SURN Blades
+1 SEX M
+1 _UID 549841A027730F41BE8FDABC7602F70710EE
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 22 AUG 1880
+2 PLAC Christian County, Missouri
+1 DEAT
+2 DATE 20 DEC 1950
+1 FAMC @F11@
+0 @I56@ INDI
+1 NAME James Sigel /Blades/
+2 GIVN James Sigel
+2 SURN Blades
+1 SEX M
+1 _UID A3CCC57AADB0F74583BD2FAD0B2C315F2A0A
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 13 OCT 1881
+2 PLAC Billings, Missouri
+1 DEAT
+2 DATE 4 FEB 1962
+2 PLAC Twin Falls, Idaho
+1 FAMC @F11@
+0 @I57@ INDI
+1 NAME Jeremiah Mothar /Blades/
+2 GIVN Jeremiah Mothar
+2 SURN Blades
+1 SEX M
+1 _UID 6B0B9E508FC1784FBB61B1F4281EE00E70B0
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 19 DEC 1882
+1 DEAT
+2 DATE 1972
+2 _SDATE 1 JUL 1972
+1 FAMC @F11@
+0 @I58@ INDI
+1 NAME Birchie Ellen /Blades/
+2 GIVN Birchie Ellen
+2 SURN Blades
+1 SEX F
+1 _UID 053336B8C26DCC45A41D3C5A58CF298E9B87
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 11 APR 1884
+2 PLAC Billings, Missouri
+1 DEAT
+2 DATE 9 FEB 1954
+1 FAMC @F11@
+0 @I59@ INDI
+1 NAME Norah Adeline /Blades/
+2 GIVN Norah Adeline
+2 SURN Blades
+1 SEX F
+1 _UID A4CAAA6AA55F124B89AE44C9E61F361E80FA
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 5 DEC 1885
+1 DEAT
+2 DATE 1963
+2 _SDATE 1 JUL 1963
+1 FAMC @F11@
+0 @I61@ INDI
+1 NAME Eliza Jane /Blades/
+2 GIVN Eliza Jane
+2 SURN Blades
+1 SEX F
+1 _UID AFF23F388052884CA28FF268DFFBCE6A5B0A
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 3 MAR 1888
+1 DEAT
+2 DATE 20 DEC 1959
+1 FAMC @F11@
+0 @I62@ INDI
+1 NAME Andrew Benton /Blades/
+2 GIVN Andrew Benton
+2 SURN Blades
+1 SEX M
+1 _UID A7332BD881C1A344BF68280DD680EA802205
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 24 FEB 1890
+1 DEAT
+2 DATE 6 OCT 1954
+1 FAMC @F11@
+0 @I63@ INDI
+1 NAME Isaac Leroy /Blades/
+2 GIVN Isaac Leroy
+2 SURN Blades
+1 SEX M
+1 _UID A86FEEA43716A744B62F08DD35D2488F89AC
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 16 MAR 1894
+1 DEAT
+2 DATE 1964
+2 _SDATE 1 JUL 1964
+2 PLAC Portland, Oregon
+1 FAMC @F11@
+0 @I64@ INDI
+1 NAME Callie Catherine /Blades/
+2 GIVN Callie Catherine
+2 SURN Blades
+1 SEX F
+1 _UID C4DAC0DACF83914EA1536D60DAF69EF18987
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 27 SEP 1895
+1 DEAT
+2 DATE 15 NOV 1946
+1 FAMC @F11@
+0 @I65@ INDI
+1 NAME Bertha Alameda /Blades/
+2 GIVN Bertha Alameda
+2 SURN Blades
+1 SEX F
+1 _UID 35D37AFC97208045A8E0A555A3910900B93E
+1 CHAN
+2 DATE 18 APR 2008
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 20 SEP 1900
+1 DEAT
+2 DATE 30 SEP 1900
+1 FAMC @F11@
+0 @I66@ INDI
+1 NAME Olive B. /Elliot/
+2 GIVN Olive B.
+2 SURN Elliot
+1 SEX F
+1 _UID 56D046A2D92E1E4AB36A97CFD829C28A4D86
+1 CHAN
+2 DATE 19 APR 2008
+1 BIRT
+2 DATE 11 FEB 1883
+2 PLAC Edna, Kansas
+1 DEAT
+2 DATE NOV 1974
+2 _SDATE 15 NOV 1974
+2 PLAC Wichita, Kansas
+1 FAMS @F12@
+0 @I67@ INDI
+1 NAME Edna /Unknown/
+2 GIVN Edna
+2 SURN Unknown
+1 SEX F
+1 _UID CFEA7AD28B60E84CBAFD489AA7A4103B53AC
+1 CHAN
+2 DATE 18 APR 2008
+1 FAMS @F13@
+0 @I68@ INDI
+1 NAME Edward Benton /Blades/
+2 GIVN Edward Benton
+2 SURN Blades
+1 SEX M
+1 _UID 20C0AB1BC53DC449A9DB2D945E080CCA36B6
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT Photo: Ed & Ruby Blades
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 BIRT
+2 DATE 23 AUG 1901
+2 PLAC Billings, Missouri
+1 DEAT
+2 DATE 30 JAN 1970
+2 PLAC Wichita, Kansas
+1 BURI
+2 PLAC Wichita Park Cemetery, Wichita, KS
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\edruby.jpg
+2 FORM jpg
+2 TITL Ed & Ruby Blades
+2 _DATE ABT 1920
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM Y
+1 FAMS @F14@
+1 FAMC @F12@
+0 @I69@ INDI
+1 NAME Norvel C. /Blades/
+2 GIVN Norvel C.
+2 SURN Blades
+2 NICK Shorty
+1 SEX M
+1 _UID 63BE68CDFA6B9346A8A8960BB1E137B3010B
+1 CHAN
+2 DATE 30 AUG 2008
+1 BIRT
+2 DATE 1903
+2 _SDATE 1 JUL 1903
+1 DEAT
+2 DATE NOV 1919
+2 _SDATE 15 NOV 1919
+2 PLAC Crane Cemetery, Stone Co., MO from injuries sustained in a wagon accident
+1 FAMC @F12@
+0 @I70@ INDI
+1 NAME Ilene Frankie /Blades/
+2 GIVN Ilene Frankie
+2 SURN Blades
+1 SEX F
+1 _UID D529FC39A898A84092D2B022CFF1D8A8D11B
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 24 AUG 1904
+1 DEAT
+2 DATE AUG 1983
+2 _SDATE 15 AUG 1983
+2 PLAC California
+1 FAMC @F12@
+0 @I71@ INDI
+1 NAME Clyde /Blades/
+2 GIVN Clyde
+2 SURN Blades
+1 SEX M
+1 _UID 5784DDB33E5F3B4BAA038F553928D7B70E70
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 17 MAY 1908
+2 PLAC Barry County, Missouri
+1 DEAT
+2 PLAC Wichita, Kansas
+1 FAMC @F12@
+0 @I72@ INDI
+1 NAME James W. /Blades/
+2 GIVN James W.
+2 SURN Blades
+1 SEX M
+1 _UID 62C9926F9740A44C904A16358372EF666227
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 1912
+2 _SDATE 1 JUL 1912
+2 PLAC Pott County, Oklahoma
+1 DEAT
+2 DATE 1915
+2 _SDATE 1 JUL 1915
+1 FAMC @F12@
+0 @I73@ INDI
+1 NAME Ruby Jane /Smith/
+2 GIVN Ruby Jane
+2 SURN Smith
+1 SEX F
+1 _UID FA2F83280361FE4EB7686642A6DA0DA078AA
+1 CHAN
+2 DATE 30 AUG 2008
+1 NOTE
+2 CONT
+2 CONT Ruby's father, William Henry Smith, owned a general store in Pierce Cit
+2 CONC y, Mo. Her grand-father, Jacob Smith was born in Prussia (a state locat
+2 CONC ed in what is now northern Germany) on 12 Jun 1847. At the age of 16 Ja
+2 CONC cob stowed away on a ship and came to America. After turning 17, he joi
+2 CONC ned the Union Army. He was a member of the 202nd Pennsylvania Volunteer
+2 CONC s (Co. E) from 21 Aug 1864 to 3 Aug 1865.
+2 CONT
+1 BIRT
+2 DATE 27 OCT 1902
+2 PLAC Pierce City, Missouri
+1 DEAT
+2 DATE SEP 1983
+2 _SDATE 15 SEP 1983
+2 PLAC Wichita, Kansas
+1 BURI
+2 PLAC Wichita Park Cemetery, Wichita, KS
+1 FAMS @F14@
+0 @I74@ INDI
+1 NAME Ruth Marie /Blades/
+2 GIVN Ruth Marie
+2 SURN Blades
+1 SEX F
+1 _UID 81664D531ECA0F4DA8A3332547B9BDFB2634
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 18 AUG 1922
+1 DEAT Y
+1 FAMC @F14@
+0 @I75@ INDI
+1 NAME Wilburn Leroy /Blades/
+2 GIVN Wilburn Leroy
+2 SURN Blades
+1 SEX M
+1 _UID 6BA96C613CC4B441A75C2A7251BAAD77A42E
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 23 SEP 1923
+2 PLAC Verona, Missouri
+1 DEAT
+2 DATE 26 NOV 1986
+2 PLAC Wichita, Kansas
+1 BURI
+2 PLAC Wichita Park Cemetery, Wichita, KS
+1 FAMC @F14@
+0 @I76@ INDI
+1 NAME Laura Esabelle /Blades/
+2 GIVN Laura Esabelle
+2 SURN Blades
+1 SEX F
+1 _UID B58A939DF6B07F438A86081A53FA8EA58979
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 5 DEC 1926
+1 FAMC @F14@
+0 @I77@ INDI
+1 NAME Robert Clyde /Blades/
+2 GIVN Robert Clyde
+2 SURN Blades
+1 SEX M
+1 _UID 1E309AD9A2364849928E3C0C400CE22FEF99
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 24 OCT 1924
+1 DEAT
+2 DATE 14 OCT 1931
+1 FAMC @F14@
+0 @I78@ INDI
+1 NAME George Edward /Blades/
+2 GIVN George Edward
+2 SURN Blades
+1 SEX M
+1 _UID CF4753373DD3144BAF9A76816941E2D9B4C1
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 19 JAN 1937
+2 PLAC Wichita, Kansas
+1 FAMC @F14@
+0 @I79@ INDI
+1 NAME Robert Eugene /Blades/
+2 GIVN Robert Eugene
+2 SURN Blades
+1 SEX M
+1 _UID AF3B5004464917489396C878E6E1BE09234C
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 19 NOV 1933
+1 FAMC @F14@
+0 @I80@ INDI
+1 NAME Patsy Ann /Blades/
+2 GIVN Patsy Ann
+2 SURN Blades
+1 SEX F
+1 _UID 7507513312C02642962DA33BAD66DCE0AA06
+1 CHAN
+2 DATE 18 APR 2008
+1 BIRT
+2 DATE 5 FEB 1942
+2 PLAC Wichita, Kansas
+1 FAMC @F14@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I3@
+1 CHIL @I2@
+0 @F2@ FAM
+1 HUSB @I2@
+1 WIFE @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 MARR
+2 DATE ABT 1687
+2 _SDATE 1 JUL 1687
+2 PLAC prob Talbot County, Maryland
+0 @F3@ FAM
+1 HUSB @I6@
+1 WIFE @I9@
+1 CHIL @I10@
+1 CHIL @I11@
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHIL @I20@
+1 MARR
+2 DATE ABT 1732
+2 _SDATE 1 JUL 1732
+2 PLAC prob Dorchester County, Maryland
+0 @F4@ FAM
+1 HUSB @I10@
+1 WIFE @I12@
+1 CHIL @I13@
+1 SOUR @S14@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 MARR
+2 DATE ABT 1757
+2 _SDATE 1 JUL 1757
+0 @F5@ FAM
+1 HUSB @I13@
+1 WIFE @I14@
+1 CHIL @I15@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHIL @I23@
+1 CHIL @I24@
+1 CHIL @I25@
+1 MARR
+2 DATE 7 SEP 1779
+2 PLAC Caroline County, Maryland
+2 SOUR @S7@
+3 PAGE Pg. 4
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE Pg. 4
+0 @F6@ FAM
+1 HUSB @I15@
+1 WIFE @I16@
+1 MARR
+2 DATE 31 JUL 1815
+2 PLAC Rowan County, North Carolina
+0 @F7@ FAM
+1 HUSB @I15@
+1 WIFE @I17@
+1 CHIL @I30@
+1 CHIL @I27@
+1 CHIL @I28@
+1 CHIL @I29@
+1 CHIL @I31@
+1 CHIL @I32@
+1 CHIL @I33@
+1 CHIL @I34@
+1 CHIL @I38@
+1 CHIL @I35@
+1 CHIL @I36@
+1 CHIL @I37@
+1 MARR
+2 DATE (date undocumented)
+2 SOUR @S16@
+3 PAGE n/a
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE n/a
+2 SOUR @S14@
+3 PAGE n/a
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE n/a
+2 SOUR @S15@
+3 PAGE n/a
+3 _TMPLT
+4 FIELD
+5 NAME Page
+5 VALUE n/a
+1 OBJE
+2 FILE D:\Scott's Stuff\Scott's Web Sites\Blades\JmsBlades\sixbros.jpg
+2 FORM jpg
+2 TITL Edward A. and Ellen P. Blades six sons
+2 _DATE ABT 1890
+2 NOTE Ranson Dudley and Isaac Tillman are in the center.
+2 _TYPE PHOTO
+2 _SCBK Y
+2 _PRIM Y
+0 @F8@ FAM
+1 HUSB @I15@
+1 WIFE @I26@
+1 MARR
+2 DATE BET 1800 AND 1810
+2 _SDATE 1 JUL 1800
+0 @F9@ FAM
+1 HUSB @I30@
+1 WIFE @I39@
+1 CHIL @I42@
+1 CHIL @I40@
+1 CHIL @I41@
+1 CHIL @I43@
+1 CHIL @I44@
+1 CHIL @I45@
+1 CHIL @I46@
+1 CHIL @I47@
+1 CHIL @I48@
+1 CHIL @I49@
+1 CHIL @I50@
+1 SOUR @S24@
+2 PAGE Pg. 103
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pg. 103
+1 MARR
+2 DATE 28 JAN 1847
+2 PLAC Greene County, Missouri
+0 @F10@ FAM
+1 HUSB @I42@
+1 WIFE @I51@
+1 MARR
+2 DATE 23 JAN 1872
+0 @F11@ FAM
+1 HUSB @I42@
+1 WIFE @I52@
+1 CHIL @I53@
+1 CHIL @I54@
+1 CHIL @I55@
+1 CHIL @I56@
+1 CHIL @I57@
+1 CHIL @I58@
+1 CHIL @I59@
+1 CHIL @I61@
+1 CHIL @I62@
+1 CHIL @I63@
+1 CHIL @I64@
+1 CHIL @I65@
+1 SOUR @S24@
+2 PAGE Pgs. 106-115
+2 _TMPLT
+3 FIELD
+4 NAME Page
+4 VALUE Pgs. 106-115
+1 MARR
+2 DATE 3 DEC 1876
+2 PLAC Greene County, Missouri
+0 @F12@ FAM
+1 HUSB @I53@
+1 WIFE @I66@
+1 CHIL @I68@
+1 CHIL @I69@
+1 CHIL @I70@
+1 CHIL @I71@
+1 CHIL @I72@
+1 MARR
+2 DATE JUL 1900
+2 _SDATE 15 JUL 1900
+0 @F13@ FAM
+1 HUSB @I53@
+1 WIFE @I67@
+1 MARR
+2 PLAC Portland, Oregon
+0 @F14@ FAM
+1 HUSB @I68@
+1 WIFE @I73@
+1 CHIL @I74@
+1 CHIL @I75@
+1 CHIL @I76@
+1 CHIL @I77@
+1 CHIL @I79@
+1 CHIL @I78@
+1 CHIL @I80@
+1 MARR
+2 DATE 13 NOV 1921
+0 @S1@ SOUR
+1 ABBR Grinton Parish Register
+1 TITL The Register of the Parish Church of Grinton in Swaledale, County York
+2 CONT Yorkshire Parish Register Society, Vol. 23, F. William Slingby
+2 CONT REF:
+1 TEXT
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE The Register of the Parish Church of Grinton in Swaledale, County YorkYorkshire Parish Register Society, Vol. 23, F. William SlingbyREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S2@ SOUR
+1 ABBR Descendants of George Blades
+1 TITL Some Descendants of George Blades
+2 CONT Immigrant to Talbot County, Maryland
+2 CONT Helen E & George A Seymour
+2 CONT 1103 Riverview Ter
+2 CONT Saint Michaels, MD 21663-2869
+2 CONT REF:
+1 TEXT
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Some Descendants of George BladesImmigrant to Talbot County, MarylandHelen E & George A Seymour1103 Riverview TerSaint Michaels, MD 21663-2869REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S3@ SOUR
+1 ABBR Robert E. Blades Letter
+1 TITL Robert E. Blades - letter dated 06/19/1999
+2 CONT Thread Haven
+2 CONT 28 Londonderry Drive
+2 CONT Easton, MD 21601
+2 CONT 410-820-8336
+2 CONT REF:
+1 TEXT
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Robert E. Blades - letter dated 06/19/1999Thread Haven28 Londonderry DriveEaston, MD 21601410-820-8336REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S4@ SOUR
+1 ABBR Dorchester County MD Land Records
+1 TITL Abstracts from the land records of Dorchester County., MD
+2 CONT Volume C, 1723-1745
+2 CONT James McAllister, Jr.
+2 CONT REF:
+1 TEXT
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Abstracts from the land records of Dorchester County., MDVolume C, 1723-1745James McAllister, Jr.REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S5@ SOUR
+1 ABBR Caroline County MD Land Records
+1 TITL Caroline County Maryland Land Records - Grantors
+2 CONT The county was formed in 1773 from parts of Queen Anne's County (which w
+2 CONC as created in 1706 from Talbot (formed in 1661) and Kent Counties (esta
+2 CONC blished in 1642)) and from Dorchester County (organized in 1668/9).
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Caroline County Maryland Land Records - GrantorsThe county was formed in 1773 from parts of Queen Anne's County (which was created in 1706 from Talbot (formed in 1661) and Kent Counties (established in 1642)) and from Dorchester County (organized in 1668/9).REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S6@ SOUR
+1 ABBR Delaware Archives, Military, Vol 1
+1 TITL Delaware Archives, Military, Vol. 1
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Delaware Archives, Military, Vol. 1REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S7@ SOUR
+1 ABBR Caroline County MD Marriage Licenses
+1 TITL Caroline County, Maryland Marriage Licenses 1774-1825
+2 CONT and a Short History of Caroline County
+2 CONT Raymond B Clark Jr. & Sara Seth Clark
+2 CONT Box 352, St. Michaels, MD 21663
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Caroline County, Maryland Marriage Licenses 1774-1825and a Short History of Caroline CountyRaymond B Clark Jr. & Sara Seth ClarkBox 352, St. Michaels, MD 21663REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S8@ SOUR
+1 ABBR Maryland Militia in Revolutionary War
+1 TITL The Maryland Militia in the Revolutionary War
+2 CONT Clements and Wright
+2 CONT Family Line Publications, 1987
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE The Maryland Militia in the Revolutionary WarClements and WrightFamily Line Publications, 1987REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S9@ SOUR
+1 ABBR 1729 Census Maryland
+1 TITL 1790 Federal Census of Maryland
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE 1790 Federal Census of MarylandREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S11@ SOUR
+1 ABBR Queen Anne's Co Oath of Fidelity
+1 TITL Queen Anne's County (Oaths of Fidelity) 1778-1780
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Queen Anne's County (Oaths of Fidelity) 1778-1780REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S13@ SOUR
+1 ABBR History of Caroline County
+1 TITL History of Caroline County Maryland From Its Beginning
+2 CONT Baltimore, Regional Publishing Company, 1971
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE History of Caroline County Maryland From Its BeginningBaltimore, Regional Publishing Company, 1971REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S14@ SOUR
+1 ABBR Lucille Sifferman
+1 TITL Lucille Sifferman - letter postmarked 28 Jun 1989
+2 CONT Route 2, Box 183
+2 CONT Billings, MO 65610
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Lucille Sifferman - letter postmarked 28 Jun 1989Route 2, Box 183Billings, MO 65610REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S15@ SOUR
+1 ABBR Carroll M. Brown
+1 TITL Carroll M. Brown - info sheet
+2 CONT 120 Harvard Road
+2 CONT Havertown, PA 19083
+2 CONT Indicates following sources:
+2 CONT 1) L.D.S. print out received 12-13-82
+2 CONT 2) Letter from Lucille Siefferman, Billings, MO, 1983
+2 CONT 3) Mona Maybee
+2 CONT 4) Bonita Pipkin, Springfield, MO
+2 CONT 5) Ozar'Kin, Vol. III, #2, Summer 1981
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Carroll M. Brown - info sheet120 Harvard RoadHavertown, PA 19083Indicates following sources:1) L.D.S. print out received 12-13-822) Letter from Lucille Siefferman, Billings, MO, 19833) Mona Maybee4) Bonita Pipkin, Springfield, MO5) Ozar'Kin, Vol. III, #2, Summer 1981REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S16@ SOUR
+1 ABBR OGS 577, Chart 42, Springfield, MO Library
+1 TITL OGS 577, Chart 42, Springfield, MO Library
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE OGS 577, Chart 42, Springfield, MO LibraryREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S17@ SOUR
+1 ABBR North Carolina Will Book
+1 TITL North Carolina Will Book
+2 CONT North Carolina Div. of Archives and Hist.
+2 CONT 109 E. Jones St.
+2 CONT Raleigh, NC 27611
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE North Carolina Will BookNorth Carolina Div. of Archives and Hist.109 E. Jones St.Raleigh, NC 27611REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S18@ SOUR
+1 ABBR Reynolds Cemetery
+1 TITL Reynolds Cemetery, Republic, MO
+2 CONT RE:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Reynolds Cemetery, Republic, MORE:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S19@ SOUR
+1 ABBR WFT Vol 10 Tree 2388
+1 TITL World Family Tree, Vol 10, Tree 2388
+2 CONT familytreemaker.genealogy.com
+2 CONT Hugh D. Rutherford
+2 CONT 9913 Dagger Point LN
+2 CONT Shreveport, LA 71115-3239
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE World Family Tree, Vol 10, Tree 2388familytreemaker.genealogy.comHugh D. Rutherford9913 Dagger Point LNShreveport, LA 71115-3239REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S20@ SOUR
+1 ABBR Maryland Eastern Shore Vital Records
+1 TITL Maryland Eastern Shore Vital Records
+2 CONT St. Lukes Parish
+2 CONT 1726 - 1750
+2 CONT 1751 - 1775
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Maryland Eastern Shore Vital RecordsSt. Lukes Parish1726 - 17501751 - 1775REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S21@ SOUR
+1 ABBR Scott Blades - Misc Notes
+1 TITL Scott Blades - Misc Notes
+2 CONT Source Unrecorded
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Scott Blades - Misc NotesSource UnrecordedREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S22@ SOUR
+1 ABBR Rowan Co NC Will Abstracts
+1 TITL Rowan County, North Carolina, Will Abstracts
+2 CONT Vol. II, 1805-1850, Books G-K
+2 CONT Jo White Linn, 1971
+2 CONT REF:
+1 TEXT H:358, TILMAN BLADES. May 9, 1825. prb. Aug. 1826. Wife Nancy. Sons: Ed
+2 CONC ward, Isaac, Samuel (youngest). Daughters: Ann (wife of Rolp Owens), Sa
+2 CONC rah (wife of William West). Son-in-law: Phillip Walling and his wife Ro
+2 CONC asanh. Exr: Meshack Pinkston. Wit: Sarah Riggins, Edward Riggins, James R
+2 CONC otar.
+2 CONT
+2 CONT Request: Rowan County Original Wills, 1743-1900 (C.R. 085.801.3), Blade
+2 CONC s, Tilman, 1826
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Rowan County, North Carolina, Will AbstractsVol. II, 1805-1850, Books G-KJo White Linn, 1971REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S23@ SOUR
+1 ABBR OZAR'KIN
+1 TITL OZAR'KIN, Vol III, No. 2, Summer 1981
+2 CONT Contributed by:
+2 CONT Mrs Orrin Maybee
+2 CONT 17069 N. Indian Avenue
+2 CONT Space 72, Box 724
+2 CONT North Palm Springs, CA 92258
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE OZAR'KIN, Vol III, No. 2, Summer 1981Contributed by:Mrs Orrin Maybee17069 N. Indian AvenueSpace 72, Box 724North Palm Springs, CA 92258REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S24@ SOUR
+1 ABBR Blades Lott
+1 TITL Blades Lott, 1634-1991
+2 CONT Limited Print Book
+2 CONT Andrea A. (Clevenger) Turley
+2 CONT Deceased 2007
+2 CONT Wichita, Kansas
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Blades Lott, 1634-1991Limited Print BookAndrea A. (Clevenger) TurleyDeceased 2007Wichita, KansasREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S25@ SOUR
+1 ABBR History of Greene County
+1 TITL History of Greene County, Missouri
+2 CONT 1883, R. I. Holcombe, Editing Historian
+2 CONT Chapter 22, Pond Creek Township
+2 CONT Springfield Missouri Library
+2 CONT http://thelibrary.org/lochist/history/holcombe/grch22.html
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE History of Greene County, Missouri1883, R. I. Holcombe, Editing HistorianChapter 22, Pond Creek TownshipSpringfield Missouri Libraryhttp://thelibrary.org/lochist/history/holcombe/grch22.htmlREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S26@ SOUR
+1 ABBR History of Ozark Region
+1 TITL Reminiscent History Of The Ozark Region
+2 CONT Goodspeed Brothers, Publishers, Chicago 1894
+2 CONT (1) Edward A. Blades - http://www.accessgenealogy.com/scripts/data/data
+2 CONC base.cgi?file=Data&report=SingleArticle&ArticleID=0030103
+2 CONT (2) Ranson Blades - http://www.accessgenealogy.com/scripts/data/databas
+2 CONC e.cgi?file=Data&report=SingleArticle&ArticleID=0029748
+2 CONT
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Reminiscent History Of The Ozark RegionGoodspeed Brothers, Publishers, Chicago 1894(1) Edward A. Blades - http://www.accessgenealogy.com/scripts/data/database.cgi?file=Data&report=SingleArticle&ArticleID=0030103(2) Ranson Blades - http://www.accessgenealogy.com/scripts/data/database.cgi?file=Data&report=SingleArticle&ArticleID=0029748
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S27@ SOUR
+1 ABBR Scott Blades - MD Census Notes
+1 TITL Handwritten page of Maryland Census Records
+2 CONT Source Unrecorded
+2 CONT REF:
+1 TEXT Edward Tucker Blades - Queen Annes Co Md. - Walsey Hundred - CT1778
+2 CONT James Tucker Blades - Queen Annes Co Md. - Walsey Hundred - CT1778
+2 CONT Tilghman Baldes - Queen Annes Co Md. - Walsey Hundred - CT1778
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Handwritten page of Maryland Census RecordsSource UnrecordedREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S28@ SOUR
+1 ABBR I.T. Blades Military Records
+1 TITL (1) Official Honorary Discharge
+2 CONT State of Missouri
+2 CONT Adjutant-General's Ofice
+2 CONT 06/12/1893
+2 CONT (2) Statement of Military Service
+2 CONT Record and Pension Office
+2 CONT Chief of the Record and Pension Office
+2 CONT War Department
+2 CONT Washington, DC
+2 CONT 07/17/1899
+2 CONT (3) Declaration for Invalid Pension # 903185
+2 CONT Department of Interior
+2 CONT Bureau of Pensions
+2 CONT Washington, DC
+2 CONT 06/26/1899
+2 CONT 07/26/1899
+2 CONT 10/24/1901
+2 CONT (4) General Affidavit
+2 CONT State of Missouri
+2 CONT Pension Claim # 995707
+2 CONT 10/24/1901 - 10/26/1901
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE (1) Official Honorary DischargeState of MissouriAdjutant-General's Ofice06/12/1893(2) Statement of Military ServiceRecord and Pension OfficeChief of the Record and Pension OfficeWar DepartmentWashington, DC07/17/1899(3) Declaration for Invalid Pension # 903185Department of InteriorBureau of PensionsWashington, DC06/26/189907/26/189910/24/1901(4) General AffidavitState of MissouriPension Claim # 99570710/24/1901 - 10/26/1901
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S29@ SOUR
+1 ABBR Compendium of War of Rebellion
+1 TITL Compendium of The War of the Rebellion
+2 CONT Official Records of the Union and Confederate Armies
+2 CONT Series I, Volume VIII
+2 CONT Item No. 21, Pgs. 256-262, Report on the Battle of Elkhorn Tavern, or P
+2 CONC ea Ridge, Ark., March 7, 1862
+2 CONT Item No. 24, Pgs. 266-268, Report on the Battle of Elkhorn Tavern, or P
+2 CONC ea Ridge, Ark., March 7, 1862
+2 CONT Pg. 1340, PHELPS INDEPENDENT REGIMENT INFANTRY
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Compendium of The War of the RebellionOfficial Records of the Union and Confederate ArmiesSeries I, Volume VIIIItem No. 21, Pgs. 256-262, Report on the Battle of Elkhorn Tavern, or Pea Ridge, Ark., March 7, 1862Item No. 24, Pgs. 266-268, Report on the Battle of Elkhorn Tavern, or Pea Ridge, Ark., March 7, 1862Pg. 1340, PHELPS INDEPENDENT REGIMENT INFANTRYREF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 @S30@ SOUR
+1 ABBR Battle's and Leader's of Civil War
+1 TITL Battle's and Leader's of the Civil War, Vol. 1
+2 CONT New York: Thomas Yoselhoff, Inc.
+2 CONT REF:
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE Battle's and Leader's of the Civil War, Vol. 1New York: Thomas Yoselhoff, Inc.REF:
+2 FIELD
+3 NAME ShortFootnote
+2 FIELD
+3 NAME Bibliography
+0 _EVDEF BIRT
+1 TYPE P
+1 TITL Birth
+1 ABBR Birth
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was born< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF DEAT
+1 TYPE P
+1 TITL Death
+1 ABBR Death
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] died< [Desc]>< [Date]>< [person:Age]>< [PlaceDetails]>< [Place
+2 CONC ]>.
+0 _EVDEF CHR
+1 TYPE P
+1 TITL Christen
+1 ABBR Chr
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was christened< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF BURI
+1 TYPE P
+1 TITL Burial
+1 ABBR Burial
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was buried< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF CREM
+1 TYPE P
+1 TITL Cremation
+1 ABBR Cremation
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was cremated< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF ADOP
+1 TYPE P
+1 TITL Adoption
+1 ABBR Adoption
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was adopted< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF BAPM
+1 TYPE P
+1 TITL Baptism
+1 ABBR Baptism
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was baptized< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF BARM
+1 TYPE P
+1 TITL Bar Mitzvah
+1 ABBR Bar Mitzvah
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] celebrated his bar mitzvah< [Date]>< [PlaceDetails]>< [Place]>
+2 CONC .
+0 _EVDEF BASM
+1 TYPE P
+1 TITL Bas Mitzvah
+1 ABBR Bas Mitzvah
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] celebrated her bas mitzvah< [Date]>< [PlaceDetails]>< [Place]>
+2 CONC .
+0 _EVDEF BLES
+1 TYPE P
+1 TITL Blessing
+1 ABBR Blessing
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was blessed< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF CHRA
+1 TYPE P
+1 TITL Christen (adult)
+1 ABBR Chr (adult)
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was christened< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF CONF
+1 TYPE P
+1 TITL Confirmation
+1 ABBR Confirmation
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was confirmed< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF FCOM
+1 TYPE P
+1 TITL First communion
+1 ABBR First comm
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] received first communion< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF ORDN
+1 TYPE P
+1 TITL Ordination
+1 ABBR Ordination
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was ordained< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF NATU
+1 TYPE P
+1 TITL Naturalization
+1 ABBR Naturalization
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was naturalized< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF EMIG
+1 TYPE P
+1 TITL Emigration
+1 ABBR Emigration
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] emigrated< [Date]>< from [Place:plain]>< [PlaceDetails]>.
+0 _EVDEF IMMI
+1 TYPE P
+1 TITL Immigration
+1 ABBR Immigration
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] immigrated< [Date]>< to [Place:plain]>< [PlaceDetails]>.
+0 _EVDEF CENS
+1 TYPE P
+1 TITL Census
+1 ABBR Census
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] appeared in the census< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF PROB
+1 TYPE P
+1 TITL Probate
+1 ABBR Probate
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] had [person:hisher] estate probated< [Date]>< [PlaceDetails]>< [
+2 CONC Place]>.
+0 _EVDEF WILL
+1 TYPE P
+1 TITL Will
+1 ABBR Will
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] signed a will< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF GRAD
+1 TYPE P
+1 TITL Graduation
+1 ABBR Graduation
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] graduated< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF RETI
+1 TYPE P
+1 TITL Retirement
+1 ABBR Retirement
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] retired< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF DSCR
+1 TYPE P
+1 TITL Description
+1 ABBR Description
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was described as [Desc]< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF EDUC
+1 TYPE P
+1 TITL Education
+1 ABBR Education
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was educated < [Desc]>< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF NATI
+1 TYPE P
+1 TITL Nationality
+1 ABBR Nationality
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was [Desc]< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF OCCU
+1 TYPE P
+1 TITL Occupation
+1 ABBR Occupation
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [date] [person] was [Desc:A]< [PlaceDetails]>< [Place]>.
+0 _EVDEF PROP
+1 TYPE P
+1 TITL Property
+1 ABBR Property
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] owned [Desc]< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF RELI
+1 TYPE P
+1 TITL Religion
+1 ABBR Religion
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was [Desc]< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF RESI
+1 TYPE P
+1 TITL Residence
+1 ABBR Residence
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] lived< [Desc]>< [PlaceDetails]>< [Place]>< [Date]>.
+0 _EVDEF SSN
+1 TYPE P
+1 TITL Soc Sec No
+1 ABBR SSN
+1 PLAC N
+1 DATE N
+1 DESC Y
+1 SENT [person] had Social Security Number [Desc].
+0 _EVDEF BAPL
+1 TYPE P
+1 TITL LDS Baptism
+1 ABBR LDS Bapt
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was baptized into the LDS Church< [Date]>< [PlaceDetails]>< [P
+2 CONC lace]>.
+0 _EVDEF ENDL
+1 TYPE P
+1 TITL LDS Endowment
+1 ABBR LDS Endow
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was endowed< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF SLGC
+1 TYPE P
+1 TITL LDS Seal to parents
+1 ABBR LDS SealPar
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was sealed to [person:hisher] parents< [Date]>< [PlaceDetails]
+2 CONC >< [Place]>.
+0 _EVDEF AFN
+1 TYPE P
+1 TITL Ancestral File Number
+1 ABBR AFN
+1 PLAC N
+1 DATE N
+1 DESC Y
+1 SENT [person] has Ancestral File Number [Desc].
+0 _EVDEF REFN
+1 TYPE P
+1 TITL Reference No
+1 ABBR Ref #
+1 PLAC N
+1 DATE N
+1 DESC Y
+1 SENT [person] has reference number [Desc].
+0 _EVDEF CAST
+1 TYPE P
+1 TITL Caste
+1 ABBR Caste
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was associated with [Desc]< [Date]>< [PlaceDetails]>< [Place]>
+2 CONC .
+0 _EVDEF TITL
+1 TYPE P
+1 TITL Title (Nobility)
+1 ABBR Title
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] held the title of [Desc]< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF CONL
+1 TYPE P
+1 TITL LDS Confirmation
+1 ABBR LDS Conf
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was comfirmed a member of the LDS Church< [Date]>< [PlaceDetai
+2 CONC ls]>< [Place]>.
+0 _EVDEF WAC
+1 TYPE P
+1 TITL LDS Initiatory
+1 ABBR LDS Init
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] received LDS initiatory< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF MARR
+1 TYPE F
+1 TITL Marriage
+1 ABBR Marriage
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] <#Couple#was|were> married< [Date]>< [PlaceDetails]>< [Place]>
+2 CONC .
+0 _EVDEF ANUL
+1 TYPE F
+1 TITL Annulment
+1 ABBR Annulment
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] had their marriage annulled< [Date]>< [PlaceDetails]>< [Place]
+2 CONC >.
+0 _EVDEF DIV
+1 TYPE F
+1 TITL Divorce
+1 ABBR Divorce
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] <#Couple#was|were> divorced< [Date]>< [PlaceDetails]>< [Place]
+2 CONC >.
+0 _EVDEF DIVF
+1 TYPE F
+1 TITL Divorce filed
+1 ABBR Div. filed
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] filed for divorce< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF ENGA
+1 TYPE F
+1 TITL Engagement
+1 ABBR Engagement
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] <#Couple#was|were> engaged< [Date]>< [PlaceDetails]>< [Place]>
+2 CONC .
+0 _EVDEF MARB
+1 TYPE F
+1 TITL Marriage Bann
+1 ABBR Marr Bann
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] had marriage banns published< [Date]>< [PlaceDetails]>< [Place
+2 CONC ]>.
+0 _EVDEF MARC
+1 TYPE F
+1 TITL Marriage Contract
+1 ABBR Marr Contract
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] signed a marriage contract< [Date]>< [PlaceDetails]>< [Place]>
+2 CONC .
+0 _EVDEF MARL
+1 TYPE F
+1 TITL Marriage License
+1 ABBR Marr Lic
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] obtained a marriage license< [Date]>< [PlaceDetails]>< [Place]
+2 CONC >.
+0 _EVDEF MARS
+1 TYPE F
+1 TITL Marriage Settlement
+1 ABBR Marr Settlement
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] obtained a marriage settlement< [Date]>< [PlaceDetails]>< [Pla
+2 CONC ce]>.
+0 _EVDEF SLGS
+1 TYPE F
+1 TITL LDS Seal to spouse
+1 ABBR LDS SealSp
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] were sealed together< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF RESI
+1 TYPE F
+1 TITL Residence (family)
+1 ABBR Residence (fam)
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [couple] lived < [Desc]>< [PlaceDetails]>< [Place]>< [Date]>.
+0 _EVDEF CENS
+1 TYPE F
+1 TITL Census (family)
+1 ABBR Census (fam)
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] appeared in the census< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Degree
+1 TYPE P
+1 TITL Degree
+1 ABBR Degree
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] received a< [desc]> degree< [Date]>< [PlaceDetails]>< [Place]>
+2 CONC .
+0 _EVDEF Military
+1 TYPE P
+1 TITL Military
+1 ABBR Military
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] served in the military< [Desc]>< [Date]>< [PlaceDetails]>< [Pl
+2 CONC ace]>.
+0 _EVDEF Mission
+1 TYPE P
+1 TITL Mission
+1 ABBR Mission
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] served a mission< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Stillborn
+1 TYPE P
+1 TITL Stillborn
+1 ABBR Stillborn
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was stillborn< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Illness
+1 TYPE P
+1 TITL Illness
+1 ABBR Illness
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was ill< with [Desc]>< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Living
+1 TYPE P
+1 TITL Living
+1 ABBR Living
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was living< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Elected
+1 TYPE P
+1 TITL Election
+1 ABBR Elected
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was elected< as [Desc]>< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Excomm
+1 TYPE P
+1 TITL Excommunication
+1 ABBR Excomm
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [person] was excommunicated< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Namesake
+1 TYPE P
+1 TITL Namesake
+1 ABBR Namesake
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person] was named after [Desc]< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Separation
+1 TYPE F
+1 TITL Separation
+1 ABBR Separation
+1 PLAC Y
+1 DATE Y
+1 DESC N
+1 SENT [couple] were separated< [Date]>< [PlaceDetails]>< [Place]>.
+0 _EVDEF Alt. Name
+1 TYPE P
+1 TITL Alternate name
+1 ABBR Alt. Name
+1 PLAC N
+1 DATE Y
+1 DESC N
+1 SENT [person] was also known as [Desc]< [Date]>.
+0 _EVDEF _DNA
+1 TYPE P
+1 TITL DNA test
+1 ABBR DNA
+1 PLAC N
+1 DATE Y
+1 DESC N
+1 SENT [person] had a DNA test performed< [Date]>.
+0 _EVDEF Misc
+1 TYPE P
+1 TITL Miscellaneous
+1 ABBR Misc
+1 PLAC Y
+1 DATE Y
+1 DESC Y
+1 SENT [person]< [Desc]>< [Date]>< [PlaceDetails]>< [Place]>.
+0 TRLR

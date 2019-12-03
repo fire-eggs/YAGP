@@ -1,0 +1,2213 @@
+0 HEAD
+1 SOUR Legacy
+2 VERS 8.0
+2 NAME Legacy (R)
+2 CORP Millennia Corp.
+3 ADDR PO Box 9410
+4 CONT Surprise, AZ 85374
+1 DEST Legacy
+1 DATE 12 Sep 2014
+1 SUBM @S0@
+1 FILE C:\f\TEMP\James-Jones-Sr.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSI
+0 @S0@ SUBM
+1 NAME James A. Jones Jr.
+1 EMAIL sahara27@juno.com
+0 @I10@ INDI
+1 NAME Rebecca /Kelley/
+2 GIVN Rebecca
+2 SURN Kelley
+1 SEX F
+1 BIRT
+2 DATE 5 Feb 1822
+2 PLAC Frankfort, Franklin County, Kentucky, USA
+1 DEAT
+2 DATE 18 Sep 1904
+2 PLAC Des Moines, Polk County, Iowa, USA
+1 _TAG
+1 SOUR @S3@
+1 _UID F3869EEB05774B299BF53946331C99AD9693
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:23
+1 FAMS @F5@
+1 FAMC @F18@
+0 @I115@ INDI
+1 NAME Rebecca /Sophus/
+2 GIVN Rebecca
+2 SURN Sophus
+1 SEX F
+1 _TAG
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 07C5ECFFCBFD4D5FA5256C5BD0D36633F8C4
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMS @F47@
+0 @I7@ INDI
+1 NAME Alba /Jones/
+2 GIVN Alba
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 4 Sep 1861
+2 PLAC Cambridge, Story County, Iowa, USA
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 10 Sequence 1. Alba Jones.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 DEAT
+2 DATE 9 Nov 1949
+2 PLAC 235 E. 9th Street, Ames, Story County, Iowa
+2 CAUS Cerebral hemorrhage
+3 SOUR @S34@
+4 PAGE Oakwood Block 8 Lot 9 Location 10 Sequence 1. Alba Jones.
+4 QUAY 4
+4 DATE 3 Aug 2014
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 10 Sequence 1. Alba Jones.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 BURI
+2 DATE 11 Dec 1949
+2 PLAC Ames Municipal Cemetery, Ames, Story County, Iowa, USA
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 10 Sequence 1. Alba Jones.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 _TAG
+1 _PPEXCLUDE noneF
+1 SOUR @S3@
+1 _UID D4212A3FDBCF4AA9900D3B129EC44045CCCC
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 20:19
+1 FAMS @F4@
+1 FAMC @F5@
+0 @I28@ INDI
+1 NAME John /McGinnis/
+2 GIVN John
+2 SURN McGinnis
+1 SEX M
+1 BIRT
+2 DATE 9 Apr 1859
+2 PLAC Boston, Massachusetts, USA (maybe)
+2 SOUR @S65@
+3 PAGE Borough of Queens." death certificate no. 1552 (1941), Joh
+4 CONC n McGinniss, accessed 20 Aug 2014.
+3 QUAY 3
+1 DEAT
+2 DATE 23 Feb 1941
+2 PLAC 121st Street, Richmond Hill, Queens, New York
+2 SOUR @S65@
+3 PAGE Borough of Queens." death certificate no. 1552 (1941), Joh
+4 CONC n McGinniss, accessed 20 Aug 2014.
+3 QUAY 3
+1 _TAG
+1 SOUR @S3@
+1 EVEN a lot on Spruce Street (121st Street) near Belmont for $561
+2 TYPE Property
+2 DATE 7 Jul 1894
+2 PLAC Richmond Hill, Queens, New York, USA
+2 SOUR @S68@
+3 PAGE Book 1033: 445-446, William L. & Sarah Petit to John McGinn
+4 CONC is, 7 Jul 1894
+3 QUAY 4
+3 DATE Jul 2009
+2 _OVER William L. & Sarah Petit sold a lot plus "appurtenances" o
+3 CONC n Spruce Street (121st Street) near Belmont to John McGinni
+3 CONC s of Brooklyn for $561.
+1 OCCU dry goods salesman
+2 DATE 4 Jun 1900
+2 PLAC Queens, New York, USA
+2 SOUR @S49@
+3 PAGE T623, roll 1149, Ward 4, Queens, New York, enumeration dist
+4 CONC rict (ED) 575, sheet 4, p. 54, John McGinniss
+3 QUAY 3
+1 RETI glass salesman
+2 DATE 1930
+2 PLAC New York, New York, USA
+1 _UID 39F73F3F691B46B1A7AE1A7F10D1F3DDC83F
+1 CHAN
+2 DATE 21 Aug 2014
+3 TIME 19:03
+1 FAMS @F23@
+1 FAMS @F13@
+1 FAMC @F19@
+1 NOTE @NI28@
+0 @NI28@ NOTE
+1 CONC According to his death certificate, John McGinnis was bor
+1 CONC n on April 9, 1859 in the USA, but no other info was given
+1 CONC .  His father was born in Ireland, but his name was unknown
+1 CONC , and his mother was born in Scotland, but her name was unk
+1 CONC nown.
+1 CONT
+1 CONT The 1900 US census gives slightly different information. Jo
+1 CONC hn was born April 1859 in Massachusetts.  He worked as a dr
+1 CONC y-goods salesman.  His father was from Massachusetts and hi
+1 CONC s mother was from Ireland.
+0 @I3@ INDI
+1 NAME James Albert Sr. /Jones/
+2 GIVN James Albert Sr.
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 26 May 1928
+2 PLAC Brooklyn, Kings County, New York, USA
+1 DEAT
+2 DATE 20 Nov 1983
+2 PLAC Audubon, Montgomery County, Pennsylvania, USA
+2 CAUS Leukemia
+1 _TAG
+1 _PPEXCLUDE j
+1 SOUR @S3@
+1 RESI
+2 DATE 1938
+2 PLAC Pottstown, Montgomery County, Pennsylvania, USA
+1 GRAD
+2 DATE Jun 1946
+2 PLAC Brooklyn Technical High School, Kings, New York, USA
+1 EVEN enlisted in the US Army
+2 TYPE Military
+2 DATE 20 Sep 1946
+2 PLAC New York, New York, USA
+1 EVEN honorably discharged from US Army
+2 TYPE Military
+2 DATE 5 Jan 1948
+2 PLAC Fort Walton, Washindton, USA
+1 _UID 35ACC0269DF1455BA869A6173AFF9544D537
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:43
+1 FAMS @F2@
+1 FAMC @F3@
+0 @I37@ INDI
+1 NAME Amos /Kelley/
+2 GIVN Amos
+2 SURN Kelley
+1 SEX M
+1 BIRT
+2 DATE Unknown
+2 PLAC Kentucky, USA
+1 DEAT
+2 DATE 1838
+2 PLAC Vigo County, Indiana, USA
+1 _TAG
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID CAC71A38BEF04A78B115E05EF6EC2DF85E00
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:24
+1 FAMS @F18@
+0 @I38@ INDI
+1 NAME Elizabeth /Jackson/
+2 GIVN Elizabeth
+2 SURN Jackson
+1 SEX F
+1 BIRT
+2 DATE 11 Nov 1793
+2 PLAC North Carolina, USA
+1 DEAT
+2 DATE 22 May 1868
+2 PLAC Iowa, USA
+1 _TAG
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID FD7D68153DA84D9E8FC1AC0717C3B6F24C75
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:24
+1 FAMS @F18@
+0 @I4@ INDI
+1 NAME Florence Ellen /Puelle/
+2 GIVN Florence Ellen
+2 SURN Puelle
+1 SEX F
+1 BIRT
+2 DATE 28 Feb 1927
+2 PLAC Glendale, Queens New York, USA
+1 DEAT
+2 DATE 3 Mar 2004
+2 PLAC Audubon, Montgomery County, Pennsylvania, USA
+2 CAUS Cancer
+1 _TAG
+1 SOUR @S3@
+1 BAPM at St. Paul's Church, Knickerbocker Avenue and Palmetto Street
+2 DATE 18 Jun 1927
+2 PLAC Brooklyn, New York, USA
+1 CONF at St. John's Envangelical Lutheran Church, 114th St. (north of Jamaica Avenue)
+2 DATE 12 May 1940
+2 PLAC Richmond Hill, Queens, New York, USA
+1 GRAD from Public School 90
+2 DATE 24 Jun 1940
+2 PLAC Richmond Hill, Queens, New York, USA
+1 GRAD from Richmiond Hill High School
+2 DATE Jun 1945
+2 PLAC Richmond Hill, Queens, New York, USA
+1 EVEN met future husband
+2 TYPE Marriage
+2 DATE Jul 1949
+2 PLAC Queens, New York, USA
+1 EVEN quit work at E. P. Dutton
+2 TYPE Employment
+2 DATE 12 Jan 1951
+2 PLAC Manhattan, New York, New York, USA
+1 _UID 22D7E0EE644F4133998AB072C4F00CCFC228
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:52
+1 FAMS @F2@
+1 FAMC @F6@
+0 @I45@ INDI
+1 NAME  /McGinnis/
+2 SURN McGinnis
+1 SEX M
+1 BIRT
+2 PLAC Ireland or Massachusetts
+1 DEAT Y
+1 _TAG
+1 SOUR @S3@
+1 _UID 58943B2703464777B5A452F261F6884D1E09
+1 CHAN
+2 DATE 11 Aug 2014
+3 TIME 09:45
+1 FAMS @F19@
+0 @I46@ INDI
+1 NAME  /Not known/
+2 SURN Not known
+1 SEX F
+1 BIRT
+2 PLAC Scotland or Ireland
+1 DEAT Y
+1 _TAG
+1 SOUR @S3@
+1 _UID AB7B1D8EB4C64C23A18918AD14291290880D
+1 CHAN
+2 DATE 11 Aug 2014
+3 TIME 09:45
+1 FAMS @F19@
+0 @I48@ INDI
+1 NAME Ada /Wright/
+2 GIVN Ada
+2 SURN Wright
+1 SEX F
+1 BIRT
+2 DATE 27 Aug 1863
+2 PLAC England
+2 SOUR @S65@
+3 PAGE State of New York Certificate and Record of Death." death c
+4 CONC ertificate no. 4136 (24 Oct 1922), Ada Wright McGinniss.
+3 QUAY 3
+1 DEAT
+2 DATE 24 Oct 1922
+2 PLAC 121st Street, Richmond Hill, Queens, New York
+2 SOUR @S65@
+3 PAGE State of New York Certificate and Record of Death." death c
+4 CONC ertificate no. 4136 (24 Oct 1922), Ada Wright McGinniss.
+3 QUAY 3
+1 _TAG
+1 SOUR @S3@
+1 IMMI
+2 DATE 1880
+2 PLAC New York, New York, USA
+1 NATU
+2 DATE 1881
+2 PLAC New York, New York, USA
+1 RESI 103-24 121st Street
+2 DATE 1915
+2 PLAC Richmond Hill, Queens, New York, USA
+2 SOUR @S66@
+3 PAGE John McGinniss; family number 1324, page 27, line number 33.
+3 QUAY 3
+1 _UID B5BF6667AD3A4DA38C826B1A37918E8F90D3
+1 CHAN
+2 DATE 21 Aug 2014
+3 TIME 17:09
+1 FAMS @F13@
+1 FAMC @F20@
+0 @I49@ INDI
+1 NAME William /Wright/
+2 GIVN William
+2 SURN Wright
+1 SEX M
+1 BIRT
+2 DATE Abt 1840
+2 PLAC unknown
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _TAG
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 4AE1331EC57C4C0FA1598AF74705A97A02AB
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMS @F20@
+0 @I5@ INDI
+1 NAME Frederick Edward /Jones/
+2 GIVN Frederick Edward
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 8 Sep 1892
+2 PLAC Walnut Grove, Story County, Iowa, USA
+1 DEAT
+2 DATE 30 Sep 1957
+2 PLAC Des Moines, Polk County, Iowa, USA
+1 BURI
+2 DATE 4 Oct 1957
+2 PLAC Laurel Hill Cemetery, Des Moines, Iowa, USA
+1 _TAG
+1 SOUR @S3@
+1 EVEN left for WWI
+2 TYPE Military
+2 DATE 4 Dec 1917
+2 PLAC France
+1 _UID 1979583BB9854F0E86FEEFC575181B5EFEB2
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:51
+1 FAMS @F26@
+1 FAMS @F3@
+1 FAMC @F4@
+0 @I52@ INDI
+1 NAME John Wesley /Burton/
+2 GIVN John Wesley
+2 SURN Burton
+1 SEX M
+1 BIRT
+2 DATE Abt 1838
+2 PLAC Indiana, USA
+1 DEAT
+2 DATE 1899
+2 PLAC unknown
+1 _TAG
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 9A00DA5890574A8383F59DDDCD04082D7847
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMS @F21@
+1 FAMC @F22@
+0 @I53@ INDI
+1 NAME Frances Jane /Bullen/
+2 GIVN Frances Jane
+2 SURN Bullen
+1 SEX F
+1 BIRT
+2 DATE Abt 1842
+2 PLAC Tennessee, USA
+1 DEAT
+2 DATE 1911
+2 PLAC unknown
+1 _TAG
+1 SOUR @S3@
+1 _UID 71756C53685846BEB7F613A9D3D0B102286D
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:19
+1 FAMS @F21@
+0 @I54@ INDI
+1 NAME Jane //
+2 GIVN Jane
+1 SEX F
+1 BIRT
+2 DATE Abt 1818
+2 PLAC Tennessee, USA
+1 DEAT Y
+1 _TAG
+1 SOUR @S3@
+1 _UID CD85101235894D6F8B43E8523AB4394865A2
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:18
+1 FAMS @F22@
+0 @I55@ INDI
+1 NAME  /Not known/
+2 SURN Not known
+1 SEX M
+1 BIRT
+2 PLAC Virginia, USA
+1 DEAT Y
+1 _TAG
+1 SOUR @S3@
+1 _UID FFBFEF43C95343008836DC7259B45B0DD094
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:18
+1 FAMS @F22@
+0 @I56@ INDI
+1 NAME Margaret /Fleming/
+2 GIVN Margaret
+2 SURN Fleming
+1 SEX F
+1 BIRT
+2 DATE Unknown
+2 PLAC unknown
+1 DEAT
+2 DATE Abt 1890
+2 PLAC unknown
+1 _TAG
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID A8625C5481794FFC989849FE2805492713B7
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMS @F23@
+0 @I6@ INDI
+1 NAME Grace /McGinnis/
+2 GIVN Grace
+2 SURN McGinnis
+1 SEX F
+1 BIRT
+2 DATE 16 Feb 1898
+2 PLAC Brooklyn, Kings County, New York, USA
+1 DEAT
+2 DATE 9 May 1965
+2 PLAC Queens, New York, USA
+1 BURI
+2 DATE 11 May 1965
+2 PLAC Maple Grove Cemetery, Kew Gardens, Queens, New York, USA
+1 _TAG
+1 _PPEXCLUDE kI
+1 SOUR @S3@
+1 DIV
+2 DATE Abt 1932
+2 PLAC unknown
+1 _UID BB8DCB95B8264AD7AD6CC9D69FE0713A89CB
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:41
+1 FAMS @F3@
+1 FAMC @F13@
+0 @I64@ INDI
+1 NAME Bessie /unknown/
+2 GIVN Bessie
+2 SURN unknown
+1 SEX F
+1 BIRT
+2 DATE Abt 1893
+2 PLAC Story County, Iowa, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _TAG
+1 SOUR @S3@
+1 DIV
+2 DATE 10 Feb 1916
+2 PLAC Story County, Iowa, USA
+1 _UID 6DC16318DED44C4E8FDD09A960C1F9EF1CA5
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:41
+1 FAMS @F26@
+0 @I8@ INDI
+1 NAME Mary A. /Burton/
+2 GIVN Mary A.
+2 SURN Burton
+1 SEX F
+1 BIRT
+2 DATE 3 Sep 1873
+2 PLAC Cambridge, Story County, Iowa, USA
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 6 Sequence 1. Mary Burton Jo
+4 CONC nes.
+3 QUAY 4
+3 DATE 3 Aug 2014
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 9 Sequence 1. Mary Burton Jo
+4 CONC nes.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 DEAT
+2 DATE 27 Nov 1952
+2 PLAC Ames, Story County, Iowa, USA
+2 CAUS Pacretitis
+3 SOUR @S34@
+4 PAGE Oakwood Block 8 Lot 9 Location 6 Sequence 1. Mary Burton Jo
+5 CONC nes.
+4 QUAY 4
+4 DATE 3 Aug 2014
+3 SOUR @S34@
+4 PAGE Oakwood Block 8 Lot 9 Location 9 Sequence 1. Mary Burton Jo
+5 CONC nes.
+4 QUAY 4
+4 DATE 3 Aug 2014
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 6 Sequence 1. Mary Burton Jo
+4 CONC nes.
+3 QUAY 4
+3 DATE 3 Aug 2014
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 9 Sequence 1. Mary Burton Jo
+4 CONC nes.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 BURI
+2 DATE 1 Dec 1952
+2 PLAC Ames Municipal Cemetery, Ames, Story County, Iowa, USA
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 6 Sequence 1. Mary Burton Jo
+4 CONC nes.
+3 QUAY 4
+3 DATE 3 Aug 2014
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 9 Sequence 1. Mary Burton Jo
+4 CONC nes.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 _TAG
+1 SOUR @S3@
+1 _UID 19A220E35A124E83B452AEDAB5B20A5B5587
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 20:19
+1 FAMS @F4@
+1 FAMC @F21@
+0 @I9@ INDI
+1 NAME Isaac /Jones/
+2 GIVN Isaac
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 6 Jul 1802
+2 PLAC London (near), England
+1 DEAT
+2 DATE 19 Aug 1903
+2 PLAC Des Moines, Polk County, Iowa, USA
+1 _TAG
+1 SOUR @S3@
+1 RETI
+2 DATE 1893
+2 PLAC Cambridge, Story County, Iowa, USA
+1 _UID D79AC0C205EA4C6DA0758A6734DFF632DCE4
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:56
+1 FAMS @F5@
+1 FAMS @F47@
+0 @I1@ INDI
+1 NAME James Albert /Jones/
+2 GIVN James Albert
+2 SURN Jones
+2 NSFX Jr.
+1 NAME Jim /Jones/
+2 GIVN Jim
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 1 Sep 1953
+2 PLAC Norristown, Montgomery County, Pennsylvania, USA
+2 SOUR @S8@
+3 PAGE Certification of Birth 27658 (1953)
+3 QUAY 4
+3 DATE 28 Jul 2014
+1 CHR
+2 DATE 11 Oct 1953
+2 PLAC Grace Evang. Lutheran Church, Norristown, Montgomery County, Pennsylvania, USA
+2 SOUR @S9@
+3 PAGE Jim Jones Jr. Certificate of Baptism (1953) baptism, issue
+4 CONC d 11 October 1953, Jim Jones Jr. genealogy paper file
+3 QUAY 4
+3 DATE 28 Jul 2014
+1 _PPEXCLUDE I
+1 SOUR @S3@
+1 ADDR James Albert Jones Jr.
+2 CONT 517 W. Miner St.
+2 CONT West Chester, Pennsylvania 19382 USA
+2 _NAME James Albert Jones Jr.
+2 _SORT Jones, James Albert
+2 ADR1 517 W. Miner St.
+2 CITY West Chester
+2 STAE Pennsylvania
+2 POST 19382
+2 CTRY USA
+1 EMAIL sahara27@juno.com
+1 EVEN Received his first polio vaccination
+2 TYPE Medical
+2 DATE 20 Jan 1959
+2 PLAC Norristown, Montgomery County, Pennsylvania, USA
+2 NOTE Paul J. Lane, MD, 1019 West Main Street, Norristown, PA
+1 EVEN Summer family vacation in Gettysburg, Pennsylvania
+2 TYPE Travel
+2 DATE Jul 1959
+2 PLAC Gettysburg, Adams County, Pennsylvania, USA
+1 EVEN for a family vacation
+2 TYPE Travel
+2 DATE Jun 1960
+2 PLAC Lake Ticonderoga, Essex County, New York
+1 CONF
+2 DATE 2 Jun 1968
+2 PLAC St. Andrew's Evangelical Lutheran Church, Audubon, Pennsylvania
+2 NOTE Confirmed by Reverend John G. Huber
+2 SOUR @S10@
+3 PAGE (1968) certificate of confirmation, issued 2 Jun 1968, Ji
+4 CONC m Jones genealogy paper file
+3 QUAY 4
+3 DATE 28 Jul 2014
+1 EVEN Worked at YMCA Camp Yomchas as kitchen helper
+2 TYPE Employment
+2 DATE Jun 1969
+2 PLAC Schwenksville, Montgomery, Pennsylvania, USA
+1 EVEN Completed driving test
+2 TYPE Drivers License
+2 DATE Dec 1969
+2 PLAC Norristown, Montgomery County, Pennsylvania, USA
+2 NOTE James A. Jones Jr. completed 30 hours of classroom driver'
+3 CONC s education and 6 hours of "supervised driving instructio
+3 CONC n in December 1969.  Certificate signed by Robert C. Ott, i
+3 CONC nstructor and James C. Byrne, principal.
+1 EVEN Summer foreign exchange student with American Field Service
+2 TYPE Travel
+2 DATE Jun 1970
+2 PLAC Luxemburg City, Gr. d. Luxemburg
+2 NOTE James A. Jones Jr. participated in the "Americans Abroad Su
+3 CONC mmer Program of the American Field Service" (SP70-L) to Lux
+3 CONC embourg in the summer of 1970.  His host family was Mr. & M
+3 CONC rs. Matthias Schmit, 35, rue Dr. Peffer, Howald, Luxembourg.
+1 EDUC Graduated from Methacton High School
+2 DATE 15 Jun 1971
+2 PLAC Fairview Village, Montgomery County, Pennsylvania, USA
+2 NOTE James A. Jones Jr. graduated from high school as an "hono
+3 CONC r graduate."
+1 EDUC Graduated with BSc. Mathematics from the University of Delaware
+2 DATE May 1976
+2 PLAC Newark, New Castle County, Delaware, USA
+1 EVEN Peace Corps Volunteer
+2 TYPE Travel
+2 DATE Jun 1976
+2 PLAC Vuvulane, Swaziland, Africa
+1 EVEN Hitchhiked across the Sahara Desert
+2 TYPE Travel
+2 DATE Apr 1978
+2 PLAC Algeria
+1 EVEN Hitchhiked across the Sahara Desert
+2 TYPE Travel
+2 DATE Feb 1979
+2 PLAC Bamako, Mali, Africa
+1 EVEN Trans-USA book tour on motorcycle
+2 TYPE Travel
+2 DATE Jun 1983
+2 PLAC Livermore, Alameda County, California, USA
+1 EVEN Dissertation research in France
+2 TYPE Travel
+2 DATE Sep 1990
+2 PLAC Avignon, France
+1 EVEN Began teaching history at West Chester University
+2 TYPE Employment
+2 DATE Sep 1991
+2 PLAC West Chester, Chester County, Pennsylvania, USA
+1 EVEN Dissertation research in Mali and Senegal
+2 TYPE Travel
+2 DATE Jan 1992
+2 PLAC Bamako, Mali, Africa
+1 EDUC Graduated with PhD History from the University of Delaware
+2 DATE May 1995
+2 PLAC Newark, New Castle County, Delaware, USA
+1 _UID A0B41CDBB8E7456BB0F68CA0AA606FB39830
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 18:35
+1 FAMC @F2@
+1 NOTE @NI1@
+0 @NI1@ NOTE
+1 CONC Birth information from Commonwealth of Pennsylvania, Depart
+1 CONC ment of Health, Vital Statistics, "Certification of Birth
+1 CONC " #27658 (filed September 10, 1953, copy issued April 24, 1
+1 CONC 970).  See also Commonwealth of Pennsylvania, "Notificatio
+1 CONC n of Birth Registration" #1435 (September 1, 1953).
+1 CONT
+1 CONT James Albert Jones Jr. was baptized by Rev. Edgar S. Brow
+1 CONC n "in the absence of Pastor Ioci."  Sponsors were Mr. & Mrs
+1 CONC . Karl G. Mohr.
+0 @I11@ INDI
+1 NAME John /Puelle/
+2 GIVN John
+2 SURN Puelle
+1 SEX M
+1 BIRT
+2 DATE 28 Sep 1900
+2 PLAC Brooklyn, Kings County, New York, USA
+1 DEAT
+2 DATE 29 Dec 1981
+2 PLAC Brooklyn, Kings County, New York, USA
+1 SOUR @S3@
+1 RESI moved to a single family house
+2 DATE 1928
+2 PLAC 91-04 110th Street, Richmond Hill, Queens, New York, USA
+1 _UID 61D5E80BA24F4165A03CD8B2772F8EDA346B
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:54
+1 FAMS @F6@
+0 @I12@ INDI
+1 NAME Caroline (Katarina) Christina /Bahr/
+2 GIVN Caroline (Katarina) Christina
+2 SURN Bahr
+1 SEX F
+1 BIRT
+2 DATE 28 Feb 1886
+2 PLAC New York, USA
+2 SOUR @S8@
+3 PAGE Birth 451585 (1886), Katarina Bähr
+3 QUAY 4
+1 DEAT
+2 DATE 28 May 1976
+2 PLAC Jamaica, Queens, New York, USA
+1 SOUR @S3@
+1 _UID 868E5DC7FECF4428B6ACDD8F596A801698D5
+1 CHAN
+2 DATE 13 Aug 2014
+3 TIME 11:03
+1 FAMS @F6@
+1 NOTE @NI12@
+0 @NI12@ NOTE
+1 CONC Florence Puelle's mother Caroline Catherine was born Katari
+1 CONC na Bähr on February 28, 1886 in Manhattan.  She was the sec
+1 CONC ond child of Johannes (age 28, a baker) and Philipina (Baus
+1 CONC t, age 26) Bahr, both of whom were born in Germany.  They l
+1 CONC ived at 193 E. 4th Street.  The "medical attendant" was Mar
+1 CONC ia Theisen, 220 E. 4th Street.
+1 CONT
+1 CONT From ACRIS, 193 E. 4th Str. is in County: Manhattan, Block
+1 CONC : 0400, Lot: 61.  In 2005, it is owned by First Madison Ass
+1 CONC ociates, 15 W. 18th St. Suite 200, NY, NY 10011.  [Accesse
+1 CONC d December 17, 2005]
+0 @I13@ INDI
+1 NAME Robert John /Jones/
+2 GIVN Robert John
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 14 Jun 1955
+2 PLAC Audubon, Montgomery County, Pennsylvania, USA
+1 CHR
+2 DATE 17 Jul 1955
+2 PLAC Grace Evang. Lutheran Church, Norristown, Montgomery County, Pennsylvania, USA
+1 SOUR @S3@
+1 ADDR Robert John JONES
+2 CONT Eugene, Oregon USA
+2 _NAME Robert John JONES
+2 _SORT JONES, Robert John
+2 CITY Eugene
+2 STAE Oregon
+2 CTRY USA
+1 _UID DF2E3EA800EA4C53B633E8C7E9CF84267626
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:36
+1 FAMC @F2@
+0 @I36@ INDI
+1 NAME Amanda /Jones/
+2 GIVN Amanda
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE 1859
+2 PLAC Cambridge, Story County, Iowa, USA
+1 DEAT
+2 DATE 1 Sep 1861
+2 PLAC Cambridge, Story County, Iowa, USA
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID D7C823F8723D44F2B20F311AEA7E49C824E8
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F5@
+0 @I39@ INDI
+1 NAME Alfred S. /Jones/
+2 GIVN Alfred S.
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE Abt 1835
+2 PLAC Pennsylvania, USA
+1 DEAT
+2 DATE 1900
+2 PLAC Kansas City, Jackson County, Missouri, USA
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 9C36DA10B1BC4BE58E42313F19E85F888102
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F47@
+0 @I40@ INDI
+1 NAME David /Jones/
+2 GIVN David
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE Abt 1842
+2 PLAC Pennsylvania, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 SOUR @S3@
+1 _UID 323E26D9E0EA48378741AC8107914BD363EC
+1 CHAN
+2 DATE 10 Aug 2014
+3 TIME 18:02
+1 FAMC @F47@
+0 @I41@ INDI
+1 NAME Andrew J. /Jones/
+2 GIVN Andrew J.
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 1848
+2 PLAC Pennsylvania, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID F16A68DCE6E64B3E9A963F24FD4407875655
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F47@
+0 @I42@ INDI
+1 NAME Samuel /Jones/
+2 GIVN Samuel
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 3 Dec 1851
+2 PLAC Illinois, USA
+2 SOUR @S60@
+3 PAGE <, Samuel Jones in McDivitt Grove Cemtery, Urbandale, IA
+3 QUAY 3
+3 DATE 17 Aug 2014
+1 DEAT
+2 DATE 7 Jan 1908
+2 PLAC Des Moines, Polk County, Iowa, USA
+2 SOUR @S60@
+3 PAGE <, Samuel Jones in McDivitt Grove Cemtery, Urbandale, IA
+3 QUAY 3
+3 DATE 17 Aug 2014
+1 BURI
+2 DATE 10 Jan 1908
+2 PLAC McDivitt Grove Cemetery, Urbandale, Polk County, Iowa, USA
+1 SOUR @S3@
+1 RESI moved away from Walnut Grove
+2 DATE 1873
+2 PLAC Des Moines, Polk County, Iowa, USA
+1 _UID CA04E3A5324C49F5822DD57C75B43B37AD0C
+1 CHAN
+2 DATE 17 Aug 2014
+3 TIME 12:55
+1 FAMC @F5@
+0 @I43@ INDI
+1 NAME Elizabeth /Jones/
+2 GIVN Elizabeth
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE Abt 1853
+2 PLAC Illinois, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 1FD28FA5C2EC4E25B1B15CFDB45314C5E134
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F5@
+0 @I44@ INDI
+1 NAME James A. /Jones/
+2 GIVN James A.
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE 1855
+2 PLAC Story County, Iowa, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID BE4807AA75494C778C8D3106A44F4CECB362
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F5@
+0 @I47@ INDI
+1 NAME Robert /Jones/
+2 GIVN Robert
+2 SURN Jones
+1 SEX M
+1 BIRT
+2 DATE Abt 1858
+2 PLAC Story County, Iowa, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 4BF4F645D6384B4CBB044B1C3FB5B8FCEDC4
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F5@
+0 @I50@ INDI
+1 NAME Alice /Jones/
+2 GIVN Alice
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE Abt 1863
+2 PLAC Story County, Iowa, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 3AF9A3236C1544DEBCF851F4D51857E3BCD4
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F5@
+0 @I51@ INDI
+1 NAME Henretta /Jones/
+2 GIVN Henretta
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE Abt 1866
+2 PLAC Story County, Iowa, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 65944FE69DFF419D9750CAED821C9A2AA85B
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F5@
+0 @I57@ INDI
+1 NAME Anna Elizabeth /McGinnis/
+2 GIVN Anna Elizabeth
+2 SURN McGinnis
+1 SEX F
+1 BIRT
+2 DATE 12 Aug 1884
+2 PLAC Kew Gardens Queens, New York, USA
+2 SOUR @S64@
+3 PAGE Anna E. Petersen; personal observation, 2005.
+3 QUAY 3
+1 DEAT
+2 DATE 25 May 1972
+2 PLAC Norristown, Montgomery County, Pennsylvania, USA
+2 SOUR @S64@
+3 PAGE Anna E. Petersen; personal observation, 2005.
+3 QUAY 3
+1 SOUR @S3@
+1 _UID 57DE90767A4345D6A477F78E750B50870A2E
+1 CHAN
+2 DATE 21 Aug 2014
+3 TIME 18:45
+1 FAMC @F23@
+0 @I59@ INDI
+1 NAME Laura Jane /Burton/
+2 GIVN Laura Jane
+2 SURN Burton
+1 SEX F
+1 BIRT
+2 DATE Abt 1874
+2 PLAC Story County, Iowa, USA
+1 DEAT
+2 DATE Unknown
+2 PLAC unknown
+1 _PPEXCLUDE
+1 SOUR @S3@
+1 _UID 15690A895803413FAD6F5C837A49E853E508
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+1 FAMC @F21@
+0 @I60@ INDI
+1 NAME John /McGinnis/
+2 GIVN John
+2 SURN McGinnis
+1 SEX M
+1 BIRT
+2 DATE 24 Oct 1893
+2 PLAC Brooklyn, Kings County, New York, USA
+2 SOUR @S67@
+3 PAGE accessed 1 Aug 2012), John McGinniss; source no. C00130-6
+4 CONC , system origin: New_York-ODM, film no. 1324416.
+3 QUAY 3
+1 DEAT Y
+1 SOUR @S3@
+1 _UID C4236C435B004F6287FEA6CA2766C0967A4C
+1 CHAN
+2 DATE 21 Aug 2014
+3 TIME 18:53
+1 FAMC @F13@
+0 @I61@ INDI
+1 NAME Ada /McGinnis/
+2 GIVN Ada
+2 SURN McGinnis
+1 SEX F
+1 BIRT
+2 DATE 5 Jan 1896
+2 PLAC Queens, New York, USA
+2 SOUR @S67@
+3 PAGE accessed 1 Aug 2012), Ada McGinniss; project no. C52623-7
+4 CONC , system origin: New York-EASy, film no. 1376367.
+3 QUAY 4
+3 DATE 21 Aug 2014
+1 DEAT
+2 DATE 19 Feb 1912
+2 PLAC Richmond Hill, Queens, New York, USA
+1 SOUR @S3@
+1 _UID 37DF6C2D77AF455A89C265EA5F06FB79E72A
+1 CHAN
+2 DATE 21 Aug 2014
+3 TIME 19:05
+1 FAMC @F13@
+0 @I63@ INDI
+1 NAME Echo May /Jones/
+2 GIVN Echo May
+2 SURN Jones
+1 SEX F
+1 BIRT
+2 DATE Abt 1897
+2 PLAC Cambridge, Story County, Iowa, USA
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 5 Sequence 1. Echo Jones Sto
+4 CONC ops.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 DEAT
+2 DATE 12 Nov 1960
+2 PLAC Ames, Story County, Iowa, USA
+2 CAUS Gangrene right leg
+3 SOUR @S34@
+4 PAGE Oakwood Block 8 Lot 9 Location 5 Sequence 1. Echo Jones Sto
+5 CONC ops.
+4 QUAY 4
+4 DATE 3 Aug 2014
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 5 Sequence 1. Echo Jones Sto
+4 CONC ops.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 BURI
+2 DATE 15 Nov 1960
+2 PLAC Ames Municipal Cemetery, Ames, Story County, Iowa, USA
+2 SOUR @S34@
+3 PAGE Oakwood Block 8 Lot 9 Location 5 Sequence 1. Echo Jones Sto
+4 CONC ops.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 _PPEXCLUDE k
+1 SOUR @S3@
+1 _UID 3BB8A1C55BFB4A769D028BD9FD9C934CEA0D
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 20:04
+1 FAMC @F4@
+0 @F5@ FAM
+1 HUSB @I9@
+2 _PREF Y
+1 WIFE @I10@
+2 _PREF Y
+1 MARR
+2 DATE 1846
+2 PLAC Illinois, USA
+1 CHIL @I42@
+1 CHIL @I43@
+1 CHIL @I44@
+1 CHIL @I47@
+1 CHIL @I36@
+1 CHIL @I7@
+2 _PREF Y
+1 CHIL @I50@
+1 CHIL @I51@
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F6@ FAM
+1 HUSB @I11@
+2 _PREF Y
+1 WIFE @I12@
+2 _PREF Y
+1 MARR
+2 DATE 16 Jun 1923
+2 PLAC New York, New York, USA
+1 CHIL @I4@
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F47@ FAM
+1 HUSB @I9@
+2 _PREF Y
+1 WIFE @I115@
+1 MARR
+1 CHIL @I39@
+2 _PREF Y
+1 CHIL @I40@
+1 CHIL @I41@
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F23@ FAM
+1 HUSB @I28@
+2 _PREF Y
+1 WIFE @I56@
+2 _PREF Y
+1 MARR
+2 DATE 1883
+2 PLAC New York, New York, USA
+1 CHIL @I57@
+2 _PREF Y
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F13@ FAM
+1 HUSB @I28@
+2 _PREF Y
+1 WIFE @I48@
+1 MARR
+2 DATE Abt 1891
+2 PLAC New York, New York, USA
+1 CHIL @I60@
+1 CHIL @I61@
+2 _PREF Y
+1 CHIL @I6@
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F2@ FAM
+1 HUSB @I3@
+2 _PREF Y
+1 WIFE @I4@
+2 _PREF Y
+1 MARR
+2 DATE 3 Feb 1951
+2 PLAC Richmond Hill, Queens, New York, USA
+1 CHIL @I1@
+2 _PREF Y
+1 CHIL @I13@
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F18@ FAM
+1 HUSB @I37@
+2 _PREF Y
+1 WIFE @I38@
+2 _PREF Y
+1 MARR
+2 DATE Abt 1820
+2 PLAC Kentucky, USA
+1 CHIL @I10@
+2 _PREF Y
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:24
+0 @F19@ FAM
+1 HUSB @I45@
+2 _PREF Y
+1 WIFE @I46@
+2 _PREF Y
+1 MARR
+1 CHIL @I28@
+2 _PREF Y
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F20@ FAM
+1 HUSB @I49@
+2 _PREF Y
+1 MARR
+1 CHIL @I48@
+2 _PREF Y
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F26@ FAM
+1 HUSB @I5@
+2 _PREF Y
+1 WIFE @I64@
+2 _PREF Y
+1 MARR
+2 DATE 17 Jun 1915
+2 PLAC Story County, Iowa, USA
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F3@ FAM
+1 HUSB @I5@
+2 _PREF Y
+1 WIFE @I6@
+1 MARR
+2 DATE 2 Jun 1920
+2 PLAC Hempstead, Nassau County, New York, USA
+1 CHIL @I3@
+2 _PREF Y
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F21@ FAM
+1 HUSB @I52@
+2 _PREF Y
+1 WIFE @I53@
+2 _PREF Y
+1 MARR
+1 CHIL @I8@
+1 CHIL @I59@
+2 _PREF Y
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F22@ FAM
+1 HUSB @I55@
+2 _PREF Y
+1 WIFE @I54@
+2 _PREF Y
+1 MARR
+1 CHIL @I52@
+2 _PREF Y
+1 CHAN
+2 DATE 28 Jul 2014
+3 TIME 16:36
+0 @F4@ FAM
+1 HUSB @I7@
+2 _PREF Y
+1 WIFE @I8@
+2 _PREF Y
+1 MARR
+2 DATE 12 Nov 1891
+2 PLAC Story County, Iowa, USA
+2 SOUR @S33@
+3 PAGE marriage register, A4 (1880-1891): 82, Jones-Burton, 1891.
+3 QUAY 4
+3 DATE 3 Aug 2014
+1 CHIL @I5@
+2 _PREF Y
+1 CHIL @I63@
+1 CHAN
+2 DATE 3 Aug 2014
+3 TIME 19:36
+0 _PLAC_DEFN
+1 PLAC St. Andrew's Evangelical Lutheran Church, Audubon, Pennsylvania
+2 ABBR St. Andrew's Evangelical Lutheran Church, Audubon, Pennsylvania
+2 MAP
+3 LATI N40.1313019444444
+3 LONG W75.4320602777778
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Grace Evang. Lutheran Church, Norristown, Montgomery County, Pennsylvania, USA
+2 ABBR Grace Lutheran Church, Norristown, PA
+2 MAP
+3 LATI N40.1144486666667
+3 LONG W75.3393019444444
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Frankfort, Franklin County, Kentucky, USA
+2 ABBR Frankfort, KY
+2 MAP
+3 LATI N38.1950683333333
+3 LONG W84.8786925
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Ames, Story County, Iowa, USA
+2 ABBR Ames, IA
+2 MAP
+3 LATI N42.0253411111111
+3 LONG W93.6202011111111
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Jamaica, Queens, New York, USA
+2 ABBR Jamaica, NY
+0 _PLAC_DEFN
+1 PLAC Manhattan, New York, New York, USA
+2 ABBR Manhattan, NY
+0 _PLAC_DEFN
+1 PLAC New York, New York, USA
+2 ABBR New York City
+0 _PLAC_DEFN
+1 PLAC 91-04 110th Street, Richmond Hill, Queens, New York, USA
+2 ABBR 91-04 110th St., Richmond Hill, NY
+0 _PLAC_DEFN
+1 PLAC Indiana, USA
+2 ABBR Indiana
+0 _PLAC_DEFN
+1 PLAC Iowa, USA
+2 ABBR Iowa
+0 _PLAC_DEFN
+1 PLAC unknown
+2 ABBR unknown
+2 _RESOLVED 2
+0 _PLAC_DEFN
+1 PLAC Boston, Massachusetts, USA (maybe)
+2 ABBR Boston (maybe)
+0 _PLAC_DEFN
+1 PLAC 121st Street, Richmond Hill, Queens, New York
+2 ABBR 121st Street, Richmond Hill, NY
+2 MAP
+3 LATI N40.6929702777778
+3 LONG W73.8251113888889
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC England
+2 ABBR England
+2 MAP
+3 LATI N52.5988769444444
+3 LONG W1.46688138888889
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Pottstown, Montgomery County, Pennsylvania, USA
+2 ABBR Pottstown, PA
+0 _PLAC_DEFN
+1 PLAC Brooklyn Technical High School, Kings, New York, USA
+2 ABBR Brooklyn Technical HS, NY
+2 MAP
+3 LATI N40.6924513888889
+3 LONG W73.9903563888889
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Fort Walton, Washindton, USA
+2 ABBR Fort Walton, WA
+2 MAP
+3 LATI N38.8903694444444
+3 LONG W77.0319596666667
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Kentucky, USA
+2 ABBR Kentucky
+0 _PLAC_DEFN
+1 PLAC Vigo County, Indiana, USA
+2 ABBR Vigo County, IN
+2 MAP
+3 LATI N39.4306180555556
+3 LONG W87.3899994444444
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC North Carolina, USA
+2 ABBR North Carolina
+0 _PLAC_DEFN
+1 PLAC Pennsylvania, USA
+2 ABBR Pennsylvania
+0 _PLAC_DEFN
+1 PLAC Kansas City, Jackson County, Missouri, USA
+2 ABBR Kansas City, MO
+0 _PLAC_DEFN
+1 PLAC Queens, New York, USA
+2 ABBR Queens, NY
+2 MAP
+3 LATI N40.7140005555556
+3 LONG W73.8299863888889
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Brooklyn, New York, USA
+2 ABBR Brooklyn, New York, USA
+0 _PLAC_DEFN
+1 PLAC Glendale, Queens New York, USA
+2 ABBR Glendale, NY
+0 _PLAC_DEFN
+1 PLAC McDivitt Grove Cemetery, Urbandale, Polk County, Iowa, USA
+2 ABBR Urbandale, IA
+0 _PLAC_DEFN
+1 PLAC Illinois, USA
+2 ABBR Illinois
+0 _PLAC_DEFN
+1 PLAC Ireland or Massachusetts
+2 ABBR Ireland or Massachusetts
+0 _PLAC_DEFN
+1 PLAC Scotland or Ireland
+2 ABBR Scotland or Ireland
+0 _PLAC_DEFN
+1 PLAC France
+2 ABBR France
+2 MAP
+3 LATI N46.6372794444444
+3 LONG E2.33826222222222
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Laurel Hill Cemetery, Des Moines, Iowa, USA
+2 ABBR Des Moines, IA
+0 _PLAC_DEFN
+1 PLAC Walnut Grove, Story County, Iowa, USA
+2 ABBR Walnut Grove, IA
+0 _PLAC_DEFN
+1 PLAC Hempstead, Nassau County, New York, USA
+2 ABBR Hempstead, NY
+0 _PLAC_DEFN
+1 PLAC New York, USA
+2 ABBR New York
+0 _PLAC_DEFN
+1 PLAC Tennessee, USA
+2 ABBR Tennessee
+2 MAP
+3 LATI N35.8430022222222
+3 LONG W86.3430480555556
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Virginia, USA
+2 ABBR Virginia
+0 _PLAC_DEFN
+1 PLAC Kew Gardens Queens, New York, USA
+2 ABBR Kew Gardens, NY
+0 _PLAC_DEFN
+1 PLAC Richmond Hill, Queens, New York, USA
+2 ABBR Richmond Hill, NY
+2 MAP
+3 LATI N40.6965405555556
+3 LONG W73.8340683333333
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Maple Grove Cemetery, Kew Gardens, Queens, New York, USA
+2 ABBR Kew Gardens, NY
+0 _PLAC_DEFN
+1 PLAC Story County, Iowa, USA
+2 ABBR Story County, IA
+2 MAP
+3 LATI N42.0362091666667
+3 LONG W93.4651030555556
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC London (near), England
+2 ABBR near London, England
+0 _PLAC_DEFN
+1 PLAC Norristown, Montgomery County, Pennsylvania, USA
+2 ABBR Norristown, PA
+0 _PLAC_DEFN
+1 PLAC Gettysburg, Adams County, Pennsylvania, USA
+2 ABBR Gettysburg, PA
+2 MAP
+3 LATI N39.8302497222222
+3 LONG W77.2311173333333
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Lake Ticonderoga, Essex County, New York
+2 ABBR Lake Ticonderoga, NY
+0 _PLAC_DEFN
+1 PLAC Schwenksville, Montgomery, Pennsylvania, USA
+2 ABBR Schwenksville, PA
+0 _PLAC_DEFN
+1 PLAC Luxemburg City, Gr. d. Luxemburg
+2 ABBR Luxemburg City
+0 _PLAC_DEFN
+1 PLAC Fairview Village, Montgomery County, Pennsylvania, USA
+2 ABBR Fairview Village, PA
+2 MAP
+3 LATI N40.1640283333333
+3 LONG W75.3841627777778
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC West Chester, Chester County, Pennsylvania, USA
+2 ABBR West Chester, PA
+2 MAP
+3 LATI N39.8484447222222
+3 LONG W75.35944
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Bamako, Mali, Africa
+2 ABBR Bamako, Mali
+2 MAP
+3 LATI N12.6575203055556
+3 LONG W7.98024
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Avignon, France
+2 ABBR Avignon, France
+2 MAP
+3 LATI N43.9534413888889
+3 LONG E4.80600972222222
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Algeria
+2 ABBR Algeria
+2 MAP
+3 LATI N28.2136458333333
+3 LONG E2.65472833333333
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Vuvulane, Swaziland, Africa
+2 ABBR Vuvulane, Swaziland
+0 _PLAC_DEFN
+1 PLAC Brooklyn, Kings County, New York, USA
+2 ABBR Brooklyn, NY
+2 MAP
+3 LATI N40.6924513888889
+3 LONG W73.9903563888889
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Livermore, Alameda County, California, USA
+2 ABBR Livermore, CA
+2 MAP
+3 LATI N37.6754911111111
+3 LONG W121.758216944444
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Des Moines, Polk County, Iowa, USA
+2 ABBR Des Moines, IA
+2 MAP
+3 LATI N41.5897597222222
+3 LONG W93.6156463888889
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Cambridge, Story County, Iowa, USA
+2 ABBR Cambridge, IA
+2 MAP
+3 LATI N41.8969308333333
+3 LONG W93.5316086111111
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Ames Municipal Cemetery, Ames, Story County, Iowa, USA
+2 ABBR Municipal Cemetery, Ames, IA
+2 MAP
+3 LATI N42.0312766666667
+3 LONG W93.6048505555556
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC 235 E. 9th Street, Ames, Story County, Iowa
+2 ABBR 235 E. 9th St., Ames, IA
+2 MAP
+3 LATI N42.0303497222222
+3 LONG W93.6070477777778
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Audubon, Montgomery County, Pennsylvania, USA
+2 ABBR Audubon, PA
+2 MAP
+3 LATI N40.1313019444444
+3 LONG W75.4320602777778
+2 _RESOLVED 1
+0 _PLAC_DEFN
+1 PLAC Newark, New Castle County, Delaware, USA
+2 ABBR Newark, DE
+0 _EVENT_DEFN Baptism
+1 TYPE I
+1 TITL Baptism
+1 _SEN1 [HeShe] was baptized [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] was baptized [onDate].
+1 _SEN3 [HeShe] was baptized [inPlace].
+1 _SEN4 [HeShe] was baptized [Desc].
+1 _SEN5 [HeShe] was baptized [Desc] [onDate].
+1 _SEN6 [HeShe] was baptized [Desc] [inPlace].
+1 _SEN7 [HeShe] was baptized [onDate] [inPlace].
+1 _SEN8 [HeShe] was baptized.
+1 ROLE Clergy
+2 _SEN1 [FirstHeShe] baptised [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] baptised [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] baptised [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] baptised [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] baptised [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] baptised [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] baptised [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] baptised [MainPerson].
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the baptism of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the baptism of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the baptism of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the baptism of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the baptism of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the baptism of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the baptism of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the baptism of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 0
+1 _INC_NOTES
+0 _EVENT_DEFN Confirmation
+1 TYPE I
+1 TITL Confirmation
+1 _SEN1 [HeShe] was confirmed [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] was confirmed [onDate].
+1 _SEN3 [HeShe] was confirmed [inPlace].
+1 _SEN4 [HeShe] was confirmed [Desc].
+1 _SEN5 [HeShe] was confirmed [Desc] [onDate].
+1 _SEN6 [HeShe] was confirmed [Desc] [inPlace].
+1 _SEN7 [HeShe] was confirmed [onDate] [inPlace].
+1 _SEN8 [HeShe] was confirmed.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the confirmation of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the confirmation of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the confirmation of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the confirmation of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the confirmation of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the confirmation of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the confirmation of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the confirmation of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 0
+1 _INC_NOTES
+0 _EVENT_DEFN Divorce
+1 TYPE M
+1 TITL Divorce
+1 _SEN1 [HeShe] was divorced [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] was divorced [onDate].
+1 _SEN3 [HeShe] was divorced [inPlace].
+1 _SEN4 [HeShe] was divorced [Desc].
+1 _SEN5 [HeShe] was divorced [Desc] [onDate].
+1 _SEN6 [HeShe] was divorced [Desc] [inPlace].
+1 _SEN7 [HeShe] was divorced [onDate] [inPlace].
+1 _SEN8 [HeShe] was divorced.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the divorce of [MainCouple] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the divorce of [MainCouple] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the divorce of [MainCouple] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the divorce of [MainCouple]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the divorce of [MainCouple] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the divorce of [MainCouple] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the divorce of [MainCouple] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the divorce of [MainCouple].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 0
+1 _INC_NOTES
+0 _EVENT_DEFN Education
+1 TYPE I
+1 TITL Education
+1 _SEN1 [HeShe] was educated at [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] was educated [onDate].
+1 _SEN3 [HeShe] was educated [inPlace].
+1 _SEN4 [HeShe] was educated at [Desc].
+1 _SEN5 [HeShe] was educated at [Desc] [onDate].
+1 _SEN6 [HeShe] was educated at [Desc] [inPlace].
+1 _SEN7 [HeShe] was educated [onDate] [inPlace].
+1 _SEN8 [HeShe] was educated.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the education of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the education of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the education of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the education of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the education of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the education of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the education of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the education of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Employment
+1 TYPE I
+1 TITL Employment
+1 _SEN1 [HeShe] was employed as a [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] was employed [onDate].
+1 _SEN3 [HeShe] was employed [inPlace].
+1 _SEN4 [HeShe] was employed as a [Desc].
+1 _SEN5 [HeShe] was employed as a [Desc] [onDate].
+1 _SEN6 [HeShe] was employed as a [Desc] [inPlace].
+1 _SEN7 [HeShe] was employed [onDate] [inPlace].
+1 _SEN8 [HeShe] was employed.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the employment of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the employment of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the employment of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the employment of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the employment of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the employment of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the employment of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the employment of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Graduation
+1 TYPE I
+1 TITL Graduation
+1 _SEN1 [HeShe] graduated from [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] graduated [onDate].
+1 _SEN3 [HeShe] graduated [inPlace].
+1 _SEN4 [HeShe] graduated from [Desc].
+1 _SEN5 [HeShe] graduated from [Desc] [onDate].
+1 _SEN6 [HeShe] graduated from [Desc] [inPlace].
+1 _SEN7 [HeShe] graduated [onDate] [inPlace].
+1 _SEN8 [HeShe] graduated.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the graduation of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the graduation of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the graduation of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the graduation of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the graduation of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the graduation of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the graduation of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the graduation of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Immigration
+1 TYPE I
+1 TITL Immigration
+1 _SEN1 [HeShe] immigrated [Desc] [onDate] [toPlace].
+1 _SEN2 [HeShe] immigrated [onDate].
+1 _SEN3 [HeShe] immigrated [toPlace].
+1 _SEN4 [HeShe] immigrated [Desc].
+1 _SEN5 [HeShe] immigrated [Desc] [onDate].
+1 _SEN6 [HeShe] immigrated [Desc] [toPlace].
+1 _SEN7 [HeShe] immigrated [onDate] [toPlace].
+1 _SEN8 [HeShe] immigrated.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the immigration of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the immigration of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the immigration of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the immigration of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the immigration of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the immigration of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the immigration of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the immigration of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Medical
+1 TYPE I
+1 TITL Medical
+1 _SEN1 [HeShe] received medical attention for [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] received medical attention [onDate].
+1 _SEN3 [HeShe] received medical attention [inPlace].
+1 _SEN4 [HeShe] received medical attention for [Desc].
+1 _SEN5 [HeShe] received medical attention for [Desc] [onDate].
+1 _SEN6 [HeShe] received medical attention for [Desc] [inPlace].
+1 _SEN7 [HeShe] received medical attention [onDate] [inPlace].
+1 _SEN8 [HeShe] received medical attention.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the medical situation of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the medical situation of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the medical situation of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the medical situation of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the medical situation of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the medical situation of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the medical situation of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the medical situation of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Military
+1 TYPE I
+1 TITL Military
+1 _SEN1 [FirstHeShe] served in the military [onDate] [inPlace]: [Desc].
+1 _SEN2 [FirstHeShe] served in the military [onDate].
+1 _SEN3 [FirstHeShe] served in the military [inPlace].
+1 _SEN4 [FirstHeShe] served in the military: [Desc].
+1 _SEN5 [FirstHeShe] served in the military [onDate]: [Desc].
+1 _SEN6 [FirstHeShe] served in the military [inPlace]: [Desc].
+1 _SEN7 [FirstHeShe] served in the military [onDate] [inPlace].
+1 _SEN8 [FirstHeShe] served in the military.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the service of [MainPerson] in the military [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the service of [MainPerson] in the military [onDate].
+2 _SEN3 [FirstHeShe] witnessed the service of [MainPerson] in the military [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the service of [MainPerson] in the military: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the service of [MainPerson] in the military [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the service of [MainPerson] in the military [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the service of [MainPerson] in the military [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the service of [MainPerson] in the military.
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Naturalization
+1 TYPE I
+1 TITL Naturalization
+1 _SEN1 [HeShe] was naturalized [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] was naturalized [onDate].
+1 _SEN3 [HeShe] was naturalized [inPlace].
+1 _SEN4 [HeShe] was naturalized [Desc].
+1 _SEN5 [HeShe] was naturalized [Desc] [onDate].
+1 _SEN6 [HeShe] was naturalized [Desc] [inPlace].
+1 _SEN7 [HeShe] was naturalized [onDate] [inPlace].
+1 _SEN8 [HeShe] was naturalized.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the naturalization of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the naturalization of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the naturalization of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the naturalization of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the naturalization of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the naturalization of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the naturalization of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the naturalization of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Occupation
+1 TYPE I
+1 TITL Occupation
+1 _SEN1 [HeShe] worked as a [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] was employed [onDate].
+1 _SEN3 [HeShe] was employed [inPlace].
+1 _SEN4 [HeShe] worked as a [Desc].
+1 _SEN5 [HeShe] worked as a [Desc] [onDate].
+1 _SEN6 [HeShe] worked as a [Desc] [inPlace].
+1 _SEN7 [HeShe] was employed [onDate] [inPlace].
+1 _SEN8 [HeShe] was employed.
+1 ROLE Coworker
+2 _SEN1 [FirstHeShe] was a coworker of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] was a coworker of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] was a coworker of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] was a coworker of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] was a coworker of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] was a coworker of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] was a coworker of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] was a coworker of [MainPerson].
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the occupation: [Desc] of [MainPerson] [onDate] [inPlace].
+2 _SEN2 [FirstHeShe] witnessed the occupation of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the occupation of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the occupation: [Desc] of [MainPerson].
+2 _SEN5 [FirstHeShe] witnessed the occupation: [Desc] of [MainPerson] [onDate].
+2 _SEN6 [FirstHeShe] witnessed the occupation: [Desc] of [MainPerson] [inPlace].
+2 _SEN7 [FirstHeShe] witnessed the occupation of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the occupation of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Property
+1 TYPE I
+1 TITL Property
+1 _SEN1 [HeShe] owned [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] owned property [onDate].
+1 _SEN3 [HeShe] owned property [inPlace].
+1 _SEN4 [HeShe] owned [Desc].
+1 _SEN5 [HeShe] owned [Desc] [onDate].
+1 _SEN6 [HeShe] owned [Desc] [inPlace].
+1 _SEN7 [HeShe] owned property [onDate] [inPlace].
+1 _SEN8 [HeShe] owned property.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the property of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the property of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the property of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the property of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the property of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the property of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the property of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the property of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Residence
+1 TYPE I
+1 TITL Residence
+1 _SEN1 [HeShe] resided at [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] had a residence [onDate].
+1 _SEN3 [HeShe] had a residence [inPlace].
+1 _SEN4 [HeShe] resided at [Desc].
+1 _SEN5 [HeShe] resided at [Desc] [onDate].
+1 _SEN6 [HeShe] resided at [Desc] [inPlace].
+1 _SEN7 [HeShe] had a residence [onDate] [inPlace].
+1 _SEN8 [HeShe] had a residence.
+1 ROLE Boarder
+2 _SEN1 [FirstHeShe] was a boarder at the residence of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] was a boarder at the residence of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] was a boarder at the residence of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] was a boarder at the residence of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] was a boarder at the residence of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] was a boarder at the residence of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] was a boarder at the residence of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] was a boarder at the residence of [MainPerson].
+1 ROLE Builder
+2 _SEN1 [FirstHeShe] built the residence of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] built the residence of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] built the residence of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] built the residence of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] built the residence of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] built the residence of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] built the residence of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] built the residence of [MainPerson].
+1 ROLE Neighbor
+2 _SEN1 [FirstHeShe] was a neighbor to the residence of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] was a neighbor to the residence of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] was a neighbor to the residence of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] was a neighbor to the residence of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] was a neighbor to the residence of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] was a neighbor to the residence of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] was a neighbor to the residence of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] was a neighbor to the residence of [MainPerson].
+1 ROLE Occupant
+2 _SEN1 [FirstHeShe] was an occupant at the residence of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] was an occupant at the residence of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] was an occupant at the residence of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] was an occupant at the residence of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] was an occupant at the residence of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] was an occupant at the residence of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] was an occupant at the residence of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] was an occupant at the residence of [MainPerson].
+2 _DEF Y
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the residence of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the residence of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the residence of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the residence of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the residence of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the residence of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the residence of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the residence of [MainPerson].
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Retirement
+1 TYPE I
+1 TITL Retirement
+1 _SEN1 [HeShe] retired [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] retired [onDate].
+1 _SEN3 [HeShe] retired [inPlace].
+1 _SEN4 [HeShe] retired [Desc].
+1 _SEN5 [HeShe] retired [Desc] [onDate].
+1 _SEN6 [HeShe] retired [Desc] [inPlace].
+1 _SEN7 [HeShe] retired [onDate] [inPlace].
+1 _SEN8 [HeShe] retired.
+1 ROLE Witness
+2 _SEN1 [FirstHeShe] witnessed the retirement of [MainPerson] [onDate] [inPlace]: [Desc].
+2 _SEN2 [FirstHeShe] witnessed the retirement of [MainPerson] [onDate].
+2 _SEN3 [FirstHeShe] witnessed the retirement of [MainPerson] [inPlace].
+2 _SEN4 [FirstHeShe] witnessed the retirement of [MainPerson]: [Desc].
+2 _SEN5 [FirstHeShe] witnessed the retirement of [MainPerson] [onDate]: [Desc].
+2 _SEN6 [FirstHeShe] witnessed the retirement of [MainPerson] [inPlace]: [Desc].
+2 _SEN7 [FirstHeShe] witnessed the retirement of [MainPerson] [onDate] [inPlace].
+2 _SEN8 [FirstHeShe] witnessed the retirement of [MainPerson].
+2 _DEF Y
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Travel
+1 TYPE I
+1 TITL Travel
+1 _SEN1 [HeShe] traveled [Desc] [onDate] [inPlace].
+1 _SEN2 [HeShe] traveled [onDate].
+1 _SEN3 [HeShe] traveled [inPlace].
+1 _SEN4 [HeShe] traveled [Desc].
+1 _SEN5 [HeShe] traveled [Desc] [onDate].
+1 _SEN6 [HeShe] traveled [Desc] [inPlace].
+1 _SEN7 [HeShe] traveled [onDate] [inPlace].
+1 _SEN8 [HeShe] traveled.
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Marriage
+1 TYPE M
+1 TITL Marriage
+1 _SEN1 [CoupleFirstNames] were married [onDate] [inPlace]: [Desc].
+1 _SEN2 [CoupleFirstNames] were married [onDate].
+1 _SEN3 [CoupleFirstNames] were married [inPlace].
+1 _SEN4 [CoupleFirstNames] were married: [Desc].
+1 _SEN5 [CoupleFirstNames] were married [onDate]: [Desc].
+1 _SEN6 [CoupleFirstNames] were married [inPlace]: [Desc].
+1 _SEN7 [CoupleFirstNames] were married [onDate] [inPlace].
+1 _SEN8 [CoupleFirstNames] were married.
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 _EVENT_DEFN Drivers License
+1 TYPE I
+1 TITL Drivers License
+1 _SEN1 [EventName]: [Desc], [onDate], [inPlace].
+1 _SEN2 [EventName]: [Date].
+1 _SEN3 [EventName]: [inPlace].
+1 _SEN4 [EventName]: [Desc].
+1 _SEN5 [EventName]: [Desc], [onDate].
+1 _SEN6 [EventName]: [Desc], [inPlace].
+1 _SEN7 [EventName]: [Date], [inPlace].
+1 _SEN8 [EventName].
+1 _DATE_TYPE 1
+1 _PLACE_TYPE 1
+1 _DESC_FLAG 1
+1 _INC_NOTES
+0 @S49@ SOUR
+1 ABBR 1900 US Census
+1 TITL 1900 U.S. census, \i Ancestry.com\i0, Digital images
+1 AUTH New York, Brooklyn
+1 PUBL http://interactive.ancestrylibrary.com: National Archives a
+2 CONC nd Records Administration, n.d.
+1 _ITALIC Y
+1 _PAREN Y
+0 @S66@ SOUR
+1 ABBR 1915 New York State Census
+1 TITL database
+1 AUTH State of New York
+1 PUBL (1915)
+1 _ITALIC Y
+1 _PAREN Y
+0 @S34@ SOUR
+1 ABBR Ames (Iowa) Municipal Cemetery
+1 TITL (Ames, Iowa. Plat Records.
+1 AUTH Ames Municipal Cemetery
+1 REPO @R8@
+1 _ITALIC Y
+1 _PAREN Y
+0 @S9@ SOUR
+1 ABBR Certificate of Baptism
+1 TITL Baptism records
+1 AUTH Grace Evangelical Lutheran Church (Norristown, Pennsylvania
+2 CONC , USA)
+1 DATE 11 Oct 1953
+1 _ITALIC Y
+1 _PAREN Y
+0 @S8@ SOUR
+1 ABBR Certification of Birth
+1 TITL Birth Certificates
+1 AUTH Manhattan, New York Department of Records & Information Ser
+2 CONC vices
+1 REPO @R2@
+1 _ITALIC Y
+1 _PAREN Y
+0 @S60@ SOUR
+1 ABBR Find a Grave on-line database
+1 TITL \i Find a Grave\i0, digital images
+1 PUBL http://www.findagrave.com: n.d.
+1 _ITALIC Y
+1 _PAREN Y
+0 @S10@ SOUR
+1 ABBR Jim Jones Jr. Certificate of Confirmation
+1 TITL Confirmation records
+1 AUTH St. Andrew's Evangelical Lutheran Church (Audubon, Pennsylv
+2 CONC ania, USA)
+1 DATE 28 Jul 2014
+1 _ITALIC Y
+1 _PAREN Y
+0 @S3@ SOUR
+1 ABBR JJFix5
+1 TITL "JJ's Original GEDCOM file," supplied by Jones, 28 Jul 2014
+2 CONC ; copy held by [RESEARCHER & CONTACT INFORMATION FOR PRIVAT
+2 CONC E USE]\.
+1 AUTH compiled by Jim Jones, West Chester, PA
+1 REFN 0001
+1 DATE 28 Jul 2014
+1 _EXCLUDE
+1 _ITALIC Y
+1 _PAREN Y
+0 @S64@ SOUR
+1 ABBR Maple Grove Cemetery (Queens, NY)
+1 TITL Maple Grove Cemetery (Kew Gardens, Queens, New York). Grav
+2 CONC e markers.
+1 REPO @R12@
+1 _ITALIC Y
+1 _PAREN Y
+0 @S65@ SOUR
+1 ABBR New York City Death Certificates
+1 TITL Digital Images of Death Certificates
+1 AUTH New York. Queens
+1 PUBL n.d.
+1 _ITALIC Y
+1 _PAREN Y
+0 @S68@ SOUR
+1 ABBR New York City deeds
+1 TITL Deed book.
+1 AUTH New York. Queens.
+1 REPO @R13@
+1 _ITALIC Y
+1 _PAREN Y
+0 @S67@ SOUR
+1 ABBR New York, Births and Christenings (1640-1962)
+1 TITL "New York, Births and Christenings, 1640-1962," database, C
+2 CONC hurch of Latter Day Saints
+1 PUBL (www.familysearch.org)
+1 DATE 1 Aug 2012
+1 _ITALIC Y
+1 _PAREN Y
+0 @S33@ SOUR
+1 ABBR Story County Vital Records
+1 TITL Marriage Register.
+1 AUTH Iowa. Story.
+1 REPO @R7@
+1 _ITALIC Y
+1 _PAREN Y
+0 @R2@ REPO
+1 NAME Department of Records & Information Services
+1 ADDR Department of Records & Information Services
+2 CONT 31 Chambers Street
+2 CONT Manhattan, New York 10017 USA
+2 _NAME Department of Records & Information Services
+2 ADR1 31 Chambers Street
+2 CITY Manhattan
+2 STAE New York
+2 POST 10017
+2 CTRY USA
+1 PHON 212-788-8590
+1 _URL www.NYC.gov/records
+0 @R7@ REPO
+1 NAME Story County Iowa Recorder & Vital Records
+1 ADDR Story County Iowa Recorder & Vital Records
+2 CONT 900 6th Street
+2 CONT PO Box 55
+2 CONT Nevada, Iowa 50201 USA
+2 _NAME Story County Iowa Recorder & Vital Records
+2 _SORT Iowa, Story County Records
+2 ADR1 900 6th Street
+2 ADR2 PO Box 55
+2 CITY Nevada
+2 STAE Iowa
+2 POST 50201
+2 CTRY USA
+1 PHON 515-382-7230
+1 PHON 515-382-7239
+1 EMAIL RecorderWeb@storycounty.com
+1 _URL http://www.storycountyiowa.gov/index.aspx?NID=111
+0 @R8@ REPO
+1 NAME Ames Municipal Cemetery
+1 ADDR Ames Municipal Cemetery
+2 CONT 310 E. 9th St.
+2 CONT Ames, Iowa 502?? USA
+2 _NAME Ames Municipal Cemetery
+2 ADR1 310 E. 9th St.
+2 CITY Ames
+2 STAE Iowa
+2 POST 502??
+2 CTRY USA
+1 PHON 515-239-5341 (Ken Little, Grounds Foreman)
+1 PHON 515-239-5342 (Grounds Supervisor)
+1 EMAIL KLittle@city.ames.ia.us
+0 @R12@ REPO
+1 NAME Maple Grove Cemetery
+1 ADDR Maple Grove Cemetery
+2 CONT 83-15 Kew Gardens Road
+2 CONT Kew Gardens, New York 11415 USA
+2 _NAME Maple Grove Cemetery
+2 _SORT cemetery gravestones
+2 ADR1 83-15 Kew Gardens Road
+2 CITY Kew Gardens
+2 STAE New York
+2 POST 11415
+2 CTRY USA
+0 @R13@ REPO
+1 NAME Office of the City Register
+1 ADDR Office of the City Register
+2 CONT Queens Business Center
+2 CONT 144-06 94th Avenue
+2 CONT Jamaica, New York 11435 USA
+2 _NAME Office of the City Register
+2 ADR1 Queens Business Center
+2 ADR2 144-06 94th Avenue
+2 CITY Jamaica
+2 STAE New York
+2 POST 11435
+2 CTRY USA
+0 TRLR

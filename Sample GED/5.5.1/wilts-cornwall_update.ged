@@ -1,0 +1,3070 @@
+0 HEAD
+1 SOUR webtrees
+2 NAME webtrees
+2 VERS 1.7.2
+1 DEST DISKETTE
+1 DATE 16 JUL 2016
+2 TIME 15:23:17
+1 GEDC
+2 VERS 5.5.1
+2 FORM Lineage-Linked
+1 CHAR UTF-8
+1 FILE wilts-cornwall
+1 PLAC
+2 FORM City, County, State/Province, Country
+1 SUBM @S0@
+0 @I1@ INDI
+1 NAME Leonard Robert /Lovelock/
+2 GIVN Leonard Robert
+2 SURN Lovelock
+1 FAMS @F1@
+1 FAMC @F3@
+1 SEX M
+0 @I10@ INDI
+1 NAME Caroline /Pellow/
+2 GIVN Caroline
+2 SURN Pellow
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET 1824 AND 1825
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 DEAT
+2 DATE 25 MAR 1896
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S4@
+3 PAGE Death 1Q 1896 in Falmouth RD, ref 5c 116
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE From Budock MIs. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Caroline Lovelock died 25 March 1896, aged 71
+2 NOTE @DI10@
+1 _UID 731B88C05B2B43C0885BD85107DA558223A8
+1 CHAN
+2 DATE 14 JAN 2006
+3 TIME 15:37
+1 FAMS @F5@
+0 @I11@ INDI
+1 NAME Robert /Lovelock/
+2 GIVN Robert
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET 1749 AND 1750
+2 PLAC Easton (Easton Royal), Wiltshire, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 DEAT Y
+2 NOTE @DI11@
+1 BURI
+2 DATE 23 JUL 1830
+2 PLAC Budock, Cornwall, England
+2 SOUR @S5@
+3 PAGE From Budock parish register. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Robert Lovelock buried 23 Jul 1830, aged 80
+1 _UID EA9725CE502B4CAE8283CFE65A913EC08CF8
+1 FAMS @F6@
+1 NOTE @NI11@
+2 SOUR @S5@
+3 PAGE email message 29-Nov-05
+3 QUAY 3
+2 SOUR @S2@
+3 PAGE Provided by Jeremy Lovelock, email message 18 Jan 06
+3 QUAY 3
+1 FAMS @F1036@
+1 CHAN
+2 DATE 08 JUL 2016
+3 TIME 19:20:12
+2 _WT_USER graham rl
+1 NOTE Robert appears in a list of those who served in the 62nd Regiment in Canada at Ancestry, a Chelsea Hospital document. The entry was made when he was aged 50 and states that he had 19 years of service, so had joined when he was 31. He served 12 ye
+2 CONC ars in the 2nd Volunteer Battalion but it is not clear when that started. The entry records that he was from Easton, Marlboro (sic), Wilts and also includes his date of death - 23 July 1830.
+0 @I12@ INDI
+1 NAME Jane /Taye/
+2 GIVN Jane
+2 SURN Taye
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 DEAT
+2 DATE BET OCT 1875 AND DEC 1875
+2 SOUR @s12@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 140  (age 71)
+1 _UID 2B44AC998A4F4724852FE6DD052C0F5A09F6
+1 FAMS @F6@
+1 FAMS @F12@
+1 BIRT
+2 DATE BET 1801 AND 1802
+2 PLAC Lansallos, Cornwall, England
+2 SOUR @s20@
+1 CENS
+2 DATE 1851
+2 NOTE Warren, Poperro (sic), Cornwall, England
+3 CONT HO107 1903  F169  P24
+3 CONT
+3 CONT Jane Medlin;Head, Widow;49;Woman of all work;Lansallos, Cornwall
+3 CONT William Medlin;Son;19;Ag Lab;Lansallos, Cornwall
+3 CONT James Medlin;Son;9;;Lansallos, Cornwall
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:34:52
+2 _WT_USER graham rl
+0 @I13@ INDI
+1 NAME Mary Ann /Lovelock/
+2 GIVN Mary Ann
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 CHR
+2 DATE 02 MAY 1816
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S16@
+1 DEAT Y
+2 NOTE @DI13@
+1 BURI
+2 DATE 21 APR 1823
+2 PLAC Budock, Cornwall, England
+2 SOUR @S5@
+3 PAGE From Burdock parish register. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Marianne Lovelock buried 21 Apr 1823, aged 7
+1 _UID 80B466638E964EAC851CA39BD3F71EE2C46D
+1 CHAN
+2 DATE 01 AUG 2011
+3 TIME 16:08:44
+1 FAMC @F6@
+1 BIRT
+2 DATE 27 MAR 1816
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S16@
+0 @I14@ INDI
+1 NAME Elizabeth Medlin /Lovelock/
+2 GIVN Elizabeth Medlin
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET JUL 1849 AND SEP 1849
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S4@
+3 PAGE Birth 3Q 1849 Falmouth RD ref 9, 10
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 DEAT
+2 DATE BET JAN 1924 AND MAR 1924
+2 SOUR @S4@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 216  (age 74)
+1 _UID 36A0DC86EFDF499AB3BC23AAA7A9E55FB943
+1 FAMC @F5@
+1 FAMS @F24@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:53:12
+2 _WT_USER graham rl
+0 @I15@ INDI
+1 NAME James Medlin /Lovelock/
+2 GIVN James Medlin
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET OCT 1852 AND DEC 1852
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @s15@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 202
+1 DEAT
+2 DATE 27 APR 1866
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S4@
+3 PAGE Death 2Q 1866 age 15 Falmouth RD, ref 5c 137
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE From Burdock MIs. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT James M Lovelock died 27 April 1866, aged 13
+2 NOTE @DI15@
+1 _UID B375FDC09CB34E5B85F5749538C75529DD65
+1 FAMC @F5@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:57:04
+2 _WT_USER graham rl
+0 @I16@ INDI
+1 NAME Mary Ann /Lovelock/
+2 GIVN Mary Ann
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET JAN 1857 AND MAR 1857
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Births Mar 1857 Lovelock, Mary Ann, Falmouth, 5c 211
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC Budock, Cornwall, England
+2 NOTE 
+3 CONT    Dwelling: 3 Stratton Terrace
+3 CONT    Census Place: Budock, Cornwall, England
+3 CONT    Source: FHL Film 1341556     PRO Ref RG11    Piece 2317    Folio 95    Page 1
+3 CONT    Marr Age Sex Birthplace
+3 CONT Frederick H. CRIPPS M 25  M Bristol, Somerset, England
+3 CONT    Rel: Visitor (Head)
+3 CONT    Occ: Owner Of Quarries (No Oc)
+3 CONT Florence CRIPPS M 21  F Victoria Brighton
+3 CONT    Rel: Visitor's Wife
+3 CONT Jane HARRIS U 24  F Newlyn E, Cornwall, England
+3 CONT    Rel: Serv
+3 CONT    Occ: Domestic Servant
+3 CONT Mary A. LOVELOCK U 24  F Falmouth, Cornwall, England
+3 CONT    Rel: Serv
+3 CONT    Occ: Cook
+2 SOUR @S9@
+1 CENS
+2 DATE 1891
+2 PLAC Budock, Cornwall, England
+2 NOTE 
+3 CONT Piece: RG12/1835 Place: Falmouth-Cornwall Enumeration District: 9
+3 CONT Civil Parish: Budock Ecclesiastical Parish: Penwerris
+3 CONT Folio: 95 Page: 1 Schedule: 3
+3 CONT Address: 3 Stratton Terrace Tasman Villa
+3 CONT
+3 CONT     Surname   First name(s)   Rel   Status   Sex   Age   Occupation   Where Born   Remarks
+3 CONT     LANYON   George   Head   M   M   57   Living On Own Means    Cornwall - Redruth
+3 CONT     LANYON   Susan   Wife   M   F   51       Overseas - British - Tasmania Hobart
+3 CONT     LANYON   Kate Rosina   Dau   S   F   28       Cornwall - Falmouth
+3 CONT     LANYON   Hilda Maud   Dau   S   F   17       Cornwall - Falmouth
+3 CONT     JENKINS   Elizabeth J.   Servnt   S   F   26   CookCornwall - Devoran
+3 CONT     LOVELOCK   Mary A.   Servnt   S   F   34   Housemaid    Cornwall - Falmouth
+2 SOUR @S8@
+1 _UID D8C634399D3140588E5743BC1592C0A25E21
+1 FAMS @F7@
+1 FAMC @F5@
+1 CENS
+2 DATE 1901
+2 NOTE 4 Essex Road, East Ham, Essex, England
+3 CONT RG13 1598  F117  P30
+3 CONT
+3 CONT Francis Barker;Head;44;Carpenter (Builders);Shaldon, Devon
+3 CONT Mary A Barker:Wife;44;;Falmouth, Cornwall
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:58:56
+2 _WT_USER graham rl
+0 @I17@ INDI
+1 NAME Francis /Barker/
+2 GIVN Francis
+2 SURN Barker
+1 SEX M
+1 DEAT Y
+1 _UID 1EB050B804C44301813D3EFA75596F637854
+1 CHAN
+2 DATE 17 MAY 2015
+3 TIME 21:41:34
+1 FAMS @F7@
+1 BIRT
+2 DATE BET 1856 AND 1857
+2 PLAC Shaldon, Devon, England
+2 SOUR @S10@
+1 CENS
+2 DATE 1901
+2 NOTE 4 Essex Road, East Ham, Essex, England
+3 CONT RG13 1598  F117  P30
+3 CONT
+3 CONT Francis Barker;Head;44;Carpenter (Builders);Shaldon, Devon
+3 CONT Mary A Barker:Wife;44;;Falmouth, Cornwall
+0 @I18@ INDI
+1 NAME Ethel May /Lovelock/
+2 GIVN Ethel May
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET APR 1890 AND JUN 1890
+2 PLAC Portsea, Hampshire, England
+2 SOUR @S4@
+3 DATA
+4 TEXT Portsea RD, ref 2b 446
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 DEAT
+2 DATE BET JUL 1897 AND SEP 1897
+2 SOUR @S4@
+3 DATA
+4 TEXT Portsea RD, ref 2b 304
+1 _UID 7DE9396E1EF04BD5AEADA7C282D17906D1A0
+1 FAMC @F4@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:53:48
+2 _WT_USER graham rl
+0 @I19@ INDI
+1 NAME Bernard Victor /Lovelock/
+2 GIVN Bernard Victor
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET JAN 1892 AND MAR 1892
+2 PLAC Portsmouth RD, Portsmouth, Hampshire, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Portsmouth RD, ref 2b 443
+3 QUAY 3
+1 DEAT
+2 DATE BET APR 1963 AND JUN 1963
+2 SOUR @S12@
+3 DATA
+4 TEXT Portsmouth RD, ref 6b 499  (aged 71)
+1 _UID AEFCFAC42EE14273A502B0FD0E0C92C9F546
+1 FAMC @F4@
+1 FAMS @F19@
+1 CENS
+2 DATE 1911
+2 NOTE 49 Cornwall Rd, Fratton, Portsmouth, Hampshire, England
+3 CONT RG14 PN5524  RG78 PN252  RD90  SD2  ED3  SN173
+3 CONT
+3 CONT Robert Henry Lovelock;Head;51;Shipwright;Falmouth, Cornwall
+3 CONT Jessie Lovelock;Wife, married 24 years;50;;Probus, Cornwall
+3 CONT Norman Henry Lovelock;Son;22;Shipwright;Portsmouth, Hants
+3 CONT Bernard Victor Lovelock;Son;19;Student;Portsmouth, Hants
+3 CONT Hilda Mary Lovelock;Daur;14;;Portsmouth, Hants
+3 CONT Ethel May Tippett;Ward;30;Teacher Assistant;Pill, Glos
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:42:20
+2 _WT_USER graham rl
+0 @I2@ INDI
+1 NAME David Leonard /Lovelock/
+2 GIVN David Leonard
+2 SURN Lovelock
+2 SOUR @S2@
+3 PAGE Via email from Jeremy Lovelock 19 Nov 2005
+3 QUAY 3
+1 FAMS @F2@
+1 FAMC @F1@
+1 SEX M
+0 @I20@ INDI
+1 NAME Hilda Mary /Lovelock/
+2 GIVN Hilda Mary
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE 12 APR 1896
+2 PLAC Portsmouth RD, Portsmouth, Hampshire, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 DATA
+4 TEXT Portsmouth RD, ref 2b 453
+3 QUAY 3
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE BET APR 1983 AND JUN 1983
+2 SOUR @S12@
+3 DATA
+4 TEXT Portsmouth RD, ref 20 0688
+1 _UID 97190FD89D0E4EB08066B2E953B525FEEC19
+1 FAMS @F14@
+1 FAMC @F4@
+1 CENS
+2 DATE 1911
+2 NOTE 49 Cornwall Rd, Fratton, Portsmouth, Hampshire, England
+3 CONT RG14 PN5524  RG78 PN252  RD90  SD2  ED3  SN173
+3 CONT
+3 CONT Robert Henry Lovelock;Head;51;Shipwright;Falmouth, Cornwall
+3 CONT Jessie Lovelock;Wife, married 24 years;50;;Probus, Cornwall
+3 CONT Norman Henry Lovelock;Son;22;Shipwright;Portsmouth, Hants
+3 CONT Bernard Victor Lovelock;Son;19;Student;Portsmouth, Hants
+3 CONT Hilda Mary Lovelock;Daur;14;;Portsmouth, Hants
+3 CONT Ethel May Tippett;Ward;30;Teacher Assistant;Pill, Glos
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 18:41:44
+2 _WT_USER graham rl
+0 @I21@ INDI
+1 NAME John Matthias /Lovelock/
+2 GIVN John Matthias
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET APR 1862 AND JUN 1862
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 2Q 1862 in Falmouth RD, ref 5c 210
+3 QUAY 3
+1 DEAT
+2 DATE BET JUL 1923 AND SEP 1923
+2 SOUR @S4@
+3 DATA
+4 TEXT Redruth RD, ref 5c 213  (age 62)
+1 _UID 4910D843E0204584A09AEE9C87120E08B039
+1 FAMS @F8@
+1 FAMC @F5@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:57:56
+2 _WT_USER graham rl
+0 @I22@ INDI
+1 NAME Louise (Louisa) /Symons/
+2 GIVN Louise (Louisa)
+2 SURN Symons
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET 1861 AND 1862
+2 PLAC Wendron, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 DEAT
+2 DATE BET OCT 1939 AND DEC 1939
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 5c 552  (age 78)
+5 CONT
+1 _UID BE22A74524B94D1EA011551DA5D756D4DDD3
+1 FAMS @F8@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:32:14
+2 _WT_USER graham rl
+0 @I23@ INDI
+1 NAME John William /Lovelock/
+2 GIVN John William
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET APR 1886 AND JUN 1886
+2 PLAC Wendron, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 DATA
+4 TEXT Helston RD, ref 5c 195
+1 _UID C4AE10163E13454CA629BAE58028220FC176
+1 FAMS @F15@
+1 FAMC @F8@
+1 DEAT
+2 DATE BET OCT 1952 AND DEC 1952
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 7a 129  (age 66) (registered as William J Lovelock)
+1 CENS
+2 DATE 1891
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG12 1851  F49  P24
+3 CONT
+3 CONT John LOVELOCK;Head;M;M;30;Stonemason(Em'ee);Cornwall - Falmouth
+3 CONT Louise LOVELOCK;Wife;M;F;29;;Cornwall - Wendron
+3 CONT William LOVELOCK;Son;S;M;4;;Cornwall - Wendron
+3 CONT Robert LOVELOCK;Son;-;M;3;;Cornwall - Camborne
+3 CONT Charles LOVELOCK;Son;-;M;2;;Cornwall - Camborne
+3 CONT Elizabeth LOVELOCK;Daur;-;F;10m;;Cornwall - Camborne
+3 CONT Fanny SYM0NS;Visitr;S;F;24;Living On Her Own Means;Cornwall - Wendron
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:20:40
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+0 @I24@ INDI
+1 NAME Robert James /Lovelock/
+2 GIVN Robert James
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET OCT 1887 AND DEC 1887
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 4Q 1887 in Redruth RD, ref 5c 210
+3 QUAY 3
+1 DEAT
+2 DATE BET APR 1961 AND JUN 1961
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 7a 139  (age 73)
+1 _UID 5439E28A7AA54745BD12560FC6A553B84E11
+1 FAMS @F13@
+1 FAMC @F8@
+1 NOTE @NI24@
+2 SOUR @S5@
+3 PAGE email message 15 Feb 06
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG12 1851  F49  P24
+3 CONT
+3 CONT John LOVELOCK;Head;M;M;30;Stonemason(Em'ee);Cornwall - Falmouth
+3 CONT Louise LOVELOCK;Wife;M;F;29;;Cornwall - Wendron
+3 CONT William LOVELOCK;Son;S;M;4;;Cornwall - Wendron
+3 CONT Robert LOVELOCK;Son;-;M;3;;Cornwall - Camborne
+3 CONT Charles LOVELOCK;Son;-;M;2;;Cornwall - Camborne
+3 CONT Elizabeth LOVELOCK;Daur;-;F;10m;;Cornwall - Camborne
+3 CONT Fanny SYM0NS;Visitr;S;F;24;Living On Her Own Means;Cornwall - Wendron
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:21:14
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+0 @I25@ INDI
+1 NAME Charles Henry /Lovelock/
+2 GIVN Charles Henry
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET 1888 AND 1889
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 DEAT
+2 DATE BET JUL 1919 AND SEP 1919
+2 SOUR @S4@
+3 DATA
+4 TEXT Redruth RD, ref 5c 204  (age 30)
+1 _UID 73E581A820D2473290FD7D7856C3BEA3E8B0
+1 FAMS @F11@
+1 FAMC @F8@
+1 CENS
+2 DATE 1891
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG12 1851  F49  P24
+3 CONT
+3 CONT John LOVELOCK;Head;M;M;30;Stonemason(Em'ee);Cornwall - Falmouth
+3 CONT Louise LOVELOCK;Wife;M;F;29;;Cornwall - Wendron
+3 CONT William LOVELOCK;Son;S;M;4;;Cornwall - Wendron
+3 CONT Robert LOVELOCK;Son;-;M;3;;Cornwall - Camborne
+3 CONT Charles LOVELOCK;Son;-;M;2;;Cornwall - Camborne
+3 CONT Elizabeth LOVELOCK;Daur;-;F;10m;;Cornwall - Camborne
+3 CONT Fanny SYM0NS;Visitr;S;F;24;Living On Her Own Means;Cornwall - Wendron
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:21:27
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+0 @I26@ INDI
+1 NAME Elizabeth /Lovelock/
+2 GIVN Elizabeth
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET JUL 1890 AND SEP 1890
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree fotr Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 3Q 1890 in Redruth RD, ref 5c 224
+3 QUAY 3
+1 DEAT
+2 DATE BET JUL 1962 AND SEP 1962
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 7a 107
+1 _UID 075039A186C140BC86C227F788F64A6F115A
+1 FAMS @F16@
+1 FAMC @F8@
+1 CENS
+2 DATE 1891
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG12 1851  F49  P24
+3 CONT
+3 CONT John LOVELOCK;Head;M;M;30;Stonemason(Em'ee);Cornwall - Falmouth
+3 CONT Louise LOVELOCK;Wife;M;F;29;;Cornwall - Wendron
+3 CONT William LOVELOCK;Son;S;M;4;;Cornwall - Wendron
+3 CONT Robert LOVELOCK;Son;-;M;3;;Cornwall - Camborne
+3 CONT Charles LOVELOCK;Son;-;M;2;;Cornwall - Camborne
+3 CONT Elizabeth LOVELOCK;Daur;-;F;10m;;Cornwall - Camborne
+3 CONT Fanny SYM0NS;Visitr;S;F;24;Living On Her Own Means;Cornwall - Wendron
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:21:41
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+0 @I27@ INDI
+1 NAME Carrie /Lovelock/
+2 GIVN Carrie
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET APR 1892 AND JUN 1892
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 2Q 1892 in Redruth RD, ref 5c 212
+3 QUAY 3
+1 DEAT
+2 DATE BET JUL 1892 AND SEP 1892
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Death 3Q 1892 in Redruth RD, ref 5c 135
+3 QUAY 3
+1 _UID A31505B80532401886A29012581508C90C93
+1 FAMC @F8@
+1 NOTE @NI27@
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:33:43
+2 _WT_USER graham rl
+0 @I28@ INDI
+1 NAME Alfred /Lovelock/
+2 GIVN Alfred
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE 12 AUG 1893
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 4Q 1893 in Redruth RD, ref 5c 201
+3 QUAY 3
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE BET JAN 1977 AND MAR 1977
+2 SOUR @S12@
+3 DATA
+4 TEXT Truro RD. ref 21 0735
+1 _UID 8C4180A1FA9D4D60BBBE774AE0317C88816E
+1 FAMC @F8@
+1 FAMS @F22@
+1 CHR
+2 DATE 20 NOV 1899
+2 PLAC St John, Treslothan, Cornwall
+2 SOUR @S16@
+1 NOTE Alfred left Southampton on the 'Orbita' on 26 Sep 1919 bound for Rio de Janeiro. Occupation recorded as Miner.
+2 CONT
+2 CONT He also left on the 'Avon' on 23 March 1923 bound again for Rio de Janeiro. Occupation recorded as Millman.
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:21:55
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+0 @I29@ INDI
+1 NAME Frank Alfred /Lovelock/
+2 GIVN Frank Alfred
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET OCT 1895 AND DEC 1895
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 4Q 1895 in Redruth RD, ref 5c 205
+3 QUAY 3
+1 DEAT
+2 DATE BET APR 1959 AND JUN 1959
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 7a 135  (age 63)
+1 _UID AD9971F5A43D45AEBE87D99183610B5F7DB5
+1 FAMC @F8@
+1 CHR
+2 DATE 03 FEB 1896
+2 PLAC St John, Treslothan, Cornwall
+2 SOUR @S16@
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:22:13
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+0 @I3@ INDI
+1 NAME Jean P /Henderson/
+2 GIVN Jean P
+2 SURN Henderson
+1 FAMS @F2@
+1 SEX F
+0 @I30@ INDI
+1 NAME Carrie (Caroline) /Lovelock/
+2 GIVN Carrie (Caroline)
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE ABT JUN 1897
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 DATA
+4 TEXT Redruth RD, ref 5c 193  (registered in Jul-Sep quarter)
+3 QUAY 3
+1 DEAT
+2 DATE BET JUL 1898 AND SEP 1898
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Death 3Q 1898 in Redruth RD, ref 5c 143
+3 QUAY 3
+1 _UID C48EC64EB434463F8B3C84F16ACAF7EA24A2
+1 FAMC @F8@
+1 NOTE @NI30@
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 CHR
+2 DATE 27 JUN 1898
+2 PLAC St John, Treslothan, Cornwall
+2 SOUR @S16@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:32:55
+2 _WT_USER graham rl
+0 @I31@ INDI
+1 NAME Louisa /Lovelock/
+2 GIVN Louisa
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE 9 JUN 1899
+2 PLAC Troon, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 3Q 1899, Redruth RD, ref 5c 193
+3 QUAY 3
+1 DEAT
+2 DATE 24 MAY 1962
+2 PLAC Zelah, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 _UID 9AF48064FB064251862F88103FA4847832D4
+1 CHAN
+2 DATE 11 MAR 2015
+3 TIME 18:35:38
+1 FAMS @F9@
+1 FAMC @F8@
+1 CHR
+2 DATE 20 NOV 1899
+2 PLAC St John, Treslothan, Cornwall
+2 SOUR @s16@
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+0 @I32@ INDI
+1 NAME John Norman /Rawlings/
+2 GIVN John Norman
+2 SURN Rawlings
+1 SEX M
+1 DEAT
+2 DATE BET JAN 1952 AND MAR 1952
+2 SOUR @S12@
+3 DATA
+4 TEXT Truro RD, ref 7a 267  (age 56)
+1 _UID F5B0625E6BDF4401AD6EAA33D453F11115AD
+1 FAMS @F9@
+1 BIRT
+2 DATE BET OCT 1895 AND DEC 1895
+2 SOUR @S4@
+3 DATA
+4 TEXT Truro RD, ref 5c 131
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:17:59
+2 _WT_USER graham rl
+0 @I33@ INDI
+1 NAME James /Lovelock/
+2 GIVN James
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE 29 OCT 1900
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE 18 JUL 1981
+2 SOUR @S12@
+3 DATA
+4 TEXT Truro RD, ref 21 0589
+2 SOUR @S7@
+1 _UID 3C22AF96DDCC42BB92F36A3596B164FF1721
+1 FAMC @F8@
+1 CENS
+2 DATE 1901
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG13 2244 F18 P28
+3 CONT
+3 CONT John Lovelock;Head;39;Wall Mason;Falmouth, Cornwall
+3 CONT Louisa Lovelock;Wife;38;;Wendron, Cornwall
+3 CONT Willie Lovelock;Son;14;;Falmouth, Cornwall
+3 CONT Robert Lovelock;Son;13;;Camborne, Cornwall
+3 CONT Charles Lovelock;Son;12;;Camborne, Cornwall
+3 CONT Lizzie Lovelock;Daur;10;;Camborne, Cornwall
+3 CONT Alfred Lovelock;Son;8;;Camborne, Cornwall
+3 CONT Frank Lovelock;Son;5;;Camborne, Cornwall
+3 CONT Louisa Lovelock;Daur;1;;Camborne, Cornwall
+3 CONT James Lovelock;Son;5mos;;Camborne, Cornwall
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:31:27
+2 _WT_USER graham rl
+1 FAMS @F984@
+0 @I34@ INDI
+1 NAME Charles /Lovelock/
+2 GIVN Charles
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET OCT 1864 AND DEC 1864
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @s15@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 201
+1 DEAT
+2 DATE 18 JUL 1934
+2 PLAC At sea
+2 SOUR @S7@
+3 DATA
+4 TEXT 1934
+5 CONT LOVELOCK Charles
+5 CONT Effects £188 15s
+5 CONT
+5 CONT Of 8 Park Cottages, Falmouth, Cornwall, died 18 July 1934 at sea. Admin London 3 September 1934 to Ellen Lovelock, widow.
+2 SOUR @S5@
+3 PAGE From Burdock MIs. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Charles Lovelock died 10 July 1934, aged 69
+2 NOTE @DI34@
+1 _UID 961B4DF065BF4EC1A48C29EEE807D7709E84
+1 FAMS @F10@
+1 FAMC @F5@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:48:34
+2 _WT_USER graham rl
+0 @I35@ INDI
+1 NAME Ellen /Whitecross/
+2 GIVN Ellen
+2 SURN Whitecross
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET OCT 1862 AND DEC 1862
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @s15@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 205
+1 DEAT
+2 DATE BET JAN 1948 AND MAR 1948
+2 SOUR @s12@
+3 DATA
+4 TEXT Falmouth RD, ref 7a 33  (age 86)
+1 _UID E7F01C6F8D4941399B7F1E8EDC0133149CAD
+1 FAMS @F10@
+1 CENS
+2 DATE 1911
+2 NOTE 8 Park Cottages, Falmouth, Cornwall, England
+3 CONT RG14PN13894 RG78PN824 RD297 SD2 ED7 SN278
+3 CONT
+3 CONT Ellen Lovelock;Wife, married 16 years;48;;Falmouth, Cornwall
+3 CONT Norman Lovelock;Son;13;;Falmouth, Cornwall
+1 FAMS @F30@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:20:26
+2 _WT_USER graham rl
+0 @I36@ INDI
+1 NAME Charles Norman /Lovelock/
+2 GIVN Charles Norman
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE 15 NOV 1897
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+3 DATA
+4 TEXT Date of birth and middle name from 'Admiralty: Registers of Seamen's Services' at National Archives On-Line.
+2 SOUR @S4@
+3 PAGE Birth 4Q 1897 in Falmouth RD, Cornwall, ref 5c146
+3 QUAY 3
+2 NOTE @BI36@
+1 DEAT
+2 DATE BET APR 1929 AND JUN 1929
+2 SOUR @S12@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 174  (age 31)
+1 _UID 53A1E84EE21048F6B901C892C862B53A8746
+1 FAMC @F10@
+1 NOTE @NI36@
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 FAMS @F23@
+1 CENS
+2 DATE 1911
+2 NOTE 8 Park Cottages, Falmouth, Cornwall, England
+3 CONT RG14PN13894 RG78PN824 RD297 SD2 ED7 SN278
+3 CONT
+3 CONT Ellen Lovelock;Wife, married 16 years;48;;Falmouth, Cornwall
+3 CONT Norman Lovelock;Son;13;;Falmouth, Cornwall
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:16:01
+2 _WT_USER graham rl
+0 @I37@ INDI
+1 NAME James Medlin /Lovelock/
+2 GIVN James Medlin
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET JAN 1869 AND MAR 1869
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+2 NOTE @BI37@
+1 DEAT
+2 DATE BET JUL 1906 AND SEP 1906
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Death 3Q 1906 in Redruth RD, ref 5c 125
+3 QUAY 3
+1 CENS
+2 DATE 1901
+2 PLAC Falmouth, Cornwall, England
+2 NOTE 
+3 CONT 1237053   29704498   Falmouth Parish   Cornwall   CON   James Lovelock   Male   34   1867   Stoker In H M Navy Man   Cornwall Falmouth   2227   22   Falmouth
+3 CONT
+3 CONT From Graham Lovelock:
+3 CONT James Medlin Lovelock, age 34, was a Visitor at 11 Berkeley Place in Falmouth in 1901.
+2 SOUR @S10@
+1 _UID C9D53E22C0A242ADBC7B9746C260D7CA268D
+1 CHAN
+2 DATE 01 AUG 2011
+3 TIME 16:21:47
+1 FAMC @F5@
+1 CHR
+2 DATE 24 FEB 1869
+2 SOUR @s16@
+0 @I38@ INDI
+1 NAME Caroline Annie /Lovelock/
+2 GIVN Caroline Annie
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE MAR 1871
+2 PLAC Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 2Q 1871 Falmouth RD, 5c 186
+3 QUAY 3
+1 DEAT
+2 DATE 14 MAR 1893
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S4@
+3 PAGE Death 1Q 1893 Lovelock, Caroline Annie, age 22, Falmouth RD ref 5c 132
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE From Burdock MIs. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Caroline A Lovelock died 14 March 1893, aged 22
+1 _UID 6074184CBC164F8AAC85B5E60BAF2AE97CDF
+1 CHAN
+2 DATE 14 JAN 2006
+3 TIME 15:37
+1 FAMC @F5@
+0 @I39@ INDI
+1 NAME Annie Gwendoline /Staning/
+2 GIVN Annie Gwendoline
+2 SURN Staning
+1 SEX F
+1 DEAT
+2 DATE 05 MAY 1973
+2 SOUR @S12@
+3 DATA
+4 TEXT Bath RD, ref 7c 686
+2 SOUR @S7@
+1 _UID 29FE0A0E1F4F4D58A9AD97B4798C4E50962C
+1 FAMS @F3@
+1 BIRT
+2 DATE 05 APR 1895
+2 NOTE Date of birth included in death registration entry.
+2 SOUR @s15@
+3 DATA
+4 TEXT Pembroke RD, ref 11a 1214
+1 CHAN
+2 DATE 22 MAY 2016
+3 TIME 21:53:46
+2 _WT_USER graham rl
+0 @I4@ INDI
+1 NAME Luke /Lovelock/
+2 GIVN Luke
+2 SURN Lovelock
+2 SOUR @S2@
+3 PAGE Via email from Jeremy Lovelock 19 Nov 2005
+3 QUAY 3
+1 FAMC @F2@
+1 SEX M
+0 @I40@ INDI
+1 NAME Florence May /Gilbert/
+2 GIVN Florence May
+2 SURN Gilbert
+1 SEX F
+1 BIRT
+2 DATE BET APR 1891 AND JUN 1891
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S5@
+3 PAGE Updated descendant tree provided 10-Jan-06
+3 QUAY 3
+2 SOUR @s15@
+3 DATA
+4 TEXT Redruth RD, ref 5c 227
+2 SOUR @S301@
+1 DEAT
+2 DATE BET JUL 1946 AND SEP 1946
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 7a 119  (age 55)
+1 _UID D3AF85FB5DF246A38C194D5F49EB9849A0C5
+1 FAMS @F11@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 18:15:04
+2 _WT_USER graham rl
+0 @I41@ INDI
+1 NAME James /Medlin/
+2 GIVN James
+2 SURN Medlin
+1 SEX M
+1 DEAT
+2 DATE BET OCT 1849 AND DEC 1849
+2 SOUR @s12@
+3 DATA
+4 TEXT Falmouth RD, ref 9 66
+1 _UID A3680B1FED144557B5311A048AABA9C5791D
+1 FAMS @F12@
+1 BIRT Y
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 18:29:23
+2 _WT_USER graham rl
+0 @I42@ INDI
+1 NAME Leslie Norman /Lovelock/
+2 GIVN Leslie Norman
+2 SURN Lovelock
+1 SEX M
+1 FAMC @F3@
+1 NOTE @N0@
+1 CHAN
+2 DATE 20 FEB 2015
+3 TIME 20:11:12
+1 BIRT
+2 DATE 04 SEP 1919
+2 SOUR @S4@
+3 DATA
+4 TEXT Portsmouth RD, ref 2b 663
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE 21 MAR 1997
+2 SOUR @S12@
+3 DATA
+4 TEXT Bath and NE Somerset RD, ref C56C 23
+2 SOUR @s19@
+0 @I43@ INDI
+1 NAME Gladys M /Lovelock/
+2 GIVN Gladys M
+2 SURN Lovelock
+1 FAMC @F3@
+1 FAMS @F18@
+1 SEX F
+0 @I44@ INDI
+1 NAME Janie /Heather/
+2 GIVN Janie
+2 SURN Heather
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+1 SEX F
+1 DEAT
+2 DATE BET APR 1971 AND JUN 1971
+2 SOUR @s12@
+3 DATA
+4 TEXT Kerrier RD, ref 7a 138
+1 _UID 25166ABB7CA44B628ED1D58BA13C94429F9F
+1 FAMS @F13@
+1 BIRT
+2 DATE 08 OCT 1890
+2 SOUR @s15@
+3 DATA
+4 TEXT Redruth RD, ref 5c 200
+2 NOTE Date of birth included in death registration entry.
+2 PLAC Camborne, Cornwall, England
+2 SOUR @S13@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 16:14:40
+2 _WT_USER graham rl
+0 @I45@ INDI
+1 NAME Arthur Leslie /Pike/
+2 GIVN Arthur Leslie
+2 SURN Pike
+2 SOUR @S5@
+3 PAGE email message 10-Sep-06
+3 QUAY 3
+1 SEX M
+1 DEAT
+2 DATE BET JAN 1980 AND MAR 1980
+2 SOUR @S12@
+3 DATA
+4 TEXT Portsmouth RD, ref 20 0903
+1 _UID BB3283114D2D485A8112711DF4095F0B259B
+1 FAMS @F14@
+1 BIRT
+2 DATE 23 AUG 1895
+2 SOUR @s15@
+3 DATA
+4 TEXT Portsea RD, ref 2b 469  (registered in Oct-Dec quarter)
+2 NOTE Date of birth included in death registration entry.
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 18:48:23
+2 _WT_USER graham rl
+0 @I46@ INDI
+1 NAME Pamela Mary /Pike/
+2 GIVN Pamela Mary
+2 SURN Pike
+2 SOUR @S5@
+3 PAGE email message 10-Sep-06
+3 QUAY 3
+1 SEX F
+1 FAMC @F14@
+1 NOTE @N0@
+1 BIRT
+2 DATE 10 MAY 1923
+2 SOUR @s15@
+3 DATA
+4 TEXT Portsmouth RD, ref 2b 695
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE DEC 2006
+2 SOUR @s12@
+3 DATA
+4 TEXT South East Hampshire RD, ref H62 102  (registered in married name of Johnston)
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 19:15:01
+2 _WT_USER graham rl
+0 @I47@ INDI
+1 NAME Rhoda /Smith/
+2 GIVN Rhoda
+2 SURN Smith
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+1 SEX F
+1 DEAT
+2 DATE BET JAN 1963 AND MAR 1963
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 7a 178  (age 74)
+1 _UID 757B8FA910C5479D92961EA9976CA082F57B
+1 FAMS @F15@
+1 BIRT
+2 DATE BET JUL 1888 AND SEP 1888
+2 SOUR @S4@
+3 DATA
+4 TEXT Redruth RD, ref 5c 219
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:23:56
+2 _WT_USER graham rl
+0 @I48@ INDI
+1 NAME Dorothy M /Lovelock/
+2 GIVN Dorothy M
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+1 SEX F
+1 FAMC @F15@
+1 NOTE @N0@
+1 FAMS @F20@
+1 CHAN
+2 DATE 17 MAY 2015
+3 TIME 21:20:09
+1 BIRT
+2 DATE 21 OCT 1913
+2 SOUR @S4@
+3 DATA
+4 TEXT Redruth RD, ref 5c 331
+2 SOUR @s18@
+2 PLAC Camborne, Cornwall, England
+1 DEAT Y
+0 @I49@ INDI
+1 NAME Roberta J /Lovelock/
+2 GIVN Roberta J
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+1 SEX F
+1 BIRT
+2 DATE BET APR 1912 AND JUN 1912
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+2 SOUR @S15@
+3 DATA
+4 TEXT Redruth RD, ref 5c 350
+1 DEAT
+2 DATE BET APR 1912 AND JUN 1912
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 5c 275
+1 _UID F5261A5BF2814192882C42DC447CB63B599B
+1 FAMC @F13@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 16:15:17
+2 _WT_USER graham rl
+0 @I5@ INDI
+1 NAME Norman Henry /Lovelock/
+2 GIVN Norman Henry
+2 SURN Lovelock
+2 SOUR @S2@
+3 PAGE Via email from Jeremy Lovelock 19 Nov 2005
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE 21 AUG 1888
+2 PLAC Portsmouth, Hampshire, England
+2 SOUR @S4@
+3 DATA
+4 TEXT Portsea RD, ref 2b 420  (registered in Oct-Dec quarter)
+3 PAGE Via email from Jeremy Lovelock 19 Nov 2005
+3 QUAY 3
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE BET JAN 1983 AND MAR 1983
+2 SOUR @S12@
+3 DATA
+4 TEXT Bath RD, ref 22 0189
+1 _UID F15F54751318448DB96A35BD80FDA2519ADC
+1 FAMS @F3@
+1 FAMC @F4@
+1 CENS
+2 DATE 1911
+2 NOTE 49 Cornwall Rd, Fratton, Portsmouth, Hampshire, England
+3 CONT RG14 PN5524  RG78 PN252  RD90  SD2  ED3  SN173
+3 CONT
+3 CONT Robert Henry Lovelock;Head;51;Shipwright;Falmouth, Cornwall
+3 CONT Jessie Lovelock;Wife, married 24 years;50;;Probus, Cornwall
+3 CONT Norman Henry Lovelock;Son;22;Shipwright;Portsmouth, Hants
+3 CONT Bernard Victor Lovelock;Son;19;Student;Portsmouth, Hants
+3 CONT Hilda Mary Lovelock;Daur;14;;Portsmouth, Hants
+3 CONT Ethel May Tippett;Ward;30;Teacher Assistant;Pill, Glos
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 14:39:43
+2 _WT_USER graham rl
+0 @I50@ INDI
+1 NAME James H /Rowe/
+2 GIVN James H
+2 SURN Rowe
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+1 SEX M
+1 DEAT Y
+1 _UID 8D3A241408A94B00A252066BF3CD3860B84F
+1 CHAN
+2 DATE 09 APR 2015
+3 TIME 19:56:38
+1 FAMS @F16@
+1 BIRT Y
+0 @I5006@ INDI
+1 NAME Claire /Lovelock/
+2 GIVN Claire
+2 SURN Lovelock
+1 FAMC @F2@
+1 SEX F
+0 @I5008@ INDI
+1 NAME Kelly /Lovelock/
+2 GIVN Kelly
+2 SURN Lovelock
+1 FAMC @F2@
+1 SEX F
+0 @I5009@ INDI
+1 NAME Stephen E /Lovelock/
+2 GIVN Stephen E
+2 SURN Lovelock
+1 FAMC @F21@
+1 FAMS @F715@
+1 SEX M
+0 @I5010@ INDI
+1 NAME Jeremy Oliver /Lovelock/
+2 GIVN Jeremy Oliver
+2 SURN Lovelock
+1 FAMC @F21@
+1 FAMS @F716@
+1 SEX M
+0 @I5011@ INDI
+1 NAME Linda J /Temby/
+2 GIVN Linda J
+2 SURN Temby
+2 _MARNM Linda J /Lovelock/
+1 FAMS @F715@
+1 SEX F
+0 @I5012@ INDI
+1 NAME Patina Valerie /Scorse/
+2 GIVN Patina Valerie
+2 SURN Scorse
+2 _MARNM Patina Valerie /Lovelock/
+1 FAMS @F716@
+1 SEX F
+0 @I5013@ INDI
+1 NAME Jamie Kyle /Lovelock/
+2 GIVN Jamie Kyle
+2 SURN Lovelock
+1 FAMC @F716@
+1 SEX M
+0 @I5014@ INDI
+1 NAME Zoe Ellen /Lovelock/
+2 GIVN Zoe Ellen
+2 SURN Lovelock
+1 FAMC @F716@
+1 SEX F
+0 @I5015@ INDI
+1 NAME Donna Marie /Lovelock/
+2 GIVN Donna Marie
+2 SURN Lovelock
+1 FAMC @F715@
+1 SEX F
+0 @I5016@ INDI
+1 NAME Joshua Craig /Lovelock/
+2 GIVN Joshua Craig
+2 SURN Lovelock
+1 FAMC @F715@
+1 SEX M
+0 @I5017@ INDI
+1 NAME Alan C /Neal/
+2 GIVN Alan C
+2 SURN Neal
+1 FAMC @F18@
+1 SEX M
+0 @I5018@ INDI
+1 NAME Susan E /Neal/
+2 GIVN Susan E
+2 SURN Neal
+1 FAMC @F18@
+1 SEX F
+0 @I5019@ INDI
+1 NAME Daphne M B /Pike/
+2 GIVN Daphne M B
+2 SURN Pike
+1 FAMC @F14@
+1 SEX F
+0 @I51@ INDI
+1 NAME Walter Henry /Lovelock/
+2 GIVN Walter Henry
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 29 APR 1902
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S11@
+3 PAGE PhpGedView message 1-Jan-09
+1 DEAT
+2 DATE JAN 1984
+2 SOUR @S11@
+3 PAGE PhpGedView message 1-Jan-09
+2 SOUR @S12@
+3 DATA
+4 TEXT Camborne-Redruth RD, ref 21 57  (registered in Jan 1984)
+1 FAMC @F8@
+2 PEDI birth
+1 FAMS @F25@
+1 NOTE According to an 'Application for Resident Alien's Border Crossing Identification Card' Walter Henry entered the United States through New York for permanaent residence on 11 May 1949.
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:22:36
+2 _WT_USER graham rl
+1 CENS
+2 DATE 1911
+2 NOTE Pendarves St, Troon, Camborne, Cornwall, England
+3 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+3 CONT 	
+3 CONT John Lovelock;Head;48;Mason;Falmouth
+3 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+3 CONT William Lovelock;Son;24;Tin Miner;Wendron
+3 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+3 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+3 CONT Lizzie Lovelock;Daur;20;;Camborne
+3 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+3 CONT Frank Lovelock;Son;15;Clerk;Camborne
+3 CONT James Lovelock;Son;10;;Camborne
+3 CONT Walter Lovelock;Son;8;;Camborne
+0 @I53@ INDI
+1 NAME Harold J /Neal/
+2 GIVN Harold J
+2 SURN Neal
+1 FAMS @F18@
+1 SEX M
+0 @I54@ INDI
+1 NAME Florence /Johnson/
+2 GIVN Florence
+2 SURN Johnson
+2 _MARNM Florence /Lovelock/
+1 SEX F
+1 BIRT
+2 DATE 22 FEB 1891
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE BET OCT 1983 AND DEC 1983
+2 SOUR @S12@
+3 DATA
+4 TEXT Portsmouth RD, ref 20 0604
+1 SOUR @S4@
+2 DATA
+3 TEXT Huddersfield RD, ref 9a 924
+1 FAMS @F19@
+1 CHAN
+2 DATE 22 MAR 2016
+3 TIME 12:29:55
+2 _WT_USER james-l
+0 @I5434@ INDI
+1 NAME Ivy /Moyle/
+2 GIVN Ivy
+2 SURN Moyle
+2 _MARNM Ivy /Lovelock/
+1 FAMS @F984@
+1 SEX F
+0 @I55@ INDI
+1 NAME Joseph C /Williams/
+2 GIVN Joseph C
+2 SURN Williams
+1 FAMS @F20@
+1 SEX M
+0 @I5528@ INDI
+1 NAME Mary /Unknown/
+2 GIVN Mary
+2 SURN Unknown
+2 _MARNM Mary /Lovelock/
+1 SEX F
+1 BIRT Y
+1 DEAT Y
+1 CHAN
+2 DATE 07 JUL 2016
+3 TIME 19:15:57
+2 _WT_USER graham rl
+1 FAMS @F1036@
+0 @I5529@ INDI
+1 NAME Robert /Lovelock/
+2 GIVN Robert
+2 SURN Lovelock
+1 SEX M
+1 BIRT Y
+1 DEAT Y
+1 FAMC @F1036@
+1 CHAN
+2 DATE 07 JUL 2016
+3 TIME 19:39:00
+2 _WT_USER graham rl
+1 BURI
+2 DATE 23 APR 1809
+2 PLAC St Andrew, Plymouth, Devon, England
+2 SOUR @S371@
+0 @I56@ INDI
+1 NAME Dawn E /Williams/
+2 GIVN Dawn E
+2 SURN Williams
+1 FAMC @F20@
+1 SEX F
+0 @I57@ INDI
+1 NAME Charles Henry /Lovelock/
+2 GIVN Charles Henry
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 08 OCT 1916
+2 SOUR @S15@
+3 DATA
+4 TEXT Redruth RD, ref 5c 280
+2 NOTE Date of birth included in New Zealand death registration entry.
+1 FAMC @F13@
+1 SOUR @S4@
+2 DATA
+3 TEXT Redruth RD, ref 5c 280
+1 CHAN
+2 DATE 26 AUG 2011
+3 TIME 16:40:19
+1 DEAT
+2 DATE 16 FEB 1975
+2 PLAC Whakatane Hospital, Whakatane, New Zealand
+1 NOTE The Whakatane Beacon [Tues Feb 18 1975, p16]*:
+2 CONT
+2 CONT "DEATH. LOVELOCK Charles Henry.
+2 CONT
+2 CONT Reg No 61322MV South African Scottish.
+2 CONT
+2 CONT On 16th Feb 1975 at Whakatane Hospital, dearly loved husband of Joan and loved father of Patricia, son-in-law of Mr A Towndrow. Messages to 50A Landing Rd, Whakatane. A
+2 CONT service will be held at st Georges Anglican Church, Domain Road, Whakatane, tomorrow Wednesday at 2pm. Interment thereafter at the Hillcrest RSA lawn Cemetery. AA Scott FDANZ"
+1 FAMS @F28@
+1 NOTE NZ Electoral Roll 1963
+2 CONT BAY OF PLENTY Sup: 24/197, LOVELOCK Charles Henry,
+2 CONT 112 James St, Whakatane, Grocer [with Joan P]
+2 CONT
+2 CONT NZ Electoral Roll 1969
+2 CONT BAY OF PLENTY: 60/104, LOVELOCK Charles H, 50A
+2 CONT Landing Rd, Whakatane, Clerk [with Joan P]
+2 CONT
+2 CONT NZ Electoral Roll 1972
+2 CONT BAY OF PLENTY: 2/121, LOVELOCK Charles H, 50A
+2 CONT Landing Rd, Whakatane, Purch. off [with Joan P]
+2 SOUR @S17@
+1 BURI
+2 CEME Whakatane Hillcrest, Whakatane, New Zealand
+2 NOTE WHAKATANE HILLCREST D05.13:
+3 CONT
+3 CONT LOVELOCK Charles Henry - d. 16 Feb 1975, 58yrs
+3 CONT - RSA Block X p138
+3 CONT RSA Lawn Block X8 138 LOVELOCK CH #613227V, Pte Transvaal Scottish Reg, WW2,
+3 CONT d.16 Feb 1975, a.58
+1 NOTE Charles Henry embarked on the MV 'Abosso' on 21 Dec 1938 from Liverpool for Sekondi-Takoradi on the West Coast of Africa. His profession was recorded as 'Mining', his address as Lynfield, Porkellis, Helston.
+2 CONT
+2 CONT On 24 Aug 1939 he embarked on the 'Carnarvon Castle' of the Union Castle line from Southampton for Cape Town, South Africa, his profession and address as above.
+2 CONT
+2 CONT On 6 Jul 1951 he embarked on the MV 'Warwick Castle' of the Union Castle line from London for Mombasa, Kenya Colony. His profession was quoted as 'Engineer' and his address as 109 North Rd, Gt Clacton.
+0 @I58@ INDI
+1 NAME Robert Edmund /Lovelock/
+2 GIVN Robert Edmund
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 13 AUG 1929
+2 SOUR @S4@
+3 DATA
+4 TEXT Helston RD, ref 5c 211
+2 NOTE Date of birth included in death registration entry.
+1 FAMC @F13@
+1 SOUR @S4@
+2 DATA
+3 TEXT Helston RD, ref 5c 211
+1 CHAN
+2 DATE 22 SEP 2009
+3 TIME 19:10:23
+1 DEAT
+2 DATE NOV 1992
+2 SOUR @S12@
+3 DATA
+4 TEXT Kerrier RD, ref 21 165
+1 FAMS @F21@
+0 @I59@ INDI
+1 NAME Joyce M /Few/
+2 GIVN Joyce M
+2 SURN Few
+2 _MARNM Joyce M /Lovelock/
+1 FAMS @F21@
+1 SEX F
+0 @I6@ INDI
+1 NAME Robert Henry /Lovelock/
+2 GIVN Robert Henry
+2 SURN Lovelock
+2 SOUR @S2@
+3 PAGE Via email from Jeremy Lovelock 19 Nov 2005
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE BET JAN 1860 AND MAR 1860
+2 PLAC Redruth, Cornwall, England
+2 SOUR @S2@
+3 PAGE Via email from Jeremy Lovelock 19 Nov 2005
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Birth 1Q 1860, Falmouth RD ref 5c 221
+3 QUAY 3
+2 NOTE @BI6@
+1 DEAT
+2 DATE 05 FEB 1943
+2 PLAC Portsmouth RD, Portsmouth, Hampshire, England
+2 SOUR @S4@
+3 DATA
+4 TEXT Portsmouth RD, ref 2b 840
+3 QUAY 3
+2 SOUR @S7@
+1 _UID D0D7128C049640678E8DCECF69235A86AAE3
+1 FAMS @F4@
+1 FAMC @F5@
+1 NOTE @NI6@
+2 SOUR @S2@
+3 PAGE Via email from Jeremy Lovelock 19 Nov 2005
+3 QUAY 3
+1 CENS
+2 DATE 1911
+2 NOTE 49 Cornwall Rd, Fratton, Portsmouth, Hampshire, England
+3 CONT RG14 PN5524  RG78 PN252  RD90  SD2  ED3  SN173
+3 CONT
+3 CONT Robert Henry Lovelock;Head;51;Shipwright;Falmouth, Cornwall
+3 CONT Jessie Lovelock;Wife, married 24 years;50;;Probus, Cornwall
+3 CONT Norman Henry Lovelock;Son;22;Shipwright;Portsmouth, Hants
+3 CONT Bernard Victor Lovelock;Son;19;Student;Portsmouth, Hants
+3 CONT Hilda Mary Lovelock;Daur;14;;Portsmouth, Hants
+3 CONT Ethel May Tippett;Ward;30;Teacher Assistant;Pill, Glos
+1 CHAN
+2 DATE 15 JUN 2016
+3 TIME 16:43:11
+2 _WT_USER graham rl
+0 @I60@ INDI
+1 NAME Alice May /Jilbert/
+2 GIVN Alice May
+2 SURN Jilbert
+2 _MARNM Alice May /Lovelock/
+1 SEX F
+1 BIRT
+2 DATE BET APR 1893 AND JUN 1893
+2 SOUR @S4@
+3 DATA
+4 TEXT Penzance RD, ref 5c 240
+2 NOTE Both the 1939 Register and the death registration entry give the date of birth as 22 Sep 1894, but there is no corresponding Free BMD entry.
+1 DEAT
+2 DATE 18 JUL 1988
+2 SOUR @S7@
+2 SOUR @S12@
+3 DATA
+4 TEXT Camborne-Redruth RD, ref 21 59
+1 SOUR @S4@
+2 DATA
+3 TEXT Penzance RD, ref 5c 240
+1 FAMS @F22@
+1 CHAN
+2 DATE 01 JUL 2016
+3 TIME 18:31:55
+2 _WT_USER graham rl
+0 @I61@ INDI
+1 NAME William J /Rawlings/
+2 GIVN William J
+2 SURN Rawlings
+1 FAMC @F9@
+1 SEX M
+0 @I62@ INDI
+1 NAME Margery L /Rawlings/
+2 GIVN Margery L
+2 SURN Rawlings
+1 FAMC @F9@
+1 SEX F
+0 @I63@ INDI
+1 NAME John N /Rawlings/
+2 GIVN John N
+2 SURN Rawlings
+1 FAMC @F9@
+1 SEX M
+0 @I64@ INDI
+1 NAME Agnes Mary /Toms/
+2 GIVN Agnes Mary
+2 SURN Toms
+2 _MARNM Agnes Mary /Lovelock/
+1 SEX F
+1 BIRT
+2 DATE 16 MAR 1902
+2 SOUR @S15@
+3 DATA
+4 TEXT Devonport RD, ref 5b 320  (registered in Apr-Jun quarter)
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE BET JUL 1983 AND SEP 1983
+2 SOUR @S12@
+3 DATA
+4 TEXT Oxford RD, ref 20 2335
+1 SOUR @S4@
+2 DATA
+3 TEXT Falmouth RD, ref 5c 280
+1 FAMS @F23@
+1 FAMS @F26@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:19:41
+2 _WT_USER graham rl
+0 @I65@ INDI
+1 NAME Bernard Charles /Lovelock/
+2 GIVN Bernard Charles
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 31 DEC 1924
+2 SOUR @S4@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 204  (in Jan-Mar quarter of 1925)
+2 NOTE Date of birth included in death registration entry.
+1 FAMC @F23@
+1 SOUR @S4@
+2 DATA
+3 TEXT Falmouth RD, ref 5c 204
+1 CHAN
+2 DATE 28 MAY 2015
+3 TIME 22:36:31
+1 DEAT
+2 DATE 30 SEP 1982
+2 SOUR @S12@
+3 DATA
+4 TEXT Falmouth RD, ref 21 0167  (registered as Charles Bernard Lovelock in the Oct-Dec quarter)
+2 SOUR @S7@
+1 FAMS @F27@
+0 @I66@ INDI
+1 NAME John Goodridge /Blee/
+2 GIVN John Goodridge
+2 SURN Blee
+1 SEX M
+1 BIRT
+2 DATE BET 1843 AND 1844
+2 PLAC Budock, Cornwall, England
+1 DEAT
+2 DATE BET OCT 1907 AND DEC 1907
+2 SOUR @S4@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 98  (age 63)
+1 SOUR @S4@
+2 DATA
+3 TEXT Falmouth RD, ref 5c 98
+1 FAMS @F24@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:04:07
+2 _WT_USER graham rl
+0 @I67@ INDI
+1 NAME Winifred May /Hosking/
+2 GIVN Winifred May
+2 SURN Hosking
+2 _MARNM Winifred May /Lovelock/
+1 SEX F
+1 BIRT
+2 DATE 30 NOV 1913
+2 NOTE Date of birth included in death registration entry.
+1 FAMS @F25@
+1 DEAT
+2 DATE 23 MAY 1987
+2 SOUR @S12@
+3 DATA
+4 TEXT Truro RD, ref 21 644
+2 SOUR @S7@
+1 CHAN
+2 DATE 03 JUN 2016
+3 TIME 23:31:37
+2 _WT_USER graham rl
+0 @I68@ INDI
+1 NAME Pamela /Lovelock/
+2 GIVN Pamela
+2 SURN Lovelock
+1 SEX F
+1 BIRT
+2 DATE BET JAN 1933 AND MAR 1933
+2 SOUR @S4@
+3 DATA
+4 TEXT Redruth RD, ref 5c 232
+1 FAMC @F25@
+1 DEAT
+2 DATE BET APR 1933 AND JUN 1933
+2 SOUR @S12@
+3 DATA
+4 TEXT Redruth RD, ref 5c 209  (age 0)
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 23:05:50
+2 _WT_USER graham rl
+0 @I69@ INDI
+1 NAME Walter David /Lovelock/
+2 GIVN Walter David
+2 SURN Lovelock
+1 FAMC @F25@
+1 SEX M
+0 @I7@ INDI
+1 NAME Jessie /Bartley/
+2 GIVN Jessie
+2 SURN Bartley
+1 SEX F
+1 BIRT
+2 DATE BET JUL 1860 AND SEP 1860
+2 PLAC Probus, Cornwall, England
+2 SOUR @S4@
+3 PAGE Truro RD, ref 5c 157
+3 QUAY 3
+1 DEAT
+2 DATE 31 OCT 1928
+2 PLAC Portsmouth, Hampshire, England
+2 SOUR @S4@
+3 PAGE death 4Q 1928, Portsmouth RD, ref 2b 588
+3 QUAY 3
+2 SOUR @S7@
+3 DATA
+4 TEXT 1928
+5 CONT LOVELOCK Jessie
+5 CONT Effects £39 14s
+5 CONT
+5 CONT Of 49 Cornwall Road, Portsmouth (wife of Robert Henry Lovelock) died 31 October 1928 at 265 Milton Road, Portsmouth. Admin Winchester 20 November 1928 to the said Robert Henry Lovelock, retired shipwright.
+1 _UID 9D617EC11FB64CB0B485E758BA60326D3FDC
+1 FAMS @F4@
+1 CENS
+2 DATE 1911
+2 NOTE 49 Cornwall Rd, Fratton, Portsmouth, Hampshire, England
+3 CONT RG14 PN5524  RG78 PN252  RD90  SD2  ED3  SN173
+3 CONT
+3 CONT Robert Henry Lovelock;Head;51;Shipwright;Falmouth, Cornwall
+3 CONT Jessie Lovelock;Wife, married 24 years;50;;Probus, Cornwall
+3 CONT Norman Henry Lovelock;Son;22;Shipwright;Portsmouth, Hants
+3 CONT Bernard Victor Lovelock;Son;19;Student;Portsmouth, Hants
+3 CONT Hilda Mary Lovelock;Daur;14;;Portsmouth, Hants
+3 CONT Ethel May Tippett;Ward;30;Teacher Assistant;Pill, Glos
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 14:38:26
+2 _WT_USER graham rl
+0 @I70@ INDI
+1 NAME Bertie Arthur /Doer/
+2 GIVN Bertie Arthur
+2 SURN Doer
+1 SEX M
+1 BIRT
+2 DATE BET OCT 1894 AND DEC 1894
+2 SOUR @S15@
+3 DATA
+4 TEXT Stoke Damerel RD, ref 5b 295
+1 FAMS @F26@
+1 DEAT
+2 DATE BET JUL 1959 AND SEP 1959
+2 SOUR @s12@
+3 DATA
+4 TEXT Falmouth RD, ref 7a 26  (age 64)
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:23:11
+2 _WT_USER graham rl
+0 @I71@ INDI
+1 NAME Ethel Mary /Tripp/
+2 GIVN Ethel Mary
+2 SURN Tripp
+2 _MARNM Ethel Mary /Lovelock/
+1 SEX F
+1 BIRT
+2 DATE 25 NOV 1928
+2 SOUR @S15@
+3 DATA
+4 TEXT Helston RD, ref 5c 198
+1 FAMS @F27@
+1 CHAN
+2 DATE 17 MAY 2015
+3 TIME 21:04:20
+1 DEAT
+2 DATE OCT 2006
+2 SOUR @s12@
+3 DATA
+4 TEXT Penzance RD, ref 76C 080
+0 @I72@ INDI
+1 NAME John Charles /Lovelock/
+2 GIVN John Charles
+2 SURN Lovelock
+1 SEX M
+1 BIRT
+2 DATE 04 NOV 1952
+2 SOUR @S15@
+3 DATA
+4 TEXT Redruth RD, ref 7a 134
+2 NOTE Date of birth included in death registration entry.
+1 FAMC @F27@
+1 CHAN
+2 DATE 17 MAY 2015
+3 TIME 20:58:47
+1 DEAT
+2 DATE FEB 2005
+2 SOUR @S12@
+3 DATA
+4 TEXT Kerrier RD, ref 18D 176
+0 @I73@ INDI
+1 NAME Joan Patricia /Towndrow/
+2 GIVN Joan Patricia
+2 SURN Towndrow
+2 _MARNM Joan Patricia /Lovelock/
+1 SEX F
+1 BIRT
+2 DATE BET JAN 1927 AND MAR 1927
+2 SOUR @S15@
+3 DATA
+4 TEXT Holborn RD, ref 1b 847
+1 FAMS @F28@
+1 DEAT
+2 DATE 18 JUL 2011
+2 PLAC Whakatane, New Zealand
+1 NOTE 'Bay Weekend' [Sat July 23, 2011]:
+2 CONT
+2 CONT Funeral Notice:
+2 CONT
+2 CONT "LOVELOCK Joan Patricia - Passed away peacefully July 18, 2011 aged 84, beloved wife of the late Charles, cherished mother and mother-in-law of Trish and John Cornthwaite,
+2 CONT much loved Nana of Tim. Funeral to be held Monday, July 25, 10.30am at Dils Chapel, 92 Birkenhead Auckland followed by private cremation."
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:14:22
+2 _WT_USER graham rl
+0 @I74@ INDI
+1 NAME Patricia J /Lovelock/
+2 GIVN Patricia J
+2 SURN Lovelock
+1 FAMC @F28@
+1 FAMS @F29@
+1 SEX F
+0 @I75@ INDI
+1 NAME John /Cornthwaite/
+2 GIVN John
+2 SURN Cornthwaite
+1 FAMS @F29@
+1 SEX M
+0 @I76@ INDI
+1 NAME Tim /Cornthwaite/
+2 GIVN Tim
+2 SURN Cornthwaite
+1 FAMC @F29@
+1 SEX M
+0 @I77@ INDI
+1 NAME Frances J /Lovelock/
+2 GIVN Frances J
+2 SURN Lovelock
+1 FAMC @F1@
+1 SEX F
+0 @I78@ INDI
+1 NAME John J /Roskruge/
+2 GIVN John J
+2 SURN Roskruge
+1 SEX M
+1 BIRT
+2 DATE BET 1860 AND 1861
+2 NOTE Date of birth based on age 82 at death.
+1 DEAT
+2 DATE BET JUL 1943 AND SEP 1943
+2 SOUR @s12@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 145  (age 82)
+1 FAMS @F30@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:20:44
+2 _WT_USER graham rl
+0 @I8@ INDI
+1 NAME Robert Henry /Lovelock/
+2 GIVN Robert Henry
+2 SURN Lovelock
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+1 SEX M
+1 CHR
+2 DATE 18 FEB 1821
+2 PLAC Budock, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+3 DATA
+4 TEXT From Budock parish register:
+5 CONT 18 Feb 1821 Robert Henry LOVELONG the son of Robert and Jane was baptised by D Jenkins
+1 DEAT
+2 DATE 20 DEC 1888
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S4@
+3 PAGE 4Q 1888 Falmouth RD ref 5c 101
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE From Budock MIs. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Robert H Lovelock died 20 Dec 1888, aged 68
+2 NOTE @DI8@
+1 CENS
+2 DATE 1841
+2 PLAC Budock, Cornwall, England
+2 NOTE 
+3 CONT Piece 136/5  En. Dist. 14, F26 P13
+3 CONT Roscarrac, Budock
+3 CONT
+3 CONT Robert Lovelock     20     Male Servant     Cornwall
+2 SOUR @S5@
+3 PAGE email message 21 Nov 05
+3 QUAY 3
+1 _UID 9EAFD8EE5E1F4747BB2BAECAF6ADE6373CF6
+1 CHAN
+2 DATE 14 JAN 2006
+3 TIME 15:36
+1 FAMS @F5@
+1 FAMC @F6@
+0 @I9@ INDI
+1 NAME Joan Margaret /Harvey/
+2 GIVN Joan Margaret
+2 SURN Harvey
+1 SEX F
+1 FAMS @F1@
+1 NOTE @N0@
+1 BIRT
+2 DATE 07 DEC 1914
+2 NOTE Date of birth included in death registration entry.
+1 DEAT
+2 DATE JUL 1994
+2 SOUR @S12@
+3 DATA
+4 TEXT Truro RD, ref B29D 204
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I9@
+1 CHIL @I2@
+1 CHIL @I77@
+0 @F10@ FAM
+1 HUSB @I34@
+1 WIFE @I35@
+1 MARR
+2 DATE BET OCT 1895 AND DEC 1895
+2 SOUR @S14@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 309
+1 CENS
+2 DATE 1901
+2 PLAC Falmouth, Cornwall, England
+2 NOTE Brewery, Killigrew St, Falmouth, Cornwall, England
+3 CONT RG13 2227 F6  P4
+3 CONT
+3 CONT Ellen Lovelock;Head (Marr);38;Caretaker of Brewery
+3 CONT Charles N Lovelock;Son;3;
+3 CONT
+3 CONT Pembroke, Barge 'Briton'  
+3 CONT RG13 5123, F126
+3 CONT
+3 CONT Charles Lovelock;(Marr);38;A. B. Seaman;Falmouth
+2 SOUR @S10@
+1 CHIL @I36@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:46:03
+2 _WT_USER graham rl
+0 @F1036@ FAM
+1 WIFE @I5528@
+1 HUSB @I11@
+1 MARR
+2 DATE 02 FEB 1807
+2 PLAC St Andrew, Plymouth, Devon, England
+2 SOUR @S371@
+2 NOTE Mary, a widow, married in the name of Downing; Robert was recorded as 'of the 2nd Royal Veteran Battalion'.
+1 CHAN
+2 DATE 07 JUL 2016
+3 TIME 19:38:13
+2 _WT_USER graham rl
+1 CHIL @I5529@
+0 @F11@ FAM
+1 HUSB @I25@
+1 WIFE @I40@
+1 MARR
+2 DATE 06 DEC 1913
+2 PLAC Treslothan, Cornwall, England
+2 SOUR @S4@
+3 PAGE Dec 1913 Lovelock, Charles H and Gilbert, Florence M, Redruth RD ref 5c 432
+3 QUAY 3
+2 SOUR @s18@
+1 CHAN
+2 DATE 10 JAN 2006
+3 TIME 14:30
+0 @F12@ FAM
+1 HUSB @I41@
+1 WIFE @I12@
+1 MARR
+2 DATE 19 DEC 1830
+2 PLAC Budock, Cornwall, England
+2 SOUR @S5@
+3 PAGE From Burdock parish register. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Jane Lovelock married James Medlin 19 Dec 1830
+1 CHAN
+2 DATE 7 FEB 2006
+3 TIME 16:37
+0 @F13@ FAM
+1 HUSB @I24@
+1 WIFE @I44@
+1 MARR
+2 DATE BET OCT 1911 AND DEC 1911
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S4@
+3 PAGE Marriages Dec 1911, Lovelock Robert J Redruth 5c 411 (noted by Graham Lovelock, email 15-Feb-06)
+3 QUAY 3
+3 DATA
+4 TEXT Marriages Dec 1911
+5 CONT Berryman Annie J    Redruth  5c 411
+5 CONT Heather  Janie     Redruth  5c 411
+5 CONT Lovelock  Robert J     Redruth  5c 411
+1 CHIL @I49@
+1 CHIL @I57@
+1 CHIL @I58@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 16:14:23
+2 _WT_USER graham rl
+0 @F14@ FAM
+1 HUSB @I45@
+1 WIFE @I20@
+1 CHIL @I46@
+1 CHIL @I5019@
+0 @F15@ FAM
+1 HUSB @I23@
+1 WIFE @I47@
+1 MARR
+2 DATE 25 APR 1912
+2 PLAC Treslothan, Cornwall, England
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+2 SOUR @S18@
+1 CHIL @I48@
+1 CHAN
+2 DATE 01 JUL 2014
+3 TIME 13:20:00
+0 @F16@ FAM
+1 HUSB @I50@
+1 WIFE @I26@
+1 MARR
+2 DATE BET OCT 1914 AND DEC 1914
+2 PLAC Redruth RD, Redruth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Updated descendant tree for Robert Lovelock (1749/50 - 1830) provided 21-Jun-07
+3 QUAY 3
+2 SOUR @S4@
+3 DATA
+4 TEXT Redruth RD, ref 5c 322
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:21:18
+2 _WT_USER graham rl
+0 @F18@ FAM
+1 HUSB @I53@
+1 WIFE @I43@
+1 CHIL @I5017@
+1 CHIL @I5018@
+0 @F19@ FAM
+1 WIFE @I54@
+1 HUSB @I19@
+1 MARR
+2 DATE BET APR 1919 AND JUN 1919
+2 SOUR @S4@
+3 DATA
+4 TEXT Huddersfield RD, ref 9a 924
+1 SOUR @S4@
+2 DATA
+3 TEXT Huddersfield RD, ref 9a 924
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 18:25:05
+2 _WT_USER graham rl
+0 @F2@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 CHIL @I5006@
+1 CHIL @I5008@
+1 CHIL @I4@
+0 @F20@ FAM
+1 HUSB @I55@
+1 WIFE @I48@
+1 CHIL @I56@
+0 @F21@ FAM
+1 WIFE @I59@
+1 HUSB @I58@
+1 CHIL @I5009@
+1 CHIL @I5010@
+0 @F22@ FAM
+1 WIFE @I60@
+1 HUSB @I28@
+1 MARR
+2 DATE BET JAN 1923 AND MAR 1923
+1 SOUR @S4@
+2 DATA
+3 TEXT Penzance RD, ref 5c 240
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 18:17:14
+2 _WT_USER graham rl
+0 @F23@ FAM
+1 WIFE @I64@
+1 HUSB @I36@
+1 MARR
+2 DATE BET JAN 1923 AND MAR 1923
+2 SOUR @S4@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 280
+1 SOUR @S4@
+2 DATA
+3 TEXT Falmouth RD, ref 5c 280
+1 CHIL @I65@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:15:46
+2 _WT_USER graham rl
+0 @F24@ FAM
+1 HUSB @I66@
+1 WIFE @I14@
+1 MARR
+2 NOTE Although John and Elizabeth were recorded as man and wife in the 1891 and 1901 Census Returns Free BMD has no marriage for the couple recorded.
+1 CENS
+2 DATE 1901
+2 NOTE 11 Berkeley Vale, Falmouth, Cornwall
+3 CONT RG13 2227 F22 P36
+3 CONT
+3 CONT
+3 CONT John Blee;Head;57;Coach Builder;Budock, Cornwall
+3 CONT Elizabeth Blee;Wife;51;;Falmouth, Cornwall
+3 CONT James Medlin Lovelock;Visitor;34;Stoker in H Infirmary;Falmouth, Cornwall
+1 CENS
+2 DATE 1891
+2 NOTE 5 Lister St, Falmouth, Cornwall, England
+3 CONT RG12 1835  F20  P33
+3 CONT
+3 CONT John J (sic) Blee;Head;47;Wheelwright;Budock, Cornwall
+3 CONT Elizabeth Blee;Wife;42;;Falmouth, Cornwall
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:02:29
+2 _WT_USER graham rl
+0 @F25@ FAM
+1 WIFE @I67@
+1 HUSB @I51@
+1 CHIL @I68@
+1 CHIL @I69@
+0 @F26@ FAM
+1 HUSB @I70@
+1 WIFE @I64@
+1 MARR
+2 DATE BET JUL 1932 AND SEP 1932
+2 SOUR @S14@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 296
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 15:15:14
+2 _WT_USER graham rl
+0 @F27@ FAM
+1 WIFE @I71@
+1 HUSB @I65@
+1 MARR
+2 DATE BET JUL 1951 AND SEP 1951
+2 SOUR @S14@
+3 DATA
+4 TEXT Kerrier RD, ref 7a 125
+1 CHIL @I72@
+0 @F28@ FAM
+1 WIFE @I73@
+1 HUSB @I57@
+1 CHIL @I74@
+0 @F29@ FAM
+1 HUSB @I75@
+1 WIFE @I74@
+1 CHIL @I76@
+0 @F3@ FAM
+1 HUSB @I5@
+1 WIFE @I39@
+1 CHIL @I1@
+1 CHIL @I42@
+1 CHIL @I43@
+0 @F30@ FAM
+1 HUSB @I78@
+1 WIFE @I35@
+1 MARR
+2 DATE BET JUL 1936 AND SEP 1936
+2 SOUR @s14@
+3 DATA
+4 TEXT Falmouth RD, ref 5c 339
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:19:41
+2 _WT_USER graham rl
+0 @F4@ FAM
+1 HUSB @I6@
+1 WIFE @I7@
+1 MARR
+2 DATE BET JAN 1886 AND MAR 1886
+2 PLAC Portsea RD, Portsmouth, Hampshire, England
+2 SOUR @S4@
+3 PAGE Portsea RD, ref 2b 821
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC Portsmouth, Hampshire, England
+2 NOTE 
+3 CONT 70 Guildford Rd, Portsmouth RG12 858, F79 P11
+3 CONT
+3 CONT Robert H Lovelock     Head       31     Shipwright H M Dockyard     Falmouth
+3 CONT Jessie Lovelock         Wife        30                                              Probus
+3 CONT Norman H Lovelock   Son           2                                              Portsea
+3 CONT Ethel M Lovelock       Daur          1                                             Portsea
+3 CONT Albert J Wells            Boarder    29
+2 SOUR @S5@
+3 PAGE Census records and parish records provided 10 Jan 06
+3 QUAY 3
+1 CENS
+2 DATE 1901
+2 PLAC Portsmouth, Hampshire, England
+2 NOTE 
+3 CONT 513040   12493228   Portsmouth   Southampton   HAM   Robert Lovelock   Male   41   1860   Shipwright Dockyard   Cornwall Falmouth   985   104   Portsmouth
+3 CONT 513040  12493229  Portsmouth  Southampton  HAM  Jessie Lovelock  Female  40  1861  Cornwall Probus  985  104  Portsmouth
+3 CONT 513040  12493230  Portsmouth  Southampton  HAM  Norman Lovelock  Male  12  1889  Hants Portsmouth  985  104  Portsmouth
+3 CONT 513040  12493231  Portsmouth  Southampton  HAM  Bernard Lovelock  Male  9  1892  Hants Portsmouth  985  104  Portsmouth
+3 CONT 513040  12493232  Portsmouth  Southampton  HAM  Hilda Lovelock  Female  4  1897
+2 SOUR @S10@
+1 CHIL @I5@
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHIL @I20@
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 14:39:12
+2 _WT_USER graham rl
+0 @F5@ FAM
+1 HUSB @I8@
+1 WIFE @I10@
+1 MARR
+2 DATE BET OCT 1848 AND DEC 1848
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S4@
+3 PAGE Marriage 4Q 1848 in Falmouth RD, ref 9 104
+3 QUAY 3
+1 CENS
+2 DATE 1851
+2 PLAC Falmouth, Cornwall, England
+2 NOTE 
+3 CONT 7 Berkeley Place, Falmouth HO 107 1911, F360 P12
+3 CONT
+3 CONT Robert Lovelock     Head     29     Agricultural Labourer     Budock
+3 CONT Caroline Lovelock   Wife      26                                        Falmouth
+3 CONT Elizabeth Lovelock  Daur       1                                        Falmouth
+2 SOUR @S5@
+3 PAGE Census records and parish records provided 10 Jan 06
+3 QUAY 3
+1 CENS
+2 DATE 1861
+2 PLAC Falmouth, Cornwall, England
+2 NOTE 
+3 CONT Berkeley Place, Falmouth RG9 1566, F67 P27
+3 CONT
+3 CONT Robert Lovelock       Head    41     Agricultural Labourer     Budock
+3 CONT Caroline Lovelock     Wife     37     Laundress                     Falmouth
+3 CONT Elizabeth Lovelock    Daur     11                                        Falmouth
+3 CONT James Lovelock        Son        9                                        Falmouth
+3 CONT Mary Ann Lovelock   Daur       4                                        Falmouth
+3 CONT Robert Lovelock       Son         1                                        Falmouth
+2 SOUR @S5@
+3 PAGE Census records and parish records provided 10 Jan 06
+3 QUAY 3
+1 CENS
+2 DATE 1871
+2 PLAC Falmouth, Cornwall, England
+2 NOTE 
+3 CONT Brewery Yard, Falmouth RG10 2292, F39 P10, F40 P11
+3 CONT
+3 CONT Robert H Lovelock      Head     51     Labourer (Brewery)     Budock
+3 CONT Caroline Lovelock       Wife      46                                      Falmouth
+3 CONT Elizabeth M Lovelock   Daur     21                                      Falmouth
+3 CONT Mary Ann Lovelock      Daur     14     Milkmaid                    Falmouth
+3 CONT Robert H Lovelock       Son      11                                      Falmouth
+3 CONT John M Lovelock         Son        9                                      Falmouth
+3 CONT Charles Lovelock         Son        7                                      Falmouth
+3 CONT James Lovelock           Son       2                                       Falmouth
+3 CONT Caroline A Lovelock     Daur      1 mo                                 Falmouth
+2 SOUR @S6@
+3 PAGE email to Lovelock mailing list 21-Nov-05
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE Census records and parish records provided 10 Jan 06
+3 QUAY 3
+1 CENS
+2 DATE 1881
+2 PLAC Falmouth, Cornwall, England
+2 NOTE 
+3 CONT    Dwelling: 8 Killigrew St
+3 CONT    Census Place: Falmouth, Cornwall, England
+3 CONT    Source: FHL Film 1341556     PRO Ref RG11    Piece 2316    Folio 51    Page 31
+3 CONT    Marr Age Sex Birthplace
+3 CONT R.H. LOVELOCK M 60  M Budock, Cornwall, England
+3 CONT    Rel: Head
+3 CONT    Occ: Cellarman In Brewery
+3 CONT Caroline LOVELOCK M 55  F Falmouth, Cornwall, England
+3 CONT    Rel: Wife
+3 CONT Elizth. LOVELOCK U 31  F Falmouth, Cornwall, England
+3 CONT    Rel: Daur
+3 CONT Robt.H. LOVELOCK U 21  M Falmouth, Cornwall, England
+3 CONT    Rel: Son
+3 CONT    Occ: Ship Carpenter
+3 CONT M. LOVELOCK U 18  M Falmouth, Cornwall, England
+3 CONT    Rel: Son
+3 CONT    Occ: Mason
+3 CONT Jas.M. LOVELOCK U 12  M Falmo, Cornwall, England
+3 CONT    Rel: Son
+3 CONT    Occ: Scholar
+3 CONT Caroline A. LOVELOCK U 10  F Falmo, Cornwall, England
+3 CONT    Rel: Daur
+3 CONT    Occ: Scholar
+2 SOUR @S3@
+3 PAGE Data provided by Jeremy Lovelock in email message 19-Nov-05
+3 QUAY 3
+2 SOUR @S9@
+1 CENS
+2 DATE 1891
+2 PLAC Falmouth, Cornwall, England
+2 NOTE 
+3 CONT Piece: RG12/1834 Place: Falmouth-Cornwall Enumeration District: 2
+3 CONT Civil Parish: Falmouth Ecclesiastical Parish: Falmouth
+3 CONT Folio: 31 Page: 5 Schedule: 26
+3 CONT Address: Brewery Yard Killigrew Street
+3 CONT
+3 CONT  Surname   First name(s)   Rel   Status   Sex   Age   Occupation   Where Born   Remarks
+3 CONT LOVELOCK   Caroline   Head   W   F   65       Cornwall - Falmouth
+3 CONT LOVELOCK   Charles   Son   S   M   25   Mariner Seas(Em'ee)    Cornwall - Falmouth
+3 CONT LOVELOCK   Caroline A.   Dau   S   F   20   Dressmaker(Em'ee)    Cornwall - Falmouth
+3 CONT KNOX   Edward   Visitr   M   M   29   Mariner Seas(Em'ee)    Devon - Plymouth
+2 SOUR @S8@
+1 CHIL @I14@
+1 CHIL @I15@
+1 CHIL @I16@
+1 CHIL @I6@
+1 CHIL @I21@
+1 CHIL @I34@
+1 CHIL @I37@
+1 CHIL @I38@
+1 CHAN
+2 DATE 7 FEB 2006
+3 TIME 16:33
+0 @F6@ FAM
+1 HUSB @I11@
+1 WIFE @I12@
+1 MARR
+2 DATE 15 OCT 1815
+2 PLAC Budock, Cornwall, England
+2 SOUR @S5@
+3 PAGE From Burdock parish register. Provided 10 Jan 06
+3 QUAY 3
+3 DATA
+4 TEXT Robert Lovelock married Jane Taye 15 Oct 1815
+2 NOTE @NF6@
+3 SOUR @S5@
+4 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+4 QUAY 3
+1 CHIL @I13@
+1 CHIL @I8@
+1 CHAN
+2 DATE 7 FEB 2006
+3 TIME 16:36
+0 @F7@ FAM
+1 HUSB @I17@
+1 WIFE @I16@
+1 MARR
+2 DATE BET JUL 1895 AND SEP 1895
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Marriage 3Q 1895, Falmouth RD ref 5c 279
+3 QUAY 3
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 22:59:42
+2 _WT_USER graham rl
+0 @F715@ FAM
+1 WIFE @I5011@
+1 HUSB @I5009@
+1 CHIL @I5015@
+1 CHIL @I5016@
+0 @F716@ FAM
+1 WIFE @I5012@
+1 HUSB @I5010@
+1 CHIL @I5013@
+1 CHIL @I5014@
+0 @F8@ FAM
+1 HUSB @I21@
+1 WIFE @I22@
+1 MARR
+2 DATE BET JAN 1886 AND MAR 1886
+2 PLAC Falmouth RD, Falmouth, Cornwall, England
+2 SOUR @S5@
+3 PAGE Descendant tree for Robert Lovelock provided 1 Dec 05
+3 QUAY 3
+2 SOUR @S4@
+3 PAGE Marriage 1Q 1886 in Falmouth RD, ref 5c 243
+3 QUAY 3
+2 SOUR @S5@
+3 PAGE Census records and parish records provided 10 Jan 06
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC Camborne, Cornwall, England
+2 NOTE Troon, Camborne, Cornwall, England
+3 CONT RG12 1851  F49  P24
+3 CONT
+3 CONT John LOVELOCK;Head;M;M;30;Stonemason(Em'ee);Cornwall - Falmouth
+3 CONT Louise LOVELOCK;Wife;M;F;29;;Cornwall - Wendron
+3 CONT William LOVELOCK;Son;S;M;4;;Cornwall - Wendron
+3 CONT Robert LOVELOCK;Son;-;M;3;;Cornwall - Camborne
+3 CONT Charles LOVELOCK;Son;-;M;2;;Cornwall - Camborne
+3 CONT Elizabeth LOVELOCK;Daur;-;F;10m;;Cornwall - Camborne
+3 CONT Fanny SYM0NS;Visitr;S;F;24;Living On Her Own Means;Cornwall - Wendron
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC Camborne, Cornwall, England
+2 NOTE 
+3 CONT 1496378   35733686   Camborne   Cornwall   CON   John Lovelock   Male   39   1862   Wall Mason   Cornwall Falmouth   2244   18   Redruth
+3 CONT 1496378  35733687  Camborne  Cornwall  CON  Louisa Lovelock  Female  38  1863  Cornwall Wendron  2244  18  Redruth
+3 CONT 1496378  35733688  Camborne  Cornwall  CON  Willie Lovelock  Male  14  1887  Cornwall Falmouth  2244  18  Redruth
+3 CONT 1496378  35733689  Camborne  Cornwall  CON  Robert Lovelock  Male  13  1888  Cornwall Camborne  2244  18  Redruth
+3 CONT 1496378  35733690  Camborne  Cornwall  CON  Charles Lovelock  Male  12  1889  Cornwall Camborne  2244  18  Redruth
+3 CONT 1496378  35733691  Camborne  Cornwall  CON  Lizzie Lovelock  Female  10  1891  Cornwall Camborne  2244  18  Redruth
+3 CONT 1496378  35733692  Camborne  Cornwall  CON  Alfred Lovelock  Male  8  1893  Cornwall Camborne  2244  18  Redruth
+3 CONT 1496378  35733693  Camborne  Cornwall  CON  Frank Lovelock  Male  5  1896  Cornwall Camborne  2244  18  Redruth
+3 CONT 1496378  35733694  Camborne  Cornwall  CON  Louisa Lovelock  Female  1  1900  Cornwall Camborne  2244  18  Redruth
+3 CONT 1496378  35733695  Camborne  Cornwall  CON  James Lovelock  Male  5M  1900  Cornwall Camborne  2244  18  Redruth
+2 SOUR @S10@
+1 CHIL @I23@
+1 CHIL @I24@
+1 CHIL @I25@
+1 CHIL @I26@
+1 CHIL @I27@
+1 CHIL @I28@
+1 CHIL @I29@
+1 CHIL @I30@
+1 CHIL @I31@
+1 CHIL @I33@
+1 CHIL @I51@
+1 CENS
+2 DATE 1911
+2 SOUR @S13@
+3 DATA
+4 TEXT Pendarves St, Troon, Camborne, Cornwall, England
+5 CONT RG14 PN14006  RG78 PN834  RD299  SD4  ED7  SN46
+5 CONT 	
+5 CONT John Lovelock;Head;48;Mason;Falmouth
+5 CONT Louisa Lovelock;Wife, married 25 years;49;;Wendron
+5 CONT William Lovelock;Son;24;Tin Miner;Wendron
+5 CONT Robert Lovelock;Son;23;Tin Miner;Camborne
+5 CONT Charles Lovelock;Son;22;Tin Miner;Camborne
+5 CONT Lizzie Lovelock;Daur;20;;Camborne
+5 CONT Alfred Lovelock;Son;17;Carpenter;Camborne
+5 CONT Frank Lovelock;Son;15;Clerk;Camborne
+5 CONT James Lovelock;Son;10;;Camborne
+5 CONT Walter Lovelock;Son;8;;Camborne
+1 CHAN
+2 DATE 29 MAY 2016
+3 TIME 12:19:11
+2 _WT_USER graham rl
+0 @F9@ FAM
+1 HUSB @I32@
+1 WIFE @I31@
+1 CHIL @I61@
+1 CHIL @I62@
+1 CHIL @I63@
+0 @F984@ FAM
+1 WIFE @I5434@
+1 HUSB @I33@
+0 @S10@ SOUR
+1 ABBR 1901 British Census
+1 TITL 1901 British Census
+0 @S11@ SOUR
+1 ABBR Walter David Lovelock
+1 TITL Walter David Lovelock
+1 PUBL Email correspondence
+1 CHAN
+2 DATE 05 JAN 2009
+3 TIME 10:47:45
+0 @S12@ SOUR
+1 TITL GRO Index of Deaths
+1 CHAN
+2 DATE 28 JAN 2009
+3 TIME 11:50:56
+0 @S13@ SOUR
+1 TITL 1911 British Census on line
+1 CHAN
+2 DATE 08 APR 2009
+3 TIME 20:39:47
+0 @S14@ SOUR
+1 TITL GRO Index of Marriages
+1 CHAN
+2 DATE 22 SEP 2009
+3 TIME 18:32:18
+0 @S15@ SOUR
+1 TITL GRO Index of Births
+1 CHAN
+2 DATE 27 JUN 2011
+3 TIME 19:34:49
+0 @S16@ SOUR
+1 TITL FamilySearch website
+1 CHAN
+2 DATE 01 AUG 2011
+3 TIME 16:07:20
+0 @S17@ SOUR
+1 TITL Vicki Houlbrooke - resident of Whakatane, New Zealand
+1 CHAN
+2 DATE 26 AUG 2011
+3 TIME 16:13:41
+0 @S18@ SOUR
+1 TITL Imagery of Military Papers at Ancestry.co.uk
+1 CHAN
+2 DATE 28 JUN 2014
+3 TIME 19:26:32
+0 @S19@ SOUR
+1 TITL 'Find a Will' data at Gov.UK
+1 CHAN
+2 DATE 20 FEB 2015
+3 TIME 20:11:02
+0 @S2@ SOUR
+1 ABBR Leonard Robert Lovelock
+1 TITL Leonard Robert Lovelock
+0 @S20@ SOUR
+1 TITL 1851 UK Census
+1 CHAN
+2 DATE 17 MAY 2015
+3 TIME 22:09:16
+0 @S3@ SOUR
+1 ABBR Jeremy Lovelock
+1 TITL Jeremy Lovelock
+1 PUBL email correspondence
+0 @S301@ SOUR
+1 TITL 1911 British Census
+1 CHAN
+2 DATE 02 FEB 2016
+3 TIME 18:15:02
+2 _WT_USER graham rl
+0 @S371@ SOUR
+1 TITL Lovelocks in Miscellaneous Counties data on main Lovelock website
+1 CHAN
+2 DATE 07 JUL 2016
+3 TIME 19:17:17
+2 _WT_USER graham rl
+0 @S4@ SOUR
+1 ABBR GRO - FreeBMD
+1 TITL GRO - FreeBMD
+0 @S5@ SOUR
+1 ABBR Graham Lovelock - email correspondence
+1 TITL Graham Lovelock - email correspondence
+0 @S6@ SOUR
+1 ABBR Robert Sterry
+1 TITL Robert Sterry
+1 PUBL Email correspondence
+0 @S7@ SOUR
+1 ABBR National Probate Calendars data on main Lovelock website
+1 TITL National Probate Calendars data on main Lovelock website
+1 PUBL On Lovelock Web site at:
+2 CONT http://lovelock.free.fr/documents/national-probate-wills.html
+1 CHAN
+2 DATE 22 MAY 2016
+3 TIME 21:55:08
+2 _WT_USER graham rl
+0 @S8@ SOUR
+1 ABBR FreeCEN
+1 TITL FreeCEN UK census Online
+1 PUBL http://freecen.rootsweb.com/
+0 @S9@ SOUR
+1 ABBR 1881 British Census - LDS
+1 TITL 1881 British Census - LDS
+0 @BI36@ NOTE Date of birth and middle name from 'Admiralty: Registers of Seamen's Services' at National Archives On-Line.
+0 @BI37@ NOTE 'Admiralty: Registers of Seamen's Services' at National Archives On-Line has an entry for James Medlen Lovelock, born 07 Feb 1869 at Falmouth.
+1 CHAN
+2 DATE 01 AUG 2011
+3 TIME 16:21:47
+0 @BI6@ NOTE Date and place of birth from 1881 census data
+0 @DI10@ NOTE Date of death from Budock MIs
+1 CHAN
+2 DATE 25 FEB 2009
+3 TIME 17:26:14
+0 @DI11@ NOTE Date of death from Budock MIs
+1 CHAN
+2 DATE 24 JUN 2009
+3 TIME 22:52:59
+0 @DI13@ NOTE Date of death from Budock MIs
+0 @DI15@ NOTE Date of death from Budock MIs
+1 CHAN
+2 DATE 25 FEB 2009
+3 TIME 17:23:36
+0 @DI34@ NOTE Graham Lovelock email 1-Dec-05
+1 CONT FFHS data indicates that the MI gives date of death as 10 Jul 1934, and age as 69
+0 @DI8@ NOTE Date of death from Budock MIs
+1 CHAN
+2 DATE 25 FEB 2009
+3 TIME 17:25:28
+0 @N0@ NOTE Private
+0 @NF6@ NOTE There are apparently two entries concerning the marriage of Robert Lovelock: 15 October 1815 and 23 October 1815. In the first his wife's name is given as Jane TOYE, whereas in the second it is Jane SAYE.
+1 CONT
+1 CONT Much more importantly the 15 Oct entry records that Robert is a widower of Eaton (sic) Wiltshire, and a member of the Royal Veteran Battalion.
+1 CONT
+1 CONT Jane may have remarried to James MEDLIN in Budock on 19 Dec 1830
+0 @NI11@ NOTE Graham Lovelock email message 29-Nov-05:
+1 CONT
+1 CONT The Budock Online Parish Clerk has very kindly reviewed the Budock registers in detail with respect to Robert, and has turned up some more information.
+1 CONT
+1 CONT The marriage entry, to Jane Toye, apparently declares Robert to be from EASTON Wilts, not EATON, so one minor doubt removed. As he was also declared to be a widower of the Royal Veterans Battalion she kindly checked out the PRO papers and found i
+1 CONC n WO 121/185/442 the discharge details for Robert Lovelock born HASAN, Wilts, served 62nd Foot Regt; Garrison Battalion; 2nd Royal Veteran Battalion, discharged aged 68 after 33 years of service 1781-1815. The 62nd Foot became the Wiltshire Regim
+1 CONC ent in 1782. The Regimental Digest declares that the Regiment was at Lincoln until 1782, when it deployed to Newark, New York, so I'm not sure how Robert will have joined them. At some point in 1783 the Regiment returned to the UK and went to Tro
+1 CONC wbridge, so perhaps Robert joined them there, having been in some sort of holding unit since 1781.
+1 CONT
+1 CONT I can understand how EASTON pronounced AYSON in a strong Wiltshire accent could become HASAN in a clerk's transcription of what he heard, and probably Robert couldn't read, or read enough, to correct the matter.
+1 CONT
+1 CONT Of course the age quoted in his discharge papers means he was apparently born in 1746 or 1747, which doesn't help with identifying him at all. It does mean that he didn't join up until he was 34 or 35 years old, and means he only 'lost' 3 years b
+1 CONC etween being discharged and buried.
+1 CONT
+1 CONT If he was the Robert who married Mary Wilks at Easton in 1777 it would seem that Mary was still alive when he joined up - we have burials of a Mary in 1783 and 1790 only. Coincidentally there are no burials of a Robert in our Easton records, alth
+1 CONC ough it's always worrying when you find a gap of 22 years without a Lovelock burial - could we possibly have missed one or two?
+1 CONT
+1 CONT Also, if he was the Robert who married Mary Wilks, his joining up would explain why there were no more children at Easton.
+1 CONT
+1 CONT -------
+1 CONT From Leonard Robert Lovelock, via Jeremy Lovelock email message 18 Jan 06:
+1 CONT
+1 CONT Robert of Easton was a keen Wesleyan Methodist when he was in Cornwall - where they are still strong. He wonders if he was christened in a Methodist church in Wiltshire?
+1 CHAN
+2 DATE 09 JUL 2012
+3 TIME 14:23:39
+0 @NI24@ NOTE Note by Graham Lovelock:
+1 CONT  I believe Robert James Lovelock in the Wiltshire-Cornwall Tree (b 1887) may be the one who married in the Redruth RD in 4Q 1911, ref 5c 411.
+0 @NI27@ NOTE No direct evidence that Carrie Lovelock was the daughter of John and Louise, but there did not appear to be another Lovelock family in the Redruth RD at the time.
+0 @NI30@ NOTE No direct evidence that Carrie Lovelock was the daughter of John and Louise, but there did not appear to be another Lovelock family in the Redruth RD at the time.
+0 @NI36@ NOTE Date of birth and middle name from 'Admiralty: Registers of Seamen's Services' at National Archives On-Line.
+0 @NI6@ NOTE He was involved in the naval dockyard in Falmouth, and when that closed moved to Portsmouth. Other relations were tin miners in the Redruth area.
+0 @S0@ SUBM
+1 NAME James Loveluck
+1 _EMAIL james.loveluck@numericable.fr
+0 TRLR

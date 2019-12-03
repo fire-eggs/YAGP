@@ -1,0 +1,258 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Jewers/Gowers of Buxhall and Wetherden, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:11
+1 FILE FFH_FT_Members_008
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Jewers/Gowers of Buxhall and Wetherden, Suffolk
+0 @I00000001531@ INDI
+1 NAME John /Jewers/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1731
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 31 Oct 1770
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001531@
+1 FAMS @F10000001531@
+1 SOUR @S01@
+0 @I00000000451@ INDI
+1 NAME Jane /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1732
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 20 Oct 1800
+2 PLAC Wetherden, St. Mary, Suffolk
+2 AGE 67y
+2 NOTE Late Fuller, Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000451@
+1 FAMS @F10000001531@
+1 SOUR @S01@
+0 @I00000000452@ INDI
+1 NAME Jane /Gowers/
+1 SEX F
+1 CHR
+2 DATE 28 Apr 1754
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001531@
+1 FAMS @F81000000452@
+1 SOUR @S01@
+0 @I00000000453@ INDI
+1 NAME Sarah /Gowers/
+1 SEX F
+1 CHR
+2 DATE 6 Nov 1755
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001531@
+1 FAMS @F81000000453@
+1 SOUR @S01@
+0 @I00000000454@ INDI
+1 NAME John /Gowers/
+1 SEX M
+1 CHR
+2 DATE 15 Apr 1757
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001531@
+1 SOUR @S01@
+0 @I00000000455@ INDI
+1 NAME Thomas /Gowers/
+1 SEX M
+1 CHR
+2 DATE 4 Mar 1759
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001531@
+1 SOUR @S01@
+0 @I00000000456@ INDI
+1 NAME Ann /Gowers/
+1 SEX F
+1 CHR
+2 DATE 7 Aug 1761
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001531@
+1 FAMS @F81000000456@
+1 SOUR @S01@
+0 @I00000001532@ INDI
+1 NAME Hannah /Gowers/
+1 SEX F
+1 CHR
+2 DATE 16 Sep 1764
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001531@
+1 FAMS @F81000001532@
+1 SOUR @S01@
+0 @I00000001533@ INDI
+1 NAME Robert /Gowers/
+1 SEX M
+1 CHR
+2 DATE 26 Jan 1766
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Aug 1800
+2 PLAC Wetherden, St. Mary, Suffolk
+2 AGE 37y
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 7 Jan 1801
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+1 FAMC @F10000001531@
+1 SOUR @S01@
+0 @I00000001534@ INDI
+1 NAME Mary /Gowers/
+1 SEX F
+1 CHR
+2 DATE 12 Dec 1768
+2 PLAC Elmswell, St. John the Divine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001531@
+1 FAMS @F81000001534@
+1 SOUR @S01@
+0 @F10000000455@ FAM
+1 MARR
+2 DATE 7 Oct 1779
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000455@
+1 WIFE @I81000000455@
+1 SOUR @S01@
+0 @F10000001531@ FAM
+1 MARR
+2 DATE 20 May 1753
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000001531@
+1 WIFE @I00000000451@
+1 CHIL @I00000000452@
+1 CHIL @I00000000453@
+1 CHIL @I00000000454@
+1 CHIL @I00000000455@
+1 CHIL @I00000000456@
+1 CHIL @I00000001532@
+1 CHIL @I00000001533@
+1 CHIL @I00000001534@
+1 SOUR @S01@
+0 @F81000000452@ FAM
+1 MARR
+2 DATE 6 May 1776
+2 PLAC Elmswell, St. John the Divine, Suffolk
+1 HUSB @I81000000452@
+1 WIFE @I00000000452@
+1 SOUR @S01@
+0 @F81000000453@ FAM
+1 MARR
+2 DATE 31 Dec 1776
+2 PLAC Elmswell, St. John the Divine, Suffolk
+1 HUSB @I81000000453@
+1 WIFE @I00000000453@
+1 SOUR @S01@
+0 @F81000000456@ FAM
+1 MARR
+2 DATE 4 Feb 1788
+2 PLAC Elmswell, St. John the Divine, Suffolk
+1 HUSB @I81000000456@
+1 WIFE @I00000000456@
+1 SOUR @S01@
+0 @F81000001532@ FAM
+1 MARR
+2 DATE 19 Nov 1787
+2 PLAC Elmswell, St. John the Divine, Suffolk
+1 HUSB @I81000001532@
+1 WIFE @I00000001532@
+1 SOUR @S01@
+0 @F81000001534@ FAM
+1 MARR
+2 DATE 19 Apr 1792
+2 PLAC Wetherden, St. Mary, Suffolk
+1 HUSB @I81000001534@
+1 WIFE @I00000001534@
+1 SOUR @S01@
+0 @F70000000451@ FAM
+1 HUSB @I92000000451@
+1 WIFE @I91000000451@
+1 CHIL @I00000000451@
+1 SOUR @S01@
+0 @I92000000451@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000451@ INDI
+1 NAME Sarah/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001531@ FAM
+1 HUSB @I92000001531@
+1 CHIL @I00000001531@
+1 SOUR @S01@
+0 @I92000001531@ INDI
+1 NAME (?)/Jewers/
+1 SEX M
+1 SOUR @S01@
+0 @I81000000452@ INDI
+1 NAME Robert /Capp/
+1 SEX M
+1 FAMS @F81000000452@
+1 SOUR @S01@
+0 @I81000000453@ INDI
+1 NAME Thomas /Woollard/
+1 SEX M
+1 FAMS @F81000000453@
+1 SOUR @S01@
+0 @I81000000455@ INDI
+1 NAME Martha /Godfrey/
+1 SEX F
+1 FAMS @F10000000455@
+1 SOUR @S01@
+0 @I81000000456@ INDI
+1 NAME John /Ray/
+1 SEX M
+1 FAMS @F81000000456@
+1 SOUR @S01@
+0 @I81000001532@ INDI
+1 NAME Robert /Johnson/
+1 SEX M
+1 FAMS @F81000001532@
+1 SOUR @S01@
+0 @I81000001534@ INDI
+1 NAME Robert /Pryor/
+1 SEX M
+1 FAMS @F81000001534@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

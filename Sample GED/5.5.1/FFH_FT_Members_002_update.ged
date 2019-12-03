@@ -1,0 +1,4113 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Fuller of Buxhall and Stowmarket, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:09:32
+1 FILE FFH_FT_Members_002
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Fuller of Buxhall and Stowmarket, Suffolk
+0 @I00000000002@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1630
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 15 Mar 1705
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Senior.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000002@
+1 FAMS @F10000000002@
+1 FAMS @F20000000002@
+1 SOUR @S01@
+0 @I00000000041@ INDI
+1 NAME Elizabeth /(?)/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1635
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 19 Jan 1698
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Wife of John Fuller (Senior).
+3 CONT Record Source: Church Register
+1 FAMC @F70000000041@
+1 FAMS @F10000000002@
+1 SOUR @S01@
+0 @I00000000042@ INDI
+1 NAME Mary /Hall/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1635
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F70000000042@
+1 FAMS @F20000000002@
+1 SOUR @S01@
+0 @I00000000043@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Aug 1657
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Aug 1657
+1 BURI
+2 DATE 19 Aug 1661
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Daughter of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000002@
+1 SOUR @S01@
+0 @I00000000059@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 19 Aug 1661
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 31 Aug 1664
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Daughter of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000002@
+1 SOUR @S01@
+0 @I00000000105@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1662
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 9 Nov 1731
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000002@
+1 FAMS @F10000000105@
+1 FAMS @F20000000105@
+1 SOUR @S01@
+0 @I00000000062@ INDI
+1 NAME Priscilla /Diaper/
+1 SEX F
+1 CHR
+2 DATE 1 May 1663
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 21 Apr 1731
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000062@
+1 FAMS @F10000000060@
+1 SOUR @S01@
+0 @I00000000060@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 11 Apr 1664
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 25 Apr 1730
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 12 Sep 1730
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Yeoman
+1 FAMC @F10000000002@
+1 FAMS @F10000000060@
+1 SOUR @S01@
+0 @I00000000061@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 9 Oct 1666
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000002@
+1 FAMS @F81000000061@
+1 SOUR @S01@
+0 @I00000000064@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 29 Jan 1669
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000002@
+1 FAMS @F81000000064@
+1 SOUR @S01@
+0 @I00000000065@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 4 Jul 1671
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 24 Mar 1674
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of John Fuller, of Chilton Hamlet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000002@
+1 SOUR @S01@
+0 @I00000000066@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 18 Jan 1678
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 5 Dec 1697
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of John Fuller (Senior).
+3 CONT Record Source: Church Register
+1 FAMC @F10000000002@
+1 SOUR @S01@
+0 @I00000000106@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 30 Nov 1683
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 4 Nov 1686
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of John Fuller, of Chilton Hamlet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000105@
+1 SOUR @S01@
+0 @I00000000117@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 26 Sep 1685
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000105@
+1 SOUR @S01@
+0 @I00000000118@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 3 Oct 1688
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 10 Feb 1689
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of John Fuller (Junior).
+3 CONT Record Source: Church Register
+1 FAMC @F10000000105@
+1 SOUR @S01@
+0 @I00000000119@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 29 May 1691
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 29 Aug 1754
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000105@
+1 SOUR @S01@
+0 @I00000000067@ INDI
+1 NAME Priscilla /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1694
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000060@
+1 FAMS @F81000000067@
+1 SOUR @S01@
+0 @I00000000120@ INDI
+1 NAME Susan /Fuller/
+1 SEX F
+1 CHR
+2 DATE 19 Oct 1694
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 31 Aug 1736
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Spinster.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000105@
+1 SOUR @S01@
+0 @I00000000063@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 5 May 1696
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 May 1763
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 13 Jul 1763
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Administration
+3 CONT Occupation: Farmer
+1 FAMC @F10000000063@
+1 FAMS @F10000000063@
+1 SOUR @S01@
+0 @I00000001116@ INDI
+1 NAME James /Sughate/
+1 SEX M
+1 CHR
+2 DATE 10 May 1697
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Jun 1768
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Sexton.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001116@
+1 FAMS @F10000001116@
+1 SOUR @S01@
+0 @I00000000103@ INDI
+1 NAME Ann /Osborne/
+1 SEX F
+1 CHR
+2 DATE 1 Aug 1698
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 5 Jul 1765
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000103@
+1 FAMS @F10000000063@
+1 SOUR @S01@
+0 @I00000000068@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 24 Dec 1698
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 15 Jan 1700
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE [Son of Thomas and Priscilla Fuller.]
+3 CONT Record Source: Church Register
+1 FAMC @F10000000060@
+1 SOUR @S01@
+0 @I00000000121@ INDI
+1 NAME Hannah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Sep 1699
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 19 Dec 1748
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Wife of James Southgate.
+3 CONT Record Source: Church Register
+1 FAMC @F20000000105@
+1 FAMS @F10000001116@
+1 SOUR @S01@
+0 @I00000000239@ INDI
+1 NAME Mary /(?)/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1700
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 27 Sep 1750
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Wife of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000239@
+1 FAMS @F10000000107@
+1 SOUR @S01@
+0 @I00000000107@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 10 Mar 1701
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 7 Apr 1762
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 FAMC @F20000000105@
+1 FAMS @F10000000107@
+1 SOUR @S01@
+0 @I00000000069@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 11 Oct 1701
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 24 Sep 1772
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 71y
+2 NOTE Wife of John Drake.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000060@
+1 FAMS @F81000000069@
+1 SOUR @S01@
+0 @I00000000130@ INDI
+1 NAME Sarah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 2 Feb 1704
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F20000000105@
+1 FAMS @F81000000130@
+1 SOUR @S01@
+0 @I00000000071@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 6 Mar 1704
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Twin
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 5 Dec 1704
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000060@
+1 SOUR @S01@
+0 @I00000000070@ INDI
+1 NAME Hannah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 6 Mar 1704
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Twin
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 7 May 1704
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Daughter of Thomas and Priscilla Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000060@
+1 SOUR @S01@
+0 @I00000000072@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 30 Jan 1706
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 9 May 1776
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 29 Jan 1777
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Yeoman
+1 FAMC @F10000000060@
+1 FAMS @F10000000072@
+1 FAMS @F20000000072@
+1 SOUR @S01@
+0 @I00000000131@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 21 Apr 1706
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 21 Dec 1707
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Daughter of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F20000000105@
+1 SOUR @S01@
+0 @I00000000242@ INDI
+1 NAME Bridget /Last/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1710
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 17 Jun 1791
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000242@
+1 FAMS @F10000000108@
+1 SOUR @S01@
+0 @I00000000108@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 16 Apr 1711
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 16 Apr 1774
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F20000000105@
+1 FAMS @F10000000108@
+1 SOUR @S01@
+0 @I00000001514@ INDI
+1 NAME Edward /Grey/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1720
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 26 Dec 1795
+2 PLAC Hadleigh, St. Mary, Suffolk
+2 NOTE Mr., Senior.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001514@
+1 FAMS @F10000001514@
+1 SOUR @S01@
+0 @I00000000165@ INDI
+1 NAME Thomas /Poole/
+1 SEX M
+1 CHR
+2 DATE 12 Mar 1721
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000165@
+1 FAMS @F10000000165@
+1 SOUR @S01@
+0 @I00000000090@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 11 Aug 1723
+2 PLAC Combs, St. Mary, Suffolk
+1 FAMC @F10000000063@
+1 FAMS @F10000000165@
+1 SOUR @S01@
+0 @I00000000085@ INDI
+1 NAME Thomas /Moore/
+1 SEX M
+1 CHR
+2 DATE 16 Apr 1724
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Jun 1799
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Senior.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 2 Nov 1799
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F70000000085@
+1 FAMS @F10000000085@
+1 FAMS @F20000000085@
+1 SOUR @S01@
+0 @I00000000241@ INDI
+1 NAME Alice /County/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1725
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 28 Aug 1782
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000241@
+1 FAMS @F10000000109@
+1 SOUR @S01@
+0 @I00000000109@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 11 Jun 1726
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 Sep 1777
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 29 Sep 1777
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Court: Consistory Court of Norwich
+3 CONT Type of document:Will
+3 CONT Occupation: Baker
+1 FAMC @F10000000107@
+1 FAMS @F10000000109@
+1 SOUR @S01@
+0 @I00000000139@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 29 Jan 1727
+2 PLAC Combs, St. Mary, Suffolk
+1 BURI
+2 DATE 27 Aug 1750
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 23y
+2 NOTE Wife of Edward Grey.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000063@
+1 FAMS @F10000001514@
+1 SOUR @S01@
+0 @I00000000240@ INDI
+1 NAME Edmund /Tricker/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1728
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 17 Feb 1780
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000240@
+1 FAMS @F10000000240@
+1 SOUR @S01@
+0 @I00000000254@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 19 May 1728
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000107@
+1 SOUR @S01@
+0 @I00000000075@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 10 Aug 1728
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 2 Jul 1796
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Widower.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000072@
+1 FAMS @F10000000075@
+1 SOUR @S01@
+0 @I00000000073@ INDI
+1 NAME Sarah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1728
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 24 Sep 1777
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000072@
+1 SOUR @S01@
+0 @I00000000140@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 23 Feb 1729
+2 PLAC Combs, St. Mary, Suffolk
+1 BURI
+2 DATE 1 Mar 1748
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Son of Thomas Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000063@
+1 SOUR @S01@
+0 @I00000000074@ INDI
+1 NAME Priscilla /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Sep 1729
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000072@
+1 FAMS @F81000000074@
+1 SOUR @S01@
+0 @I00000001169@ INDI
+1 NAME Edmund /Osborn/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1730
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 2 Feb 1808
+2 PLAC Little Blakenham, St. Mary, Suffolk
+2 AGE 78y
+2 NOTE Of Willisham.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001169@
+1 FAMS @F10000001169@
+1 SOUR @S01@
+0 @I00000000238@ INDI
+1 NAME Mary /Drake/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1730
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 29 Sep 1785
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Wife of Anthony Fuller, late Drake.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000238@
+1 FAMS @F10000000141@
+1 SOUR @S01@
+0 @I00000000141@ INDI
+1 NAME Anthony /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1731
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 23 Nov 1804
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 AGE 73y
+2 NOTE Widower.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 28 Aug 1805
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F10000000063@
+1 FAMS @F10000000141@
+1 SOUR @S01@
+0 @I00000000110@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 7 Mar 1731
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 May 1808
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 71y
+2 NOTE Gardener.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000107@
+1 FAMS @F10000000110@
+1 SOUR @S01@
+0 @I00000000076@ INDI
+1 NAME Jane /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1732
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 20 Oct 1800
+2 PLAC Wetherden, St. Mary, Suffolk
+2 AGE 67y
+2 NOTE Late Fuller, Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000072@
+1 FAMS @F81000000076@
+1 SOUR @S01@
+0 @I00000000104@ INDI
+1 NAME Sarah /Pierson/
+1 SEX F
+1 CHR
+2 DATE 1 Jun 1732
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 16 May 1802
+2 PLAC Soham, St. Andrew, Cambridgeshire
+2 AGE 69y
+2 NOTE Widow - late Peirson.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000104@
+1 FAMS @F20000000072@
+1 SOUR @S01@
+0 @I00000000176@ INDI
+1 NAME Mary /Baker/
+1 SEX F
+1 CHR
+2 DATE 3 Nov 1732
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 4 Apr 1814
+2 PLAC Combs, St. Mary, Suffolk
+2 AGE 79y
+2 NOTE Late Mary Tricker (Widow), of Rattlesden.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 17 Sep 1814
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Additional information: Wife of William Fuller of Rattlesden (Gentleman).
+1 FAMC @F70000000176@
+1 FAMS @F81000000176@
+1 FAMS @F20000000082@
+1 SOUR @S01@
+0 @I00000000077@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1733
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 29 Oct 1787
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 1 Dec 1788
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Administration
+1 FAMC @F10000000072@
+1 FAMS @F10000000077@
+1 SOUR @S01@
+0 @I00000000084@ INDI
+1 NAME Ann /Groom/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1734
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 1 Sep 1800
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000084@
+1 FAMS @F10000000077@
+1 FAMS @F20000000085@
+1 SOUR @S01@
+0 @I00000000206@ INDI
+1 NAME Prudence /(?)/
+1 SEX F
+1 CHR
+2 DATE 1 Feb 1734
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 31 Jan 1810
+2 PLAC Langham, Baptist, Essex
+2 AGE 75y
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000206@
+1 FAMS @F10000000081@
+1 FAMS @F10000000081@
+1 SOUR @S01@
+0 @I00000000256@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 24 Jul 1734
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000107@
+1 SOUR @S01@
+0 @I00000000078@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Sep 1734
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 27 Aug 1768
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 33y
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000072@
+1 FAMS @F10000000079@
+1 SOUR @S01@
+0 @I00000000079@ INDI
+1 NAME William /Mirrington/
+1 SEX M
+1 CHR
+2 DATE 8 Oct 1734
+2 PLAC Hitcham, All Saints, Suffolk
+1 BURI
+2 DATE 28 Jan 1820
+2 PLAC Elmsett, St. Peter, Suffolk
+2 AGE 85y
+2 NOTE Of Elmsett.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000079@
+1 FAMS @F10000000079@
+1 SOUR @S01@
+0 @I00000000677@ INDI
+1 NAME Henry /Howe/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1735
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 10 Nov 1783
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000677@
+1 FAMS @F10000000677@
+1 SOUR @S01@
+0 @I00000000080@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1736
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 7 May 1787
+2 PLAC Wetherden, St. Mary, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000072@
+1 FAMS @F10000000677@
+1 SOUR @S01@
+0 @I00000000132@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 6 Jun 1736
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 11 Jul 1739
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Child.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000108@
+1 SOUR @S01@
+0 @I00000000081@ INDI
+1 NAME Edmund /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1737
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 12 Nov 1812
+2 PLAC Langham, Baptist, Essex
+2 AGE 74y
+2 NOTE Of Langham, son of Robert and Mary Fuller.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 16 Jan 1813
+2 PLAC Langham (near Colchester), St. Mary, Essex
+2 NOTE Court: Bishop of London's Commissary Court (Essex + Herts.)
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F10000000072@
+1 FAMS @F10000000081@
+1 SOUR @S01@
+0 @I00000000257@ INDI
+1 NAME Sarah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jul 1737
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Day unknown
+3 CONT Record Source: Church Register
+1 FAMC @F10000000107@
+1 SOUR @S01@
+0 @I00000000133@ INDI
+1 NAME Bridgett /Fuller/
+1 SEX F
+1 CHR
+2 DATE 13 Nov 1737
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Mar 1740
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Child.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000108@
+1 SOUR @S01@
+0 @I00000001168@ INDI
+1 NAME Hannah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1739
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 8 Oct 1803
+2 PLAC Little Blakenham, St. Mary, Suffolk
+2 AGE 64y
+2 NOTE Wife of Edmund Osborn.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000072@
+1 FAMS @F10000001169@
+1 SOUR @S01@
+0 @I00000000134@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 5 Aug 1739
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Mar 1740
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000108@
+1 SOUR @S01@
+0 @I00000000087@ INDI
+1 NAME Betty /Last/
+1 SEX F
+1 CHR
+2 DATE 29 Oct 1740
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000087@
+1 FAMS @F81000000087@
+1 SOUR @S01@
+0 @I00000000082@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1741
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 17 Sep 1816
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 AGE 75y
+2 NOTE Of Rattlesden.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000072@
+1 FAMS @F20000000082@
+1 SOUR @S01@
+0 @I00000000259@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 30 May 1742
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000107@
+1 SOUR @S01@
+0 @I00000000258@ INDI
+1 NAME Charles /Fuller/
+1 SEX M
+1 CHR
+2 DATE 30 May 1742
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000107@
+1 SOUR @S01@
+0 @I00000000158@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1742
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 18 Jul 1790
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000072@
+1 FAMS @F10000000184@
+1 SOUR @S01@
+0 @I00000000184@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 27 Dec 1743
+2 PLAC Little Stonham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000184@
+1 FAMS @F10000000184@
+1 SOUR @S01@
+0 @I00000000083@ INDI
+1 NAME Robert /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Feb 1743
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 22 Jan 1813
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 69y
+2 NOTE Of Buxhall.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 11 May 1813
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F10000000072@
+1 FAMS @F10000000083@
+1 SOUR @S01@
+0 @I00000000172@ INDI
+1 NAME Thomas /Poole/
+1 SEX M
+1 CHR
+2 DATE 22 Mar 1745
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000000111@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 19 May 1746
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 2 Oct 1817
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 71y
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000108@
+1 FAMS @F10000000111@
+1 SOUR @S01@
+0 @I00000000169@ INDI
+1 NAME John /Poole/
+1 SEX M
+1 CHR
+2 DATE 19 May 1746
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000000247@ INDI
+1 NAME Elizabeth /Whitecake/
+1 SEX F
+1 CHR
+2 DATE 1 Feb 1747
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 25 Jan 1832
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 84y
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000247@
+1 FAMS @F10000000111@
+1 SOUR @S01@
+0 @I00000000167@ INDI
+1 NAME Anthony /Poole/
+1 SEX M
+1 CHR
+2 DATE 25 Oct 1747
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000000086@ INDI
+1 NAME Susan /Last/
+1 SEX F
+1 CHR
+2 DATE 5 Nov 1747
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 26 Jun 1820
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 73y
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 23 Nov 1820
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Additional information: Widow of Robert Fuller of Buxhall (Gentleman).
+1 FAMC @F70000000086@
+1 FAMS @F10000000083@
+1 SOUR @S01@
+0 @I00000000112@ INDI
+1 NAME Timothy /Fuller/
+1 SEX M
+1 CHR
+2 DATE 4 Nov 1748
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 Jun 1816
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 67y
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000108@
+1 FAMS @F10000000112@
+1 SOUR @S01@
+0 @I00000000166@ INDI
+1 NAME Ann /Poole/
+1 SEX F
+1 CHR
+2 DATE 16 Jun 1749
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000000135@ INDI
+1 NAME Bridgett /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1750
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 28 Apr 1750
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000108@
+1 SOUR @S01@
+0 @I00000000113@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 9 Jan 1750
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000109@
+1 SOUR @S01@
+0 @I00000000155@ INDI
+1 NAME Mary Fuller /Grey/
+1 SEX F
+1 CHR
+2 DATE 11 Aug 1750
+2 PLAC <Unknown>, England
+1 BURI
+2 DATE 1 Oct 1750
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 49d
+2 NOTE Daughter of Edward Grey of Hadleigh.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001514@
+1 SOUR @S01@
+0 @I00000001177@ INDI
+1 NAME Willliam Fuller /Robinson/
+1 SEX M
+1 CHR
+2 DATE 29 Jun 1755
+2 PLAC Ipswich, St. Peter, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Apr 1792
+2 PLAC Woolpit, St. Mary, Suffolk
+2 AGE 39y
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 9 Apr 1794
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Cabinetmaker
+1 FAMC @F70000001177@
+1 FAMS @F10000001177@
+1 SOUR @S01@
+0 @I00000000171@ INDI
+1 NAME Mary Fuller /Poole/
+1 SEX F
+1 CHR
+2 DATE 5 Nov 1753
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 6 Mar 1754
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Daughter of Thomas Poole junior.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000000260@ INDI
+1 NAME John /Tricker/
+1 SEX M
+1 CHR
+2 DATE 2 Jun 1754
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000240@
+1 SOUR @S01@
+0 @I00000000114@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 11 Jul 1754
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000109@
+1 FAMS @F10000000114@
+1 SOUR @S01@
+0 @I00000000142@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Jan 1755
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 2 May 1828
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 73y
+2 NOTE Of Buxhall.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000141@
+1 FAMS @F81000000142@
+1 SOUR @S01@
+0 @I00000001178@ INDI
+1 NAME Mary /Diggens/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1756
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 18 Nov 1795
+2 PLAC Woolpit, St. Mary, Suffolk
+2 AGE 39y
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001178@
+1 FAMS @F10000001177@
+1 SOUR @S01@
+0 @I00000000168@ INDI
+1 NAME Henry /Poole/
+1 SEX M
+1 CHR
+2 DATE 29 Jun 1757
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000000116@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 19 May 1758
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000109@
+1 SOUR @S01@
+0 @I00000000122@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 29 Oct 1761
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000110@
+1 SOUR @S01@
+0 @I00000000088@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 7 Jul 1762
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000077@
+1 SOUR @S01@
+0 @I00000000170@ INDI
+1 NAME Mary /Poole/
+1 SEX F
+1 CHR
+2 DATE 20 May 1763
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 29 May 1763
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000000177@ INDI
+1 NAME John Priest /Pond/
+1 SEX M
+1 CHR
+2 DATE 5 Jan 1764
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Born December 1763. Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F81000000087@
+1 SOUR @S01@
+0 @I00000000123@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 29 May 1764
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000110@
+1 FAMS @F10000000123@
+1 SOUR @S01@
+0 @I00000000173@ INDI
+1 NAME Zachariah Fuller /Poole/
+1 SEX M
+1 CHR
+2 DATE 14 Aug 1764
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 18 Apr 1840
+2 PLAC Moulton, St. Peter, Suffolk
+2 AGE 75y
+2 NOTE Of Bury St. Edmunds.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 6 Nov 1840
+2 PLAC Mildenhall, St. Mary, Suffolk
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F10000000165@
+1 SOUR @S01@
+0 @I00000001526@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 14 Nov 1764
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 13 Dec 1764
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Daughter of Thomas and Elizabeth Fuller, baptised 14/11/1764.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000075@
+1 SOUR @S01@
+0 @I00000000183@ INDI
+1 NAME Richard /Osborne/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1760
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 11 Jan 1844
+2 PLAC Civil Registration, England
+2 AGE 83y
+2 NOTE Farmer, of Bildeston. Died from "Infirmity", reported by Catherine Farrow.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F70000000183@
+1 FAMS @F10000000183@
+1 SOUR @S01@
+0 @I00000000185@ INDI
+1 NAME Mary /Moore/
+1 SEX F
+1 CHR
+2 DATE 1 Mar 1765
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 5 Feb 1802
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 AGE 36y
+2 NOTE Wife of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000085@
+1 FAMS @F10000000089@
+1 SOUR @S01@
+0 @I00000000178@ INDI
+1 NAME Elizabeth Priest /Pond/
+1 SEX F
+1 CHR
+2 DATE 21 Jul 1765
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F81000000087@
+1 SOUR @S01@
+0 @I00000000124@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 20 Jul 1766
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000110@
+1 SOUR @S01@
+0 @I00000001170@ INDI
+1 NAME Edmund /Osborn/
+1 SEX M
+1 CHR
+2 DATE 17 Aug 1766
+2 PLAC Wherstead, St. Mary, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001169@
+1 SOUR @S01@
+0 @I00000000179@ INDI
+1 NAME Ann /Pond/
+1 SEX F
+1 CHR
+2 DATE 3 Oct 1766
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F81000000087@
+1 SOUR @S01@
+0 @I00000000089@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 9 Feb 1767
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Mr. Campbell and Lady Firebrace were sponsors by proxy.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 28 Apr 1806
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 AGE 39y
+2 NOTE Farmer.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 21 Nov 1806
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F10000000077@
+1 FAMS @F10000000089@
+1 SOUR @S01@
+0 @I00000000248@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 24 Jun 1767
+2 PLAC Helmingham, St. Mary, Suffolk
+2 NOTE Surname recorded as Fieldgate in register.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000184@
+1 SOUR @S01@
+0 @I00000000180@ INDI
+1 NAME James /Pond/
+1 SEX M
+1 CHR
+2 DATE 19 Oct 1767
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F81000000087@
+1 SOUR @S01@
+0 @I00000000243@ INDI
+1 NAME Elizabeth /Cooper/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1768
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 16 Dec 1796
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Wife of Fuller Felgate from Bury St. Edmunds.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000243@
+1 FAMS @F10000000249@
+1 SOUR @S01@
+0 @I00000000125@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 4 Feb 1768
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Jan 1846
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 77y
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000110@
+1 SOUR @S01@
+0 @I00000000161@ INDI
+1 NAME John /Felgate/
+1 SEX M
+1 CHR
+2 DATE 7 Dec 1768
+2 PLAC Helmingham, St. Mary, Suffolk
+2 NOTE Surname recorded as Fieldgate in register.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000184@
+1 FAMS @F10000000161@
+1 SOUR @S01@
+0 @I00000000249@ INDI
+1 NAME Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 7 Dec 1768
+2 PLAC Helmingham, St. Mary, Suffolk
+2 NOTE Surname recorded as Fieldgate in register.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000184@
+1 FAMS @F10000000249@
+1 SOUR @S01@
+0 @I00000000091@ INDI
+1 NAME William Henry /Fuller/
+1 SEX M
+1 CHR
+2 DATE 29 May 1769
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 3 Feb 1781
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000077@
+1 SOUR @S01@
+0 @I00000000181@ INDI
+1 NAME Susan /Pond/
+1 SEX F
+1 CHR
+2 DATE 9 Jun 1769
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F81000000087@
+1 FAMS @F10000000183@
+1 SOUR @S01@
+0 @I00000001527@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Aug 1769
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 6 Aug 1769
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Daughter of Thomas and Elizabeth Fuller, baptised 01/08/1769.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000075@
+1 SOUR @S01@
+0 @I00000001171@ INDI
+1 NAME Sarah /Osborn/
+1 SEX F
+1 CHR
+2 DATE 23 Jan 1770
+2 PLAC Wherstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001169@
+1 SOUR @S01@
+0 @I00000000126@ INDI
+1 NAME Isaac /Fuller/
+1 SEX M
+1 CHR
+2 DATE 18 Feb 1770
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000110@
+1 FAMS @F10000000126@
+1 SOUR @S01@
+0 @I00000001172@ INDI
+1 NAME Mary /Osborn/
+1 SEX F
+1 CHR
+2 DATE 6 Feb 1771
+2 PLAC Wherstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 4 Oct 1800
+2 PLAC Little Blakenham, St. Mary, Suffolk
+2 AGE 28y
+2 NOTE Daughter of Edmund and Hannah Osborn.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001169@
+1 SOUR @S01@
+0 @I00000000182@ INDI
+1 NAME Thomas /Pond/
+1 SEX M
+1 CHR
+2 DATE 19 Jun 1771
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F81000000087@
+1 SOUR @S01@
+0 @I00000000092@ INDI
+1 NAME Sarah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 23 Dec 1771
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 7 Nov 1787
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000077@
+1 SOUR @S01@
+0 @I00000000127@ INDI
+1 NAME Rebekah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Feb 1772
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000110@
+1 FAMS @F81000000127@
+1 SOUR @S01@
+0 @I00000001173@ INDI
+1 NAME Elizabeth /Osborn/
+1 SEX F
+1 CHR
+2 DATE 28 Feb 1772
+2 PLAC Wherstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001169@
+1 SOUR @S01@
+0 @I00000000151@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 27 Sep 1772
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 19 Mar 1840
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 68y
+2 NOTE Of Stowmarket Union Workhouse.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000111@
+1 SOUR @S01@
+0 @I00000000093@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 5 Oct 1773
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 2 Feb 1773
+1 BURI
+2 DATE 25 Jan 1776
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000077@
+1 SOUR @S01@
+0 @I00000001174@ INDI
+1 NAME Ann /Osborn/
+1 SEX F
+1 CHR
+2 DATE 11 Nov 1773
+2 PLAC Wherstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 9 Jun 1854
+2 PLAC Barking (with Darmsden), St. Mary, Suffolk
+2 AGE 80y
+2 NOTE Of Barking.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001169@
+1 FAMS @F10000001528@
+1 SOUR @S01@
+0 @I00000000159@ INDI
+1 NAME Samuel /Felgate/
+1 SEX M
+1 CHR
+2 DATE 20 Nov 1773
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 19 Oct 1853
+2 PLAC Chelmondiston, St. Andrew, Suffolk
+2 AGE 80y
+2 NOTE Of Chelmondiston.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000184@
+1 SOUR @S01@
+0 @I00000000186@ INDI
+1 NAME Mary /Swann/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1775
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F70000000186@
+1 FAMS @F10000000089@
+1 FAMS @F82000000186@
+1 SOUR @S01@
+0 @I00000000128@ INDI
+1 NAME Daniel /Fuller/
+1 SEX M
+1 CHR
+2 DATE 13 May 1775
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000110@
+1 SOUR @S01@
+0 @I00000000160@ INDI
+1 NAME Sarah /Felgate/
+1 SEX F
+1 CHR
+2 DATE 2 Jun 1775
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000184@
+1 SOUR @S01@
+0 @I00000000152@ INDI
+1 NAME Timothy /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Dec 1775
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 9 Jul 1776
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of Thomas Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000111@
+1 SOUR @S01@
+0 @I00000000156@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 15 Jun 1776
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 5 Jul 1776
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Son of Thomas and Elizabeth Fuller. Baptised 15/06/1776.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000075@
+1 SOUR @S01@
+0 @I00000000115@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 25 Nov 1776
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000114@
+1 SOUR @S01@
+0 @I00000000136@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 12 Jan 1777
+2 PLAC Combs, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000112@
+1 SOUR @S01@
+0 @I00000000153@ INDI
+1 NAME Timothy /Fuller/
+1 SEX M
+1 CHR
+2 DATE 18 Jun 1777
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 5 Jun 1779
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of Thomas Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000111@
+1 SOUR @S01@
+0 @I00000001528@ INDI
+1 NAME Thomas /Emsden/
+1 SEX M
+1 CHR
+2 DATE 30 Nov 1777
+2 PLAC Barking (with Darmsden), St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 12 May 1857
+2 PLAC Barking (with Darmsden), St. Mary, Suffolk
+2 AGE 79y
+2 NOTE Of Barking.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001528@
+1 FAMS @F10000001528@
+1 SOUR @S01@
+0 @I00000000129@ INDI
+1 NAME Martha /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 May 1778
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000110@
+1 FAMS @F81000000129@
+1 SOUR @S01@
+0 @I00000000157@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 25 Feb 1781
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 16 Jul 1781
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Daughter of Thomas and Elizabeth Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000075@
+1 SOUR @S01@
+0 @I00000000137@ INDI
+1 NAME Robert /Fuller/
+1 SEX M
+1 CHR
+2 DATE 18 Aug 1781
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 21 Apr 1790
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of Timothy Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000112@
+1 SOUR @S01@
+0 @I00000000143@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 13 May 1783
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Mar 1784
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of William Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000123@
+1 SOUR @S01@
+0 @I00000000097@ INDI
+1 NAME Mary Ann /Wright/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1785
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 19 Oct 1855
+2 PLAC Ipswich, St. Clement, Suffolk
+2 AGE 70y
+2 NOTE Of Church Street, Ipswich, St. Clement.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000097@
+1 FAMS @F10000000096@
+1 SOUR @S01@
+0 @I00000000144@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 12 Feb 1786
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 10 Jul 1786
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of William Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000123@
+1 SOUR @S01@
+0 @I00000000095@ INDI
+1 NAME Mary Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 11 May 1792
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 20 Jul 1786
+1 FAMC @F10000000089@
+1 SOUR @S01@
+0 @I00000000210@ INDI
+1 NAME Frances Jane /Chapman/
+1 SEX F
+1 CHR
+2 DATE 5 Nov 1786
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Jun 1827
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 41y
+2 NOTE Of Buxhall.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000210@
+1 FAMS @F10000000211@
+1 SOUR @S01@
+0 @I00000000138@ INDI
+1 NAME Hannah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 17 Dec 1786
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Dec 1794
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Daughter of Timothy Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000112@
+1 SOUR @S01@
+0 @I00000000145@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 11 Oct 1787
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000123@
+1 SOUR @S01@
+0 @I00000000096@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 11 May 1792
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 23 Dec 1787
+1 BURI
+2 DATE 28 Jun 1862
+2 PLAC Ipswich, St. Clement, Suffolk
+2 AGE 74y
+2 NOTE Of Church Street, Ipswich, St. Clement.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 24 Jun 1862
+2 PLAC Ipswich, St. Clement, Suffolk
+2 NOTE Court: Principal Probate Registry
+3 CONT Type of document:Administration
+1 FAMC @F10000000089@
+1 FAMS @F10000000096@
+1 SOUR @S01@
+0 @I00000001179@ INDI
+1 NAME Mary Sophia /Fuller/
+1 SEX F
+1 CHR
+2 DATE 5 Jan 1788
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 7 Apr 1788
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001177@
+1 SOUR @S01@
+0 @I00000000211@ INDI
+1 NAME Robert Fuller /Osborn/
+1 SEX M
+1 CHR
+2 DATE 16 May 1788
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Sep 1817
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 30y
+2 NOTE Of Buxhall.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 27 May 1818
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F10000000183@
+1 FAMS @F10000000211@
+1 SOUR @S01@
+0 @I00000000098@ INDI
+1 NAME Thomas Moore /Fuller/
+1 SEX M
+1 CHR
+2 DATE 11 May 1792
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 22 Aug 1789
+1 BURI
+2 DATE 2 Feb 1844
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 AGE 55y
+2 NOTE Of Isleham.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 11 Mar 1844
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F10000000089@
+1 FAMS @F10000000098@
+1 SOUR @S01@
+0 @I00000001180@ INDI
+1 NAME Mary Ann Sophia /Fuller/
+1 SEX F
+1 CHR
+2 DATE 7 Dec 1789
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001177@
+1 SOUR @S01@
+0 @I00000000250@ INDI
+1 NAME Elizabeth Cooper /Felgate/
+1 SEX F
+1 CHR
+2 DATE 4 Mar 1791
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000249@
+1 SOUR @S01@
+0 @I00000000099@ INDI
+1 NAME Sarah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 11 May 1792
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 17 May 1791
+1 FAMC @F10000000089@
+1 FAMS @F81000000099@
+1 SOUR @S01@
+0 @I00000000246@ INDI
+1 NAME Hannah /Norman/
+1 SEX F
+1 CHR
+2 DATE 15 Jun 1791
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Aged 2 years.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 30 Dec 1811
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 AGE 22y
+2 NOTE Wife of Thomas Moore Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000246@
+1 FAMS @F10000000098@
+1 SOUR @S01@
+0 @I00000000100@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 11 May 1792
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 12 Apr 1792
+1 BURI
+2 DATE 27 Aug 1792
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Infant, daughter of John and Mary Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000089@
+1 SOUR @S01@
+0 @I00000000154@ INDI
+1 NAME Robert /Fuller/
+1 SEX M
+1 CHR
+2 DATE 6 May 1792
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 9 Jun 1808
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 16y
+2 NOTE Son of Thomas Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000111@
+1 SOUR @S01@
+0 @I00000000252@ INDI
+1 NAME Mary Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 31 Jul 1793
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000249@
+1 SOUR @S01@
+0 @I00000000101@ INDI
+1 NAME Martha /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Mar 1802
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 8 Nov 1793
+1 FAMC @F10000000089@
+1 SOUR @S01@
+0 @I00000000251@ INDI
+1 NAME John Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 15 Dec 1794
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000161@
+1 SOUR @S01@
+0 @I00000000253@ INDI
+1 NAME Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Nov 1795
+2 PLAC <Unknown>, England
+2 NOTE Date unknown, born in Bury St. Edmunds.
+1 BURI
+2 DATE 30 Oct 1857
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 AGE 61y
+2 NOTE Of Stowupland.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000249@
+1 FAMS @F10000000253@
+1 SOUR @S01@
+0 @I00000000244@ INDI
+1 NAME Richard /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1796
+2 PLAC <Unknown>, England
+2 NOTE Date unknown
+1 BURI
+2 DATE 30 Mar 1797
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Son of John and Mary Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000089@
+1 SOUR @S01@
+0 @I00000000255@ INDI
+1 NAME Sophia /Greengrass/
+1 SEX F
+1 CHR
+2 DATE 18 Dec 1796
+2 PLAC Purleigh, All Saints, Essex
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 4 Feb 1875
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 AGE 78y
+2 NOTE Of Stowupland.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000255@
+1 FAMS @F10000000253@
+1 SOUR @S01@
+0 @I00000000245@ INDI
+1 NAME Susanna /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1799
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Buried 12/11/1801 at Isleham, St. Andrew.
+1 BURI
+2 DATE 12 Nov 1801
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Daughter of John and Mary Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000089@
+1 SOUR @S01@
+0 @I00000000146@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 7 Feb 1800
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000126@
+1 FAMS @F10000000146@
+1 SOUR @S01@
+0 @I00000001529@ INDI
+1 NAME Mary /Balaam/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1804
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 22 Feb 1801
+1 FAMC @F70000001529@
+1 FAMS @F10000000146@
+1 SOUR @S01@
+0 @I00000000102@ INDI
+1 NAME Maria /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Mar 1802
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 Dec 1801
+1 FAMC @F10000000089@
+1 FAMS @F81000000102@
+1 SOUR @S01@
+0 @I00000000147@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 21 Apr 1802
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Buried 21/04/1803 at Stowmarket, St. Peter and St. Mary.
+1 BURI
+2 DATE 21 Apr 1803
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of Isaac Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000126@
+1 SOUR @S01@
+0 @I00000000162@ INDI
+1 NAME Edmund Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 21 Aug 1802
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 11 Jul 1881
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 79y
+2 NOTE Maltster.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000161@
+1 SOUR @S01@
+0 @I00000000213@ INDI
+1 NAME Mary Ann /Morgan/
+1 SEX F
+1 CHR
+2 DATE 7 Dec 1806
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 20 Aug 1806
+1 BURI
+2 DATE 11 Feb 1886
+2 PLAC Ipswich, Cemetery, Suffolk
+2 AGE 79y
+2 NOTE Widow, of Woodbridge Road, Ipswich, St. Margaret.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000213@
+1 FAMS @F10000000212@
+1 SOUR @S01@
+0 @I00000000148@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Mar 1807
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000126@
+1 SOUR @S01@
+0 @I00000000212@ INDI
+1 NAME Robert Osborn /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1808
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Private
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 2 Feb 1874
+2 PLAC Ipswich, Cemetery, Suffolk
+2 AGE 65y
+2 NOTE Gentleman, of Woodbridge Road, Ipswich, St. Margaret.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000211@
+1 FAMS @F10000000212@
+1 SOUR @S01@
+0 @I00000000385@ INDI
+1 NAME William /Bilson/
+1 SEX M
+1 CHR
+2 DATE 13 Dec 1808
+2 PLAC Horringer, St. Leonard, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Feb 1894
+2 PLAC Bury St. Edmunds, Cemetery, Suffolk
+2 AGE 86y
+2 NOTE Taxidermist, of the Almshouses, Risbygate Street, Bury St. Edmunds.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000385@
+1 FAMS @F10000000385@
+1 SOUR @S01@
+0 @I00000000149@ INDI
+1 NAME Sarah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 14 Feb 1810
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 28 Mar 1809
+1 FAMC @F10000000126@
+1 SOUR @S01@
+0 @I00000000163@ INDI
+1 NAME Mary /Felgate/
+1 SEX F
+1 CHR
+2 DATE 26 Feb 1810
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 15 Jan 1810
+1 BURI
+2 DATE 5 Apr 1879
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 69y
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000161@
+1 FAMS @F81000000163@
+1 SOUR @S01@
+0 @I00000000214@ INDI
+1 NAME Jane /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Jul 1810
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Private
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 17 Sep 1894
+2 PLAC Bury St. Edmunds, Cemetery, Suffolk
+2 AGE 81y
+2 NOTE Widow, of 47 Risbygate Street, Bury St. Edmunds.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000211@
+1 FAMS @F10000000385@
+1 SOUR @S01@
+0 @I00000000215@ INDI
+1 NAME Susannah Frances /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Jul 1810
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Apr 1843
+2 PLAC <Unknown>, England
+2 NOTE Date unknown, in Norwich Registration district, reference 13 198.
+1 FAMC @F10000000211@
+1 FAMS @F81000000215@
+1 SOUR @S01@
+0 @I00000000216@ INDI
+1 NAME Matilda Elizabeth /Osborn/
+1 SEX F
+1 CHR
+2 DATE 15 Mar 1812
+2 PLAC Lindsey, St. Peter, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 10 Feb 1812
+1 BURI
+2 DATE 2 May 1812
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 77d
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000211@
+1 SOUR @S01@
+0 @I00000000150@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 21 Oct 1814
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000126@
+1 SOUR @S01@
+0 @I00000000164@ INDI
+1 NAME Robert /Felgate/
+1 SEX M
+1 CHR
+2 DATE 22 Aug 1816
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 21 Apr 1816
+1 BURI
+2 DATE 1 Dec 1854
+2 PLAC Acton, St. Mary, Middlesex
+2 AGE 40y
+2 NOTE Of Acton.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000161@
+1 SOUR @S01@
+0 @I00000000970@ INDI
+1 NAME Sarah Jane /Winkup/
+1 SEX F
+1 CHR
+2 DATE 23 May 1820
+2 PLAC Thetford, St. Peter, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 2 Jan 1820
+1 BURI
+2 DATE 7 Nov 1841
+2 PLAC Civil Registration, England
+2 AGE 21y
+2 NOTE Wife of a farmer, of Mucking. Died from Inflammation. Reported by Harriet Sharp.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F70000000970@
+1 FAMS @F10000000217@
+1 SOUR @S01@
+0 @I00000000174@ INDI
+1 NAME Miles /Barton/
+1 SEX M
+1 CHR
+2 DATE 19 Mar 1826
+2 PLAC Norwich, St. Simon and St. Jude, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 May 1820
+1 FAMC @F81000000102@
+1 SOUR @S01@
+0 @I00000000217@ INDI
+1 NAME Richard /Fuller/
+1 SEX M
+1 CHR
+2 DATE 3 Jul 1821
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE [Born 19/06/1816 according to certificate written by John Growse of Bildeston (Surgeon).]
+3 CONT Record Source: Church Register
+1 FAMC @F10000000211@
+1 FAMS @F10000000217@
+1 SOUR @S01@
+0 @I00000001530@ INDI
+1 NAME Josephine /Fuller/
+1 SEX F
+1 CHR
+2 DATE 12 Mar 1822
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000146@
+1 FAMS @F81000001530@
+1 SOUR @S01@
+0 @I00000000175@ INDI
+1 NAME Robert /Barton/
+1 SEX M
+1 CHR
+2 DATE 19 Mar 1826
+2 PLAC Norwich, St. Simon and St. Jude, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 11 Aug 1822
+1 FAMC @F81000000102@
+1 SOUR @S01@
+0 @I00000000218@ INDI
+1 NAME Mary Ann /Chapman/
+1 SEX F
+1 CHR
+2 DATE 10 Aug 1823
+2 PLAC East Tilbury, St. Katherine, Essex
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Oct 1867
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 44y
+2 NOTE Of Wellington Street.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000218@
+1 FAMS @F81000000218@
+1 SOUR @S01@
+0 @I00000000229@ INDI
+1 NAME Robert Good /Fuller/
+1 SEX M
+1 CHR
+2 DATE 27 Feb 1830
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000212@
+1 SOUR @S01@
+0 @I00000000230@ INDI
+1 NAME Harry /Fuller/
+1 SEX M
+1 CHR
+2 DATE 2 Jul 1835
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Mar 1900
+2 PLAC Bury St. Edmunds, Cemetery, Suffolk
+2 AGE 67y
+2 NOTE MRCS, of Hospital Road, Bury St. Edmunds.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000212@
+1 SOUR @S01@
+0 @I00000000231@ INDI
+1 NAME Morgan /Fuller/
+1 SEX M
+1 CHR
+2 DATE 2 Jul 1835
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Jul 1905
+2 PLAC <Unknown>, England
+2 AGE 74y
+2 NOTE Date unknown, at Bury St. Edmunds.
+1 FAMC @F10000000212@
+1 SOUR @S01@
+0 @I00000000569@ INDI
+1 NAME William Henry /Bilson/
+1 SEX M
+1 CHR
+2 DATE 14 Mar 1838
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 12 Aug 1837
+1 BURI
+2 DATE 20 Mar 1838
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+2 AGE 7m
+2 NOTE Son of William and Jane Bilson, of Abbeygate Street, Bury St. Edmunds.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000385@
+1 SOUR @S01@
+0 @I00000000220@ INDI
+1 NAME John Henry /Mackley/
+1 SEX M
+1 CHR
+2 DATE 10 Sep 1837
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 31 Jan 1881
+2 PLAC Gravesend, St. George, Kent
+2 AGE 43y
+2 NOTE Of Wellington Street, Milton-by-Gravesend.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000220@
+1 FAMS @F10000000220@
+1 SOUR @S01@
+0 @I00000000561@ INDI
+1 NAME Ellen /Bilson/
+1 SEX F
+1 CHR
+2 DATE 3 Mar 1841
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 Jul 1840
+1 BURI
+2 DATE 19 Mar 1841
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+2 AGE 8m
+2 NOTE Of Abbeygate Street, Bury St. Edmunds St. James.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000385@
+1 SOUR @S01@
+0 @I00000000219@ INDI
+1 NAME Emily /Fuller-Chapman/
+1 SEX F
+1 CHR
+2 DATE 17 Apr 1843
+2 PLAC East Tilbury, St. Katherine, Essex
+2 NOTE Illegitimate
+3 CONT Record Source: Church Register
+1 FAMC @F00000000218@
+1 FAMS @F10000000220@
+1 SOUR @S01@
+0 @I00000000228@ INDI
+1 NAME Robert Osborne /Mackley/
+1 SEX M
+1 CHR
+2 DATE 15 Feb 1863
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000227@ INDI
+1 NAME Miriam Maud /Mackley/
+1 SEX F
+1 CHR
+2 DATE 2 Apr 1865
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000226@ INDI
+1 NAME Millicent Compton /Mackley/
+1 SEX F
+1 CHR
+2 DATE 14 Jul 1867
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 19 May 1867
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000221@ INDI
+1 NAME Charles Arthur /Mackley/
+1 SEX M
+1 CHR
+2 DATE 11 Jul 1869
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000225@ INDI
+1 NAME Henry Wilfred /Mackley/
+1 SEX M
+1 CHR
+2 DATE 10 Sep 1871
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000222@ INDI
+1 NAME Edgar William /Mackley/
+1 SEX M
+1 CHR
+2 DATE 21 Sep 1873
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000223@ INDI
+1 NAME Ethel Constance /Mackley/
+1 SEX F
+1 CHR
+2 DATE 17 Nov 1875
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000224@ INDI
+1 NAME Gertrude Evelyn /Mackley/
+1 SEX F
+1 CHR
+2 DATE 19 Sep 1877
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 8 Jul 1877
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @I00000000603@ INDI
+1 NAME Mabel Blanche /Mackley/
+1 SEX F
+1 CHR
+2 DATE 28 Sep 1881
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 9 Jan 1880
+1 FAMC @F10000000220@
+1 SOUR @S01@
+0 @F00000000218@ FAM
+1 WIFE @I00000000218@
+1 SOUR @S01@
+0 @F10000000002@ FAM
+1 MARR
+2 DATE 1 Jan 1655
+2 PLAC <Unknown>, England
+1 HUSB @I00000000002@
+1 WIFE @I00000000041@
+1 CHIL @I00000000043@
+1 CHIL @I00000000059@
+1 CHIL @I00000000060@
+1 CHIL @I00000000061@
+1 CHIL @I00000000064@
+1 CHIL @I00000000065@
+1 CHIL @I00000000066@
+1 CHIL @I00000000105@
+1 SOUR @S01@
+0 @F10000000060@ FAM
+1 MARR
+2 DATE 17 Nov 1692
+2 PLAC Harleston, St. Augustine, Suffolk
+1 HUSB @I00000000060@
+1 WIFE @I00000000062@
+1 CHIL @I00000000067@
+1 CHIL @I00000000068@
+1 CHIL @I00000000069@
+1 CHIL @I00000000070@
+1 CHIL @I00000000071@
+1 CHIL @I00000000072@
+1 SOUR @S01@
+0 @F10000000063@ FAM
+1 MARR
+2 DATE 18 Oct 1722
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000063@
+1 WIFE @I00000000103@
+1 CHIL @I00000000063@
+1 CHIL @I00000000090@
+1 CHIL @I00000000139@
+1 CHIL @I00000000140@
+1 CHIL @I00000000141@
+1 SOUR @S01@
+0 @F10000000072@ FAM
+1 MARR
+2 DATE 1 Jan 1726
+2 PLAC <Unknown>, England
+1 HUSB @I00000000072@
+1 WIFE @I81000000072@
+1 CHIL @I00000000073@
+1 CHIL @I00000000074@
+1 CHIL @I00000000075@
+1 CHIL @I00000000076@
+1 CHIL @I00000000077@
+1 CHIL @I00000000078@
+1 CHIL @I00000000080@
+1 CHIL @I00000000081@
+1 CHIL @I00000000082@
+1 CHIL @I00000000083@
+1 CHIL @I00000000158@
+1 CHIL @I00000001168@
+1 SOUR @S01@
+0 @F10000000075@ FAM
+1 MARR
+2 DATE 14 Mar 1764
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+1 HUSB @I00000000075@
+1 WIFE @I81000000075@
+1 CHIL @I00000000156@
+1 CHIL @I00000000157@
+1 CHIL @I00000001526@
+1 CHIL @I00000001527@
+1 SOUR @S01@
+0 @F10000000077@ FAM
+1 MARR
+2 DATE 21 Apr 1759
+2 PLAC Brent Eleigh, St. Mary, Suffolk
+1 HUSB @I00000000077@
+1 WIFE @I00000000084@
+1 CHIL @I00000000088@
+1 CHIL @I00000000089@
+1 CHIL @I00000000091@
+1 CHIL @I00000000092@
+1 CHIL @I00000000093@
+1 SOUR @S01@
+0 @F10000000079@ FAM
+1 MARR
+2 DATE 17 Apr 1757
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000079@
+1 WIFE @I00000000078@
+1 SOUR @S01@
+0 @F10000000081@ FAM
+1 MARR
+2 DATE 15 Aug 1768
+2 PLAC Chevington, All Saints, Suffolk
+1 HUSB @I00000000081@
+1 WIFE @I00000000206@
+1 SOUR @S01@
+0 @F10000000083@ FAM
+1 MARR
+2 DATE 17 Jun 1775
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I00000000083@
+1 WIFE @I00000000086@
+1 SOUR @S01@
+0 @F10000000085@ FAM
+1 MARR
+2 DATE 26 Sep 1748
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000085@
+1 WIFE @I81000000085@
+1 CHIL @I00000000185@
+1 SOUR @S01@
+0 @F10000000089@ FAM
+1 MARR
+2 DATE 7 Oct 1785
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000089@
+1 WIFE @I81000000089@
+1 CHIL @I00000000095@
+1 CHIL @I00000000096@
+1 CHIL @I00000000098@
+1 CHIL @I00000000099@
+1 CHIL @I00000000100@
+1 CHIL @I00000000101@
+1 CHIL @I00000000102@
+1 CHIL @I00000000244@
+1 CHIL @I00000000245@
+1 SOUR @S01@
+0 @F10000000096@ FAM
+1 MARR
+2 DATE 18 Apr 1811
+2 PLAC Boxford, St. Mary, Suffolk
+1 HUSB @I00000000096@
+1 WIFE @I00000000097@
+1 SOUR @S01@
+0 @F10000000098@ FAM
+1 MARR
+2 DATE 20 Dec 1810
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000098@
+1 WIFE @I00000000246@
+1 SOUR @S01@
+0 @F10000000105@ FAM
+1 MARR
+2 DATE 1 Jan 1682
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000105@
+1 WIFE @I81000000105@
+1 CHIL @I00000000106@
+1 CHIL @I00000000117@
+1 CHIL @I00000000118@
+1 CHIL @I00000000119@
+1 CHIL @I00000000120@
+1 SOUR @S01@
+0 @F10000000107@ FAM
+1 MARR
+2 DATE 1 Jan 1725
+2 PLAC <Unknown>, England
+1 HUSB @I00000000107@
+1 WIFE @I00000000239@
+1 CHIL @I00000000109@
+1 CHIL @I00000000110@
+1 CHIL @I00000000254@
+1 CHIL @I00000000256@
+1 CHIL @I00000000257@
+1 CHIL @I00000000258@
+1 CHIL @I00000000259@
+1 SOUR @S01@
+0 @F10000000108@ FAM
+1 MARR
+2 DATE 13 Jul 1735
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000108@
+1 WIFE @I00000000242@
+1 CHIL @I00000000111@
+1 CHIL @I00000000112@
+1 CHIL @I00000000132@
+1 CHIL @I00000000133@
+1 CHIL @I00000000134@
+1 CHIL @I00000000135@
+1 SOUR @S01@
+0 @F10000000109@ FAM
+1 MARR
+2 DATE 6 Sep 1749
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000109@
+1 WIFE @I81000000109@
+1 CHIL @I00000000113@
+1 CHIL @I00000000114@
+1 CHIL @I00000000116@
+1 SOUR @S01@
+0 @F10000000110@ FAM
+1 MARR
+2 DATE 22 Dec 1760
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000110@
+1 WIFE @I81000000110@
+1 CHIL @I00000000122@
+1 CHIL @I00000000123@
+1 CHIL @I00000000124@
+1 CHIL @I00000000125@
+1 CHIL @I00000000126@
+1 CHIL @I00000000127@
+1 CHIL @I00000000128@
+1 CHIL @I00000000129@
+1 SOUR @S01@
+0 @F10000000111@ FAM
+1 MARR
+2 DATE 16 Sep 1771
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000111@
+1 WIFE @I81000000111@
+1 CHIL @I00000000151@
+1 CHIL @I00000000152@
+1 CHIL @I00000000153@
+1 CHIL @I00000000154@
+1 SOUR @S01@
+0 @F10000000112@ FAM
+1 MARR
+2 DATE 18 Nov 1776
+2 PLAC Combs, St. Mary, Suffolk
+1 HUSB @I00000000112@
+1 WIFE @I81000000112@
+1 CHIL @I00000000136@
+1 CHIL @I00000000137@
+1 CHIL @I00000000138@
+1 SOUR @S01@
+0 @F10000000114@ FAM
+1 MARR
+2 DATE 16 Jul 1776
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000114@
+1 WIFE @I81000000114@
+1 CHIL @I00000000115@
+1 SOUR @S01@
+0 @F10000000123@ FAM
+1 MARR
+2 DATE 23 Apr 1782
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000123@
+1 WIFE @I81000000123@
+1 CHIL @I00000000143@
+1 CHIL @I00000000144@
+1 CHIL @I00000000145@
+1 SOUR @S01@
+0 @F10000000125@ FAM
+1 MARR
+2 DATE 1 Jun 1819
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000125@
+1 WIFE @I81000000125@
+1 SOUR @S01@
+0 @F10000000126@ FAM
+1 MARR
+2 DATE 22 Sep 1798
+2 PLAC Great Finborough, St. Andrew, Suffolk
+1 HUSB @I00000000126@
+1 WIFE @I81000000126@
+1 CHIL @I00000000146@
+1 CHIL @I00000000147@
+1 CHIL @I00000000148@
+1 CHIL @I00000000149@
+1 CHIL @I00000000150@
+1 SOUR @S01@
+0 @F10000000141@ FAM
+1 MARR
+2 DATE 31 May 1752
+2 PLAC Aldham, St. Mary, Suffolk
+1 HUSB @I00000000141@
+1 WIFE @I00000000238@
+1 CHIL @I00000000142@
+1 SOUR @S01@
+0 @F10000000146@ FAM
+1 MARR
+2 DATE 5 Nov 1821
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000146@
+1 WIFE @I00000001529@
+1 CHIL @I00000001530@
+1 SOUR @S01@
+0 @F10000000151@ FAM
+1 MARR
+2 DATE 4 Feb 1793
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000151@
+1 WIFE @I81000000151@
+1 SOUR @S01@
+0 @F10000000161@ FAM
+1 MARR
+2 DATE 29 Oct 1792
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000161@
+1 WIFE @I81000000161@
+1 CHIL @I00000000162@
+1 CHIL @I00000000163@
+1 CHIL @I00000000164@
+1 CHIL @I00000000251@
+1 SOUR @S01@
+0 @F10000000162@ FAM
+1 MARR
+2 DATE 19 May 1823
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000162@
+1 WIFE @I81000000162@
+1 SOUR @S01@
+0 @F10000000164@ FAM
+1 MARR
+2 DATE 20 Apr 1843
+2 PLAC Shoreditch, St. Leonard, Middlesex
+1 HUSB @I00000000164@
+1 WIFE @I81000000164@
+1 SOUR @S01@
+0 @F10000000165@ FAM
+1 MARR
+2 DATE 18 Mar 1744
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I00000000165@
+1 WIFE @I00000000090@
+1 CHIL @I00000000166@
+1 CHIL @I00000000167@
+1 CHIL @I00000000168@
+1 CHIL @I00000000169@
+1 CHIL @I00000000170@
+1 CHIL @I00000000171@
+1 CHIL @I00000000172@
+1 CHIL @I00000000173@
+1 SOUR @S01@
+0 @F10000000173@ FAM
+1 MARR
+2 DATE 1 Jan 1790
+2 PLAC Westminster, St. James Piccadilly, Middlesex
+1 HUSB @I00000000173@
+1 WIFE @I81000000173@
+1 SOUR @S01@
+0 @F10000000183@ FAM
+1 MARR
+2 DATE 18 Dec 1787
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000183@
+1 WIFE @I00000000181@
+1 CHIL @I00000000211@
+1 SOUR @S01@
+0 @F10000000184@ FAM
+1 MARR
+2 DATE 25 Sep 1765
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000184@
+1 WIFE @I00000000158@
+1 CHIL @I00000000159@
+1 CHIL @I00000000160@
+1 CHIL @I00000000161@
+1 CHIL @I00000000248@
+1 CHIL @I00000000249@
+1 SOUR @S01@
+0 @F10000000211@ FAM
+1 MARR
+2 DATE 12 Nov 1807
+2 PLAC Woolpit, St. Mary, Suffolk
+1 HUSB @I00000000211@
+1 WIFE @I00000000210@
+1 CHIL @I00000000212@
+1 CHIL @I00000000214@
+1 CHIL @I00000000215@
+1 CHIL @I00000000216@
+1 CHIL @I00000000217@
+1 SOUR @S01@
+0 @F10000000212@ FAM
+1 MARR
+2 DATE 8 Aug 1828
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+1 HUSB @I00000000212@
+1 WIFE @I00000000213@
+1 CHIL @I00000000229@
+1 CHIL @I00000000230@
+1 CHIL @I00000000231@
+1 SOUR @S01@
+0 @F10000000217@ FAM
+1 MARR
+2 DATE 16 Jul 1839
+2 PLAC Mucking, St. John the Baptist, Essex
+1 HUSB @I00000000217@
+1 WIFE @I00000000970@
+1 SOUR @S01@
+0 @F10000000220@ FAM
+1 MARR
+2 DATE 8 Oct 1862
+2 PLAC London, St. Edmund the King Lombard Street, City of London
+1 HUSB @I00000000220@
+1 WIFE @I00000000219@
+1 CHIL @I00000000221@
+1 CHIL @I00000000222@
+1 CHIL @I00000000223@
+1 CHIL @I00000000224@
+1 CHIL @I00000000225@
+1 CHIL @I00000000226@
+1 CHIL @I00000000227@
+1 CHIL @I00000000228@
+1 CHIL @I00000000603@
+1 SOUR @S01@
+0 @F10000000240@ FAM
+1 MARR
+2 DATE 6 Nov 1753
+2 PLAC Combs, St. Mary, Suffolk
+1 HUSB @I00000000240@
+1 WIFE @I00000000176@
+1 CHIL @I00000000260@
+1 SOUR @S01@
+0 @F10000000249@ FAM
+1 MARR
+2 DATE 9 Nov 1790
+2 PLAC Old Newton, St. Mary, Suffolk
+1 HUSB @I00000000249@
+1 WIFE @I81000000249@
+1 CHIL @I00000000250@
+1 CHIL @I00000000252@
+1 CHIL @I00000000253@
+1 SOUR @S01@
+0 @F10000000253@ FAM
+1 MARR
+2 DATE 19 Aug 1819
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000253@
+1 WIFE @I00000000255@
+1 SOUR @S01@
+0 @F10000000385@ FAM
+1 MARR
+2 DATE 6 Oct 1836
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000385@
+1 WIFE @I00000000214@
+1 CHIL @I00000000561@
+1 CHIL @I00000000569@
+1 SOUR @S01@
+0 @F10000000677@ FAM
+1 MARR
+2 DATE 10 Mar 1757
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000677@
+1 WIFE @I00000000080@
+1 SOUR @S01@
+0 @F10000001116@ FAM
+1 MARR
+2 DATE 9 Oct 1722
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000001116@
+1 WIFE @I00000000121@
+1 SOUR @S01@
+0 @F10000001169@ FAM
+1 MARR
+2 DATE 21 Mar 1766
+2 PLAC Wherstead, St. Mary, Suffolk
+1 HUSB @I00000001169@
+1 WIFE @I00000001168@
+1 CHIL @I00000001170@
+1 CHIL @I00000001171@
+1 CHIL @I00000001172@
+1 CHIL @I00000001173@
+1 CHIL @I00000001174@
+1 SOUR @S01@
+0 @F10000001170@ FAM
+1 MARR
+2 DATE 13 Aug 1789
+2 PLAC Little Blakenham, St. Mary, Suffolk
+1 HUSB @I00000001170@
+1 WIFE @I81000001170@
+1 SOUR @S01@
+0 @F10000001177@ FAM
+1 MARR
+2 DATE 2 Sep 1783
+2 PLAC Westminster, St. James Piccadilly, Middlesex
+1 HUSB @I00000001177@
+1 WIFE @I00000001178@
+1 CHIL @I00000001179@
+1 CHIL @I00000001180@
+1 SOUR @S01@
+0 @F10000001514@ FAM
+1 MARR
+2 DATE 11 May 1749
+2 PLAC Aldham, St. Mary, Suffolk
+1 HUSB @I00000001514@
+1 WIFE @I00000000139@
+1 CHIL @I00000000155@
+1 SOUR @S01@
+0 @F10000001528@ FAM
+1 MARR
+2 DATE 2 Jun 1800
+2 PLAC Little Blakenham, St. Mary, Suffolk
+1 HUSB @I00000001528@
+1 WIFE @I00000001174@
+1 SOUR @S01@
+0 @F20000000002@ FAM
+1 MARR
+2 DATE 20 Jun 1698
+2 PLAC Great Finborough, St. Andrew, Suffolk
+1 HUSB @I00000000002@
+1 WIFE @I00000000042@
+1 SOUR @S01@
+0 @F20000000072@ FAM
+1 MARR
+2 DATE 30 Aug 1771
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000072@
+1 WIFE @I00000000104@
+1 SOUR @S01@
+0 @F20000000079@ FAM
+1 MARR
+2 DATE 20 Nov 1770
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I00000000079@
+1 WIFE @I82000000079@
+1 SOUR @S01@
+0 @F20000000082@ FAM
+1 MARR
+2 DATE 8 Feb 1808
+2 PLAC Combs, St. Mary, Suffolk
+1 HUSB @I00000000082@
+1 WIFE @I00000000176@
+1 SOUR @S01@
+0 @F20000000085@ FAM
+1 MARR
+2 DATE 26 Nov 1790
+2 PLAC Long Melford, Holy Trinity, Suffolk
+1 HUSB @I00000000085@
+1 WIFE @I00000000084@
+1 SOUR @S01@
+0 @F20000000089@ FAM
+1 MARR
+2 DATE 30 Mar 1802
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000089@
+1 WIFE @I82000000089@
+1 SOUR @S01@
+0 @F20000000098@ FAM
+1 MARR
+2 DATE 1 Jul 1813
+2 PLAC Wicken, St. Laurence, Cambridgeshire
+1 HUSB @I00000000098@
+1 WIFE @I82000000098@
+1 SOUR @S01@
+0 @F20000000105@ FAM
+1 MARR
+2 DATE 4 Aug 1698
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000105@
+1 WIFE @I82000000105@
+1 CHIL @I00000000107@
+1 CHIL @I00000000108@
+1 CHIL @I00000000121@
+1 CHIL @I00000000130@
+1 CHIL @I00000000131@
+1 SOUR @S01@
+0 @F20000000173@ FAM
+1 MARR
+2 DATE 24 Dec 1817
+2 PLAC Dalham, St. Mary, Suffolk
+1 HUSB @I00000000173@
+1 WIFE @I82000000173@
+1 SOUR @S01@
+0 @F20000000217@ FAM
+1 MARR
+2 DATE 3 Jul 1849
+2 PLAC Kennington, St. Mark, Surrey
+1 HUSB @I00000000217@
+1 WIFE @I82000000217@
+1 SOUR @S01@
+0 @F30000000082@ FAM
+1 MARR
+2 DATE 20 May 1816
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+1 HUSB @I00000000082@
+1 WIFE @I83000000082@
+1 SOUR @S01@
+0 @F81000000061@ FAM
+1 MARR
+2 DATE 18 Apr 1694
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I81000000061@
+1 WIFE @I00000000061@
+1 SOUR @S01@
+0 @F81000000064@ FAM
+1 MARR
+2 DATE 26 Aug 1696
+2 PLAC Combs, St. Mary, Suffolk
+1 HUSB @I81000000064@
+1 WIFE @I00000000064@
+1 SOUR @S01@
+0 @F81000000067@ FAM
+1 MARR
+2 DATE 25 Sep 1712
+2 PLAC Ipswich, St. Nicholas, Suffolk
+1 HUSB @I81000000067@
+1 WIFE @I00000000067@
+1 SOUR @S01@
+0 @F81000000069@ FAM
+1 MARR
+2 DATE 12 Apr 1725
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I81000000069@
+1 WIFE @I00000000069@
+1 SOUR @S01@
+0 @F81000000074@ FAM
+1 MARR
+2 DATE 16 Aug 1752
+2 PLAC Gipping, St. Nicholas, Suffolk
+1 HUSB @I81000000074@
+1 WIFE @I00000000074@
+1 SOUR @S01@
+0 @F81000000076@ FAM
+1 MARR
+2 DATE 20 May 1753
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I81000000076@
+1 WIFE @I00000000076@
+1 SOUR @S01@
+0 @F81000000087@ FAM
+1 HUSB @I81000000087@
+1 WIFE @I00000000087@
+1 SOUR @S01@
+0 @F81000000099@ FAM
+1 MARR
+2 DATE 15 Dec 1811
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I81000000099@
+1 WIFE @I00000000099@
+1 SOUR @S01@
+0 @F81000000102@ FAM
+1 MARR
+2 DATE 11 Nov 1819
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I81000000102@
+1 WIFE @I00000000102@
+1 SOUR @S01@
+0 @F81000000127@ FAM
+1 MARR
+2 DATE 27 Nov 1792
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I81000000127@
+1 WIFE @I00000000127@
+1 SOUR @S01@
+0 @F81000000129@ FAM
+1 MARR
+2 DATE 10 Feb 1797
+2 PLAC Combs, St. Mary, Suffolk
+1 HUSB @I81000000129@
+1 WIFE @I00000000129@
+1 SOUR @S01@
+0 @F81000000130@ FAM
+1 MARR
+2 DATE 28 May 1740
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I81000000130@
+1 WIFE @I00000000130@
+1 SOUR @S01@
+0 @F81000000142@ FAM
+1 MARR
+2 DATE 8 Jan 1789
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I81000000142@
+1 WIFE @I00000000142@
+1 SOUR @S01@
+0 @F81000000163@ FAM
+1 MARR
+2 DATE 26 Aug 1841
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I81000000163@
+1 WIFE @I00000000163@
+1 SOUR @S01@
+0 @F81000000176@ FAM
+1 HUSB @I81000000176@
+1 WIFE @I00000000176@
+1 SOUR @S01@
+0 @F81000000215@ FAM
+1 MARR
+2 DATE 8 Oct 1833
+2 PLAC Bury St. Edmunds, St. Mary, Suffolk
+1 HUSB @I81000000215@
+1 WIFE @I00000000215@
+1 SOUR @S01@
+0 @F81000000218@ FAM
+1 HUSB @I81000000218@
+1 WIFE @I00000000218@
+1 SOUR @S01@
+0 @F81000001530@ FAM
+1 MARR
+2 DATE 15 Dec 1850
+2 PLAC Holborn, St. Andrew, Middlesex
+1 HUSB @I81000001530@
+1 WIFE @I00000001530@
+1 SOUR @S01@
+0 @F82000000186@ FAM
+1 HUSB @I82000000186@
+1 WIFE @I00000000186@
+1 SOUR @S01@
+0 @F70000000002@ FAM
+1 HUSB @I92000000002@
+1 CHIL @I00000000002@
+1 SOUR @S01@
+0 @I92000000002@ INDI
+1 NAME (?)/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000041@ FAM
+1 HUSB @I92000000041@
+1 CHIL @I00000000041@
+1 SOUR @S01@
+0 @I92000000041@ INDI
+1 NAME (?)/(?)/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000042@ FAM
+1 HUSB @I92000000042@
+1 CHIL @I00000000042@
+1 SOUR @S01@
+0 @I92000000042@ INDI
+1 NAME (?)/Hall/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000062@ FAM
+1 HUSB @I92000000062@
+1 CHIL @I00000000062@
+1 SOUR @S01@
+0 @I92000000062@ INDI
+1 NAME (?)/Diaper/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000079@ FAM
+1 HUSB @I92000000079@
+1 WIFE @I91000000079@
+1 CHIL @I00000000079@
+1 SOUR @S01@
+0 @I92000000079@ INDI
+1 NAME Robert/Merriton/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000079@ INDI
+1 NAME Sary/Merriton/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000084@ FAM
+1 HUSB @I92000000084@
+1 CHIL @I00000000084@
+1 SOUR @S01@
+0 @I92000000084@ INDI
+1 NAME (?)/Groom/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000085@ FAM
+1 HUSB @I92000000085@
+1 WIFE @I91000000085@
+1 CHIL @I00000000085@
+1 SOUR @S01@
+0 @I92000000085@ INDI
+1 NAME Thomas/Moore/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000085@ INDI
+1 NAME Alice/Moore/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000086@ FAM
+1 HUSB @I92000000086@
+1 WIFE @I91000000086@
+1 CHIL @I00000000086@
+1 SOUR @S01@
+0 @I92000000086@ INDI
+1 NAME James/Last/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000086@ INDI
+1 NAME Martha/Last/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000087@ FAM
+1 HUSB @I92000000087@
+1 WIFE @I91000000087@
+1 CHIL @I00000000087@
+1 SOUR @S01@
+0 @I92000000087@ INDI
+1 NAME James/Last/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000087@ INDI
+1 NAME Martha/Last/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000097@ FAM
+1 HUSB @I92000000097@
+1 WIFE @I91000000097@
+1 CHIL @I00000000097@
+1 SOUR @S01@
+0 @I92000000097@ INDI
+1 NAME William/Wright/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000097@ INDI
+1 NAME Elizabeth/Wright/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000103@ FAM
+1 HUSB @I92000000103@
+1 CHIL @I00000000103@
+1 SOUR @S01@
+0 @I92000000103@ INDI
+1 NAME Anthony/Osborne/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000104@ FAM
+1 HUSB @I92000000104@
+1 CHIL @I00000000104@
+1 SOUR @S01@
+0 @I92000000104@ INDI
+1 NAME (?)/Pierson/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000165@ FAM
+1 HUSB @I92000000165@
+1 WIFE @I91000000165@
+1 CHIL @I00000000165@
+1 SOUR @S01@
+0 @I92000000165@ INDI
+1 NAME John/Poole/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000165@ INDI
+1 NAME (?)/Poole/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000176@ FAM
+1 HUSB @I92000000176@
+1 WIFE @I91000000176@
+1 CHIL @I00000000176@
+1 SOUR @S01@
+0 @I92000000176@ INDI
+1 NAME Peter/Baker/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000176@ INDI
+1 NAME (?)/Baker/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000183@ FAM
+1 HUSB @I92000000183@
+1 CHIL @I00000000183@
+1 SOUR @S01@
+0 @I92000000183@ INDI
+1 NAME (?)/Osborne/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000184@ FAM
+1 HUSB @I92000000184@
+1 WIFE @I91000000184@
+1 CHIL @I00000000184@
+1 SOUR @S01@
+0 @I92000000184@ INDI
+1 NAME William/Felgate/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000184@ INDI
+1 NAME Elizabeth/Felgate/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000186@ FAM
+1 HUSB @I92000000186@
+1 WIFE @I91000000186@
+1 CHIL @I00000000186@
+1 SOUR @S01@
+0 @I92000000186@ INDI
+1 NAME (?)/Swann/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000186@ INDI
+1 NAME Martha/Swann/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000206@ FAM
+1 HUSB @I92000000206@
+1 CHIL @I00000000206@
+1 SOUR @S01@
+0 @I92000000206@ INDI
+1 NAME (?)/(?)/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000210@ FAM
+1 HUSB @I92000000210@
+1 WIFE @I91000000210@
+1 CHIL @I00000000210@
+1 SOUR @S01@
+0 @I92000000210@ INDI
+1 NAME Samuel/Chapman/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000210@ INDI
+1 NAME Elizabeth/Chapman/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000213@ FAM
+1 HUSB @I92000000213@
+1 WIFE @I91000000213@
+1 CHIL @I00000000213@
+1 SOUR @S01@
+0 @I92000000213@ INDI
+1 NAME Benjamin/Morgan/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000213@ INDI
+1 NAME Sarah/Morgan/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000218@ FAM
+1 HUSB @I92000000218@
+1 WIFE @I91000000218@
+1 CHIL @I00000000218@
+1 SOUR @S01@
+0 @I92000000218@ INDI
+1 NAME James/Chapman/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000218@ INDI
+1 NAME Ann/Chapman/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000220@ FAM
+1 HUSB @I92000000220@
+1 WIFE @I91000000220@
+1 CHIL @I00000000220@
+1 SOUR @S01@
+0 @I92000000220@ INDI
+1 NAME Stephen/Mackley/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000220@ INDI
+1 NAME Kezia/Mackley/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000238@ FAM
+1 HUSB @I92000000238@
+1 CHIL @I00000000238@
+1 SOUR @S01@
+0 @I92000000238@ INDI
+1 NAME (?)/Drake/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000239@ FAM
+1 HUSB @I92000000239@
+1 CHIL @I00000000239@
+1 SOUR @S01@
+0 @I92000000239@ INDI
+1 NAME (?)/(?)/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000240@ FAM
+1 HUSB @I92000000240@
+1 CHIL @I00000000240@
+1 SOUR @S01@
+0 @I92000000240@ INDI
+1 NAME (?)/Tricker/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000241@ FAM
+1 HUSB @I92000000241@
+1 CHIL @I00000000241@
+1 SOUR @S01@
+0 @I92000000241@ INDI
+1 NAME (?)/County/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000242@ FAM
+1 HUSB @I92000000242@
+1 CHIL @I00000000242@
+1 SOUR @S01@
+0 @I92000000242@ INDI
+1 NAME (?)/Last/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000243@ FAM
+1 HUSB @I92000000243@
+1 CHIL @I00000000243@
+1 SOUR @S01@
+0 @I92000000243@ INDI
+1 NAME (?)/Cooper/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000246@ FAM
+1 HUSB @I92000000246@
+1 WIFE @I91000000246@
+1 CHIL @I00000000246@
+1 SOUR @S01@
+0 @I92000000246@ INDI
+1 NAME William/Norman/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000246@ INDI
+1 NAME Mary/Norman/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000247@ FAM
+1 HUSB @I92000000247@
+1 CHIL @I00000000247@
+1 SOUR @S01@
+0 @I92000000247@ INDI
+1 NAME (?)/Whitecake/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000255@ FAM
+1 HUSB @I92000000255@
+1 WIFE @I91000000255@
+1 CHIL @I00000000255@
+1 SOUR @S01@
+0 @I92000000255@ INDI
+1 NAME Christopher/Greengrass/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000255@ INDI
+1 NAME Sophia/Greengrass/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000385@ FAM
+1 HUSB @I92000000385@
+1 WIFE @I91000000385@
+1 CHIL @I00000000385@
+1 SOUR @S01@
+0 @I92000000385@ INDI
+1 NAME William/Bilson/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000385@ INDI
+1 NAME Elizabeth/Bilson/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000677@ FAM
+1 HUSB @I92000000677@
+1 CHIL @I00000000677@
+1 SOUR @S01@
+0 @I92000000677@ INDI
+1 NAME (?)/Howe/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000970@ FAM
+1 HUSB @I92000000970@
+1 WIFE @I91000000970@
+1 CHIL @I00000000970@
+1 SOUR @S01@
+0 @I92000000970@ INDI
+1 NAME James Lindoe/Winkup/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000970@ INDI
+1 NAME Sarah/Winkup/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001116@ FAM
+1 HUSB @I92000001116@
+1 WIFE @I91000001116@
+1 CHIL @I00000001116@
+1 SOUR @S01@
+0 @I92000001116@ INDI
+1 NAME Thomas/Sughate/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001116@ INDI
+1 NAME Ann/Sughate/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001169@ FAM
+1 HUSB @I92000001169@
+1 CHIL @I00000001169@
+1 SOUR @S01@
+0 @I92000001169@ INDI
+1 NAME (?)/Osborn/
+1 SEX M
+1 SOUR @S01@
+0 @F70000001177@ FAM
+1 WIFE @I91000001177@
+1 CHIL @I00000001177@
+1 SOUR @S01@
+0 @I91000001177@ INDI
+1 NAME Sophia/Robinson/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001178@ FAM
+1 HUSB @I92000001178@
+1 CHIL @I00000001178@
+1 SOUR @S01@
+0 @I92000001178@ INDI
+1 NAME (?)/Diggens/
+1 SEX M
+1 SOUR @S01@
+0 @F70000001514@ FAM
+1 HUSB @I92000001514@
+1 CHIL @I00000001514@
+1 SOUR @S01@
+0 @I92000001514@ INDI
+1 NAME (?)/Grey/
+1 SEX M
+1 SOUR @S01@
+0 @F70000001528@ FAM
+1 HUSB @I92000001528@
+1 WIFE @I91000001528@
+1 CHIL @I00000001528@
+1 SOUR @S01@
+0 @I92000001528@ INDI
+1 NAME Thomas/Emsden/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001528@ INDI
+1 NAME Sarah/Emsden/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001529@ FAM
+1 HUSB @I92000001529@
+1 WIFE @I91000001529@
+1 CHIL @I00000001529@
+1 SOUR @S01@
+0 @I92000001529@ INDI
+1 NAME John/Balaam/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001529@ INDI
+1 NAME Mary/Balaam/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000061@ INDI
+1 NAME Thomas /Pettit/
+1 SEX M
+1 FAMS @F81000000061@
+1 SOUR @S01@
+0 @I81000000064@ INDI
+1 NAME Robert /Page/
+1 SEX M
+1 FAMS @F81000000064@
+1 SOUR @S01@
+0 @I81000000067@ INDI
+1 NAME John /Mouse/
+1 SEX M
+1 FAMS @F81000000067@
+1 SOUR @S01@
+0 @I81000000069@ INDI
+1 NAME John /Drake/
+1 SEX M
+1 FAMS @F81000000069@
+1 SOUR @S01@
+0 @I81000000072@ INDI
+1 NAME Sarah /(?)/
+1 SEX F
+1 FAMS @F10000000072@
+1 SOUR @S01@
+0 @I81000000074@ INDI
+1 NAME William /Wright/
+1 SEX M
+1 FAMS @F81000000074@
+1 SOUR @S01@
+0 @I81000000075@ INDI
+1 NAME Elizabeth /Hammond/
+1 SEX F
+1 FAMS @F10000000075@
+1 SOUR @S01@
+0 @I81000000076@ INDI
+1 NAME John /Jewers/
+1 SEX M
+1 FAMS @F81000000076@
+1 SOUR @S01@
+0 @I81000000085@ INDI
+1 NAME Martha /Davy/
+1 SEX F
+1 FAMS @F10000000085@
+1 SOUR @S01@
+0 @I81000000087@ INDI
+1 NAME John /Pond/
+1 SEX M
+1 FAMS @F81000000087@
+1 SOUR @S01@
+0 @I81000000089@ INDI
+1 NAME Mary /Moore/
+1 SEX F
+1 FAMS @F10000000089@
+1 SOUR @S01@
+0 @I81000000099@ INDI
+1 NAME William /Norman/
+1 SEX M
+1 FAMS @F81000000099@
+1 SOUR @S01@
+0 @I81000000102@ INDI
+1 NAME Miles /Barton/
+1 SEX M
+1 FAMS @F81000000102@
+1 SOUR @S01@
+0 @I81000000105@ INDI
+1 NAME Elizabeth /Pool/
+1 SEX F
+1 FAMS @F10000000105@
+1 SOUR @S01@
+0 @I81000000109@ INDI
+1 NAME Alice /County/
+1 SEX F
+1 FAMS @F10000000109@
+1 SOUR @S01@
+0 @I81000000110@ INDI
+1 NAME Sarah /Tricker/
+1 SEX F
+1 FAMS @F10000000110@
+1 SOUR @S01@
+0 @I81000000111@ INDI
+1 NAME Elizabeth /Whitecake/
+1 SEX F
+1 FAMS @F10000000111@
+1 SOUR @S01@
+0 @I81000000112@ INDI
+1 NAME Hannah /Sherman/
+1 SEX F
+1 FAMS @F10000000112@
+1 SOUR @S01@
+0 @I81000000114@ INDI
+1 NAME Mary /Lockwood/
+1 SEX F
+1 FAMS @F10000000114@
+1 SOUR @S01@
+0 @I81000000123@ INDI
+1 NAME Elizabeth /Outlaw/
+1 SEX F
+1 FAMS @F10000000123@
+1 SOUR @S01@
+0 @I81000000125@ INDI
+1 NAME Susan /Jackerman/
+1 SEX F
+1 FAMS @F10000000125@
+1 SOUR @S01@
+0 @I81000000126@ INDI
+1 NAME Sarah /Mootham/
+1 SEX F
+1 FAMS @F10000000126@
+1 SOUR @S01@
+0 @I81000000127@ INDI
+1 NAME William /Andrews/
+1 SEX M
+1 FAMS @F81000000127@
+1 SOUR @S01@
+0 @I81000000129@ INDI
+1 NAME John /Wright/
+1 SEX M
+1 FAMS @F81000000129@
+1 SOUR @S01@
+0 @I81000000130@ INDI
+1 NAME William /Smith/
+1 SEX M
+1 FAMS @F81000000130@
+1 SOUR @S01@
+0 @I81000000142@ INDI
+1 NAME William /Hunt/
+1 SEX M
+1 FAMS @F81000000142@
+1 SOUR @S01@
+0 @I81000000151@ INDI
+1 NAME Susan /Barnard/
+1 SEX F
+1 FAMS @F10000000151@
+1 SOUR @S01@
+0 @I81000000161@ INDI
+1 NAME Susan /Coe/
+1 SEX F
+1 FAMS @F10000000161@
+1 SOUR @S01@
+0 @I81000000162@ INDI
+1 NAME Mary /Andrews/
+1 SEX F
+1 FAMS @F10000000162@
+1 SOUR @S01@
+0 @I81000000163@ INDI
+1 NAME Godfrey Mouser /Palmer/
+1 SEX M
+1 FAMS @F81000000163@
+1 SOUR @S01@
+0 @I81000000164@ INDI
+1 NAME Emma /Godbold/
+1 SEX F
+1 FAMS @F10000000164@
+1 SOUR @S01@
+0 @I81000000173@ INDI
+1 NAME Elizabeth /Saunderson/
+1 SEX F
+1 FAMS @F10000000173@
+1 SOUR @S01@
+0 @I81000000176@ INDI
+1 NAME Edmund /Tricker/
+1 SEX M
+1 FAMS @F81000000176@
+1 SOUR @S01@
+0 @I81000000215@ INDI
+1 NAME James Lindoe /Winkup/
+1 SEX M
+1 FAMS @F81000000215@
+1 SOUR @S01@
+0 @I81000000218@ INDI
+1 NAME Charles /Fox/
+1 SEX M
+1 FAMS @F81000000218@
+1 SOUR @S01@
+0 @I81000000249@ INDI
+1 NAME Elizabeth /Cooper/
+1 SEX F
+1 FAMS @F10000000249@
+1 SOUR @S01@
+0 @I81000001170@ INDI
+1 NAME Catharine /Bentfield/
+1 SEX F
+1 FAMS @F10000001170@
+1 SOUR @S01@
+0 @I81000001530@ INDI
+1 NAME Robert /Newton/
+1 SEX M
+1 FAMS @F81000001530@
+1 SOUR @S01@
+0 @I82000000079@ INDI
+1 NAME Susan /Warren/
+1 SEX F
+1 FAMS @F20000000079@
+1 SOUR @S01@
+0 @I82000000089@ INDI
+1 NAME Mary /Swann/
+1 SEX F
+1 FAMS @F20000000089@
+1 SOUR @S01@
+0 @I82000000098@ INDI
+1 NAME Mary /Layton/
+1 SEX F
+1 FAMS @F20000000098@
+1 SOUR @S01@
+0 @I82000000105@ INDI
+1 NAME Hannah /Blomfield/
+1 SEX F
+1 FAMS @F20000000105@
+1 SOUR @S01@
+0 @I82000000173@ INDI
+1 NAME Ann /Kenney/
+1 SEX F
+1 FAMS @F20000000173@
+1 SOUR @S01@
+0 @I82000000186@ INDI
+1 NAME John /Wibrow/
+1 SEX M
+1 FAMS @F82000000186@
+1 SOUR @S01@
+0 @I82000000217@ INDI
+1 NAME Elizabeth /Going/
+1 SEX F
+1 FAMS @F20000000217@
+1 SOUR @S01@
+0 @I83000000082@ INDI
+1 NAME Elizabeth /Long/
+1 SEX F
+1 FAMS @F30000000082@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

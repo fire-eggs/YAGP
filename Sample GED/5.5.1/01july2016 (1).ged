@@ -1,0 +1,215 @@
+﻿0 HEAD
+1 SOUR RootsMagic
+2 NAME RootsMagic
+2 VERS 6.3.3.2
+2 CORP RootsMagic, Inc.
+3 ADDR PO Box 495
+4 CONT Springville, UT 84663
+4 CONT USA
+3 PHON 1-800-ROOTSMAGIC
+3 WWW www.RootsMagic.com
+1 DEST RootsMagic
+1 DATE 15 JAN 2017
+1 FILE 2017jan15caa.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @I90547@ INDI
+1 NAME Pulcherie /[Roman citizen?]/
+2 GIVN Pulcherie
+2 SURN [Roman citizen?]
+1 SEX M
+1 _UID 3010332F9F0EA245853290E80B9FDD03EF20
+1 CHAN
+2 DATE 16 APR 2009
+1 _COLOR 9
+1 SOUR @S2@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 FAMS @F39407@
+1 FAMC @F39408@
+1 NOTE @DWNLNOTE@
+0 @I90549@ INDI
+1 NAME Flavius Arcadius /[Roman citizen?]/
+2 GIVN Flavius Arcadius
+2 SURN [Roman citizen?]
+1 SEX M
+1 _UID 6A32415BE278A5498A5E26C489B1574D304A
+1 CHAN
+2 DATE 16 APR 2009
+1 _COLOR 9
+1 SOUR @S2@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 377/8
+2 _SDATE 1 JUL 378
+2 SOUR @S2@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 409
+2 _SDATE 1 JUL 409
+2 SOUR @S2@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F39408@
+1 FAMC @F39409@
+1 NOTE @DWNLNOTE@
+0 @I90550@ INDI
+1 NAME Aelia Eudoxia /a Roman Citizen/
+2 GIVN Aelia Eudoxia
+2 SURN a Roman Citizen
+2 NICK +Flavius Arcadius
+1 SEX F
+1 _UID B1328725B90526499A13B9F3C97B340D9AA5
+1 CHAN
+2 DATE 10 MAY 2009
+1 _COLOR 9
+1 SOUR @S2@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 FAMS @F39408@
+1 FAMC @F39410@
+1 NOTE @DWNLNOTE@
+0 @I90553@ INDI
+1 NAME Bauto /of the Franks/
+2 GIVN Bauto
+2 SURN of the Franks
+1 SEX M
+1 _UID 65AF0A2911CF8F41BB9082FB79C084A82451
+1 CHAN
+2 DATE 16 APR 2009
+1 _COLOR 9
+1 SOUR @S2@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S1@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 FAMS @F39410@
+1 NOTE @DWNLNOTE@
+0 @F39407@ FAM
+1 HUSB @I90547@
+1 MARR
+2 SOUR @S2@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F39408@ FAM
+1 HUSB @I90549@
+1 WIFE @I90550@
+1 CHIL @I90547@
+1 MARR
+2 SOUR @S2@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F39409@ FAM
+1 CHIL @I90549@
+1 MARR
+2 SOUR @S2@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F39410@ FAM
+1 HUSB @I90553@
+1 CHIL @I90550@
+1 MARR
+2 SOUR @S2@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S1@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @S1@ SOUR
+1 ABBR GEDCOM file imported on 14 Mar 2014
+1 TITL GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+2 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+2 CONC ed on 14 Mar 2014.
+1 _SUBQ GEDCOM file, Cathy Abernathy - GEDCOM archive from harddrive - recovere
+2 CONC d file.
+1 _BIBL GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+2 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+2 CONC ed on 14 Mar 2014.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+4 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+4 CONC ed on 14 Mar 2014.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Cathy Abernathy - GEDCOM archive from harddrive - recovere
+4 CONC d file.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Cathy Abernathy - GEDCOM archive from harddriv
+4 CONC e - recovered file, weavercat@gmail.com. Created on 12 MAR 2014. Import
+4 CONC ed on 14 Mar 2014.
+0 @S2@ SOUR
+1 ABBR GEDCOM file imported on 23 Sep 2009
+1 TITL GEDCOM file submitted by Cathy Ann Abernathygmail.com. Created on 17 AU
+2 CONC G 2009. Imported on 23 Sep 2009.
+1 _SUBQ GEDCOM file submitted by Cathy Ann Abernathy
+1 _BIBL GEDCOM file submitted by Cathy Ann Abernathy, Rootsweb.com / weavercat@
+2 CONC gmail.com. Created on 17 AUG 2009. Imported on 23 Sep 2009.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Cathy Ann Abernathygmail.com. Created on 17 AU
+4 CONC G 2009. Imported on 23 Sep 2009.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file submitted by Cathy Ann Abernathy
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Cathy Ann Abernathy, Rootsweb.com / weavercat@
+4 CONC gmail.com. Created on 17 AUG 2009. Imported on 23 Sep 2009.
+0 @DWNLNOTE@ NOTE
+1 CONT Verify details of data for yourself; use this only as a guide
+0 TRLR

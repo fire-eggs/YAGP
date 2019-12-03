@@ -48,7 +48,9 @@ namespace GEDWrap.Tests
         [Test]
         public void SimpleGed3()
         {
-            var path = @"Z:\HOST_E\proj\GED\all_ged\01\pallanezf.ged"; // TODO project-relative path
+            // A simple GED file downloaded from the internet
+            var path = Path.Combine(rootPath, "pallanezf.ged");
+
             Forest ged = new Forest();
             ged.ParseGEDCOM(path);
             Assert.AreEqual(0, ged.Errors.Count);

@@ -1,0 +1,3200 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Felgate of Stowmarket and Stowupland, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:01
+1 FILE FFH_FT_Members_004
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Felgate of Stowmarket and Stowupland, Suffolk
+0 @I00000001661@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1705
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 4 Oct 1780
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Mr., Senior.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 19 Sep 1782
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Court: Consistory Court of Norwich
+3 CONT Type of document:Will
+3 CONT Occupation: Yeoman
+1 FAMC @F70000001661@
+1 FAMS @F10000001661@
+1 SOUR @S01@
+0 @I00000001662@ INDI
+1 NAME Elisabeth /Felgate/
+1 SEX F
+1 CHR
+2 DATE 10 Nov 1734
+2 PLAC Combs, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001661@
+1 FAMS @F81000001662@
+1 SOUR @S01@
+0 @I00000000399@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1742
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 18 Jul 1790
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Widow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000399@
+1 FAMS @F10000000400@
+1 SOUR @S01@
+0 @I00000000400@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 27 Dec 1743
+2 PLAC Little Stonham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 7 May 1786
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Mr.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001661@
+1 FAMS @F10000000400@
+1 SOUR @S01@
+0 @I00000001663@ INDI
+1 NAME Mary /Felgate/
+1 SEX F
+1 CHR
+2 DATE 5 Oct 1745
+2 PLAC Little Stonham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001663@
+1 FAMS @F81000001663@
+1 SOUR @S01@
+0 @I00000001343@ INDI
+1 NAME Edmund /Pearle/
+1 SEX M
+1 CHR
+2 DATE 9 Dec 1765
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 2 Jan 1839
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 AGE 72y
+2 NOTE Of Horndon on the Hill.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 7 Feb 1839
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 NOTE Court: Archdeaconry Court of Colchester
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F70000001343@
+1 FAMS @F10000001343@
+1 SOUR @S01@
+0 @I00000000405@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 24 Jun 1767
+2 PLAC Helmingham, St. Mary, Suffolk
+2 NOTE Surname recorded as Fieldgate in register.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000400@
+1 SOUR @S01@
+0 @I00000000592@ INDI
+1 NAME Elizabeth /Cooper/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1768
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 16 Dec 1796
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Wife of Fuller Felgate from Bury St. Edmunds.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000592@
+1 FAMS @F10000000401@
+1 SOUR @S01@
+0 @I00000000401@ INDI
+1 NAME Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 7 Dec 1768
+2 PLAC Helmingham, St. Mary, Suffolk
+2 NOTE Surname recorded as Fieldgate in register.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 1 Feb 1846
+2 PLAC Enfield, St. Andrew, Middlesex
+2 AGE 78y
+2 NOTE Of Chase Side.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000400@
+1 FAMS @F10000000401@
+1 SOUR @S01@
+0 @I00000000402@ INDI
+1 NAME John /Felgate/
+1 SEX M
+1 CHR
+2 DATE 7 Dec 1768
+2 PLAC Helmingham, St. Mary, Suffolk
+2 NOTE Surname recorded as Fieldgate in register.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000400@
+1 FAMS @F10000000402@
+1 SOUR @S01@
+0 @I00000001574@ INDI
+1 NAME Thomas /Felgate/
+1 SEX M
+1 CHR
+2 DATE 12 Jun 1771
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 20 May 1772
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000400@
+1 SOUR @S01@
+0 @I00000000417@ INDI
+1 NAME Susan /Coe/
+1 SEX F
+1 CHR
+2 DATE 11 Jun 1772
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 21 Jun 1845
+2 PLAC Civil Registration, England
+2 AGE 74y
+2 NOTE Widow of John Felgate (Gardener), of Stowmarket. Died from "Paralysis", reported by Susan Barker, present at the death.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F70000000417@
+1 FAMS @F10000000402@
+1 SOUR @S01@
+0 @I00000001564@ INDI
+1 NAME Esther /Horn/
+1 SEX F
+1 CHR
+2 DATE 14 Mar 1773
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 18 May 1814
+2 PLAC Chelmondiston, St. Andrew, Suffolk
+2 AGE 41y
+2 NOTE Of Chelmondiston.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001564@
+1 FAMS @F10000000403@
+1 SOUR @S01@
+0 @I00000000403@ INDI
+1 NAME Samuel /Felgate/
+1 SEX M
+1 CHR
+2 DATE 20 Nov 1773
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 19 Oct 1853
+2 PLAC Chelmondiston, St. Andrew, Suffolk
+2 AGE 80y
+2 NOTE Of Chelmondiston.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000400@
+1 FAMS @F10000000403@
+1 SOUR @S01@
+0 @I00000000404@ INDI
+1 NAME Sarah /Felgate/
+1 SEX F
+1 CHR
+2 DATE 2 Jun 1775
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Mar 1846
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 AGE 73y
+2 NOTE Of Wickford.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000400@
+1 FAMS @F10000001343@
+1 SOUR @S01@
+0 @I00000000654@ INDI
+1 NAME Jane /Sidney/
+1 SEX F
+1 CHR
+2 DATE 11 Jan 1791
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 12 Jan 1787
+1 BURI
+2 DATE 23 Nov 1864
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 77y
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000654@
+1 FAMS @F10000000555@
+1 SOUR @S01@
+0 @I00000000414@ INDI
+1 NAME Elizabeth Cooper /Felgate/
+1 SEX F
+1 CHR
+2 DATE 4 Mar 1791
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 10 Apr 1841
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+2 AGE 50y
+2 NOTE Of Cannon Place, Bury St. Edmunds, St. James.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000401@
+1 FAMS @F81000000414@
+1 SOUR @S01@
+0 @I00000001575@ INDI
+1 NAME Susanna /Felgate/
+1 SEX F
+1 CHR
+2 DATE 28 Mar 1793
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 5 Aug 1800
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Daughter of John Felgate.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000402@
+1 SOUR @S01@
+0 @I00000000411@ INDI
+1 NAME Mary Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 31 Jul 1793
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000401@
+1 SOUR @S01@
+0 @I00000000555@ INDI
+1 NAME John Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 15 Dec 1794
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 12 Jul 1849
+2 PLAC Civil Registration, England
+2 AGE 54y
+2 NOTE Gardener, of Stowmarket. Died from "Mania 5 years, Phthisis P. 1 year. Certified.", reported by Mary Buckle, present at the death.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000402@
+1 FAMS @F10000000555@
+1 SOUR @S01@
+0 @I00000000565@ INDI
+1 NAME Mary /Felgate/
+1 SEX F
+1 CHR
+2 DATE 28 Dec 1794
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000401@
+1 FAMS @F81000000565@
+1 SOUR @S01@
+0 @I00000000413@ INDI
+1 NAME Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Nov 1795
+2 PLAC <Unknown>, England
+2 NOTE Date unknown, born in Bury St. Edmunds.
+1 BURI
+2 DATE 30 Oct 1857
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 AGE 61y
+2 NOTE Of Stowupland.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000401@
+1 FAMS @F10000000413@
+1 SOUR @S01@
+0 @I00000000663@ INDI
+1 NAME Sophia /Greengrass/
+1 SEX F
+1 CHR
+2 DATE 18 Dec 1796
+2 PLAC Purleigh, All Saints, Essex
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 4 Feb 1875
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 AGE 78y
+2 NOTE Of Stowupland.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000663@
+1 FAMS @F10000000413@
+1 SOUR @S01@
+0 @I00000000418@ INDI
+1 NAME Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 10 Apr 1797
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000402@
+1 SOUR @S01@
+0 @I00000001565@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 30 Sep 1798
+2 PLAC Erwarton, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 17 Sep 1798
+1 BURI
+2 DATE 24 Jun 1869
+2 PLAC Civil Registration, England
+2 AGE 70y
+2 NOTE Farm Labourer, of Harkstead, Died from "Infirmity Certified", reported by Elizabeth Rowe of Harkstead.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000403@
+1 FAMS @F10000001565@
+1 SOUR @S01@
+0 @I00000000568@ INDI
+1 NAME Elizabeth /Diaper/
+1 SEX F
+1 CHR
+2 DATE 29 Apr 1799
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 29 Apr 1799
+1 BURI
+2 DATE 25 Nov 1863
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 65y
+2 NOTE Wife of Isaac Felgate.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000568@
+1 FAMS @F10000000419@
+1 SOUR @S01@
+0 @I00000000419@ INDI
+1 NAME Isaac /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Dec 1799
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 12 Jan 1870
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 70y
+2 NOTE Grocer.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000402@
+1 FAMS @F10000000419@
+1 SOUR @S01@
+0 @I00000001568@ INDI
+1 NAME Martha /Brooks/
+1 SEX F
+1 CHR
+2 DATE 11 May 1800
+2 PLAC Chelmondiston, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Apr 1860
+2 PLAC Civil Registration, England
+2 AGE 60y
+2 NOTE Wife of William Felgate (Farm Labourer), of Harkstead. Died from "Bronchitis Certified", reported by Ann Scarff of Harkstead.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F70000001568@
+1 FAMS @F10000001565@
+1 SOUR @S01@
+0 @I00000001566@ INDI
+1 NAME Samuel /Felgate/
+1 SEX M
+1 CHR
+2 DATE 9 Nov 1800
+2 PLAC Erwarton, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000403@
+1 SOUR @S01@
+0 @I00000000416@ INDI
+1 NAME Edmund Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 21 Aug 1802
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 11 Jul 1881
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 79y
+2 NOTE Maltster.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000402@
+1 FAMS @F10000000416@
+1 SOUR @S01@
+0 @I00000000563@ INDI
+1 NAME Mary /Andrews/
+1 SEX F
+1 CHR
+2 DATE 11 Dec 1802
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 11 Dec 1802
+1 BURI
+2 DATE 1 Aug 1863
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 61y
+2 NOTE Wife of Edmund Felgate.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000563@
+1 FAMS @F10000000416@
+1 SOUR @S01@
+0 @I00000001567@ INDI
+1 NAME Robert /Felgate/
+1 SEX M
+1 CHR
+2 DATE 13 Nov 1803
+2 PLAC Erwarton, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000403@
+1 SOUR @S01@
+0 @I00000000421@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 23 Jan 1805
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Oct 1868
+2 PLAC <Unknown>, England
+2 AGE 63y
+2 NOTE Date unknown, in Burton upon Trent Registration district, reference 6b 216.
+1 FAMC @F10000000402@
+1 FAMS @F10000000421@
+1 SOUR @S01@
+0 @I00000000662@ INDI
+1 NAME Kezia /Crowe/
+1 SEX F
+1 CHR
+2 DATE 17 Aug 1806
+2 PLAC Mendlesham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 7 Aug 1806
+1 BURI
+2 DATE 7 Feb 1845
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 AGE 37y
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000662@
+1 FAMS @F10000000421@
+1 SOUR @S01@
+0 @I00000000420@ INDI
+1 NAME Susan /Felgate/
+1 SEX F
+1 CHR
+2 DATE 6 May 1807
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000402@
+1 SOUR @S01@
+0 @I00000000410@ INDI
+1 NAME Mary /Felgate/
+1 SEX F
+1 CHR
+2 DATE 26 Feb 1810
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 15 Jan 1810
+1 BURI
+2 DATE 5 Apr 1879
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 69y
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000402@
+1 FAMS @F10000000668@
+1 SOUR @S01@
+0 @I00000000408@ INDI
+1 NAME Robert /Felgate/
+1 SEX M
+1 CHR
+2 DATE 22 Aug 1816
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 21 Apr 1816
+1 BURI
+2 DATE 1 Dec 1854
+2 PLAC Acton, St. Mary, Middlesex
+2 AGE 40y
+2 NOTE Of Acton.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000402@
+1 FAMS @F10000000408@
+1 SOUR @S01@
+0 @I00000000665@ INDI
+1 NAME Emma /Godbold/
+1 SEX F
+1 CHR
+2 DATE 16 Mar 1817
+2 PLAC Dennington, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 21 Jun 1884
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 67y
+2 NOTE Widow, of Elmswell.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000665@
+1 FAMS @F10000000408@
+1 SOUR @S01@
+0 @I00000000668@ INDI
+1 NAME Godfrey Mouser /Palmer/
+1 SEX M
+1 CHR
+2 DATE 24 Dec 1826
+2 PLAC Somersham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 11 Feb 1818
+1 BURI
+2 DATE 1 Jan 1895
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 77y
+2 NOTE Gardener, of Stow Union Workhouse.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000668@
+1 FAMS @F10000000668@
+1 SOUR @S01@
+0 @I00000001342@ INDI
+1 NAME Mary Ann /Manby/
+1 SEX F
+1 CHR
+2 DATE 2 Aug 1818
+2 PLAC Creeting St. Mary, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Jul 1903
+2 PLAC <Unknown>, England
+2 AGE 85y
+2 NOTE Date unknown, in Stow Registration district, reference 4a 453.
+1 FAMC @F70000001342@
+1 FAMS @F20000000655@
+1 SOUR @S01@
+0 @I00000000412@ INDI
+1 NAME Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 21 May 1820
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000413@
+1 SOUR @S01@
+0 @I00000000407@ INDI
+1 NAME Robert Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 26 Jan 1821
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 24 Jul 1890
+2 PLAC Woodham Walter, St. Michael, Essex
+2 AGE 70y
+2 NOTE Of Woodham Walter.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000413@
+1 FAMS @F10000000407@
+1 SOUR @S01@
+0 @I00000000406@ INDI
+1 NAME Walter /Felgate/
+1 SEX M
+1 CHR
+2 DATE 13 Aug 1823
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 20 Nov 1823
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 AGE 112d
+2 NOTE Of Stowupland.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000413@
+1 SOUR @S01@
+0 @I00000000666@ INDI
+1 NAME Anne Maria /Mays/
+1 SEX F
+1 CHR
+2 DATE 21 Sep 1823
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 24 Apr 1895
+2 PLAC Woodham Walter, St. Michael, Essex
+2 AGE 72y
+2 NOTE Of Woodham Walter.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000666@
+1 FAMS @F10000000407@
+1 SOUR @S01@
+0 @I00000000556@ INDI
+1 NAME Louisa Jane /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jul 1824
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 BURI
+2 DATE 16 May 1853
+2 PLAC Civil Registration, England
+2 AGE 29y
+2 NOTE Wife of Charles Sweeney Collins (Clerk), of 33 Wilmington Square, Clerkenwell. Died from "Phthisis Laryngitis, Certified", reported by Charles Sweeney Collins.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000555@
+1 FAMS @F81000000556@
+1 SOUR @S01@
+0 @I00000000409@ INDI
+1 NAME Mary Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 20 May 1825
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Apr 1910
+2 PLAC <Unknown>, England
+2 AGE 84y
+2 NOTE Date unknown, in Bury St. Edmunds Registration district, reference 4a 411.
+1 FAMC @F10000000413@
+1 SOUR @S01@
+0 @I00000000557@ INDI
+1 NAME Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 18 Jan 1833
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 7 Oct 1825
+1 BURI
+2 DATE 5 Mar 1907
+2 PLAC Civil Registration, England
+2 AGE 81y
+2 NOTE Spinster Dressmaker of Stowmarket, died at the County Lunatic Asylum, Melton. Died from "Senectus Chronic Brights disease Certified by J. R. Whitwell", reported by Stephen G. Longworth (Deputy Superintendent, County Lunatic Asylum, Melton).
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000555@
+1 SOUR @S01@
+0 @I00000000667@ INDI
+1 NAME Harriot /Barnard/
+1 SEX F
+1 CHR
+2 DATE 5 Mar 1826
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Jul 1855
+2 PLAC <Unknown>, England
+2 NOTE Date unknown, in Ipswich Registration district, reference 4a 354.
+1 FAMC @F70000000667@
+1 FAMS @F10000000655@
+1 SOUR @S01@
+0 @I00000000655@ INDI
+1 NAME Edward /Felgate/
+1 SEX M
+1 CHR
+2 DATE 15 Mar 1837
+2 PLAC Rockland, St. Peter Primitive Methodist, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 17 Jun 1825
+1 BURI
+2 DATE 25 Feb 1890
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 64y
+2 NOTE Maltster.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000416@
+1 FAMS @F10000000655@
+1 FAMS @F20000000655@
+1 SOUR @S01@
+0 @I00000000664@ INDI
+1 NAME Sophia /Felgate/
+1 SEX F
+1 CHR
+2 DATE 22 Oct 1826
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000413@
+1 FAMS @F10000001165@
+1 SOUR @S01@
+0 @I00000001627@ INDI
+1 NAME Mary Ann /Jackson/
+1 SEX F
+1 CHR
+2 DATE 12 Apr 1827
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001627@
+1 FAMS @F10000000558@
+1 SOUR @S01@
+0 @I00000000656@ INDI
+1 NAME Mary Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 15 Mar 1837
+2 PLAC Rockland, St. Peter Primitive Methodist, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 25 Jun 1827
+1 BURI
+2 DATE 1 Jan 1915
+2 PLAC <Unknown>, England
+2 AGE 85y
+2 NOTE Date unknown, in Stow Registration district, reference 4a 1444.
+1 FAMC @F10000000416@
+1 FAMS @F81000000656@
+1 FAMS @F83000000656@
+1 SOUR @S01@
+0 @I00000001569@ INDI
+1 NAME Samuel /Felgate/
+1 SEX M
+1 CHR
+2 DATE 14 Oct 1827
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 31 Aug 1827
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000000558@ INDI
+1 NAME John /Felgate/
+1 SEX M
+1 CHR
+2 DATE 18 Jan 1833
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 11 Mar 1828
+1 BURI
+2 DATE 5 Sep 1885
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 57y
+2 NOTE Of Haughley.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000555@
+1 FAMS @F10000000558@
+1 SOUR @S01@
+0 @I00000001165@ INDI
+1 NAME William Joseph /Williams/
+1 SEX M
+1 CHR
+2 DATE 30 Nov 1828
+2 PLAC Holborn, St. Andrew, Middlesex
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 31 Oct 1828
+1 FAMC @F70000001165@
+1 FAMS @F10000001165@
+1 SOUR @S01@
+0 @I00000000657@ INDI
+1 NAME Miriam /Felgate/
+1 SEX F
+1 CHR
+2 DATE 15 Mar 1837
+2 PLAC Rockland, St. Peter Primitive Methodist, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 7 Aug 1830
+1 FAMC @F10000000416@
+1 FAMS @F81000000657@
+1 SOUR @S01@
+0 @I00000000566@ INDI
+1 NAME Elizabeth /Felgate/
+1 SEX F
+1 CHR
+2 DATE 8 Apr 1831
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Feb 1830
+1 FAMC @F10000000419@
+1 SOUR @S01@
+0 @I00000000559@ INDI
+1 NAME Isaac /Felgate/
+1 SEX M
+1 CHR
+2 DATE 18 Jan 1833
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 2 Feb 1830
+1 FAMC @F10000000555@
+1 FAMS @F10000000559@
+1 SOUR @S01@
+0 @I00000001341@ INDI
+1 NAME George /Ormes/
+1 SEX M
+1 CHR
+2 DATE 25 Dec 1830
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 May 1864
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 33y
+2 NOTE Tailor. [Surname entered as Orams in register, but see the death registration for George Ormes in Stow Registration district, reference 4a 352.]
+3 CONT Record Source: Church Register
+1 FAMC @F70000001341@
+1 FAMS @F10000001341@
+1 SOUR @S01@
+0 @I00000001570@ INDI
+1 NAME Esther /Felgate/
+1 SEX F
+1 CHR
+2 DATE 31 Mar 1847
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 16 May 1831
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001646@ INDI
+1 NAME Harriet /Larkins/
+1 SEX F
+1 CHR
+2 DATE 30 Oct 1831
+2 PLAC Lowestoft, St. Margaret, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001646@
+1 FAMS @F10000000559@
+1 SOUR @S01@
+0 @I00000000567@ INDI
+1 NAME Isaac William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 18 Jan 1833
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 10 Jun 1832
+1 BURI
+2 DATE 20 May 1863
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 31y
+2 NOTE Draper.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000419@
+1 SOUR @S01@
+0 @I00000000658@ INDI
+1 NAME Thomas /Felgate/
+1 SEX M
+1 CHR
+2 DATE 15 Mar 1837
+2 PLAC Rockland, St. Peter Primitive Methodist, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 23 Jul 1832
+1 BURI
+2 DATE 1 Jan 1913
+2 PLAC <Unknown>, England
+2 AGE 82y
+2 NOTE Date unknown, in Bury St. Edmunds Registration district, reference 4a 1084.
+1 FAMC @F10000000416@
+1 FAMS @F10000000658@
+1 SOUR @S01@
+0 @I00000001340@ INDI
+1 NAME Betsey /Ormes/
+1 SEX F
+1 CHR
+2 DATE 26 Nov 1832
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 2 Mar 1901
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 68y
+2 NOTE Wife of Thomas, Maltster.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001340@
+1 FAMS @F10000000658@
+1 SOUR @S01@
+0 @I00000000562@ INDI
+1 NAME James /Felgate/
+1 SEX M
+1 CHR
+2 DATE 17 Dec 1835
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 25 May 1834
+1 BURI
+2 DATE 1 Oct 1898
+2 PLAC <Unknown>, England
+2 AGE 64y
+2 NOTE Date unknown, in Basingstoke Registration district, reference 2c 131.
+1 FAMC @F10000000419@
+1 FAMS @F10000000562@
+1 SOUR @S01@
+0 @I00000000659@ INDI
+1 NAME Adelaide /Felgate/
+1 SEX F
+1 CHR
+2 DATE 15 Mar 1837
+2 PLAC Rockland, St. Peter Primitive Methodist, Norfolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 Feb 1835
+1 BURI
+2 DATE 30 Dec 1896
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 62y
+2 NOTE Widow of George.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000416@
+1 FAMS @F10000001341@
+1 SOUR @S01@
+0 @I00000000564@ INDI
+1 NAME Robert /Felgate/
+1 SEX M
+1 CHR
+2 DATE 17 Dec 1835
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 20 Nov 1835
+1 FAMC @F10000000419@
+1 SOUR @S01@
+0 @I00000000660@ INDI
+1 NAME Susan /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jul 1836
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000416@
+1 SOUR @S01@
+0 @I00000001571@ INDI
+1 NAME Martha /Felgate/
+1 SEX F
+1 CHR
+2 DATE 21 Apr 1851
+2 PLAC Erwarton, St. Mary, Suffolk
+2 NOTE Aged 14 years.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001664@ INDI
+1 NAME Alfred /Gurkin/
+1 SEX M
+1 CHR
+2 DATE 25 Feb 1838
+2 PLAC Troston, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001664@
+1 FAMS @F10000001664@
+1 SOUR @S01@
+0 @I00000001644@ INDI
+1 NAME Ann /Festing/
+1 SEX F
+1 CHR
+2 DATE 16 Jul 1838
+2 PLAC Nottingham, St. Mary the Virgin, Nottinghamshire
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001644@
+1 FAMS @F10000000562@
+1 SOUR @S01@
+0 @I00000001629@ INDI
+1 NAME Zachariah /Howe/
+1 SEX M
+1 CHR
+2 DATE 21 Apr 1839
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 18 Aug 1838
+1 BURI
+2 DATE 1 Jan 1921
+2 PLAC <Unknown>, England
+2 AGE 82y
+2 NOTE Date unknown, in Norwich Registration district, reference 4a 989.
+1 FAMC @F70000001629@
+1 FAMS @F10000001629@
+1 SOUR @S01@
+0 @I00000000604@ INDI
+1 NAME Robert Heber /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1839
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 BURI
+2 DATE 23 Aug 1902
+2 PLAC Kirkley, Cemetery, Suffolk
+2 AGE 63y
+2 NOTE Gentleman. Buried in grave K/C/60.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000419@
+1 FAMS @F10000000604@
+1 SOUR @S01@
+0 @I00000001572@ INDI
+1 NAME Sarah Anne /Felgate/
+1 SEX F
+1 CHR
+2 DATE 29 Mar 1853
+2 PLAC Erwarton, St. Mary, Suffolk
+2 NOTE Aged 13 years.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000000415@ INDI
+1 NAME Eliza Anna /Felgate/
+1 SEX F
+1 CHR
+2 DATE 20 Aug 1839
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Jun 1875
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 AGE 36y
+2 NOTE Of Stowupland.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000413@
+1 SOUR @S01@
+0 @I00000000661@ INDI
+1 NAME Sarah Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1839
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Framlingham according to census returns.
+1 FAMC @F10000000416@
+1 SOUR @S01@
+0 @I00000001628@ INDI
+1 NAME Eliza Maria /Mayhew/
+1 SEX F
+1 CHR
+2 DATE 8 May 1840
+2 PLAC Mortlake, St. Mary, Surrey
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001628@
+1 FAMS @F10000000604@
+1 SOUR @S01@
+0 @I00000001573@ INDI
+1 NAME Jane /Felgate/
+1 SEX F
+1 CHR
+2 DATE 29 Mar 1853
+2 PLAC Erwarton, St. Mary, Suffolk
+2 NOTE Aged 11 years.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001631@ INDI
+1 NAME Rebecca /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1843
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Framlingham according to census returns.
+1 FAMC @F10000000416@
+1 FAMS @F81000001631@
+1 SOUR @S01@
+0 @I00000001639@ INDI
+1 NAME Harriett /Best/
+1 SEX F
+1 CHR
+2 DATE 16 Feb 1845
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 Sep 1844
+1 BURI
+2 DATE 8 Feb 1927
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 AGE 82y
+2 NOTE Of 7 Wood Row. Buried in grave 37 row 5.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001639@
+1 FAMS @F81000001639@
+1 FAMS @F10000001637@
+1 SOUR @S01@
+0 @I00000000669@ INDI
+1 NAME Emily Mary /Felgate/
+1 SEX F
+1 CHR
+2 DATE 13 Nov 1846
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F00000000409@
+1 FAMS @F10000001664@
+1 SOUR @S01@
+0 @I00000001652@ INDI
+1 NAME Miriam /Felgate/
+1 SEX F
+1 BIRT
+2 DATE 3 May 1847
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 31 Mar 1847
+1 BURI
+2 DATE 1 Apr 1917
+2 PLAC <Unknown>, England
+2 AGE 70y
+2 NOTE Date unknown, in Hackney Registration district, reference 1b 469.
+1 FAMC @F00000000656@
+1 FAMS @F81000001652@
+1 SOUR @S01@
+0 @I00000001604@ INDI
+1 NAME Mister William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jul 1847
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 BURI
+2 DATE 1 Jan 1925
+2 PLAC <Unknown>, England
+2 AGE 77y
+2 NOTE Date unknown, in Burton upon Trent Registration district, reference 6b 500.
+1 FAMC @F10000000421@
+1 FAMS @F10000001604@
+1 SOUR @S01@
+0 @I00000001587@ INDI
+1 NAME Roseannah /Felgate/
+1 SEX F
+1 CHR
+2 DATE 16 Jun 1889
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Aged 41 years. Surname now Howe.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 3 Oct 1899
+2 PLAC Rattlesden, St. Nicholas, Suffolk
+2 AGE 51y
+2 NOTE Of Rattlesden.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000655@
+1 FAMS @F10000001629@
+1 SOUR @S01@
+0 @I00000001645@ INDI
+1 NAME John Isaacson /Cocke/
+1 SEX M
+1 CHR
+2 DATE 6 Apr 1849
+2 PLAC Ashdon, All Saints, Essex
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 7 Mar 1849
+1 FAMC @F70000001645@
+1 FAMS @F10000001645@
+1 SOUR @S01@
+0 @I00000000560@ INDI
+1 NAME Anna Sophia /Felgate/
+1 SEX F
+1 CHR
+2 DATE 7 Apr 1849
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Mar 1917
+2 PLAC Woodham Walter, St. Michael, Essex
+2 AGE 66y
+2 NOTE Of Lock House, Ulting.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000407@
+1 FAMS @F10000001647@
+1 SOUR @S01@
+0 @I00000001594@ INDI
+1 NAME Mary Jane /Felgate/
+1 SEX F
+1 CHR
+2 DATE 5 Apr 1865
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Received into church.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 20 Oct 1849
+1 BURI
+2 DATE 3 Jun 1885
+2 PLAC Mendlesham, St. Mary, Suffolk
+2 AGE 35y
+2 NOTE Of Mendlesham.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000558@
+1 FAMS @F81000001594@
+1 SOUR @S01@
+0 @I00000001636@ INDI
+1 NAME Catherine /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1850
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Salisbury according to census returns.
+1 FAMC @F10000000655@
+1 FAMS @F81000001636@
+1 FAMS @F82000001636@
+1 SOUR @S01@
+0 @I00000001583@ INDI
+1 NAME Maria Jane /Felgate/
+1 SEX F
+1 CHR
+2 DATE 9 Feb 1851
+2 PLAC Nayland, St. James, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Jun 1923
+2 PLAC Ulting, All Saints, Essex
+2 AGE 71y
+2 NOTE Of Southlands, Ulting. Burial "Certified under the Burial Laws Amendments Act 1880".
+3 CONT Record Source: Church Register
+1 FAMC @F10000000407@
+1 FAMS @F81000001583@
+1 SOUR @S01@
+0 @I00000001589@ INDI
+1 NAME Allen /Felgate/
+1 SEX M
+1 CHR
+2 DATE 11 Sep 1856
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE [Date of birth from birth certificate.]
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 15 Oct 1851
+1 FAMC @F00000000656@
+1 SOUR @S01@
+0 @I00000001590@ INDI
+1 NAME Catherine /Felgate/
+1 SEX F
+1 CHR
+2 DATE 5 Apr 1865
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Received into church. Previously baptised at Haughley, Congregational.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 20 Mar 1852
+1 FAMC @F10000000558@
+1 FAMS @F10000001645@
+1 SOUR @S01@
+0 @I00000001637@ INDI
+1 NAME Thomas Manning /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1852
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Bramford according to census returns.
+1 BURI
+2 DATE 6 Feb 1932
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 AGE 79y
+2 NOTE Of 3 Aiyel(?) Court, Low Moor.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000655@
+1 FAMS @F10000001637@
+1 SOUR @S01@
+0 @I00000001584@ INDI
+1 NAME Edward Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 2 May 1852
+2 PLAC Nayland, St. James, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000407@
+1 SOUR @S01@
+0 @I00000001647@ INDI
+1 NAME Emmanuel /Davis/
+1 SEX M
+1 CHR
+2 DATE 29 May 1853
+2 PLAC Woodham Walter, St. Michael, Essex
+2 NOTE Twin.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 18 Jan 1937
+2 PLAC Woodham Walter, St. Michael, Essex
+2 AGE 83y
+2 NOTE Of Hatfield Peverel.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001647@
+1 FAMS @F10000001647@
+1 SOUR @S01@
+0 @I00000001591@ INDI
+1 NAME Emily Louisa /Felgate/
+1 SEX F
+1 CHR
+2 DATE 5 Apr 1865
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 9 Jan 1854
+1 FAMC @F10000000558@
+1 SOUR @S01@
+0 @I00000001640@ INDI
+1 NAME Elizabeth /Felgate/
+1 SEX F
+1 CHR
+2 DATE 15 Jan 1854
+2 PLAC Hertford, All Saints with St. John, Hertfordshire
+2 NOTE Record Source: LDS Record Search
+1 FAMC @F10000000407@
+1 FAMS @F81000001640@
+1 SOUR @S01@
+0 @I00000001638@ INDI
+1 NAME Ebenezer /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jul 1854
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Ipswich according to census returns.
+1 FAMC @F10000000655@
+1 SOUR @S01@
+0 @I00000001593@ INDI
+1 NAME John Jackson /Felgate/
+1 SEX M
+1 CHR
+2 DATE 5 Apr 1865
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 14 Jan 1856
+1 FAMC @F10000000558@
+1 FAMS @F10000001593@
+1 SOUR @S01@
+0 @I00000001176@ INDI
+1 NAME Emey /Barnard/
+1 SEX F
+1 CHR
+2 DATE 22 May 1859
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Illegitimate. [Birth registered in Romford district.]
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 10 Mar 1856
+1 BURI
+2 DATE 1 Jan 1932
+2 PLAC <Unknown>, England
+2 AGE 75y
+2 NOTE Date unknown, in Stow Registration district, reference 4a 1329.
+1 FAMC @F70000001176@
+1 FAMS @F10000001175@
+1 SOUR @S01@
+0 @I00000001605@ INDI
+1 NAME Edgar Fuller /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1856
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000658@
+1 SOUR @S01@
+0 @I00000001592@ INDI
+1 NAME Annie Alice /Felgate/
+1 SEX F
+1 CHR
+2 DATE 5 Apr 1865
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Sep 1857
+1 BURI
+2 DATE 16 Dec 1893
+2 PLAC Haughley, St. Mary, Suffolk
+2 AGE 35y
+2 NOTE Of Haughley.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000558@
+1 SOUR @S01@
+0 @I00000001576@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 5 Aug 1866
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 2 Mar 1858
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001175@ INDI
+1 NAME Harry /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1858
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000658@
+1 FAMS @F10000001175@
+1 SOUR @S01@
+0 @I00000001595@ INDI
+1 NAME Louisa Maria /Felgate/
+1 SEX F
+1 CHR
+2 DATE 5 Apr 1865
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE [Forenames entered as Maria Louisa in register.]
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 1 May 1859
+1 FAMC @F10000000558@
+1 FAMS @F81000001595@
+1 SOUR @S01@
+0 @I00000001602@ INDI
+1 NAME Alfred /Felgate/
+1 SEX M
+1 CHR
+2 DATE 23 Feb 1871
+2 PLAC Woodham Walter, St. Michael, Essex
+2 NOTE Born 1860.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000407@
+1 SOUR @S01@
+0 @I00000001633@ INDI
+1 NAME Harriet /Felgate/
+1 SEX F
+1 CHR
+2 DATE 7 Oct 1860
+2 PLAC Lowestoft, St. Margaret, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 9 Sep 1859
+1 FAMC @F10000000559@
+1 SOUR @S01@
+0 @I00000001577@ INDI
+1 NAME Frederick /Felgate/
+1 SEX M
+1 CHR
+2 DATE 5 Aug 1866
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 18 Dec 1859
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001606@ INDI
+1 NAME George Thomas /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Oct 1860
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 BURI
+2 DATE 1 Apr 1919
+2 PLAC <Unknown>, England
+2 AGE 59y
+2 NOTE Date unknown, in Bosmere Registration district, reference 4a 871.
+1 FAMC @F10000000658@
+1 FAMS @F10000001606@
+1 SOUR @S01@
+0 @I00000001632@ INDI
+1 NAME Jane Maria /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jun 1862
+2 PLAC Lowestoft, St. Margaret, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 23 Oct 1861
+1 FAMC @F10000000559@
+1 SOUR @S01@
+0 @I00000001596@ INDI
+1 NAME William Sydney /Felgate/
+1 SEX M
+1 CHR
+2 DATE 5 Apr 1865
+2 PLAC Woolpit, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Nov 1861
+1 FAMC @F10000000558@
+1 FAMS @F10000001596@
+1 SOUR @S01@
+0 @I00000001653@ INDI
+1 NAME Alan /Felgate/
+1 SEX M
+1 BIRT
+2 DATE 20 Jun 1862
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 15 May 1862
+1 BURI
+2 DATE 1 Jun 1865
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 3y
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000658@
+1 SOUR @S01@
+0 @I00000001578@ INDI
+1 NAME Arthur /Felgate/
+1 SEX M
+1 CHR
+2 DATE 5 Aug 1866
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 16 Sep 1863
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001634@ INDI
+1 NAME Kate /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1864
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Lowestoft according to census returns.
+1 FAMC @F10000000559@
+1 SOUR @S01@
+0 @I00000001581@ INDI
+1 NAME Sarah Jane /Felgate/
+1 SEX F
+1 CHR
+2 DATE 25 Oct 1896
+2 PLAC Ipswich, St. Nicholas, Suffolk
+2 NOTE Adult, of 6 Adelphi Place, Ipswich.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000658@
+1 SOUR @S01@
+0 @I00000001603@ INDI
+1 NAME Walter /Felgate/
+1 SEX M
+1 CHR
+2 DATE 23 Feb 1871
+2 PLAC Woodham Walter, St. Michael, Essex
+2 NOTE Born 1864.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000407@
+1 SOUR @S01@
+0 @I00000001607@ INDI
+1 NAME Alfred Mayhew /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jul 1864
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001611@ INDI
+1 NAME Annie Festing /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1864
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000562@
+1 SOUR @S01@
+0 @I00000001608@ INDI
+1 NAME Percy Frederick /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Oct 1865
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001615@ INDI
+1 NAME Mary E. /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1866
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000658@
+1 SOUR @S01@
+0 @I00000001635@ INDI
+1 NAME William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1866
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Lowestoft according to census returns.
+1 FAMC @F10000000559@
+1 SOUR @S01@
+0 @I00000001579@ INDI
+1 NAME Ellen Jane /Felgate/
+1 SEX F
+1 CHR
+2 DATE 5 Aug 1866
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 17 Apr 1866
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001612@ INDI
+1 NAME Lizzie H. /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jul 1866
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000562@
+1 SOUR @S01@
+0 @I00000001609@ INDI
+1 NAME Sidney Charles /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jul 1867
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001616@ INDI
+1 NAME Alice /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1867
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000658@
+1 SOUR @S01@
+0 @I00000001617@ INDI
+1 NAME Emma /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1869
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000658@
+1 SOUR @S01@
+0 @I00000001580@ INDI
+1 NAME Robert /Felgate/
+1 SEX M
+1 CHR
+2 DATE 4 Apr 1869
+2 PLAC Harkstead, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001565@
+1 SOUR @S01@
+0 @I00000001654@ INDI
+1 NAME Stanley Ernest /Felgate/
+1 SEX M
+1 BIRT
+2 DATE 7 Oct 1869
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 31 Aug 1869
+1 BURI
+2 DATE 24 Nov 1869
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 70d
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001618@ INDI
+1 NAME Adelaide /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1870
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000658@
+1 SOUR @S01@
+0 @I00000001610@ INDI
+1 NAME Albert Edward /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1871
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 BURI
+2 DATE 29 Nov 1877
+2 PLAC Stowmarket, Cemetery, Suffolk
+2 AGE 7y
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001613@ INDI
+1 NAME Maurice Festing /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1871
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Shoreditch according to census returns.
+1 FAMC @F10000000562@
+1 SOUR @S01@
+0 @I00000001630@ INDI
+1 NAME Marianne Ethel /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1871
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Burton upon Trent according to census returns.
+1 FAMC @F10000001604@
+1 FAMS @F81000001630@
+1 SOUR @S01@
+0 @I00000001619@ INDI
+1 NAME Edward /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1873
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000658@
+1 FAMS @F10000001619@
+1 SOUR @S01@
+0 @I00000001620@ INDI
+1 NAME Eleanor Louise L. /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1873
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001621@ INDI
+1 NAME Kate Lilian /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1875
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001597@ INDI
+1 NAME Alfred Ernest /Felgate/
+1 SEX M
+1 CHR
+2 DATE 27 Jun 1883
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Aged 8 years.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000558@
+1 SOUR @S01@
+0 @I00000001614@ INDI
+1 NAME John William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Oct 1875
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Basingstoke according to census returns.
+1 FAMC @F10000000562@
+1 SOUR @S01@
+0 @I00000001641@ INDI
+1 NAME Harry /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Dec 1878
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 15 Mar 1876
+1 FAMC @F10000001637@
+1 FAMS @F10000001641@
+1 SOUR @S01@
+0 @I00000001622@ INDI
+1 NAME Frank Hedley /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jul 1877
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001642@ INDI
+1 NAME Edward /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Dec 1878
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 5 Apr 1878
+1 FAMC @F10000001637@
+1 FAMS @F10000001642@
+1 SOUR @S01@
+0 @I00000001648@ INDI
+1 NAME John Jackson /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1882
+2 PLAC Wilby, St. Mary, Suffolk
+2 NOTE Aged 2.5 years.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001593@
+1 SOUR @S01@
+0 @I00000001623@ INDI
+1 NAME Christine Mabel /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Oct 1880
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000000604@
+1 SOUR @S01@
+0 @I00000001585@ INDI
+1 NAME Kate Louise /Felgate/
+1 SEX F
+1 CHR
+2 DATE 10 Jan 1886
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001175@
+1 SOUR @S01@
+0 @I00000001643@ INDI
+1 NAME Harriet Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 19 Mar 1882
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 16 Feb 1882
+1 FAMC @F10000001637@
+1 FAMS @F81000001643@
+1 SOUR @S01@
+0 @I00000001586@ INDI
+1 NAME Alice Mabel /Felgate/
+1 SEX F
+1 CHR
+2 DATE 10 Jan 1886
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001175@
+1 SOUR @S01@
+0 @I00000001624@ INDI
+1 NAME Frederick Walter /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Oct 1883
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000001175@
+1 SOUR @S01@
+0 @I00000001649@ INDI
+1 NAME Frank Gordon /Felgate/
+1 SEX M
+1 CHR
+2 DATE 10 May 1885
+2 PLAC Barton Mills, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001593@
+1 SOUR @S01@
+0 @I00000001650@ INDI
+1 NAME Kitty /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Jul 1887
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Probably born at Barton Mills or Mildenhall.
+1 BURI
+2 DATE 1 Jul 1887
+2 PLAC <Unknown>, England
+2 NOTE Date unknown, in Mildenhall Registration district, reference 4a 382.
+1 FAMC @F10000001593@
+1 SOUR @S01@
+0 @I00000001598@ INDI
+1 NAME Frederic William /Felgate/
+1 SEX M
+1 CHR
+2 DATE 17 Jun 1888
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001596@
+1 SOUR @S01@
+0 @I00000001651@ INDI
+1 NAME Mary Gertrude /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1889
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Mildenhall according to census returns.
+1 FAMC @F10000001593@
+1 SOUR @S01@
+0 @I00000001599@ INDI
+1 NAME Maurice Sidney /Felgate/
+1 SEX M
+1 CHR
+2 DATE 15 Dec 1889
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001596@
+1 SOUR @S01@
+0 @I00000001625@ INDI
+1 NAME Lilian Mary /Felgate/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1891
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000001175@
+1 SOUR @S01@
+0 @I00000001626@ INDI
+1 NAME Russell Stern /Felgate/
+1 SEX M
+1 CHR
+2 DATE 1 Apr 1891
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Stowmarket according to census returns.
+1 FAMC @F10000001606@
+1 SOUR @S01@
+0 @I00000001600@ INDI
+1 NAME Dorothy Gertrude /Felgate/
+1 SEX F
+1 CHR
+2 DATE 9 Dec 1891
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001596@
+1 SOUR @S01@
+0 @I00000001582@ INDI
+1 NAME William Gardner /Felgate/
+1 SEX M
+1 CHR
+2 DATE 10 Apr 1892
+2 PLAC Mellis, St. Mary the Virgin, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 29 Oct 1892
+2 PLAC Mellis, St. Mary the Virgin, Suffolk
+2 AGE 15m
+2 NOTE Of Mellis.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001593@
+1 SOUR @S01@
+0 @I00000001601@ INDI
+1 NAME Claude Douglas /Felgate/
+1 SEX M
+1 CHR
+2 DATE 13 Jul 1894
+2 PLAC Haughley, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001596@
+1 SOUR @S01@
+0 @I00000001588@ INDI
+1 NAME Gertrude Annie /Felgate/
+1 SEX F
+1 CHR
+2 DATE 18 Mar 1900
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 14 Jan 1900
+1 FAMC @F10000001619@
+1 SOUR @S01@
+0 @I00000001655@ INDI
+1 NAME Harold Briggs /Felgate/
+1 SEX M
+1 CHR
+2 DATE 4 Jul 1900
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 NOTE [Born before parents married.]
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 3 Mar 1900
+1 FAMC @F10000001641@
+1 SOUR @S01@
+0 @I00000001656@ INDI
+1 NAME Edwin /Felgate/
+1 SEX M
+1 CHR
+2 DATE 29 Jun 1907
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 14 Feb 1904
+1 FAMC @F10000001641@
+1 SOUR @S01@
+0 @I00000001658@ INDI
+1 NAME Benjamin Haigh /Felgate/
+1 SEX M
+1 CHR
+2 DATE 18 May 1904
+2 PLAC Bowling, St. John, Yorkshire
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001642@
+1 SOUR @S01@
+0 @I00000001657@ INDI
+1 NAME Arthur /Felgate/
+1 SEX M
+1 CHR
+2 DATE 2 Mar 1907
+2 PLAC Low Moor, St. Mark, Yorkshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 26 Aug 1906
+1 FAMC @F10000001641@
+1 SOUR @S01@
+0 @I00000001659@ INDI
+1 NAME Lydia /Felgate/
+1 SEX F
+1 CHR
+2 DATE 26 Dec 1906
+2 PLAC Bowling, St. John, Yorkshire
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001642@
+1 SOUR @S01@
+0 @I00000001660@ INDI
+1 NAME Mary Ann /Felgate/
+1 SEX F
+1 CHR
+2 DATE 23 Sep 1908
+2 PLAC Bowling, St. John, Yorkshire
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001642@
+1 SOUR @S01@
+0 @F00000000409@ FAM
+1 WIFE @I00000000409@
+1 CHIL @I00000000669@
+1 SOUR @S01@
+0 @F00000000656@ FAM
+1 WIFE @I00000000656@
+1 CHIL @I00000001589@
+1 CHIL @I00000001652@
+1 SOUR @S01@
+0 @F10000000400@ FAM
+1 MARR
+2 DATE 25 Sep 1765
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000400@
+1 WIFE @I00000000399@
+1 CHIL @I00000000401@
+1 CHIL @I00000000402@
+1 CHIL @I00000000403@
+1 CHIL @I00000000404@
+1 CHIL @I00000000405@
+1 CHIL @I00000001574@
+1 SOUR @S01@
+0 @F10000000401@ FAM
+1 MARR
+2 DATE 9 Nov 1790
+2 PLAC Old Newton, St. Mary, Suffolk
+1 HUSB @I00000000401@
+1 WIFE @I00000000592@
+1 CHIL @I00000000411@
+1 CHIL @I00000000413@
+1 CHIL @I00000000414@
+1 CHIL @I00000000565@
+1 SOUR @S01@
+0 @F10000000402@ FAM
+1 MARR
+2 DATE 29 Oct 1792
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000402@
+1 WIFE @I00000000417@
+1 CHIL @I00000000408@
+1 CHIL @I00000000410@
+1 CHIL @I00000000416@
+1 CHIL @I00000000418@
+1 CHIL @I00000000419@
+1 CHIL @I00000000420@
+1 CHIL @I00000000421@
+1 CHIL @I00000000555@
+1 CHIL @I00000001575@
+1 SOUR @S01@
+0 @F10000000403@ FAM
+1 MARR
+2 DATE 9 Nov 1797
+2 PLAC Harkstead, St. Mary, Suffolk
+1 HUSB @I00000000403@
+1 WIFE @I00000001564@
+1 CHIL @I00000001565@
+1 CHIL @I00000001566@
+1 CHIL @I00000001567@
+1 SOUR @S01@
+0 @F10000000407@ FAM
+1 MARR
+2 DATE 6 Nov 1847
+2 PLAC Hauxton, St. Edmund, Cambridgeshire
+1 HUSB @I00000000407@
+1 WIFE @I00000000666@
+1 CHIL @I00000000560@
+1 CHIL @I00000001583@
+1 CHIL @I00000001584@
+1 CHIL @I00000001602@
+1 CHIL @I00000001603@
+1 CHIL @I00000001640@
+1 SOUR @S01@
+0 @F10000000408@ FAM
+1 MARR
+2 DATE 20 Apr 1843
+2 PLAC Shoreditch, St. Leonard, Middlesex
+1 HUSB @I00000000408@
+1 WIFE @I00000000665@
+1 SOUR @S01@
+0 @F10000000413@ FAM
+1 MARR
+2 DATE 19 Aug 1819
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000413@
+1 WIFE @I00000000663@
+1 CHIL @I00000000406@
+1 CHIL @I00000000407@
+1 CHIL @I00000000409@
+1 CHIL @I00000000412@
+1 CHIL @I00000000415@
+1 CHIL @I00000000664@
+1 SOUR @S01@
+0 @F10000000416@ FAM
+1 MARR
+2 DATE 19 May 1823
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000416@
+1 WIFE @I00000000563@
+1 CHIL @I00000000655@
+1 CHIL @I00000000656@
+1 CHIL @I00000000657@
+1 CHIL @I00000000658@
+1 CHIL @I00000000659@
+1 CHIL @I00000000660@
+1 CHIL @I00000000661@
+1 CHIL @I00000001631@
+1 SOUR @S01@
+0 @F10000000419@ FAM
+1 MARR
+2 DATE 31 Dec 1828
+2 PLAC Onehouse, St. John the Baptist, Suffolk
+1 HUSB @I00000000419@
+1 WIFE @I00000000568@
+1 CHIL @I00000000562@
+1 CHIL @I00000000564@
+1 CHIL @I00000000566@
+1 CHIL @I00000000567@
+1 CHIL @I00000000604@
+1 SOUR @S01@
+0 @F10000000421@ FAM
+1 MARR
+2 DATE 5 Dec 1828
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000421@
+1 WIFE @I00000000662@
+1 CHIL @I00000001604@
+1 SOUR @S01@
+0 @F10000000555@ FAM
+1 MARR
+2 DATE 29 Aug 1822
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000555@
+1 WIFE @I00000000654@
+1 CHIL @I00000000556@
+1 CHIL @I00000000557@
+1 CHIL @I00000000558@
+1 CHIL @I00000000559@
+1 SOUR @S01@
+0 @F10000000558@ FAM
+1 MARR
+2 DATE 16 Aug 1849
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I00000000558@
+1 WIFE @I00000001627@
+1 CHIL @I00000001590@
+1 CHIL @I00000001591@
+1 CHIL @I00000001592@
+1 CHIL @I00000001593@
+1 CHIL @I00000001594@
+1 CHIL @I00000001595@
+1 CHIL @I00000001596@
+1 CHIL @I00000001597@
+1 SOUR @S01@
+0 @F10000000559@ FAM
+1 MARR
+2 DATE 7 Sep 1857
+2 PLAC Lowestoft, St. Margaret, Suffolk
+1 HUSB @I00000000559@
+1 WIFE @I00000001646@
+1 CHIL @I00000001632@
+1 CHIL @I00000001633@
+1 CHIL @I00000001634@
+1 CHIL @I00000001635@
+1 SOUR @S01@
+0 @F10000000562@ FAM
+1 MARR
+2 DATE 1 Nov 1860
+2 PLAC Bedford, St. Peter (de Merton), Bedfordshire
+1 HUSB @I00000000562@
+1 WIFE @I00000001644@
+1 CHIL @I00000001611@
+1 CHIL @I00000001612@
+1 CHIL @I00000001613@
+1 CHIL @I00000001614@
+1 SOUR @S01@
+0 @F10000000567@ FAM
+1 MARR
+2 DATE 6 Apr 1858
+2 PLAC Sudbury, Trinity Congregational, Suffolk
+1 HUSB @I00000000567@
+1 WIFE @I81000000567@
+1 SOUR @S01@
+0 @F10000000604@ FAM
+1 MARR
+2 DATE 3 Aug 1863
+2 PLAC East Dereham, Independent, Norfolk
+1 HUSB @I00000000604@
+1 WIFE @I00000001628@
+1 CHIL @I00000001607@
+1 CHIL @I00000001608@
+1 CHIL @I00000001609@
+1 CHIL @I00000001610@
+1 CHIL @I00000001620@
+1 CHIL @I00000001621@
+1 CHIL @I00000001622@
+1 CHIL @I00000001623@
+1 CHIL @I00000001654@
+1 SOUR @S01@
+0 @F10000000655@ FAM
+1 MARR
+2 DATE 7 Apr 1847
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I00000000655@
+1 WIFE @I00000000667@
+1 CHIL @I00000001587@
+1 CHIL @I00000001636@
+1 CHIL @I00000001637@
+1 CHIL @I00000001638@
+1 SOUR @S01@
+0 @F10000000658@ FAM
+1 MARR
+2 DATE 6 Nov 1854
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I00000000658@
+1 WIFE @I00000001340@
+1 CHIL @I00000001175@
+1 CHIL @I00000001581@
+1 CHIL @I00000001605@
+1 CHIL @I00000001606@
+1 CHIL @I00000001615@
+1 CHIL @I00000001616@
+1 CHIL @I00000001617@
+1 CHIL @I00000001618@
+1 CHIL @I00000001619@
+1 CHIL @I00000001653@
+1 SOUR @S01@
+0 @F10000000668@ FAM
+1 MARR
+2 DATE 26 Aug 1841
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000668@
+1 WIFE @I00000000410@
+1 SOUR @S01@
+0 @F10000001165@ FAM
+1 MARR
+2 DATE 19 Sep 1857
+2 PLAC Clerkenwell, St. Philip, Middlesex
+1 HUSB @I00000001165@
+1 WIFE @I00000000664@
+1 SOUR @S01@
+0 @F10000001175@ FAM
+1 MARR
+2 DATE 15 Oct 1879
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000001175@
+1 WIFE @I00000001176@
+1 CHIL @I00000001585@
+1 CHIL @I00000001586@
+1 CHIL @I00000001624@
+1 CHIL @I00000001625@
+1 SOUR @S01@
+0 @F10000001341@ FAM
+1 MARR
+2 DATE 26 Dec 1853
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I00000001341@
+1 WIFE @I00000000659@
+1 SOUR @S01@
+0 @F10000001343@ FAM
+1 MARR
+2 DATE 11 Oct 1796
+2 PLAC West Thurrock, St. Clement, Essex
+1 HUSB @I00000001343@
+1 WIFE @I00000000404@
+1 SOUR @S01@
+0 @F10000001565@ FAM
+1 MARR
+2 DATE 12 Oct 1826
+2 PLAC Harkstead, St. Mary, Suffolk
+1 HUSB @I00000001565@
+1 WIFE @I00000001568@
+1 CHIL @I00000001569@
+1 CHIL @I00000001570@
+1 CHIL @I00000001571@
+1 CHIL @I00000001572@
+1 CHIL @I00000001573@
+1 CHIL @I00000001576@
+1 CHIL @I00000001577@
+1 CHIL @I00000001578@
+1 CHIL @I00000001579@
+1 CHIL @I00000001580@
+1 SOUR @S01@
+0 @F10000001584@ FAM
+1 MARR
+2 DATE 28 Dec 1875
+2 PLAC Hoxton, St. Saviour, Middlesex
+1 HUSB @I00000001584@
+1 WIFE @I81000001584@
+1 SOUR @S01@
+0 @F10000001593@ FAM
+1 MARR
+2 DATE 4 Jan 1879
+2 PLAC Civil Registration, England
+1 HUSB @I00000001593@
+1 WIFE @I81000001593@
+1 CHIL @I00000001582@
+1 CHIL @I00000001648@
+1 CHIL @I00000001649@
+1 CHIL @I00000001650@
+1 CHIL @I00000001651@
+1 SOUR @S01@
+0 @F10000001596@ FAM
+1 MARR
+2 DATE 1 Apr 1887
+2 PLAC <Unknown>, England
+1 HUSB @I00000001596@
+1 WIFE @I81000001596@
+1 CHIL @I00000001598@
+1 CHIL @I00000001599@
+1 CHIL @I00000001600@
+1 CHIL @I00000001601@
+1 SOUR @S01@
+0 @F10000001597@ FAM
+1 MARR
+2 DATE 24 Aug 1893
+2 PLAC Lowestoft, St. Margaret, Suffolk
+1 HUSB @I00000001597@
+1 WIFE @I81000001597@
+1 SOUR @S01@
+0 @F10000001604@ FAM
+1 MARR
+2 DATE 16 Feb 1871
+2 PLAC Burton upon Trent, Zion Baptist (Union/New Street), Staffordshire
+1 HUSB @I00000001604@
+1 WIFE @I81000001604@
+1 CHIL @I00000001630@
+1 SOUR @S01@
+0 @F10000001606@ FAM
+1 MARR
+2 DATE 15 Feb 1889
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+1 HUSB @I00000001606@
+1 WIFE @I81000001606@
+1 CHIL @I00000001626@
+1 SOUR @S01@
+0 @F10000001619@ FAM
+1 MARR
+2 DATE 12 Oct 1899
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000001619@
+1 WIFE @I81000001619@
+1 CHIL @I00000001588@
+1 SOUR @S01@
+0 @F10000001622@ FAM
+1 MARR
+2 DATE 2 Sep 1901
+2 PLAC Cambridge, St. Andrew the Great, Cambridgeshire
+1 HUSB @I00000001622@
+1 WIFE @I81000001622@
+1 SOUR @S01@
+0 @F10000001629@ FAM
+1 MARR
+2 DATE 13 Oct 1867
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I00000001629@
+1 WIFE @I00000001587@
+1 SOUR @S01@
+0 @F10000001637@ FAM
+1 MARR
+2 DATE 23 Jun 1873
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+1 HUSB @I00000001637@
+1 WIFE @I00000001639@
+1 CHIL @I00000001641@
+1 CHIL @I00000001642@
+1 CHIL @I00000001643@
+1 SOUR @S01@
+0 @F10000001641@ FAM
+1 MARR
+2 DATE 7 Apr 1900
+2 PLAC Wyke, St. Mary the Virgin, Yorkshire
+1 HUSB @I00000001641@
+1 WIFE @I81000001641@
+1 CHIL @I00000001655@
+1 CHIL @I00000001656@
+1 CHIL @I00000001657@
+1 SOUR @S01@
+0 @F10000001642@ FAM
+1 MARR
+2 DATE 15 Aug 1903
+2 PLAC Bradford, St. Peter, Yorkshire
+1 HUSB @I00000001642@
+1 WIFE @I81000001642@
+1 CHIL @I00000001658@
+1 CHIL @I00000001659@
+1 CHIL @I00000001660@
+1 SOUR @S01@
+0 @F10000001645@ FAM
+1 MARR
+2 DATE 3 Apr 1873
+2 PLAC Woolpit, St. Mary, Suffolk
+1 HUSB @I00000001645@
+1 WIFE @I00000001590@
+1 SOUR @S01@
+0 @F10000001647@ FAM
+1 MARR
+2 DATE 5 Oct 1875
+2 PLAC Woodham Walter, St. Michael, Essex
+1 HUSB @I00000001647@
+1 WIFE @I00000000560@
+1 SOUR @S01@
+0 @F10000001661@ FAM
+1 MARR
+2 DATE 29 Sep 1731
+2 PLAC Little Stonham, St. Mary, Suffolk
+1 HUSB @I00000001661@
+1 WIFE @I81000001661@
+1 CHIL @I00000000400@
+1 CHIL @I00000001662@
+1 SOUR @S01@
+0 @F10000001664@ FAM
+1 MARR
+2 DATE 1 Oct 1873
+2 PLAC <Unknown>, England
+1 HUSB @I00000001664@
+1 WIFE @I00000000669@
+1 SOUR @S01@
+0 @F20000000401@ FAM
+1 MARR
+2 DATE 25 Dec 1797
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000401@
+1 WIFE @I82000000401@
+1 SOUR @S01@
+0 @F20000000421@ FAM
+1 MARR
+2 DATE 14 Dec 1845
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I00000000421@
+1 WIFE @I82000000421@
+1 SOUR @S01@
+0 @F20000000655@ FAM
+1 MARR
+2 DATE 16 Dec 1855
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I00000000655@
+1 WIFE @I00000001342@
+1 SOUR @S01@
+0 @F20000001637@ FAM
+1 MARR
+2 DATE 14 Jun 1930
+2 PLAC Bradford, St. Peter, Yorkshire
+1 HUSB @I00000001637@
+1 WIFE @I82000001637@
+1 SOUR @S01@
+0 @F81000000414@ FAM
+1 MARR
+2 DATE 11 Jul 1816
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+1 HUSB @I81000000414@
+1 WIFE @I00000000414@
+1 SOUR @S01@
+0 @F81000000556@ FAM
+1 MARR
+2 DATE 19 Aug 1852
+2 PLAC Stowmarket, Independent / Congregational, Suffolk
+1 HUSB @I81000000556@
+1 WIFE @I00000000556@
+1 SOUR @S01@
+0 @F81000000565@ FAM
+1 MARR
+2 DATE 3 Apr 1815
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I81000000565@
+1 WIFE @I00000000565@
+1 SOUR @S01@
+0 @F81000000656@ FAM
+1 MARR
+2 DATE 6 Feb 1853
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I81000000656@
+1 WIFE @I00000000656@
+1 SOUR @S01@
+0 @F81000000657@ FAM
+1 MARR
+2 DATE 23 May 1852
+2 PLAC Stowmarket, Bethesda Baptist, Suffolk
+1 HUSB @I81000000657@
+1 WIFE @I00000000657@
+1 SOUR @S01@
+0 @F81000001583@ FAM
+1 MARR
+2 DATE 23 Sep 1876
+2 PLAC Woodham Walter, St. Michael, Essex
+1 HUSB @I81000001583@
+1 WIFE @I00000001583@
+1 SOUR @S01@
+0 @F81000001594@ FAM
+1 MARR
+2 DATE 8 Jan 1873
+2 PLAC Woolpit, St. Mary, Suffolk
+1 HUSB @I81000001594@
+1 WIFE @I00000001594@
+1 SOUR @S01@
+0 @F81000001595@ FAM
+1 MARR
+2 DATE 30 Nov 1889
+2 PLAC Haughley, St. Mary, Suffolk
+1 HUSB @I81000001595@
+1 WIFE @I00000001595@
+1 SOUR @S01@
+0 @F81000001630@ FAM
+1 MARR
+2 DATE 19 Aug 1896
+2 PLAC Burton upon Trent, Zion Baptist (Union/New Street), Staffordshire
+1 HUSB @I81000001630@
+1 WIFE @I00000001630@
+1 SOUR @S01@
+0 @F81000001631@ FAM
+1 MARR
+2 DATE 23 Sep 1866
+2 PLAC Tollington Park, St. Mark, Middlesex
+1 HUSB @I81000001631@
+1 WIFE @I00000001631@
+1 SOUR @S01@
+0 @F81000001636@ FAM
+1 MARR
+2 DATE 25 Jun 1871
+2 PLAC Ipswich, Crown Street Congregational, Suffolk
+1 HUSB @I81000001636@
+1 WIFE @I00000001636@
+1 SOUR @S01@
+0 @F81000001639@ FAM
+1 HUSB @I81000001639@
+1 WIFE @I00000001639@
+1 SOUR @S01@
+0 @F81000001640@ FAM
+1 MARR
+2 DATE 30 Jan 1876
+2 PLAC Woodham Walter, St. Michael, Essex
+1 HUSB @I81000001640@
+1 WIFE @I00000001640@
+1 SOUR @S01@
+0 @F81000001643@ FAM
+1 MARR
+2 DATE 17 Oct 1908
+2 PLAC Wibsey (Low Moor), Holy Trinity, Yorkshire
+1 HUSB @I81000001643@
+1 WIFE @I00000001643@
+1 SOUR @S01@
+0 @F81000001652@ FAM
+1 MARR
+2 DATE 20 Feb 1870
+2 PLAC Tollington Park, St. Mark, Middlesex
+1 HUSB @I81000001652@
+1 WIFE @I00000001652@
+1 SOUR @S01@
+0 @F81000001662@ FAM
+1 MARR
+2 DATE 16 Aug 1754
+2 PLAC Little Stonham, St. Mary, Suffolk
+1 HUSB @I81000001662@
+1 WIFE @I00000001662@
+1 SOUR @S01@
+0 @F81000001663@ FAM
+1 HUSB @I81000001663@
+1 WIFE @I00000001663@
+1 SOUR @S01@
+0 @F82000001636@ FAM
+1 HUSB @I82000001636@
+1 WIFE @I00000001636@
+1 SOUR @S01@
+0 @F83000000656@ FAM
+1 HUSB @I83000000656@
+1 WIFE @I00000000656@
+1 SOUR @S01@
+0 @F70000000399@ FAM
+1 HUSB @I92000000399@
+1 WIFE @I91000000399@
+1 CHIL @I00000000399@
+1 SOUR @S01@
+0 @I92000000399@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000399@ INDI
+1 NAME Sarah/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000417@ FAM
+1 HUSB @I92000000417@
+1 WIFE @I91000000417@
+1 CHIL @I00000000417@
+1 SOUR @S01@
+0 @I92000000417@ INDI
+1 NAME Isaac/Coe/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000417@ INDI
+1 NAME Sarah/Coe/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000563@ FAM
+1 HUSB @I92000000563@
+1 WIFE @I91000000563@
+1 CHIL @I00000000563@
+1 SOUR @S01@
+0 @I92000000563@ INDI
+1 NAME William/Andrews/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000563@ INDI
+1 NAME Rebecca/Andrews/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000568@ FAM
+1 HUSB @I92000000568@
+1 WIFE @I91000000568@
+1 CHIL @I00000000568@
+1 SOUR @S01@
+0 @I92000000568@ INDI
+1 NAME William/Diaper/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000568@ INDI
+1 NAME Susan/Diaper/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000592@ FAM
+1 HUSB @I92000000592@
+1 CHIL @I00000000592@
+1 SOUR @S01@
+0 @I92000000592@ INDI
+1 NAME (?)/Cooper/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000654@ FAM
+1 HUSB @I92000000654@
+1 WIFE @I91000000654@
+1 CHIL @I00000000654@
+1 SOUR @S01@
+0 @I92000000654@ INDI
+1 NAME Evered/Sidney/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000654@ INDI
+1 NAME Bridget/Sidney/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000662@ FAM
+1 HUSB @I92000000662@
+1 WIFE @I91000000662@
+1 CHIL @I00000000662@
+1 SOUR @S01@
+0 @I92000000662@ INDI
+1 NAME John/Crowe/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000662@ INDI
+1 NAME Mary/Crowe/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000663@ FAM
+1 HUSB @I92000000663@
+1 WIFE @I91000000663@
+1 CHIL @I00000000663@
+1 SOUR @S01@
+0 @I92000000663@ INDI
+1 NAME Christopher/Greengrass/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000663@ INDI
+1 NAME Sophia/Greengrass/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000665@ FAM
+1 HUSB @I92000000665@
+1 WIFE @I91000000665@
+1 CHIL @I00000000665@
+1 SOUR @S01@
+0 @I92000000665@ INDI
+1 NAME Mark/Godbold/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000665@ INDI
+1 NAME Mary/Godbold/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000666@ FAM
+1 HUSB @I92000000666@
+1 WIFE @I91000000666@
+1 CHIL @I00000000666@
+1 SOUR @S01@
+0 @I92000000666@ INDI
+1 NAME Edward/Mays/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000666@ INDI
+1 NAME Elizabeth/Mays/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000667@ FAM
+1 HUSB @I92000000667@
+1 WIFE @I91000000667@
+1 CHIL @I00000000667@
+1 SOUR @S01@
+0 @I92000000667@ INDI
+1 NAME Samuel/Barnard/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000667@ INDI
+1 NAME Sarah/Barnard/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000668@ FAM
+1 WIFE @I91000000668@
+1 CHIL @I00000000668@
+1 SOUR @S01@
+0 @I91000000668@ INDI
+1 NAME Sarah/Palmer/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001165@ FAM
+1 HUSB @I92000001165@
+1 WIFE @I91000001165@
+1 CHIL @I00000001165@
+1 SOUR @S01@
+0 @I92000001165@ INDI
+1 NAME William/Williams/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001165@ INDI
+1 NAME Charlotte/Williams/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001176@ FAM
+1 WIFE @I91000001176@
+1 CHIL @I00000001176@
+1 SOUR @S01@
+0 @I91000001176@ INDI
+1 NAME Mary/Barnard/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001340@ FAM
+1 HUSB @I92000001340@
+1 WIFE @I91000001340@
+1 CHIL @I00000001340@
+1 SOUR @S01@
+0 @I92000001340@ INDI
+1 NAME Samuel/Ormes/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001340@ INDI
+1 NAME Elizabeth/Ormes/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001341@ FAM
+1 HUSB @I92000001341@
+1 WIFE @I91000001341@
+1 CHIL @I00000001341@
+1 SOUR @S01@
+0 @I92000001341@ INDI
+1 NAME Samuel/Ormes/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001341@ INDI
+1 NAME Elizabeth/Ormes/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001342@ FAM
+1 HUSB @I92000001342@
+1 WIFE @I91000001342@
+1 CHIL @I00000001342@
+1 SOUR @S01@
+0 @I92000001342@ INDI
+1 NAME Amos/Manby/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001342@ INDI
+1 NAME Hannah/Manby/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001343@ FAM
+1 HUSB @I92000001343@
+1 WIFE @I91000001343@
+1 CHIL @I00000001343@
+1 SOUR @S01@
+0 @I92000001343@ INDI
+1 NAME Edmund/Pearle/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001343@ INDI
+1 NAME Ann/Pearle/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001564@ FAM
+1 HUSB @I92000001564@
+1 WIFE @I91000001564@
+1 CHIL @I00000001564@
+1 SOUR @S01@
+0 @I92000001564@ INDI
+1 NAME John/Horn/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001564@ INDI
+1 NAME Ann/Horn/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001568@ FAM
+1 HUSB @I92000001568@
+1 WIFE @I91000001568@
+1 CHIL @I00000001568@
+1 SOUR @S01@
+0 @I92000001568@ INDI
+1 NAME John/Brooks/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001568@ INDI
+1 NAME Sarah/Brooks/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001627@ FAM
+1 HUSB @I92000001627@
+1 WIFE @I91000001627@
+1 CHIL @I00000001627@
+1 SOUR @S01@
+0 @I92000001627@ INDI
+1 NAME William/Jackson/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001627@ INDI
+1 NAME Jane/Jackson/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001628@ FAM
+1 HUSB @I92000001628@
+1 WIFE @I91000001628@
+1 CHIL @I00000001628@
+1 SOUR @S01@
+0 @I92000001628@ INDI
+1 NAME Alfred/Mayhew/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001628@ INDI
+1 NAME Eliza/Mayhew/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001629@ FAM
+1 HUSB @I92000001629@
+1 WIFE @I91000001629@
+1 CHIL @I00000001629@
+1 SOUR @S01@
+0 @I92000001629@ INDI
+1 NAME John/Howe/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001629@ INDI
+1 NAME Susan/Howe/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001639@ FAM
+1 HUSB @I92000001639@
+1 WIFE @I91000001639@
+1 CHIL @I00000001639@
+1 SOUR @S01@
+0 @I92000001639@ INDI
+1 NAME Stephen/Best/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001639@ INDI
+1 NAME Marianne/Best/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001644@ FAM
+1 HUSB @I92000001644@
+1 WIFE @I91000001644@
+1 CHIL @I00000001644@
+1 SOUR @S01@
+0 @I92000001644@ INDI
+1 NAME Maurice Green/Festing/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001644@ INDI
+1 NAME Harriet/Festing/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001645@ FAM
+1 HUSB @I92000001645@
+1 WIFE @I91000001645@
+1 CHIL @I00000001645@
+1 SOUR @S01@
+0 @I92000001645@ INDI
+1 NAME Charles/Cocke/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001645@ INDI
+1 NAME Penelope/Cocke/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001646@ FAM
+1 HUSB @I92000001646@
+1 WIFE @I91000001646@
+1 CHIL @I00000001646@
+1 SOUR @S01@
+0 @I92000001646@ INDI
+1 NAME John/Larkins/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001646@ INDI
+1 NAME Mary/Larkins/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001647@ FAM
+1 HUSB @I92000001647@
+1 WIFE @I91000001647@
+1 CHIL @I00000001647@
+1 SOUR @S01@
+0 @I92000001647@ INDI
+1 NAME William/Davis/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001647@ INDI
+1 NAME Hannah/Davis/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001661@ FAM
+1 WIFE @I91000001661@
+1 CHIL @I00000001661@
+1 SOUR @S01@
+0 @I91000001661@ INDI
+1 NAME (?)/(?)/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001663@ FAM
+1 HUSB @I92000001663@
+1 WIFE @I91000001663@
+1 CHIL @I00000001663@
+1 SOUR @S01@
+0 @I92000001663@ INDI
+1 NAME William/Felgate/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001663@ INDI
+1 NAME Elizabeth/Felgate/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001664@ FAM
+1 HUSB @I92000001664@
+1 WIFE @I91000001664@
+1 CHIL @I00000001664@
+1 SOUR @S01@
+0 @I92000001664@ INDI
+1 NAME Henry/Gurkin/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001664@ INDI
+1 NAME Eliza/Gurkin/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000414@ INDI
+1 NAME Charles /Coe/
+1 SEX M
+1 FAMS @F81000000414@
+1 SOUR @S01@
+0 @I81000000556@ INDI
+1 NAME Charles Sweeney /Collins/
+1 SEX M
+1 FAMS @F81000000556@
+1 SOUR @S01@
+0 @I81000000565@ INDI
+1 NAME Robert /Southgate/
+1 SEX M
+1 FAMS @F81000000565@
+1 SOUR @S01@
+0 @I81000000567@ INDI
+1 NAME Sarah /Meeking/
+1 SEX F
+1 FAMS @F10000000567@
+1 SOUR @S01@
+0 @I81000000656@ INDI
+1 NAME Jonathan /Miller/
+1 SEX M
+1 FAMS @F81000000656@
+1 SOUR @S01@
+0 @I81000000657@ INDI
+1 NAME Thomas /Collins/
+1 SEX M
+1 FAMS @F81000000657@
+1 SOUR @S01@
+0 @I81000001583@ INDI
+1 NAME James /Havis/
+1 SEX M
+1 FAMS @F81000001583@
+1 SOUR @S01@
+0 @I81000001584@ INDI
+1 NAME Sarah Crouchman /Hunt/
+1 SEX F
+1 FAMS @F10000001584@
+1 SOUR @S01@
+0 @I81000001593@ INDI
+1 NAME Eliza /Gooden/
+1 SEX F
+1 FAMS @F10000001593@
+1 SOUR @S01@
+0 @I81000001594@ INDI
+1 NAME Alfred /Cutting/
+1 SEX M
+1 FAMS @F81000001594@
+1 SOUR @S01@
+0 @I81000001595@ INDI
+1 NAME Frederick Augustus /Wing/
+1 SEX M
+1 FAMS @F81000001595@
+1 SOUR @S01@
+0 @I81000001596@ INDI
+1 NAME Emma /Cutting/
+1 SEX F
+1 FAMS @F10000001596@
+1 SOUR @S01@
+0 @I81000001597@ INDI
+1 NAME Edith /Scarlett/
+1 SEX F
+1 FAMS @F10000001597@
+1 SOUR @S01@
+0 @I81000001604@ INDI
+1 NAME Mary Ann /Leadbetter/
+1 SEX F
+1 FAMS @F10000001604@
+1 SOUR @S01@
+0 @I81000001606@ INDI
+1 NAME Flora Maria /Runeckles/
+1 SEX F
+1 FAMS @F10000001606@
+1 SOUR @S01@
+0 @I81000001619@ INDI
+1 NAME Edith Emily /Fowler/
+1 SEX F
+1 FAMS @F10000001619@
+1 SOUR @S01@
+0 @I81000001622@ INDI
+1 NAME Edna Maud /Pryor/
+1 SEX F
+1 FAMS @F10000001622@
+1 SOUR @S01@
+0 @I81000001630@ INDI
+1 NAME Walter John Hastings /Sweatman/
+1 SEX M
+1 FAMS @F81000001630@
+1 SOUR @S01@
+0 @I81000001631@ INDI
+1 NAME John /Morley/
+1 SEX M
+1 FAMS @F81000001631@
+1 SOUR @S01@
+0 @I81000001636@ INDI
+1 NAME Millison /Reynolds/
+1 SEX M
+1 FAMS @F81000001636@
+1 SOUR @S01@
+0 @I81000001639@ INDI
+1 NAME Abednego Topham /Butterworth/
+1 SEX M
+1 FAMS @F81000001639@
+1 SOUR @S01@
+0 @I81000001640@ INDI
+1 NAME Herbert /Pritchard/
+1 SEX M
+1 FAMS @F81000001640@
+1 SOUR @S01@
+0 @I81000001641@ INDI
+1 NAME Mary Ann /Briggs/
+1 SEX F
+1 FAMS @F10000001641@
+1 SOUR @S01@
+0 @I81000001642@ INDI
+1 NAME Frances Alice /Merrill/
+1 SEX F
+1 FAMS @F10000001642@
+1 SOUR @S01@
+0 @I81000001643@ INDI
+1 NAME William /Pickles/
+1 SEX M
+1 FAMS @F81000001643@
+1 SOUR @S01@
+0 @I81000001652@ INDI
+1 NAME Charles William /Roberts/
+1 SEX M
+1 FAMS @F81000001652@
+1 SOUR @S01@
+0 @I81000001661@ INDI
+1 NAME Elizabeth /Ward/
+1 SEX F
+1 FAMS @F10000001661@
+1 SOUR @S01@
+0 @I81000001662@ INDI
+1 NAME Thomas /Calver/
+1 SEX M
+1 FAMS @F81000001662@
+1 SOUR @S01@
+0 @I81000001663@ INDI
+1 NAME George /Lea/
+1 SEX M
+1 FAMS @F81000001663@
+1 SOUR @S01@
+0 @I82000000401@ INDI
+1 NAME Elizabeth /Oris/
+1 SEX F
+1 FAMS @F20000000401@
+1 SOUR @S01@
+0 @I82000000421@ INDI
+1 NAME Susannah /Honeywood/
+1 SEX F
+1 FAMS @F20000000421@
+1 SOUR @S01@
+0 @I82000001636@ INDI
+1 NAME Henry /Boon/
+1 SEX M
+1 FAMS @F82000001636@
+1 SOUR @S01@
+0 @I82000001637@ INDI
+1 NAME Mary /Dalby/
+1 SEX F
+1 FAMS @F20000001637@
+1 SOUR @S01@
+0 @I83000000656@ INDI
+1 NAME Henry /Theobald/
+1 SEX M
+1 FAMS @F83000000656@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

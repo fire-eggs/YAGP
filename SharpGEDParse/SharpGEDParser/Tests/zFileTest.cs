@@ -155,8 +155,12 @@ namespace SharpGEDParser.Tests
         [Test]
         public void DoSpecial()
         {
-            // TODO why did I move this to aside?
-            string path = @"Z:\HOST_E\proj\GED\GED\OtherGEDFiles\5.5.1\aside\index7_kbr.ged";
+            // A 'real' GED file downloaded from the Internet, modified by yours truly to use more 5.5.1 tags
+            var path = Path.Combine(
+                TestContext.CurrentContext.TestDirectory, 
+                @"..\..\..\..\", 
+                @"Sample GED\index7_kbr.ged");
+
             DoFile(path);
         }
 #endif
@@ -165,7 +169,12 @@ namespace SharpGEDParser.Tests
         [Test]
         public void zDoAll551()
         {
-            var path = @"Z:\HOST_E\proj\GED\all_ged\5.5.1";
+            // A collection of small GED files downloaded from the internet, which were marked as 5.5.1
+            var path = Path.Combine(
+                TestContext.CurrentContext.TestDirectory, 
+                @"..\..\..\..\", 
+                @"Sample GED\5.5.1");
+
             foreach (var file in Directory.GetFiles(path))
             {
                 DoFile(file);

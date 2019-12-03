@@ -1,0 +1,3395 @@
+﻿0 HEAD
+1 SOUR Legacy
+2 VERS 7.5
+2 NAME Legacy (R)
+2 CORP Millennia Corp.
+3 ADDR PO Box 9410
+4 CONT Surprise, AZ 85374
+1 DEST Gedcom5.5.1
+1 DATE 17 Sep 2013
+1 SUBM @S0@
+1 FILE F:\Holding area\gedcoms for website\beckenham.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @S0@ SUBM
+1 NAME gl
+0 @I1@ INDI
+1 NAME William /LOVELOCK/
+2 GIVN William
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Abt 1804
+2 PLAC Beckenham, Kent, England
+2 SOUR @S3@
+1 DEAT
+2 DATE Bet Oct 1852 and Dec 1852
+2 PLAC St Olave RD, London, England
+2 SOUR @S4@
+3 PAGE St Olave RD, ref 1d 40
+3 QUAY 3
+1 CENS
+2 DATE 1841
+2 PLAC Webb St, Great Maze Pond, Bermondsey, Surrey, England
+2 NOTE Webb St, Great Maze Pond, Bermondsey, Surrey
+3 CONT HO107 1087/11  F7  P6
+3 CONT
+3 CONT William Lovelock;35;Shoe m (sic);Born Surrey
+3 CONT Sarah Lovelock;30;;Born Surrey
+3 CONT William Lovelock;13;;Born Surrey
+3 CONT James Lovelock;9;;Born Surrey
+3 CONT Ann Lovelock;5;;Born Surrey
+3 CONT George Lovelock;10mos;;Born Surrey
+3 CONT Christopher Roberts;40;Shoe m (sic);Not born Surrey
+2 SOUR @S5@
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 _UID 518FB3DFDE1947FC8F0F106B16227CA82161
+1 FAMS @F1@
+0 @I2@ INDI
+1 NAME Sarah /BROOK/
+2 GIVN Sarah
+2 SURN BROOK
+1 SEX F
+1 BIRT
+2 DATE Abt 1808
+2 PLAC Beckenham, Kent, England
+2 SOUR @S3@
+1 DEAT
+2 NOTE @DI2@
+1 CENS
+2 DATE 1841
+2 PLAC Webb St, Great Maze Pond, Bermondsey, Surrey, England
+2 NOTE Webb St, Great Maze Pond, Bermondsey, Surrey
+3 CONT HO107 1087/11  F7  P6
+3 CONT
+3 CONT William Lovelock;35;Shoe m (sic);Born Surrey
+3 CONT Sarah Lovelock;30;;Born Surrey
+3 CONT William Lovelock;13;;Born Surrey
+3 CONT James Lovelock;9;;Born Surrey
+3 CONT Ann Lovelock;5;;Born Surrey
+3 CONT George Lovelock;10mos;;Born Surrey
+3 CONT Christopher Roberts;40;Shoe m (sic);Not born Surrey
+2 SOUR @S5@
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 CENS
+2 DATE 1861
+2 PLAC Southwark, Surrey, England
+2 NOTE 66½ Tooley St, St Olave, Southwark, Surrey, England
+3 CONT RG9 316  F34  P62
+3 CONT
+3 CONT There are 7 families at this address, including:
+3 CONT
+3 CONT Sarah Lovelock;Head, W;52;Charwoman;St Olave, Southwark, Su
+3 CONC rrey
+3 CONT George Lovelock;Son;20;Wharf Lab;St Olave, Southwark, Surrey
+3 CONT Rebecca Lovelock;Daur;18;House Servant;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Sarah Lovelock;Daur;15;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Rose Lovelock;Daur;13;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Charles Lovelock;Son;11;;St Olave, Southwark, Surrey
+2 SOUR @S6@
+1 _UID 033F8D3F68FA4997A8F2BA1B85F76BF79D18
+1 FAMS @F1@
+0 @DI2@ NOTE
+1 CONC Y
+0 @I3@ INDI
+1 NAME William /LOVELOCK/
+2 GIVN William
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Abt 1828
+2 PLAC Surrey, England
+2 SOUR @S5@
+1 DEAT
+2 DATE Bet Apr 1901 and Jun 1901
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Croydon RD, ref 2a 166  (age 73)
+3 QUAY 3
+1 CENS
+2 DATE 1841
+2 PLAC Webb St, Great Maze Pond, Bermondsey, Surrey, England
+2 NOTE Webb St, Great Maze Pond, Bermondsey, Surrey
+3 CONT HO107 1087/11  F7  P6
+3 CONT
+3 CONT William Lovelock;35;Shoe m (sic);Born Surrey
+3 CONT Sarah Lovelock;30;;Born Surrey
+3 CONT William Lovelock;13;;Born Surrey
+3 CONT James Lovelock;9;;Born Surrey
+3 CONT Ann Lovelock;5;;Born Surrey
+3 CONT George Lovelock;10mos;;Born Surrey
+3 CONT Christopher Roberts;40;Shoe m (sic);Not born Surrey
+2 SOUR @S5@
+1 CENS
+2 DATE 1861
+2 PLAC 8 Havelock St, Aldershot, Hampshire, England
+2 NOTE 8 Havelock St, Aldershot, Hants
+3 CONT RG9 430  F98  P5
+3 CONT
+3 CONT William Lovelock;Head;33;Cord Wainer;Bermondsey, London
+3 CONT Lucy Lovelock;Wife;21;;Odiham, Hants
+3 CONT William Lovelock;Son;4;;Farnham, Surrey
+2 SOUR @S6@
+1 CENS
+2 DATE 1881
+2 PLAC 34 Weston St, Croydon, Surrey, England
+2 NOTE 34 Weston St, Croydon, Surrey
+3 CONT RG11 821  F57  P37
+3 CONT
+3 CONT Willam Lovelock;Head;53;Bootmaker;Bermondsey
+3 CONT Fanny Lovelock;Wife;32;;Southampton
+3 CONT Jno (sic) Riskey;Lodger;27;Bricklayer;L Norwood (sic)
+3 CONT Henry Clarke;Lodger;28;Bricklayer;Southboro (sic)
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Croydon, Surrey, England
+2 NOTE 2 Haynes Lane, Croydon, Surrey, England
+3 CONT RG12 596 F28 P49
+3 CONT
+3 CONT William Lovelock;Head;63;Plumber;Bermondsey, Middx
+3 CONT Fanny Lovelock;Wife;40;;Southampton, Hants
+3 CONT Arthur Hewitt;Lodger;20;Coachman;Lalep (?), Northanphshir
+3 CONC e (sic)
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 NOTE 4 Heynes Lane, Croydon, Surrey, England
+3 CONT RG13 649 F139 P5
+3 CONT
+3 CONT William Lovelock;Head;72;Shoemaker;Bermondsey, London
+3 CONT Annie Lovelock;Wife;50;;Southampton
+1 _UID DF2400CE6E874ECDA30E2DE51B6098E59C5A
+1 FAMS @F2@
+1 FAMS @F3@
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Emma /LOVELOCK/
+2 GIVN Emma
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 5 Mar 1830
+2 SOUR @S9@
+1 CHR
+2 DATE 8 Aug 1830
+2 PLAC St Saviour, Southwark, Surrey, England
+2 SOUR @S9@
+1 DEAT
+2 NOTE @DI4@
+1 _UID FBE1DD3A09364C4798509A881115ADC365F0
+1 FAMC @F1@
+0 @DI4@ NOTE
+1 CONC Y
+0 @I5@ INDI
+1 NAME Mary Ann /LOVELOCK/
+2 GIVN Mary Ann
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 2 Nov 1831
+2 SOUR @S9@
+1 CHR
+2 DATE 18 Dec 1831
+2 PLAC St Saviour, Surrey, England
+2 SOUR @S9@
+1 DEAT
+2 NOTE @DI5@
+1 _UID 61C6B433EB9246B1B6698BB5010F02A5988C
+1 FAMC @F1@
+0 @DI5@ NOTE
+1 CONC Y
+0 @I6@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 3 Jan 1833
+2 PLAC St Olave, London, England
+2 SOUR @S3@
+2 SOUR @S9@
+1 CHR
+2 DATE 15 Jan 1841
+2 PLAC St Saviour, Southwark, Surrey, England
+2 SOUR @S9@
+1 DEAT Y
+1 CENS
+2 DATE 1841
+2 PLAC Webb St, Great Maze Pond, Bermondsey, Surrey, England
+2 NOTE Webb St, Great Maze Pond, Bermondsey, Surrey
+3 CONT HO107 1087/11  F7  P6
+3 CONT
+3 CONT William Lovelock;35;Shoe m (sic);Born Surrey
+3 CONT Sarah Lovelock;30;;Born Surrey
+3 CONT William Lovelock;13;;Born Surrey
+3 CONT James Lovelock;9;;Born Surrey
+3 CONT Ann Lovelock;5;;Born Surrey
+3 CONT George Lovelock;10mos;;Born Surrey
+3 CONT Christopher Roberts;40;Shoe m (sic);Not born Surrey
+2 SOUR @S5@
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 _UID 2E564B1F99B54CD3BA234786AE5614E401C0
+1 FAMC @F1@
+0 @I7@ INDI
+1 NAME Charles /LOVELOCK/
+2 GIVN Charles
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 17 Jun 1834
+2 SOUR @S9@
+1 CHR
+2 DATE 5 Aug 1835
+2 PLAC St Saviour, Surrey, England
+2 SOUR @S9@
+1 DEAT Y
+1 _UID 207E4517423947D2BE6C448F848B79EBFEDB
+1 FAMC @F1@
+0 @I8@ INDI
+1 NAME Ann /LOVELOCK/
+2 GIVN Ann
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Abt 1836
+2 PLAC St Olave, London, England
+2 SOUR @S3@
+1 DEAT
+2 DATE Bet Jul 1859 and Sep 1859
+2 PLAC St Olave RD, London, England
+2 SOUR @S4@
+3 PAGE St Olave RD, ref 1d 27
+3 QUAY 3
+1 CENS
+2 DATE 1841
+2 PLAC Webb St, Great Maze Pond, Bermondsey, Surrey, England
+2 NOTE Webb St, Great Maze Pond, Bermondsey, Surrey
+3 CONT HO107 1087/11  F7  P6
+3 CONT
+3 CONT William Lovelock;35;Shoe m (sic);Born Surrey
+3 CONT Sarah Lovelock;30;;Born Surrey
+3 CONT William Lovelock;13;;Born Surrey
+3 CONT James Lovelock;9;;Born Surrey
+3 CONT Ann Lovelock;5;;Born Surrey
+3 CONT George Lovelock;10mos;;Born Surrey
+3 CONT Christopher Roberts;40;Shoe m (sic);Not born Surrey
+2 SOUR @S5@
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 _UID 1A86C80D80E9446CB488A6677F97724FAEBD
+1 FAMC @F1@
+1 NOTE @NI8@
+0 @NI8@ NOTE
+1 CONC The death data is only a possibility.
+0 @I9@ INDI
+1 NAME George Henry /LOVELOCK/
+2 GIVN George Henry
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 12 Jul 1840
+2 PLAC St Olave RD, London, England
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 4 420
+3 QUAY 3
+2 SOUR @S9@
+1 CHR
+2 DATE 15 Jan 1841
+2 SOUR @S9@
+1 DEAT Y
+1 CENS
+2 DATE 1841
+2 PLAC Webb St, Great Maze Pond, Bermondsey, Surrey, England
+2 NOTE Webb St, Great Maze Pond, Bermondsey, Surrey
+3 CONT HO107 1087/11  F7  P6
+3 CONT
+3 CONT William Lovelock;35;Shoe m (sic);Born Surrey
+3 CONT Sarah Lovelock;30;;Born Surrey
+3 CONT William Lovelock;13;;Born Surrey
+3 CONT James Lovelock;9;;Born Surrey
+3 CONT Ann Lovelock;5;;Born Surrey
+3 CONT George Lovelock;10mos;;Born Surrey
+3 CONT Christopher Roberts;40;Shoe m (sic);Not born Surrey
+2 SOUR @S5@
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 CENS
+2 DATE 1861
+2 PLAC Southwark, Surrey, England
+2 NOTE 66Â½ Tooley St, St Olave, Southwark, Surrey, England
+3 CONT RG9 316  F34  P62
+3 CONT
+3 CONT There are 7 families at this address, including:
+3 CONT
+3 CONT Sarah Lovelock;Head, W;52;Charwoman;St Olave, Southwark, Su
+3 CONC rrey
+3 CONT George Lovelock;Son;20;Wharf Lab;St Olave, Southwark, Surrey
+3 CONT Rebecca Lovelock;Daur;18;House Servant;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Sarah Lovelock;Daur;15;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Rose Lovelock;Daur;13;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Charles Lovelock;Son;11;;St Olave, Southwark, Surrey
+2 SOUR @S6@
+1 CENS
+2 DATE 1871
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 68 Bermondsey St, Bermondsey, Surrey, England
+3 CONT RG10 631  F91  P2
+3 CONT
+3 CONT Frederick Johnson;Head;30;Licensed Victualler;Bermondsey, S
+3 CONC urrey
+3 CONT Emma Johnson;Wife;28;;Bermondsey, Surrey
+3 CONT Emma Elizabeth Johnson;Daur;6;;Bermondsey, Surrey
+3 CONT Frederick Vine Johnson;Son;4;;Bermondsey, Surrey
+3 CONT Ada J F Johnson;Daur;4mos;;Bermondsey, Surrey
+3 CONT Annie Ryan;Serv;20;;Bermondsey, Surrey
+3 CONT Edith Nash;Serv;17;;Suffolk, does not what what place (sic)
+3 CONT George Lovelock;Serv;32;Servant man, Imbecile;Bermondsey, S
+3 CONC urrey
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, London, England
+2 NOTE 72 Bermondsey St, Bermondsey, London, England
+3 CONT RG12 373  F23  P1
+3 CONT
+3 CONT George Nile;Head;29;Butcher;Poplar, London
+3 CONT Mary Louise Nile;Wife;30;;St Georges, London
+3 CONT Florence Gertrude Nile;Daur;2;;Bermondsey, London
+3 CONT Ada Rose Nile;Daur;1;;Bermondsey, London
+3 CONT Fanny Edwards;Servant;15;General Servant (Domestic);Bermond
+3 CONC sey, London
+3 CONT George Lovelock;Servant;51;Butchers Assistant;Bermondsey, L
+3 CONC ondon
+3 CONT Thomas Cross;Servant;17;Butchers Assistant;Chelsea
+2 SOUR @S8@
+1 _UID 091DE66B05EC4032A6A70B13CC555D5E2191
+1 FAMC @F1@
+0 @I10@ INDI
+1 NAME Rebecca /LOVELOCK/
+2 GIVN Rebecca
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 13 Jun 1842
+2 PLAC St Olave RD, London, England
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 4 456
+3 QUAY 3
+2 SOUR @S9@
+1 CHR
+2 DATE 22 Feb 1843
+2 PLAC St Saviour, Southwark, Surrey, England
+2 SOUR @S9@
+1 DEAT
+2 DATE Bet Jan 1915 and Mar 1915
+2 PLAC St Olave RD, London, England
+2 SOUR @S4@
+3 PAGE St Olave RD, ref 1d 301  (age 74)
+3 QUAY 3
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 CENS
+2 DATE 1861
+2 PLAC Southwark, Surrey, England
+2 NOTE 66½ Tooley St, St Olave, Southwark, Surrey, England
+3 CONT RG9 316  F34  P62
+3 CONT
+3 CONT There are 7 families at this address, including:
+3 CONT
+3 CONT Sarah Lovelock;Head, W;52;Charwoman;St Olave, Southwark, Su
+3 CONC rrey
+3 CONT George Lovelock;Son;20;Wharf Lab;St Olave, Southwark, Surrey
+3 CONT Rebecca Lovelock;Daur;18;House Servant;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Sarah Lovelock;Daur;15;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Rose Lovelock;Daur;13;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Charles Lovelock;Son;11;;St Olave, Southwark, Surrey
+2 SOUR @S6@
+1 CENS
+2 DATE 1871
+2 NOTE St Olave Union Workhouse, Southwark, London, England
+3 CONT RG10 626 F110 P7
+3 CONT
+3 CONT Among the Inmates:
+3 CONT
+3 CONT Rebecca Lovelock;Inmate, Unm;26;Domestic Servant;St Olaves
+3 CONC , Southwark, London
+1 CENS
+2 DATE 1881
+2 NOTE St Olaves Union Workhouse, Southwark St John Horsleydown, S
+3 CONC urrey, England
+3 CONT RG11 0557 F103 P4
+3 CONT
+3 CONT Amongst the inmates:
+3 CONT
+3 CONT Rebecca LOVELOCK;Inmate, U;35;F;Laundress;Southwark, Surrey
+3 CONT William John LOVELOCK;Inmate;1;M;;Southwark, Surrey
+1 CENS
+2 DATE 1891
+2 NOTE Swan House, St George the Martyr, Southwark, London, Englan
+3 CONC d
+3 CONT RG12 345  F126  P43
+3 CONT
+3 CONT David Western;Head;68;Boot Rivetter;Woverton, Exeter
+3 CONT Eliza Western;Wife;69;;Cork, Ireland
+3 CONT Rebecca Lovelock;Boarder;49;Paper Sorter;Maze Pond, London
+1 CENS
+2 DATE 1911
+2 NOTE St Olave's Union Workhouse, Ladywell Rd, Lewisham, London
+3 CONC , England
+3 CONT RG14 PN2806  RD29  SD3  ED59  SN1
+3 CONT
+3 CONT Amongst the Inmates:
+3 CONT
+3 CONT Rebecca Lovelock;Inmate;70;Formerly Domestic Servant;Bermon
+3 CONC dsey, London
+1 _UID 95D7166944404F1FAC6CCEA25D1B760A5D9C
+1 FAMS @F21@
+1 FAMC @F1@
+0 @I11@ INDI
+1 NAME Sarah /LOVELOCK/
+2 GIVN Sarah
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 27 Dec 1845
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 4 53[38]  (registered in Jan-Mar 1846)
+3 QUAY 3
+2 SOUR @S9@
+1 CHR
+2 DATE 25 Jan 1846
+2 PLAC St Saviour, Southwark, Surrey, England
+2 SOUR @S9@
+1 DEAT Y
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 CENS
+2 DATE 1861
+2 PLAC Southwark, Surrey, England
+2 NOTE 66½ Tooley St, St Olave, Southwark, Surrey, England
+3 CONT RG9 316  F34  P62
+3 CONT
+3 CONT There are 7 families at this address, including:
+3 CONT
+3 CONT Sarah Lovelock;Head, W;52;Charwoman;St Olave, Southwark, Su
+3 CONC rrey
+3 CONT George Lovelock;Son;20;Wharf Lab;St Olave, Southwark, Surrey
+3 CONT Rebecca Lovelock;Daur;18;House Servant;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Sarah Lovelock;Daur;15;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Rose Lovelock;Daur;13;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Charles Lovelock;Son;11;;St Olave, Southwark, Surrey
+2 SOUR @S6@
+1 _UID 33513C8945BB433BA60BB32186C9BCAC030D
+1 FAMC @F1@
+0 @I12@ INDI
+1 NAME Rose /LOVELOCK/
+2 GIVN Rose
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 8 Sep 1847
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 4 457
+3 QUAY 3
+2 SOUR @S9@
+1 CHR
+2 DATE 3 Oct 1847
+2 PLAC St Saviour, Southwark, Surrey, England
+2 SOUR @S9@
+1 DEAT
+2 DATE Bet Jul 1890 and Sep 1890
+2 PLAC St Olave RD, London, England
+2 SOUR @S4@
+3 PAGE St Olave RD, ref 1d 161  (in the name of Rose Trusty)
+3 QUAY 3
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 CENS
+2 DATE 1871
+2 PLAC 3 Richardson St, Bermondsey, Surrey, England
+2 NOTE 3 Richardson St, Bermondsey, Surrey, England
+3 CONT RG10 628  F4  P1
+3 CONT
+3 CONT James F Truste;Head;24;Lighterman;Bermondsey, London
+3 CONT Rose Truste;Wife;22;;Bermondsey, London
+3 CONT Alfred Chas (sic) Truste;1mo;;Bermondsey, London
+2 SOUR @S11@
+1 CENS
+2 DATE 1881
+2 PLAC 44 Frean St, Bermondsey, Surrey, England
+2 NOTE 44 Frean St, Bermondsey, Surrey, England
+3 CONT RG11 574  F105  P34
+3 CONT
+3 CONT James F Truste;Head;35;Lighterman;Bermondsey, Surrey
+3 CONT Rose Truste;Wife;33;;Bermondsey, Surrey
+3 CONT Alfred Truste;Son;10;;Bermondsey, Surrey
+3 CONT Rose Truste;Daur;8;;Bermondsey, Surrey
+3 CONT Frederick Truste;Son;6;;Bermondsey, Surrey
+3 CONT Caroline A Truste;Daur;3;;Bermondsey, Surrey
+3 CONT Louisa Truste;Daur;8mos;;Bermondsey, Surrey
+2 SOUR @S7@
+1 CENS
+2 DATE 1861
+2 PLAC Southwark, Surrey, England
+2 NOTE 66½ Tooley St, St Olave, Southwark, Surrey, England
+3 CONT RG9 316  F34  P62
+3 CONT
+3 CONT There are 7 families at this address, including:
+3 CONT
+3 CONT Sarah Lovelock;Head, W;52;Charwoman;St Olave, Southwark, Su
+3 CONC rrey
+3 CONT George Lovelock;Son;20;Wharf Lab;St Olave, Southwark, Surrey
+3 CONT Rebecca Lovelock;Daur;18;House Servant;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Sarah Lovelock;Daur;15;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Rose Lovelock;Daur;13;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Charles Lovelock;Son;11;;St Olave, Southwark, Surrey
+2 SOUR @S6@
+1 _UID 96DC8475A358481CA5660F82AA4AB85C6ECD
+1 FAMS @F7@
+1 FAMC @F1@
+0 @I13@ INDI
+1 NAME Charles /LOVELOCK/
+2 GIVN Charles
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 14 May 1849
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 4 513
+3 QUAY 3
+2 SOUR @S9@
+1 CHR
+2 DATE 16 May 1851
+2 PLAC St Mary Magdalene, Bermondsey, Surrey
+2 SOUR @S9@
+1 DEAT
+2 DATE Bet Oct 1906 and Dec 1906
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Lewisham RD, ref 1d 682  (age 59)
+3 QUAY 3
+1 CENS
+2 DATE 1851
+2 PLAC 15 Great Maise Pond (?), Bermondsey, Surrey, England
+2 NOTE 15 Great Maise Pond (?), Bermondsey, Surrey
+3 CONT HO107 1562  F18  P29
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;47;Shoemaker;Beckinham, Surrey (sic)
+3 CONT Sarah Lovelock;Wife;43;;Beckinham, Surrey
+3 CONT James Lovelock;Son;18;Carman;St Olaves, Surrey
+3 CONT Ann Lovelock;Daur;15;;St Olaves, Surrey
+3 CONT George Lovelock;Son;10;;St Olaves, Surrey
+3 CONT Rebecca Lovelock;Daur;8;;St Olaves, Surrey
+3 CONT Sarah Lovelock;Daur;5;;Bermondsey, Surrey
+3 CONT Rose Lovelock;Daur;3;;Bermondsey, Surrey
+3 CONT Charles Lovelock;Son;18mos;;Bermondsey, Surrey
+2 SOUR @S3@
+1 CENS
+2 DATE 1871
+2 NOTE 2 Froggatt Cottages North (?), St Mary Lambeth
+3 CONT RG10 693  F106  P12
+3 CONT
+3 CONT Lodging at this address:
+3 CONT
+3 CONT Charles Lovelock;Head;22;Boot maker;Southwark, Surrey
+3 CONT Emma Lovelock;Wife;18;;Yeovil, Somerset
+2 SOUR @S11@
+1 CENS
+2 DATE 1881
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG11 739  F24  P41
+3 CONT
+3 CONT Charles Lovelock;Head;30;Shoemaker;Bermondsey, Surrey
+3 CONT Emma Lovelock;Wife;26;;Rotherham, Somerset
+3 CONT Florence Lovelock;Daur;9;;Norwood, Surrey
+3 CONT Charles Lovelock;Son;7;;Norwood, Surrey
+3 CONT Rosa Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Jane Lovelock;Daur;3;;Forest Hill, Kent
+3 CONT Emma Lovelock;Daur;1;;Forest Hill, Kent
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1861
+2 PLAC Southwark, Surrey, England
+2 NOTE 66Â½ Tooley St, St Olave, Southwark, Surrey, England
+3 CONT RG9 316  F34  P62
+3 CONT
+3 CONT There are 7 families at this address, including:
+3 CONT
+3 CONT Sarah Lovelock;Head, W;52;Charwoman;St Olave, Southwark, Su
+3 CONC rrey
+3 CONT George Lovelock;Son;20;Wharf Lab;St Olave, Southwark, Surrey
+3 CONT Rebecca Lovelock;Daur;18;House Servant;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Sarah Lovelock;Daur;15;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Rose Lovelock;Daur;13;Headdress maker;St Olave, Southwark
+3 CONC , Surrey
+3 CONT Charles Lovelock;Son;11;;St Olave, Southwark, Surrey
+2 SOUR @S6@
+1 _UID 4DBF925B7F784F449B810F08E6F4FE6EFCF1
+1 FAMS @F8@
+1 FAMC @F1@
+0 @I14@ INDI
+1 NAME Lucy /WHITE/
+2 GIVN Lucy
+2 SURN WHITE
+1 SEX F
+1 BIRT
+2 DATE Abt 1839-1840
+2 PLAC Odiham, Hampshire, England
+2 SOUR @S6@
+1 DEAT Y
+1 CENS
+2 DATE 1861
+2 PLAC 8 Havelock St, Aldershot, Hampshire, England
+2 NOTE 8 Havelock St, Aldershot, Hants
+3 CONT RG9 430  F98  P5
+3 CONT
+3 CONT William Lovelock;Head;33;Cord Wainer;Bermondsey, London
+3 CONT Lucy Lovelock;Wife;21;;Odiham, Hants
+3 CONT William Lovelock;Son;4;;Farnham, Surrey
+2 SOUR @S6@
+1 _UID 87D4343D852C41B8A820253FC00B25029495
+1 FAMS @F2@
+0 @I15@ INDI
+1 NAME Frances /FISHER/
+2 GIVN Frances
+2 SURN FISHER
+1 SEX F
+1 BIRT
+2 DATE Abt 1849
+2 PLAC Southampton, Hampshire, England
+2 SOUR @S7@
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC 34 Weston St, Croydon, Surrey, England
+2 NOTE 34 Weston St, Croydon, Surrey
+3 CONT RG11 821  F57  P37
+3 CONT
+3 CONT Willam Lovelock;Head;53;Bootmaker;Bermondsey
+3 CONT Fanny Lovelock;Wife;32;;Southampton
+3 CONT Jno (sic) Riskey;Lodger;27;Bricklayer;L Norwood (sic)
+3 CONT Henry Clarke;Lodger;28;Bricklayer;Southboro (sic)
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Croydon, Surrey, England
+2 NOTE 2 Haynes Lane, Croydon, Surrey, England
+3 CONT RG12 596 F28 P49
+3 CONT
+3 CONT William Lovelock;Head;63;Plumber;Bermondsey, Middx
+3 CONT Fanny Lovelock;Wife;40;;Southampton, Hants
+3 CONT Arthur Hewitt;Lodger;20;Coachman;Lalep (?), Northanphshir
+3 CONC e (sic)
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 NOTE 4 Heynes Lane, Croydon, Surrey, England
+3 CONT RG13 649 F139 P5
+3 CONT
+3 CONT William Lovelock;Head;72;Shoemaker;Bermondsey, London
+3 CONT Annie Lovelock;Wife;50;;Southampton
+1 _UID 7E7900E9C4ED4401A57CB25BA3A3305FD98F
+1 FAMS @F3@
+0 @I16@ INDI
+1 NAME William /LOVELOCK/
+2 GIVN William
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Jan 1857 and Mar 1857
+2 PLAC Farnham, Surrey, England
+2 SOUR @S10@
+3 PAGE Farnham RD, ref 2a 65
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jul 1923 and Sep 1923
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Croydon RD, ref  2a 328  (age 66)
+3 QUAY 3
+1 CENS
+2 DATE 1861
+2 PLAC 8 Havelock St, Aldershot, Hampshire, England
+2 NOTE 8 Havelock St, Aldershot, Hants
+3 CONT RG9 430  F98  P5
+3 CONT
+3 CONT William Lovelock;Head;33;Cord Wainer;Bermondsey, London
+3 CONT Lucy Lovelock;Wife;21;;Odiham, Hants
+3 CONT William Lovelock;Son;4;;Farnham, Surrey
+2 SOUR @S6@
+1 CENS
+2 DATE 1881
+2 PLAC 90 Woodbine Place, Penge, Surrey, England
+2 NOTE 90 Woodbine Place, Penge, Surrey
+3 CONT RG11 824  F99  P23
+3 CONT
+3 CONT William Lovelock;Head;24(?);Coachman;Farnham, Surrey
+3 CONT Elizabeth Lovelock;Wife;22(?);;Sydenham, Kent
+3 CONT Eliza (sic) Lovelock;Daur;1;;Penge, Surrey
+3 CONT George Lovelock;Son;4;;Penge, Surrey
+3 CONT William Allard;Brother;20;Printer;Sydenham, Kent
+3 CONT Sarah Birch;Lodger;45;Needlewoman;Bridport, Dorset
+3 CONT John Cox(?);Lodger;20;Blacksmith;Reading, Berks
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Surrey
+3 CONT RG12 599  F78  P17
+3 CONT
+3 CONT Willm (sic) Lovelock;Head;34;Painter (?);Farnham, Hants (si
+3 CONC c)
+3 CONT Elizth(sic) Lovelock;Wife;32;;Sydenham
+3 CONT George Lovelock;Son;13;Grocers Assistant;Anerley, Surrey
+3 CONT Eliz (sic) Lovelock;Daur;11;;Penge, Surrey
+3 CONT Kate Lovelock;Daur;9;;Anerley, Surrey
+3 CONT Rose Lovelock;Daur;7;;Anerley, Surrey
+3 CONT Willm (sic) Lovelock;Son;3;;Penge, Surrey
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Kent
+3 CONT RG13 651 F182 P52
+3 CONT
+3 CONT William Lovelock;Head;45;Painter;Farnham, Hants (sic)
+3 CONT Elizabeth Lovelock;Wife;45;;Sydenham, Kent
+3 CONT Lizzie Lovelock;Daur;21;Parlourmaid Domestic;Penge, Kent (s
+3 CONC ic)
+3 CONT Kate Lovelock;Daur;19;;Penge, Kent
+3 CONT Lillie Lovelock;Daur;9;;Penge, Kent
+3 CONT Willie Lovelock;Son;13;;Penge, Kent
+2 SOUR @S12@
+1 _UID 769BF1A96B8B4929A761F9230D29DA8BD2D2
+1 FAMS @F4@
+1 FAMC @F2@
+0 @I17@ INDI
+1 NAME Elizabeth Jane /ALLARD/
+2 GIVN Elizabeth Jane
+2 SURN ALLARD
+1 SEX F
+1 BIRT
+2 DATE Bet Jan 1859 and Mar 1859
+2 PLAC Sydenham, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 713
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr 1921 and Jun 1921
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Croydon RD, ref 2a 358  (aged 63)
+3 QUAY 3
+1 CENS
+2 DATE 1881
+2 PLAC 90 Woodbine Place, Penge, Surrey, England
+2 NOTE 90 Woodbine Place, Penge, Surrey
+3 CONT RG11 824  F99  P23
+3 CONT
+3 CONT William Lovelock;Head;24(?);Coachman;Farnham, Surrey
+3 CONT Elizabeth Lovelock;Wife;22(?);;Sydenham, Kent
+3 CONT Eliza (sic) Lovelock;Daur;1;;Penge, Surrey
+3 CONT George Lovelock;Son;4;;Penge, Surrey
+3 CONT William Allard;Brother;20;Printer;Sydenham, Kent
+3 CONT Sarah Birch;Lodger;45;Needlewoman;Bridport, Dorset
+3 CONT John Cox(?);Lodger;20;Blacksmith;Reading, Berks
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Surrey
+3 CONT RG12 599  F78  P17
+3 CONT
+3 CONT Willm (sic) Lovelock;Head;34;Painter (?);Farnham, Hants (si
+3 CONC c)
+3 CONT Elizth(sic) Lovelock;Wife;32;;Sydenham
+3 CONT George Lovelock;Son;13;Grocers Assistant;Anerley, Surrey
+3 CONT Eliz (sic) Lovelock;Daur;11;;Penge, Surrey
+3 CONT Kate Lovelock;Daur;9;;Anerley, Surrey
+3 CONT Rose Lovelock;Daur;7;;Anerley, Surrey
+3 CONT Willm (sic) Lovelock;Son;3;;Penge, Surrey
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Kent
+3 CONT RG13 651 F182 P52
+3 CONT
+3 CONT William Lovelock;Head;45;Painter;Farnham, Hants (sic)
+3 CONT Elizabeth Lovelock;Wife;45;;Sydenham, Kent
+3 CONT Lizzie Lovelock;Daur;21;Parlourmaid Domestic;Penge, Kent (s
+3 CONC ic)
+3 CONT Kate Lovelock;Daur;19;;Penge, Kent
+3 CONT Lillie Lovelock;Daur;9;;Penge, Kent
+3 CONT Willie Lovelock;Son;13;;Penge, Kent
+2 SOUR @S12@
+1 _UID 915E7838C6F147B082D9B6352C0E5AD8FF45
+1 FAMS @F4@
+0 @I18@ INDI
+1 NAME George /LOVELOCK/
+2 GIVN George
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Oct 1877 and Dec 1877
+2 PLAC Penge, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 217
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jan and Mar 1928
+2 SOUR @S4@
+3 DATA
+4 TEXT Camberwell RD, ref 1d 971  (age 51)
+1 CENS
+2 DATE 1881
+2 PLAC 90 Woodbine Place, Penge, Surrey, England
+2 NOTE 90 Woodbine Place, Penge, Surrey
+3 CONT RG11 824  F99  P23
+3 CONT
+3 CONT William Lovelock;Head;24(?);Coachman;Farnham, Surrey
+3 CONT Elizabeth Lovelock;Wife;22(?);;Sydenham, Kent
+3 CONT Eliza (sic) Lovelock;Daur;1;;Penge, Surrey
+3 CONT George Lovelock;Son;4;;Penge, Surrey
+3 CONT William Allard;Brother;20;Printer;Sydenham, Kent
+3 CONT Sarah Birch;Lodger;45;Needlewoman;Bridport, Dorset
+3 CONT John Cox(?);Lodger;20;Blacksmith;Reading, Berks
+2 SOUR @S7@
+1 CENS
+2 DATE 1911
+2 PLAC Fulham, London, England
+2 NOTE 19 Cathnor Rd, Fulham, London, England
+3 CONT RG14 PN210  RG78 PN7  RD3  SD1  ED15  SN394
+3 CONT
+3 CONT John Acfield;Head;64;House Painter;Paddington, London
+3 CONT Mary Acfield;Wife, married 42 years;64;;Korton, Lincs
+3 CONT Winifred Mary Acfield;Daur;30;Clerk Flour Factors;Shepher
+3 CONC d Bush,London
+3 CONT May Lillian Agnes Llewellyn;Grand daur;15;;Shepherd Bush, L
+3 CONC ondon
+3 CONT Editha Amy Lovelock;Daur, married 9 years;33;;St John's Woo
+3 CONC d, London
+3 CONT George Lovelock;Son in law;37;Musician "Trombone" (sic);Ear
+3 CONC ls Court,Kensington
+3 CONT George Lovelock;Son (sic);8;;Norwood, Surrey
+3 CONT Nora Lillian Lovelock;Daur (sic);5;;Fulham, London
+2 SOUR @S13@
+1 CENS
+2 DATE 1891
+2 PLAC Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Surrey, England
+3 CONT RG12 599  F78  P17
+3 CONT
+3 CONT Willm (sic) Lovelock;Head;34;Painter (?);Farnham, Hants (si
+3 CONC c)
+3 CONT Elizth(sic) Lovelock;Wife;32;;Sydenham
+3 CONT George Lovelock;Son;13;Grocers Assistant;Anerley, Surrey
+3 CONT Eliz (sic) Lovelock;Daur;11;;Penge, Surrey
+3 CONT Kate Lovelock;Daur;9;;Anerley, Surrey
+3 CONT Rose Lovelock;Daur;7;;Anerley, Surrey
+3 CONT Willm (sic) Lovelock;Son;3;;Penge, Surrey
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC Penge, Surrey, England
+2 NOTE 13 Anerley Grove, Penge, Surrey, England
+3 CONT RG13 650  F117  P34
+3 CONT
+3 CONT Maurice Blazer;Head;43;Musician;Holland
+3 CONT Jennie Blazer;Wife;34;;Wales
+3 CONT Clara Blazer;Daur;17;Dressmaker;Holland
+3 CONT George Lovelock;Lodger;28;Musician;London
+2 SOUR @S12@
+1 _UID E0E6CC66C4FD49288C9BBAE7D587DCD3FD11
+1 FAMS @F15@
+1 FAMC @F4@
+0 @I19@ INDI
+1 NAME Elizabeth /LOVELOCK/
+2 GIVN Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Apr 1880 and Jun 1880
+2 PLAC Penge, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 204
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr 1967 and Jun 1967
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Croydon RD, ref 5a 633  (aged 80)
+3 QUAY 3
+1 CENS
+2 DATE 1881
+2 PLAC 90 Woodbine Place, Penge, Surrey, England
+2 NOTE 90 Woodbine Place, Penge, Surrey
+3 CONT RG11 824  F99  P23
+3 CONT
+3 CONT William Lovelock;Head;24(?);Coachman;Farnham, Surrey
+3 CONT Elizabeth Lovelock;Wife;22(?);;Sydenham, Kent
+3 CONT Eliza (sic) Lovelock;Daur;1;;Penge, Surrey
+3 CONT George Lovelock;Son;4;;Penge, Surrey
+3 CONT William Allard;Brother;20;Printer;Sydenham, Kent
+3 CONT Sarah Birch;Lodger;45;Needlewoman;Bridport, Dorset
+3 CONT John Cox(?);Lodger;20;Blacksmith;Reading, Berks
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Surrey
+3 CONT RG12 599  F78  P17
+3 CONT
+3 CONT Willm (sic) Lovelock;Head;34;Painter (?);Farnham, Hants (si
+3 CONC c)
+3 CONT Elizth(sic) Lovelock;Wife;32;;Sydenham
+3 CONT George Lovelock;Son;13;Grocers Assistant;Anerley, Surrey
+3 CONT Eliz (sic) Lovelock;Daur;11;;Penge, Surrey
+3 CONT Kate Lovelock;Daur;9;;Anerley, Surrey
+3 CONT Rose Lovelock;Daur;7;;Anerley, Surrey
+3 CONT Willm (sic) Lovelock;Son;3;;Penge, Surrey
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Kent
+3 CONT RG13 651 F182 P52
+3 CONT
+3 CONT William Lovelock;Head;45;Painter;Farnham, Hants (sic)
+3 CONT Elizabeth Lovelock;Wife;45;;Sydenham, Kent
+3 CONT Lizzie Lovelock;Daur;21;Parlourmaid Domestic;Penge, Kent (s
+3 CONC ic)
+3 CONT Kate Lovelock;Daur;19;;Penge, Kent
+3 CONT Lillie Lovelock;Daur;9;;Penge, Kent
+3 CONT Willie Lovelock;Son;13;;Penge, Kent
+2 SOUR @S12@
+1 _UID 9D32364F1731490FB8E1893ADDEDE3D0CD55
+1 FAMS @F13@
+1 FAMC @F4@
+0 @I20@ INDI
+1 NAME Kate /LOVELOCK/
+2 GIVN Kate
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Oct 1881 and Dec 1881
+2 PLAC Anerley, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 275
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr 1967 and Jun 1967
+2 PLAC Bromley RD, Bromley, Kent, England
+2 SOUR @S4@
+3 PAGE Bromley RD, ref 5a 418  (age 85)
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Surrey
+3 CONT RG12 599  F78  P17
+3 CONT
+3 CONT Willm (sic) Lovelock;Head;34;Painter (?);Farnham, Hants (si
+3 CONC c)
+3 CONT Elizth(sic) Lovelock;Wife;32;;Sydenham
+3 CONT George Lovelock;Son;13;Grocers Assistant;Anerley, Surrey
+3 CONT Eliz (sic) Lovelock;Daur;11;;Penge, Surrey
+3 CONT Kate Lovelock;Daur;9;;Anerley, Surrey
+3 CONT Rose Lovelock;Daur;7;;Anerley, Surrey
+3 CONT Willm (sic) Lovelock;Son;3;;Penge, Surrey
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Kent
+3 CONT RG13 651 F182 P52
+3 CONT
+3 CONT William Lovelock;Head;45;Painter;Farnham, Hants (sic)
+3 CONT Elizabeth Lovelock;Wife;45;;Sydenham, Kent
+3 CONT Lizzie Lovelock;Daur;21;Parlourmaid Domestic;Penge, Kent (s
+3 CONC ic)
+3 CONT Kate Lovelock;Daur;19;;Penge, Kent
+3 CONT Lillie Lovelock;Daur;9;;Penge, Kent
+3 CONT Willie Lovelock;Son;13;;Penge, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Anerley, Surrey, England
+2 NOTE 56 Station Rd, Anerley, Surrey, England
+3 CONT RG14 PN3419  RG78 PN128  RD39  SD5  ED15  SN293
+3 CONT
+3 CONT Walter Tipping;Head;32;Carpenter;Tatsfield, Surrey
+3 CONT Kate Tipping;Wife, married 8 years;30;;Anerley
+3 CONT William Lovelock;Nephew;8;;Wimbledon
+2 SOUR @S13@
+1 _UID A669D3E647FB43C786A112E0F714279AF9DC
+1 FAMS @F5@
+1 FAMC @F4@
+0 @I21@ INDI
+1 NAME Rose /LOVELOCK/
+2 GIVN Rose
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Jan 1884 and Mar 1884
+2 PLAC Anerley, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 254
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jan 1959 and Mar 1959
+2 PLAC Surrey Northern RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Surrey Northern RD, ref 5g 617  (age 75)
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Surrey
+3 CONT RG12 599  F78  P17
+3 CONT
+3 CONT Willm (sic) Lovelock;Head;34;Painter (?);Farnham, Hants (si
+3 CONC c)
+3 CONT Elizth(sic) Lovelock;Wife;32;;Sydenham
+3 CONT George Lovelock;Son;13;Grocers Assistant;Anerley, Surrey
+3 CONT Eliz (sic) Lovelock;Daur;11;;Penge, Surrey
+3 CONT Kate Lovelock;Daur;9;;Anerley, Surrey
+3 CONT Rose Lovelock;Daur;7;;Anerley, Surrey
+3 CONT Willm (sic) Lovelock;Son;3;;Penge, Surrey
+2 SOUR @S8@
+1 _UID 1A3C4C2B8AC24E988B440EC1F80C0018B916
+1 FAMS @F6@
+1 FAMC @F4@
+0 @I22@ INDI
+1 NAME William Charles /LOVELOCK/
+2 GIVN William Charles
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Oct 1887 and Dec 1887
+2 PLAC Penge, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 219
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct 1918 and Dec 1918
+2 PLAC Kingston RD, Kingston, Surrey, England
+2 SOUR @S4@
+3 PAGE Kingston RD, ref 2a 1124  (aged 31)
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 NOTE 41 Crampton Rd, Penge, Surrey
+3 CONT RG12 599  F78  P17
+3 CONT
+3 CONT Willm (sic) Lovelock;Head;34;Painter (?);Farnham, Hants (si
+3 CONC c)
+3 CONT Elizth(sic) Lovelock;Wife;32;;Sydenham
+3 CONT George Lovelock;Son;13;Grocers Assistant;Anerley, Surrey
+3 CONT Eliz (sic) Lovelock;Daur;11;;Penge, Surrey
+3 CONT Kate Lovelock;Daur;9;;Anerley, Surrey
+3 CONT Rose Lovelock;Daur;7;;Anerley, Surrey
+3 CONT Willm (sic) Lovelock;Son;3;;Penge, Surrey
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 NOTE 41 Crampton Rd, Penge, Kent
+3 CONT RG13 651 F182 P52
+3 CONT
+3 CONT William Lovelock;Head;45;Painter;Farnham, Hants (sic)
+3 CONT Elizabeth Lovelock;Wife;45;;Sydenham, Kent
+3 CONT Lizzie Lovelock;Daur;21;Parlourmaid Domestic;Penge, Kent (s
+3 CONC ic)
+3 CONT Kate Lovelock;Daur;19;;Penge, Kent
+3 CONT Lillie Lovelock;Daur;9;;Penge, Kent
+3 CONT Willie Lovelock;Son;13;;Penge, Kent
+2 SOUR @S12@
+1 _UID F813F58AD59747038F615E02FB8BCB5C3D3B
+1 FAMC @F4@
+0 @I23@ INDI
+1 NAME Lily /LOVELOCK/
+2 GIVN Lily
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Apr 1892 and Jun 1892
+2 PLAC Penge, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 199
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1901
+2 PLAC 41 Crampton Rd, Penge, Surrey, England
+2 NOTE 41 Crampton Rd, Penge, Kent
+3 CONT RG13 651 F182 P52
+3 CONT
+3 CONT William Lovelock;Head;45;Painter;Farnham, Hants (sic)
+3 CONT Elizabeth Lovelock;Wife;45;;Sydenham, Kent
+3 CONT Lizzie Lovelock;Daur;21;Parlourmaid Domestic;Penge, Kent (s
+3 CONC ic)
+3 CONT Kate Lovelock;Daur;19;;Penge, Kent
+3 CONT Lillie Lovelock;Daur;9;;Penge, Kent
+3 CONT Willie Lovelock;Son;13;;Penge, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Croydon, Surrey, England
+2 NOTE 76 Anerley Park, Croydon, Surrey, England
+3 CONT RG14 PN3407  RG78 PN128  RD39  SD5  ED3  SN181
+3 CONT
+3 CONT August Schroeder;Head;46;Export Merchant;Luxemburg
+3 CONT Claire Schroeder;Wife, married 13 years;34;;Hornsey, London
+3 CONT Hilda Schroeder;Daur;11;;Harlesden, London
+3 CONT Adele Schroeder;Daur;10;;Anerley, London
+3 CONT Andre Schroeder;Son;8;;Anerley, London
+3 CONT Lily Lovelock;Servant;19;General Servant (Domestic);Penge
+3 CONC , London
+2 SOUR @S13@
+1 _UID 45355712C0E44FF8AE6E4D99FF6309BEF9E3
+1 FAMC @F4@
+0 @I24@ INDI
+1 NAME Walter /TIPPING/
+2 GIVN Walter
+2 SURN TIPPING
+1 SEX M
+1 BIRT
+2 DATE Bet Apr 1879 and Jun 1879
+2 PLAC Tatsfield, Surrey, England
+2 SOUR @S10@
+3 PAGE Godstone RD, ref 2a 182
+3 QUAY 3
+2 SOUR @S13@
+1 DEAT
+2 DATE Bet Oct 1968 and Dec 1968
+2 PLAC Bromley RD, Bromley, Kent, England
+2 SOUR @S4@
+3 PAGE Bromley RD, ref 5a 463  (age 89)
+3 QUAY 3
+1 CENS
+2 DATE 1911
+2 PLAC Anerley, Surrey, England
+2 NOTE 56 Station Rd, Anerley, Surrey, England
+3 CONT RG14 PN3419  RG78 PN128  RD39  SD5  ED15  SN293
+3 CONT
+3 CONT Walter Tipping;Head;32;Carpenter;Tatsfield, Surrey
+3 CONT Kate Tipping;Wife, married 8 years;30;;Anerley
+3 CONT William Lovelock;Nephew;8;;Wimbledon
+2 SOUR @S13@
+1 _UID F52C7624DCCC41F6819A3FDDAD87AB19C931
+1 FAMS @F5@
+0 @I25@ INDI
+1 NAME Thomas William /FRERE/
+2 GIVN Thomas William
+2 SURN FRERE
+1 SEX M
+1 BIRT
+2 DATE Bet Oct 1888 and Dec 1888
+2 PLAC Pancras RD, London, England
+2 SOUR @S10@
+3 PAGE Pancras RD, ref 1b 93
+3 QUAY 3
+1 DEAT Y
+1 _UID 5D2A3D97BC674A378185A26696073DD3BA86
+1 FAMS @F6@
+0 @I26@ INDI
+1 NAME James Francis /TRUSTE/
+2 GIVN James Francis
+2 SURN TRUSTE
+1 SEX M
+1 BIRT
+2 DATE Bet Jul 1845 and Sep 1845
+2 PLAC Bermondsey, London, England
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 4 463
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct 1921 and Dec 1921
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Lewisham RD, ref 1d 1253  (age 77)
+3 QUAY 3
+1 CENS
+2 DATE 1871
+2 PLAC 3 Richardson St, Bermondsey, Surrey, England
+2 NOTE 3 Richardson St, Bermondsey, Surrey, England
+3 CONT RG10 628  F4  P1
+3 CONT
+3 CONT James F Truste;Head;24;Lighterman;Bermondsey, London
+3 CONT Rose Truste;Wife;22;;Bermondsey, London
+3 CONT Alfred Chas (sic) Truste;1mo;;Bermondsey, London
+2 SOUR @S11@
+1 CENS
+2 DATE 1881
+2 PLAC 44 Frean St, Bermondsey, Surrey, England
+2 NOTE 44 Frean St, Bermondsey, Surrey, England
+3 CONT RG11 574  F105  P34
+3 CONT
+3 CONT James F Truste;Head;35;Lighterman;Bermondsey, Surrey
+3 CONT Rose Truste;Wife;33;;Bermondsey, Surrey
+3 CONT Alfred Truste;Son;10;;Bermondsey, Surrey
+3 CONT Rose Truste;Daur;8;;Bermondsey, Surrey
+3 CONT Frederick Truste;Son;6;;Bermondsey, Surrey
+3 CONT Caroline A Truste;Daur;3;;Bermondsey, Surrey
+3 CONT Louisa Truste;Daur;8mos;;Bermondsey, Surrey
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID 6083E5C1BFDA4C5B8643F7DC4C05C04EC4A5
+1 FAMS @F7@
+0 @I27@ INDI
+1 NAME Alfred Charles /TRUSTE/
+2 GIVN Alfred Charles
+2 SURN TRUSTE
+1 SEX M
+1 BIRT
+2 DATE Abt Mar 1871
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S11@
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 1d 215
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr 1918 and Jun 1918
+2 PLAC Brentford RD, Brentford, Middlesex, England
+2 SOUR @S4@
+3 PAGE Brentford RD, ref 3a 104  (age 48)
+3 QUAY 3
+1 CENS
+2 DATE 1871
+2 PLAC 3 Richardson St, Bermondsey, Surrey, England
+2 NOTE 3 Richardson St, Bermondsey, Surrey, England
+3 CONT RG10 628  F4  P1
+3 CONT
+3 CONT James F Truste;Head;24;Lighterman;Bermondsey, London
+3 CONT Rose Truste;Wife;22;;Bermondsey, London
+3 CONT Alfred Chas (sic) Truste;1mo;;Bermondsey, London
+2 SOUR @S11@
+1 CENS
+2 DATE 1881
+2 PLAC 44 Frean St, Bermondsey, Surrey, England
+2 NOTE 44 Frean St, Bermondsey, Surrey, England
+3 CONT RG11 574  F105  P34
+3 CONT
+3 CONT James F Truste;Head;35;Lighterman;Bermondsey, Surrey
+3 CONT Rose Truste;Wife;33;;Bermondsey, Surrey
+3 CONT Alfred Truste;Son;10;;Bermondsey, Surrey
+3 CONT Rose Truste;Daur;8;;Bermondsey, Surrey
+3 CONT Frederick Truste;Son;6;;Bermondsey, Surrey
+3 CONT Caroline A Truste;Daur;3;;Bermondsey, Surrey
+3 CONT Louisa Truste;Daur;8mos;;Bermondsey, Surrey
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID 98B25AF0B6A54F10AFAF3FC4AE78587CA92A
+1 FAMC @F7@
+0 @I28@ INDI
+1 NAME Rosina /TRUSTE/
+2 GIVN Rosina
+2 SURN TRUSTE
+1 SEX F
+1 BIRT
+2 DATE Bet Jan 1873 and Mar 1873
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S7@
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 1d 292
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC 44 Frean St, Bermondsey, Surrey, England
+2 NOTE 44 Frean St, Bermondsey, Surrey, England
+3 CONT RG11 574  F105  P34
+3 CONT
+3 CONT James F Truste;Head;35;Lighterman;Bermondsey, Surrey
+3 CONT Rose Truste;Wife;33;;Bermondsey, Surrey
+3 CONT Alfred Truste;Son;10;;Bermondsey, Surrey
+3 CONT Rose Truste;Daur;8;;Bermondsey, Surrey
+3 CONT Frederick Truste;Son;6;;Bermondsey, Surrey
+3 CONT Caroline A Truste;Daur;3;;Bermondsey, Surrey
+3 CONT Louisa Truste;Daur;8mos;;Bermondsey, Surrey
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID 02F844E2321143FCB27D6304A283148EFF8F
+1 FAMC @F7@
+0 @I29@ INDI
+1 NAME Frederick James /TRUSTE/
+2 GIVN Frederick James
+2 SURN TRUSTE
+1 SEX M
+1 BIRT
+2 DATE Bet Jan 1875 and Mar 1875
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S7@
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 1d  254
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jan 1904 and Mar 1904
+2 PLAC Southwark RD, Southwark, London, England
+2 SOUR @S4@
+3 PAGE Southwark RD, ref 1d 23  (age 28)
+3 QUAY 3
+1 CENS
+2 DATE 1881
+2 PLAC 44 Frean St, Bermondsey, Surrey, England
+2 NOTE 44 Frean St, Bermondsey, Surrey, England
+3 CONT RG11 574  F105  P34
+3 CONT
+3 CONT James F Truste;Head;35;Lighterman;Bermondsey, Surrey
+3 CONT Rose Truste;Wife;33;;Bermondsey, Surrey
+3 CONT Alfred Truste;Son;10;;Bermondsey, Surrey
+3 CONT Rose Truste;Daur;8;;Bermondsey, Surrey
+3 CONT Frederick Truste;Son;6;;Bermondsey, Surrey
+3 CONT Caroline A Truste;Daur;3;;Bermondsey, Surrey
+3 CONT Louisa Truste;Daur;8mos;;Bermondsey, Surrey
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID 8628042DC0B64D1681DEA3FF75C4DDF8C78C
+1 FAMC @F7@
+0 @I30@ INDI
+1 NAME Caroline Alice /TRUSTE/
+2 GIVN Caroline Alice
+2 SURN TRUSTE
+1 SEX F
+1 BIRT
+2 DATE Bet Jul 1878 and Sep 1878
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S7@
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 1d 252
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC 44 Frean St, Bermondsey, Surrey, England
+2 NOTE 44 Frean St, Bermondsey, Surrey, England
+3 CONT RG11 574  F105  P34
+3 CONT
+3 CONT James F Truste;Head;35;Lighterman;Bermondsey, Surrey
+3 CONT Rose Truste;Wife;33;;Bermondsey, Surrey
+3 CONT Alfred Truste;Son;10;;Bermondsey, Surrey
+3 CONT Rose Truste;Daur;8;;Bermondsey, Surrey
+3 CONT Frederick Truste;Son;6;;Bermondsey, Surrey
+3 CONT Caroline A Truste;Daur;3;;Bermondsey, Surrey
+3 CONT Louisa Truste;Daur;8mos;;Bermondsey, Surrey
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID CE7AB05418D44BD68DCF762FA661DCF532C2
+1 FAMC @F7@
+0 @I31@ INDI
+1 NAME Louisa Emmeline /TRUSTE/
+2 GIVN Louisa Emmeline
+2 SURN TRUSTE
+1 SEX F
+1 BIRT
+2 DATE Abt Aug 1880
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S7@
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 1d 262
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC 44 Frean St, Bermondsey, Surrey, England
+2 NOTE 44 Frean St, Bermondsey, Surrey, England
+3 CONT RG11 574  F105  P34
+3 CONT
+3 CONT James F Truste;Head;35;Lighterman;Bermondsey, Surrey
+3 CONT Rose Truste;Wife;33;;Bermondsey, Surrey
+3 CONT Alfred Truste;Son;10;;Bermondsey, Surrey
+3 CONT Rose Truste;Daur;8;;Bermondsey, Surrey
+3 CONT Frederick Truste;Son;6;;Bermondsey, Surrey
+3 CONT Caroline A Truste;Daur;3;;Bermondsey, Surrey
+3 CONT Louisa Truste;Daur;8mos;;Bermondsey, Surrey
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID 409E61200BB04714AFBD58605D395B941EBA
+1 FAMC @F7@
+0 @I32@ INDI
+1 NAME Emma Jane /BAILEY/
+2 GIVN Emma Jane
+2 SURN BAILEY
+1 SEX F
+1 BIRT
+2 DATE Abt 1853
+2 PLAC Petherton, Somerset, England
+2 SOUR @S11@
+1 DEAT
+2 DATE Bet Oct 1908 and Dec 1908
+2 PLAC Southwark RD, Southwark, London, England
+2 SOUR @S4@
+3 PAGE Southwark RD, ref 1d 72   (aged 54)
+3 QUAY 3
+1 CENS
+2 DATE 1871
+2 PLAC 2 Froggatt Cottages North (?), St Mary, Lambeth, Surrey, England
+2 NOTE 2 Froggatt Cottages North (?), St Mary, Lambeth, Surrey
+3 CONT RG10 693  F106  P12
+3 CONT
+3 CONT Lodging at this address:
+3 CONT
+3 CONT Charles Lovelock;Head;22;Boot maker;Southwark, Surrey
+3 CONT Emma Lovelock;Wife;18;;Yeovil, Somerset
+2 SOUR @S11@
+1 CENS
+2 DATE 1881
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG11 739  F24  P41
+3 CONT
+3 CONT Charles Lovelock;Head;30;Shoemaker;Bermondsey, Surrey
+3 CONT Emma Lovelock;Wife;26;;Rotherham, Somerset
+3 CONT Florence Lovelock;Daur;9;;Norwood, Surrey
+3 CONT Charles Lovelock;Son;7;;Norwood, Surrey
+3 CONT Rosa Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Jane Lovelock;Daur;3;;Forest Hill, Kent
+3 CONT Emma Lovelock;Daur;1;;Forest Hill, Kent
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 _UID 52F2AA4E42D44B4DB2C87DE006AF93E7F0EF
+1 FAMS @F8@
+0 @I33@ INDI
+1 NAME Florence Harriet /LOVELOCK/
+2 GIVN Florence Harriet
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Oct 1871 and Dec 1871
+2 PLAC Norwood, Surrey, England
+2 SOUR @S10@
+3 PAGE Lambeth RD, ref 1d 486
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG11 739  F24  P41
+3 CONT
+3 CONT Charles Lovelock;Head;30;Shoemaker;Bermondsey, Surrey
+3 CONT Emma Lovelock;Wife;26;;Rotherham, Somerset
+3 CONT Florence Lovelock;Daur;9;;Norwood, Surrey
+3 CONT Charles Lovelock;Son;7;;Norwood, Surrey
+3 CONT Rosa Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Jane Lovelock;Daur;3;;Forest Hill, Kent
+3 CONT Emma Lovelock;Daur;1;;Forest Hill, Kent
+2 SOUR @S7@
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 14 Florence Villas, Helvetia St, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN268
+3 CONT
+3 CONT Harry Leonard Benjamin Talbot;Head;39;Shoeing Smith;Sydenha
+3 CONC m, Kent
+3 CONT Florence Harriet Jane Talbot;Wife, married 10 years;39;;Nor
+3 CONC wood,Surrey
+3 CONT Doris Mabel Talbot;Daur;7;;Forest Hill, Kent
+3 CONT Harry Leonard Charles Talbot;Son;5;;Walworth, Surry (sic)
+3 CONT Ethel E L Talbot;Daur;2;;Bromley, Kent
+3 CONT Florence L Talbot;Daur;1mo;;Catford, Kent
+2 SOUR @S13@
+1 _UID 97F99C7D3F464AF190959BA841E0BCF6A4CA
+1 FAMS @F9@
+1 FAMC @F8@
+0 @I34@ INDI
+1 NAME Charles William /LOVELOCK/
+2 GIVN Charles William
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Oct 1873 and Dec 1873
+2 PLAC Norwood, Surrey, England
+2 SOUR @S10@
+3 PAGE Lambeth RD,ref 1d 530
+3 QUAY 3
+1 DEAT
+2 NOTE @DI34@
+1 CENS
+2 DATE 1881
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG11 739  F24  P41
+3 CONT
+3 CONT Charles Lovelock;Head;30;Shoemaker;Bermondsey, Surrey
+3 CONT Emma Lovelock;Wife;26;;Rotherham, Somerset
+3 CONT Florence Lovelock;Daur;9;;Norwood, Surrey
+3 CONT Charles Lovelock;Son;7;;Norwood, Surrey
+3 CONT Rosa Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Jane Lovelock;Daur;3;;Forest Hill, Kent
+3 CONT Emma Lovelock;Daur;1;;Forest Hill, Kent
+2 SOUR @S7@
+1 CENS
+2 DATE 1901
+2 PLAC 70a Arundel Rd, Croydon, Surrey, England
+2 NOTE 70a Arundel Rd, Croydon, Surrey
+3 CONT RG13 645  F113  P37
+3 CONT
+3 CONT Charles W Lovelock;Head;28;Draper Assistant;Forest Hill, Ke
+3 CONC nt
+3 CONT Lilian M Lovelock;Wife;32;;Gravesend, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Croydon, Surrey, England
+2 NOTE 11 Burdett Rd, Croydon, Surrey, England
+3 CONT RG14 PN3337  RG78 PN126  RD39  SD3  ED15  SN420
+3 CONT
+3 CONT Charles William Lovelock;Head;38;Drapers Assistant;County o
+3 CONC f Surrey
+3 CONT Lilian Mary Lovelock;Wife, married 12 years;42;;Gravesend
+3 CONC , Kent
+2 SOUR @S13@
+1 CENS
+2 DATE 1891
+2 NOTE 127 London Rd, Croydon, Surrey
+3 CONT RG12 589  F95  P11/12
+3 CONT
+3 CONT William Cruse;Head;52;Coffee House Keeper;Teddington, Middx
+3 CONT Sarah Cruse;Wife;52;;Scotland
+3 CONT William Cruse;Son;25;A B Merchant Service;Lambeth, London
+3 CONT Emily J Cruse;Daur;22;Waitress in Coffee House;Lambeth, Lon
+3 CONC don
+3 CONT Arthur J Cruse;Son;21;Railway Clerk;Lambeth, London
+3 CONT Albert E Cruse;Son;19;Electrical Engineer;Lambeth, London
+3 CONT Archibald Cruse;Son;19;Electrical Engineer;Lambeth, London
+3 CONT Percy B Cruse;Son;11;;Ramsgate, Kent
+3 CONT Mary Edwards;Niece;8;;Newport, Monmouth
+3 CONT Alice Dorrington;Visitor;18;Kitchen Maid - Domestic Servant
+3 CONC ;Brentwood, Essex
+3 CONT Charles Lovelock;Boarder;17;Grocer's Assistant;Upper Norwoo
+3 CONC d, Surrey
+3 CONT Alexander Paris;Boarder;72;Tailor;Marylebone, London
+1 _UID A41715963C3C46E593F7EF7EB934529AD9B1
+1 FAMS @F10@
+1 FAMC @F8@
+0 @DI34@ NOTE
+1 CONC Y
+0 @I35@ INDI
+1 NAME Rosanna Rebecca /LOVELOCK/
+2 GIVN Rosanna Rebecca
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Apr 1876 and Jun 1876
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1012
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG11 739  F24  P41
+3 CONT
+3 CONT Charles Lovelock;Head;30;Shoemaker;Bermondsey, Surrey
+3 CONT Emma Lovelock;Wife;26;;Rotherham, Somerset
+3 CONT Florence Lovelock;Daur;9;;Norwood, Surrey
+3 CONT Charles Lovelock;Son;7;;Norwood, Surrey
+3 CONT Rosa Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Jane Lovelock;Daur;3;;Forest Hill, Kent
+3 CONT Emma Lovelock;Daur;1;;Forest Hill, Kent
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 24 Neuchatel Rd, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN299
+3 CONT
+3 CONT Louise Lovelock;Head;25;General Servant (Domestic);Forest H
+3 CONC ill
+3 CONT Rose Earl;Visitor, married 2 years;34;Forest Hill
+3 CONT Walter Lovelock;Brother;23;Soldier Pte (sic) 4½ years;Fores
+3 CONC t Hill
+3 CONT Ethel Lovelock;Sister;20;General Servant (Domestic);Fores
+3 CONC t Hill
+3 CONT William Lovelock;Brother;18;Photographer;Forest Hill
+3 CONT Reggie Earl;Nephew;10mos;;Lower Sydenham
+2 SOUR @S13@
+1 _UID A3508AC9FDAA43719D0D12FD19FFCC52904D
+1 FAMC @F8@
+0 @I36@ INDI
+1 NAME Jane Sarah A /LOVELOCK/
+2 GIVN Jane Sarah A
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Jan 1878 and Mar 1878
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1058
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG11 739  F24  P41
+3 CONT
+3 CONT Charles Lovelock;Head;30;Shoemaker;Bermondsey, Surrey
+3 CONT Emma Lovelock;Wife;26;;Rotherham, Somerset
+3 CONT Florence Lovelock;Daur;9;;Norwood, Surrey
+3 CONT Charles Lovelock;Son;7;;Norwood, Surrey
+3 CONT Rosa Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Jane Lovelock;Daur;3;;Forest Hill, Kent
+3 CONT Emma Lovelock;Daur;1;;Forest Hill, Kent
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 _UID 77F4A4459C6E49C48DBB9DAB5DB63A337BC4
+1 FAMC @F8@
+0 @I37@ INDI
+1 NAME Emma /LOVELOCK/
+2 GIVN Emma
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Jan 1880 and Mar 1880
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1108
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct and Dec 1925
+2 SOUR @S4@
+3 DATA
+4 TEXT Lewisham RD, ref 1d 1133  (age 45)
+1 CENS
+2 DATE 1881
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG11 739  F24  P41
+3 CONT
+3 CONT Charles Lovelock;Head;30;Shoemaker;Bermondsey, Surrey
+3 CONT Emma Lovelock;Wife;26;;Rotherham, Somerset
+3 CONT Florence Lovelock;Daur;9;;Norwood, Surrey
+3 CONT Charles Lovelock;Son;7;;Norwood, Surrey
+3 CONT Rosa Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Jane Lovelock;Daur;3;;Forest Hill, Kent
+3 CONT Emma Lovelock;Daur;1;;Forest Hill, Kent
+2 SOUR @S7@
+1 CENS
+2 DATE 1891
+2 PLAC Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey, England
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1911
+2 PLAC Croydon, Surrey, England
+2 NOTE 9 Burdett Rd, Croydon, Surrey, England
+3 CONT RG14 PN3337  RG78 PN126  RD39  SD3  ED15  SN420
+3 CONT
+3 CONT Charles E Riley;Head;30;Bootmaker;Camberwell, Surrey
+3 CONT Emma Riley;Wife, married 5 years;31;;Forest Hill, Kent
+3 CONT Maurice C Riley;Son;4;;Herne Bay, Kent
+3 CONT Lilian H Lovelock;Relative;12;;Forest Hill, Kent
+2 SOUR @S13@
+1 _UID 0D00E201EFD54BDE81CD69EF750644CA0C4C
+1 FAMS @F14@
+1 FAMC @F8@
+0 @I38@ INDI
+1 NAME Albert Harry /LOVELOCK/
+2 GIVN Albert Harry
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Jan 1882 and Mar 1882
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1156
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 _UID 41131A8A29A046ABB7E66476C8CA2F1802C2
+1 FAMC @F8@
+0 @I39@ INDI
+1 NAME Beatrice Louise /LOVELOCK/
+2 GIVN Beatrice Louise
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Jul 1884 and Sep 1884
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1160
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jul 1954 and Sep 1954
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Lewisham RD, ref 5d 78  (age 70)
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 24 Neuchatel Rd, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN299
+3 CONT
+3 CONT Louise Lovelock;Head;25;General Servant (Domestic);Forest H
+3 CONC ill
+3 CONT Rose Earl;Visitor, married 2 years;34;Forest Hill
+3 CONT Walter Lovelock;Brother;23;Soldier Pte (sic) 4½ years;Fores
+3 CONC t Hill
+3 CONT Ethel Lovelock;Sister;20;General Servant (Domestic);Fores
+3 CONC t Hill
+3 CONT William Lovelock;Brother;18;Photographer;Forest Hill
+3 CONT Reggie Earl;Nephew;10mos;;Lower Sydenham
+2 SOUR @S13@
+1 _UID 572D4F028D7B4BF486CEA9ABD585BF9875FE
+1 FAMS @F11@
+1 FAMC @F8@
+0 @I40@ INDI
+1 NAME Walter /LOVELOCK/
+2 GIVN Walter
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Apr 1887 and Jun 1887
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1159
+3 QUAY 3
+1 DEAT
+2 NOTE @DI40@
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 24 Neuchatel Rd, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN299
+3 CONT
+3 CONT Louise Lovelock;Head;25;General Servant (Domestic);Forest H
+3 CONC ill
+3 CONT Rose Earl;Visitor, married 2 years;34;Forest Hill
+3 CONT Walter Lovelock;Brother;23;Soldier Pte (sic) 4½ years;Fores
+3 CONC t Hill
+3 CONT Ethel Lovelock;Sister;20;General Servant (Domestic);Fores
+3 CONC t Hill
+3 CONT William Lovelock;Brother;18;Photographer;Forest Hill
+3 CONT Reggie Earl;Nephew;10mos;;Lower Sydenham
+2 SOUR @S13@
+1 _UID 1CDC1088BC9C4CB0A16DA0F6AFB1B9963780
+1 FAMC @F8@
+0 @DI40@ NOTE
+1 CONC Y
+0 @I41@ INDI
+1 NAME Ethel May /LOVELOCK/
+2 GIVN Ethel May
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Aug 1890
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1149
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1891
+2 PLAC 77 Dalmain Rd, Lewisham, Surrey, England
+2 NOTE 77 Dalmain Rd, Lewisham, Surrey
+3 CONT RG12 525  F125  P26
+3 CONT
+3 CONT Charles Lovelock;Head;;44;Bootmaker;Southwark, London
+3 CONT Emma Lovelock;Wife;36;;Petherton, Somerset
+3 CONT Rose Lovelock;Daur;;15;Servant Domestic;Forest Hill, London
+3 CONT Jane Lovelock;Daur;;13;;Forest Hill, London
+3 CONT Emma Lovelock;Daur;;11;;Forest Hill, London
+3 CONT Harry Lovelock;Son;;9;;Forest Hill, London
+3 CONT Walter Lovelock;Son;;6;;Forest Hill, London
+3 CONT Louise Lovelock;Daur;;3;;Forest Hill, London
+3 CONT Ethel Lovelock;Daur;;8mos;;Forest Hill, London
+3 CONT (Mrs) Bailey (sic);Mother in law;Wid;72;;Petherton, Somerset
+2 SOUR @S8@
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 24 Neuchatel Rd, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN299
+3 CONT
+3 CONT Louise Lovelock;Head;25;General Servant (Domestic);Forest H
+3 CONC ill
+3 CONT Rose Earl;Visitor, married 2 years;34;Forest Hill
+3 CONT Walter Lovelock;Brother;23;Soldier Pte (sic) 4½ years;Fores
+3 CONC t Hill
+3 CONT Ethel Lovelock;Sister;20;General Servant (Domestic);Fores
+3 CONC t Hill
+3 CONT William Lovelock;Brother;18;Photographer;Forest Hill
+3 CONT Reggie Earl;Nephew;10mos;;Lower Sydenham
+2 SOUR @S13@
+1 _UID 01FF8797E1CD458599CD4D3F55F817E3CF81
+1 FAMS @F12@
+1 FAMC @F8@
+0 @I42@ INDI
+1 NAME William /LOVELOCK/
+2 GIVN William
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Oct 1892 and Dec 1892
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1155
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jul 1974 and Sep 1974
+2 PLAC Canterbury RD, Canterbury, Kent, England
+2 SOUR @S4@
+3 PAGE Canterbury RD, ref 16 0239
+3 QUAY 3
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 24 Neuchatel Rd, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN299
+3 CONT
+3 CONT Louise Lovelock;Head;25;General Servant (Domestic);Forest H
+3 CONC ill
+3 CONT Rose Earl;Visitor, married 2 years;34;Forest Hill
+3 CONT Walter Lovelock;Brother;23;Soldier Pte (sic) 4½ years;Fores
+3 CONC t Hill
+3 CONT Ethel Lovelock;Sister;20;General Servant (Domestic);Fores
+3 CONC t Hill
+3 CONT William Lovelock;Brother;18;Photographer;Forest Hill
+3 CONT Reggie Earl;Nephew;10mos;;Lower Sydenham
+2 SOUR @S13@
+1 _UID CBD182FE33474185972882D40BC3DEABC875
+1 FAMC @F8@
+0 @I43@ INDI
+1 NAME Mabel /LOVELOCK/
+2 GIVN Mabel
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Jul 1895 and Sep 1895
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1218
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct 1972 and Dec 1972
+2 PLAC Camberwell RD, London, England
+2 SOUR @S4@
+3 PAGE Camberwell RD, ref 5a 1476
+3 QUAY 3
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 _UID A1B350D46A4946FDA47C6E18C6F7AB007C50
+1 FAMS @F19@
+1 FAMC @F8@
+0 @I44@ INDI
+1 NAME Harriet Lilian /LOVELOCK/
+2 GIVN Harriet Lilian
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 29 Apr 1898
+2 PLAC Forest Hill, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1184
+3 QUAY 3
+2 NOTE @BI44@
+1 DEAT
+2 DATE Bet Jul and Sep 1981
+2 SOUR @S4@
+3 DATA
+4 TEXT Maidstone RD, ref 16 1190
+1 CENS
+2 DATE 1901
+2 PLAC 124 Malham Rd, Lewisham, Surrey, England
+2 NOTE 124 Malham Rd, Lewisham, Surrey
+3 CONT RG13  559  F129  P28
+3 CONT
+3 CONT Charles Lovelock;Head;52;Bootmaker;Bermondsey, London
+3 CONT Emmie Lovelock;Wife;47;;Petherton, Somerset
+3 CONT Albert Lovelock;Son;19;Bootmaker;Forest Hill, Kent
+3 CONT Beatrice Lovelock;Daur;16;Servant Domestic;Forest Hill, Kent
+3 CONT Walter Lovelock;Son;13;;Forest Hill, Kent
+3 CONT Ethel Lovelock;Daur;9;;Forest Hill, Kent
+3 CONT William Lovelock;Son;7;;Forest Hill, Kent
+3 CONT Mabel Lovelock;Daur;5;;Forest Hill, Kent
+3 CONT Lilian Lovelock;Daur;3;;Forest Hill, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Croydon, Surrey, England
+2 NOTE 9 Burdett Rd, Croydon, Surrey, England
+3 CONT RG14 PN3337  RG78 PN126  RD39  SD3  ED15  SN420
+3 CONT
+3 CONT Charles E Riley;Head;30;Bootmaker;Camberwell, Surrey
+3 CONT Emma Riley;Wife, married 5 years;31;;Forest Hill, Kent
+3 CONT Maurice C Riley;Son;4;;Herne Bay, Kent
+3 CONT Lilian H Lovelock;Relative;12;;Forest Hill, Kent
+2 SOUR @S13@
+1 _UID 082A44812884450C96B902F74B606893E232
+1 FAMS @F20@
+1 FAMC @F8@
+0 @BI44@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I45@ INDI
+1 NAME Harry Leonard Benjamin /TALBOT/
+2 GIVN Harry Leonard Benjamin
+2 SURN TALBOT
+1 SEX M
+1 BIRT
+2 DATE 1871-1872
+2 PLAC Sydenham, Kent, England
+1 DEAT Y
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 14 Florence Villas, Helvetia St, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN268
+3 CONT
+3 CONT Harry Leonard Benjamin Talbot;Head;39;Shoeing Smith;Sydenha
+3 CONC m, Kent
+3 CONT Florence Harriet Jane Talbot;Wife, married 10 years;39;;Nor
+3 CONC wood,Surrey
+3 CONT Doris Mabel Talbot;Daur;7;;Forest Hill, Kent
+3 CONT Harry Leonard Charles Talbot;Son;5;;Walworth, Surry (sic)
+3 CONT Ethel E L Talbot;Daur;2;;Bromley, Kent
+3 CONT Florence L Talbot;Daur;1mo;;Catford, Kent
+2 SOUR @S13@
+1 _UID 49B90D3347BE4749AB1111D575371CDB1C73
+1 FAMS @F9@
+0 @I46@ INDI
+1 NAME Mary E /TALBOT/
+2 GIVN Mary E
+2 SURN TALBOT
+1 SEX F
+1 FAMC @F9@
+0 @I47@ INDI
+1 NAME John W /TALBOT/
+2 GIVN John W
+2 SURN TALBOT
+1 SEX M
+1 FAMC @F9@
+0 @I48@ INDI
+1 NAME Lilian Mary /HILLS/
+2 GIVN Lilian Mary
+2 SURN HILLS
+1 SEX F
+1 BIRT
+2 DATE Abt 1869
+2 PLAC Gravesend, Kent, England
+2 SOUR @S12@
+1 DEAT
+2 DATE Bet Apr 1949 and Jun 1949
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Croydon RD, ref 5h 97  (age 80)
+3 QUAY 3
+1 CENS
+2 DATE 1901
+2 PLAC 70a Arundel Rd, Croydon, Surrey, England
+2 NOTE 70a Arundel Rd, Croydon, Surrey
+3 CONT RG13 645  F113  P37
+3 CONT
+3 CONT Charles W Lovelock;Head;28;Draper Assistant;Forest Hill, Ke
+3 CONC nt
+3 CONT Lilian M Lovelock;Wife;32;;Gravesend, Kent
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Croydon, Surrey, England
+2 NOTE 11 Burdett Rd, Croydon, Surrey, England
+3 CONT RG14 PN3337  RG78 PN126  RD39  SD3  ED15  SN420
+3 CONT
+3 CONT Charles William Lovelock;Head;38;Drapers Assistant;County o
+3 CONC f Surrey
+3 CONT Lilian Mary Lovelock;Wife, married 12 years;42;;Gravesend
+3 CONC , Kent
+2 SOUR @S13@
+1 _UID AF85DEC52AAA4A858C215B7730E17BD1569D
+1 FAMS @F10@
+0 @I49@ INDI
+1 NAME George John S /KEYNES/
+2 GIVN George John S
+2 SURN KEYNES
+1 SEX M
+1 BIRT
+2 DATE 14 Apr 1888
+2 PLAC St Saviour RD, Surrey, England
+2 SOUR @S10@
+3 PAGE St Saviour RD, ref 1d 40
+3 QUAY 3
+2 NOTE @BI49@
+1 DEAT
+2 DATE Bet Jul 1976 and Sep 1976
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Lewisham RD, ref 14 0415
+3 QUAY 3
+1 _UID 7BD3859287F04F6CA3D78CFFC69346417C1D
+1 FAMS @F11@
+0 @BI49@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I50@ INDI
+1 NAME Marjorie Phyllis /KEYNES/
+2 GIVN Marjorie Phyllis
+2 SURN KEYNES
+1 SEX F
+1 BIRT
+2 DATE 25 Nov 1919
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 2219
+3 QUAY 3
+2 NOTE @BI50@
+1 DEAT
+2 DATE May 1999
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Lewisham RD, ref C81A 5
+3 QUAY 3
+1 _UID 140E2383E0934C34ABC691459924ADC22EAD
+1 FAMC @F11@
+0 @BI50@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I51@ INDI
+1 NAME John J /WILKINSON/
+2 GIVN John J
+2 SURN WILKINSON
+1 SEX M
+1 FAMS @F12@
+0 @I52@ INDI
+1 NAME Frederick J /WILKINSON/
+2 GIVN Frederick J
+2 SURN WILKINSON
+1 SEX M
+1 FAMC @F12@
+0 @I53@ INDI
+1 NAME Robert /BETCHLEY/
+2 GIVN Robert
+2 SURN BETCHLEY
+1 SEX M
+1 BIRT
+2 DATE Bet Apr 1884 and Jun 1884
+2 PLAC Sevenoaks RD, Sevenoaks, Kent, England
+2 SOUR @S10@
+3 PAGE Sevenoaks RD, ref 2a 632
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct 1968 and Dec 1968
+2 PLAC Bromley RD, Bromley, Kent, England
+2 SOUR @S4@
+3 PAGE Bromley RD, ref 5a 472  (age 84)
+3 QUAY 3
+1 _UID FE2F3D9F4DA542F7855B083A81D617A56950
+1 FAMS @F13@
+0 @I54@ INDI
+1 NAME Irene J /BETCHLEY/
+2 GIVN Irene J
+2 SURN BETCHLEY
+1 SEX F
+1 BIRT
+2 DATE Bet Oct 1923 and Dec 1923
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 458
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jan 1924 and Mar 1924
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S4@
+3 PAGE Croydon RD, ref 2a 486  (age 0)
+3 QUAY 3
+1 _UID 6FC48A4BB63141BEA77349909D0C90A5BFE2
+1 FAMC @F13@
+0 @I55@ INDI
+1 NAME Doris Mabel /TALBOT/
+2 GIVN Doris Mabel
+2 SURN TALBOT
+1 SEX F
+1 FAMC @F9@
+0 @I56@ INDI
+1 NAME Harry Leonard Charles /TALBOT/
+2 GIVN Harry Leonard Charles
+2 SURN TALBOT
+1 SEX M
+1 FAMC @F9@
+0 @I57@ INDI
+1 NAME Ethel Elizabeth L /TALBOT/
+2 GIVN Ethel Elizabeth L
+2 SURN TALBOT
+1 SEX F
+1 FAMC @F9@
+0 @I58@ INDI
+1 NAME Florence L /TALBOT/
+2 GIVN Florence L
+2 SURN TALBOT
+1 SEX F
+1 BIRT
+2 DATE Mar 1911
+2 PLAC Catford, Kent, England
+2 SOUR @S10@
+3 PAGE Lewisham RD, ref 1d 1101  (in Apr-Jun quarter)
+3 QUAY 3
+1 DEAT
+2 NOTE @DI58@
+1 CENS
+2 DATE 1911
+2 PLAC Catford, London, England
+2 NOTE 14 Florence Villas, Helvetia St, Catford, London, England
+3 CONT RG14 PN2825  RG78 PN96  RD29  SD4  ED19  SN268
+3 CONT
+3 CONT Harry Leonard Benjamin Talbot;Head;39;Shoeing Smith;Sydenha
+3 CONC m, Kent
+3 CONT Florence Harriet Jane Talbot;Wife, married 10 years;39;;Nor
+3 CONC wood,Surrey
+3 CONT Doris Mabel Talbot;Daur;7;;Forest Hill, Kent
+3 CONT Harry Leonard Charles Talbot;Son;5;;Walworth, Surry (sic)
+3 CONT Ethel E L Talbot;Daur;2;;Bromley, Kent
+3 CONT Florence L Talbot;Daur;1mo;;Catford, Kent
+2 SOUR @S13@
+1 _UID 5700DDA313954E668A0077A79D79E5431903
+1 FAMC @F9@
+0 @DI58@ NOTE
+1 CONC Y
+0 @I59@ INDI
+1 NAME Thomas George /TRUSTE/
+2 GIVN Thomas George
+2 SURN TRUSTE
+1 SEX M
+1 BIRT
+2 DATE Bet Jul 1882 and Sep 1882
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S8@
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 1d 258
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr 1946 and Jun 1946
+2 PLAC Chelsea RD, London, England
+2 SOUR @S4@
+3 PAGE Chelsea RD, ref 1a 310  (age 63)
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID DB64F5DEBA6F4584BA2C39BA1498A12C568D
+1 FAMC @F7@
+0 @I60@ INDI
+1 NAME Elizabeth Maud /TRUSTE/
+2 GIVN Elizabeth Maud
+2 SURN TRUSTE
+1 SEX F
+1 BIRT
+2 DATE Bet Oct 1886 and Dec 1886
+2 PLAC Bermondsey, Surrey, England
+2 SOUR @S8@
+2 SOUR @S10@
+3 PAGE St Olave RD, ref 1d 268
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jul 1894 and Sep 1894
+2 PLAC Malling RD, Malling, Kent, England
+2 SOUR @S4@
+3 PAGE Malling RD, ref 2a 316  (age 7)
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC Bermondsey, Surrey, England
+2 NOTE 53 Frean St, Bermondsey, Surrey, England
+3 CONT RG12 380  F102  P27
+3 CONT
+3 CONT James F Trusty (sic);Head, Widr;45;Lighterman;Bermondsey, S
+3 CONC urrey
+3 CONT Alfred Trusty;Son;20;Corn Porter;Bermondsey, Surrey
+3 CONT Rose Trusty;Daur;18;Servant;Bermondsey, Surrey
+3 CONT Frederick Trusty;Son;16;Bottle Washer;Bermondsey, Surrey
+3 CONT Caroline TrustyDaur;13;Servant;Bermondsey, Surrey
+3 CONT Louisa Trusty;Daur;11;;Bermondsey, Surrey
+3 CONT Thomas Trusty;Son;8;;Bermondsey, Surrey
+3 CONT Elizabeth Trusty;Daur;5;;Bermondsey, Surrey
+2 SOUR @S8@
+1 _UID 98B9073CD7CD424393C4ECB5506866926572
+1 FAMC @F7@
+0 @I61@ INDI
+1 NAME Charles Edward /RILEY/
+2 GIVN Charles Edward
+2 SURN RILEY
+1 SEX M
+1 FAMS @F14@
+0 @I62@ INDI
+1 NAME Maurice Charles E /RILEY/
+2 GIVN Maurice Charles E
+2 SURN RILEY
+1 SEX M
+1 BIRT
+2 DATE 16 Aug 1906
+2 PLAC Herne Bay, Kent, England
+2 SOUR @S10@
+3 PAGE Blean RD, ref 2a 1014
+3 QUAY 3
+2 NOTE @BI62@
+1 DEAT
+2 DATE Bet Jul 1976 and Sep 1976
+2 PLAC Worthing RD, Worthing, Sussex, England
+2 SOUR @S4@
+3 PAGE Worthing RD, ref 18 1988
+3 QUAY 3
+1 _UID F9A9897A4268442A8850FA1AAF0AFD57B6D2
+1 FAMC @F14@
+0 @BI62@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I63@ INDI
+1 NAME Editha Amy /ACFIELD/
+2 GIVN Editha Amy
+2 SURN ACFIELD
+1 SEX F
+1 BIRT
+2 DATE Bet Oct 1877 and Dec 1877
+2 PLAC St Johns Wood, London, England
+2 SOUR @S10@
+3 PAGE Marylebone RD, ref 1a 623  (registered as Edith Amey Acfiel
+4 CONC d)
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr 1928 and Jun 1928
+2 PLAC Wandsworth RD, Wandsworth, London, England
+2 SOUR @S4@
+3 PAGE Wandsworth RD, ref 1d 392  (age 49)
+3 QUAY 3
+1 CENS
+2 DATE 1911
+2 PLAC Fulham, London, England
+2 NOTE 19 Cathnor Rd, Fulham, London, England
+3 CONT RG14 PN210  RG78 PN7  RD3  SD1  ED15  SN394
+3 CONT
+3 CONT John Acfield;Head;64;House Painter;Paddington, London
+3 CONT Mary Acfield;Wife, married 42 years;64;;Korton, Lincs
+3 CONT Winifred Mary Acfield;Daur;30;Clerk Flour Factors;Shepher
+3 CONC d Bush,London
+3 CONT May Lillian Agnes Llewellyn;Grand daur;15;;Shepherd Bush, L
+3 CONC ondon
+3 CONT Editha Amy Lovelock;Daur, married 9 years;33;;St John's Woo
+3 CONC d, London
+3 CONT George Lovelock;Son in law;37;Musician "Trombone" (sic);Ear
+3 CONC ls Court,Kensington
+3 CONT George Lovelock;Son (sic);8;;Norwood, Surrey
+3 CONT Nora Lillian Lovelock;Daur (sic);5;;Fulham, London
+2 SOUR @S13@
+1 _UID 10016554E40F483B8CCB965DDD2363AA97A0
+1 FAMS @F15@
+0 @I64@ INDI
+1 NAME George /LOVELOCK/
+2 GIVN George
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Jan 1903 and Mar 1903
+2 PLAC Norwood, Surrey, England
+2 SOUR @S10@
+3 PAGE Croydon RD, ref 2a 290
+3 QUAY 3
+1 DEAT
+2 NOTE @DI64@
+1 CENS
+2 DATE 1911
+2 PLAC Fulham, London, England
+2 NOTE 19 Cathnor Rd, Fulham, London, England
+3 CONT RG14 PN210  RG78 PN7  RD3  SD1  ED15  SN394
+3 CONT
+3 CONT John Acfield;Head;64;House Painter;Paddington, London
+3 CONT Mary Acfield;Wife, married 42 years;64;;Korton, Lincs
+3 CONT Winifred Mary Acfield;Daur;30;Clerk Flour Factors;Shepher
+3 CONC d Bush,London
+3 CONT May Lillian Agnes Llewellyn;Grand daur;15;;Shepherd Bush, L
+3 CONC ondon
+3 CONT Editha Amy Lovelock;Daur, married 9 years;33;;St John's Woo
+3 CONC d, London
+3 CONT George Lovelock;Son in law;37;Musician "Trombone" (sic);Ear
+3 CONC ls Court,Kensington
+3 CONT George Lovelock;Son (sic);8;;Norwood, Surrey
+3 CONT Nora Lillian Lovelock;Daur (sic);5;;Fulham, London
+2 SOUR @S13@
+1 _UID A863E55477194AA7A0481E28010E65DC43C9
+1 FAMS @F16@
+1 FAMC @F15@
+0 @DI64@ NOTE
+1 CONC Y
+0 @I65@ INDI
+1 NAME Nora Lillian /LOVELOCK/
+2 GIVN Nora Lillian
+2 SURN LOVELOCK
+1 SEX F
+1 FAMC @F15@
+0 @I66@ INDI
+1 NAME Elsie /POLLARD/
+2 GIVN Elsie
+2 SURN POLLARD
+1 SEX F
+1 FAMS @F16@
+0 @I67@ INDI
+1 NAME Eileen Olive /LOVELOCK/
+2 GIVN Eileen Olive
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 15 Dec 1930
+2 PLAC Battersea RD, Battersea, London, England
+2 SOUR @S10@
+3 PAGE Battersea RD, ref 1d 662  (in Jan-Mar quarter of 1931)
+3 QUAY 3
+2 NOTE @BI67@
+1 DEAT
+2 DATE May 1999
+2 PLAC Aylesbury Vale RD, Aylesbury, Buckinghamshire, England
+2 SOUR @S4@
+3 PAGE Aylesbury Vale RD, ref A23C 14
+3 QUAY 3
+1 _UID 6617CC256CDE4C4F986756334BD9700C7B52
+1 FAMS @F17@
+1 FAMC @F16@
+0 @BI67@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I68@ INDI
+1 NAME Living /Person/
+2 GIVN Living
+2 SURN Person
+1 SEX M
+1 FAMS @F17@
+0 @I69@ INDI
+1 NAME Stanley /HASTED/
+2 GIVN Stanley
+2 SURN HASTED
+1 SEX M
+1 BIRT
+2 DATE Bet Jan 1890 and Mar 1890
+2 PLAC Tendring RD, Essex, England
+2 SOUR @S10@
+3 PAGE Tendring RD, ref 4a 555
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jan 1968 and Mar 1968
+2 PLAC Camberwell RD, London, England
+2 SOUR @S4@
+3 PAGE Camberwell RD, ref 5a 690  (age 78)
+3 QUAY 3
+1 _UID 3ACE51BD4EC343BF9222513305C22293DDAB
+1 FAMS @F19@
+0 @I70@ INDI
+1 NAME Vera D /HASTED/
+2 GIVN Vera D
+2 SURN HASTED
+1 SEX F
+1 FAMC @F19@
+0 @I71@ INDI
+1 NAME Stanley /HASTED/
+2 GIVN Stanley
+2 SURN HASTED
+1 SEX M
+1 FAMC @F19@
+0 @I72@ INDI
+1 NAME Bernard C /HASTED/
+2 GIVN Bernard C
+2 SURN HASTED
+1 SEX M
+1 BIRT
+2 DATE Bet Jan 1922 and Mar 1922
+2 PLAC Camberwell RD, London, England
+2 SOUR @S10@
+3 PAGE Camberwell RD, ref 1d 1604
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jan 1922 and Mar 1922
+2 PLAC Camberwell RD, London, England
+2 SOUR @S4@
+3 PAGE Camberwell RD, ref 1d 1370  (age 0)
+3 QUAY 3
+1 _UID 04782F2067414D0C8C6C5869F29A085069EE
+1 FAMC @F19@
+0 @I73@ INDI
+1 NAME Harold D /HASTED/
+2 GIVN Harold D
+2 SURN HASTED
+1 SEX M
+1 FAMC @F19@
+0 @I74@ INDI
+1 NAME Richard D /HASTED/
+2 GIVN Richard D
+2 SURN HASTED
+1 SEX M
+1 BIRT
+2 DATE Bet Jan 1925 and Mar 1925
+2 PLAC Camberwell RD, London, England
+2 SOUR @S10@
+3 PAGE Camberwell RD, ref 1d 1338
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct 1965 and Dec 1965
+2 PLAC Winchester RD, Winchester, Hampshire, England
+2 SOUR @S4@
+3 PAGE Winchester RD, ref 6b 820  (age 40)
+3 QUAY 3
+1 _UID 7BAA8FF6F3824226B52391B98B28754C1D54
+1 FAMC @F19@
+0 @I75@ INDI
+1 NAME Arthur H /AUSTIN/
+2 GIVN Arthur H
+2 SURN AUSTIN
+1 SEX M
+1 FAMS @F20@
+0 @I76@ INDI
+1 NAME Peggy J /AUSTIN/
+2 GIVN Peggy J
+2 SURN AUSTIN
+1 SEX F
+1 FAMC @F20@
+0 @I77@ INDI
+1 NAME Betty D /AUSTIN/
+2 GIVN Betty D
+2 SURN AUSTIN
+1 SEX F
+1 FAMC @F20@
+0 @I78@ INDI
+1 NAME Vera /AUSTIN/
+2 GIVN Vera
+2 SURN AUSTIN
+1 SEX F
+1 FAMC @F20@
+0 @I79@ INDI
+1 NAME John /LOVELOCK/
+2 GIVN John
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 27 Apr 1851
+2 SOUR @S9@
+2 SOUR @S10@
+3 DATA
+4 TEXT Bermondsey RD, ref 4 28
+1 CHR
+2 DATE 16 May 1851
+2 PLAC St Mary Magdalene, Bermondsey, Surrey
+2 SOUR @S9@
+1 DEAT
+2 DATE Bet Oct and Dec 1854
+2 SOUR @S4@
+3 DATA
+4 TEXT St Olave RD, ref 1d 72
+1 _UID 275BF38BFE3D4D1E80C50658D3FB7CB043D9
+1 FAMC @F1@
+0 @I80@ INDI
+1 NAME Elizabeth /LOVELOCK/
+2 GIVN Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 5 Jun 1826
+2 SOUR @S9@
+1 CHR
+2 DATE 6 Apr 1828
+2 PLAC St Mary Magdalene, Bermondsey, Surrey
+2 SOUR @S9@
+1 DEAT
+2 NOTE @DI80@
+1 _UID D2FC4232D650403E96086DCE5373A0668BF7
+1 FAMC @F1@
+0 @DI80@ NOTE
+1 CONC Y
+0 @I81@ INDI
+1 NAME Sarah Ann /LOVELOCK/
+2 GIVN Sarah Ann
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 14 Mar 1828
+2 SOUR @S9@
+1 CHR
+2 DATE 6 Apr 1828
+2 PLAC St Mary Magdalene, Bermondsey, Surrey
+2 SOUR @S9@
+1 DEAT
+2 NOTE @DI81@
+1 _UID DFE6A624F01646F381A132E4BA77F17AA283
+1 FAMC @F1@
+0 @DI81@ NOTE
+1 CONC Y
+0 @I82@ INDI
+1 NAME Unknown /UNKNOWN/
+2 GIVN Unknown
+2 SURN UNKNOWN
+1 SEX M
+1 BIRT
+2 NOTE @BI82@
+1 DEAT
+2 NOTE @DI82@
+1 _UID F115AB557FED40C08A22D6328A0664BBD552
+1 FAMS @F21@
+0 @BI82@ NOTE
+1 CONC Y
+0 @DI82@ NOTE
+1 CONC Y
+0 @I83@ INDI
+1 NAME William John /LOVELOCK/
+2 GIVN William John
+2 SURN LOVELOCK
+1 SEX U
+1 BIRT
+2 DATE 19 Jan 1879
+2 SOUR @S14@
+2 SOUR @S10@
+3 DATA
+4 TEXT St Saviour RD, ref 1d 9  (in Jan-Mar 1880)
+2 NOTE @BI83@
+1 DEAT
+2 DATE 15 Sep 1925
+2 PLAC Vancouver, British Columbia, Canada
+2 SOUR @S14@
+1 CENS
+2 DATE 1881
+2 NOTE St Olaves Union Workhouse, Southwark St John Horsleydown, S
+3 CONC urrey, England
+3 CONT RG11 0557 F103 P4
+3 CONT
+3 CONT Amongst the inmates:
+3 CONT
+3 CONT Rebecca LOVELOCK;Inmate, U;35;F;Laundress;Southwark, Surrey
+3 CONT William John LOVELOCK;Inmate;1;M;;Southwark, Surrey
+1 CENS
+2 DATE 1911
+2 NOTE 907 Davies, Vancouver City, Vancouver, British Columbia
+3 CONT
+3 CONT Joseph V McNaulty;Head;46, May 1864;British Columbia;Edito
+3 CONC r ...(?) Magazine
+3 CONT Edna McNaulty;Wife;39, Jun 1872;;British Columbia
+3 CONT ... (?) E McNaulty;Daur;16, Jul 1894;;British Columbia
+3 CONT William J Lovelock;Lodger;30, Jan 1881;England;Carpenter
+2 SOUR @S15@
+1 _UID 388FD1E711484B9FB3EC427AE8407F64282F
+1 FAMC @F21@
+1 NOTE @NI83@
+0 @NI83@ NOTE
+1 CONC William John may have been the W J Lovelock recorded as a L
+1 CONC abourer taking a 3rd Class passage to Montreal aboard the '
+1 CONC Tunisian' that left Liverpool on 5 May 1910.
+0 @BI83@ NOTE
+1 CONC Date of birth quoted in death data (originally from FamilyS
+1 CONC earch website, and probably a year in error).
+0 @I84@ INDI
+1 NAME John Edward /LOVELOCK/
+2 GIVN John Edward
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 1 Aug 1844
+2 SOUR @S9@
+1 CHR
+2 DATE 27 Oct 1844
+2 PLAC St Saviour, Southwark, Surrey, England
+2 SOUR @S9@
+1 DEAT
+2 NOTE @DI84@
+1 _UID 6833A653D915408C801470ACCC559240F162
+1 FAMC @F1@
+0 @DI84@ NOTE
+1 CONC Y
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 MARR
+1 CHIL @I80@
+1 CHIL @I81@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 CHIL @I9@
+1 CHIL @I10@
+1 CHIL @I84@
+1 CHIL @I11@
+1 CHIL @I12@
+1 CHIL @I13@
+1 CHIL @I79@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I14@
+1 MARR
+2 DATE Bet Jul 1855 and Sep 1855
+2 PLAC Farnham RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Farnham RD, ref 2a 93
+3 QUAY 3
+1 CHIL @I16@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F3@ FAM
+1 HUSB @I3@
+1 WIFE @I15@
+1 MARR
+2 DATE Bet Oct 1870 and Dec 1870
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Croydon RD, ref 2a 338
+3 QUAY 3
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F4@ FAM
+1 HUSB @I16@
+1 WIFE @I17@
+1 MARR
+2 DATE Bet Apr 1876 and Jun 1876
+2 PLAC St Saviour RD, Surrey, England
+2 SOUR @S2@
+3 PAGE St Saviour RD, ref 1d 175
+3 QUAY 3
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHIL @I20@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHIL @I23@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F5@ FAM
+1 HUSB @I24@
+1 WIFE @I20@
+1 MARR
+2 DATE Bet Jul 1902 and Sep 1902
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Croydon RD, ref 2a 626
+3 QUAY 3
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F6@ FAM
+1 HUSB @I25@
+1 WIFE @I21@
+1 MARR
+2 DATE Bet Apr 1915 and Jun 1915
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Croydon RD, ref 2a 889
+3 QUAY 3
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F7@ FAM
+1 HUSB @I26@
+1 WIFE @I12@
+1 MARR
+2 DATE Bet Apr 1870 and Jun 1870
+2 PLAC Shoreditch RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Shoreditch RD, ref 1c 248
+3 QUAY 3
+1 CHIL @I27@
+1 CHIL @I28@
+1 CHIL @I29@
+1 CHIL @I30@
+1 CHIL @I31@
+1 CHIL @I59@
+1 CHIL @I60@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F8@ FAM
+1 HUSB @I13@
+1 WIFE @I32@
+1 MARR
+2 DATE Bet Oct 1870 and Dec 1870
+2 PLAC Lambeth RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Lambeth RD, ref 1d 436
+3 QUAY 3
+1 CHIL @I33@
+1 CHIL @I34@
+1 CHIL @I35@
+1 CHIL @I36@
+1 CHIL @I37@
+1 CHIL @I38@
+1 CHIL @I39@
+1 CHIL @I40@
+1 CHIL @I41@
+1 CHIL @I42@
+1 CHIL @I43@
+1 CHIL @I44@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F9@ FAM
+1 HUSB @I45@
+1 WIFE @I33@
+1 MARR
+2 DATE Bet Apr 1902 and Jun 1902
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Lewisham RD, ref 1d 1580
+3 QUAY 3
+1 CHIL @I55@
+1 CHIL @I56@
+1 CHIL @I57@
+1 CHIL @I58@
+1 CHIL @I46@
+1 CHIL @I47@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F10@ FAM
+1 HUSB @I34@
+1 WIFE @I48@
+1 MARR
+2 DATE Bet Oct 1898 and Dec 1898
+2 PLAC Camberwell RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Camberwell RD, ref 1d 1734
+3 QUAY 3
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F11@ FAM
+1 HUSB @I49@
+1 WIFE @I39@
+1 MARR
+2 DATE Bet Apr 1913 and Jun 1913
+2 PLAC Lewisham RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Lewisham RD, ref 1d 1706
+3 QUAY 3
+1 CHIL @I50@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F12@ FAM
+1 HUSB @I51@
+1 WIFE @I41@
+1 CHIL @I52@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F13@ FAM
+1 HUSB @I53@
+1 WIFE @I19@
+1 MARR
+2 DATE Bet Jul 1923 and Sep 1923
+2 PLAC Croydon RD, Surrey, England
+2 SOUR @S2@
+3 PAGE Croydon RD, ref 2a 941
+3 QUAY 3
+1 CHIL @I54@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F14@ FAM
+1 HUSB @I61@
+1 WIFE @I37@
+1 CHIL @I62@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F15@ FAM
+1 HUSB @I18@
+1 WIFE @I63@
+1 MARR
+2 DATE Bet Apr 1902 and Jun 1902
+2 PLAC Fulham RD, Fulham, London, England
+2 SOUR @S2@
+3 PAGE Fulham RD, ref 1a 639
+3 QUAY 3
+1 CHIL @I64@
+1 CHIL @I65@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F16@ FAM
+1 HUSB @I64@
+1 WIFE @I66@
+1 CHIL @I67@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F17@ FAM
+1 HUSB @I68@
+1 WIFE @I67@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F18@ FAM
+1 MARR
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F19@ FAM
+1 HUSB @I69@
+1 WIFE @I43@
+1 MARR
+2 DATE Bet Jul 1915 and Sep 1915
+2 PLAC Camberwell RD, London, England
+2 SOUR @S2@
+3 PAGE Camberwell RD, ref 1d 2211
+3 QUAY 3
+1 CHIL @I70@
+1 CHIL @I71@
+1 CHIL @I72@
+1 CHIL @I73@
+1 CHIL @I74@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F20@ FAM
+1 HUSB @I75@
+1 WIFE @I44@
+1 CHIL @I76@
+1 CHIL @I77@
+1 CHIL @I78@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @F21@ FAM
+1 HUSB @I82@
+1 WIFE @I10@
+1 MARR
+1 CHIL @I83@
+1 CHAN
+2 DATE 17 Sep 2013
+3 TIME 18:42
+0 @S5@ SOUR
+1 ABBR 1841 Census
+1 TITL 1841 Census
+0 @S3@ SOUR
+1 ABBR 1851 Census
+1 TITL 1851 Census
+0 @S6@ SOUR
+1 ABBR 1861 Census
+1 TITL 1861 Census
+0 @S11@ SOUR
+1 ABBR 1871 Census
+1 TITL 1871 Census
+0 @S7@ SOUR
+1 ABBR 1881 Census
+1 TITL 1881 Census
+0 @S8@ SOUR
+1 ABBR 1891 Census
+1 TITL 1891 Census
+0 @S12@ SOUR
+1 ABBR 1901 Census
+1 TITL 1901 Census
+0 @S15@ SOUR
+1 ABBR 1911 Canadian Census
+1 TITL 1911 Canadian Census
+0 @S13@ SOUR
+1 ABBR 1911 Census
+1 TITL 1911 Census
+0 @S14@ SOUR
+1 ABBR British Columbia, Canada data on main Lovelock website
+1 TITL British Columbia, Canada data on main Lovelock website
+0 @S10@ SOUR
+1 ABBR GRO Index of Births
+1 TITL GRO Index of Births
+0 @S4@ SOUR
+1 ABBR GRO Index of Deaths
+1 TITL GRO Index of Deaths
+0 @S2@ SOUR
+1 ABBR GRO Index of Marriages
+1 TITL GRO Index of Marriages
+0 @S9@ SOUR
+1 ABBR Lovelocks in Surrey data on main Lovelock web site
+1 TITL Lovelocks in Surrey data on main Lovelock web site
+0 TRLR

@@ -1,0 +1,603 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Fuller of Norton and Stowmarket, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:07
+1 FILE FFH_FT_Members_005
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Fuller of Norton and Stowmarket, Suffolk
+0 @I00000000422@ INDI
+1 NAME Sarah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 4 Sep 1685
+2 PLAC Norton, St. Andrew, Suffolk
+1 FAMC @F70000000422@
+1 SOUR @S01@
+0 @I00000000423@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 5 Dec 1688
+2 PLAC Norton, St. Andrew, Suffolk
+1 FAMC @F70000000423@
+1 FAMS @F10000000423@
+1 SOUR @S01@
+0 @I00000000424@ INDI
+1 NAME Robert /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1693
+2 PLAC Norton, St. Andrew, Suffolk
+1 FAMC @F70000000424@
+1 FAMS @F10000000424@
+1 SOUR @S01@
+0 @I00000000425@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 23 Apr 1697
+2 PLAC Norton, St. Andrew, Suffolk
+1 FAMC @F70000000425@
+1 SOUR @S01@
+0 @I00000000433@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 21 May 1717
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000423@
+1 SOUR @S01@
+0 @I00000000432@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 21 May 1717
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 27 Sep 1717
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000423@
+1 SOUR @S01@
+0 @I00000000434@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 22 Aug 1718
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 11 Sep 1718
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Son of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000423@
+1 SOUR @S01@
+0 @I00000000426@ INDI
+1 NAME Robert /Fuller/
+1 SEX M
+1 CHR
+2 DATE 30 Oct 1721
+2 PLAC Norton, St. Andrew, Suffolk
+1 FAMC @F10000000424@
+1 SOUR @S01@
+0 @I00000000444@ INDI
+1 NAME Elizabeth /Fiske/
+1 SEX F
+1 CHR
+2 DATE 18 Nov 1722
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 16 Feb 1776
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Wife of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000444@
+1 FAMS @F10000000427@
+1 SOUR @S01@
+0 @I00000000427@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Nov 1724
+2 PLAC Norton, St. Andrew, Suffolk
+1 BURI
+2 DATE 9 Nov 1777
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 19 May 1779
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Bricklayer
+1 FAMC @F10000000424@
+1 FAMS @F10000000427@
+1 SOUR @S01@
+0 @I00000000428@ INDI
+1 NAME Susanna /Fuller/
+1 SEX F
+1 CHR
+2 DATE 5 May 1729
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Twin
+1 BURI
+2 DATE 29 May 1730
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Daughter of Robert and Elizabeth Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000424@
+1 SOUR @S01@
+0 @I00000000429@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 5 May 1729
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Twin
+1 FAMC @F10000000424@
+1 SOUR @S01@
+0 @I00000000430@ INDI
+1 NAME James /Fuller/
+1 SEX M
+1 CHR
+2 DATE 26 Nov 1732
+2 PLAC Norton, St. Andrew, Suffolk
+1 FAMC @F10000000424@
+1 SOUR @S01@
+0 @I00000000431@ INDI
+1 NAME Thomas /Fuller/
+1 SEX M
+1 CHR
+2 DATE 15 Aug 1735
+2 PLAC Norton, St. Andrew, Suffolk
+1 FAMC @F10000000424@
+1 SOUR @S01@
+0 @I00000000435@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 11 Sep 1748
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Jun 1820
+2 PLAC Norton, St. Andrew, Suffolk
+2 AGE 71y
+2 NOTE Of Norton.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000427@
+1 FAMS @F81000000435@
+1 SOUR @S01@
+0 @I00000000446@ INDI
+1 NAME Ann /Scott/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1750
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 26 Oct 1817
+2 PLAC Norton, St. Andrew, Suffolk
+2 AGE 67y
+2 NOTE Of Norton.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000446@
+1 FAMS @F10000000438@
+1 SOUR @S01@
+0 @I00000000436@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 20 May 1750
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 22 Sep 1750
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Son of John and Elizabeth Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000427@
+1 SOUR @S01@
+0 @I00000000437@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 11 Nov 1751
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 21 Mar 1774
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Son of John and Elizabeth Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000427@
+1 SOUR @S01@
+0 @I00000000438@ INDI
+1 NAME Isaac /Fuller/
+1 SEX M
+1 CHR
+2 DATE 5 Nov 1754
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 Dec 1783
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000427@
+1 FAMS @F10000000438@
+1 SOUR @S01@
+0 @I00000000439@ INDI
+1 NAME Richard /Fuller/
+1 SEX M
+1 CHR
+2 DATE 10 Jul 1757
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000427@
+1 SOUR @S01@
+0 @I00000000440@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 9 Oct 1761
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000427@
+1 FAMS @F81000000440@
+1 SOUR @S01@
+0 @I00000000554@ INDI
+1 NAME Ann /Spinks/
+1 SEX F
+1 CHR
+2 DATE 29 Nov 1772
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 12 Aug 1851
+2 PLAC Norton, St. Andrew, Suffolk
+2 AGE 79y
+2 NOTE Widow of Isaac Fuller, of Norton.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000554@
+1 FAMS @F10000000442@
+1 SOUR @S01@
+0 @I00000000441@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 26 Sep 1777
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000438@
+1 SOUR @S01@
+0 @I00000000442@ INDI
+1 NAME Isaac /Fuller/
+1 SEX M
+1 CHR
+2 DATE 9 May 1779
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 Jun 1842
+2 PLAC Norton, St. Andrew, Suffolk
+2 AGE 63y
+2 NOTE Of Norton.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000438@
+1 FAMS @F10000000442@
+1 SOUR @S01@
+0 @I00000000445@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 29 Apr 1781
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 27 Nov 1800
+2 PLAC Norton, St. Andrew, Suffolk
+2 AGE 19y
+2 NOTE Son of Isaac and Ann (late Scott spinster) Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000438@
+1 SOUR @S01@
+0 @I00000000443@ INDI
+1 NAME Elizabeth /Fuller/
+1 SEX F
+1 CHR
+2 DATE 22 Sep 1782
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 Jun 1818
+2 PLAC Norton, St. Andrew, Suffolk
+2 AGE 35y
+2 NOTE Of Norton.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000438@
+1 FAMS @F81000000443@
+1 SOUR @S01@
+0 @I00000000447@ INDI
+1 NAME John Robbards /Fuller/
+1 SEX M
+1 CHR
+2 DATE 30 Mar 1803
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 25 Mar 1803
+1 BURI
+2 DATE 19 Jun 1803
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000442@
+1 SOUR @S01@
+0 @I00000000448@ INDI
+1 NAME Eliza /Fuller/
+1 SEX F
+1 CHR
+2 DATE 21 Jun 1804
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 21 Jun 1804
+1 BURI
+2 DATE 23 Aug 1804
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Infant.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000442@
+1 SOUR @S01@
+0 @I00000000449@ INDI
+1 NAME Eliza /Fuller/
+1 SEX F
+1 CHR
+2 DATE 21 Mar 1806
+2 PLAC Badwell Ash, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 May 1806
+2 PLAC Norton, St. Andrew, Suffolk
+2 NOTE Infant, of Badwell.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000442@
+1 SOUR @S01@
+0 @I00000000450@ INDI
+1 NAME Gent Burton /Fuller/
+1 SEX M
+1 CHR
+2 DATE 6 Jan 1811
+2 PLAC Badwell Ash, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 9 Apr 1835
+2 PLAC Norton, St. Andrew, Suffolk
+2 AGE 25y
+2 NOTE Of Norton.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000442@
+1 SOUR @S01@
+0 @F10000000423@ FAM
+1 MARR
+2 DATE 10 Jan 1716
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000423@
+1 WIFE @I81000000423@
+1 CHIL @I00000000432@
+1 CHIL @I00000000433@
+1 CHIL @I00000000434@
+1 SOUR @S01@
+0 @F10000000424@ FAM
+1 MARR
+2 DATE 1 Jan 1720
+2 PLAC <Unknown>, England
+1 HUSB @I00000000424@
+1 WIFE @I81000000424@
+1 CHIL @I00000000426@
+1 CHIL @I00000000427@
+1 CHIL @I00000000428@
+1 CHIL @I00000000429@
+1 CHIL @I00000000430@
+1 CHIL @I00000000431@
+1 SOUR @S01@
+0 @F10000000427@ FAM
+1 MARR
+2 DATE 20 Apr 1747
+2 PLAC Tostock, St. Andrew, Suffolk
+1 HUSB @I00000000427@
+1 WIFE @I00000000444@
+1 CHIL @I00000000435@
+1 CHIL @I00000000436@
+1 CHIL @I00000000437@
+1 CHIL @I00000000438@
+1 CHIL @I00000000439@
+1 CHIL @I00000000440@
+1 SOUR @S01@
+0 @F10000000438@ FAM
+1 MARR
+2 DATE 10 Oct 1776
+2 PLAC Norton, St. Andrew, Suffolk
+1 HUSB @I00000000438@
+1 WIFE @I00000000446@
+1 CHIL @I00000000441@
+1 CHIL @I00000000442@
+1 CHIL @I00000000443@
+1 CHIL @I00000000445@
+1 SOUR @S01@
+0 @F10000000442@ FAM
+1 MARR
+2 DATE 1 Feb 1802
+2 PLAC Norton, St. Andrew, Suffolk
+1 HUSB @I00000000442@
+1 WIFE @I00000000554@
+1 CHIL @I00000000447@
+1 CHIL @I00000000448@
+1 CHIL @I00000000449@
+1 CHIL @I00000000450@
+1 SOUR @S01@
+0 @F81000000435@ FAM
+1 MARR
+2 DATE 8 Feb 1768
+2 PLAC Norton, St. Andrew, Suffolk
+1 HUSB @I81000000435@
+1 WIFE @I00000000435@
+1 SOUR @S01@
+0 @F81000000440@ FAM
+1 MARR
+2 DATE 5 May 1789
+2 PLAC Norton, St. Andrew, Suffolk
+1 HUSB @I81000000440@
+1 WIFE @I00000000440@
+1 SOUR @S01@
+0 @F81000000443@ FAM
+1 MARR
+2 DATE 19 Sep 1803
+2 PLAC Norton, St. Andrew, Suffolk
+1 HUSB @I81000000443@
+1 WIFE @I00000000443@
+1 SOUR @S01@
+0 @F70000000422@ FAM
+1 HUSB @I92000000422@
+1 WIFE @I91000000422@
+1 CHIL @I00000000422@
+1 SOUR @S01@
+0 @I92000000422@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000422@ INDI
+1 NAME Mary/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000423@ FAM
+1 HUSB @I92000000423@
+1 WIFE @I91000000423@
+1 CHIL @I00000000423@
+1 SOUR @S01@
+0 @I92000000423@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000423@ INDI
+1 NAME Mary/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000424@ FAM
+1 HUSB @I92000000424@
+1 WIFE @I91000000424@
+1 CHIL @I00000000424@
+1 SOUR @S01@
+0 @I92000000424@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000424@ INDI
+1 NAME Mary/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000425@ FAM
+1 HUSB @I92000000425@
+1 WIFE @I91000000425@
+1 CHIL @I00000000425@
+1 SOUR @S01@
+0 @I92000000425@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000425@ INDI
+1 NAME Mary/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000444@ FAM
+1 HUSB @I92000000444@
+1 WIFE @I91000000444@
+1 CHIL @I00000000444@
+1 SOUR @S01@
+0 @I92000000444@ INDI
+1 NAME Charles/Fiske/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000444@ INDI
+1 NAME Mary/Fiske/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000446@ FAM
+1 HUSB @I92000000446@
+1 CHIL @I00000000446@
+1 SOUR @S01@
+0 @I92000000446@ INDI
+1 NAME (?)/Scott/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000554@ FAM
+1 HUSB @I92000000554@
+1 WIFE @I91000000554@
+1 CHIL @I00000000554@
+1 SOUR @S01@
+0 @I92000000554@ INDI
+1 NAME Richard/Spinks/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000554@ INDI
+1 NAME Elizabeth/Spinks/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000423@ INDI
+1 NAME Mary /Flowerdew/
+1 SEX F
+1 FAMS @F10000000423@
+1 SOUR @S01@
+0 @I81000000424@ INDI
+1 NAME Susanna /(?)/
+1 SEX F
+1 FAMS @F10000000424@
+1 SOUR @S01@
+0 @I81000000435@ INDI
+1 NAME Richard /Spinks/
+1 SEX M
+1 FAMS @F81000000435@
+1 SOUR @S01@
+0 @I81000000440@ INDI
+1 NAME William /Gallant/
+1 SEX M
+1 FAMS @F81000000440@
+1 SOUR @S01@
+0 @I81000000443@ INDI
+1 NAME Benjamin /Arnell/
+1 SEX M
+1 FAMS @F81000000443@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

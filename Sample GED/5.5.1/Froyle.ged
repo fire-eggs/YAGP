@@ -1,0 +1,3142 @@
+﻿0 HEAD
+1 SOUR Legacy
+2 VERS 7.5
+2 NAME Legacy (R)
+2 CORP Millennia Corp.
+3 ADDR PO Box 9410
+4 CONT Surprise, AZ 85374
+1 DEST Gedcom5.5.1
+1 DATE 28 Jan 2013
+1 SUBM @S0@
+1 FILE E:\Holding area\Froyle.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @S0@ SUBM
+1 NAME gl
+0 @I1@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet 1801 and 1802
+2 PLAC Long Sutton, Hampshire, England
+2 SOUR @S5@
+1 CHR
+2 DATE 7 Mar 1802
+2 PLAC Long Sutton, Hampshire, England
+2 SOUR @S6@
+1 DEAT
+2 DATE Bet Apr and Jun 1869
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 2c 97
+3 QUAY 3
+1 BURI
+2 DATE 11 Apr 1869
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CENS
+2 DATE 1841
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT HO107 381/16 F25 P22
+3 CONT
+3 CONT James Lovelock;35;Ag Lab;born in Hants
+3 CONT Harriett Lovelock;35;;born in Hants
+3 CONT William Lovelock;8;;born in Hants
+3 CONT Ann Lovelock;6;;born in Hants
+3 CONT Charles Lovelock;2;;born in Hants
+3 CONT Harriett Lovelock;1;;born in Hants
+3 CONT N K Lovelock;1mo; born in Hants
+3 CONT N K Twinning;1mo;born in Hants
+3 CONT Sarah Baker;14;;
+2 SOUR @S8@
+1 CENS
+2 DATE 1851
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower St, Froyle, Hampshire, England
+3 CONT HO107 1679 F386 P17
+3 CONT
+3 CONT James Lovelock;Head, Widower;49;Ag Lab;Long Sutton, Hants
+3 CONT Harriet Lovelock;Daur;10;;Froyle, Hants
+3 CONT James Lovelock;Son;9;Cow Boy;Froyle, Hants
+3 CONT Daniel Lovelock;Son;7;;Froyle, Hants
+2 SOUR @S5@
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 _UID 61A8D069A5124A8485E5FA246F2D4D7CB4FB
+1 FAMS @F1@
+1 FAMC @F20@
+0 @I2@ INDI
+1 NAME Harriet /INGASFIELD/
+2 GIVN Harriet
+2 SURN INGASFIELD
+1 SEX F
+1 BIRT
+2 DATE 1808-1809
+2 SOUR @S2@
+3 PAGE Age at burial 39.
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct and Dec 1848
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 7 9
+3 QUAY 3
+1 BURI
+2 DATE 7 Nov 1848
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CENS
+2 DATE 1841
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT HO107 381/16 F25 P22
+3 CONT
+3 CONT James Lovelock;35;Ag Lab;born in Hants
+3 CONT Harriett Lovelock;35;;born in Hants
+3 CONT William Lovelock;8;;born in Hants
+3 CONT Ann Lovelock;6;;born in Hants
+3 CONT Charles Lovelock;2;;born in Hants
+3 CONT Harriett Lovelock;1;;born in Hants
+3 CONT N K Lovelock;1mo; born in Hants
+3 CONT N K Twinning;1mo;born in Hants
+3 CONT Sarah Baker;14;;
+2 SOUR @S8@
+1 _UID 33953D465F554B88A443167C05C1505ABBD6
+1 FAMS @F1@
+1 NOTE @NI2@
+0 @NI2@ NOTE
+1 CONC Harriet's surname was probably more correctly rendered as '
+1 CONC Englefield'.
+1 CONT
+1 CONT She may very well be the Harriet born 4 Feb 1811 and baptis
+1 CONC ed 22 Sep 1811 at Alton to Joseph Englefield and Mary Ann W
+1 CONC inter, who married at St Mary, Bentworth on 5 Sep 1807, alt
+1 CONC hough that does not quite match a death at 39 in 1848, or a
+1 CONC n age of 35 in the 1841 Census.  [Information from John Lew
+1 CONC is in e-Mail of 29 Aug 2012]
+0 @I3@ INDI
+1 NAME William Engilefield /LOVELOCK/
+2 GIVN William Engilefield
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 1831-1832
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S9@
+1 DEAT Y
+1 CENS
+2 DATE 1841
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT HO107 381/16  F25  P22
+3 CONT
+3 CONT James Lovelock;35;Ag Lab;born in Hants
+3 CONT Harriett Lovelock;35;;born in Hants
+3 CONT William Lovelock;8;;born in Hants
+3 CONT Ann Lovelock;6;;born in Hants
+3 CONT Charles Lovelock;2;;born in Hants
+3 CONT Harriett Lovelock;1;;born in Hants
+3 CONT N K Lovelock;1mo; born in Hants
+3 CONT N K Twinning;1mo;born in Hants
+3 CONT Sarah Baker;14;;
+2 SOUR @S8@
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Lambeth, Surrey, England
+2 NOTE 67 Roupell St, Lambeth, London, England
+3 CONT RG10 649  F14  P22
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;39;Carman;Froyle, Hants
+3 CONT Betsy Lovelock;Wife;44;;Binsted, Hants
+3 CONT Kate Lovelock;Neice (sic);7;;Maidstone, Kent
+2 SOUR @S10@
+1 _UID 8808B8FA0A734DE5A924AD4C7FDBA86F284C
+1 FAMS @F2@
+1 FAMC @F1@
+1 NOTE @NI3@
+0 @NI3@ NOTE
+1 CONC William's second name, Engilefield, only appears in the Fre
+1 CONC e BMD marriage entry.
+0 @I4@ INDI
+1 NAME Anne /LOVELOCK/
+2 GIVN Anne
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Abt 1834
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+3 PAGE Baptism Dec 1834.
+3 QUAY 3
+1 CHR
+2 DATE 14 Dec 1834
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Oct and Dec 1910
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 2c 117  (age 76)
+3 QUAY 3
+1 CENS
+2 DATE 1841
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT HO107 381/16 F25 P22
+3 CONT
+3 CONT James Lovelock;35;Ag Lab;born in Hants
+3 CONT Harriett Lovelock;35;;born in Hants
+3 CONT William Lovelock;8;;born in Hants
+3 CONT Ann Lovelock;6;;born in Hants
+3 CONT Charles Lovelock;2;;born in Hants
+3 CONT Harriett Lovelock;1;;born in Hants
+3 CONT N K Lovelock;1mo; born in Hants
+3 CONT N K Twinning;1mo;born in Hants
+3 CONT Sarah Baker;14;;
+2 SOUR @S8@
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Froyle, Hampshire, England
+2 NOTE Main Rd, Froyle, Hampshire, England
+3 CONT RG10 1228  F11  P13
+3 CONT
+3 CONT Stephen Lunn;Head;45;Ag Labourer;Froyle, Hants
+3 CONT Ann Lunn;Wife;34;;Froyle, Hants
+3 CONT Bridget Lunn;Daur;16;;Froyle, Hants
+3 CONT Daniel Lunn;Son;14;;Froyle, Hants
+3 CONT George Lunn;Son;11;;Froyle, Hants
+3 CONT Agnes Lunn;Daur;7;;Froyle, Hants
+3 CONT Frederick Lunn;Son;2;;Froyle, Hants
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Froyle, Hampshire, England
+2 NOTE Froyle, Hampshire, England
+3 CONT RG11 1248  F10  P13
+3 CONT
+3 CONT Steven Lunn;Head;55;Ag Lab;Crondall, Hants
+3 CONT Ann Lunn;Wife;45;;Froyle, Hants
+3 CONT Daniel Lunn;Son;25;;Ag Lab;Froyle, Hants
+3 CONT George Lunn;Son;20;Blacksmith;Froyle, Hants
+3 CONT Agnes Lunn;Daur;16;Servant;Froyle, Hants
+3 CONT Fred Lunn;Son;12;;Froyle, Hants
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG12 952  F84  P12
+3 CONT
+3 CONT Stephen Lunn;Head;65;Agricultural Labourer;Crondall, Hants
+3 CONT Ann Lunn;Wife;55;;Froyle, Hants
+3 CONT Daniel Lunn;Son;34;;General Labourer;Froyle, Hants
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT RG13 1100  F79  P28
+3 CONT
+3 CONT Ann Lunn;Head, Wid;67;;Froyle, Hants
+3 CONT Daniel Lunn;Son;43;;Agricultural Labourer;Froyle, Hants
+2 SOUR @S13@
+1 _UID DE7F8EDA6EC5417F8CA513B6181F577CBC91
+1 FAMS @F3@
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME John /LOVELOCK/
+2 GIVN John
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 1835-1836
+2 SOUR @S2@
+3 PAGE Age at burial 2.
+3 QUAY 3
+1 CHR
+2 DATE 13 Mar 1836
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Oct and Dec 1838
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 7 19
+3 QUAY 3
+1 BURI
+2 DATE 1 Nov 1838
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 _UID 258A0A0A02E945C0B46DC946C874284289BE
+1 FAMC @F1@
+0 @I6@ INDI
+1 NAME Mary /LOVELOCK/
+2 GIVN Mary
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Jul 1837
+2 SOUR @S2@
+3 PAGE Age at burial 22 months.
+3 QUAY 3
+1 CHR
+2 DATE 6 Aug 1837
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Apr and Jun 1839
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 7 17
+3 QUAY 3
+1 BURI
+2 DATE 8 May 1839
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 _UID 84628FEDFA1A4FC38B33CBC5AE31359D874A
+1 FAMC @F1@
+0 @I7@ INDI
+1 NAME Charles /LOVELOCK/
+2 GIVN Charles
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 1838
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+3 PAGE Age at burial 15.
+3 QUAY 3
+1 CHR
+2 DATE 9 Dec 1838
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Jul and Sep 1854
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 2c 94  (indexed as Cahrles by Free BMD)
+3 QUAY 3
+1 BURI
+2 DATE 3 Sep 1854
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CENS
+2 DATE 1841
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT HO107 381/16 F25 P22
+3 CONT
+3 CONT James Lovelock;35;Ag Lab;born in Hants
+3 CONT Harriett Lovelock;35;;born in Hants
+3 CONT William Lovelock;8;;born in Hants
+3 CONT Ann Lovelock;6;;born in Hants
+3 CONT Charles Lovelock;2;;born in Hants
+3 CONT Harriett Lovelock;1;;born in Hants
+3 CONT N K Lovelock;1mo; born in Hants
+3 CONT N K Twinning;1mo;born in Hants
+3 CONT Sarah Baker;14;;
+2 SOUR @S8@
+1 CENS
+2 DATE 1851
+2 PLAC Coldrey Extra Parochial, Hampshire, England
+2 NOTE Coldrey Extra Parochial, Hampshire, England
+3 CONT HO107 1679  F -  P29
+3 CONT
+3 CONT Amongst 13 servants:
+3 CONT William Lovelock;Servant, Unm;67;Groom;Froyle, Hants
+3 CONT Charles Lovelock;Servant;12;Farm Servant;Froyle, Hants
+2 SOUR @S5@
+1 _UID 238332AC7E604FBBB0735111738737B7D96C
+1 FAMC @F1@
+0 @I8@ INDI
+1 NAME Harriet /LOVELOCK/
+2 GIVN Harriet
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Apr and Jun 1840
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 7 15
+3 QUAY 3
+1 CHR
+2 DATE 10 May 1840
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Jan and Mar 1929
+2 PLAC Kingsclere RD, Kingsclere, Hampshire, England
+2 SOUR @S7@
+3 PAGE Kingsclere RD, ref 2c 475  (age 88)
+3 QUAY 3
+1 CENS
+2 DATE 1841
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT HO107 381/16 F25 P22
+3 CONT
+3 CONT James Lovelock;35;Ag Lab;born in Hants
+3 CONT Harriett Lovelock;35;;born in Hants
+3 CONT William Lovelock;8;;born in Hants
+3 CONT Ann Lovelock;6;;born in Hants
+3 CONT Charles Lovelock;2;;born in Hants
+3 CONT Harriett Lovelock;1;;born in Hants
+3 CONT N K Lovelock;1mo; born in Hants
+3 CONT N K Twinning;1mo;born in Hants
+3 CONT Sarah Baker;14;;
+2 SOUR @S8@
+1 CENS
+2 DATE 1851
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower St, Froyle, Hampshire, England
+3 CONT HO107 1679 F386 P17
+3 CONT
+3 CONT James Lovelock;Head, Widower;49;Ag Lab;Long Sutton, Hants
+3 CONT Harriet Lovelock;Daur;10;;Froyle, Hants
+3 CONT James Lovelock;Son;9;Cow Boy;Froyle, Hants
+3 CONT Daniel Lovelock;Son;7;;Froyle, Hants
+2 SOUR @S5@
+1 CENS
+2 DATE 1861
+2 PLAC Fareham, Hampshire, England
+2 NOTE 4 West St, Fareham, Hampshire, England
+3 CONT RG9 649  F49  P1
+3 CONT
+3 CONT Elizabeth Jane Vaux;Head, W;55;Fund holder;Whitehall, Middx
+3 CONT Caroline Louisa Vaux;Daur;20;;Romsey, Hants
+3 CONT Elizabeth Jane Vaux;Daur;15;;Itchen, Hants
+3 CONT Henry Nile Loring;Brother;49;Incumbent of Southwick & Boarh
+3 CONC unt;Fareham, Hants
+3 CONT Harriet Lovelock;Serv;21;Housemaid;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Ridgemon Farm, Burghclere, Hampshire, England
+3 CONT RG10 1245  F38  P12
+3 CONT
+3 CONT Joseph R Evans;Head;34;Farmer of 520 acres employing 12 me
+3 CONC n 4 boys 5 women; Milksham (sic), Wilts
+3 CONT Elizabeth P Evans;Wife;27;;London
+3 CONT Josephine R Evans;Daur;3;;Burghclere, Hants
+3 CONT William H Evans;Son;1;;Burghclere, Hants
+3 CONT Ethel A Evans;Daur;2mos;;Burghclere, Hants
+3 CONT Harriet Lovelock;Serv;27;Cook;Alton, Hants
+3 CONT Mary A Garrwick;Serv;19;Nurse;Broughton, Hants
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Common Cottages, Burghclere, Hampshire, England
+3 CONT RG11 1265  F22  P10
+3 CONT
+3 CONT Thomas House;Head;37;Ag Lab;Burghclere, Hants
+3 CONT Harriet House;Wife;38;;Alton, Hants
+3 CONT Kate House;Daur;8;;Burghclere, Hants
+3 CONT Edith House;Daur;5;;Burghclere, Hants
+3 CONT William House;Son;3;;Burghclere, Hants
+3 CONT Frederick House;Son;11mos;;Burghclere, Hants
+2 SOUR @S11@
+1 CENS
+2 DATE 1901
+2 PLAC Burghclere, Hampshire, England
+2 NOTE The Folly, Burghclere, Hampshire, England
+3 CONT RG13 1118  F28  P4
+3 CONT
+3 CONT Harriet House;Head, Wid;59;Charwoman;Alton, Hants
+3 CONT William House;Son;23;Gardener (Domestic);Burghclere, Hants
+2 SOUR @S13@
+1 CENS
+2 DATE 1891
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Sheepwash Cottage, Burghclere, Hampshire, England
+3 CONT RG12 966  F22  P14
+3 CONT
+3 CONT Harriet House;Head, Wid;49;Charwoman Domestic;Alton, Hants
+3 CONT William House;Son;13;Cow Boy on Farm;Burghclere, Hants
+3 CONT Edith House;Daur;15;;Burghclere, Hants
+3 CONT Alice House;Daur;8;;Burghclere, Hants
+3 CONT AgnesHouse;Daur;5;;Burghclere, Hants
+2 SOUR @S12@
+1 _UID 5DB2B0162FC0461C89D7FBF18B99E6E4608F
+1 FAMS @F4@
+1 FAMS @F11@
+1 FAMC @F1@
+0 @I9@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Apr and Jun 1841
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 7 19
+3 QUAY 3
+1 CHR
+2 DATE 13 Jun 1841
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Apr and Jun 1854
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 2c 93
+3 QUAY 3
+1 CENS
+2 DATE 1841
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT HO107 381/16 F25 P22
+3 CONT
+3 CONT James Lovelock;35;Ag Lab;born in Hants
+3 CONT Harriett Lovelock;35;;born in Hants
+3 CONT William Lovelock;8;;born in Hants
+3 CONT Ann Lovelock;6;;born in Hants
+3 CONT Charles Lovelock;2;;born in Hants
+3 CONT Harriett Lovelock;1;;born in Hants
+3 CONT N K Lovelock;1mo; born in Hants
+3 CONT N K Twinning;1mo;born in Hants
+3 CONT Sarah Baker;14;;
+2 SOUR @S8@
+1 CENS
+2 DATE 1851
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower St, Froyle, Hampshire, England
+3 CONT HO107 1679 F386 P17
+3 CONT
+3 CONT James Lovelock;Head, Widower;49;Ag Lab;Long Sutton, Hants
+3 CONT Harriet Lovelock;Daur;10;;Froyle, Hants
+3 CONT James Lovelock;Son;9;Cow Boy;Froyle, Hants
+3 CONT Daniel Lovelock;Son;7;;Froyle, Hants
+2 SOUR @S5@
+1 _UID B0CC6D31F259440E95FB99C655FBDB6C3D18
+1 FAMC @F1@
+0 @I10@ INDI
+1 NAME Thomas /LOVELOCK/
+2 GIVN Thomas
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Aug 1842
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Jul and Sep 1842
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 7 7
+3 QUAY 3
+1 BURI
+2 DATE 18 Sep 1842
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+3 PAGE (age 3 weeks)
+3 QUAY 3
+1 _UID 6F747B94441A469BADFDA5D2DD288818F7D6
+1 FAMC @F1@
+0 @I11@ INDI
+1 NAME Daniel /LOVELOCK/
+2 GIVN Daniel
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Oct and Dec 1843
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 7 18
+3 QUAY 3
+1 CHR
+2 DATE 17 Dec 1843
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Jan and Mar 1893
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S7@
+3 PAGE Lambeth RD, ref 1d 308
+3 QUAY 3
+1 CENS
+2 DATE 1851
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower St, Froyle, Hampshire, England
+3 CONT HO107 1679 F386 P17
+3 CONT
+3 CONT James Lovelock;Head, Widower;49;Ag Lab;Long Sutton, Hants
+3 CONT Harriet Lovelock;Daur;10;;Froyle, Hants
+3 CONT James Lovelock;Son;9;Cow Boy;Froyle, Hants
+3 CONT Daniel Lovelock;Son;7;;Froyle, Hants
+2 SOUR @S5@
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Husseys Farm, Husseys Rd, Froyle, Hampshire, England
+3 CONT RG9 705  F93  P16
+3 CONT
+3 CONT William Knight;Head;65;Farm Bailiff;Binsted, Hants
+3 CONT Barbara Knight;Wife;46;;Wallop, Hants
+3 CONT William S Knight;Son;17;;Bently, Hants
+3 CONT James Knight;Son;9;;Froyle, Hants
+3 CONT Frank Knight;Son;8;;Froyle, Hants
+3 CONT Ann Rapley;Serv;25;General Servant;Southwarnborough, Hants
+3 CONT Charles Covey;Serv;17;Carter;Froyle, Hants
+3 CONT Daniel Lovelock;Serv;17;Carter;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Lambeth, London, England
+2 NOTE 6 Winkfield Ter (sic), Lambeth, London, England
+3 CONT RG10 673  F9  P10
+3 CONT
+3 CONT Daniel Lovelock;Head;26;Railway Porter;Alton, Hants
+3 CONT Louisa Lovelock;Wife;26;;Tryford, Sussex
+3 CONT Louisa Lovelock;Daur;4;;Lambeth, Surrey
+3 CONT James Lovelock;Son;2;;Lambeth, Surrey
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Lambeth, Surrey, England
+2 NOTE 14 Walter St, Lambeth, London, England
+3 CONT RG11 605  F56  P42
+3 CONT
+3 CONT Daniel Lovelock;Head;36;Raily Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;36;;Trayford, Sussex
+3 CONT James Lovelock;Son;11;;Lambeth, Surrey
+3 CONT William G Lovelock;Son;9;;Lambeth, Surrey, Imbecile fro
+3 CONC m B (sic)
+3 CONT Charles Lovelock;Son;5;;Lambeth, Surrey
+3 CONT Daniel E Lovelock;Son;1;;Lambeth, Surrey
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG12 401  F56  P40
+3 CONT
+3 CONT Daniel Lovelock;Head;48;Railway Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;46;;Treyford, Sussex
+3 CONT Harriet L Lovelock;Daur;24;Dressmaker;Lambeth, Surrey
+3 CONT James Lovelock;Son;21;Solicitors Clerk;Lambeth, Surrey
+3 CONT William G Lovelock;Son;18;;Lambeth, Surrey
+3 CONT Charles Lovelock;Son;15;Railway Messenger;Lambeth, Surrey
+3 CONT Daniel J (sic) Lovelock;Son;11;;Lambeth, Surrey
+2 SOUR @S12@
+1 _UID 82FF13CC169D4658857A5F71983191CDA7E1
+1 FAMS @F6@
+1 FAMC @F1@
+0 @I12@ INDI
+1 NAME Catherine /LOVELOCK/
+2 GIVN Catherine
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Apr 1845
+2 SOUR @S2@
+3 PAGE Age at burial 10 months.
+3 QUAY 3
+2 SOUR @S14@
+3 PAGE Alton RD, ref 7 12  (in Bet Apr and Jun quarter)
+3 QUAY 3
+1 CHR
+2 DATE 11 May 1845
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Jan and Mar 1846
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 7 10
+3 QUAY 3
+1 BURI
+2 DATE 19 Feb 1846
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 _UID 352F6D567B184D35992FF552BF365936CFFF
+1 FAMC @F1@
+0 @I13@ INDI
+1 NAME George /LOVELOCK/
+2 GIVN George
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE May 1846
+2 SOUR @S2@
+3 PAGE Age at burial 4 months.
+3 QUAY 3
+2 SOUR @S14@
+3 PAGE Alton RD, ref 7 21  (in Bet Apr and Jun quarter)
+3 QUAY 3
+1 CHR
+2 DATE 12 Jul 1846
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Jul and Sep 1846
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 7 11
+3 QUAY 3
+1 BURI
+2 DATE 27 Sep 1846
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 _UID 809BED1497084E0C8A99F7385FD34B7C605B
+1 FAMC @F1@
+0 @I14@ INDI
+1 NAME Charlotte /LOVELOCK/
+2 GIVN Charlotte
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE May 1847
+2 SOUR @S2@
+3 PAGE Age at burial 4 months.
+3 QUAY 3
+2 SOUR @S14@
+3 PAGE Alton RD, ref 7 14  (in Bet Apr and Jun quarter)
+3 QUAY 3
+1 CHR
+2 DATE 13 Jun 1847
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 7 13  (registered in Bet Oct and Dec quarter)
+3 QUAY 3
+1 BURI
+2 DATE 19 Sep 1847
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 _UID 0045CA130DEA4D65AA2E6583E880AE4AEB8C
+1 FAMC @F1@
+0 @I15@ INDI
+1 NAME Betsy /LUCAS/
+2 GIVN Betsy
+2 SURN LUCAS
+1 SEX F
+1 BIRT
+2 DATE 1826-1827
+2 PLAC Binstead, Hampshire, England
+2 SOUR @S12@
+1 DEAT
+2 DATE Bet Apr and Jun 1896
+2 PLAC St George Hanover Square RD, London, England
+2 SOUR @S7@
+3 PAGE St George Hanover Square RD, ref 1a 298
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG12 74  F134  P12
+3 CONT
+3 CONT Alfred Elliott;Head;32;Commercial Traveller;Aldgate, London
+3 CONT Kate Elliott;Wife;27;;Maidstone, Kent
+3 CONT Cecilia K Elliott;Daur;3;;St George Hanover Square, London
+3 CONT Alfred E Elliott;Son;16mos;;St George Hanover Square, London
+3 CONT Betsey Lovelock;Aunt, Wid;69;;Binstead, Hants
+3 CONT John Simpson;Boarder;33;Joiner;Scotland
+2 SOUR @S12@
+1 CENS
+2 DATE 1871
+2 PLAC Lambeth, London, England
+2 NOTE 67 Roupell St, Lambeth, London, England
+3 CONT RG10 649  F14  P22
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;39;Carman;Froyle, Hants
+3 CONT Betsy Lovelock;Wife;44;;Binsted, Hants
+3 CONT Kate Lovelock;Neice (sic);7;;Maidstone, Kent
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Westminster, London, England
+2 NOTE 8 Ecclestone Sqre (sic), St George Hanover Square, Westmins
+3 CONC ter, London, England
+3 CONT RG11 104  F107  P17/18
+3 CONT
+3 CONT Henry M Cotton;Head;55;Solicitor;Shaftesbury, Dorset
+3 CONT Anne A Cotton;Wife;37;;Dowdeswell, Glos
+3 CONT Morton H Cotton;Son;19;Student Cambridge University;St Ge
+3 CONC o Han Sq, Middx
+3 CONT Lionel F Cotton;Son;10;;St Geo Han Sq, Middx
+3 CONT Betsy Lovelock;Serv, Wid;56;Cook;Binstead, Hants
+3 CONT Jane Gould;Serv;37;Parlourmaid;Whitchurch, Hants
+3 CONT Eliza Brown;Serv;27;Housemaid;Westmr (sic), Middx
+3 CONT Kate Lovelock;Serv;19;Dressmaker;Maidstone, Kent
+2 SOUR @S11@
+1 _UID 70662F49CE804045B230FC1914D215E5F870
+1 FAMS @F2@
+0 @I16@ INDI
+1 NAME Stephen /LUNN/
+2 GIVN Stephen
+2 SURN LUNN
+1 SEX M
+1 BIRT
+2 DATE 1825-1826
+2 PLAC Crondall, Hampshire, England
+2 SOUR @S10@
+1 DEAT
+2 DATE Bet Oct and Dec 1895
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 2c 109  (age 70)
+3 QUAY 3
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Froyle, Hampshire, England
+2 NOTE Main Rd, Froyle, Hampshire, England
+3 CONT RG10 1228  F11  P13
+3 CONT
+3 CONT Stephen Lunn;Head;45;Ag Labourer;Froyle, Hants
+3 CONT Ann Lunn;Wife;34;;Froyle, Hants
+3 CONT Bridget Lunn;Daur;16;;Froyle, Hants
+3 CONT Daniel Lunn;Son;14;;Froyle, Hants
+3 CONT George Lunn;Son;11;;Froyle, Hants
+3 CONT Agnes Lunn;Daur;7;;Froyle, Hants
+3 CONT Frederick Lunn;Son;2;;Froyle, Hants
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Froyle, Hampshire, England
+2 NOTE Froyle, Hampshire, England
+3 CONT RG11 1248  F10  P13
+3 CONT
+3 CONT Steven Lunn;Head;55;Ag Lab;Crondall, Hants
+3 CONT Ann Lunn;Wife;45;;Froyle, Hants
+3 CONT Daniel Lunn;Son;25;;Ag Lab;Froyle, Hants
+3 CONT George Lunn;Son;20;Blacksmith;Froyle, Hants
+3 CONT Agnes Lunn;Daur;16;Servant;Froyle, Hants
+3 CONT Fred Lunn;Son;12;;Froyle, Hants
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG12 952  F84  P12
+3 CONT
+3 CONT Stephen Lunn;Head;65;Agricultural Labourer;Crondall, Hants
+3 CONT Ann Lunn;Wife;55;;Froyle, Hants
+3 CONT Daniel Lunn;Son;34;;General Labourer;Froyle, Hants
+2 SOUR @S12@
+1 _UID 11FF4037A7DE46908C3D9A963F424A1AC07B
+1 FAMS @F3@
+0 @I17@ INDI
+1 NAME Bridget /LUNN/
+2 GIVN Bridget
+2 SURN LUNN
+1 SEX F
+1 BIRT
+2 DATE Bet Jul and Sep 1854
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 2c 121
+3 QUAY 3
+1 DEAT
+2 DATE Bet Jul and Sep 1883
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 2c 96  (age 30)
+3 QUAY 3
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Froyle, Hampshire, England
+2 NOTE Main Rd, Froyle, Hampshire, England
+3 CONT RG10 1228  F11  P13
+3 CONT
+3 CONT Stephen Lunn;Head;45;Ag Labourer;Froyle, Hants
+3 CONT Ann Lunn;Wife;34;;Froyle, Hants
+3 CONT Bridget Lunn;Daur;16;;Froyle, Hants
+3 CONT Daniel Lunn;Son;14;;Froyle, Hants
+3 CONT George Lunn;Son;11;;Froyle, Hants
+3 CONT Agnes Lunn;Daur;7;;Froyle, Hants
+3 CONT Frederick Lunn;Son;2;;Froyle, Hants
+2 SOUR @S10@
+1 _UID 88F11CEEE84A48D1B14AE37B12A4A73BBF78
+1 FAMC @F3@
+0 @I18@ INDI
+1 NAME Harriett /LUNN/
+2 GIVN Harriett
+2 SURN LUNN
+1 SEX F
+1 BIRT
+2 DATE Bet Oct and Dec 1855
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 2c 122
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 _UID 320EC347638241F89DCAF412545A7B514FD8
+1 FAMC @F3@
+0 @I19@ INDI
+1 NAME Daniel /LUNN/
+2 GIVN Daniel
+2 SURN LUNN
+1 SEX M
+1 BIRT
+2 DATE Bet Apr and Jun 1857
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 2c 136
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr and Jun 1908
+2 PLAC Alton RD, Alton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Alton RD, ref 2c 98  (age 51)
+3 QUAY 3
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Froyle, Hampshire, England
+2 NOTE Main Rd, Froyle, Hampshire, England
+3 CONT RG10 1228  F11  P13
+3 CONT
+3 CONT Stephen Lunn;Head;45;Ag Labourer;Froyle, Hants
+3 CONT Ann Lunn;Wife;34;;Froyle, Hants
+3 CONT Bridget Lunn;Daur;16;;Froyle, Hants
+3 CONT Daniel Lunn;Son;14;;Froyle, Hants
+3 CONT George Lunn;Son;11;;Froyle, Hants
+3 CONT Agnes Lunn;Daur;7;;Froyle, Hants
+3 CONT Frederick Lunn;Son;2;;Froyle, Hants
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Froyle, Hampshire, England
+2 NOTE Froyle, Hampshire, England
+3 CONT RG11 1248  F10  P13
+3 CONT
+3 CONT Steven Lunn;Head;55;Ag Lab;Crondall, Hants
+3 CONT Ann Lunn;Wife;45;;Froyle, Hants
+3 CONT Daniel Lunn;Son;25;;Ag Lab;Froyle, Hants
+3 CONT George Lunn;Son;20;Blacksmith;Froyle, Hants
+3 CONT Agnes Lunn;Daur;16;Servant;Froyle, Hants
+3 CONT Fred Lunn;Son;12;;Froyle, Hants
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG12 952  F84  P12
+3 CONT
+3 CONT Stephen Lunn;Head;65;Agricultural Labourer;Crondall, Hants
+3 CONT Ann Lunn;Wife;55;;Froyle, Hants
+3 CONT Daniel Lunn;Son;34;;General Labourer;Froyle, Hants
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle, Froyle, Hampshire, England
+3 CONT RG13 1100  F79  P28
+3 CONT
+3 CONT Ann Lunn;Head, Wid;67;;Froyle, Hants
+3 CONT Daniel Lunn;Son;43;;Agricultural Labourer;Froyle, Hants
+2 SOUR @S13@
+1 _UID 814C019D93C5495F83255FE185B63C4812C7
+1 FAMC @F3@
+0 @I20@ INDI
+1 NAME George /LUNN/
+2 GIVN George
+2 SURN LUNN
+1 SEX M
+1 BIRT
+2 DATE Bet Apr and Jun 1860
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 2c 142
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1861
+2 PLAC Froyle, Hampshire, England
+2 NOTE Lower Froyle St, Froyle, Hampshire, England
+3 CONT RG9 705  F88  P5
+3 CONT
+3 CONT James Lovelock;Head;59;Ag Lab;Farnham, Surrey
+3 CONT William Lovelock;Son;29;Brewers Drayman;Froyle, Hants
+3 CONT Steven Lunn;Son in law;32;Lime Burner;Crondall, Hants
+3 CONT Ann Lunn;Daur;27;;Froyle, Hants
+3 CONT Bridget Lunn;Grand daur;7;;Froyle, Hants
+3 CONT Harriet Lunn;Grand daur;6;;Froyle, Hants
+3 CONT Daniel Lunn;Grand son;4;;Froyle, Hants
+3 CONT George Lunn;Grand son;9mos;;Froyle, Hants
+2 SOUR @S9@
+1 CENS
+2 DATE 1871
+2 PLAC Froyle, Hampshire, England
+2 NOTE Main Rd, Froyle, Hampshire, England
+3 CONT RG10 1228  F11  P13
+3 CONT
+3 CONT Stephen Lunn;Head;45;Ag Labourer;Froyle, Hants
+3 CONT Ann Lunn;Wife;34;;Froyle, Hants
+3 CONT Bridget Lunn;Daur;16;;Froyle, Hants
+3 CONT Daniel Lunn;Son;14;;Froyle, Hants
+3 CONT George Lunn;Son;11;;Froyle, Hants
+3 CONT Agnes Lunn;Daur;7;;Froyle, Hants
+3 CONT Frederick Lunn;Son;2;;Froyle, Hants
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Froyle, Hampshire, England
+2 NOTE Froyle, Hampshire, England
+3 CONT RG11 1248  F10  P13
+3 CONT
+3 CONT Steven Lunn;Head;55;Ag Lab;Crondall, Hants
+3 CONT Ann Lunn;Wife;45;;Froyle, Hants
+3 CONT Daniel Lunn;Son;25;;Ag Lab;Froyle, Hants
+3 CONT George Lunn;Son;20;Blacksmith;Froyle, Hants
+3 CONT Agnes Lunn;Daur;16;Servant;Froyle, Hants
+3 CONT Fred Lunn;Son;12;;Froyle, Hants
+2 SOUR @S11@
+1 _UID 3B0D07262A9A47349C443CF5F69D160E7CC9
+1 FAMC @F3@
+0 @I21@ INDI
+1 NAME Agnes /LUNN/
+2 GIVN Agnes
+2 SURN LUNN
+1 SEX F
+1 BIRT
+2 DATE Sep 1864
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 2c 149
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1871
+2 PLAC Froyle, Hampshire, England
+2 NOTE Main Rd, Froyle, Hampshire, England
+3 CONT RG10 1228  F11  P13
+3 CONT
+3 CONT Stephen Lunn;Head;45;Ag Labourer;Froyle, Hants
+3 CONT Ann Lunn;Wife;34;;Froyle, Hants
+3 CONT Bridget Lunn;Daur;16;;Froyle, Hants
+3 CONT Daniel Lunn;Son;14;;Froyle, Hants
+3 CONT George Lunn;Son;11;;Froyle, Hants
+3 CONT Agnes Lunn;Daur;7;;Froyle, Hants
+3 CONT Frederick Lunn;Son;2;;Froyle, Hants
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Froyle, Hampshire, England
+2 NOTE Froyle, Hampshire, England
+3 CONT RG11 1248  F10  P13
+3 CONT
+3 CONT Steven Lunn;Head;55;Ag Lab;Crondall, Hants
+3 CONT Ann Lunn;Wife;45;;Froyle, Hants
+3 CONT Daniel Lunn;Son;25;;Ag Lab;Froyle, Hants
+3 CONT George Lunn;Son;20;Blacksmith;Froyle, Hants
+3 CONT Agnes Lunn;Daur;16;Servant;Froyle, Hants
+3 CONT Fred Lunn;Son;12;;Froyle, Hants
+2 SOUR @S11@
+1 _UID FAF97DD517D04CC3B93946DB0B6B77EF2A41
+1 FAMC @F3@
+0 @I22@ INDI
+1 NAME Frederick /LUNN/
+2 GIVN Frederick
+2 SURN LUNN
+1 SEX M
+1 BIRT
+2 DATE Bet Oct and Dec 1868
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S14@
+3 PAGE Alton RD, ref 2c 156
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1871
+2 PLAC Froyle, Hampshire, England
+2 NOTE Main Rd, Froyle, Hampshire, England
+3 CONT RG10 1228  F11  P13
+3 CONT
+3 CONT Stephen Lunn;Head;45;Ag Labourer;Froyle, Hants
+3 CONT Ann Lunn;Wife;34;;Froyle, Hants
+3 CONT Bridget Lunn;Daur;16;;Froyle, Hants
+3 CONT Daniel Lunn;Son;14;;Froyle, Hants
+3 CONT George Lunn;Son;11;;Froyle, Hants
+3 CONT Agnes Lunn;Daur;7;;Froyle, Hants
+3 CONT Frederick Lunn;Son;2;;Froyle, Hants
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Froyle, Hampshire, England
+2 NOTE Froyle, Hampshire, England
+3 CONT RG11 1248  F10  P13
+3 CONT
+3 CONT Steven Lunn;Head;55;Ag Lab;Crondall, Hants
+3 CONT Ann Lunn;Wife;45;;Froyle, Hants
+3 CONT Daniel Lunn;Son;25;;Ag Lab;Froyle, Hants
+3 CONT George Lunn;Son;20;Blacksmith;Froyle, Hants
+3 CONT Agnes Lunn;Daur;16;Servant;Froyle, Hants
+3 CONT Fred Lunn;Son;12;;Froyle, Hants
+2 SOUR @S11@
+1 _UID 3A39836968024DBCBF5695156195D7E54319
+1 FAMC @F3@
+0 @I23@ INDI
+1 NAME Kate /LOVELOCK/
+2 GIVN Kate
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Abt 1863
+2 PLAC Maidstone, Kent, England
+2 SOUR @S10@
+1 CHR
+2 DATE 1 Nov 1863
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT Y
+1 CENS
+2 DATE 1891
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG12 74  F134  P12
+3 CONT
+3 CONT Alfred Elliott;Head;32;Commercial Traveller;Aldgate, London
+3 CONT Kate Elliott;Wife;27;;Maidstone, Kent
+3 CONT Cecilia K Elliott;Daur;3;;St George Hanover Square, London
+3 CONT Alfred E Elliott;Son;16mos;;St George Hanover Square, London
+3 CONT Betsey Lovelock;Aunt, Wid;69;;Binstead, Hants
+3 CONT John Simpson;Boarder;33;Joiner;Scotland
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG13 88  F74  P13
+3 CONT
+3 CONT Alfred Elliott;Head;42;Traveller on Commission (Furniture);
+3 CONC City, London
+3 CONT Kate Elliott;Wife;37;;City, London
+3 CONT Cecelia Elliott;Daur;13;;Pimlico, London
+3 CONT Alfred Elliott;Son;11;;Pimlico, London
+3 CONT Harold Elliott;Son;8;; Pimlico, London
+3 CONT Florence Elliott;Daur;5;;Pimlico, London
+3 CONT William Elliott;Son;3;;Pimlico, London
+2 SOUR @S13@
+1 CENS
+2 DATE 1871
+2 PLAC Lambeth, Surrey, England
+2 NOTE 67 Roupell St, Lambeth, London, England
+3 CONT RG10 649  F14  P22
+3 CONT
+3 CONT Wm (sic) Lovelock;Head;39;Carman;Froyle, Hants
+3 CONT Betsy Lovelock;Wife;44;;Binsted, Hants
+3 CONT Kate Lovelock;Neice (sic);7;;Maidstone, Kent
+2 SOUR @S11@
+1 CENS
+2 DATE 1881
+2 PLAC Westminster, London, England
+2 NOTE 8 Ecclestone Sqre (sic), St George Hanover Square, Westmins
+3 CONC ter, London, England
+3 CONT RG11 104  F107  P17/18
+3 CONT
+3 CONT Henry M Cotton;Head;55;Solicitor;Shaftesbury, Dorset
+3 CONT Anne A Cotton;Wife;37;;Dowdeswell, Glos
+3 CONT Morton H Cotton;Son;19;Student Cambridge University;St Ge
+3 CONC o Han Sq, Middx
+3 CONT Lionel F Cotton;Son;10;;St Geo Han Sq, Middx
+3 CONT Betsy Lovelock;Serv, Wid;56;Cook;Binstead, Hants
+3 CONT Jane Gould;Serv;37;Parlourmaid;Whitchurch, Hants
+3 CONT Eliza Brown;Serv;27;Housemaid;Westmr (sic), Middx
+3 CONT Kate Lovelock;Serv;19;Dressmaker;Maidstone, Kent
+2 SOUR @S11@
+1 CENS
+2 DATE 1911
+2 PLAC Balham, London, England
+2 NOTE 141 Endlesham Rd, Balham, London, England
+3 CONT RG14 PN2298  RG78 PN78A  RD26  SD5  ED13  SN223
+3 CONT
+3 CONT Alfred Elliott;Head;52;Commercial Traveller Furniture Trad
+3 CONC e At Home as a rule at present employed tempaly (sic);Cit
+3 CONC y of London
+3 CONT Kate Elliott;Wife, married 24 years;47;;Maidstone
+3 CONT Cissie Elliott;Daur;23;Milliner;Pimlico
+3 CONT William Elliott;Son;13;Cabinet Maker;Pimlico
+3 CONT Winifred Alice (sic) Elliott;Daur;6;;Balham
+3 CONT Frank Elliott;Son;3;;Balham
+2 SOUR @S15@
+1 _UID 5730F2F9A1214080913E3DA066F04A276703
+1 FAMS @F5@
+1 FAMC @F4@
+0 @I24@ INDI
+1 NAME Alfred /ELLIOTT/
+2 GIVN Alfred
+2 SURN ELLIOTT
+1 SEX M
+1 BIRT
+2 DATE 1858-1859
+2 PLAC Aldgate, London, England
+2 SOUR @S12@
+1 DEAT
+2 DATE Bet Apr and Jun 1933
+2 PLAC Wandsworth RD, Wandsworth, London, England
+2 SOUR @S7@
+3 PAGE Wandsworth RD, ref 1d 527
+3 QUAY 3
+1 CENS
+2 DATE 1891
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG12 74  F134  P12
+3 CONT
+3 CONT Alfred Elliott;Head;32;Commercial Traveller;Aldgate, London
+3 CONT Kate Elliott;Wife;27;;Maidstone, Kent
+3 CONT Cecilia K Elliott;Daur;3;;St George Hanover Square, London
+3 CONT Alfred E Elliott;Son;16mos;;St George Hanover Square, London
+3 CONT Betsey Lovelock;Aunt, Wid;69;;Binstead, Hants
+3 CONT John Simpson;Boarder;33;Joiner;Scotland
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG13 88  F74  P13
+3 CONT
+3 CONT Alfred Elliott;Head;42;Traveller on Commission (Furniture);
+3 CONC City, London
+3 CONT Kate Elliott;Wife;37;;City, London
+3 CONT Cecelia Elliott;Daur;13;;Pimlico, London
+3 CONT Alfred Elliott;Son;11;;Pimlico, London
+3 CONT Harold Elliott;Son;8;; Pimlico, London
+3 CONT Florence Elliott;Daur;5;;Pimlico, London
+3 CONT William Elliott;Son;3;;Pimlico, London
+2 SOUR @S13@
+1 CENS
+2 DATE 1911
+2 PLAC Balham, London, England
+2 NOTE 141 Endlesham Rd, Balham, London, England
+3 CONT RG14 PN2298  RG78 PN78A  RD26  SD5  ED13  SN223
+3 CONT
+3 CONT Alfred Elliott;Head;52;Commercial Traveller Furniture Trad
+3 CONC e At Home as a rule at present employed tempaly (sic);Cit
+3 CONC y of London
+3 CONT Kate Elliott;Wife, married 24 years;47;;Maidstone
+3 CONT Cissie Elliott;Daur;23;Milliner;Pimlico
+3 CONT William Elliott;Son;13;Cabinet Maker;Pimlico
+3 CONT Winifred Alice (sic) Elliott;Daur;6;;Balham
+3 CONT Frank Elliott;Son;3;;Balham
+2 SOUR @S15@
+1 _UID D6EAE01FDC774F99BAF8C09E237185F114D5
+1 FAMS @F5@
+0 @I25@ INDI
+1 NAME Cecilia Kate /ELLIOTT/
+2 GIVN Cecilia Kate
+2 SURN ELLIOTT
+1 SEX F
+1 BIRT
+2 DATE Bet Jul and Sep 1887
+2 PLAC St George Hanover Square RD, London, England
+2 SOUR @S14@
+3 PAGE St George Hanover Square RD, ref 1a 431
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1891
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG12 74  F134  P12
+3 CONT
+3 CONT Alfred Elliott;Head;32;Commercial Traveller;Aldgate, London
+3 CONT Kate Elliott;Wife;27;;Maidstone, Kent
+3 CONT Cecilia K Elliott;Daur;3;;St George Hanover Square, London
+3 CONT Alfred E Elliott;Son;16mos;;St George Hanover Square, London
+3 CONT Betsey Lovelock;Aunt, Wid;69;;Binstead, Hants
+3 CONT John Simpson;Boarder;33;Joiner;Scotland
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG13 88  F74  P13
+3 CONT
+3 CONT Alfred Elliott;Head;42;Traveller on Commission (Furniture);
+3 CONC City, London
+3 CONT Kate Elliott;Wife;37;;City, London
+3 CONT Cecelia Elliott;Daur;13;;Pimlico, London
+3 CONT Alfred Elliott;Son;11;;Pimlico, London
+3 CONT Harold Elliott;Son;8;; Pimlico, London
+3 CONT Florence Elliott;Daur;5;;Pimlico, London
+3 CONT William Elliott;Son;3;;Pimlico, London
+2 SOUR @S13@
+1 CENS
+2 DATE 1911
+2 PLAC Balham, London, England
+2 NOTE 141 Endlesham Rd, Balham, London, England
+3 CONT RG14 PN2298  RG78 PN78A  RD26  SD5  ED13  SN223
+3 CONT
+3 CONT Alfred Elliott;Head;52;Commercial Traveller Furniture Trad
+3 CONC e At Home as a rule at present employed tempaly (sic);Cit
+3 CONC y of London
+3 CONT Kate Elliott;Wife, married 24 years;47;;Maidstone
+3 CONT Cissie Elliott;Daur;23;Milliner;Pimlico
+3 CONT William Elliott;Son;13;Cabinet Maker;Pimlico
+3 CONT Winifred Alice (sic) Elliott;Daur;6;;Balham
+3 CONT Frank Elliott;Son;3;;Balham
+2 SOUR @S15@
+1 _UID AF65AACF501C42DFBFB0B23A095F5ECB06E7
+1 FAMC @F5@
+0 @I26@ INDI
+1 NAME Alfred Engelfield /ELLIOTT/
+2 GIVN Alfred Engelfield
+2 SURN ELLIOTT
+1 SEX M
+1 BIRT
+2 DATE Bet Jan and Mar 1890
+2 PLAC St George Hanover Square RD, London, England
+2 SOUR @S14@
+3 PAGE St George Hanover Square RD, ref 1a 427
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1891
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG12 74  F134  P12
+3 CONT
+3 CONT Alfred Elliott;Head;32;Commercial Traveller;Aldgate, London
+3 CONT Kate Elliott;Wife;27;;Maidstone, Kent
+3 CONT Cecilia K Elliott;Daur;3;;St George Hanover Square, London
+3 CONT Alfred E Elliott;Son;16mos;;St George Hanover Square, London
+3 CONT Betsey Lovelock;Aunt, Wid;69;;Binstead, Hants
+3 CONT John Simpson;Boarder;33;Joiner;Scotland
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG13 88  F74  P13
+3 CONT
+3 CONT Alfred Elliott;Head;42;Traveller on Commission (Furniture);
+3 CONC City, London
+3 CONT Kate Elliott;Wife;37;;City, London
+3 CONT Cecelia Elliott;Daur;13;;Pimlico, London
+3 CONT Alfred Elliott;Son;11;;Pimlico, London
+3 CONT Harold Elliott;Son;8;; Pimlico, London
+3 CONT Florence Elliott;Daur;5;;Pimlico, London
+3 CONT William Elliott;Son;3;;Pimlico, London
+2 SOUR @S13@
+1 _UID 0E4B18B2B23045348A8FDEAF76A33A66DD00
+1 FAMC @F5@
+0 @I27@ INDI
+1 NAME Louisa /VARNES/
+2 GIVN Louisa
+2 SURN VARNES
+1 SEX F
+1 BIRT
+2 DATE Bet Jan and Mar 1844
+2 PLAC Treyford, Sussex, England
+2 SOUR @S14@
+3 PAGE Midhurst RD, ref 7 455  (registered as Varns)
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct and Dec 1921
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S7@
+3 PAGE Lambeth RD, ref 1d 343  (age 76)
+3 QUAY 3
+1 CENS
+2 DATE 1871
+2 PLAC Lambeth, London, England
+2 NOTE 6 Winkfield Ter (sic), Lambeth, London, England
+3 CONT RG10 673  F9  P10
+3 CONT
+3 CONT Daniel Lovelock;Head;26;Railway Porter;Alton, Hants
+3 CONT Louisa Lovelock;Wife;26;;Tryford, Sussex
+3 CONT Louisa Lovelock;Daur;4;;Lambeth, Surrey
+3 CONT James Lovelock;Son;2;;Lambeth, Surrey
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Lambeth, London, England
+2 NOTE 14 Walter St, Lambeth, London, England
+3 CONT RG11 605  F56  P42
+3 CONT
+3 CONT Daniel Lovelock;Head;36;Raily Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;36;;Trayford, Sussex
+3 CONT James Lovelock;Son;11;;Lambeth, Surrey
+3 CONT William G Lovelock;Son;9;;Lambeth, Surrey, Imbecile fro
+3 CONC m B (sic)
+3 CONT Charles Lovelock;Son;5;;Lambeth, Surrey
+3 CONT Daniel E Lovelock;Son;1;;Lambeth, Surrey
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG12 401  F56  P40
+3 CONT
+3 CONT Daniel Lovelock;Head;48;Railway Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;46;;Treyford, Sussex
+3 CONT Harriet L Lovelock;Daur;24;Dressmaker;Lambeth, Surrey
+3 CONT James Lovelock;Son;21;Solicitors Clerk;Lambeth, Surrey
+3 CONT William G Lovelock;Son;18;;Lambeth, Surrey
+3 CONT Charles Lovelock;Son;15;Railway Messenger;Lambeth, Surrey
+3 CONT Daniel J (sic) Lovelock;Son;11;;Lambeth, Surrey
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG13 416  F128  P21
+3 CONT
+3 CONT Louisa Lovelock;Head, Wid;56;Railway Flagmaker;Treyford, Su
+3 CONC ssex
+3 CONT Eleanor C Pierson;Visitor, M;37;Laundry Folder;Oswestry, Sa
+3 CONC lop
+2 SOUR @S13@
+1 CENS
+2 DATE 1911
+2 PLAC Lambeth, Surrey, England
+2 NOTE Lambeth, Surrey, England
+3 CONT
+3 CONT Louisa Lovelock;67
+3 CONT Daniel Lovelock;31
+2 SOUR @S15@
+1 _UID 6C2EF1AD434C4F83A8685D1D7D217799D137
+1 FAMS @F6@
+0 @I28@ INDI
+1 NAME Harriet Louisa /LOVELOCK/
+2 GIVN Harriet Louisa
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Jan and Mar 1867
+2 PLAC Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 423
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1871
+2 PLAC Lambeth, London, England
+2 NOTE 6 Winkfield Ter (sic), Lambeth, London, England
+3 CONT RG10 673  F9  P10
+3 CONT
+3 CONT Daniel Lovelock;Head;26;Railway Porter;Alton, Hants
+3 CONT Louisa Lovelock;Wife;26;;Tryford, Sussex
+3 CONT Louisa Lovelock;Daur;4;;Lambeth, Surrey
+3 CONT James Lovelock;Son;2;;Lambeth, Surrey
+2 SOUR @S10@
+1 CENS
+2 DATE 1891
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG12 401  F56  P40
+3 CONT
+3 CONT Daniel Lovelock;Head;48;Railway Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;46;;Treyford, Sussex
+3 CONT Harriet L Lovelock;Daur;24;Dressmaker;Lambeth, Surrey
+3 CONT James Lovelock;Son;21;Solicitors Clerk;Lambeth, Surrey
+3 CONT William G Lovelock;Son;18;;Lambeth, Surrey
+3 CONT Charles Lovelock;Son;15;Railway Messenger;Lambeth, Surrey
+3 CONT Daniel J (sic) Lovelock;Son;11;;Lambeth, Surrey
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, London, England
+2 NOTE 41 Dawlish St, Lambeth, London, England
+3 CONT RG13 416  F128  P22
+3 CONT
+3 CONT Henry J Braddick;Head;38;Railway Horsekeeper;Honiton, Devon
+3 CONT Harriett L Braddick;Wife;34;;Lambeth, London
+3 CONT Henry J Braddick;Son;6;;Lambeth, London
+3 CONT Albert A Braddick;Son;5;;Lambeth, London
+3 CONT Ernest W Braddick;Son;4;;Lambeth, London
+3 CONT Annie Braddick;Niece;7;;Lambeth, London
+3 CONT Mary E Braddick;Mother, Wid;69;;Honiton, Devon
+2 SOUR @S13@
+1 CENS
+2 DATE 1881
+2 PLAC Clapham, London, England
+2 NOTE 423 Wandsworth Rd, Clapham, London, England
+3 CONT RG11 633  F32  P6
+3 CONT
+3 CONT Edward U Whitney;Head;35;Printer's Manager;Westminster, Mid
+3 CONC dx
+3 CONT Florence Whitney;Wife;22;;S Lambeth, Surrey
+3 CONT Cyril U Whitney;Son;7mos;Clapham, Surrey
+3 CONT Keziah Fickling;Serv;18;General Servant;Sabam Toney, Norfolk
+3 CONT Harriett L Lovelock;Serv;14;Nursemaid;S Lambeth, Surrey
+2 SOUR @S11@
+1 _UID 2404FF20A4154EE18A6E37EBDAD34D90D3D8
+1 FAMS @F7@
+1 FAMC @F6@
+0 @I29@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Jan and Mar 1870
+2 PLAC Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 425
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1871
+2 PLAC Lambeth, London, England
+2 NOTE 6 Winkfield Ter (sic), Lambeth, London, England
+3 CONT RG10 673  F9  P10
+3 CONT
+3 CONT Daniel Lovelock;Head;26;Railway Porter;Alton, Hants
+3 CONT Louisa Lovelock;Wife;26;;Tryford, Sussex
+3 CONT Louisa Lovelock;Daur;4;;Lambeth, Surrey
+3 CONT James Lovelock;Son;2;;Lambeth, Surrey
+2 SOUR @S10@
+1 CENS
+2 DATE 1881
+2 PLAC Lambeth, London, England
+2 NOTE 14 Walter St, Lambeth, London, England
+3 CONT RG11 605  F56  P42
+3 CONT
+3 CONT Daniel Lovelock;Head;36;Raily Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;36;;Trayford, Sussex
+3 CONT James Lovelock;Son;11;;Lambeth, Surrey
+3 CONT William G Lovelock;Son;9;;Lambeth, Surrey, Imbecile fro
+3 CONC m B (sic)
+3 CONT Charles Lovelock;Son;5;;Lambeth, Surrey
+3 CONT Daniel E Lovelock;Son;1;;Lambeth, Surrey
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG12 401  F56  P40
+3 CONT
+3 CONT Daniel Lovelock;Head;48;Railway Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;46;;Treyford, Sussex
+3 CONT Harriet L Lovelock;Daur;24;Dressmaker;Lambeth, Surrey
+3 CONT James Lovelock;Son;21;Solicitors Clerk;Lambeth, Surrey
+3 CONT William G Lovelock;Son;18;;Lambeth, Surrey
+3 CONT Charles Lovelock;Son;15;Railway Messenger;Lambeth, Surrey
+3 CONT Daniel J (sic) Lovelock;Son;11;;Lambeth, Surrey
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Wandsworth, London, England
+2 NOTE Wandsworth, London, England
+3 CONT
+3 CONT James Lovelock;41
+3 CONT Edith Harriett Lovelock;40
+3 CONT Charles James Lovelock;14
+2 SOUR @S15@
+1 CENS
+2 DATE 1901
+2 PLAC Clapham, London, England
+2 NOTE 125 Hydethorpe Rd, Clapham, London, England
+3 CONT RG13 468  F16  P23
+3 CONT
+3 CONT James Lovelock;Head;31;Solicitors Clerk;Kennington, London
+3 CONT Edith Harriet Lovelock;Wife;30;;Penge, Surrey
+3 CONT Charles James Lovelock;Son;4;;Kennington, London
+2 SOUR @S13@
+1 _UID 55653C538639450F8BE0D132DC7AA4692D95
+1 FAMS @F12@
+1 FAMC @F6@
+0 @I30@ INDI
+1 NAME William George /LOVELOCK/
+2 GIVN William George
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Jul and Sep 1872
+2 PLAC Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 43_
+3 QUAY 3
+1 DEAT
+2 DATE Bet Apr and Jun 1892
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S7@
+3 PAGE Lambeth RD, ref 1d 260
+3 QUAY 3
+1 CENS
+2 DATE 1881
+2 PLAC Lambeth, London, England
+2 NOTE 14 Walter St, Lambeth, London, England
+3 CONT RG11 605  F56  P42
+3 CONT
+3 CONT Daniel Lovelock;Head;36;Raily Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;36;;Trayford, Sussex
+3 CONT James Lovelock;Son;11;;Lambeth, Surrey
+3 CONT William G Lovelock;Son;9;;Lambeth, Surrey, Imbecile fro
+3 CONC m B (sic)
+3 CONT Charles Lovelock;Son;5;;Lambeth, Surrey
+3 CONT Daniel E Lovelock;Son;1;;Lambeth, Surrey
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG12 401  F56  P40
+3 CONT
+3 CONT Daniel Lovelock;Head;48;Railway Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;46;;Treyford, Sussex
+3 CONT Harriet L Lovelock;Daur;24;Dressmaker;Lambeth, Surrey
+3 CONT James Lovelock;Son;21;Solicitors Clerk;Lambeth, Surrey
+3 CONT William G Lovelock;Son;18;;Lambeth, Surrey
+3 CONT Charles Lovelock;Son;15;Railway Messenger;Lambeth, Surrey
+3 CONT Daniel J (sic) Lovelock;Son;11;;Lambeth, Surrey
+2 SOUR @S12@
+1 _UID C74395FFDAF645A8A665640F95D1C8404707
+1 FAMC @F6@
+0 @I31@ INDI
+1 NAME Charles /LOVELOCK/
+2 GIVN Charles
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Apr and Jun 1876
+2 PLAC Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 441
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC Lambeth, London, England
+2 NOTE 14 Walter St, Lambeth, London, England
+3 CONT RG11 605  F56  P42
+3 CONT
+3 CONT Daniel Lovelock;Head;36;Raily Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;36;;Trayford, Sussex
+3 CONT James Lovelock;Son;11;;Lambeth, Surrey
+3 CONT William G Lovelock;Son;9;;Lambeth, Surrey, Imbecile fro
+3 CONC m B (sic)
+3 CONT Charles Lovelock;Son;5;;Lambeth, Surrey
+3 CONT Daniel E Lovelock;Son;1;;Lambeth, Surrey
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG12 401  F56  P40
+3 CONT
+3 CONT Daniel Lovelock;Head;48;Railway Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;46;;Treyford, Sussex
+3 CONT Harriet L Lovelock;Daur;24;Dressmaker;Lambeth, Surrey
+3 CONT James Lovelock;Son;21;Solicitors Clerk;Lambeth, Surrey
+3 CONT William G Lovelock;Son;18;;Lambeth, Surrey
+3 CONT Charles Lovelock;Son;15;Railway Messenger;Lambeth, Surrey
+3 CONT Daniel J (sic) Lovelock;Son;11;;Lambeth, Surrey
+2 SOUR @S12@
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, Surrey, England
+2 NOTE 12 Thorne Rd, Lambeth, London, England
+3 CONT RG13 416  F21  P34
+3 CONT
+3 CONT Charles Lovelock;Head;25;Railway Clerk;Lambeth, London
+3 CONT Mabel E Lovelock;Wife;22;;Road (sic), Somerset
+2 SOUR @S13@
+1 CENS
+2 DATE 1911
+2 PLAC Kingston, Surrey, England
+2 NOTE Kingston, Surrey, England
+3 CONT
+3 CONT Charles Lovelock;35
+3 CONT Mabel Eva Lovelock;32
+3 CONT Ethel Lilian Irene Lovelock;6
+3 CONT Charles John Lovelock;5
+3 CONT Albert James Lovelock;5mos
+2 SOUR @S15@
+1 _UID 740191FB44CD4FB9B2E107F14FE740627DFB
+1 FAMS @F8@
+1 FAMC @F6@
+0 @I32@ INDI
+1 NAME Daniel Englefield /LOVELOCK/
+2 GIVN Daniel Englefield
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Jul and Sep 1879
+2 PLAC Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 448
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC Lambeth, London, England
+2 NOTE 14 Walter St, Lambeth, London, England
+3 CONT RG11 605  F56  P42
+3 CONT
+3 CONT Daniel Lovelock;Head;36;Raily Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;36;;Trayford, Sussex
+3 CONT James Lovelock;Son;11;;Lambeth, Surrey
+3 CONT William G Lovelock;Son;9;;Lambeth, Surrey, Imbecile fro
+3 CONC m B (sic)
+3 CONT Charles Lovelock;Son;5;;Lambeth, Surrey
+3 CONT Daniel E Lovelock;Son;1;;Lambeth, Surrey
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Lambeth, London, England
+2 NOTE 37 Dawlish St, Lambeth, London, England
+3 CONT RG12 401  F56  P40
+3 CONT
+3 CONT Daniel Lovelock;Head;48;Railway Porter;Froyle, Hants
+3 CONT Louisa Lovelock;Wife;46;;Treyford, Sussex
+3 CONT Harriet L Lovelock;Daur;24;Dressmaker;Lambeth, Surrey
+3 CONT James Lovelock;Son;21;Solicitors Clerk;Lambeth, Surrey
+3 CONT William G Lovelock;Son;18;;Lambeth, Surrey
+3 CONT Charles Lovelock;Son;15;Railway Messenger;Lambeth, Surrey
+3 CONT Daniel J (sic) Lovelock;Son;11;;Lambeth, Surrey
+2 SOUR @S12@
+1 CENS
+2 DATE 1911
+2 PLAC Lambeth, Surrey, England
+2 NOTE Lambeth, Surrey, England
+3 CONT
+3 CONT Louisa Lovelock;67
+3 CONT Daniel Lovelock;31
+2 SOUR @S15@
+1 _UID D82A8675566846DA80708A1E4B43BE04C378
+1 FAMS @F14@
+1 FAMC @F6@
+0 @I33@ INDI
+1 NAME Henry James /BRADDICK/
+2 GIVN Henry James
+2 SURN BRADDICK
+1 SEX M
+1 BIRT
+2 DATE 1862-1863
+2 PLAC Honiton, Devon, England
+2 SOUR @S13@
+1 DEAT
+2 DATE Bet Oct and Dec 1905
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S7@
+3 PAGE Lambeth RD, ref 1d 229  (age 42)
+3 QUAY 3
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, London, England
+2 NOTE 41 Dawlish St, Lambeth, London, England
+3 CONT RG13 416  F128  P22
+3 CONT
+3 CONT Henry J Braddick;Head;38;Railway Horsekeeper;Honiton, Devon
+3 CONT Harriett L Braddick;Wife;34;;Lambeth, London
+3 CONT Henry J Braddick;Son;6;;Lambeth, London
+3 CONT Albert A Braddick;Son;5;;Lambeth, London
+3 CONT Ernest W Braddick;Son;4;;Lambeth, London
+3 CONT Annie Braddick;Niece;7;;Lambeth, London
+3 CONT Mary E Braddick;Mother, Wid;69;;Honiton, Devon
+2 SOUR @S13@
+1 _UID 8A4A34099CB247A9B6906CBDA5AD1388AB12
+1 FAMS @F7@
+0 @I34@ INDI
+1 NAME Henry James /BRADDICK/
+2 GIVN Henry James
+2 SURN BRADDICK
+1 SEX M
+1 BIRT
+2 DATE Bet Jul and Sep 1894
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 406
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, London, England
+2 NOTE 41 Dawlish St, Lambeth, London, England
+3 CONT RG13 416  F128  P22
+3 CONT
+3 CONT Henry J Braddick;Head;38;Railway Horsekeeper;Honiton, Devon
+3 CONT Harriett L Braddick;Wife;34;;Lambeth, London
+3 CONT Henry J Braddick;Son;6;;Lambeth, London
+3 CONT Albert A Braddick;Son;5;;Lambeth, London
+3 CONT Ernest W Braddick;Son;4;;Lambeth, London
+3 CONT Annie Braddick;Niece;7;;Lambeth, London
+3 CONT Mary E Braddick;Mother, Wid;69;;Honiton, Devon
+2 SOUR @S13@
+1 _UID E3323F7859434ACD9448B73F7444CABF92DA
+1 FAMC @F7@
+0 @I35@ INDI
+1 NAME Albert Arthur /BRADDICK/
+2 GIVN Albert Arthur
+2 SURN BRADDICK
+1 SEX M
+1 BIRT
+2 DATE Bet Jul and Sep 1895
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 433
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, London, England
+2 NOTE 41 Dawlish St, Lambeth, London, England
+3 CONT RG13 416  F128  P22
+3 CONT
+3 CONT Henry J Braddick;Head;38;Railway Horsekeeper;Honiton, Devon
+3 CONT Harriett L Braddick;Wife;34;;Lambeth, London
+3 CONT Henry J Braddick;Son;6;;Lambeth, London
+3 CONT Albert A Braddick;Son;5;;Lambeth, London
+3 CONT Ernest W Braddick;Son;4;;Lambeth, London
+3 CONT Annie Braddick;Niece;7;;Lambeth, London
+3 CONT Mary E Braddick;Mother, Wid;69;;Honiton, Devon
+2 SOUR @S13@
+1 _UID BB986504856E431D87D8024493CE491E7CD1
+1 FAMC @F7@
+0 @I36@ INDI
+1 NAME Ernest William /BRADDICK/
+2 GIVN Ernest William
+2 SURN BRADDICK
+1 SEX M
+1 BIRT
+2 DATE Bet Jan and Mar 1897
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 428
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, London, England
+2 NOTE 41 Dawlish St, Lambeth, London, England
+3 CONT RG13 416  F128  P22
+3 CONT
+3 CONT Henry J Braddick;Head;38;Railway Horsekeeper;Honiton, Devon
+3 CONT Harriett L Braddick;Wife;34;;Lambeth, London
+3 CONT Henry J Braddick;Son;6;;Lambeth, London
+3 CONT Albert A Braddick;Son;5;;Lambeth, London
+3 CONT Ernest W Braddick;Son;4;;Lambeth, London
+3 CONT Annie Braddick;Niece;7;;Lambeth, London
+3 CONT Mary E Braddick;Mother, Wid;69;;Honiton, Devon
+2 SOUR @S13@
+1 _UID F2AA115F2A584E0AAB466DAF238F13631BFA
+1 FAMC @F7@
+0 @I37@ INDI
+1 NAME Mabel Eva /FREEMAN/
+2 GIVN Mabel Eva
+2 SURN FREEMAN
+1 SEX F
+1 BIRT
+2 DATE Bet Apr and Jun 1878
+2 PLAC Roade, Somerset, England
+2 SOUR @S14@
+3 PAGE Frome RD, ref 5c 521
+3 QUAY 3
+1 DEAT
+2 DATE Bet Oct and Dec 1930
+2 PLAC Brentford RD, Brentford, Middlesex, England
+2 SOUR @S7@
+3 PAGE Brentford RD, ref 3a 145  (age 52)
+3 QUAY 3
+1 CENS
+2 DATE 1901
+2 PLAC Lambeth, Surrey, England
+2 NOTE 12 Thorne Rd, Lambeth, London, England
+3 CONT RG13 416  F21  P34
+3 CONT
+3 CONT Charles Lovelock;Head;25;Railway Clerk;Lambeth, London
+3 CONT Mabel E Lovelock;Wife;22;;Road (sic), Somerset
+2 SOUR @S13@
+1 CENS
+2 DATE 1911
+2 PLAC Kingston, Surrey, England
+2 NOTE Kingston, Surrey, England
+3 CONT
+3 CONT Charles Lovelock;35
+3 CONT Mabel Eva Lovelock;32
+3 CONT Ethel Lilian Irene Lovelock;6
+3 CONT Charles John Lovelock;5
+3 CONT Albert James Lovelock;5mos
+2 SOUR @S15@
+1 _UID C041945AD9C94055BE0DFFEDEBB828D67EA5
+1 FAMS @F8@
+0 @I38@ INDI
+1 NAME Ethel Lilian Irene /LOVELOCK/
+2 GIVN Ethel Lilian Irene
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE Bet Jan and Mar 1905
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 383
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1911
+2 PLAC Kingston, Surrey, England
+2 NOTE Kingston, Surrey, England
+3 CONT
+3 CONT Charles Lovelock;35
+3 CONT Mabel Eva Lovelock;32
+3 CONT Ethel Lilian Irene Lovelock;6
+3 CONT Charles John Lovelock;5
+3 CONT Albert James Lovelock;5mos
+2 SOUR @S15@
+1 _UID 6990C5C38CF0455E95D42124245A0A6D439A
+1 FAMS @F9@
+1 FAMC @F8@
+0 @I39@ INDI
+1 NAME Charles John /LOVELOCK/
+2 GIVN Charles John
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Jan and Mar 1906
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 410
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1911
+2 PLAC Kingston, Surrey, England
+2 NOTE Kingston, Surrey, England
+3 CONT
+3 CONT Charles Lovelock;35
+3 CONT Mabel Eva Lovelock;32
+3 CONT Ethel Lilian Irene Lovelock;6
+3 CONT Charles John Lovelock;5
+3 CONT Albert James Lovelock;5mos
+2 SOUR @S15@
+1 _UID A2732DEE473A427185681F0266ED63749C25
+1 FAMS @F10@
+1 FAMC @F8@
+0 @I40@ INDI
+1 NAME Albert James /LOVELOCK/
+2 GIVN Albert James
+2 SURN LOVELOCK
+1 SEX M
+1 FAMC @F8@
+0 @I41@ INDI
+1 NAME Albert /STEARNES/
+2 GIVN Albert
+2 SURN STEARNES
+1 SEX M
+1 DEAT Y
+1 _UID 0EDB0144FD694A0AB8EF03DF7736100A3832
+1 FAMS @F9@
+0 @I42@ INDI
+1 NAME Doreen M M /STEARNES/
+2 GIVN Doreen M M
+2 SURN STEARNES
+1 SEX F
+1 FAMC @F9@
+0 @I43@ INDI
+1 NAME Sadonia E F /MAYLING/
+2 GIVN Sadonia E F
+2 SURN MAYLING
+1 SEX F
+1 DEAT Y
+1 _UID EE44BEE618454C86B9C144516E66CC883CF9
+1 FAMS @F10@
+0 @I44@ INDI
+1 NAME Joan Doris M /LOVELOCK/
+2 GIVN Joan Doris M
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 8 May 1927
+2 PLAC Brentford RD, Brentford, Middlesex, England
+2 SOUR @S14@
+3 PAGE Brentford RD, ref 3a 211
+3 QUAY 3
+2 NOTE @BI44@
+1 DEAT
+2 DATE Dec 1997
+2 PLAC Surrey Northern RD, Surrey, England
+2 SOUR @S7@
+3 PAGE Surrey Northern RD, ref NSC4 217
+3 QUAY 3
+1 _UID 71861E3789C144CCBEC0E67640E5356A4449
+1 FAMS @F16@
+1 FAMS @F17@
+1 FAMC @F10@
+0 @BI44@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I45@ INDI
+1 NAME Mary S /LOVELOCK/
+2 GIVN Mary S
+2 SURN LOVELOCK
+1 SEX F
+1 FAMC @F10@
+0 @I46@ INDI
+1 NAME Harold /ELLIOTT/
+2 GIVN Harold
+2 SURN ELLIOTT
+1 SEX M
+1 BIRT
+2 DATE Bet Jul and Sep 1892
+2 PLAC Pimlico, London, England
+2 SOUR @S14@
+3 PAGE St George Hanover Square RD, ref 1a 444
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1901
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG13 88  F74  P13
+3 CONT
+3 CONT Alfred Elliott;Head;42;Traveller on Commission (Furniture);
+3 CONC City, London
+3 CONT Kate Elliott;Wife;37;;City, London
+3 CONT Cecelia Elliott;Daur;13;;Pimlico, London
+3 CONT Alfred Elliott;Son;11;;Pimlico, London
+3 CONT Harold Elliott;Son;8;; Pimlico, London
+3 CONT Florence Elliott;Daur;5;;Pimlico, London
+3 CONT William Elliott;Son;3;;Pimlico, London
+2 SOUR @S13@
+1 _UID F9C794FC01F24425BA09116666AF5479C8BD
+1 FAMC @F5@
+0 @I47@ INDI
+1 NAME Florence May /ELLIOTT/
+2 GIVN Florence May
+2 SURN ELLIOTT
+1 SEX F
+1 BIRT
+2 DATE Bet Apr and Jun 1895
+2 PLAC Pimlico, London, England
+2 SOUR @S14@
+3 PAGE St George Hanover Square RD, ref 1a 453
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1901
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG13 88  F74  P13
+3 CONT
+3 CONT Alfred Elliott;Head;42;Traveller on Commission (Furniture);
+3 CONC City, London
+3 CONT Kate Elliott;Wife;37;;City, London
+3 CONT Cecelia Elliott;Daur;13;;Pimlico, London
+3 CONT Alfred Elliott;Son;11;;Pimlico, London
+3 CONT Harold Elliott;Son;8;; Pimlico, London
+3 CONT Florence Elliott;Daur;5;;Pimlico, London
+3 CONT William Elliott;Son;3;;Pimlico, London
+2 SOUR @S13@
+1 _UID 87F50AB293E14CFF9814D8F79C11B76D438C
+1 FAMC @F5@
+0 @I48@ INDI
+1 NAME William /ELLIOTT/
+2 GIVN William
+2 SURN ELLIOTT
+1 SEX M
+1 BIRT
+2 DATE Bet Oct and Dec 1897
+2 PLAC Pimlico, London, England
+2 SOUR @S14@
+3 PAGE St George Hanover Square RD, ref 1a 433
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1911
+2 PLAC Balham, London, England
+2 NOTE 141 Endlesham Rd, Balham, London, England
+3 CONT RG14 PN2298  RG78 PN78A  RD26  SD5  ED13  SN223
+3 CONT
+3 CONT Alfred Elliott;Head;52;Commercial Traveller Furniture Trad
+3 CONC e At Home as a rule at present employed tempaly (sic);Cit
+3 CONC y of London
+3 CONT Kate Elliott;Wife, married 24 years;47;;Maidstone
+3 CONT Cissie Elliott;Daur;23;Milliner;Pimlico
+3 CONT William Elliott;Son;13;Cabinet Maker;Pimlico
+3 CONT Winifred Alice (sic) Elliott;Daur;6;;Balham
+3 CONT Frank Elliott;Son;3;;Balham
+2 SOUR @S15@
+1 CENS
+2 DATE 1901
+2 PLAC St George Hanover Square, London, England
+2 NOTE 79 Winchester St, St George Hanover Square, London, England
+3 CONT RG13 88  F74  P13
+3 CONT
+3 CONT Alfred Elliott;Head;42;Traveller on Commission (Furniture);
+3 CONC City, London
+3 CONT Kate Elliott;Wife;37;;City, London
+3 CONT Cecelia Elliott;Daur;13;;Pimlico, London
+3 CONT Alfred Elliott;Son;11;;Pimlico, London
+3 CONT Harold Elliott;Son;8;; Pimlico, London
+3 CONT Florence Elliott;Daur;5;;Pimlico, London
+3 CONT William Elliott;Son;3;;Pimlico, London
+2 SOUR @S13@
+1 _UID F79D1D34C60C4EA085BC1CFF579D824BC2C6
+1 FAMC @F5@
+0 @I49@ INDI
+1 NAME Thomas /HOUSE/
+2 GIVN Thomas
+2 SURN HOUSE
+1 SEX M
+1 BIRT
+2 DATE 1843-1844
+2 PLAC Burghclere, Hampshire, England
+2 SOUR @S11@
+1 DEAT
+2 DATE Bet Jul and Sep 1889
+2 PLAC Newbury RD, Newbury, Berkshire, England
+2 SOUR @S7@
+3 PAGE Newbury RD, 2c 121  (age 46)
+3 QUAY 3
+1 CENS
+2 DATE 1881
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Common Cottages, Burghclere, Hampshire, England
+3 CONT RG11 1265  F22  P10
+3 CONT
+3 CONT Thomas House;Head;37;Ag Lab;Burghclere, Hants
+3 CONT Harriet House;Wife;38;;Alton, Hants
+3 CONT Kate House;Daur;8;;Burghclere, Hants
+3 CONT Edith House;Daur;5;;Burghclere, Hants
+3 CONT William House;Son;3;;Burghclere, Hants
+3 CONT Frederick House;Son;11mos;;Burghclere, Hants
+2 SOUR @S11@
+1 _UID 59D12CCFA8B749E28BA9306BDFA23BE21C2B
+1 FAMS @F11@
+0 @I50@ INDI
+1 NAME Edith /HOUSE/
+2 GIVN Edith
+2 SURN HOUSE
+1 SEX F
+1 BIRT
+2 DATE Bet Jul and Sep 1875
+2 PLAC Burghclere, Hampshire, England
+2 SOUR @S14@
+3 PAGE Kingsclere RD, ref 2c 215
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Common Cottages, Burghclere, Hampshire, England
+3 CONT RG11 1265  F22  P10
+3 CONT
+3 CONT Thomas House;Head;37;Ag Lab;Burghclere, Hants
+3 CONT Harriet House;Wife;38;;Alton, Hants
+3 CONT Kate House;Daur;8;;Burghclere, Hants
+3 CONT Edith House;Daur;5;;Burghclere, Hants
+3 CONT William House;Son;3;;Burghclere, Hants
+3 CONT Frederick House;Son;11mos;;Burghclere, Hants
+2 SOUR @S11@
+1 CENS
+2 DATE 1891
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Sheepwash Cottage, Burghclere, Hampshire, England
+3 CONT RG12 966  F22  P14
+3 CONT
+3 CONT Harriet House;Head, Wid;49;Charwoman Domestic;Alton, Hants
+3 CONT William House;Son;13;Cow Boy on Farm;Burghclere, Hants
+3 CONT Edith House;Daur;15;;Burghclere, Hants
+3 CONT Alice House;Daur;8;;Burghclere, Hants
+3 CONT AgnesHouse;Daur;5;;Burghclere, Hants
+2 SOUR @S12@
+1 _UID 8065A5F9A717441AB9C1C26DF7A3495B8667
+1 FAMC @F11@
+0 @I51@ INDI
+1 NAME William /HOUSE/
+2 GIVN William
+2 SURN HOUSE
+1 SEX M
+1 BIRT
+2 DATE Bet Jul and Sep 1877
+2 PLAC Burghclere, Hampshire, England
+2 SOUR @S14@
+3 PAGE Kingsclere RD, ref 2c 213
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Common Cottages, Burghclere, Hampshire, England
+3 CONT RG11 1265  F22  P10
+3 CONT
+3 CONT Thomas House;Head;37;Ag Lab;Burghclere, Hants
+3 CONT Harriet House;Wife;38;;Alton, Hants
+3 CONT Kate House;Daur;8;;Burghclere, Hants
+3 CONT Edith House;Daur;5;;Burghclere, Hants
+3 CONT William House;Son;3;;Burghclere, Hants
+3 CONT Frederick House;Son;11mos;;Burghclere, Hants
+2 SOUR @S11@
+1 CENS
+2 DATE 1901
+2 PLAC Burghclere, Hampshire, England
+2 NOTE The Folly, Burghclere, Hampshire, England
+3 CONT RG13 1118  F28  P4
+3 CONT
+3 CONT Harriet House;Head, Wid;59;Charwoman;Alton, Hants
+3 CONT William House;Son;23;Gardener (Domestic);Burghclere, Hants
+2 SOUR @S13@
+1 CENS
+2 DATE 1891
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Sheepwash Cottage, Burghclere, Hampshire, England
+3 CONT RG12 966  F22  P14
+3 CONT
+3 CONT Harriet House;Head, Wid;49;Charwoman Domestic;Alton, Hants
+3 CONT William House;Son;13;Cow Boy on Farm;Burghclere, Hants
+3 CONT Edith House;Daur;15;;Burghclere, Hants
+3 CONT Alice House;Daur;8;;Burghclere, Hants
+3 CONT AgnesHouse;Daur;5;;Burghclere, Hants
+2 SOUR @S12@
+1 _UID C459E3DC0B2D4F13B472FE62566BA2D63590
+1 FAMC @F11@
+0 @I52@ INDI
+1 NAME Frederick /HOUSE/
+2 GIVN Frederick
+2 SURN HOUSE
+1 SEX M
+1 BIRT
+2 DATE Bet Apr and Jun 1880
+2 PLAC Burghclere, Hampshire, England
+2 SOUR @S14@
+3 PAGE Kingsclere RD, ref 2c 236
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1881
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Common Cottages, Burghclere, Hampshire, England
+3 CONT RG11 1265  F22  P10
+3 CONT
+3 CONT Thomas House;Head;37;Ag Lab;Burghclere, Hants
+3 CONT Harriet House;Wife;38;;Alton, Hants
+3 CONT Kate House;Daur;8;;Burghclere, Hants
+3 CONT Edith House;Daur;5;;Burghclere, Hants
+3 CONT William House;Son;3;;Burghclere, Hants
+3 CONT Frederick House;Son;11mos;;Burghclere, Hants
+2 SOUR @S11@
+1 _UID 1CC44A75E07744E093F692520B7FC54E2437
+1 FAMC @F11@
+0 @I53@ INDI
+1 NAME Alice /HOUSE/
+2 GIVN Alice
+2 SURN HOUSE
+1 SEX F
+1 BIRT
+2 DATE Bet Jul and Sep 1882
+2 PLAC Burghclere, Hampshire, England
+2 SOUR @S14@
+3 PAGE Kingsclere RD, ref 2c 219
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1891
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Sheepwash Cottage, Burghclere, Hampshire, England
+3 CONT RG12 966  F22  P14
+3 CONT
+3 CONT Harriet House;Head, Wid;49;Charwoman Domestic;Alton, Hants
+3 CONT William House;Son;13;Cow Boy on Farm;Burghclere, Hants
+3 CONT Edith House;Daur;15;;Burghclere, Hants
+3 CONT Alice House;Daur;8;;Burghclere, Hants
+3 CONT AgnesHouse;Daur;5;;Burghclere, Hants
+2 SOUR @S12@
+1 _UID 3F82E118434F435089D1F6C24E279F4C51CF
+1 FAMC @F11@
+0 @I54@ INDI
+1 NAME Agnes /HOUSE/
+2 GIVN Agnes
+2 SURN HOUSE
+1 SEX F
+1 BIRT
+2 DATE 1885-1886
+2 PLAC Burghclere, Hampshire, England
+2 SOUR @S12@
+1 DEAT Y
+1 CENS
+2 DATE 1891
+2 PLAC Burghclere, Hampshire, England
+2 NOTE Sheepwash Cottage, Burghclere, Hampshire, England
+3 CONT RG12 966  F22  P14
+3 CONT
+3 CONT Harriet House;Head, Wid;49;Charwoman Domestic;Alton, Hants
+3 CONT William House;Son;13;Cow Boy on Farm;Burghclere, Hants
+3 CONT Edith House;Daur;15;;Burghclere, Hants
+3 CONT Alice House;Daur;8;;Burghclere, Hants
+3 CONT AgnesHouse;Daur;5;;Burghclere, Hants
+2 SOUR @S12@
+1 _UID 8BFC083F4CEE46199CA00C0021828CF1CF19
+1 FAMC @F11@
+0 @I55@ INDI
+1 NAME Edith Harriet /CHURCH/
+2 GIVN Edith Harriet
+2 SURN CHURCH
+1 SEX F
+1 BIRT
+2 DATE Bet Jan and Mar 1871
+2 PLAC Penge, Surrey, England
+2 SOUR @S14@
+3 PAGE Croydon RD, ref 2a 215
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1911
+2 PLAC Wandsworth, London, England
+2 NOTE Wandsworth, London, England
+3 CONT
+3 CONT James Lovelock;41
+3 CONT Edith Harriett Lovelock;40
+3 CONT Charles James Lovelock;14
+2 SOUR @S15@
+1 CENS
+2 DATE 1901
+2 PLAC Clapham, London, England
+2 NOTE 125 Hydethorpe Rd, Clapham, London, England
+3 CONT RG13 468  F16  P23
+3 CONT
+3 CONT James Lovelock;Head;31;Solicitors Clerk;Kennington, London
+3 CONT Edith Harriet Lovelock;Wife;30;;Penge, Surrey
+3 CONT Charles James Lovelock;Son;4;;Kennington, London
+2 SOUR @S13@
+1 _UID EF831D7815044EC587B6CCBDE97C2443C5BA
+1 FAMS @F12@
+0 @I56@ INDI
+1 NAME Charles James /LOVELOCK/
+2 GIVN Charles James
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE Bet Oct and Dec 1896
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S14@
+3 PAGE Lambeth RD, ref 1d 438
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1901
+2 PLAC Clapham, London, England
+2 NOTE 125 Hydethorpe Rd, Clapham, London, England
+3 CONT RG13 468  F16  P23
+3 CONT
+3 CONT James Lovelock;Head;31;Solicitors Clerk;Kennington, London
+3 CONT Edith Harriet Lovelock;Wife;30;;Penge, Surrey
+3 CONT Charles James Lovelock;Son;4;;Kennington, London
+2 SOUR @S13@
+1 CENS
+2 DATE 1911
+2 PLAC Wandsworth, London, England
+2 NOTE Wandsworth, London, England
+3 CONT
+3 CONT James Lovelock;41
+3 CONT Edith Harriett Lovelock;40
+3 CONT Charles James Lovelock;14
+2 SOUR @S15@
+1 _UID B200C42AFFE44CC7ACA353604B7F354FE6BA
+1 FAMS @F13@
+1 FAMC @F12@
+0 @I57@ INDI
+1 NAME Rose Scott /GREENYER/
+2 GIVN Rose Scott
+2 SURN GREENYER
+1 SEX F
+1 BIRT
+2 DATE Bet Apr and Jun 1900
+2 PLAC Wandsworth RD, Wandsworth, London, England
+2 SOUR @S14@
+3 PAGE Wandsworth RD, ref 1d 645
+3 QUAY 3
+1 DEAT Y
+1 _UID 20E9BBA3825B4E26AAFDFF471B6787AD5B7F
+1 FAMS @F13@
+0 @I58@ INDI
+1 NAME Beryl E /LOVELOCK/
+2 GIVN Beryl E
+2 SURN LOVELOCK
+1 SEX F
+1 FAMS @F15@
+1 FAMC @F13@
+0 @I59@ INDI
+1 NAME Peter Edward /LOVELOCK/
+2 GIVN Peter Edward
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE 26 Apr 1931
+2 PLAC Hendon RD, Hendon, Middlesex, London
+2 SOUR @S14@
+3 PAGE Hendon RD, ref 3a 690
+3 QUAY 3
+2 NOTE @BI59@
+1 DEAT
+2 DATE Sep 2003
+2 PLAC Hammersmith and Fulham RD, Hammersmith, London, England
+2 SOUR @S7@
+3 PAGE Hammersmith and Fulham RD, ref HF4E 73
+3 QUAY 3
+1 _UID 8BF62754F25C4D02BAA4A932DA644F67C6B5
+1 FAMC @F13@
+0 @BI59@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I60@ INDI
+1 NAME Elizabeth H /HOARE/
+2 GIVN Elizabeth H
+2 SURN HOARE
+1 SEX F
+1 DEAT Y
+1 _UID CC76802CE8B9471A97646A01296646679227
+1 FAMS @F14@
+0 @I61@ INDI
+1 NAME Jessie Elizabeth /LOVELOCK/
+2 GIVN Jessie Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE 19 Jan 1913
+2 PLAC Wandsworth RD, Wandsworth, London, England
+2 SOUR @S14@
+3 PAGE Wandsworth RD, ref 1d 1182
+3 QUAY 3
+2 NOTE @BI61@
+1 DEAT
+2 DATE Nov 1993
+2 PLAC Southampton RD, Southampton, Hampshire, England
+2 SOUR @S7@
+3 PAGE Southampton RD, ref B49A 35
+3 QUAY 3
+1 _UID E042C4BA62474A99AC0162C602164246A197
+1 FAMS @F18@
+1 FAMC @F14@
+0 @BI61@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I62@ INDI
+1 NAME Beryl J /LOVELOCK/
+2 GIVN Beryl J
+2 SURN LOVELOCK
+1 SEX F
+1 FAMS @F19@
+1 FAMC @F14@
+0 @I63@ INDI
+1 NAME Ernest A /GAMBELL/
+2 GIVN Ernest A
+2 SURN GAMBELL
+1 SEX M
+1 FAMS @F15@
+0 @I64@ INDI
+1 NAME Henry J /GILLESPIE/
+2 GIVN Henry J
+2 SURN GILLESPIE
+1 SEX M
+1 FAMS @F16@
+0 @I65@ INDI
+1 NAME Maurice F /HUNTINGFORD/
+2 GIVN Maurice F
+2 SURN HUNTINGFORD
+1 SEX M
+1 BIRT
+2 DATE 29 Oct 1925
+2 PLAC Richmond Surrey RD, Richmond, Surrey, England
+2 SOUR @S7@
+3 PAGE Hounslow RD, ref 36A 87
+3 QUAY 3
+2 NOTE @BI65@
+1 DEAT
+2 DATE Nov 1999
+2 PLAC Hounslow RD, Hounslow, Middlesex, England
+2 SOUR @S7@
+3 PAGE Hounslow RD, ref 36A 87
+3 QUAY 3
+1 _UID 6D549EDDE71346099B0915F7E431F53170F1
+1 FAMS @F17@
+0 @BI65@ NOTE
+1 CONC Date of birth included in death registration entry.
+0 @I66@ INDI
+1 NAME Barry /HUNTINGFORD/
+2 GIVN Barry
+2 SURN HUNTINGFORD
+1 SEX M
+1 FAMC @F17@
+0 @I67@ INDI
+1 NAME Louise /HUNTINGFORD/
+2 GIVN Louise
+2 SURN HUNTINGFORD
+1 SEX F
+1 FAMC @F17@
+0 @I68@ INDI
+1 NAME Maxwell C /DICKSON/
+2 GIVN Maxwell C
+2 SURN DICKSON
+1 SEX M
+1 FAMS @F18@
+0 @I69@ INDI
+1 NAME Harold /MILLS/
+2 GIVN Harold
+2 SURN MILLS
+1 SEX M
+1 FAMS @F19@
+0 @I70@ INDI
+1 NAME Nigel I /DICKSON/
+2 GIVN Nigel I
+2 SURN DICKSON
+1 SEX M
+1 FAMC @F18@
+0 @I71@ INDI
+1 NAME Alice Winifred /ELLIOTT/
+2 GIVN Alice Winifred
+2 SURN ELLIOTT
+1 SEX F
+1 BIRT
+2 DATE Bet Apr and Jun 1905
+2 PLAC Balham, London, England
+2 SOUR @S14@
+3 PAGE Wandsworth RD, ref 1d 628
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1911
+2 PLAC Balham, London, England
+2 NOTE 141 Endlesham Rd, Balham, London, England
+3 CONT RG14 PN2298  RG78 PN78A  RD26  SD5  ED13  SN223
+3 CONT
+3 CONT Alfred Elliott;Head;52;Commercial Traveller Furniture Trad
+3 CONC e At Home as a rule at present employed tempaly (sic);Cit
+3 CONC y of London
+3 CONT Kate Elliott;Wife, married 24 years;47;;Maidstone
+3 CONT Cissie Elliott;Daur;23;Milliner;Pimlico
+3 CONT William Elliott;Son;13;Cabinet Maker;Pimlico
+3 CONT Winifred Alice (sic) Elliott;Daur;6;;Balham
+3 CONT Frank Elliott;Son;3;;Balham
+2 SOUR @S15@
+1 _UID 813AA5AB915B4A3C8D9BDF783FA32D6F7AC5
+1 FAMC @F5@
+0 @I72@ INDI
+1 NAME Frank /ELLIOTT/
+2 GIVN Frank
+2 SURN ELLIOTT
+1 SEX M
+1 BIRT
+2 DATE Bet Apr and Jun 1908
+2 PLAC Balham, London, England
+2 SOUR @S14@
+3 PAGE Wandsworth RD, ref 1d 702
+3 QUAY 3
+1 DEAT Y
+1 CENS
+2 DATE 1911
+2 PLAC Balham, London, England
+2 NOTE 141 Endlesham Rd, Balham, London, England
+3 CONT RG14 PN2298  RG78 PN78A  RD26  SD5  ED13  SN223
+3 CONT
+3 CONT Alfred Elliott;Head;52;Commercial Traveller Furniture Trad
+3 CONC e At Home as a rule at present employed tempaly (sic);Cit
+3 CONC y of London
+3 CONT Kate Elliott;Wife, married 24 years;47;;Maidstone
+3 CONT Cissie Elliott;Daur;23;Milliner;Pimlico
+3 CONT William Elliott;Son;13;Cabinet Maker;Pimlico
+3 CONT Winifred Alice (sic) Elliott;Daur;6;;Balham
+3 CONT Frank Elliott;Son;3;;Balham
+2 SOUR @S15@
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMC @F5@
+0 @I73@ INDI
+1 NAME James /LOVELOCK/
+2 GIVN James
+2 SURN LOVELOCK
+1 SEX M
+1 CHR
+2 DATE 29 Feb 1776
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT
+2 DATE Bet Jan and Feb 1846
+2 SOUR @S7@
+3 DATA
+4 TEXT Alton RD, ref 7 10
+1 BURI
+2 DATE 24 Feb 1846
+2 SOUR @S2@
+3 DATA
+4 TEXT Age 71
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMS @F20@
+1 FAMC @F21@
+1 NOTE @NI73@
+0 @NI73@ NOTE
+1 CONC Nigel Gerdes discovered a document that provides proof of t
+1 CONC he make-up of the family of James and Catherine:
+1 CONT
+1 CONT Farnham (Removal Order) 11 Jun 1807
+1 CONT James LOVELOCK
+1 CONT Katharine his wife
+1 CONT James aged 6
+1 CONT Elizabeth 3
+1 CONT William & Harriott 3 weeks
+1 CONT To Long Sutton, Southampton.
+1 CONT >
+1 CONT > Surrey Poor Law Records
+0 @I74@ INDI
+1 NAME Catherine /HACK/
+2 GIVN Catherine
+2 SURN HACK
+1 SEX F
+1 BIRT
+2 DATE 1771-1772
+2 SOUR @S2@
+3 DATA
+4 TEXT Age 66 quoted at burial.
+1 DEAT
+2 DATE Bet Jan and Feb 1838
+2 SOUR @S7@
+3 DATA
+4 TEXT Alton RD, ref 7 10
+1 BURI
+2 DATE 4 Feb 1838
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMS @F20@
+0 @I75@ INDI
+1 NAME Elizabeth /LOVELOCK/
+2 GIVN Elizabeth
+2 SURN LOVELOCK
+1 SEX F
+1 CHR
+2 DATE 8 Jul 1804
+2 PLAC Farnham, Surrey, England
+2 SOUR @S4@
+1 DEAT Y
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMC @F20@
+0 @I76@ INDI
+1 NAME William /LOVELOCK/
+2 GIVN William
+2 SURN LOVELOCK
+1 SEX M
+1 BIRT
+2 DATE May 1807
+2 SOUR @S16@
+1 CHR
+2 DATE 24 May 1807
+2 PLAC Farnham, Surrey, England
+2 SOUR @S4@
+1 DEAT Y
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMC @F20@
+0 @I77@ INDI
+1 NAME Harriott /LOVELOCK/
+2 GIVN Harriott
+2 SURN LOVELOCK
+1 SEX F
+1 BIRT
+2 DATE May 1807
+2 SOUR @S16@
+1 CHR
+2 DATE 24 May 1807
+2 PLAC Farnham, Surrey, England
+2 SOUR @S4@
+1 BURI
+2 DATE 12 Aug 1807
+2 PLAC Farnham, Surrey, England
+2 SOUR @S4@
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMC @F20@
+0 @I78@ INDI
+1 NAME John /LOVELOCK/
+2 GIVN John
+2 SURN LOVELOCK
+1 SEX M
+1 BURI
+2 DATE 5 May 1782
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMS @F21@
+1 NOTE @NI78@
+0 @NI78@ NOTE
+1 CONC Nigel Gerdes has speculated that this John Lovelock may b
+1 CONC e the son of Noah and Susannah Lovelock, baptised 17 July 1
+1 CONC 737 in Ropley: http://james.loveluck.free.fr/PGV/individual
+1 CONC .php?pid=I191&tab=0&ged=ropley-crondall-hants.ged
+0 @I79@ INDI
+1 NAME Elizabeth /COOPER/
+2 GIVN Elizabeth
+2 SURN COOPER
+1 SEX F
+1 BIRT
+2 DATE Bet 1727 and 1728
+2 NOTE @BI79@
+1 BURI
+2 DATE 17 Feb 1812
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S6@
+3 DATA
+4 TEXT Recorded as 'widow of John, aged 84'.
+1 _UID 54BDC5E7C2AE4F8EA28E276A1B1F02BFC6F4
+1 FAMS @F21@
+1 NOTE @NI79@
+0 @NI79@ NOTE
+1 CONC Elizabeth may be the daughter of John Cooper baptised at Bi
+1 CONC nsted on 18 Jun 1725, although that does not match an age o
+1 CONC f 84 at burial in 1812. [Information from John Lewis in e-M
+1 CONC ail of 29 Aug 2012]
+0 @BI79@ NOTE
+1 CONC Date of birth based on age 84 at burial.
+0 @I80@ INDI
+1 NAME Thomas /LOVELOCK/
+2 GIVN Thomas
+2 SURN LOVELOCK
+1 SEX M
+1 CHR
+2 DATE 2 Aug 1771
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 DEAT Y
+1 _UID 5DB2B0162FC0461C89D7FBF18B99E6E4608F
+1 FAMS @F22@
+1 FAMC @F21@
+0 @I81@ INDI
+1 NAME Elizabeth /DANCE/
+2 GIVN Elizabeth
+2 SURN DANCE
+1 SEX F
+1 DEAT Y
+1 _UID 5DB2B0162FC0461C89D7FBF18B99E6E4608F
+1 FAMS @F22@
+0 @I82@ INDI
+1 NAME John /LOVELOCK/
+2 GIVN John
+2 SURN LOVELOCK
+1 SEX M
+1 CHR
+2 DATE 15 Sep 1805
+2 PLAC Farnham, Surrey, England
+2 SOUR @S4@
+1 DEAT Y
+1 _UID 5DB2B0162FC0461C89D7FBF18B99E6E4608F
+1 FAMC @F22@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 MARR
+2 DATE 21 Jul 1834
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 CHIL @I9@
+1 CHIL @I10@
+1 CHIL @I11@
+1 CHIL @I12@
+1 CHIL @I13@
+1 CHIL @I14@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I15@
+1 MARR
+2 DATE Bet Jan and Mar 1864
+2 PLAC St Luke RD, Middlesex, England
+2 SOUR @S3@
+3 PAGE St Luke RD, ref 1b 779
+3 QUAY 3
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F3@ FAM
+1 HUSB @I16@
+1 WIFE @I4@
+1 MARR
+2 DATE 11 Mar 1864
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CHIL @I17@
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHIL @I20@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F4@ FAM
+1 WIFE @I8@
+1 MARR
+1 CHIL @I23@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F5@ FAM
+1 HUSB @I24@
+1 WIFE @I23@
+1 MARR
+2 DATE Bet Jul and Sep 1886
+2 PLAC St George Hanover Square RD, London, England
+2 SOUR @S3@
+3 PAGE St George Hanover Square RD, ref 1a 818
+3 QUAY 3
+1 CHIL @I25@
+1 CHIL @I26@
+1 CHIL @I46@
+1 CHIL @I47@
+1 CHIL @I48@
+1 CHIL @I71@
+1 CHIL @I72@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F6@ FAM
+1 HUSB @I11@
+1 WIFE @I27@
+1 MARR
+2 DATE 12 Feb 1866
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CHIL @I28@
+1 CHIL @I29@
+1 CHIL @I30@
+1 CHIL @I31@
+1 CHIL @I32@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F7@ FAM
+1 HUSB @I33@
+1 WIFE @I28@
+1 MARR
+2 DATE Bet Jul and Sep 1893
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S3@
+3 PAGE Lambeth RD, ref 1d 711
+3 QUAY 3
+1 CHIL @I34@
+1 CHIL @I35@
+1 CHIL @I36@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F8@ FAM
+1 HUSB @I31@
+1 WIFE @I37@
+1 MARR
+2 DATE Bet Jan and Mar 1901
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S3@
+3 PAGE Lambeth RD, ref 1d 351
+3 QUAY 3
+1 CHIL @I38@
+1 CHIL @I39@
+1 CHIL @I40@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F9@ FAM
+1 HUSB @I41@
+1 WIFE @I38@
+1 MARR
+2 DATE Bet Jul and Sep 1928
+2 PLAC Kingston RD, Kingston, Surrey, England
+2 SOUR @S3@
+3 PAGE Kingston RD, ref 2a 906
+3 QUAY 3
+1 CHIL @I42@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F10@ FAM
+1 HUSB @I39@
+1 WIFE @I43@
+1 MARR
+2 DATE Bet Jan and Mar 1927
+2 PLAC Brentford RD, Brentford, Middlesex, England
+2 SOUR @S3@
+3 PAGE Brentford RD, ref 3a 301
+3 QUAY 3
+1 CHIL @I44@
+1 CHIL @I45@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F11@ FAM
+1 HUSB @I49@
+1 WIFE @I8@
+1 MARR
+2 DATE Bet Jan and Mar 1872
+2 PLAC Kingsclere RD, Kingsclere, Hampshire, England
+2 SOUR @S3@
+3 PAGE Kingsclere RD, ref 2c 305
+3 QUAY 3
+1 CHIL @I50@
+1 CHIL @I51@
+1 CHIL @I52@
+1 CHIL @I53@
+1 CHIL @I54@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F12@ FAM
+1 HUSB @I29@
+1 WIFE @I55@
+1 MARR
+2 DATE Bet Oct and Dec 1895
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S3@
+3 PAGE Lambeth RD, ref 1d 970
+3 QUAY 3
+1 CHIL @I56@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F13@ FAM
+1 HUSB @I56@
+1 WIFE @I57@
+1 MARR
+2 DATE Bet Jan and Mar 1923
+2 PLAC Wandsworth RD, Wandsworth, London, England
+2 SOUR @S3@
+3 PAGE Wandsworth RD, ref 1d 652
+3 QUAY 3
+1 CHIL @I58@
+1 CHIL @I59@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F14@ FAM
+1 HUSB @I32@
+1 WIFE @I60@
+1 MARR
+2 DATE Bet Apr and Jun 1912
+2 PLAC Lambeth RD, Lambeth, Surrey, England
+2 SOUR @S3@
+3 PAGE Lambeth RD, ref 1d 631
+3 QUAY 3
+1 CHIL @I61@
+1 CHIL @I62@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F15@ FAM
+1 HUSB @I63@
+1 WIFE @I58@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F16@ FAM
+1 HUSB @I64@
+1 WIFE @I44@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F17@ FAM
+1 HUSB @I65@
+1 WIFE @I44@
+1 MARR
+2 DATE Bet Jan and Mar 1955
+2 PLAC Surrey Northern RD, Surrey, England
+2 SOUR @S3@
+3 PAGE Surrey Northern RD, ref 5g 857
+3 QUAY 3
+1 CHIL @I66@
+1 CHIL @I67@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F18@ FAM
+1 HUSB @I68@
+1 WIFE @I61@
+1 CHIL @I70@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F19@ FAM
+1 HUSB @I69@
+1 WIFE @I62@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F20@ FAM
+1 HUSB @I73@
+1 WIFE @I74@
+1 MARR
+2 DATE 19 Oct 1800
+2 PLAC Farnham, Surrey, England
+2 SOUR @S4@
+2 NOTE @NF20@
+1 CHIL @I1@
+1 CHIL @I75@
+1 CHIL @I76@
+1 CHIL @I77@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @NF20@ NOTE
+1 CONC Witnesses to the marriage were Ann Grover and Richard Neall.
+0 @F21@ FAM
+1 HUSB @I78@
+1 WIFE @I79@
+1 MARR
+2 DATE 9 Feb 1771
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CHIL @I80@
+1 CHIL @I73@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @F22@ FAM
+1 HUSB @I80@
+1 WIFE @I81@
+1 MARR
+2 DATE 3 Nov 1799
+2 PLAC Froyle, Hampshire, England
+2 SOUR @S2@
+1 CHIL @I82@
+1 CHAN
+2 DATE 28 Jan 2013
+3 TIME 18:46
+0 @S8@ SOUR
+1 ABBR 1841 Census
+1 TITL 1841 Census
+0 @S5@ SOUR
+1 ABBR 1851 Census
+1 TITL 1851 Census
+0 @S9@ SOUR
+1 ABBR 1861 Census
+1 TITL 1861 Census
+0 @S10@ SOUR
+1 ABBR 1871 Census
+1 TITL 1871 Census
+0 @S11@ SOUR
+1 ABBR 1881 Census
+1 TITL 1881 Census
+0 @S12@ SOUR
+1 ABBR 1891 Census
+1 TITL 1891 Census
+0 @S13@ SOUR
+1 ABBR 1901 Census
+1 TITL 1901 Census
+0 @S15@ SOUR
+1 ABBR 1911 Census
+1 TITL 1911 Census
+0 @S4@ SOUR
+1 ABBR Farnham Parish Registers
+1 TITL Farnham Parish Registers
+0 @S16@ SOUR
+1 ABBR Farnham Removal Order 11 Jun 1807
+1 TITL Farnham Removal Order 11 Jun 1807
+0 @S2@ SOUR
+1 ABBR Froyle Parish Registers
+1 TITL Froyle Parish Registers
+0 @S14@ SOUR
+1 ABBR GRO Index of Births
+1 TITL GRO Index of Births
+0 @S7@ SOUR
+1 ABBR GRO Index of Deaths
+1 TITL GRO Index of Deaths
+0 @S3@ SOUR
+1 ABBR GRO Index of Marriages
+1 TITL GRO Index of Marriages
+0 @S6@ SOUR
+1 ABBR Lovelocks in Hampshire data on main Lovelock website
+1 TITL Lovelocks in Hampshire data on main Lovelock website
+0 TRLR

@@ -1,0 +1,2323 @@
+0 HEAD
+1 SOUR AHN
+2 VERS 2.62
+2 NAME Ahnenblatt
+2 CORP Dirk Boettcher
+1 DEST ANSTFILE
+1 DATE 12 SEP 2010
+2 TIME 15:48:21
+1 SUBM @SUBM@
+1 FILE timmer-family.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSI
+2 VERS 1252
+1 PLAC
+2 FORM street, postal_code, city, region, country
+1 _NAVM 2
+2 _NAVI @I189@
+0 @SUBM@ SUBM
+1 NAME Heinz-J. Timmer
+1 ADDR 1, avenue du roc de Boudene
+2 CONT 34600-Bédarieux
+2 CONT France
+2 CONT +33-4-67-23-69-95
+2 CONT tim52mer@hotmail.com
+2 CONT http://www.timmer-family.eu
+0 @I1@ INDI
+1 NAME Anna
+1 SEX F
+1 DEAT
+2 DATE 1989
+2 PLAC Duisburg-Rheinhausen, Deutschland (Gemany)
+1 BURI
+2 PLAC Deutschland (Germany)
+1 FAMS @F1@
+1 SOUR International Genealogical Index (R)
+0 @I2@ INDI
+1 NAME Helga
+1 SEX F
+1 BIRT
+2 PLAC Deutschland (Germany)
+1 FAMS @F2@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Helga.jpg
+0 @I3@ INDI
+1 NAME Lise ? Lisa ?
+1 SEX F
+1 FAMS @F3@
+0 @I4@ INDI
+1 NAME Sabine
+1 SEX F
+1 FAMS @F4@
+1 NOTE Notes from Religion event: ?
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Sabiene-.jpg
+0 @I5@ INDI
+1 NAME Walter
+1 SEX M
+1 FAMS @F5@
+1 SOUR International Genealogical Index (R)
+0 @I6@ INDI
+1 NAME Monika /****/
+1 SEX F
+1 FAMS @F6@
+0 @I7@ INDI
+1 NAME Zoe-Relaine /.../
+1 SEX F
+1 BIRT
+2 DATE dec. 2010
+2 PLAC Karlsruhe, Deutschland (Germany)
+1 FAMC @F69@
+0 @I8@ INDI
+1 NAME /;,?/
+1 SEX F
+1 FAMS @F7@
+0 @I9@ INDI
+1 NAME /?/
+1 SEX M
+1 BIRT
+2 PLAC USA
+1 FAMS @F81@
+0 @I10@ INDI
+1 NAME ??? /?/
+1 SEX M
+1 BIRT
+2 PLAC USA
+0 @I11@ INDI
+1 NAME Monika /??-/
+1 SEX F
+1 FAMS @F8@
+0 @I12@ INDI
+1 NAME Karl-Heinz /???/
+1 SEX M
+1 FAMS @F9@
+0 @I13@ INDI
+1 NAME Nadine /???/
+1 SEX F
+1 FAMC @F11@
+0 @I14@ INDI
+1 NAME Pauline /???/
+1 SEX F
+1 FAMS @F10@
+1 SOUR International Genealogical Index (R)
+0 @I15@ INDI
+1 NAME Peter /???/
+1 SEX M
+1 FAMS @F11@
+0 @I16@ INDI
+1 NAME Marion /14;08;1962/
+1 SEX F
+0 @I17@ INDI
+1 NAME ... /Alawieh/
+1 SEX M
+1 FAMS @F12@
+0 @I18@ INDI
+1 NAME Lina /Alawieh/
+1 SEX F
+1 BIRT
+2 DATE 3 OCT 1983
+1 FAMS @F13@
+1 FAMC @F12@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\LinaAlawieh.jpg
+0 @I19@ INDI
+1 NAME Marcel Henri /Bâlon/
+1 SEX M
+1 BIRT
+2 DATE 28 JUL 1910
+1 DEAT
+2 DATE 26 MAY 1976
+1 FAMS @F14@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\MarcelBalon.jpg
+0 @I20@ INDI
+1 NAME Marie-Claude /Bâlon/
+1 SEX F
+1 BIRT
+2 DATE 2 OCT 1945
+2 PLAC Paris
+1 FAMS @F15@
+1 FAMC @F14@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\MarieClaude-2007.jpg
+0 @I21@ INDI
+1 NAME Michèle Françoise 'Roxy' /Bâlon/
+1 SEX F
+1 BIRT
+2 DATE 2 APR 1944
+2 PLAC Paris (France)
+1 CHR
+2 DATE MAR 1945
+2 PLAC Paris
+1 FAMS @F16@
+1 FAMS @F17@
+1 FAMC @F14@
+1 NOTE kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\ROXY_2010.jpg
+0 @I22@ INDI
+1 NAME /Bantze/
+1 SEX M
+1 FAMS @F18@
+0 @I23@ INDI
+1 NAME Marianna /Bielinska/
+1 SEX F
+1 FAMS @F19@
+0 @I24@ INDI
+1 NAME Katharina /Böhmer/
+1 SEX F
+1 FAMS @F20@
+1 SOUR International Genealogical Index (R)
+0 @I25@ INDI
+1 NAME Florence /Bonnin/
+1 SEX F
+1 BIRT
+2 DATE 17 MAY 1971
+2 PLAC Enghien
+1 FAMS @F21@
+1 FAMC @F22@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Florence B.jpg
+0 @I26@ INDI
+1 NAME Francis /Bonnin/
+1 SEX M
+1 BIRT
+2 DATE 7 JAN 1944
+2 PLAC Trélazé (Maine Et Loire)
+1 FAMS @F22@
+1 SOUR International Genealogical Index (R)
+0 @I27@ INDI
+1 NAME Maria ? /Bornemann ?/
+1 SEX F
+1 FAMS @F23@
+1 SOUR International Genealogical Index (R)
+0 @I28@ INDI
+1 NAME Bernadina /Bornemann/
+1 SEX F
+1 BIRT
+2 PLAC Deutschland (Germany)
+1 FAMS @F24@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+0 @I29@ INDI
+1 NAME Margot /Brykczynski/
+1 SEX F
+1 BIRT
+2 DATE 7 MAR 1937
+1 FAMS @F25@
+0 @I30@ INDI
+1 NAME Anna Maria /Carbonari/
+1 SEX F
+1 BIRT
+2 DATE 27 OCT 1808
+2 PLAC Folgaria/Tirol
+1 CHR
+2 DATE 27 OCT 1808
+2 PLAC S.Sebastino-Folgaria
+1 FAMS @F26@
+1 FAMC @F27@
+1 SOUR International Genealogical Index (R)
+0 @I31@ INDI
+1 NAME Johann /Carbonari/
+1 SEX M
+1 FAMS @F27@
+1 SOUR International Genealogical Index (R)
+0 @I32@ INDI
+1 NAME Anton /Cieslinski/
+1 SEX M
+1 BIRT
+2 PLAC Polen
+1 FAMS @F28@
+1 FAMC @F79@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\Wappen\cieslski.jpg
+0 @I33@ INDI
+1 NAME Anton /Cieslinski/
+1 SEX M
+1 BIRT
+2 DATE 23 MAR 1856
+2 PLAC Gross Bislaw, POLEN
+1 CHR
+2 DATE 25 MAR 1856
+2 PLAC Gross Bislaw
+1 FAMS @F79@
+1 FAMC @F19@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\Wappen\cieslski.jpg
+0 @I34@ INDI
+1 NAME Edmund /Cieslinski/
+1 SEX M
+1 BIRT
+2 DATE AFT 1908
+1 FAMS @F3@
+1 FAMC @F28@
+0 @I35@ INDI
+1 NAME Elisabeth /Cieslinski/
+1 SEX F
+1 BIRT
+2 DATE AFT 1917
+1 FAMC @F28@
+1 OBJE
+2 FORM bmp
+2 FILE C:\Program Files\Ahnenblatt\entetes\ElisaCieslinski.bmp
+0 @I36@ INDI
+1 NAME Ernst /Cieslinski/
+1 SEX M
+1 BIRT
+2 PLAC POLEN / Pologne / POLSKI
+1 FAMS @F19@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\Wappen\cieslski.jpg
+0 @I37@ INDI
+1 NAME Eva /Cieslinski/
+1 SEX F
+1 FAMC @F3@
+0 @I38@ INDI
+1 NAME Friede ? Frieda ? /Cieslinski/
+1 SEX F
+1 BIRT
+2 DATE AFT 1911
+1 FAMC @F28@
+0 @I39@ INDI
+1 NAME Hans /Cieslinski/
+1 SEX M
+1 BIRT
+2 DATE AFT 1912
+1 DEAT
+2 DATE 1943-1944
+2 PLAC Leniengrad (Russland)
+1 FAMC @F28@
+0 @I40@ INDI
+1 NAME Herbert /Cieslinski/
+1 SEX M
+1 BIRT
+2 DATE 12 DEC 1959
+1 OCCU Mess- u. Regeltechniker
+1 FAMC @F31@
+0 @I41@ INDI
+1 NAME Joanna 'Hanni' /Cieslinski/
+1 SEX F
+1 BIRT
+2 DATE 25 MAY 1906
+2 PLAC Polen
+1 DEAT
+2 DATE 1995
+2 PLAC Mülheim A.D. Ruhr (Styrum)
+1 BURI
+2 PLAC Mülheim A.D. Ruhr (Styrum)
+1 FAMS @F29@
+1 FAMC @F28@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\JoannaCieslinski.jpg
+0 @I42@ INDI
+1 NAME Maria /Cieslinski/
+1 SEX F
+1 BIRT
+2 DATE AFT 1909
+1 FAMS @F30@
+1 FAMC @F28@
+0 @I43@ INDI
+1 NAME Marlis /Cieslinski/
+1 SEX F
+1 FAMC @F31@
+0 @I44@ INDI
+1 NAME Sophie /Cieslinski/
+1 SEX F
+1 BIRT
+2 DATE BEF 1906
+1 FAMC @F28@
+0 @I45@ INDI
+1 NAME Thea /Cieslinski/
+1 SEX F
+1 BIRT
+2 DATE AFT 1910
+1 FAMC @F28@
+0 @I46@ INDI
+1 NAME Walter 'Metschuh' /Cieslinski/
+1 SEX M
+1 FAMS @F31@
+1 FAMC @F28@
+0 @I47@ INDI
+1 NAME Waltraud /Cieslinski/
+1 SEX F
+1 FAMC @F31@
+0 @I48@ INDI
+1 NAME Werner /Cieslinski/
+1 SEX M
+1 BIRT
+2 DATE 17 NOV 1961
+1 FAMC @F31@
+1 NOTE werner42ob@hotmail.com
+0 @I49@ INDI
+1 NAME /Dagmar 'Daggi'/
+1 SEX F
+1 FAMS @F32@
+0 @I50@ INDI
+1 NAME Catharina Sophia /Dahlhoff/
+1 SEX F
+1 BIRT
+2 DATE 30 DEC 1818
+2 PLAC Anröchte
+1 CHR
+2 DATE 31 DEC 1818
+2 PLAC St.Margaretha Mülheim A Möhne
+1 FAMS @F33@
+1 FAMC @F34@
+1 SOUR International Genealogical Index (R)
+0 @I51@ INDI
+1 NAME Franz Hermann /Dahlhoff/
+1 SEX M
+1 FAMS @F34@
+1 SOUR International Genealogical Index (R)
+0 @I52@ INDI
+1 NAME Gui /Deltour/
+1 SEX M
+1 FAMS @F35@
+0 @I53@ INDI
+1 NAME Anna Sofia /Dickhoff/
+1 SEX F
+1 BIRT
+2 DATE 11 NOV 1872
+1 CHR
+2 DATE 17 NOV 1872
+1 FAMS @F36@
+1 FAMC @F38@
+1 SOUR International Genealogical Index (R)
+0 @I54@ INDI
+1 NAME Gerhardt /Dickhoff/
+1 SEX M
+1 FAMS @F37@
+1 SOUR International Genealogical Index (R)
+0 @I55@ INDI
+1 NAME Wilhelm /Dickhoff/
+1 SEX M
+1 BIRT
+2 DATE 11 NOV 1845
+2 PLAC Qualburg
+1 FAMS @F38@
+1 FAMC @F37@
+1 SOUR International Genealogical Index (R)
+0 @I56@ INDI
+1 NAME Stephan /Dierkes/
+1 SEX M
+1 FAMS @F39@
+0 @I57@ INDI
+1 NAME /Drepper/
+1 SEX M
+1 FAMS @F40@
+0 @I58@ INDI
+1 NAME Kristi /Drepper/
+1 SEX F
+1 FAMC @F40@
+0 @I59@ INDI
+1 NAME Volker /Engelen/
+1 SEX M
+1 FAMS @F41@
+0 @I60@ INDI
+1 NAME Franz Peter Joseph /Frihse/
+1 SEX M
+1 BIRT
+2 DATE 18 MAR 1812
+2 PLAC Berge
+1 CHR
+2 DATE 20 MAR 1812
+2 PLAC St.Michael Zu Berge
+1 FAMS @F33@
+1 FAMC @F20@
+1 SOUR International Genealogical Index (R)
+0 @I61@ INDI
+1 NAME Maria Franziska /Frihse/
+1 SEX F
+1 BIRT
+2 DATE 17 MAY 1852
+2 PLAC Anröchte
+1 FAMS @F42@
+1 FAMC @F33@
+1 SOUR International Genealogical Index (R)
+0 @I62@ INDI
+1 NAME Peter /Frihse/
+1 SEX M
+1 FAMS @F20@
+1 SOUR International Genealogical Index (R)
+0 @I63@ INDI
+1 NAME Henriette /Gellings/
+1 SEX F
+1 FAMS @F37@
+1 SOUR International Genealogical Index (R)
+0 @I64@ INDI
+1 NAME Gertrud 'Trude' /Gilbert/
+1 SEX F
+1 BIRT
+2 PLAC Ostpreussen ?
+1 FAMS @F43@
+0 @I65@ INDI
+1 NAME ? /Göbel/
+1 SEX M
+1 FAMS @F44@
+0 @I66@ INDI
+1 NAME Daniel 'Danni' /Griebner/
+1 SEX M
+1 BIRT
+2 DATE 9 SEP 1981
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMC @F45@
+1 SOUR International Genealogical Index (R)
+0 @I67@ INDI
+1 NAME Dietmar /Griebner/
+1 SEX M
+1 BIRT
+2 DATE 1 APR 1962
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMS @F45@
+1 NOTE Notes from Religion event: luth. ev.
+1 SOUR International Genealogical Index (R)
+0 @I68@ INDI
+1 NAME Margerite /Hennemann/
+1 SEX F
+1 BIRT
+2 DATE 1 AUG 1946
+1 FAMS @F22@
+1 SOUR International Genealogical Index (R)
+0 @I69@ INDI
+1 NAME Johannes /Hoursch/
+1 SEX M
+1 BIRT
+2 DATE 4 MAY 1911
+2 PLAC Oberhausen-Alstaden
+1 DEAT
+2 DATE 30 MAY 1988
+2 PLAC Oberhausen-Alstaden
+1 FAMS @F46@
+1 SOUR International Genealogical Index (R)
+0 @I70@ INDI
+1 NAME Marlies /Hoursch/
+1 SEX F
+1 BIRT
+2 DATE 2 DEC 1941
+2 PLAC Oberhausen-Alstaden
+1 CHR
+2 DATE 9 DEC 1941
+2 PLAC St. Joseph Oberhausen
+1 FAMS @F47@
+1 FAMC @F46@
+1 SOUR International Genealogical Index (R)
+0 @I71@ INDI
+1 NAME Gertrud /Jacobi/
+1 SEX F
+1 FAMS @F34@
+1 SOUR International Genealogical Index (R)
+0 @I72@ INDI
+1 NAME Nicolas /Jacquemot/
+1 SEX M
+1 FAMS @F10@
+1 SOUR International Genealogical Index (R)
+0 @I73@ INDI
+1 NAME Ophélie /Jacquemot/
+1 SEX F
+1 BIRT
+2 DATE 26 JUL 1995
+2 PLAC Angers
+1 FAMC @F21@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\OPHe.jpg
+0 @I74@ INDI
+1 NAME Robert 'Bob' /Jacquemot/
+1 SEX M
+1 BIRT
+2 DATE 2 APR 1938
+1 FAMS @F16@
+1 FAMC @F48@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\RobertJ.jpg
+0 @I75@ INDI
+1 NAME Robert Georges /Jacquemot/
+1 SEX M
+1 BIRT
+2 DATE ABT ABT 1890
+2 PLAC Arras (Pas DE Calais)
+1 DEAT
+2 DATE 1952
+1 FAMS @F48@
+1 FAMC @F10@
+1 SOUR International Genealogical Index (R)
+0 @I76@ INDI
+1 NAME Thomas Claude 'Thomas + Tom' /Jacquemot/
+1 SEX M
+1 BIRT
+2 DATE 16 OCT 1968
+2 PLAC Eaubonne
+1 CHR
+2 DATE 6 JUL 1969
+1 FAMS @F21@
+1 FAMC @F16@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\thomaJacqu.jpg
+0 @I77@ INDI
+1 NAME Gundula /Jahn/
+1 SEX F
+1 OCCU Diplomekologe
+1 FAMS @F49@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\gundula.jpg
+0 @I78@ INDI
+1 NAME Maria /Jahnke/
+1 SEX F
+1 BIRT
+2 DATE 29/01/19xx
+2 PLAC DDR (East Germany/Allemagne DE L'est)
+1 FAMS @F50@
+1 FAMS @F81@
+1 FAMS @F80@
+1 SOUR International Genealogical Index (R)
+0 @I79@ INDI
+1 NAME Martin /Jahnke/
+1 SEX M
+1 FAMC @F80@
+0 @I80@ INDI
+1 NAME Patricia /Jahnke/
+1 SEX F
+1 BIRT
+2 DATE 10 JUN 1963
+1 FAMS @F51@
+1 FAMC @F81@
+1 NOTE 1973-1978 Anne Frank Schule  (Karlsruhe)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\PatriciaJahnke.jpg
+0 @I81@ INDI
+1 NAME Marlis ? /Jung/
+1 SEX F
+1 FAMC @F30@
+0 @I82@ INDI
+1 NAME Ulla /Jung/
+1 SEX F
+1 FAMC @F30@
+0 @I83@ INDI
+1 NAME Willi /Jung/
+1 SEX M
+1 FAMS @F30@
+0 @I84@ INDI
+1 NAME Andreas 'Andy' /Kania/
+1 SEX M
+1 BIRT
+2 DATE 17 MAR 1969
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMC @F53@
+1 NOTE Notes from Religion event: evang.
+1 SOUR International Genealogical Index (R)
+0 @I85@ INDI
+1 NAME Marion 'Marion + Marie' /Kania/
+1 SEX F
+1 BIRT
+2 DATE 14 AUG 1962
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMS @F45@
+1 FAMS @F35@
+1 FAMS @F52@
+1 FAMC @F53@
+1 NOTE Notes from Education event: Volksschule
+2 CONT
+2 CONT Notes from Religion event: luth. ev.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\marion1987.jpg
+0 @I86@ INDI
+1 NAME Rainer /Kania/
+1 SEX M
+1 BIRT
+2 DATE 29 JUL 1965
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMC @F53@
+1 NOTE Notes from Religion event: evang.
+1 SOUR International Genealogical Index (R)
+0 @I87@ INDI
+1 NAME Wolfgang /Kania/
+1 SEX M
+1 BIRT
+2 DATE 29 JUN 1939
+2 PLAC Gleiwitz, Polen
+1 FAMS @F53@
+1 SOUR International Genealogical Index (R)
+0 @I88@ INDI
+1 NAME Birgit /Karschimkus/
+1 SEX F
+1 BIRT
+2 PLAC Deutschland (Germany)
+1 FAMC @F54@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Birgit Karschimk.jpg
+0 @I89@ INDI
+1 NAME Dieter 'Didder' /Karschimkus/
+1 SEX M
+1 RELI röm. kath.
+1 BIRT
+2 DATE 1938
+2 PLAC Polen
+1 DEAT
+2 DATE 30 JAN 2008
+2 PLAC Mülheim A.D. Ruhr
+1 BURI
+2 DATE 6 FEB 2008
+1 FAMS @F54@
+1 NOTE Notes from Religion event: evang.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\karschmks.jpg
+0 @I90@ INDI
+1 NAME Elke 'Kaschi' /Karschimkus/
+1 SEX F
+1 FAMS @F55@
+1 FAMC @F54@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\elkeKarsch2007.jpg
+0 @I91@ INDI
+1 NAME Ulrike /Kindsvogel/
+1 SEX F
+1 BIRT
+2 DATE 10 APR 1957
+0 @I92@ INDI
+1 NAME _Ulrike_ Margarete Doris /Kindsvogel/
+1 SEX F
+1 BIRT
+2 DATE 10 APR 1957
+2 PLAC Karlsruhe, Deutschland (Germany)
+1 FAMS @F56@
+1 FAMS @F5@
+1 FAMS @F57@
+1 FAMC @F50@
+1 NOTE Notes from Education event: Volksschule
+2 CONT
+2 CONT Notes from Religion event: röm. kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\ulrike2007.JPG
+0 @I93@ INDI
+1 NAME Wolf ?? /Kindsvogel/
+1 SEX M
+1 FAMS @F50@
+1 SOUR International Genealogical Index (R)
+0 @I94@ INDI
+1 NAME Elke /Kipp/
+1 SEX F
+1 RELI röm. kath.
+1 BIRT
+2 DATE 18 MAY 1955
+2 PLAC Mülheim A.D. Ruhr
+1 FAMS @F58@
+1 NOTE Notes from Religion event: ?
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\ElkeKip.jpg
+0 @I95@ INDI
+1 NAME Emma Charlotte /Kolibius/
+1 SEX F
+1 FAMS @F59@
+1 SOUR International Genealogical Index (R)
+0 @I96@ INDI
+1 NAME Friedel /Kuhlmann/
+1 SEX M
+1 DEAT
+2 DATE 1966
+2 PLAC Düsseldorf?, Deutschland (Germany)
+1 BURI
+2 PLAC Mülheim A.D. Ruhr - Styrum, Deutschland (Germany)
+1 OCCU Inspektor der Kriminalpolizei
+1 FAMS @F60@
+1 NOTE Notes from Religion event: luth. ev.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Friedel-Kuhlmann.jpg
+0 @I97@ INDI
+1 NAME Heike /Kuhlmann/
+1 SEX F
+1 BIRT
+2 DATE 2 MAR 1958
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMS @F61@
+1 FAMS @F62@
+1 FAMC @F60@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Heike-2009.jpg
+0 @I98@ INDI
+1 NAME Holger /Kuhlmann/
+1 SEX M
+1 RELI kat.
+1 BIRT
+2 DATE 8 DEC 1961
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 DEAT
+2 DATE 9 JUL 2007
+1 FAMS @F32@
+1 FAMC @F60@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\holger.jpg
+0 @I99@ INDI
+1 NAME Jenny /Kuhlmann/
+1 SEX F
+1 BIRT
+2 DATE 2 FEB 1995
+1 FAMC @F32@
+0 @I100@ INDI
+1 NAME Jim /Kuhlmann/
+1 SEX M
+1 BIRT
+2 DATE 12 NOV 1992
+1 FAMC @F32@
+0 @I101@ INDI
+1 NAME Guy /Lamothe/
+1 SEX M
+1 BIRT
+2 DATE 1941
+1 DEAT
+2 DATE 2 MAY 2004
+1 FAMS @F15@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\lamotte.jpg
+0 @I102@ INDI
+1 NAME Jerome /Lamothe/
+1 SEX M
+1 BIRT
+2 DATE 4 JUL 1974
+2 PLAC Paris
+1 FAMC @F15@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\J.lamotte.jpg
+0 @I103@ INDI
+1 NAME Eduard /Lennertz/
+1 SEX M
+1 RELI röm. kath.
+1 FAMS @F23@
+1 SOUR International Genealogical Index (R)
+0 @I104@ INDI
+1 NAME Elisabeth /Lennertz/
+1 SEX F
+1 BIRT
+2 DATE 1904
+2 PLAC Deutschland (Germany)
+1 DEAT
+2 DATE 15 APR 1969
+2 PLAC Mülheim A.D. Ruhr - Styrum, Deutschland (Germany)
+1 BURI
+2 DATE 18 APR 1969
+2 PLAC Mülheim A.D. Ruhr - Styrum, Deutschland (Germany)
+1 FAMS @F63@
+1 FAMC @F23@
+1 NOTE Notes from Religion event: röm. kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\ElisaLennertz.jpg
+0 @I105@ INDI
+1 NAME Franz Josef /Lennertz/
+1 SEX M
+1 FAMC @F23@
+0 @I106@ INDI
+1 NAME Gertrud /Lennertz/
+1 SEX F
+1 FAMS @F18@
+1 FAMC @F23@
+0 @I107@ INDI
+1 NAME Hanni ? Hanna ? Johanna ? /Lennertz/
+1 SEX F
+1 FAMC @F23@
+0 @I108@ INDI
+1 NAME Johann /Lennertz/
+1 SEX M
+1 FAMC @F23@
+0 @I109@ INDI
+1 NAME Käthe /Lennertz/
+1 SEX F
+1 FAMS @F44@
+1 FAMC @F23@
+0 @I110@ INDI
+1 NAME Marlene /Lennertz/
+1 SEX F
+1 FAMC @F23@
+0 @I111@ INDI
+1 NAME Willi /Lennertz/
+1 SEX M
+1 FAMC @F23@
+0 @I112@ INDI
+1 NAME Louise Emilienne /Loche/
+1 SEX F
+1 BIRT
+2 DATE 15 AUG 1898
+2 PLAC Saint Aigulin (Charente-Maritime)
+1 DEAT
+2 DATE 28 AUG 1978
+2 PLAC La Roche-Chalais (Dordogne)
+1 FAMS @F64@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\EVeuille.jpg
+0 @I113@ INDI
+1 NAME Anna Maria /Nella/
+1 SEX F
+1 FAMS @F65@
+1 SOUR International Genealogical Index (R)
+0 @I114@ INDI
+1 NAME /Osowski/
+1 SEX M
+1 FAMS @F82@
+0 @I115@ INDI
+1 NAME Ursula ( Ursel ) /Osowski/
+1 SEX F
+1 FAMS @F66@
+1 FAMC @F82@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\URSEL.jpg
+0 @I116@ INDI
+1 NAME Catarina /Peretto/
+1 SEX F
+1 FAMS @F27@
+1 SOUR International Genealogical Index (R)
+0 @I117@ INDI
+1 NAME Aloysius Basilius /Pergher/
+1 SEX M
+1 BIRT
+2 DATE 14 JUN 1848
+2 PLAC Folgaria/Tirol
+1 FAMS @F42@
+1 FAMC @F26@
+1 SOUR International Genealogical Index (R)
+0 @I118@ INDI
+1 NAME Giorgio /Pergher/
+1 SEX M
+1 FAMS @F65@
+1 SOUR International Genealogical Index (R)
+0 @I119@ INDI
+1 NAME Josephine Johanne /Pergher/
+1 SEX F
+1 BIRT
+2 DATE 19 MAR 1898
+1 DEAT
+2 DATE 1990
+2 PLAC Gelsenkirchen
+1 FAMS @F67@
+1 FAMC @F42@
+1 SOUR International Genealogical Index (R)
+0 @I120@ INDI
+1 NAME Marco Celestino /Pergher/
+1 SEX M
+1 BIRT
+2 DATE 25 APR 1808
+2 PLAC Folgaria/Tirol
+1 CHR
+2 DATE 25 APR 1808
+2 PLAC S.Sebastino-Folgaria
+1 FAMS @F26@
+1 FAMC @F65@
+1 SOUR International Genealogical Index (R)
+0 @I121@ INDI
+1 NAME /Pfropf ?/
+1 SEX M
+1 FAMS @F68@
+1 SOUR International Genealogical Index (R)
+0 @I122@ INDI
+1 NAME /Potschka/
+1 SEX M
+1 FAMS @F1@
+1 SOUR International Genealogical Index (R)
+0 @I123@ INDI
+1 NAME Manfred /Potschka/
+1 SEX M
+1 FAMC @F1@
+1 SOUR International Genealogical Index (R)
+0 @I124@ INDI
+1 NAME _Renate_ Anna /Potschka/
+1 SEX F
+1 BIRT
+2 DATE 4 AUG 1942
+2 PLAC Lebenstedt, Deutschland (Germany)
+1 FAMS @F53@
+1 FAMC @F1@
+1 NOTE Notes from Religion event: evang.
+1 SOUR International Genealogical Index (R)
+0 @I125@ INDI
+1 NAME Richard /Potschka/
+1 SEX M
+1 FAMC @F1@
+1 SOUR International Genealogical Index (R)
+0 @I126@ INDI
+1 NAME ? /Propf/
+1 SEX M
+0 @I127@ INDI
+1 NAME Rolf /Rees/
+1 SEX M
+1 FAMS @F56@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\RolfRees.jpg
+0 @I128@ INDI
+1 NAME Tamara /Rees/
+1 SEX F
+1 BIRT
+2 DATE 17 OCT 1989
+2 PLAC Karlsruhe, Deutschland (Germany)
+1 FAMC @F56@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\TamaraRees.jpg
+0 @I129@ INDI
+1 NAME Tatjana /Rees/
+1 SEX F
+1 BIRT
+2 DATE 10 APR 1991
+1 FAMS @F69@
+1 FAMC @F56@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\TatjanaRees.jpg
+0 @I130@ INDI
+1 NAME /Remmele/
+1 SEX F
+1 BIRT
+2 DATE 28 JUN 1996
+2 PLAC Oberhausen
+1 CHR
+2 DATE 5 OCT 1997
+2 PLAC St.Joseph Kirche Oberhausen-Schmachtendorf
+1 FAMC @F70@
+1 SOUR International Genealogical Index (R)
+0 @I131@ INDI
+1 NAME /Remmele/
+1 SEX M
+1 BIRT
+2 DATE 13 JUL 1994
+2 PLAC Oberhausen
+1 CHR
+2 DATE 17 SEP 1994
+2 PLAC St.Johann Pfarrkirche Oberhausen-Holten
+1 FAMC @F70@
+1 SOUR International Genealogical Index (R)
+0 @I132@ INDI
+1 NAME Bernd /Remmele/
+1 SEX M
+1 BIRT
+2 DATE 23 MAR 1968
+2 PLAC Oberhausen
+1 CHR
+2 PLAC St.Pius Kirch
+1 FAMS @F70@
+1 FAMC @F25@
+1 SOUR International Genealogical Index (R)
+0 @I133@ INDI
+1 NAME Herbert /Remmele/
+1 SEX M
+1 BIRT
+2 DATE 18 NOV 1937
+1 FAMS @F25@
+0 @I134@ INDI
+1 NAME Catharina /Reuter/
+1 SEX F
+1 BIRT
+2 DATE 15 MAR 1839
+2 PLAC Dörnberg Bei Kassel
+1 CHR
+2 DATE 23 MAR 1839
+2 PLAC Dörnberg Bei Kassel
+1 FAMS @F71@
+1 FAMC @F72@
+1 SOUR International Genealogical Index (R)
+0 @I135@ INDI
+1 NAME Heinrich /Reuter/
+1 SEX M
+1 FAMS @F72@
+1 SOUR International Genealogical Index (R)
+0 @I136@ INDI
+1 NAME ... /Rheinthaler/
+1 SEX M
+1 FAMS @F51@
+0 @I137@ INDI
+1 NAME Marlene /Ridder/
+1 SEX F
+1 BIRT
+2 DATE 22 OCT 1934
+1 FAMS @F73@
+1 NOTE Notes from Religion event: ?
+1 SOUR International Genealogical Index (R)
+0 @I138@ INDI
+1 NAME ? /Schindehütte/
+1 SEX M
+1 BIRT
+2 DATE 2001
+1 FAMC @F4@
+0 @I139@ INDI
+1 NAME Anneliese Sofia /Schindehütte/
+1 SEX F
+1 BIRT
+2 DATE 6 APR 1921
+2 PLAC Oberhausen-Alstaden
+1 DEAT
+2 DATE 28 JUN 2007
+2 PLAC Oberhausen-Alstaden
+1 FAMS @F46@
+1 FAMC @F67@
+1 SOUR International Genealogical Index (R)
+0 @I140@ INDI
+1 NAME Barbara 'Babsi' /Schindehütte/
+1 SEX F
+1 BIRT
+2 DATE 26 AUG 1965
+1 OCCU Tanzlehrerin
+1 FAMS @F40@
+1 FAMC @F2@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Babsi.jpg
+0 @I141@ INDI
+1 NAME Clemens, Christian /Schindehütte/
+1 SEX M
+1 BIRT
+2 DATE 12 FEB 1894
+1 DEAT
+2 DATE 16 MAR 1980
+2 PLAC Essen
+1 FAMS @F67@
+1 FAMC @F36@
+1 SOUR International Genealogical Index (R)
+0 @I142@ INDI
+1 NAME Elfriede /Schindehütte/
+1 SEX F
+1 FAMC @F36@
+0 @I143@ INDI
+1 NAME _Ellen_ Marianne /Schindehütte/
+1 SEX F
+1 BIRT
+2 DATE 20 DEC 1929
+2 PLAC Oberhausen Rhnld. (Germany)
+1 FAMS @F74@
+1 FAMC @F29@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\mutti59ans.jpg
+0 @I144@ INDI
+1 NAME Georg /Schindehütte/
+1 SEX M
+1 BIRT
+2 DATE 1901
+1 DEAT
+2 DATE 1977
+2 PLAC Mülheim A.D. Ruhr  (Styrum)
+1 FAMS @F29@
+1 FAMC @F36@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\GSchindehutte.jpg
+0 @I145@ INDI
+1 NAME Georg ( Schorsch ) /Schindehütte/
+1 SEX M
+1 BIRT
+2 DATE 14 AUG 1935
+1 DEAT
+2 DATE 18 JUN 2004
+2 PLAC Mülheim A.D. Ruhr
+1 FAMS @F66@
+1 FAMC @F29@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\george68ans.jpg
+0 @I146@ INDI
+1 NAME Georg Christian /Schindehütte/
+1 SEX M
+1 RELI ev.
+1 FAMS @F36@
+1 FAMC @F71@
+1 SOUR International Genealogical Index (R)
+0 @I147@ INDI
+1 NAME Gudrun /Schindehütte/
+1 SEX F
+1 BIRT
+2 PLAC Deutschland (Germany)
+1 DEAT
+2 DATE 2004-2005
+2 PLAC Mülheim A.D. Ruhr
+1 FAMS @F9@
+1 FAMC @F66@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+0 @I148@ INDI
+1 NAME Inge /Schindehütte/
+1 SEX F
+1 BIRT
+2 DATE 29 JUN 1934
+1 FAMS @F60@
+1 FAMC @F29@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\inge.jpg
+0 @I149@ INDI
+1 NAME Johann 'Hansi' /Schindehütte/
+1 SEX M
+1 DEAT
+2 DATE 1944
+2 PLAC Stalingrad / Wolgagrad
+1 FAMC @F36@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Hansi.jpg
+0 @I150@ INDI
+1 NAME Johanna 'Hanni' /Schindehütte/
+1 SEX F
+1 BIRT
+2 DATE 5 FEB 1940
+2 PLAC Deutschland (Germany)
+1 FAMS @F54@
+1 FAMC @F29@
+1 NOTE Notes from Religion event: röm. kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Hanni_Schindeh.jpg
+0 @I151@ INDI
+1 NAME Jost Heinrich /Schindehütte/
+1 SEX M
+1 RELI ev.
+1 BIRT
+2 DATE 1798
+1 FAMS @F75@
+1 SOUR International Genealogical Index (R)
+0 @I152@ INDI
+1 NAME Ludwig /Schindehütte/
+1 SEX M
+1 FAMC @F36@
+0 @I153@ INDI
+1 NAME Ludwig Heinrich /Schindehütte/
+1 SEX M
+1 RELI ev.
+1 BIRT
+2 DATE 22 JUN 1837
+2 PLAC Dörnberg Bei Kassel
+1 CHR
+2 DATE 29 JUN 1837
+2 PLAC Dörnberg Bei Kassel
+1 FAMS @F71@
+1 FAMC @F75@
+1 SOUR International Genealogical Index (R)
+0 @I154@ INDI
+1 NAME Norbert /Schindehütte/
+1 SEX M
+1 BIRT
+2 DATE 29 MAY 1938
+1 DEAT
+2 DATE 1998
+1 FAMS @F2@
+1 FAMC @F29@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\norbert_sen.jpg
+0 @I155@ INDI
+1 NAME Norbert 'Nobbi' /Schindehütte/
+1 SEX M
+1 RELI kath.
+1 BIRT
+2 DATE 16 JUN 1958
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMS @F4@
+1 FAMC @F2@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\nobbi.jpg
+0 @I156@ INDI
+1 NAME Rosa /Schindehütte/
+1 SEX F
+1 FAMC @F36@
+0 @I157@ INDI
+1 NAME Sabine 'Bienchen' /Schindehütte/
+1 SEX F
+1 RELI kath.
+1 BIRT
+2 DATE 12 FEB 1962
+2 PLAC Deutschland (Germany)
+1 FAMS @F41@
+1 FAMS @F12@
+1 FAMC @F2@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\sabine-schindeh.jpg
+0 @I158@ INDI
+1 NAME Sigrid /Schindehütte/
+1 SEX F
+1 BIRT
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMS @F11@
+1 FAMC @F66@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+0 @I159@ INDI
+1 NAME Max /Schlacht/
+1 SEX M
+1 BIRT
+2 DATE 8 MAR 1993
+1 FAMC @F61@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\max_schlacht.jpg
+0 @I160@ INDI
+1 NAME Ralf /Schlacht/
+1 SEX M
+1 BIRT
+2 PLAC Deutschland (Germany)
+1 FAMS @F61@
+1 NOTE Notes from Religion event: ?
+1 SOUR International Genealogical Index (R)
+0 @I161@ INDI
+1 NAME Anna Katharina /Schlächter/
+1 SEX F
+1 FAMS @F75@
+1 SOUR International Genealogical Index (R)
+0 @I162@ INDI
+1 NAME Antonia /Schroer/
+1 SEX F
+1 FAMC @F55@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\elkes_tochter.jpg
+0 @I163@ INDI
+1 NAME Marco /Schroer/
+1 SEX M
+1 FAMC @F55@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\elkes_sohn.jpg
+0 @I164@ INDI
+1 NAME Peter /Schroer/
+1 SEX M
+1 OCCU Polizist
+1 FAMS @F55@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\elkes_ehemann.jpg
+0 @I165@ INDI
+1 NAME /Schulz/
+1 SEX M
+1 FAMS @F7@
+1 FAMC @F87@
+0 @I166@ INDI
+1 NAME /Schulz/
+1 SEX M
+1 FAMS @F87@
+0 @I167@ INDI
+1 NAME ... /Schulz/
+1 SEX F
+1 FAMC @F6@
+0 @I168@ INDI
+1 NAME 01 /Schulz/
+1 SEX M
+1 FAMC @F86@
+0 @I169@ INDI
+1 NAME 02 /Schulz/
+1 SEX M
+1 FAMC @F86@
+0 @I170@ INDI
+1 NAME Anke /Schulz/
+1 SEX F
+1 BIRT
+2 DATE 26 NOV 1965
+2 PLAC Oberhausen
+1 CHR
+2 DATE 26 DEC 1965
+2 PLAC St. Joseph Oberhausen
+1 FAMS @F70@
+1 FAMC @F47@
+1 SOUR International Genealogical Index (R)
+0 @I171@ INDI
+1 NAME Bodo Jörg /Schulz/
+1 SEX M
+1 BIRT
+2 DATE 24 JUL 1940
+2 PLAC Lissa/Wartegau
+1 CHR
+2 DATE 31 OCT 1951
+2 PLAC Neunburg/Bayern
+1 FAMS @F47@
+1 FAMC @F59@
+1 SOUR International Genealogical Index (R)
+0 @I172@ INDI
+1 NAME Burkhard /Schulz/
+1 SEX M
+1 BIRT
+2 DATE 10 JAN 1951
+1 OCCU Maler und Anstreicher (Paintre en bâtiment)
+1 FAMS @F6@
+1 FAMC @F86@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\BurkhardSchulz.jpg
+0 @I173@ INDI
+1 NAME Dirk /Schulz/
+1 SEX M
+0 @I174@ INDI
+1 NAME Frank /Schulz/
+1 SEX M
+1 SOUR International Genealogical Index (R)
+0 @I175@ INDI
+1 NAME Harry Heinz Alfred /Schulz/
+1 SEX M
+1 FAMS @F59@
+1 SOUR International Genealogical Index (R)
+0 @I176@ INDI
+1 NAME Jens /Schulz/
+1 SEX M
+1 SOUR International Genealogical Index (R)
+0 @I177@ INDI
+1 NAME Karl /Schulz/
+1 SEX M
+1 FAMS @F86@
+1 FAMC @F7@
+0 @I178@ INDI
+1 NAME Marianne  'Maria' /Schulz/
+1 SEX F
+1 FAMS @F28@
+1 FAMC @F87@
+0 @I179@ INDI
+1 NAME Peter /Surau/
+1 SEX M
+1 BIRT
+2 PLAC Deutschland (Germany)
+1 FAMS @F62@
+1 NOTE Notes from Religion event: ?
+1 SOUR International Genealogical Index (R)
+0 @I180@ INDI
+1 NAME Sara /Surau/
+1 SEX F
+1 BIRT
+2 DATE 12 APR 1985
+1 FAMC @F62@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Sara_Sura.jpg
+0 @I181@ INDI
+1 NAME Sascha /Tannhäuser/
+1 SEX M
+1 FAMS @F69@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\TannhaeuserSascha.jpg
+0 @I182@ INDI
+1 NAME Sara Louise /Testelin/
+1 SEX F
+1 BIRT
+2 DATE 25 JAN 1905
+1 DEAT
+2 DATE 1 DEC 1995
+1 FAMS @F48@
+1 SOUR International Genealogical Index (R)
+0 @I183@ INDI
+1 NAME ??? /Timmer/
+1 SEX M
+1 BIRT
+2 DATE BEF BEF 1900
+1 DEAT
+2 DATE 1914-1918
+2 PLAC 1. Weltkrieg
+1 FAMC @F43@
+0 @I184@ INDI
+1 NAME Adam /Timmer/
+1 SEX M
+1 BIRT
+2 DATE BEF BEF 1845
+2 PLAC Atteln, Westphalen, Deutschland (Germany)
+1 FAMS @F24@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+0 @I185@ INDI
+1 NAME Eduard 'Ede' /Timmer/
+1 SEX M
+1 RELI röm. kath.
+1 BIRT
+2 DATE 26 FEB 1933
+2 PLAC Deutschland (Germany)
+1 FAMS @F73@
+1 FAMC @F63@
+1 NOTE Notes from Religion event: röm. kath.
+1 SOUR International Genealogical Index (R)
+0 @I186@ INDI
+1 NAME Gerd-Hendrik /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 2 JAN 1984
+2 PLAC Karlsruhe, Deutschland (Germany)
+1 FAMC @F5@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Gerd-Hendrik.jpg
+0 @I187@ INDI
+1 NAME Heinrich ? Hans - Johannes ? /Timmer/
+1 SEX M
+1 BIRT
+2 DATE apres 1862
+2 PLAC Deutschland (Germany)
+1 FAMS @F43@
+1 FAMC @F24@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+0 @I188@ INDI
+1 NAME Heinrich Hans 'Heinz' /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 24 OCT 1927
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMS @F74@
+1 FAMC @F63@
+1 NOTE Notes from Religion event: röm. kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\papa60ans.jpg
+0 @I189@ INDI
+1 NAME _Heinz_ - Josef /Timmer/
+1 SEX M
+1 RELI röm. kath.
+1 BIRT
+2 DATE 21 APR 1952
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 CHR
+2 _GODP Josef Timmer + Joanna Schindehütte, geb. Cieslinski
+2 DATE APR 1952
+1 FAMS @F57@
+1 FAMS @F52@
+1 FAMS @F17@
+1 FAMC @F74@
+1 NOTE Notes from Religion event: röm. kath.
+2 CONT
+2 CONT Sankt Marien - Hospital zu Mülheim a.d. Ruhr
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\HT2008.jpg
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\Wappen\monblasonHT.jpg
+0 @I190@ INDI
+1 NAME Josef /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 8 JUN 1900
+2 PLAC Mülheim A.D. Ruhr
+1 DEAT
+2 DATE 1965
+2 PLAC Mülheim A.D. Ruhr (Styrum), Deutschland (Germany)
+1 BURI
+2 PLAC Mülheim A.D. Ruhr - Styrum, Deutschland (Germany)
+1 FAMS @F63@
+1 FAMC @F43@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\JosefTimmer.jpg
+0 @I191@ INDI
+1 NAME Klaus /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 14 NOV 1953
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 OCCU Bankdirektor
+1 FAMS @F58@
+1 FAMC @F74@
+1 NOTE Notes from Religion event: röm. kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Klaus.jpg
+0 @I192@ INDI
+1 NAME Maria /Timmer/
+1 SEX F
+1 BIRT
+2 DATE AFT 1900
+1 FAMS @F68@
+1 FAMC @F43@
+1 SOUR International Genealogical Index (R)
+0 @I193@ INDI
+1 NAME Nathan Samuel /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 5 SEP 2010
+1 FAMC @F76@
+0 @I194@ INDI
+1 NAME Sandra /Timmer/
+1 SEX F
+1 BIRT
+2 DATE 27 MAR 1971
+2 PLAC Mülheim A.D. Ruhr (Styrum)
+1 FAMS @F39@
+1 FAMC @F73@
+1 SOUR International Genealogical Index (R)
+0 @I195@ INDI
+1 NAME Sebastian /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 30 JUN 1983
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMC @F58@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\sebastian.jpg
+0 @I196@ INDI
+1 NAME Tanja Simone Angelique Eileen 'Tanja + Tanni' /Timmer/
+1 SEX F
+1 RELI kth.
+1 BIRT
+2 DATE 3 MAY 1979
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 OCCU Baustoffprüferin
+1 FAMS @F76@
+1 FAMC @F57@
+1 NOTE Notes from Religion event: röm. kath. Ehename : TIMMER
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Tanja2009.jpg
+0 @I197@ INDI
+1 NAME Ted Simon Sascha Réné 'Ted + Teddy' /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 6 APR 1985
+2 PLAC Béziers, Frankreich (France)
+1 FAMC @F52@
+1 NOTE Notes from Religion event: röm. kath.
+2 CONT
+2 CONT Notes from Baptism event: baptème: église St. Alexandre à Bédarieux
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\TED2009.JPG
+0 @I198@ INDI
+1 NAME Tiffany Joy Loren 'Tiffany + Titi' /Timmer/
+1 SEX F
+1 BIRT
+2 DATE 18 JUL 1992
+2 PLAC Bédarieux, Frankreich (France)
+1 FAMC @F52@
+1 NOTE Notes from Religion event: kath.
+2 CONT
+2 CONT Notes from Baptism event: baptème: église St. Alexandre à Bédarieux
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\titi2008.jpg
+0 @I199@ INDI
+1 NAME Tim /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 15 JUL 1980
+2 PLAC Mülheim A.D. Ruhr ~, Deutschland (Germany)
+1 OCCU Dr. jur  (Advokat-Rechtsanwalt)
+1 FAMS @F49@
+1 FAMC @F58@
+1 NOTE Notes from Religion event: kath.
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\TimDT.jpg
+0 @I200@ INDI
+1 NAME Timo Alf Rainier 'Timo + Tim + Mimo' /Timmer/
+1 SEX M
+1 BIRT
+2 DATE 3 JAN 1987
+2 PLAC Bédarieux, Frankreich (France)
+1 OCCU Cuisinier / Koch
+1 FAMC @F52@
+1 NOTE Notes from Religion event: kath.
+2 CONT
+2 CONT Notes from Baptism event: baptème: église St. Alexandre à Bédarieux
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\timo2008.jpg
+0 @I201@ INDI
+1 NAME _Tosca_ Bianca Patricia Génévieve /Timmer/
+1 SEX F
+1 BIRT
+2 DATE 19 SEP 1977
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+1 FAMS @F77@
+1 FAMC @F57@
+1 NOTE Notes from Religion event: röm. kath.
+2 CONT
+2 CONT Notes from Baptism event: getauft in: Sankt Marie Rosenkranz (MH-Styrum)
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Tosca_Timmer.jpg
+0 @I202@ INDI
+1 NAME _Bogdan_ Valeriu /Trifan/
+1 SEX M
+1 BIRT
+2 DATE 26 NOV 1979
+2 PLAC Ploiesti (Rumänien)
+1 FAMS @F77@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\bogdan2004.jpg
+0 @I203@ INDI
+1 NAME Elena Shari /Trifan/
+1 SEX F
+1 BIRT
+2 DATE 4 MAR 2004
+2 PLAC Karlsruhe, Deutschland (Germany)
+1 FAMC @F77@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Shari2010.jpg
+0 @I204@ INDI
+1 NAME Finn Benjamin /Trifan/
+1 SEX M
+1 BIRT
+2 DATE 24 DEC 2009
+2 PLAC Karlsruhe, Deutschland (Germany)
+1 CHR
+2 DATE 24 JUL 2010
+2 ADDR Karlsruhe
+1 FAMC @F77@
+0 @I205@ INDI
+1 NAME Vincent Danny /Trifan/
+1 SEX M
+1 BIRT
+2 DATE 20 JAN 2007
+1 FAMC @F77@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\Danny.jpg
+0 @I206@ INDI
+1 NAME Paul Ernest /Veuille/
+1 SEX M
+1 BIRT
+2 DATE 27 MAR 1898
+2 PLAC La Roche-Chalais (Dordogne)
+1 DEAT
+2 DATE 1 AUG 1976
+2 PLAC La Roche-Chalais (Dordogne)
+1 FAMS @F64@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\PVeuille.jpg
+0 @I207@ INDI
+1 NAME Paulette /Veuille/
+1 SEX F
+1 BIRT
+2 DATE 3 MAR 1920
+1 FAMS @F14@
+1 FAMC @F64@
+1 SOUR International Genealogical Index (R)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\MmeBalon03.jpg
+0 @I208@ INDI
+1 NAME Gertraud Elisabeth /Weber/
+1 SEX F
+1 FAMS @F72@
+1 SOUR International Genealogical Index (R)
+0 @I209@ INDI
+1 NAME Stefan /Weiler/
+1 SEX M
+1 BIRT
+2 DATE 24 DEC 1979
+2 PLAC Ettlingen
+1 OCCU Maschienenschlosser
+1 FAMS @F76@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\stWeiler.JPG
+0 @I210@ INDI
+1 NAME Lotte /Weinberger/
+1 SEX F
+1 FAMS @F31@
+0 @I211@ INDI
+1 NAME Anna Sophia /Wiemes/
+1 SEX F
+1 FAMS @F78@
+1 SOUR International Genealogical Index (R)
+0 @I212@ INDI
+1 NAME ... /Wieseler/
+1 SEX M
+1 FAMS @F13@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Program Files\Ahnenblatt\entetes\wieseler.jpg
+0 @I213@ INDI
+1 NAME Luisa /Wieseler/
+1 SEX F
+1 FAMC @F13@
+0 @I214@ INDI
+1 NAME Johann Clemens Wyes /Wyes(Wihes)/
+1 SEX M
+1 FAMS @F78@
+1 SOUR International Genealogical Index (R)
+0 @I215@ INDI
+1 NAME Sybilla /Wyes(Wihes)/
+1 SEX F
+1 BIRT
+2 DATE 15 JUN 1848
+1 FAMS @F38@
+1 FAMC @F78@
+1 SOUR International Genealogical Index (R)
+0 @F1@ FAM
+1 HUSB @I122@
+1 WIFE @I1@
+1 CHIL @I123@
+1 CHIL @I125@
+1 CHIL @I124@
+1 MARR Y
+0 @F2@ FAM
+1 HUSB @I154@
+1 WIFE @I2@
+1 CHIL @I140@
+1 CHIL @I157@
+1 CHIL @I155@
+1 MARR Y
+0 @F3@ FAM
+1 HUSB @I34@
+1 WIFE @I3@
+1 CHIL @I37@
+1 MARR Y
+0 @F4@ FAM
+1 HUSB @I155@
+1 WIFE @I4@
+1 CHIL @I138@
+1 MARR
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+0 @F5@ FAM
+1 HUSB @I5@
+1 WIFE @I92@
+1 CHIL @I186@
+1 MARR
+2 DATE no Married
+0 @F6@ FAM
+1 HUSB @I172@
+1 WIFE @I6@
+1 CHIL @I167@
+1 MARR Y
+0 @F7@ FAM
+1 HUSB @I165@
+1 WIFE @I8@
+1 CHIL @I177@
+1 MARR Y
+0 @F8@ FAM
+1 HUSB @I100@
+1 WIFE @I11@
+1 MARR Y
+0 @F9@ FAM
+1 HUSB @I12@
+1 WIFE @I147@
+1 MARR Y
+0 @F10@ FAM
+1 HUSB @I72@
+1 WIFE @I14@
+1 CHIL @I75@
+1 MARR Y
+0 @F11@ FAM
+1 HUSB @I15@
+1 WIFE @I158@
+1 CHIL @I13@
+1 MARR Y
+0 @F12@ FAM
+1 HUSB @I17@
+1 WIFE @I157@
+1 CHIL @I18@
+1 MARR Y
+0 @F13@ FAM
+1 HUSB @I212@
+1 WIFE @I18@
+1 CHIL @I213@
+1 MARR Y
+0 @F14@ FAM
+1 HUSB @I19@
+1 WIFE @I207@
+1 CHIL @I21@
+1 CHIL @I20@
+1 MARR
+2 DATE 3 APR 1943
+0 @F15@ FAM
+1 HUSB @I101@
+1 WIFE @I20@
+1 CHIL @I102@
+1 MARR Y
+0 @F16@ FAM
+1 HUSB @I74@
+1 WIFE @I21@
+1 CHIL @I76@
+1 MARR
+2 DATE 7 OCT 1961
+2 PLAC Soisy (95)
+0 @F17@ FAM
+1 HUSB @I189@
+1 WIFE @I21@
+1 MARR
+2 DATE 18 SEP 2001
+2 PLAC Béziers, Frankreich (France)
+0 @F18@ FAM
+1 HUSB @I22@
+1 WIFE @I106@
+1 MARR Y
+0 @F19@ FAM
+1 HUSB @I36@
+1 WIFE @I23@
+1 CHIL @I33@
+1 MARR Y
+0 @F20@ FAM
+1 HUSB @I62@
+1 WIFE @I24@
+1 CHIL @I60@
+1 MARR Y
+0 @F21@ FAM
+1 HUSB @I76@
+1 WIFE @I25@
+1 CHIL @I73@
+1 MARR
+2 DATE 19 FEB 1994
+2 PLAC Rablaiy (49)
+0 @F22@ FAM
+1 HUSB @I26@
+1 WIFE @I68@
+1 CHIL @I25@
+1 MARR Y
+0 @F23@ FAM
+1 HUSB @I103@
+1 WIFE @I27@
+1 CHIL @I104@
+1 CHIL @I111@
+1 CHIL @I108@
+1 CHIL @I107@
+1 CHIL @I110@
+1 CHIL @I106@
+1 CHIL @I109@
+1 CHIL @I105@
+1 MARR Y
+0 @F24@ FAM
+1 HUSB @I184@
+1 WIFE @I28@
+1 CHIL @I187@
+1 MARR
+2 DATE 28 APR 1860
+2 PLAC Atteln, Deutschland (Germany)
+0 @F25@ FAM
+1 HUSB @I133@
+1 WIFE @I29@
+1 CHIL @I132@
+1 MARR
+2 DATE 19 MAY 1971
+2 PLAC Oberhausen-Ostertfeld
+0 @F26@ FAM
+1 HUSB @I120@
+1 WIFE @I30@
+1 CHIL @I117@
+1 MARR Y
+0 @F27@ FAM
+1 HUSB @I31@
+1 WIFE @I116@
+1 CHIL @I30@
+1 MARR Y
+0 @F28@ FAM
+1 HUSB @I32@
+1 WIFE @I178@
+1 CHIL @I41@
+1 CHIL @I35@
+1 CHIL @I44@
+1 CHIL @I46@
+1 CHIL @I34@
+1 CHIL @I42@
+1 CHIL @I45@
+1 CHIL @I38@
+1 CHIL @I39@
+1 MARR Y
+0 @F29@ FAM
+1 HUSB @I144@
+1 WIFE @I41@
+1 CHIL @I143@
+1 CHIL @I145@
+1 CHIL @I148@
+1 CHIL @I154@
+1 CHIL @I150@
+1 MARR
+2 DATE 14 JUN 1929
+2 PLAC Mülheim A.D. Ruhr
+0 @F30@ FAM
+1 HUSB @I83@
+1 WIFE @I42@
+1 CHIL @I82@
+1 CHIL @I81@
+1 MARR Y
+0 @F31@ FAM
+1 HUSB @I46@
+1 WIFE @I210@
+1 CHIL @I47@
+1 CHIL @I48@
+1 CHIL @I40@
+1 CHIL @I43@
+1 MARR Y
+0 @F32@ FAM
+1 HUSB @I98@
+1 WIFE @I49@
+1 CHIL @I99@
+1 CHIL @I100@
+1 MARR Y
+0 @F33@ FAM
+1 HUSB @I60@
+1 WIFE @I50@
+1 CHIL @I61@
+1 MARR Y
+0 @F34@ FAM
+1 HUSB @I51@
+1 WIFE @I71@
+1 CHIL @I50@
+1 MARR Y
+0 @F35@ FAM
+1 HUSB @I52@
+1 WIFE @I85@
+1 MARR
+2 DATE 29 MAR 2003
+2 PLAC Bédarieux, Frankreich (France)
+0 @F36@ FAM
+1 HUSB @I146@
+1 WIFE @I53@
+1 CHIL @I144@
+1 CHIL @I141@
+1 CHIL @I152@
+1 CHIL @I149@
+1 CHIL @I142@
+1 CHIL @I156@
+1 MARR Y
+0 @F37@ FAM
+1 HUSB @I54@
+1 WIFE @I63@
+1 CHIL @I55@
+1 MARR Y
+0 @F38@ FAM
+1 HUSB @I55@
+1 WIFE @I215@
+1 CHIL @I53@
+1 MARR Y
+0 @F39@ FAM
+1 HUSB @I56@
+1 WIFE @I194@
+1 MARR Y
+0 @F40@ FAM
+1 HUSB @I57@
+1 WIFE @I140@
+1 CHIL @I58@
+1 MARR Y
+0 @F41@ FAM
+1 HUSB @I59@
+1 WIFE @I157@
+1 MARR Y
+0 @F42@ FAM
+1 HUSB @I117@
+1 WIFE @I61@
+1 CHIL @I119@
+1 MARR
+2 DATE 16 JUN 1875
+0 @F43@ FAM
+1 HUSB @I187@
+1 WIFE @I64@
+1 CHIL @I192@
+1 CHIL @I190@
+1 CHIL @I183@
+1 MARR Y
+0 @F44@ FAM
+1 HUSB @I65@
+1 WIFE @I109@
+1 MARR Y
+0 @F45@ FAM
+1 HUSB @I67@
+1 WIFE @I85@
+1 CHIL @I66@
+1 MARR
+2 DATE 21 NOV 1980
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+0 @F46@ FAM
+1 HUSB @I69@
+1 WIFE @I139@
+1 CHIL @I70@
+1 MARR
+2 DATE 23 NOV 1940
+2 PLAC Oberhausen-Alstaden
+0 @F47@ FAM
+1 HUSB @I171@
+1 WIFE @I70@
+1 CHIL @I170@
+1 MARR
+2 DATE 9 AUG 1963
+0 @F48@ FAM
+1 HUSB @I75@
+1 WIFE @I182@
+1 CHIL @I74@
+1 MARR
+2 DATE APR 1929
+0 @F49@ FAM
+1 HUSB @I199@
+1 WIFE @I77@
+1 MARR
+2 DATE 28 MAR 2009
+2 PLAC Oberhausen
+0 @F50@ FAM
+1 HUSB @I93@
+1 WIFE @I78@
+1 CHIL @I92@
+1 MARR Y
+0 @F51@ FAM
+1 HUSB @I136@
+1 WIFE @I80@
+1 MARR Y
+0 @F52@ FAM
+1 HUSB @I189@
+1 WIFE @I85@
+1 CHIL @I197@
+1 CHIL @I200@
+1 CHIL @I198@
+1 MARR
+2 DATE 1 MAR 1983
+2 PLAC Bédarieux, Frankreich (France)
+0 @F53@ FAM
+1 HUSB @I87@
+1 WIFE @I124@
+1 CHIL @I85@
+1 CHIL @I86@
+1 CHIL @I84@
+1 MARR
+2 PLAC Deutschland (Germany)
+0 @F54@ FAM
+1 HUSB @I89@
+1 WIFE @I150@
+1 CHIL @I88@
+1 CHIL @I90@
+1 MARR Y
+0 @F55@ FAM
+1 HUSB @I164@
+1 WIFE @I90@
+1 CHIL @I162@
+1 CHIL @I163@
+1 MARR Y
+0 @F56@ FAM
+1 HUSB @I127@
+1 WIFE @I92@
+1 CHIL @I128@
+1 CHIL @I129@
+1 MARR
+2 PLAC Karlsruhe, Deutschland (Germany)
+0 @F57@ FAM
+1 HUSB @I189@
+1 WIFE @I92@
+1 CHIL @I201@
+1 CHIL @I196@
+1 MARR
+2 DATE 7 JUN 1977
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+0 @F58@ FAM
+1 HUSB @I191@
+1 WIFE @I94@
+1 CHIL @I195@
+1 CHIL @I199@
+1 MARR Y
+0 @F59@ FAM
+1 HUSB @I175@
+1 WIFE @I95@
+1 CHIL @I171@
+1 MARR Y
+0 @F60@ FAM
+1 HUSB @I96@
+1 WIFE @I148@
+1 CHIL @I98@
+1 CHIL @I97@
+1 MARR Y
+0 @F61@ FAM
+1 HUSB @I160@
+1 WIFE @I97@
+1 CHIL @I159@
+1 MARR Y
+0 @F62@ FAM
+1 HUSB @I179@
+1 WIFE @I97@
+1 CHIL @I180@
+1 MARR
+2 DATE ABT ABT 1983
+0 @F63@ FAM
+1 HUSB @I190@
+1 WIFE @I104@
+1 CHIL @I188@
+1 CHIL @I185@
+1 MARR
+2 DATE 3 DEC 1926
+2 PLAC Mülheim A.D. Ruhr
+0 @F64@ FAM
+1 HUSB @I206@
+1 WIFE @I112@
+1 CHIL @I207@
+1 MARR
+2 DATE 19 FEB 1917
+2 PLAC Saint Aigulin (Charente-Maritime)
+0 @F65@ FAM
+1 HUSB @I118@
+1 WIFE @I113@
+1 CHIL @I120@
+1 MARR Y
+0 @F66@ FAM
+1 HUSB @I145@
+1 WIFE @I115@
+1 CHIL @I147@
+1 CHIL @I158@
+1 MARR Y
+0 @F67@ FAM
+1 HUSB @I141@
+1 WIFE @I119@
+1 CHIL @I139@
+1 MARR
+2 DATE 9 MAR 1920
+2 PLAC Oberhausen Rhnld. (Germany)
+0 @F68@ FAM
+1 HUSB @I121@
+1 WIFE @I192@
+1 MARR Y
+0 @F69@ FAM
+1 HUSB @I181@
+1 WIFE @I129@
+1 CHIL @I7@
+1 MARR Y
+0 @F70@ FAM
+1 HUSB @I132@
+1 WIFE @I170@
+1 CHIL @I131@
+1 CHIL @I130@
+1 MARR
+2 DATE 23 MAR 1994
+2 PLAC Oberhausen
+0 @F71@ FAM
+1 HUSB @I153@
+1 WIFE @I134@
+1 CHIL @I146@
+1 MARR Y
+0 @F72@ FAM
+1 HUSB @I135@
+1 WIFE @I208@
+1 CHIL @I134@
+1 MARR Y
+0 @F73@ FAM
+1 HUSB @I185@
+1 WIFE @I137@
+1 CHIL @I194@
+1 MARR Y
+0 @F74@ FAM
+1 HUSB @I188@
+1 WIFE @I143@
+1 CHIL @I189@
+1 CHIL @I191@
+1 MARR
+2 DATE 20 JAN 1951
+2 PLAC Mülheim A.D. Ruhr, Deutschland (Germany)
+0 @F75@ FAM
+1 HUSB @I151@
+1 WIFE @I161@
+1 CHIL @I153@
+1 MARR Y
+0 @F76@ FAM
+1 HUSB @I209@
+1 WIFE @I196@
+1 CHIL @I193@
+1 MARR
+2 DATE 10 MAY 2008
+2 PLAC Ettlingen
+0 @F77@ FAM
+1 HUSB @I202@
+1 WIFE @I201@
+1 CHIL @I203@
+1 CHIL @I205@
+1 CHIL @I204@
+1 MARR
+2 DATE 4 SEP 2010
+2 PLAC Karlsruhe, Deutschland (Germany)
+0 @F78@ FAM
+1 HUSB @I214@
+1 WIFE @I211@
+1 CHIL @I215@
+1 MARR Y
+0 @F79@ FAM
+1 HUSB @I33@
+1 CHIL @I32@
+0 @F80@ FAM
+1 WIFE @I78@
+1 CHIL @I79@
+0 @F81@ FAM
+1 HUSB @I9@
+1 WIFE @I78@
+1 CHIL @I80@
+1 _MARR N
+0 @F82@ FAM
+1 HUSB @I114@
+1 CHIL @I115@
+0 @F87@ FAM
+1 HUSB @I166@
+1 CHIL @I178@
+1 CHIL @I165@
+0 @F86@ FAM
+1 HUSB @I177@
+1 CHIL @I172@
+1 CHIL @I168@
+1 CHIL @I169@
+0 TRLR

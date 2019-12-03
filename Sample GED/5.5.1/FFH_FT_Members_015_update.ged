@@ -1,0 +1,1227 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Pearl of Brettenham, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:19
+1 FILE FFH_FT_Members_015
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Pearl of Brettenham, Suffolk
+0 @I00000000262@ INDI
+1 NAME Edmund /Pearl/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1739
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 2 Aug 1802
+2 PLAC Brettenham, St. Mary, Suffolk
+2 AGE 63y
+2 NOTE Married man.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 20 Oct 1802
+2 PLAC Brettenham, St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F70000000262@
+1 FAMS @F10000000262@
+1 SOUR @S01@
+0 @I00000000266@ INDI
+1 NAME Edmund /Pearle/
+1 SEX M
+1 CHR
+2 DATE 9 Dec 1765
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 2 Jan 1839
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 AGE 72y
+2 NOTE Of Horndon on the Hill.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 7 Feb 1839
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 NOTE Court: Archdeaconry Court of Colchester
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F10000000262@
+1 FAMS @F10000000266@
+1 SOUR @S01@
+0 @I00000000263@ INDI
+1 NAME David /Pearl/
+1 SEX M
+1 CHR
+2 DATE 8 Mar 1772
+2 PLAC Brettenham, St. Mary, Suffolk
+1 FAMC @F10000000262@
+1 FAMS @F10000000263@
+1 FAMS @F20000000263@
+1 SOUR @S01@
+0 @I00000000289@ INDI
+1 NAME Sarah /Pearl/
+1 SEX F
+1 CHR
+2 DATE 4 Oct 1773
+2 PLAC Brettenham, St. Mary, Suffolk
+1 FAMC @F10000000262@
+1 SOUR @S01@
+0 @I00000000282@ INDI
+1 NAME Emma /Pearl/
+1 SEX F
+1 CHR
+2 DATE 4 Oct 1773
+2 PLAC Brettenham, St. Mary, Suffolk
+1 FAMC @F10000000262@
+1 SOUR @S01@
+0 @I00000000288@ INDI
+1 NAME Samuel /Pearl/
+1 SEX M
+1 CHR
+2 DATE 2 May 1775
+2 PLAC Brettenham, St. Mary, Suffolk
+1 PROB
+2 DATE 12 Mar 1832
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Court: Consistory Court of Norwich
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F10000000262@
+1 FAMS @F10000000288@
+1 SOUR @S01@
+0 @I00000000270@ INDI
+1 NAME Susan /Major/
+1 SEX F
+1 CHR
+2 DATE 1 Jun 1775
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 15 May 1857
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 AGE 81y
+2 NOTE Of Great Thurlow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000270@
+1 FAMS @F10000000269@
+1 SOUR @S01@
+0 @I00000000271@ INDI
+1 NAME Sarah /Felgate/
+1 SEX F
+1 CHR
+2 DATE 2 Jun 1775
+2 PLAC Stowupland, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Mar 1846
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 AGE 73y
+2 NOTE Of Wickford.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000271@
+1 FAMS @F10000000266@
+1 SOUR @S01@
+0 @I00000000265@ INDI
+1 NAME Jemima /Pearl/
+1 SEX F
+1 CHR
+2 DATE 28 Nov 1777
+2 PLAC Brettenham, St. Mary, Suffolk
+1 FAMC @F10000000262@
+1 FAMS @F81000000265@
+1 SOUR @S01@
+0 @I00000000264@ INDI
+1 NAME Mary /Pearl/
+1 SEX F
+1 CHR
+2 DATE 28 Nov 1777
+2 PLAC Brettenham, St. Mary, Suffolk
+1 FAMC @F10000000262@
+1 SOUR @S01@
+0 @I00000000267@ INDI
+1 NAME Jonathan Albin /Pearl/
+1 SEX M
+1 CHR
+2 DATE 11 Jul 1779
+2 PLAC Brettenham, St. Mary, Suffolk
+1 FAMC @F10000000262@
+1 SOUR @S01@
+0 @I00000000268@ INDI
+1 NAME Robert /Pearl/
+1 SEX M
+1 CHR
+2 DATE 5 Jan 1781
+2 PLAC Brettenham, St. Mary, Suffolk
+1 FAMC @F10000000262@
+1 SOUR @S01@
+0 @I00000000269@ INDI
+1 NAME Rands /Pearl/
+1 SEX M
+1 CHR
+2 DATE 25 Dec 1783
+2 PLAC Brettenham, St. Mary, Suffolk
+1 BURI
+2 DATE 23 Oct 1857
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 AGE 74y
+2 NOTE Of Great Thurlow.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000262@
+1 FAMS @F10000000269@
+1 SOUR @S01@
+0 @I00000000277@ INDI
+1 NAME Robertson /Pearl/
+1 SEX M
+1 CHR
+2 DATE 5 Apr 1786
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Jan 1787
+2 PLAC Wattisham, Baptist, Suffolk
+2 AGE 10m
+2 NOTE Of Brettenham.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000266@
+1 SOUR @S01@
+0 @I00000001182@ INDI
+1 NAME Robert Fuller Felgate /Pearl/
+1 SEX M
+1 CHR
+2 DATE 3 Apr 1799
+2 PLAC Grays Thurrock, St. Peter and St. Paul, Essex
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 6 Jul 1797
+1 BURI
+2 DATE 28 Dec 1840
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 AGE 43y
+2 NOTE Of Horndon on the Hill.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 19 Jun 1841
+2 PLAC Horndon on the Hill, St. Peter and St. Paul, Essex
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F10000000266@
+1 SOUR @S01@
+0 @I00000000961@ INDI
+1 NAME Louisa /Pearl/
+1 SEX F
+1 CHR
+2 DATE 3 Apr 1799
+2 PLAC Grays Thurrock, St. Peter and St. Paul, Essex
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 9 Jan 1799
+1 BURI
+2 DATE 8 Oct 1799
+2 PLAC Grays Thurrock, St. Peter and St. Paul, Essex
+2 NOTE Daughter of Edmund and Sarah Pearl, of Grays Hall.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000266@
+1 SOUR @S01@
+0 @I00000000276@ INDI
+1 NAME Susannah /Pearl/
+1 SEX F
+1 CHR
+2 DATE 1 Mar 1799
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 6 Feb 1852
+2 PLAC South Benfleet, St. Mary the Virgin, Essex
+2 AGE 52y
+2 NOTE Of South Benfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000266@
+1 FAMS @F81000000276@
+1 SOUR @S01@
+0 @I00000000292@ INDI
+1 NAME James /Pearl/
+1 SEX M
+1 CHR
+2 DATE 22 Feb 1801
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 13 Jan 1801
+1 FAMC @F10000000288@
+1 SOUR @S01@
+0 @I00000000278@ INDI
+1 NAME Hannah /Pearl/
+1 SEX F
+1 CHR
+2 DATE 3 Sep 1804
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000263@
+1 SOUR @S01@
+0 @I00000000293@ INDI
+1 NAME Mary Ann /Pearl/
+1 SEX F
+1 CHR
+2 DATE 25 May 1806
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 20 Feb 1806
+1 FAMC @F10000000288@
+1 SOUR @S01@
+0 @I00000000279@ INDI
+1 NAME Edmund Cooper /Pearl/
+1 SEX M
+1 CHR
+2 DATE 28 Feb 1807
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000263@
+1 FAMS @F10000000279@
+1 SOUR @S01@
+0 @I00000000272@ INDI
+1 NAME James Charles /Pearl/
+1 SEX M
+1 CHR
+2 DATE 2 Jul 1809
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000263@
+1 SOUR @S01@
+0 @I00000001185@ INDI
+1 NAME Cornelius Major /Pearl/
+1 SEX M
+1 CHR
+2 DATE 11 Jun 1811
+2 PLAC Ringshall, St. Catherine, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 20 Aug 1826
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 AGE 15y
+2 NOTE Of Great Thurlow.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000269@
+1 SOUR @S01@
+0 @I00000000290@ INDI
+1 NAME John /Pearl/
+1 SEX M
+1 CHR
+2 DATE 3 Nov 1811
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000288@
+1 FAMS @F10000000290@
+1 SOUR @S01@
+0 @I00000000280@ INDI
+1 NAME Edward Rands /Pearl/
+1 SEX M
+1 CHR
+2 DATE 30 Jul 1813
+2 PLAC Ringshall, St. Catherine, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000269@
+1 SOUR @S01@
+0 @I00000001181@ INDI
+1 NAME Mary Elizabeth /Major/
+1 SEX F
+1 CHR
+2 DATE 15 Feb 1814
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 27 Jan 1814
+1 FAMC @F70000001181@
+1 FAMS @F10000000284@
+1 SOUR @S01@
+0 @I00000000291@ INDI
+1 NAME Susan /Pearl/
+1 SEX F
+1 CHR
+2 DATE 24 Sep 1815
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 14 Sep 1814
+1 FAMC @F10000000288@
+1 SOUR @S01@
+0 @I00000000273@ INDI
+1 NAME Sarah Ann /Pearl/
+1 SEX F
+1 CHR
+2 DATE 28 Jun 1815
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F20000000263@
+1 SOUR @S01@
+0 @I00000000284@ INDI
+1 NAME James /Pearl/
+1 SEX M
+1 CHR
+2 DATE 21 Apr 1816
+2 PLAC Bildeston, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Mar 1848
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 AGE 32y
+2 NOTE Of Great Thurlow.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000269@
+1 FAMS @F10000000284@
+1 SOUR @S01@
+0 @I00000000274@ INDI
+1 NAME Phebe /Pearl/
+1 SEX F
+1 CHR
+2 DATE 3 May 1817
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F20000000263@
+1 SOUR @S01@
+0 @I00000000286@ INDI
+1 NAME Mary /Pearl/
+1 SEX F
+1 CHR
+2 DATE 30 Jul 1817
+2 PLAC Bildeston, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000269@
+1 FAMS @F81000000286@
+1 SOUR @S01@
+0 @I00000000275@ INDI
+1 NAME Ebenezer /Pearl/
+1 SEX M
+1 CHR
+2 DATE 16 Mar 1819
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F20000000263@
+1 SOUR @S01@
+0 @I00000000283@ INDI
+1 NAME Henry /Pearl/
+1 SEX M
+1 CHR
+2 DATE 25 Dec 1819
+2 PLAC Bildeston, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000269@
+1 SOUR @S01@
+0 @I00000000285@ INDI
+1 NAME John Mark /Pearl/
+1 SEX M
+1 CHR
+2 DATE 25 Dec 1819
+2 PLAC Bildeston, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 9 Aug 1871
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 AGE 51y
+2 NOTE Of Great Thurlow.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000269@
+1 FAMS @F10000000285@
+1 SOUR @S01@
+0 @I00000001219@ INDI
+1 NAME Catherine /Reeve/
+1 SEX F
+1 CHR
+2 DATE 25 Apr 1820
+2 PLAC Linton, St. Mary, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 29 Mar 1820
+1 BURI
+2 DATE 24 May 1879
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 AGE 59y
+2 NOTE Of Great Thurlow.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001219@
+1 FAMS @F10000000285@
+1 SOUR @S01@
+0 @I00000000281@ INDI
+1 NAME Amy Susan /Pearle/
+1 SEX F
+1 CHR
+2 DATE 6 Aug 1824
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000269@
+1 FAMS @F81000000281@
+1 SOUR @S01@
+0 @I00000000287@ INDI
+1 NAME Robert /Pearle/
+1 SEX M
+1 CHR
+2 DATE 6 Aug 1824
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000269@
+1 SOUR @S01@
+0 @I00000000294@ INDI
+1 NAME Mary Ann /Pearl/
+1 SEX F
+1 CHR
+2 DATE 25 Dec 1832
+2 PLAC Brettenham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000290@
+1 SOUR @S01@
+0 @I00000000297@ INDI
+1 NAME Robert /Pearl/
+1 SEX M
+1 CHR
+2 DATE 17 Jul 1836
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 17 Sep 1834
+1 FAMC @F10000000290@
+1 SOUR @S01@
+0 @I00000001183@ INDI
+1 NAME Robert /Pearl/
+1 SEX M
+1 CHR
+2 DATE 16 Aug 1835
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000279@
+1 SOUR @S01@
+0 @I00000001184@ INDI
+1 NAME Ebenezer /Pearl/
+1 SEX M
+1 CHR
+2 DATE 3 Nov 1836
+2 PLAC Wattisham, Baptist, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000279@
+1 SOUR @S01@
+0 @I00000000296@ INDI
+1 NAME Susannah /Pearl/
+1 SEX F
+1 CHR
+2 DATE 8 Oct 1838
+2 PLAC Hitcham, All Saints, Suffolk
+1 FAMC @F10000000290@
+1 SOUR @S01@
+0 @I00000001197@ INDI
+1 NAME Major James /Pearl/
+1 SEX M
+1 CHR
+2 DATE 10 Jan 1839
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000284@
+1 FAMS @F10000001197@
+1 SOUR @S01@
+0 @I00000001199@ INDI
+1 NAME Rosabel Louisa Mary /Pearl/
+1 SEX F
+1 CHR
+2 DATE 14 Jul 1842
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000284@
+1 SOUR @S01@
+0 @I00000001198@ INDI
+1 NAME Harry Cornelius /Pearl/
+1 SEX M
+1 CHR
+2 DATE 14 Jul 1842
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000284@
+1 FAMS @F10000001198@
+1 SOUR @S01@
+0 @I00000001186@ INDI
+1 NAME Edwin John /Pearl/
+1 SEX M
+1 CHR
+2 DATE 8 Sep 1842
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001187@ INDI
+1 NAME William /Pearl/
+1 SEX M
+1 CHR
+2 DATE 8 Sep 1842
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001202@ INDI
+1 NAME Wade William /Pearl/
+1 SEX M
+1 CHR
+2 DATE 6 Jun 1844
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000284@
+1 SOUR @S01@
+0 @I00000001196@ INDI
+1 NAME Frederick /Pearl/
+1 SEX M
+1 CHR
+2 DATE 26 Nov 1844
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001200@ INDI
+1 NAME Ellen Elizabeth /Pearl/
+1 SEX F
+1 CHR
+2 DATE 25 Jun 1848
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 4 Dec 1844
+1 FAMC @F10000000284@
+1 SOUR @S01@
+0 @I00000001188@ INDI
+1 NAME Sarah Reeve /Pearl/
+1 SEX F
+1 CHR
+2 DATE 29 Jun 1845
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000001188@
+1 FAMS @F10000001197@
+1 SOUR @S01@
+0 @I00000001201@ INDI
+1 NAME Mary Amelia Pratt /Pearl/
+1 SEX F
+1 CHR
+2 DATE 25 Jun 1848
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 8 Jul 1846
+1 FAMC @F10000000284@
+1 SOUR @S01@
+0 @I00000001189@ INDI
+1 NAME Cornelius /Pearl/
+1 SEX M
+1 CHR
+2 DATE 28 Mar 1847
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 15 Nov 1865
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 AGE 19y
+2 NOTE Of Gainsborough, Lincolnshire.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001190@ INDI
+1 NAME Herbert /Pearl/
+1 SEX M
+1 CHR
+2 DATE 4 Feb 1849
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001191@ INDI
+1 NAME James /Pearl/
+1 SEX M
+1 CHR
+2 DATE 7 Jul 1850
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001192@ INDI
+1 NAME Catherine Mary /Pearle/
+1 SEX F
+1 CHR
+2 DATE 10 Apr 1853
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001203@ INDI
+1 NAME Susannah /Pearl/
+1 SEX F
+1 CHR
+2 DATE 5 Jun 1853
+2 PLAC Brettenham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000290@
+1 SOUR @S01@
+0 @I00000000295@ INDI
+1 NAME John /Pearl/
+1 SEX M
+1 CHR
+2 DATE 5 Jun 1853
+2 PLAC Brettenham, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000290@
+1 SOUR @S01@
+0 @I00000001193@ INDI
+1 NAME Alice Jessie /Pearl/
+1 SEX F
+1 CHR
+2 DATE 5 Dec 1858
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001194@ INDI
+1 NAME John Reeve /Pearl/
+1 SEX M
+1 CHR
+2 DATE 12 May 1861
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001195@ INDI
+1 NAME Emily Maud /Pearl/
+1 SEX F
+1 CHR
+2 DATE 3 Aug 1862
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000285@
+1 SOUR @S01@
+0 @I00000001209@ INDI
+1 NAME Beatrice Mary /Pearl/
+1 SEX F
+1 CHR
+2 DATE 21 May 1868
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001210@ INDI
+1 NAME Mabel Blanche /Pearl/
+1 SEX F
+1 CHR
+2 DATE 28 Oct 1869
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001211@ INDI
+1 NAME Evelyn May /Pearl/
+1 SEX F
+1 CHR
+2 DATE 17 Sep 1871
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001205@ INDI
+1 NAME Harry James /Pearl/
+1 SEX M
+1 CHR
+2 DATE 30 Nov 1871
+2 PLAC Little Thurlow, St. Peter, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001198@
+1 SOUR @S01@
+0 @I00000001212@ INDI
+1 NAME Ethel Olive /Pearl/
+1 SEX F
+1 CHR
+2 DATE 22 May 1873
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001204@ INDI
+1 NAME Gertrude Sarah /Pearl/
+1 SEX F
+1 CHR
+2 DATE 11 Jan 1874
+2 PLAC Withersfield, St. Mary the Virgin, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001198@
+1 SOUR @S01@
+0 @I00000001213@ INDI
+1 NAME Major William /Pearl/
+1 SEX M
+1 CHR
+2 DATE 15 Sep 1874
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001214@ INDI
+1 NAME Philip Major /Pearl/
+1 SEX M
+1 CHR
+2 DATE 9 Jul 1876
+2 PLAC Great Thurlow, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001206@ INDI
+1 NAME Percy Joseph /Pearl/
+1 SEX M
+1 CHR
+2 DATE 7 Jan 1877
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001198@
+1 SOUR @S01@
+0 @I00000001215@ INDI
+1 NAME Reginald Major /Pearle/
+1 SEX M
+1 CHR
+2 DATE 23 Jun 1878
+2 PLAC Edwardstone, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001216@ INDI
+1 NAME Winifred Louise /Pearle/
+1 SEX F
+1 CHR
+2 DATE 27 Jul 1879
+2 PLAC Edwardstone, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 24 Sep 1896
+2 PLAC Sudbury, Cemetery, Suffolk
+2 AGE 17y
+2 NOTE Of Harp Close Road, Sudbury, St. Gregory.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001217@ INDI
+1 NAME Cyril Reeve /Pearle/
+1 SEX M
+1 CHR
+2 DATE 12 Dec 1880
+2 PLAC Edwardstone, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 20 Aug 1896
+2 PLAC Sudbury, Cemetery, Suffolk
+2 AGE 16y
+2 NOTE Of Harp Close Road, Sudbury, St. Gregory.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001218@ INDI
+1 NAME Sarah Kathleen /Pearl/
+1 SEX F
+1 CHR
+2 DATE 13 Aug 1882
+2 PLAC Bury St. Edmunds, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 May 1882
+1 FAMC @F10000001197@
+1 SOUR @S01@
+0 @I00000001207@ INDI
+1 NAME Nora /Pearl/
+1 SEX F
+1 CHR
+2 DATE 13 May 1883
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001198@
+1 SOUR @S01@
+0 @I00000001208@ INDI
+1 NAME Blanche Mary /Pearl/
+1 SEX F
+1 CHR
+2 DATE 30 Mar 1888
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001198@
+1 SOUR @S01@
+0 @F10000000262@ FAM
+1 MARR
+2 DATE 17 Oct 1765
+2 PLAC Hemingstone, St. Gregory, Suffolk
+1 HUSB @I00000000262@
+1 WIFE @I81000000262@
+1 CHIL @I00000000263@
+1 CHIL @I00000000264@
+1 CHIL @I00000000265@
+1 CHIL @I00000000266@
+1 CHIL @I00000000267@
+1 CHIL @I00000000268@
+1 CHIL @I00000000269@
+1 CHIL @I00000000282@
+1 CHIL @I00000000288@
+1 CHIL @I00000000289@
+1 SOUR @S01@
+0 @F10000000263@ FAM
+1 MARR
+2 DATE 7 Oct 1803
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000263@
+1 WIFE @I81000000263@
+1 CHIL @I00000000272@
+1 CHIL @I00000000278@
+1 CHIL @I00000000279@
+1 SOUR @S01@
+0 @F10000000266@ FAM
+1 MARR
+2 DATE 11 Oct 1796
+2 PLAC West Thurrock, St. Clement, Essex
+1 HUSB @I00000000266@
+1 WIFE @I00000000271@
+1 CHIL @I00000000276@
+1 CHIL @I00000000277@
+1 CHIL @I00000000961@
+1 CHIL @I00000001182@
+1 SOUR @S01@
+0 @F10000000269@ FAM
+1 MARR
+2 DATE 15 Mar 1810
+2 PLAC Great Barton, Holy Innocents, Suffolk
+1 HUSB @I00000000269@
+1 WIFE @I00000000270@
+1 CHIL @I00000000280@
+1 CHIL @I00000000281@
+1 CHIL @I00000000283@
+1 CHIL @I00000000284@
+1 CHIL @I00000000285@
+1 CHIL @I00000000286@
+1 CHIL @I00000000287@
+1 CHIL @I00000001185@
+1 SOUR @S01@
+0 @F10000000279@ FAM
+1 MARR
+2 DATE 19 Nov 1834
+2 PLAC Wattisham, St. Nicholas, Suffolk
+1 HUSB @I00000000279@
+1 WIFE @I81000000279@
+1 CHIL @I00000001183@
+1 CHIL @I00000001184@
+1 SOUR @S01@
+0 @F10000000283@ FAM
+1 MARR
+2 DATE 14 May 1853
+2 PLAC Great Thurlow, All Saints, Suffolk
+1 HUSB @I00000000283@
+1 WIFE @I81000000283@
+1 SOUR @S01@
+0 @F10000000284@ FAM
+1 MARR
+2 DATE 23 Nov 1837
+2 PLAC Great Thurlow, All Saints, Suffolk
+1 HUSB @I00000000284@
+1 WIFE @I00000001181@
+1 CHIL @I00000001197@
+1 CHIL @I00000001198@
+1 CHIL @I00000001199@
+1 CHIL @I00000001200@
+1 CHIL @I00000001201@
+1 CHIL @I00000001202@
+1 SOUR @S01@
+0 @F10000000285@ FAM
+1 MARR
+2 DATE 18 Oct 1838
+2 PLAC Linton, St. Mary, Cambridgeshire
+1 HUSB @I00000000285@
+1 WIFE @I00000001219@
+1 CHIL @I00000001186@
+1 CHIL @I00000001187@
+1 CHIL @I00000001189@
+1 CHIL @I00000001190@
+1 CHIL @I00000001191@
+1 CHIL @I00000001192@
+1 CHIL @I00000001193@
+1 CHIL @I00000001194@
+1 CHIL @I00000001195@
+1 CHIL @I00000001196@
+1 SOUR @S01@
+0 @F10000000287@ FAM
+1 MARR
+2 DATE 8 Jan 1844
+2 PLAC Great Thurlow, All Saints, Suffolk
+1 HUSB @I00000000287@
+1 WIFE @I81000000287@
+1 SOUR @S01@
+0 @F10000000288@ FAM
+1 MARR
+2 DATE 17 Sep 1799
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I00000000288@
+1 WIFE @I81000000288@
+1 CHIL @I00000000290@
+1 CHIL @I00000000291@
+1 CHIL @I00000000292@
+1 CHIL @I00000000293@
+1 SOUR @S01@
+0 @F10000000290@ FAM
+1 MARR
+2 DATE 2 Mar 1832
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I00000000290@
+1 WIFE @I81000000290@
+1 CHIL @I00000000294@
+1 CHIL @I00000000295@
+1 CHIL @I00000000296@
+1 CHIL @I00000000297@
+1 CHIL @I00000001203@
+1 SOUR @S01@
+0 @F10000000295@ FAM
+1 MARR
+2 DATE 25 Dec 1873
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I00000000295@
+1 WIFE @I81000000295@
+1 SOUR @S01@
+0 @F10000001197@ FAM
+1 MARR
+2 DATE 29 Nov 1866
+2 PLAC Bloomsbury (London), St. George, Middlesex
+1 HUSB @I00000001197@
+1 WIFE @I00000001188@
+1 CHIL @I00000001209@
+1 CHIL @I00000001210@
+1 CHIL @I00000001211@
+1 CHIL @I00000001212@
+1 CHIL @I00000001213@
+1 CHIL @I00000001214@
+1 CHIL @I00000001215@
+1 CHIL @I00000001216@
+1 CHIL @I00000001217@
+1 CHIL @I00000001218@
+1 SOUR @S01@
+0 @F10000001198@ FAM
+1 MARR
+2 DATE 26 Jul 1870
+2 PLAC Clare, St. Peter and St. Paul, Suffolk
+1 HUSB @I00000001198@
+1 WIFE @I81000001198@
+1 CHIL @I00000001204@
+1 CHIL @I00000001205@
+1 CHIL @I00000001206@
+1 CHIL @I00000001207@
+1 CHIL @I00000001208@
+1 SOUR @S01@
+0 @F20000000262@ FAM
+1 MARR
+2 DATE 6 Jun 1797
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I00000000262@
+1 WIFE @I82000000262@
+1 SOUR @S01@
+0 @F20000000263@ FAM
+1 MARR
+2 DATE 23 Jul 1812
+2 PLAC Rougham, St. Mary, Suffolk
+1 HUSB @I00000000263@
+1 WIFE @I82000000263@
+1 CHIL @I00000000273@
+1 CHIL @I00000000274@
+1 CHIL @I00000000275@
+1 SOUR @S01@
+0 @F81000000265@ FAM
+1 MARR
+2 DATE 20 Oct 1800
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I81000000265@
+1 WIFE @I00000000265@
+1 SOUR @S01@
+0 @F81000000276@ FAM
+1 MARR
+2 DATE 4 Aug 1818
+2 PLAC Corringham, St. Mary the Virgin, Essex
+1 HUSB @I81000000276@
+1 WIFE @I00000000276@
+1 SOUR @S01@
+0 @F81000000281@ FAM
+1 MARR
+2 DATE 27 Sep 1856
+2 PLAC Great Thurlow, All Saints, Suffolk
+1 HUSB @I81000000281@
+1 WIFE @I00000000281@
+1 SOUR @S01@
+0 @F81000000286@ FAM
+1 MARR
+2 DATE 6 Mar 1838
+2 PLAC Great Thurlow, All Saints, Suffolk
+1 HUSB @I81000000286@
+1 WIFE @I00000000286@
+1 SOUR @S01@
+0 @F70000000262@ FAM
+1 HUSB @I92000000262@
+1 CHIL @I00000000262@
+1 SOUR @S01@
+0 @I92000000262@ INDI
+1 NAME (?)/Pearl/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000270@ FAM
+1 HUSB @I92000000270@
+1 WIFE @I91000000270@
+1 CHIL @I00000000270@
+1 SOUR @S01@
+0 @I92000000270@ INDI
+1 NAME Cornelius/Major/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000270@ INDI
+1 NAME Mary/Major/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000271@ FAM
+1 HUSB @I92000000271@
+1 WIFE @I91000000271@
+1 CHIL @I00000000271@
+1 SOUR @S01@
+0 @I92000000271@ INDI
+1 NAME William/Felgate/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000271@ INDI
+1 NAME Ann/Felgate/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001181@ FAM
+1 HUSB @I92000001181@
+1 WIFE @I91000001181@
+1 CHIL @I00000001181@
+1 SOUR @S01@
+0 @I92000001181@ INDI
+1 NAME Henry/Major/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001181@ INDI
+1 NAME Elizabeth/Major/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001188@ FAM
+1 HUSB @I92000001188@
+1 WIFE @I91000001188@
+1 CHIL @I00000001188@
+1 SOUR @S01@
+0 @I92000001188@ INDI
+1 NAME John Mark/Pearl/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001188@ INDI
+1 NAME Catherine/Pearl/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001219@ FAM
+1 HUSB @I92000001219@
+1 WIFE @I91000001219@
+1 CHIL @I00000001219@
+1 SOUR @S01@
+0 @I92000001219@ INDI
+1 NAME William/Reeve/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001219@ INDI
+1 NAME Elizabeth/Reeve/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000262@ INDI
+1 NAME Amy Emma /Rands/
+1 SEX F
+1 FAMS @F10000000262@
+1 SOUR @S01@
+0 @I81000000263@ INDI
+1 NAME Mary /Cooper/
+1 SEX F
+1 FAMS @F10000000263@
+1 SOUR @S01@
+0 @I81000000265@ INDI
+1 NAME Samuel /Robinson/
+1 SEX M
+1 FAMS @F81000000265@
+1 SOUR @S01@
+0 @I81000000276@ INDI
+1 NAME William /Freeman/
+1 SEX M
+1 FAMS @F81000000276@
+1 SOUR @S01@
+0 @I81000000279@ INDI
+1 NAME Susannah /Ranson/
+1 SEX F
+1 FAMS @F10000000279@
+1 SOUR @S01@
+0 @I81000000281@ INDI
+1 NAME John /Wiggin/
+1 SEX M
+1 FAMS @F81000000281@
+1 SOUR @S01@
+0 @I81000000283@ INDI
+1 NAME Anne /Major/
+1 SEX F
+1 FAMS @F10000000283@
+1 SOUR @S01@
+0 @I81000000286@ INDI
+1 NAME Robert /Chinery/
+1 SEX M
+1 FAMS @F81000000286@
+1 SOUR @S01@
+0 @I81000000287@ INDI
+1 NAME Sophia /Traylen/
+1 SEX F
+1 FAMS @F10000000287@
+1 SOUR @S01@
+0 @I81000000288@ INDI
+1 NAME Mary /Dykes/
+1 SEX F
+1 FAMS @F10000000288@
+1 SOUR @S01@
+0 @I81000000290@ INDI
+1 NAME Susan /Waller/
+1 SEX F
+1 FAMS @F10000000290@
+1 SOUR @S01@
+0 @I81000000295@ INDI
+1 NAME Charlotte /Keeble/
+1 SEX F
+1 FAMS @F10000000295@
+1 SOUR @S01@
+0 @I81000001198@ INDI
+1 NAME Sarah /Southgate/
+1 SEX F
+1 FAMS @F10000001198@
+1 SOUR @S01@
+0 @I82000000262@ INDI
+1 NAME Sarah /Gardiner/
+1 SEX F
+1 FAMS @F20000000262@
+1 SOUR @S01@
+0 @I82000000263@ INDI
+1 NAME Sarah /Clarke/
+1 SEX F
+1 FAMS @F20000000263@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

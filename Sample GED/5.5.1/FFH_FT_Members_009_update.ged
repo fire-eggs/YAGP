@@ -1,0 +1,884 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Last and Pond of Wickhambrook, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:11
+1 FILE FFH_FT_Members_009
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Last and Pond of Wickhambrook, Suffolk
+0 @I00000000480@ INDI
+1 NAME Mark /Last/
+1 SEX M
+1 CHR
+2 DATE 26 Oct 1658
+2 PLAC Stradishall, St. Margaret, Suffolk
+2 NOTE Record Source: IGI
+1 BURI
+2 DATE 5 Aug 1726
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Senior.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000480@
+1 FAMS @F10000000480@
+1 SOUR @S01@
+0 @I00000000488@ INDI
+1 NAME Susanna /(?)/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1665
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 2 Sep 1724
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Wife of Mark Last.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000488@
+1 FAMS @F10000000480@
+1 SOUR @S01@
+0 @I00000000481@ INDI
+1 NAME Mark /Last/
+1 SEX M
+1 CHR
+2 DATE 6 Apr 1692
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 19 May 1773
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Widower.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000480@
+1 FAMS @F10000000481@
+1 SOUR @S01@
+0 @I00000000482@ INDI
+1 NAME John /Last/
+1 SEX M
+1 CHR
+2 DATE 14 Feb 1694
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 Nov 1727
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000480@
+1 FAMS @F10000000482@
+1 SOUR @S01@
+0 @I00000000483@ INDI
+1 NAME Betty /Last/
+1 SEX F
+1 CHR
+2 DATE 10 Mar 1696
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000480@
+1 SOUR @S01@
+0 @I00000000484@ INDI
+1 NAME Sarah /Last/
+1 SEX F
+1 CHR
+2 DATE 8 Dec 1697
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000480@
+1 SOUR @S01@
+0 @I00000000485@ INDI
+1 NAME Joseph /Last/
+1 SEX M
+1 CHR
+2 DATE 8 Apr 1700
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000480@
+1 SOUR @S01@
+0 @I00000000460@ INDI
+1 NAME James /Last/
+1 SEX M
+1 CHR
+2 DATE 8 Jul 1702
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 2 Mar 1784
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Widower.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 16 Mar 1784
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+3 CONT Additional information: The elder.
+1 FAMC @F10000000480@
+1 FAMS @F10000000460@
+1 SOUR @S01@
+0 @I00000000486@ INDI
+1 NAME Thomas /Last/
+1 SEX M
+1 CHR
+2 DATE 31 Dec 1703
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000480@
+1 FAMS @F10000000486@
+1 SOUR @S01@
+0 @I00000000479@ INDI
+1 NAME Martha /Canham/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1710
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 11 Nov 1765
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Wife of James Last.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000479@
+1 FAMS @F10000000460@
+1 SOUR @S01@
+0 @I00000000487@ INDI
+1 NAME Mary /Last/
+1 SEX F
+1 CHR
+2 DATE 30 Jan 1727
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000482@
+1 SOUR @S01@
+0 @I00000000489@ INDI
+1 NAME Mary /Last/
+1 SEX F
+1 CHR
+2 DATE 7 Feb 1731
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism at Wickhambrook.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000481@
+1 SOUR @S01@
+0 @I00000000490@ INDI
+1 NAME Betty /Last/
+1 SEX F
+1 CHR
+2 DATE 29 Nov 1732
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism at Wickhambrook.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 21 Oct 1734
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Daughter of Mark and Margaret Last.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000481@
+1 SOUR @S01@
+0 @I00000000491@ INDI
+1 NAME John /Last/
+1 SEX M
+1 CHR
+2 DATE 3 Oct 1735
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Second son. Private baptism at Wickhambrook.Private baptism at Wickhambrook.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000481@
+1 SOUR @S01@
+0 @I00000000459@ INDI
+1 NAME James /Last/
+1 SEX M
+1 CHR
+2 DATE 16 Mar 1736
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE First son. Born and died the same day. Private baptism at Wickhambrook.Private baptism at Wickhambrook.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 18 Mar 1736
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Son of James and Martha Last.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000460@
+1 SOUR @S01@
+0 @I00000000492@ INDI
+1 NAME Betty /Last/
+1 SEX F
+1 CHR
+2 DATE 16 Mar 1737
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Fourth daughter. Private baptism at Wickhambrook.Private baptism at Wickhambrook.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 5 Mar 1737
+1 FAMC @F10000000481@
+1 SOUR @S01@
+0 @I00000000493@ INDI
+1 NAME James /Last/
+1 SEX M
+1 CHR
+2 DATE 24 Aug 1739
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Third son. Private baptism at Wickhambrook.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 6 Aug 1739
+1 FAMC @F10000000481@
+1 SOUR @S01@
+0 @I00000000457@ INDI
+1 NAME John /Pond/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1740
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 17 Oct 1801
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Widower.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 24 Feb 1802
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F70000000457@
+1 FAMS @F10000000457@
+1 SOUR @S01@
+0 @I00000000458@ INDI
+1 NAME Betty /Last/
+1 SEX F
+1 CHR
+2 DATE 29 Oct 1740
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 4 Feb 1784
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Wife of John Pond.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000460@
+1 FAMS @F10000000457@
+1 SOUR @S01@
+0 @I00000000470@ INDI
+1 NAME James /Last/
+1 SEX M
+1 CHR
+2 DATE 2 Jul 1742
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 22 Jul 1742
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Daughter of James and Martha Last.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000460@
+1 SOUR @S01@
+0 @I00000000471@ INDI
+1 NAME Martha /Last/
+1 SEX F
+1 CHR
+2 DATE 2 Jul 1742
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 25 Jul 1742
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Son of James and Martha Last.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000460@
+1 SOUR @S01@
+0 @I00000000494@ INDI
+1 NAME Sarah /Last/
+1 SEX F
+1 CHR
+2 DATE 26 Nov 1742
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000481@
+1 SOUR @S01@
+0 @I00000000474@ INDI
+1 NAME Robert /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Feb 1743
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 22 Jan 1813
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 69y
+2 NOTE Of Buxhall.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 11 May 1813
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F70000000474@
+1 FAMS @F10000000474@
+1 SOUR @S01@
+0 @I00000000472@ INDI
+1 NAME James /Last/
+1 SEX M
+1 CHR
+2 DATE 26 Aug 1745
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 20 Jan 1790
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F10000000460@
+1 FAMS @F10000000472@
+1 SOUR @S01@
+0 @I00000000473@ INDI
+1 NAME Susan /Last/
+1 SEX F
+1 CHR
+2 DATE 5 Nov 1747
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 26 Jun 1820
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 73y
+2 NOTE Of Stowmarket.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 23 Nov 1820
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Will
+3 CONT Additional information: Widow of Robert Fuller of Buxhall (Gentleman).
+1 FAMC @F10000000460@
+1 FAMS @F10000000474@
+1 SOUR @S01@
+0 @I00000000495@ INDI
+1 NAME Thomas /Last/
+1 SEX M
+1 CHR
+2 DATE 17 Mar 1749
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000486@
+1 SOUR @S01@
+0 @I00000000475@ INDI
+1 NAME Joseph /Last/
+1 SEX M
+1 CHR
+2 DATE 4 Jan 1750
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 24 Feb 1750
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Son of James and Martha Last.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000460@
+1 SOUR @S01@
+0 @I00000000496@ INDI
+1 NAME Joseph /Last/
+1 SEX M
+1 CHR
+2 DATE 25 Dec 1750
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000486@
+1 SOUR @S01@
+0 @I00000000476@ INDI
+1 NAME John /Last/
+1 SEX M
+1 CHR
+2 DATE 27 Oct 1751
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 31 Dec 1751
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Son of James and Martha Last.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000460@
+1 SOUR @S01@
+0 @I00000000497@ INDI
+1 NAME Ann /Last/
+1 SEX F
+1 CHR
+2 DATE 26 Oct 1752
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000486@
+1 SOUR @S01@
+0 @I00000000498@ INDI
+1 NAME John /Last/
+1 SEX M
+1 CHR
+2 DATE 27 Nov 1755
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000486@
+1 SOUR @S01@
+0 @I00000000499@ INDI
+1 NAME Samuel /Last/
+1 SEX M
+1 CHR
+2 DATE 21 Feb 1757
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000486@
+1 SOUR @S01@
+0 @I00000000500@ INDI
+1 NAME James /Last/
+1 SEX M
+1 CHR
+2 DATE 26 May 1760
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 15 Aug 1762
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Son of Thomas and Ann Last.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000486@
+1 SOUR @S01@
+0 @I00000000461@ INDI
+1 NAME John Priest /Pond/
+1 SEX M
+1 CHR
+2 DATE 5 Jan 1764
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Born December 1763. Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 26 Oct 1839
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 AGE 75y
+2 NOTE Of Depden.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000457@
+1 SOUR @S01@
+0 @I00000000467@ INDI
+1 NAME Richard /Osborne/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1760
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 11 Jan 1844
+2 PLAC Civil Registration, England
+2 AGE 83y
+2 NOTE Farmer, of Bildeston. Died from "Infirmity", reported by Catherine Farrow.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F70000000467@
+1 FAMS @F10000000467@
+1 SOUR @S01@
+0 @I00000000462@ INDI
+1 NAME Elizabeth Priest /Pond/
+1 SEX F
+1 CHR
+2 DATE 21 Jul 1765
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000457@
+1 FAMS @F81000000462@
+1 SOUR @S01@
+0 @I00000000463@ INDI
+1 NAME Ann /Pond/
+1 SEX F
+1 CHR
+2 DATE 3 Oct 1766
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000457@
+1 FAMS @F81000000463@
+1 SOUR @S01@
+0 @I00000000464@ INDI
+1 NAME James /Pond/
+1 SEX M
+1 CHR
+2 DATE 19 Oct 1767
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 24 Sep 1831
+2 PLAC Cowlinge, St. Margaret, Suffolk
+2 AGE 63y
+2 NOTE Of Wickhambrook.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000457@
+1 SOUR @S01@
+0 @I00000000465@ INDI
+1 NAME Susan /Pond/
+1 SEX F
+1 CHR
+2 DATE 9 Jun 1769
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 16 Apr 1840
+2 PLAC Civil Registration, England
+2 AGE 71y
+2 NOTE Wife of Richard Osborne, of Bildeston. Died from "Debility", reported by Catherine Farrow.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000457@
+1 FAMS @F10000000467@
+1 SOUR @S01@
+0 @I00000000477@ INDI
+1 NAME James /Last/
+1 SEX M
+1 CHR
+2 DATE 29 Jan 1771
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BIRT
+2 DATE 19 Dec 1770
+1 BURI
+2 DATE 15 Mar 1841
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 AGE 70y
+2 NOTE Of Wickhambrook.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 23 Apr 1841
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Court: Archdeaconry Court of Sudbury
+3 CONT Type of document:Administration
+3 CONT Occupation: Farmer
+1 FAMC @F10000000472@
+1 FAMS @F10000000477@
+1 SOUR @S01@
+0 @I00000000466@ INDI
+1 NAME Thomas /Pond/
+1 SEX M
+1 CHR
+2 DATE 19 Jun 1771
+2 PLAC Wickhambrook, Independent / Congregational, Suffolk
+2 NOTE Private baptism.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 26 Apr 1808
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 AGE 37y
+2 NOTE Of London.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000457@
+1 SOUR @S01@
+0 @I00000000478@ INDI
+1 NAME Mary /Pryke/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1774
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 21 Apr 1848
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 AGE 74y
+2 NOTE Of Wickhambrook.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000478@
+1 FAMS @F10000000477@
+1 SOUR @S01@
+0 @I00000001513@ INDI
+1 NAME Mary Ann /Last/
+1 SEX F
+1 CHR
+2 DATE 8 May 1800
+2 PLAC Wickhambrook, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000477@
+1 FAMS @F81000001513@
+1 SOUR @S01@
+0 @F10000000457@ FAM
+1 MARR
+2 DATE 5 Jan 1763
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I00000000457@
+1 WIFE @I00000000458@
+1 CHIL @I00000000461@
+1 CHIL @I00000000462@
+1 CHIL @I00000000463@
+1 CHIL @I00000000464@
+1 CHIL @I00000000465@
+1 CHIL @I00000000466@
+1 SOUR @S01@
+0 @F10000000460@ FAM
+1 MARR
+2 DATE 25 Oct 1734
+2 PLAC Chedburgh, All Saints, Suffolk
+1 HUSB @I00000000460@
+1 WIFE @I00000000479@
+1 CHIL @I00000000458@
+1 CHIL @I00000000459@
+1 CHIL @I00000000470@
+1 CHIL @I00000000471@
+1 CHIL @I00000000472@
+1 CHIL @I00000000473@
+1 CHIL @I00000000475@
+1 CHIL @I00000000476@
+1 SOUR @S01@
+0 @F10000000464@ FAM
+1 MARR
+2 DATE 5 Jul 1796
+2 PLAC Cowlinge, St. Margaret, Suffolk
+1 HUSB @I00000000464@
+1 WIFE @I81000000464@
+1 SOUR @S01@
+0 @F10000000467@ FAM
+1 MARR
+2 DATE 18 Dec 1787
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000467@
+1 WIFE @I00000000465@
+1 SOUR @S01@
+0 @F10000000472@ FAM
+1 MARR
+2 DATE 7 Dec 1769
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I00000000472@
+1 WIFE @I81000000472@
+1 CHIL @I00000000477@
+1 SOUR @S01@
+0 @F10000000474@ FAM
+1 MARR
+2 DATE 17 Jun 1775
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I00000000474@
+1 WIFE @I00000000473@
+1 SOUR @S01@
+0 @F10000000477@ FAM
+1 MARR
+2 DATE 27 Nov 1794
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I00000000477@
+1 WIFE @I00000000478@
+1 CHIL @I00000001513@
+1 SOUR @S01@
+0 @F10000000480@ FAM
+1 MARR
+2 DATE 1 Jan 1690
+2 PLAC <Unknown>, England
+1 HUSB @I00000000480@
+1 WIFE @I00000000488@
+1 CHIL @I00000000460@
+1 CHIL @I00000000481@
+1 CHIL @I00000000482@
+1 CHIL @I00000000483@
+1 CHIL @I00000000484@
+1 CHIL @I00000000485@
+1 CHIL @I00000000486@
+1 SOUR @S01@
+0 @F10000000481@ FAM
+1 MARR
+2 DATE 1 Jan 1724
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I00000000481@
+1 WIFE @I81000000481@
+1 CHIL @I00000000489@
+1 CHIL @I00000000490@
+1 CHIL @I00000000491@
+1 CHIL @I00000000492@
+1 CHIL @I00000000493@
+1 CHIL @I00000000494@
+1 SOUR @S01@
+0 @F10000000482@ FAM
+1 MARR
+2 DATE 9 Oct 1718
+2 PLAC Depden, St. Mary, Suffolk
+1 HUSB @I00000000482@
+1 WIFE @I81000000482@
+1 CHIL @I00000000487@
+1 SOUR @S01@
+0 @F10000000486@ FAM
+1 MARR
+2 DATE 1 Jan 1745
+2 PLAC <Unknown>, England
+1 HUSB @I00000000486@
+1 WIFE @I81000000486@
+1 CHIL @I00000000495@
+1 CHIL @I00000000496@
+1 CHIL @I00000000497@
+1 CHIL @I00000000498@
+1 CHIL @I00000000499@
+1 CHIL @I00000000500@
+1 SOUR @S01@
+0 @F20000000457@ FAM
+1 MARR
+2 DATE 14 Nov 1786
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I00000000457@
+1 WIFE @I82000000457@
+1 SOUR @S01@
+0 @F81000000462@ FAM
+1 MARR
+2 DATE 26 Sep 1786
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I81000000462@
+1 WIFE @I00000000462@
+1 SOUR @S01@
+0 @F81000000463@ FAM
+1 MARR
+2 DATE 25 Sep 1787
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I81000000463@
+1 WIFE @I00000000463@
+1 SOUR @S01@
+0 @F81000001513@ FAM
+1 MARR
+2 DATE 16 Nov 1820
+2 PLAC Wickhambrook, All Saints, Suffolk
+1 HUSB @I81000001513@
+1 WIFE @I00000001513@
+1 SOUR @S01@
+0 @F70000000457@ FAM
+1 HUSB @I92000000457@
+1 CHIL @I00000000457@
+1 SOUR @S01@
+0 @I92000000457@ INDI
+1 NAME (?)/Pond/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000467@ FAM
+1 HUSB @I92000000467@
+1 CHIL @I00000000467@
+1 SOUR @S01@
+0 @I92000000467@ INDI
+1 NAME (?)/Osborne/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000474@ FAM
+1 HUSB @I92000000474@
+1 WIFE @I91000000474@
+1 CHIL @I00000000474@
+1 SOUR @S01@
+0 @I92000000474@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000474@ INDI
+1 NAME Sarah/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000478@ FAM
+1 HUSB @I92000000478@
+1 CHIL @I00000000478@
+1 SOUR @S01@
+0 @I92000000478@ INDI
+1 NAME (?)/Pryke/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000479@ FAM
+1 HUSB @I92000000479@
+1 CHIL @I00000000479@
+1 SOUR @S01@
+0 @I92000000479@ INDI
+1 NAME (?)/Canham/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000480@ FAM
+1 HUSB @I92000000480@
+1 CHIL @I00000000480@
+1 SOUR @S01@
+0 @I92000000480@ INDI
+1 NAME (?)/Last/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000488@ FAM
+1 HUSB @I92000000488@
+1 CHIL @I00000000488@
+1 SOUR @S01@
+0 @I92000000488@ INDI
+1 NAME (?)/(?)/
+1 SEX M
+1 SOUR @S01@
+0 @I81000000462@ INDI
+1 NAME George /Sparrow/
+1 SEX M
+1 FAMS @F81000000462@
+1 SOUR @S01@
+0 @I81000000463@ INDI
+1 NAME William /Gooch/
+1 SEX M
+1 FAMS @F81000000463@
+1 SOUR @S01@
+0 @I81000000464@ INDI
+1 NAME Mary /Abbott/
+1 SEX F
+1 FAMS @F10000000464@
+1 SOUR @S01@
+0 @I81000000472@ INDI
+1 NAME Alice /Hayward/
+1 SEX F
+1 FAMS @F10000000472@
+1 SOUR @S01@
+0 @I81000000481@ INDI
+1 NAME Margaret /Deeks/
+1 SEX F
+1 FAMS @F10000000481@
+1 SOUR @S01@
+0 @I81000000482@ INDI
+1 NAME Tabitha /Turner/
+1 SEX F
+1 FAMS @F10000000482@
+1 SOUR @S01@
+0 @I81000000486@ INDI
+1 NAME Ann /(?)/
+1 SEX F
+1 FAMS @F10000000486@
+1 SOUR @S01@
+0 @I81000001513@ INDI
+1 NAME John /Isaacson/
+1 SEX M
+1 FAMS @F81000001513@
+1 SOUR @S01@
+0 @I82000000457@ INDI
+1 NAME Mary /Miller/
+1 SEX F
+1 FAMS @F20000000457@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

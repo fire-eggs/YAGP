@@ -1,0 +1,382 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Moore of Isleham, Cambridgeshire
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:14
+1 FILE FFH_FT_Members_011
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Moore of Isleham, Cambridgeshire
+0 @I00000001543@ INDI
+1 NAME Alice /Norman/
+1 SEX F
+1 CHR
+2 DATE 24 Aug 1697
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Oct 1775
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Widow, Mr. Thomas Moore's mother.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001543@
+1 FAMS @F10000000523@
+1 SOUR @S01@
+0 @I00000000523@ INDI
+1 NAME Thomas /Moor/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1700
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 1 Mar 1749
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Farmer.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000523@
+1 FAMS @F10000000523@
+1 SOUR @S01@
+0 @I00000000524@ INDI
+1 NAME Edward /Pearson/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1717
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 4 May 1769
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 30 May 1769
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F70000000524@
+1 FAMS @F10000000524@
+1 SOUR @S01@
+0 @I00000000359@ INDI
+1 NAME Alice /Moor/
+1 SEX F
+1 CHR
+2 DATE 11 Sep 1718
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 28 Apr 1800
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Widow
+1 FAMC @F10000000523@
+1 FAMS @F81000000359@
+1 SOUR @S01@
+0 @I00000000527@ INDI
+1 NAME Elisabeth /Moor/
+1 SEX F
+1 CHR
+2 DATE 16 May 1722
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000523@
+1 FAMS @F81000000527@
+1 SOUR @S01@
+0 @I00000000525@ INDI
+1 NAME Martha /Davey/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1724
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 22 Apr 1789
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Wife of Thomas Moore (Gentleman).
+3 CONT Record Source: Church Register
+1 FAMC @F70000000525@
+1 FAMS @F10000000357@
+1 SOUR @S01@
+0 @I00000000357@ INDI
+1 NAME Thomas /Moore/
+1 SEX M
+1 CHR
+2 DATE 16 Apr 1724
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Jun 1799
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Senior.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 2 Nov 1799
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Gentleman
+1 FAMC @F10000000523@
+1 FAMS @F10000000357@
+1 FAMS @F20000000357@
+1 SOUR @S01@
+0 @I00000001128@ INDI
+1 NAME Martha /Moore/
+1 SEX F
+1 CHR
+2 DATE 20 Jul 1729
+2 PLAC Isleham, Baptist/Independent, Cambridgeshire
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000523@
+1 SOUR @S01@
+0 @I00000000526@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1733
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 29 Oct 1787
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 PROB
+2 DATE 1 Dec 1788
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Administration
+1 FAMC @F70000000526@
+1 FAMS @F10000000526@
+1 SOUR @S01@
+0 @I00000000358@ INDI
+1 NAME Ann /Groom/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1734
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 1 Sep 1800
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000358@
+1 FAMS @F10000000526@
+1 FAMS @F20000000357@
+1 SOUR @S01@
+0 @I00000000360@ INDI
+1 NAME Mary /Moore/
+1 SEX F
+1 CHR
+2 DATE 1 Mar 1765
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 5 Feb 1802
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 AGE 36y
+2 NOTE Wife of John Fuller.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000357@
+1 FAMS @F10000000361@
+1 SOUR @S01@
+0 @I00000000361@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 9 Feb 1767
+2 PLAC Long Melford, Holy Trinity, Suffolk
+2 NOTE Mr. Campbell and Lady Firebrace were sponsors by proxy.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 28 Apr 1806
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 AGE 39y
+2 NOTE Farmer.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 21 Nov 1806
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Farmer
+1 FAMC @F70000000361@
+1 FAMS @F10000000361@
+1 SOUR @S01@
+0 @F10000000357@ FAM
+1 MARR
+2 DATE 26 Sep 1748
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000357@
+1 WIFE @I00000000525@
+1 CHIL @I00000000360@
+1 SOUR @S01@
+0 @F10000000361@ FAM
+1 MARR
+2 DATE 7 Oct 1785
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000361@
+1 WIFE @I00000000360@
+1 SOUR @S01@
+0 @F10000000523@ FAM
+1 MARR
+2 DATE 1 Jan 1718
+2 PLAC <Unknown>, England
+1 HUSB @I00000000523@
+1 WIFE @I00000001543@
+1 CHIL @I00000000357@
+1 CHIL @I00000000359@
+1 CHIL @I00000000527@
+1 CHIL @I00000001128@
+1 SOUR @S01@
+0 @F10000000524@ FAM
+1 MARR
+2 DATE 20 Jan 1737
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+1 HUSB @I00000000524@
+1 WIFE @I00000000359@
+1 SOUR @S01@
+0 @F10000000526@ FAM
+1 MARR
+2 DATE 21 Apr 1759
+2 PLAC Brent Eleigh, St. Mary, Suffolk
+1 HUSB @I00000000526@
+1 WIFE @I00000000358@
+1 SOUR @S01@
+0 @F20000000357@ FAM
+1 MARR
+2 DATE 26 Nov 1790
+2 PLAC Long Melford, Holy Trinity, Suffolk
+1 HUSB @I00000000357@
+1 WIFE @I00000000358@
+1 SOUR @S01@
+0 @F20000000361@ FAM
+1 MARR
+2 DATE 30 Mar 1802
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I00000000361@
+1 WIFE @I82000000361@
+1 SOUR @S01@
+0 @F81000000359@ FAM
+1 MARR
+2 DATE 20 Jan 1737
+2 PLAC Bury St. Edmunds, St. James, Suffolk
+1 HUSB @I81000000359@
+1 WIFE @I00000000359@
+1 SOUR @S01@
+0 @F81000000527@ FAM
+1 MARR
+2 DATE 6 Apr 1752
+2 PLAC Isleham, St. Andrew, Cambridgeshire
+1 HUSB @I81000000527@
+1 WIFE @I00000000527@
+1 SOUR @S01@
+0 @F70000000358@ FAM
+1 HUSB @I92000000358@
+1 CHIL @I00000000358@
+1 SOUR @S01@
+0 @I92000000358@ INDI
+1 NAME (?)/Groom/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000361@ FAM
+1 HUSB @I92000000361@
+1 WIFE @I91000000361@
+1 CHIL @I00000000361@
+1 SOUR @S01@
+0 @I92000000361@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000361@ INDI
+1 NAME Ann/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000523@ FAM
+1 HUSB @I92000000523@
+1 CHIL @I00000000523@
+1 SOUR @S01@
+0 @I92000000523@ INDI
+1 NAME (?)/Moor/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000524@ FAM
+1 HUSB @I92000000524@
+1 CHIL @I00000000524@
+1 SOUR @S01@
+0 @I92000000524@ INDI
+1 NAME (?)/Pearson/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000525@ FAM
+1 HUSB @I92000000525@
+1 CHIL @I00000000525@
+1 SOUR @S01@
+0 @I92000000525@ INDI
+1 NAME (?)/Davey/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000526@ FAM
+1 HUSB @I92000000526@
+1 WIFE @I91000000526@
+1 CHIL @I00000000526@
+1 SOUR @S01@
+0 @I92000000526@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000526@ INDI
+1 NAME Sarah/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001543@ FAM
+1 HUSB @I92000001543@
+1 WIFE @I91000001543@
+1 CHIL @I00000001543@
+1 SOUR @S01@
+0 @I92000001543@ INDI
+1 NAME William/Norman/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001543@ INDI
+1 NAME Elizabeth/Norman/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000359@ INDI
+1 NAME Edward /Pearson/
+1 SEX M
+1 FAMS @F81000000359@
+1 SOUR @S01@
+0 @I81000000527@ INDI
+1 NAME Joseph /Moody/
+1 SEX M
+1 FAMS @F81000000527@
+1 SOUR @S01@
+0 @I82000000361@ INDI
+1 NAME Mary /Swann/
+1 SEX F
+1 FAMS @F20000000361@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

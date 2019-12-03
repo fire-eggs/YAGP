@@ -1,0 +1,420 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Mereton/Mirrington of Hitcham, Suffolk
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:10:13
+1 FILE FFH_FT_Members_010
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Mereton/Mirrington of Hitcham, Suffolk
+0 @I00000000520@ INDI
+1 NAME Robert /Marrington/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1665
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F70000000520@
+1 FAMS @F10000000520@
+1 SOUR @S01@
+0 @I00000000519@ INDI
+1 NAME Judith /Hewes/
+1 SEX F
+1 CHR
+2 DATE 1 Mar 1667
+2 PLAC Kersey, St. Mary, Suffolk
+2 NOTE Record Source: IGI
+1 FAMC @F70000000519@
+1 FAMS @F10000000520@
+1 SOUR @S01@
+0 @I00000000506@ INDI
+1 NAME Robert /Marrington/
+1 SEX M
+1 CHR
+2 DATE 21 Jul 1692
+2 PLAC Kersey, St. Mary, Suffolk
+1 FAMC @F10000000520@
+1 FAMS @F10000000506@
+1 SOUR @S01@
+0 @I00000000521@ INDI
+1 NAME Christopher /Merriton/
+1 SEX M
+1 CHR
+2 DATE 12 Feb 1694
+2 PLAC Kersey, St. Mary, Suffolk
+2 NOTE Record Source: IGI
+1 FAMC @F10000000520@
+1 SOUR @S01@
+0 @I00000000522@ INDI
+1 NAME Judith /Marrington/
+1 SEX F
+1 CHR
+2 DATE 15 Jul 1697
+2 PLAC Kersey, St. Mary, Suffolk
+2 NOTE Record Source: IGI
+1 BURI
+2 DATE 21 Nov 1721
+2 PLAC Kersey, St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000520@
+1 FAMS @F81000000522@
+1 SOUR @S01@
+0 @I00000000511@ INDI
+1 NAME Sarah /Merrington/
+1 SEX F
+1 CHR
+2 DATE 7 Feb 1728
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000506@
+1 FAMS @F81000000511@
+1 SOUR @S01@
+0 @I00000000509@ INDI
+1 NAME Mary /Merenton/
+1 SEX F
+1 CHR
+2 DATE 16 Oct 1729
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000506@
+1 SOUR @S01@
+0 @I00000000510@ INDI
+1 NAME Robert /Merrington/
+1 SEX M
+1 CHR
+2 DATE 2 Mar 1731
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 12 Sep 1741
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Son of Robert and Sary.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000506@
+1 SOUR @S01@
+0 @I00000000501@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 Sep 1734
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 27 Aug 1768
+2 PLAC Buxhall, St. Mary, Suffolk
+2 AGE 33y
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000501@
+1 FAMS @F10000000502@
+1 SOUR @S01@
+0 @I00000000502@ INDI
+1 NAME William /Mirrington/
+1 SEX M
+1 CHR
+2 DATE 8 Oct 1734
+2 PLAC Hitcham, All Saints, Suffolk
+1 BURI
+2 DATE 28 Jan 1820
+2 PLAC Elmsett, St. Peter, Suffolk
+2 AGE 85y
+2 NOTE Of Elmsett.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000506@
+1 FAMS @F10000000502@
+1 FAMS @F20000000502@
+1 SOUR @S01@
+0 @I00000000518@ INDI
+1 NAME Judith /Merenton/
+1 SEX F
+1 CHR
+2 DATE 11 Jul 1738
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000506@
+1 FAMS @F81000000518@
+1 SOUR @S01@
+0 @I00000000507@ INDI
+1 NAME Sarah /Mirrington/
+1 SEX F
+1 CHR
+2 DATE 13 Nov 1748
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000507@
+1 SOUR @S01@
+0 @I00000000517@ INDI
+1 NAME Mary /Mirrington/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1759
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000502@
+1 FAMS @F81000000517@
+1 SOUR @S01@
+0 @I00000000514@ INDI
+1 NAME Robert /Mirrington/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1760
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000502@
+1 SOUR @S01@
+0 @I00000000513@ INDI
+1 NAME William /Mirrington/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1760
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000502@
+1 SOUR @S01@
+0 @I00000000515@ INDI
+1 NAME Ann /Mirrington/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1760
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000502@
+1 SOUR @S01@
+0 @I00000000512@ INDI
+1 NAME Sarah /Mirrington/
+1 SEX F
+1 CHR
+2 DATE 1 Jan 1760
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000502@
+1 SOUR @S01@
+0 @I00000000503@ INDI
+1 NAME John /Mirrington/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1766
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 2 Sep 1766
+2 PLAC Buxhall, St. Mary, Suffolk
+2 NOTE An infant from Hitcham.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000502@
+1 SOUR @S01@
+0 @I00000000516@ INDI
+1 NAME John /Mirrington/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1768
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 FAMC @F10000000502@
+1 SOUR @S01@
+0 @I00000000504@ INDI
+1 NAME Ralph Warren /Merrington/
+1 SEX M
+1 CHR
+2 DATE 4 Jun 1773
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 Dec 1773
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Son of William and Susan Mirrington.
+3 CONT Record Source: Church Register
+1 FAMC @F20000000502@
+1 SOUR @S01@
+0 @I00000000505@ INDI
+1 NAME Mercy /Merrington/
+1 SEX F
+1 CHR
+2 DATE 14 Jun 1774
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 29 Sep 1774
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Daughter of William and Susan Mirrington.
+3 CONT Record Source: Church Register
+1 FAMC @F20000000502@
+1 SOUR @S01@
+0 @I00000000508@ INDI
+1 NAME Susan /Mirrington/
+1 SEX F
+1 CHR
+2 DATE 14 Nov 1775
+2 PLAC Hitcham, All Saints, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F20000000502@
+1 SOUR @S01@
+0 @F10000000502@ FAM
+1 MARR
+2 DATE 17 Apr 1757
+2 PLAC Buxhall, St. Mary, Suffolk
+1 HUSB @I00000000502@
+1 WIFE @I00000000501@
+1 CHIL @I00000000503@
+1 CHIL @I00000000512@
+1 CHIL @I00000000513@
+1 CHIL @I00000000514@
+1 CHIL @I00000000515@
+1 CHIL @I00000000516@
+1 CHIL @I00000000517@
+1 SOUR @S01@
+0 @F10000000506@ FAM
+1 MARR
+2 DATE 19 Jan 1727
+2 PLAC Kersey, St. Mary, Suffolk
+1 HUSB @I00000000506@
+1 WIFE @I81000000506@
+1 CHIL @I00000000502@
+1 CHIL @I00000000509@
+1 CHIL @I00000000510@
+1 CHIL @I00000000511@
+1 CHIL @I00000000518@
+1 SOUR @S01@
+0 @F10000000520@ FAM
+1 MARR
+2 DATE 18 Nov 1690
+2 PLAC Kersey, St. Mary, Suffolk
+1 HUSB @I00000000520@
+1 WIFE @I00000000519@
+1 CHIL @I00000000506@
+1 CHIL @I00000000521@
+1 CHIL @I00000000522@
+1 SOUR @S01@
+0 @F20000000502@ FAM
+1 MARR
+2 DATE 20 Nov 1770
+2 PLAC Brettenham, St. Mary, Suffolk
+1 HUSB @I00000000502@
+1 WIFE @I82000000502@
+1 CHIL @I00000000504@
+1 CHIL @I00000000505@
+1 CHIL @I00000000508@
+1 SOUR @S01@
+0 @F81000000511@ FAM
+1 MARR
+2 DATE 24 Feb 1756
+2 PLAC Hitcham, All Saints, Suffolk
+1 HUSB @I81000000511@
+1 WIFE @I00000000511@
+1 SOUR @S01@
+0 @F81000000517@ FAM
+1 MARR
+2 DATE 20 Feb 1776
+2 PLAC Hitcham, All Saints, Suffolk
+1 HUSB @I81000000517@
+1 WIFE @I00000000517@
+1 SOUR @S01@
+0 @F81000000518@ FAM
+1 MARR
+2 DATE 13 Oct 1768
+2 PLAC Whatfield, St. Margaret, Suffolk
+1 HUSB @I81000000518@
+1 WIFE @I00000000518@
+1 SOUR @S01@
+0 @F81000000522@ FAM
+1 MARR
+2 DATE 3 Oct 1719
+2 PLAC Kersey, St. Mary, Suffolk
+1 HUSB @I81000000522@
+1 WIFE @I00000000522@
+1 SOUR @S01@
+0 @F70000000501@ FAM
+1 HUSB @I92000000501@
+1 WIFE @I91000000501@
+1 CHIL @I00000000501@
+1 SOUR @S01@
+0 @I92000000501@ INDI
+1 NAME John/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000501@ INDI
+1 NAME Sarah/Fuller/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000507@ FAM
+1 WIFE @I91000000507@
+1 CHIL @I00000000507@
+1 SOUR @S01@
+0 @I91000000507@ INDI
+1 NAME Sarah/Mirrington/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000519@ FAM
+1 HUSB @I92000000519@
+1 WIFE @I91000000519@
+1 CHIL @I00000000519@
+1 SOUR @S01@
+0 @I92000000519@ INDI
+1 NAME Joseph/Hewes/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000519@ INDI
+1 NAME Ann/Hewes/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000520@ FAM
+1 HUSB @I92000000520@
+1 CHIL @I00000000520@
+1 SOUR @S01@
+0 @I92000000520@ INDI
+1 NAME (?)/Marrington/
+1 SEX M
+1 SOUR @S01@
+0 @I81000000506@ INDI
+1 NAME Sary /Osbon/
+1 SEX F
+1 FAMS @F10000000506@
+1 SOUR @S01@
+0 @I81000000511@ INDI
+1 NAME Samuel /Witten/
+1 SEX M
+1 FAMS @F81000000511@
+1 SOUR @S01@
+0 @I81000000517@ INDI
+1 NAME John /Welham/
+1 SEX M
+1 FAMS @F81000000517@
+1 SOUR @S01@
+0 @I81000000518@ INDI
+1 NAME Richard /Grimwood/
+1 SEX M
+1 FAMS @F81000000518@
+1 SOUR @S01@
+0 @I81000000522@ INDI
+1 NAME John /Vince/
+1 SEX M
+1 FAMS @F81000000522@
+1 SOUR @S01@
+0 @I82000000502@ INDI
+1 NAME Susan /Warren/
+1 SEX F
+1 FAMS @F20000000502@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

@@ -1,0 +1,1796 @@
+0 HEAD
+1 SOUR FullerFamilyHistory
+2 VERS 5.0
+2 NAME Fuller Family History
+2 CORP Charles Fuller
+2 DATA Details of the family of Fuller of Stowmarket, Suffolk and Northfleet, Kent
+3 DATE 09 Oct 2015
+3 COPR Copyright (c) 2015
+1 DEST PAF
+1 DATE 09 Oct 2015
+2 TIME 02:09:29
+1 FILE FFH_FT_Members_001
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSEL
+1 SUBM @SUB01@
+1 SUBN @N01@
+0 @SUB01@ SUBM
+1 NAME Charles /Fuller/
+1 ADDR Please contact by e-mail using
+2 CONT mailto:charles.fuller at btinternet.com
+0 @N01@ SUBN
+1 SUBM @SUB01@
+1 FAMF Fuller of Stowmarket, Suffolk and Northfleet, Kent
+0 @I00000000003@ INDI
+1 NAME Jane /Barnard/
+1 SEX F
+1 CHR
+2 DATE 30 Nov 1769
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 30 Apr 1832
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 60y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000003@
+1 FAMS @F10000000001@
+1 SOUR @S01@
+0 @I00000000001@ INDI
+1 NAME Jacob /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Aug 1774
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 27 Aug 1826
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 51y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000001@
+1 FAMS @F10000000001@
+1 SOUR @S01@
+0 @I00000001117@ INDI
+1 NAME John Archer /Arnold/
+1 SEX M
+1 CHR
+2 DATE 17 Aug 1793
+2 PLAC <Unknown>, England
+2 NOTE Place unknown, possibly Coventry.
+1 BURI
+2 DATE 2 Aug 1852
+2 PLAC Gravesend, St. George, Kent
+2 AGE 59y
+2 NOTE Of Windmill Street. NOTEID-00001.
+3 CONT Record Source: Church Register
+1 PROB
+2 DATE 10 Oct 1852
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Court: Prerogative Court of Canterbury
+3 CONT Type of document:Will
+3 CONT Occupation: Sheriff's Officer
+3 CONT Additional information: Of Windmill Street, Gravesend.
+1 FAMC @F70000001117@
+1 FAMS @F10000001117@
+1 SOUR @S01@
+0 @I00000000004@ INDI
+1 NAME Mary /Fuller/
+1 SEX F
+1 CHR
+2 DATE 5 Mar 1797
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 18 May 1865
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 66y
+2 NOTE Of Peacock Street, Gravesend.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000001@
+1 FAMS @F10000001117@
+1 SOUR @S01@
+0 @I00000000011@ INDI
+1 NAME Amy /Mills/
+1 SEX F
+1 CHR
+2 DATE 1 Jun 1800
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 18 Feb 1873
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 73y
+2 NOTE Of Perry Street.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000011@
+1 FAMS @F10000000005@
+1 SOUR @S01@
+0 @I00000000005@ INDI
+1 NAME Jacob /Fuller/
+1 SEX M
+1 CHR
+2 DATE 22 Dec 1800
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Sep 1862
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 61y
+2 NOTE Of Perry Street.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000001@
+1 FAMS @F10000000005@
+1 SOUR @S01@
+0 @I00000000007@ INDI
+1 NAME Charles /Fuller/
+1 SEX M
+1 CHR
+2 DATE 15 Jul 1803
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 24 Feb 1833
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 29y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000001@
+1 SOUR @S01@
+0 @I00000000006@ INDI
+1 NAME John /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Mar 1807
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000001@
+1 SOUR @S01@
+0 @I00000000008@ INDI
+1 NAME George /Fuller/
+1 SEX M
+1 CHR
+2 DATE 28 Jul 1811
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 25 Dec 1810
+1 BURI
+2 DATE 2 Jun 1862
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 52y
+2 NOTE Of Strood Union.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000001@
+1 SOUR @S01@
+0 @I00000000375@ INDI
+1 NAME Richard /Hills/
+1 SEX M
+1 CHR
+2 DATE 21 Jun 1812
+2 PLAC Stone near Dartford, St. Mary, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 24 Jun 1855
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 43y
+2 NOTE Of Nine Elms Grove.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000375@
+1 FAMS @F10000000375@
+1 SOUR @S01@
+0 @I00000000047@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 1 Jan 1815
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 13 Feb 1875
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 67y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000001@
+1 FAMS @F10000000047@
+1 SOUR @S01@
+0 @I00000000048@ INDI
+1 NAME Harriet /Medhurst/
+1 SEX F
+1 CHR
+2 DATE 27 Apr 1817
+2 PLAC Oxted, St. Mary, Surrey
+1 BURI
+2 DATE 17 Apr 1864
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 48y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000048@
+1 FAMS @F10000000047@
+1 SOUR @S01@
+0 @I00000000576@ INDI
+1 NAME John /Young/
+1 SEX M
+1 CHR
+2 DATE 14 Sep 1818
+2 PLAC Fawkham, St. Mary, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 6 Feb 1883
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 63y
+2 NOTE Of Perry Street, Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000576@
+1 FAMS @F10000000576@
+1 SOUR @S01@
+0 @I00000001119@ INDI
+1 NAME William /Arnold/
+1 SEX M
+1 CHR
+2 DATE 23 Feb 1820
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Twin.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 16 Mar 1820
+2 PLAC Gravesend, St. George, Kent
+2 AGE 14d
+2 NOTE Of West Street, Gravesend.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001117@
+1 SOUR @S01@
+0 @I00000001118@ INDI
+1 NAME Thomas /Arnold/
+1 SEX M
+1 CHR
+2 DATE 23 Feb 1820
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Twin.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 16 Mar 1820
+2 PLAC Gravesend, St. George, Kent
+2 AGE 14d
+2 NOTE Of West Street, Gravesend.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001117@
+1 SOUR @S01@
+0 @I00000001120@ INDI
+1 NAME Maria /Arnold/
+1 SEX F
+1 CHR
+2 DATE 30 Mar 1821
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 28 Feb 1901
+2 PLAC <Unknown>, England
+2 AGE 80y
+2 NOTE Widow, of 176 Haverstock Hill, Middlesex. Died in Hampstead Registration district reference 1a 458.
+1 FAMC @F10000001117@
+1 FAMS @F10000001122@
+1 SOUR @S01@
+0 @I00000001121@ INDI
+1 NAME Mary Anne /Arnold/
+1 SEX F
+1 CHR
+2 DATE 5 Jul 1822
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 25 Sep 1825
+2 PLAC Gravesend, St. George, Kent
+2 AGE 4y
+2 NOTE Of West Street, Gravesend.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001117@
+1 SOUR @S01@
+0 @I00000000381@ INDI
+1 NAME Thomas /Atkins/
+1 SEX M
+1 CHR
+2 DATE 23 Jun 1823
+2 PLAC Horton Kirby, St. Mary, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 22 Dec 1902
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 82y
+2 NOTE Of 29 Coopers Road, Perry Street, Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000381@
+1 FAMS @F10000000381@
+1 SOUR @S01@
+0 @I00000000009@ INDI
+1 NAME Mary Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 16 Jan 1824
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 22 Nov 1875
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 50y
+2 NOTE Of Harmer Street.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000005@
+1 FAMS @F10000000375@
+1 SOUR @S01@
+0 @I00000001122@ INDI
+1 NAME John Edmeads /Tolhurst/
+1 SEX M
+1 CHR
+2 DATE 3 Aug 1824
+2 PLAC Milton-by-Gravesend, Holy Trinity, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Apr 1883
+2 PLAC <Unknown>, England
+2 AGE 58y
+2 NOTE Date unknown, in Camberwell Registration district, reference 14 465.
+1 FAMC @F70000001122@
+1 FAMS @F10000001122@
+1 SOUR @S01@
+0 @I00000000010@ INDI
+1 NAME Keziah /Fuller/
+1 SEX F
+1 CHR
+2 DATE 8 Oct 1826
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Apr 1902
+2 PLAC <Unknown>, England
+2 AGE 74y
+2 NOTE Date unknown, in Strood Registration district.
+1 FAMC @F10000000005@
+1 FAMS @F10000000381@
+1 SOUR @S01@
+0 @I00000000012@ INDI
+1 NAME Jacob /Fuller/
+1 SEX M
+1 CHR
+2 DATE 15 Jan 1829
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 20 Jan 1829
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 14d
+2 NOTE Of Northfleet, aged 2 weeks.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000005@
+1 SOUR @S01@
+0 @I00000000013@ INDI
+1 NAME Eliza /Fuller/
+1 SEX F
+1 CHR
+2 DATE 10 Jan 1830
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 15 Apr 1899
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 68y
+2 NOTE Widow, of Strood Workhouse.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000005@
+1 FAMS @F10000000576@
+1 SOUR @S01@
+0 @I00000000014@ INDI
+1 NAME Jacob /Fuller/
+1 SEX M
+1 CHR
+2 DATE 14 Apr 1832
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 8 Apr 1915
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 83y
+2 NOTE Of 79 Cooper's Road.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000005@
+1 FAMS @F10000000014@
+1 SOUR @S01@
+0 @I00000000015@ INDI
+1 NAME Sarah /Jeffrey/
+1 SEX F
+1 CHR
+2 DATE 1 May 1832
+2 PLAC <Unknown>, England
+2 NOTE Date and place unknown.
+1 BURI
+2 DATE 25 May 1891
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 58y
+2 NOTE Of Gravesend.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000015@
+1 FAMS @F10000000014@
+1 SOUR @S01@
+0 @I00000000016@ INDI
+1 NAME James /Fuller/
+1 SEX M
+1 CHR
+2 DATE 9 Oct 1834
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 18 Apr 1903
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 68y
+2 NOTE Cement Labourer, of Northfleet, buried in grave 1002D.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000005@
+1 FAMS @F10000000016@
+1 SOUR @S01@
+0 @I00000000018@ INDI
+1 NAME James Valentine /Goodwin/
+1 SEX M
+1 CHR
+2 DATE 31 May 1835
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Apr 1895
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 59y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000018@
+1 FAMS @F10000000018@
+1 SOUR @S01@
+0 @I00000000261@ INDI
+1 NAME Sophia /Fry/
+1 SEX F
+1 CHR
+2 DATE 5 Mar 1837
+2 PLAC Seal, St. Peter and St. Paul, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 1 Jul 1899
+2 PLAC <Unknown>, England
+2 AGE 64y
+2 NOTE Date unknown, in Strood Registration district.
+1 FAMC @F70000000261@
+1 FAMS @F10000000016@
+1 SOUR @S01@
+0 @I00000000017@ INDI
+1 NAME Emma /Fuller/
+1 SEX F
+1 CHR
+2 DATE 25 Jun 1837
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 5 Feb 1921
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 83y
+2 NOTE Of 60 Perry Street, Northfleet. Buried in private grave 4923.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000005@
+1 FAMS @F10000000018@
+1 SOUR @S01@
+0 @I00000000049@ INDI
+1 NAME William /Fuller/
+1 SEX M
+1 CHR
+2 DATE 7 Jul 1839
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 19 Jun 1839
+1 FAMC @F10000000047@
+1 SOUR @S01@
+0 @I00000000019@ INDI
+1 NAME Harriet /Fuller/
+1 SEX F
+1 CHR
+2 DATE 2 Feb 1840
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 11 Jan 1840
+1 BURI
+2 DATE 27 Oct 1844
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 5y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000005@
+1 SOUR @S01@
+0 @I00000000050@ INDI
+1 NAME Harriet /Fuller/
+1 SEX F
+1 CHR
+2 DATE 5 Sep 1841
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Aug 1841
+1 BURI
+2 DATE 25 Sep 1842
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 13m
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000047@
+1 SOUR @S01@
+0 @I00000000051@ INDI
+1 NAME Charles /Fuller/
+1 SEX M
+1 CHR
+2 DATE 14 May 1843
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 26 Apr 1843
+1 BURI
+2 DATE 29 Jan 1847
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 4y
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000047@
+1 SOUR @S01@
+0 @I00000001345@ INDI
+1 NAME John David /Stevens/
+1 SEX M
+1 CHR
+2 DATE 1 Oct 1843
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 Aug 1911
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 68y
+2 NOTE Labourer, died at Gravesend. Buried in grave 400J.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001345@
+1 FAMS @F10000001345@
+1 SOUR @S01@
+0 @I00000000052@ INDI
+1 NAME Ann /Fuller/
+1 SEX F
+1 CHR
+2 DATE 16 Mar 1845
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 19 Feb 1845
+1 FAMC @F10000000047@
+1 FAMS @F81000000052@
+1 SOUR @S01@
+0 @I00000001123@ INDI
+1 NAME Mary Ann Arnold /Tolhurst/
+1 SEX F
+1 CHR
+2 DATE 15 Apr 1846
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001122@
+1 FAMS @F81000001123@
+1 SOUR @S01@
+0 @I00000000376@ INDI
+1 NAME Mary Ann /Hills/
+1 SEX F
+1 CHR
+2 DATE 1 Nov 1846
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 12 Dec 1847
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 14m
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000375@
+1 SOUR @S01@
+0 @I00000000204@ INDI
+1 NAME William Thomas /Allard/
+1 SEX M
+1 CHR
+2 DATE 22 Nov 1846
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 May 1911
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 64y
+2 NOTE Greengrocer, of Northfleet. Buried in grave D-987.
+3 CONT Record Source: Church Register
+1 FAMC @F70000000204@
+1 FAMS @F10000000204@
+1 SOUR @S01@
+0 @I00000001124@ INDI
+1 NAME Maria Eliza /Tolhurst/
+1 SEX F
+1 CHR
+2 DATE 25 Apr 1847
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000001122@
+1 FAMS @F81000001124@
+1 SOUR @S01@
+0 @I00000000053@ INDI
+1 NAME Eliza /Fuller/
+1 SEX F
+1 CHR
+2 DATE 17 Oct 1847
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Sep 1847
+1 BURI
+2 DATE 22 Aug 1924
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 76y
+2 NOTE Widow, of 55 Perry Street. Buried in grave C-323.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000047@
+1 FAMS @F10000000204@
+1 SOUR @S01@
+0 @I00000000382@ INDI
+1 NAME Thomas /Atkins/
+1 SEX M
+1 CHR
+2 DATE 15 Apr 1848
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 15 Mar 1848
+1 FAMC @F10000000381@
+1 SOUR @S01@
+0 @I00000000377@ INDI
+1 NAME Emma /Hills/
+1 SEX F
+1 CHR
+2 DATE 10 Sep 1848
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000375@
+1 FAMS @F10000001345@
+1 SOUR @S01@
+0 @I00000001125@ INDI
+1 NAME Emma Arnold /Tolhurst/
+1 SEX F
+1 CHR
+2 DATE 22 Oct 1848
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 23 Jun 1850
+2 PLAC Gravesend, St. George, Kent
+2 AGE 21m
+2 NOTE Of Windmill Street.
+3 CONT Record Source: Church Register
+1 FAMC @F10000001122@
+1 SOUR @S01@
+0 @I00000000383@ INDI
+1 NAME Richard /Atkins/
+1 SEX M
+1 CHR
+2 DATE 15 Nov 1849
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 12 Nov 1849
+1 BURI
+2 DATE 6 Sep 1850
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 9m
+2 NOTE Of Northfleet.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000381@
+1 SOUR @S01@
+0 @I00000000054@ INDI
+1 NAME George /Fuller/
+1 SEX M
+1 CHR
+2 DATE 17 Mar 1850
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 24 Feb 1850
+1 BURI
+2 DATE 1 Sep 1850
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 6y
+2 NOTE Of Northfleet. [I suspect the age should be 6 months.].
+3 CONT Record Source: Church Register
+1 FAMC @F10000000047@
+1 SOUR @S01@
+0 @I00000000378@ INDI
+1 NAME Henry Richard /Hills/
+1 SEX M
+1 CHR
+2 DATE 13 Oct 1850
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 14 Mar 1929
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 78y
+2 NOTE Labourer, of 20 Alfred Place, Northfleet. Buried in grave D-969.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000375@
+1 SOUR @S01@
+0 @I00000001126@ INDI
+1 NAME Hannah /Tolhurst/
+1 SEX F
+1 CHR
+2 DATE 7 Mar 1855
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 25 Dec 1850
+1 FAMC @F10000001122@
+1 FAMS @F81000001126@
+1 SOUR @S01@
+0 @I00000000055@ INDI
+1 NAME Henry /Fuller/
+1 SEX M
+1 CHR
+2 DATE 25 May 1852
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000047@
+1 SOUR @S01@
+0 @I00000000056@ INDI
+1 NAME Alfred /Fuller/
+1 SEX M
+1 CHR
+2 DATE 21 Jan 1855
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000047@
+1 SOUR @S01@
+0 @I00000000020@ INDI
+1 NAME Henry James /Fuller/
+1 SEX M
+1 CHR
+2 DATE 23 Nov 1856
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 4 Aug 1870
+2 PLAC Northfleet, St. Botolph, Kent
+2 AGE 13y
+2 NOTE Of Perry Street.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000014@
+1 SOUR @S01@
+0 @I00000000021@ INDI
+1 NAME William Ernest /Fuller/
+1 SEX M
+1 CHR
+2 DATE 9 Aug 1857
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 26 Jul 1929
+2 PLAC -- International --, -- International --
+2 AGE 73y
+2 NOTE At District Hospital, Mackay, Queensland, Australia.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000016@
+1 SOUR @S01@
+0 @I00000000026@ INDI
+1 NAME Arthur William /Fuller/
+1 SEX M
+1 BIRT
+2 DATE 15 Sep 1858
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 15 Sep 1858
+1 BURI
+2 DATE 11 Jul 1919
+2 PLAC Civil Registration, England
+2 AGE 60y
+2 NOTE At Braintree.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000014@
+1 FAMS @F10000000026@
+1 SOUR @S01@
+0 @I00000000022@ INDI
+1 NAME Amy /Fuller/
+1 SEX F
+1 CHR
+2 DATE 25 Sep 1859
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 25 Aug 1859
+1 BURI
+2 DATE 1 Oct 1934
+2 PLAC <Unknown>, England
+2 AGE 75y
+2 NOTE Date unknown, in Lewisham Registration district, reference 1d 959.
+1 FAMC @F10000000016@
+1 FAMS @F10000000371@
+1 SOUR @S01@
+0 @I00000000057@ INDI
+1 NAME James /Fuller/
+1 SEX M
+1 CHR
+2 DATE 29 Jan 1860
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 9 Dec 1859
+1 FAMC @F10000000047@
+1 SOUR @S01@
+0 @I00000000605@ INDI
+1 NAME Alice /Atkins/
+1 SEX F
+1 CHR
+2 DATE 27 Jan 1861
+2 PLAC Rosherville, St. Mark, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000381@
+1 FAMS @F81000000605@
+1 SOUR @S01@
+0 @I00000000027@ INDI
+1 NAME Frederick Jacob /Fuller/
+1 SEX M
+1 CHR
+2 DATE 4 Aug 1861
+2 PLAC Poplar, All Saints, Middlesex
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 15 May 1861
+1 BURI
+2 DATE 21 Aug 1943
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 82y
+2 NOTE Retired Bank Clerk, of 28 Old Road West, Gravesend. Buried in grave E-47.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000014@
+1 FAMS @F10000000027@
+1 SOUR @S01@
+0 @I00000000058@ INDI
+1 NAME Louisa /Fuller/
+1 SEX F
+1 CHR
+2 DATE 23 Feb 1862
+2 PLAC Rosherville, St. Mark, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000016@
+1 FAMS @F81000000058@
+1 SOUR @S01@
+0 @I00000000374@ INDI
+1 NAME Ann Maria Harding /Coy/
+1 SEX F
+1 CHR
+2 DATE 1 Apr 1862
+2 PLAC <Unknown>, England
+2 NOTE Date unknown. Born at Gravesend, parents not married.
+1 FAMC @F70000000374@
+1 FAMS @F10000000027@
+1 SOUR @S01@
+0 @I00000000371@ INDI
+1 NAME Edward /Stoneham/
+1 SEX M
+1 CHR
+2 DATE 27 Sep 1863
+2 PLAC Southfleet, St. Nicholas, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F70000000371@
+1 FAMS @F10000000371@
+1 SOUR @S01@
+0 @I00000000023@ INDI
+1 NAME Richard Henry /Fuller/
+1 SEX M
+1 CHR
+2 DATE 29 May 1864
+2 PLAC Rosherville, St. Mark, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 25 Apr 1935
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 70y
+2 NOTE Of 50 Dover Road East, Northfleet. Buried in grave 422B3.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000016@
+1 FAMS @F10000000023@
+1 SOUR @S01@
+0 @I00000000028@ INDI
+1 NAME Harriet Sarah /Goodrum/
+1 SEX F
+1 BIRT
+2 DATE 1 Jan 1865
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 1 Jan 1865
+1 BURI
+2 DATE 26 Aug 1919
+2 PLAC Civil Registration, England
+2 AGE 54y
+2 NOTE At Braintree.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F70000000028@
+1 FAMS @F10000000026@
+1 SOUR @S01@
+0 @I00000001344@ INDI
+1 NAME Margaret Lakeman /Hake/
+1 SEX F
+1 CHR
+2 DATE 7 Jun 1865
+2 PLAC Plymouth, St. Andrew, Devon
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 25 May 1865
+1 BURI
+2 DATE 16 Dec 1939
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 74y
+2 NOTE Of "The Winnatts", Manor Drive, Hartley. Buried in grave 422B3.
+3 CONT Record Source: Church Register
+1 FAMC @F70000001344@
+1 FAMS @F10000000023@
+1 SOUR @S01@
+0 @I00000000024@ INDI
+1 NAME James Mills /Fuller/
+1 SEX M
+1 CHR
+2 DATE 25 Nov 1866
+2 PLAC Rosherville, St. Mark, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 12 Dec 1943
+2 PLAC Civil Registration, England
+2 AGE 77y
+2 NOTE Male Nurse (Retired), of 53 Grove Buildings, Chelsea.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000016@
+1 SOUR @S01@
+0 @I00000000025@ INDI
+1 NAME Jessie /Fuller/
+1 SEX F
+1 CHR
+2 DATE 3 Nov 1869
+2 PLAC Rosherville, St. Mark, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000016@
+1 SOUR @S01@
+0 @I00000000044@ INDI
+1 NAME Jacob /Fuller/
+1 SEX M
+1 CHR
+2 DATE 20 Mar 1872
+2 PLAC Northfleet, Perry Street, All Saints, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000016@
+1 SOUR @S01@
+0 @I00000000607@ INDI
+1 NAME Lavinia Emily Maud /Allard/
+1 SEX F
+1 CHR
+2 DATE 14 Jul 1872
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 6 May 1872
+1 BURI
+2 DATE 29 Dec 1917
+2 PLAC Northfleet, Cemetery, Kent
+2 AGE 45y
+2 NOTE Inmate, of Barming Asylum. Buried in grave C-323.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000204@
+1 SOUR @S01@
+0 @I00000000045@ INDI
+1 NAME Alice /Fuller/
+1 SEX F
+1 CHR
+2 DATE 12 Jan 1876
+2 PLAC Northfleet, Perry Street, All Saints, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 1 Dec 1875
+1 FAMC @F10000000016@
+1 SOUR @S01@
+0 @I00000000606@ INDI
+1 NAME Elizabeth Ann /Allard/
+1 SEX F
+1 CHR
+2 DATE 24 Feb 1877
+2 PLAC Northfleet, St. Botolph, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 29 Nov 1876
+1 FAMC @F10000000204@
+1 SOUR @S01@
+0 @I00000000046@ INDI
+1 NAME Cecilia Ada /Fuller/
+1 SEX F
+1 CHR
+2 DATE 1 May 1878
+2 PLAC Northfleet, Perry Street, All Saints, Kent
+2 NOTE Record Source: Church Register
+1 BIRT
+2 DATE 17 Mar 1878
+1 FAMC @F10000000016@
+1 FAMS @F81000000046@
+1 SOUR @S01@
+0 @I00000000030@ INDI
+1 NAME Lilian /Morris/
+1 SEX F
+1 BIRT
+2 DATE 24 Aug 1886
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 24 Aug 1886
+1 BURI
+2 DATE 19 Dec 1961
+2 PLAC Civil Registration, England
+2 AGE 75y
+2 NOTE Widow of Arthur Jacob Fuller (Schoolmaster), of 27 Elmfield Crescent, Moseley, Birmingham B13. Died from "Myocardial Infarction, Coronary Occlusion, Arterio Sclerosis" at 13 Berry Drive, Bromham, Bedfordshire.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F70000000030@
+1 FAMS @F10000000029@
+1 SOUR @S01@
+0 @I00000000384@ INDI
+1 NAME Harry Bernard /Stoneham/
+1 SEX M
+1 CHR
+2 DATE 27 Feb 1887
+2 PLAC Southfleet, St. Nicholas, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000371@
+1 SOUR @S01@
+0 @I00000000029@ INDI
+1 NAME Arthur Jacob /Fuller/
+1 SEX M
+1 BIRT
+2 DATE 22 Jun 1888
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 22 Jun 1888
+1 BURI
+2 DATE 21 Oct 1937
+2 PLAC Civil Registration, England
+2 AGE 49y
+2 NOTE At Birmingham.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000026@
+1 FAMS @F10000000029@
+1 SOUR @S01@
+0 @I00000000372@ INDI
+1 NAME Albert Edward /Stoneham/
+1 SEX M
+1 CHR
+2 DATE 13 Jan 1889
+2 PLAC Northfleet, Perry Street, All Saints, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000371@
+1 SOUR @S01@
+0 @I00000000187@ INDI
+1 NAME Margie Cecilia /Fuller/
+1 SEX F
+1 CHR
+2 DATE 28 Jan 1905
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 13 Nov 1948
+2 PLAC <Unknown>, England
+2 AGE 58y
+2 NOTE Of 28 Carbery Avenue, London W3, in Ealing Registration district, reference 5e 41.
+1 FAMC @F10000000023@
+1 FAMS @F81000000187@
+1 SOUR @S01@
+0 @I00000000373@ INDI
+1 NAME Edmund Donald /Stoneham/
+1 SEX M
+1 CHR
+2 DATE 8 Feb 1891
+2 PLAC Northfleet, Perry Street, All Saints, Kent
+2 NOTE Record Source: Church Register
+1 FAMC @F10000000371@
+1 SOUR @S01@
+0 @I00000000031@ INDI
+1 NAME Kate /Fuller/
+1 SEX F
+1 BIRT
+2 DATE 26 Apr 1891
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 26 Apr 1891
+1 BURI
+2 DATE 27 Apr 1891
+2 PLAC Civil Registration, England
+2 AGE 1d
+2 NOTE Aged 1.5 hours, daughter of Arthur William Fuller (Ironmonger's Warehouseman), of Back Lane, Swaffham, Norfolk. Cause of death: Premature birth, reported by A. W. Fuller.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000026@
+1 SOUR @S01@
+0 @I00000000188@ INDI
+1 NAME Evangeline Ellie /Fuller/
+1 SEX F
+1 CHR
+2 DATE 28 Jan 1905
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Record Source: Church Register
+1 BURI
+2 DATE 15 Feb 1945
+2 PLAC Gravesend, Cemetery, Kent
+2 AGE 52y
+2 NOTE Of 21 Montrose Avenue, Welling. Buried in grave 2012B15.
+3 CONT Record Source: Church Register
+1 FAMC @F10000000023@
+1 FAMS @F81000000188@
+1 SOUR @S01@
+0 @I00000000032@ INDI
+1 NAME Emily May /Fuller/
+1 SEX F
+1 BIRT
+2 DATE 5 May 1892
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 5 May 1892
+1 BURI
+2 DATE 6 Apr 1932
+2 PLAC Civil Registration, England
+2 AGE 42y
+2 NOTE Wife of Edward Chaplin (Metal Window Fitter), died at William Julien Courtauld Hospital Braintree, of 48 Albert Road, Braintree. Died from "Toxaemia, Fibromyomata Uteri (degenerative), Hysterectomy. Certified.", reported by Edward Chaplin, 
+3 CONT Widower.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000026@
+1 FAMS @F81000000032@
+1 SOUR @S01@
+0 @I00000000033@ INDI
+1 NAME Percy Wilfred /Fuller/
+1 SEX M
+1 BIRT
+2 DATE 4 Aug 1893
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 4 Aug 1893
+1 BURI
+2 DATE 28 Mar 1899
+2 PLAC Civil Registration, England
+2 AGE 5y
+2 NOTE Son of Arthur William Fuller (Store Keeper), of Mount Road, Braintree. Died from Bronchitis Acute Laryngitis Operation Tracheotomy, reported by A. W. Fuller.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000026@
+1 SOUR @S01@
+0 @I00000000034@ INDI
+1 NAME Frank Harold /Fuller/
+1 SEX M
+1 BIRT
+2 DATE 19 Dec 1894
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 19 Dec 1894
+1 BURI
+2 DATE 24 Mar 1899
+2 PLAC Civil Registration, England
+2 AGE 4y
+2 NOTE Son of Arthur William Fuller (Store Keeper), of Mount Road, Braintree. Died from Bronchitis Acute Laryngitis, reported by A. W. Fuller.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000026@
+1 SOUR @S01@
+0 @I00000000035@ INDI
+1 NAME Edgar Stanley /Fuller/
+1 SEX M
+1 BIRT
+2 DATE 5 Feb 1896
+2 PLAC Civil Registration, England
+2 NOTE Record Source: Registration Certificate
+1 BIRT
+2 DATE 5 Feb 1896
+1 BURI
+2 DATE 27 Mar 1899
+2 PLAC Civil Registration, England
+2 AGE 3y
+2 NOTE Son of Arthur William Fuller (Store Keeper), of Mount Road, Braintree. Died from Broncho Pneumonia Acute Laryngitis, reported by A. W. Fuller.
+3 CONT Record Source: Registration Certificate
+1 FAMC @F10000000026@
+1 SOUR @S01@
+0 @I00000000189@ INDI
+1 NAME Connie Alice /Fuller/
+1 SEX F
+1 CHR
+2 DATE 28 Jan 1905
+2 PLAC Gravesend, St. George, Kent
+2 NOTE Name incorrectly recorded as Connie Ellis.
+3 CONT Record Source: Church Register
+1 BURI
+2 DATE 1 Jan 1988
+2 PLAC <Unknown>, England
+2 AGE 98y
+2 NOTE Date unknown, in Gravesend Registration district, reference: "Volume 16 Page 1076 Reg. No. 188". Born 22/01/1898.
+1 FAMC @F10000000023@
+1 FAMS @F81000000189@
+1 SOUR @S01@
+0 @F10000000001@ FAM
+1 MARR
+2 DATE 28 Dec 1793
+2 PLAC Stowmarket, St. Peter and St. Mary, Suffolk
+1 HUSB @I00000000001@
+1 WIFE @I00000000003@
+1 CHIL @I00000000004@
+1 CHIL @I00000000005@
+1 CHIL @I00000000006@
+1 CHIL @I00000000007@
+1 CHIL @I00000000008@
+1 CHIL @I00000000047@
+1 SOUR @S01@
+0 @F10000000005@ FAM
+1 MARR
+2 DATE 6 Apr 1823
+2 PLAC Fawkham, St. Mary, Kent
+1 HUSB @I00000000005@
+1 WIFE @I00000000011@
+1 CHIL @I00000000009@
+1 CHIL @I00000000010@
+1 CHIL @I00000000012@
+1 CHIL @I00000000013@
+1 CHIL @I00000000014@
+1 CHIL @I00000000016@
+1 CHIL @I00000000017@
+1 CHIL @I00000000019@
+1 SOUR @S01@
+0 @F10000000014@ FAM
+1 MARR
+2 DATE 25 Nov 1855
+2 PLAC Rosherville, St. Mark, Kent
+1 HUSB @I00000000014@
+1 WIFE @I00000000015@
+1 CHIL @I00000000020@
+1 CHIL @I00000000026@
+1 CHIL @I00000000027@
+1 SOUR @S01@
+0 @F10000000016@ FAM
+1 MARR
+2 DATE 24 Mar 1856
+2 PLAC Stepney, St. Dunstan, Middlesex
+1 HUSB @I00000000016@
+1 WIFE @I00000000261@
+1 CHIL @I00000000021@
+1 CHIL @I00000000022@
+1 CHIL @I00000000023@
+1 CHIL @I00000000024@
+1 CHIL @I00000000025@
+1 CHIL @I00000000044@
+1 CHIL @I00000000045@
+1 CHIL @I00000000046@
+1 CHIL @I00000000058@
+1 SOUR @S01@
+0 @F10000000018@ FAM
+1 MARR
+2 DATE 25 Nov 1855
+2 PLAC Rosherville, St. Mark, Kent
+1 HUSB @I00000000018@
+1 WIFE @I00000000017@
+1 SOUR @S01@
+0 @F10000000021@ FAM
+1 MARR
+2 DATE 22 Mar 1889
+2 PLAC -- International --, -- International --
+1 HUSB @I00000000021@
+1 WIFE @I81000000021@
+1 SOUR @S01@
+0 @F10000000023@ FAM
+1 MARR
+2 DATE 12 Oct 1889
+2 PLAC Gravesend, St. George, Kent
+1 HUSB @I00000000023@
+1 WIFE @I00000001344@
+1 CHIL @I00000000187@
+1 CHIL @I00000000188@
+1 CHIL @I00000000189@
+1 SOUR @S01@
+0 @F10000000026@ FAM
+1 MARR
+2 DATE 5 Sep 1887
+2 PLAC Swaffham, Particular Baptist Whitecross Road, Norfolk
+1 HUSB @I00000000026@
+1 WIFE @I00000000028@
+1 CHIL @I00000000029@
+1 CHIL @I00000000031@
+1 CHIL @I00000000032@
+1 CHIL @I00000000033@
+1 CHIL @I00000000034@
+1 CHIL @I00000000035@
+1 SOUR @S01@
+0 @F10000000027@ FAM
+1 MARR
+2 DATE 24 Sep 1893
+2 PLAC Milton-by-Gravesend, Christ Church, Kent
+1 HUSB @I00000000027@
+1 WIFE @I00000000374@
+1 SOUR @S01@
+0 @F10000000029@ FAM
+1 MARR
+2 DATE 25 Oct 1919
+2 PLAC Civil Registration, England
+1 HUSB @I00000000029@
+1 WIFE @I00000000030@
+1 SOUR @S01@
+0 @F10000000047@ FAM
+1 MARR
+2 DATE 17 Mar 1839
+2 PLAC Milton-by-Gravesend, St. Peter and St. Paul, Kent
+1 HUSB @I00000000047@
+1 WIFE @I00000000048@
+1 CHIL @I00000000049@
+1 CHIL @I00000000050@
+1 CHIL @I00000000051@
+1 CHIL @I00000000052@
+1 CHIL @I00000000053@
+1 CHIL @I00000000054@
+1 CHIL @I00000000055@
+1 CHIL @I00000000056@
+1 CHIL @I00000000057@
+1 SOUR @S01@
+0 @F10000000204@ FAM
+1 MARR
+2 DATE 29 Jul 1871
+2 PLAC Gravesend, St. George, Kent
+1 HUSB @I00000000204@
+1 WIFE @I00000000053@
+1 CHIL @I00000000606@
+1 CHIL @I00000000607@
+1 SOUR @S01@
+0 @F10000000371@ FAM
+1 MARR
+2 DATE 8 Dec 1883
+2 PLAC Northfleet, Perry Street, All Saints, Kent
+1 HUSB @I00000000371@
+1 WIFE @I00000000022@
+1 CHIL @I00000000372@
+1 CHIL @I00000000373@
+1 CHIL @I00000000384@
+1 SOUR @S01@
+0 @F10000000375@ FAM
+1 MARR
+2 DATE 4 Jan 1846
+2 PLAC Frindsbury, All Saints, Kent
+1 HUSB @I00000000375@
+1 WIFE @I00000000009@
+1 CHIL @I00000000376@
+1 CHIL @I00000000377@
+1 CHIL @I00000000378@
+1 SOUR @S01@
+0 @F10000000381@ FAM
+1 MARR
+2 DATE 19 Feb 1848
+2 PLAC Milton-by-Gravesend, Holy Trinity, Kent
+1 HUSB @I00000000381@
+1 WIFE @I00000000010@
+1 CHIL @I00000000382@
+1 CHIL @I00000000383@
+1 CHIL @I00000000605@
+1 SOUR @S01@
+0 @F10000000576@ FAM
+1 MARR
+2 DATE 7 Oct 1849
+2 PLAC Frindsbury, All Saints, Kent
+1 HUSB @I00000000576@
+1 WIFE @I00000000013@
+1 SOUR @S01@
+0 @F10000001117@ FAM
+1 MARR
+2 DATE 8 Apr 1819
+2 PLAC Luddesdown, St. Peter and St. Paul, Kent
+1 HUSB @I00000001117@
+1 WIFE @I00000000004@
+1 CHIL @I00000001118@
+1 CHIL @I00000001119@
+1 CHIL @I00000001120@
+1 CHIL @I00000001121@
+1 SOUR @S01@
+0 @F10000001122@ FAM
+1 MARR
+2 DATE 14 Apr 1845
+2 PLAC Milton-by-Gravesend, St. Peter and St. Paul, Kent
+1 HUSB @I00000001122@
+1 WIFE @I00000001120@
+1 CHIL @I00000001123@
+1 CHIL @I00000001124@
+1 CHIL @I00000001125@
+1 CHIL @I00000001126@
+1 SOUR @S01@
+0 @F10000001345@ FAM
+1 MARR
+2 DATE 20 Mar 1865
+2 PLAC Rosherville, St. Mark, Kent
+1 HUSB @I00000001345@
+1 WIFE @I00000000377@
+1 SOUR @S01@
+0 @F81000000032@ FAM
+1 MARR
+2 DATE 2 Feb 1916
+2 PLAC Braintree, Baptist, Essex
+1 HUSB @I81000000032@
+1 WIFE @I00000000032@
+1 SOUR @S01@
+0 @F81000000046@ FAM
+1 MARR
+2 DATE 6 Feb 1905
+2 PLAC Chatham, St. Mary, Kent
+1 HUSB @I81000000046@
+1 WIFE @I00000000046@
+1 SOUR @S01@
+0 @F81000000052@ FAM
+1 MARR
+2 DATE 2 Jan 1865
+2 PLAC Crayford, St. Paulinus, Kent
+1 HUSB @I81000000052@
+1 WIFE @I00000000052@
+1 SOUR @S01@
+0 @F81000000058@ FAM
+1 MARR
+2 DATE 5 Apr 1884
+2 PLAC Civil Registration, England
+1 HUSB @I81000000058@
+1 WIFE @I00000000058@
+1 SOUR @S01@
+0 @F81000000187@ FAM
+1 MARR
+2 DATE 19 Dec 1914
+2 PLAC Gravesend, Ebenezer Wesleyan Methodist Milton Road, Kent
+1 HUSB @I81000000187@
+1 WIFE @I00000000187@
+1 SOUR @S01@
+0 @F81000000188@ FAM
+1 MARR
+2 DATE 7 Jun 1919
+2 PLAC Gravesend, Ebenezer Wesleyan Methodist Milton Road, Kent
+1 HUSB @I81000000188@
+1 WIFE @I00000000188@
+1 SOUR @S01@
+0 @F81000000189@ FAM
+1 MARR
+2 DATE 27 Aug 1925
+2 PLAC Gravesend, Ebenezer Wesleyan Methodist Milton Road, Kent
+1 HUSB @I81000000189@
+1 WIFE @I00000000189@
+1 SOUR @S01@
+0 @F81000000605@ FAM
+1 MARR
+2 DATE 7 Feb 1882
+2 PLAC Gravesend, St. James, Kent
+1 HUSB @I81000000605@
+1 WIFE @I00000000605@
+1 SOUR @S01@
+0 @F81000001123@ FAM
+1 MARR
+2 DATE 10 Aug 1870
+2 PLAC Brixton, St. John the Evangelist Angell Town, Surrey
+1 HUSB @I81000001123@
+1 WIFE @I00000001123@
+1 SOUR @S01@
+0 @F81000001124@ FAM
+1 MARR
+2 DATE 10 Jun 1874
+2 PLAC Brixton, St. John the Evangelist Angell Town, Surrey
+1 HUSB @I81000001124@
+1 WIFE @I00000001124@
+1 SOUR @S01@
+0 @F81000001126@ FAM
+1 MARR
+2 DATE 2 Aug 1879
+2 PLAC Camberwell, St. Giles, Surrey
+1 HUSB @I81000001126@
+1 WIFE @I00000001126@
+1 SOUR @S01@
+0 @F70000000001@ FAM
+1 HUSB @I92000000001@
+1 CHIL @I00000000001@
+1 SOUR @S01@
+0 @I92000000001@ INDI
+1 NAME (?)/Fuller/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000003@ FAM
+1 HUSB @I92000000003@
+1 WIFE @I91000000003@
+1 CHIL @I00000000003@
+1 SOUR @S01@
+0 @I92000000003@ INDI
+1 NAME Charles/Barnard/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000003@ INDI
+1 NAME Ruth/Barnard/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000011@ FAM
+1 HUSB @I92000000011@
+1 WIFE @I91000000011@
+1 CHIL @I00000000011@
+1 SOUR @S01@
+0 @I92000000011@ INDI
+1 NAME James/Mills/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000011@ INDI
+1 NAME Phoebe/Mills/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000015@ FAM
+1 HUSB @I92000000015@
+1 CHIL @I00000000015@
+1 SOUR @S01@
+0 @I92000000015@ INDI
+1 NAME John/Jeffrey/
+1 SEX M
+1 SOUR @S01@
+0 @F70000000018@ FAM
+1 HUSB @I92000000018@
+1 WIFE @I91000000018@
+1 CHIL @I00000000018@
+1 SOUR @S01@
+0 @I92000000018@ INDI
+1 NAME William/Goodwin/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000018@ INDI
+1 NAME Sarah/Goodwin/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000028@ FAM
+1 HUSB @I92000000028@
+1 WIFE @I91000000028@
+1 CHIL @I00000000028@
+1 SOUR @S01@
+0 @I92000000028@ INDI
+1 NAME William/Goodrum/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000028@ INDI
+1 NAME Mary Ann/Goodrum/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000030@ FAM
+1 HUSB @I92000000030@
+1 WIFE @I91000000030@
+1 CHIL @I00000000030@
+1 SOUR @S01@
+0 @I92000000030@ INDI
+1 NAME A. Thomas/Morris/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000030@ INDI
+1 NAME Annie/Morris/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000048@ FAM
+1 HUSB @I92000000048@
+1 WIFE @I91000000048@
+1 CHIL @I00000000048@
+1 SOUR @S01@
+0 @I92000000048@ INDI
+1 NAME Henry/Medhurst/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000048@ INDI
+1 NAME Sarah/Medhurst/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000204@ FAM
+1 HUSB @I92000000204@
+1 WIFE @I91000000204@
+1 CHIL @I00000000204@
+1 SOUR @S01@
+0 @I92000000204@ INDI
+1 NAME Adam/Allard/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000204@ INDI
+1 NAME Lavinia/Allard/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000261@ FAM
+1 HUSB @I92000000261@
+1 WIFE @I91000000261@
+1 CHIL @I00000000261@
+1 SOUR @S01@
+0 @I92000000261@ INDI
+1 NAME William/Fry/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000261@ INDI
+1 NAME Sophia/Fry/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000371@ FAM
+1 HUSB @I92000000371@
+1 WIFE @I91000000371@
+1 CHIL @I00000000371@
+1 SOUR @S01@
+0 @I92000000371@ INDI
+1 NAME Edward/Stoneham/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000371@ INDI
+1 NAME Matilda/Stoneham/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000374@ FAM
+1 HUSB @I92000000374@
+1 WIFE @I91000000374@
+1 CHIL @I00000000374@
+1 SOUR @S01@
+0 @I92000000374@ INDI
+1 NAME George/Harding/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000374@ INDI
+1 NAME Mary Ann/Coy/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000375@ FAM
+1 HUSB @I92000000375@
+1 WIFE @I91000000375@
+1 CHIL @I00000000375@
+1 SOUR @S01@
+0 @I92000000375@ INDI
+1 NAME Thomas/Hills/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000375@ INDI
+1 NAME Mary/Hills/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000381@ FAM
+1 HUSB @I92000000381@
+1 WIFE @I91000000381@
+1 CHIL @I00000000381@
+1 SOUR @S01@
+0 @I92000000381@ INDI
+1 NAME Richard/Atkins/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000381@ INDI
+1 NAME Harriet/Atkins/
+1 SEX F
+1 SOUR @S01@
+0 @F70000000576@ FAM
+1 HUSB @I92000000576@
+1 WIFE @I91000000576@
+1 CHIL @I00000000576@
+1 SOUR @S01@
+0 @I92000000576@ INDI
+1 NAME John/Young/
+1 SEX M
+1 SOUR @S01@
+0 @I91000000576@ INDI
+1 NAME Elizabeth/Young/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001117@ FAM
+1 HUSB @I92000001117@
+1 CHIL @I00000001117@
+1 SOUR @S01@
+0 @I92000001117@ INDI
+1 NAME (?)/Arnold/
+1 SEX M
+1 SOUR @S01@
+0 @F70000001122@ FAM
+1 HUSB @I92000001122@
+1 WIFE @I91000001122@
+1 CHIL @I00000001122@
+1 SOUR @S01@
+0 @I92000001122@ INDI
+1 NAME John/Tolhurst/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001122@ INDI
+1 NAME Hannah Ann Aspin/Tolhurst/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001344@ FAM
+1 HUSB @I92000001344@
+1 WIFE @I91000001344@
+1 CHIL @I00000001344@
+1 SOUR @S01@
+0 @I92000001344@ INDI
+1 NAME William Newberry/Hake/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001344@ INDI
+1 NAME Margaret Lakeman/Hake/
+1 SEX F
+1 SOUR @S01@
+0 @F70000001345@ FAM
+1 HUSB @I92000001345@
+1 WIFE @I91000001345@
+1 CHIL @I00000001345@
+1 SOUR @S01@
+0 @I92000001345@ INDI
+1 NAME John/Stevens/
+1 SEX M
+1 SOUR @S01@
+0 @I91000001345@ INDI
+1 NAME Sarah/Stevens/
+1 SEX F
+1 SOUR @S01@
+0 @I81000000021@ INDI
+1 NAME Eleanor Augusta /Addis/
+1 SEX F
+1 FAMS @F10000000021@
+1 SOUR @S01@
+0 @I81000000032@ INDI
+1 NAME Edward /Chaplin/
+1 SEX M
+1 FAMS @F81000000032@
+1 SOUR @S01@
+0 @I81000000046@ INDI
+1 NAME John /Howie/
+1 SEX M
+1 FAMS @F81000000046@
+1 SOUR @S01@
+0 @I81000000052@ INDI
+1 NAME Robert William /Austin/
+1 SEX M
+1 FAMS @F81000000052@
+1 SOUR @S01@
+0 @I81000000058@ INDI
+1 NAME William /Longhurst/
+1 SEX M
+1 FAMS @F81000000058@
+1 SOUR @S01@
+0 @I81000000187@ INDI
+1 NAME Bernard William /Rankin/
+1 SEX M
+1 FAMS @F81000000187@
+1 SOUR @S01@
+0 @I81000000188@ INDI
+1 NAME Frank /Briggs/
+1 SEX M
+1 FAMS @F81000000188@
+1 SOUR @S01@
+0 @I81000000189@ INDI
+1 NAME Arthur Henry /Arnold/
+1 SEX M
+1 FAMS @F81000000189@
+1 SOUR @S01@
+0 @I81000000605@ INDI
+1 NAME Walter Benjamin /Burrow/
+1 SEX M
+1 FAMS @F81000000605@
+1 SOUR @S01@
+0 @I81000001123@ INDI
+1 NAME Richard Adolphus /Howell/
+1 SEX M
+1 FAMS @F81000001123@
+1 SOUR @S01@
+0 @I81000001124@ INDI
+1 NAME Daniel O'Connell /Finigan/
+1 SEX M
+1 FAMS @F81000001124@
+1 SOUR @S01@
+0 @I81000001126@ INDI
+1 NAME Richard /Mills/
+1 SEX M
+1 FAMS @F81000001126@
+1 SOUR @S01@
+0 @S01@ SOUR
+1 AUTH Charles Fuller
+1 TITL Fuller Family History Database
+1 PUBL Copyright (c) 2015, data as of 09 Oct 2015.
+1 REPO @R01@
+0 @R01@ REPO
+1 NAME Fuller Family History
+0 TRLR

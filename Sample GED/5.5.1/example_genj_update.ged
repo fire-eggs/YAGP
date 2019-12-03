@@ -1,0 +1,158 @@
+0 HEAD
+1 SOUR GENJ
+2 VERS 3.0
+2 NAME GenealogyJ
+2 CORP Nils Meier
+3 ADDR http://genj.sourceforge.net
+1 DEST ANY
+1 DATE 28 JAN 2010
+2 TIME 19:38:07
+1 SUBM @B1@
+1 FILE example.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM Lineage-Linked
+1 CHAR ANSEL
+1 LANG German
+0 @B1@ SUBM
+1 NAME Nils Meier
+0 @I1@ INDI
+1 NAME Lars H. /Meier/
+1 SEX M
+1 BIRT
+2 DATE 8 SEP 1937
+2 PLAC Hamburg,HH
+1 OCCU Pilot
+1 FAMS @F1@
+0 @I2@ INDI
+1 NAME Magdalene /Hauschildt/
+1 SEX F
+1 BIRT
+2 DATE 12 JAN 1936
+2 PLAC Quarnstedt,Schleswig-Holstein
+1 OCCU Hausfrau
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Nada /Mandalinic/
+1 SEX F
+1 BIRT
+2 DATE 1 APR 1948
+1 FAMS @F2@
+0 @I4@ INDI
+1 NAME Lars jun. /Meier/
+1 SEX M
+1 BIRT
+2 DATE 23 JUN 1967
+2 PLAC Celle,Niedersachsen
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Sven /Meier/
+1 SEX M
+1 BIRT
+2 DATE 25 MAY 1970
+2 PLAC Rendsburg
+1 OCCU Software Engineer
+1 FAMC @F1@
+1 FAMS @F3@
+0 @I6@ INDI
+1 NAME Sandra /Radovcic/
+1 SEX F
+1 BIRT
+2 DATE 3 JUL 1971
+2 PLAC Kèoln
+1 OCCU Sozialpèadagogin
+1 FAMC @F2@
+1 FAMS @F3@
+0 @I7@ INDI
+1 NAME Jonas /Meier/
+1 SEX M
+1 BIRT
+2 DATE 28 DEC 1994
+2 PLAC Bergisch Gladbach
+1 FAMC @F3@
+0 @I8@ INDI
+1 NAME Nils /Meier/
+1 SEX M
+1 BIRT
+2 DATE 25 MAY 1970
+2 PLAC Rendsburg
+1 GRAD
+2 AGNC Friedrich Wilhelm University Bonn
+2 DATE 10 DEC 1996
+2 PLAC Bonn, NRW
+2 TYPE Diplom Informatiker
+1 OBJE @M1@
+1 FAMC @F1@
+1 NOTE @N1@
+1 RESI
+2 DATE FROM DEC 1996 TO JUL 2000
+2 ADDR Am Hackenbruch 26
+3 CITY Dèusseldorf (Eller)
+3 POST 40231
+1 RESI
+2 DATE FROM JUL 1999 TO DEC 2000
+2 ADDR 1241 Kilborn Place
+3 CONT Apt 202
+3 CITY Ottawa
+3 POST K1H1A5
+3 STAE Ontario
+1 RESI
+2 DATE FROM 1 OCT 2001 TO 1 APR 2004
+2 ADDR 788 Harrison Street
+3 CONT Apt 829
+3 CITY San Francisco
+3 POST 94107
+3 STAE California
+1 IMMI
+2 DATE 4 AUG 2004
+2 PLAC Vancouver,British Columbia,Canada
+1 RESI
+2 DATE FROM 1 OCT 2004
+2 ADDR 2-143 Rusholme Road
+3 CITY Toronto
+3 POST M6H2Y6
+3 STAE Ontario
+1 OCCU Software Engineer
+0 @I9@ INDI
+1 NAME Alisa /Meier/
+1 SEX F
+1 BIRT
+2 DATE 26 NOV 2000
+2 PLAC Bergisch Gladbach
+1 FAMC @F3@
+0 @F1@ FAM
+1 WIFE @I2@
+1 HUSB @I1@
+1 MARR
+2 DATE 9 OCT 1964
+2 PLAC Flagstaff,Arizona,USA
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I8@
+0 @F2@ FAM
+1 WIFE @I3@
+1 CHIL @I6@
+0 @F3@ FAM
+1 MARR
+2 DATE 10 AUG 1994
+2 PLAC Lohmar,Nordrhein Westfalen
+1 WIFE @I6@
+1 HUSB @I5@
+1 CHIL @I7@
+1 CHIL @I9@
+1 CHIL @I10@
+0 @N1@ NOTE The author of GenJ - please visit
+1 CONT http://genj.sourceforge.net
+1 CONT for more information about Genealogy J
+0 @I10@ INDI
+1 NAME Luka /Meier/
+1 SEX M
+1 BIRT
+2 DATE 28 AUG 2004
+2 PLAC Bergisch Gladbach
+1 FAMC @F3@
+0 @M1@ OBJE
+1 FILE meiern.jpg
+2 FORM jpg
+2 TITL Nils in cockpit
+0 TRLR

@@ -1,0 +1,1412 @@
+﻿0 HEAD
+1 SOUR RootsMagic
+2 NAME RootsMagic
+2 VERS 6.3.3.2
+2 CORP RootsMagic, Inc.
+3 ADDR PO Box 495
+4 CONT Springville, UT 84663
+4 CONT USA
+3 PHON 1-800-ROOTSMAGIC
+3 WWW www.RootsMagic.com
+1 DEST RootsMagic
+1 DATE 15 JAN 2017
+1 FILE 2017jan15caa.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @I549911@ INDI
+1 NAME Otto III, Graf von /Tecklenburg/
+2 GIVN Otto III, Graf von
+2 SURN Tecklenburg
+1 SEX M
+1 _UID D2308E9D140B4A93ADE2A2E86EFFF5650913
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61535@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61545@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61557@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 18 MAR 1252/3
+2 SOUR @S61535@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61557@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 1289
+2 _SDATE 1 JUL 1289
+2 SOUR @S61535@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61557@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F178204@
+1 FAMC @F179043@
+1 NOTE @DWNLNOTE@
+0 @I549912@ INDI
+1 NAME Richarde von der /Mark/
+2 GIVN Richarde von der
+2 SURN Mark
+1 SEX F
+1 _UID 8D363932B90D42FCBA5D21B3AF4BC49671A8
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61535@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61545@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61557@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1254
+2 _SDATE 1 JUL 1254
+2 SOUR @S61535@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61557@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 1286
+2 _SDATE 1 JUL 1286
+2 SOUR @S61535@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61557@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F178204@
+1 FAMC @F178191@
+1 NOTE @DWNLNOTE@
+0 @I551585@ INDI
+1 NAME Heilwig, Gräfin von /Tecklenburg/
+2 GIVN Heilwig, Gräfin von
+2 SURN Tecklenburg
+1 SEX F
+1 _UID DE48E4095C114394A984119ACF805F8E6B36
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61540@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1228
+2 _SDATE 1 JUL 1228
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 1263
+2 _SDATE 1 JUL 1263
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F179043@
+1 FAMC @F177784@
+1 NOTE @DWNLNOTE@
+0 @I551586@ INDI
+1 NAME Otto, Graf von /Bentheim/
+2 GIVN Otto, Graf von
+2 SURN Bentheim
+1 SEX M
+1 _UID 7EF7F61F11824F389C5F05CF323EACF78643
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61540@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61545@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61563@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61570@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1143
+2 _SDATE 1 JUL 1143
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 1209
+2 _SDATE 1 JUL 1209
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F179044@
+1 FAMC @F178921@
+1 NOTE @DWNLNOTE@
+0 @I551587@ INDI
+1 NAME Alverade, Gräfin von /Cuijck/
+2 GIVN Alverade, Gräfin von
+2 SURN Cuijck
+1 SEX F
+1 _UID 7A725C9522AD40F9B60E4539C941ABA27EDB
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61540@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61545@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61563@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61570@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1175
+2 _SDATE 1 JUL 1175
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 1205
+2 _SDATE 1 JUL 1205
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F179044@
+1 FAMC @F178856@
+1 FAMC @F183203@
+1 NOTE @DWNLNOTE@
+0 @I551588@ INDI
+1 NAME Otto II, Graf von /Bentheim/
+2 GIVN Otto II, Graf von
+2 SURN Bentheim
+1 SEX M
+1 _UID B5090AB5B061402E9994576F9D6058F73B61
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61540@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1225
+2 _SDATE 1 JUL 1225
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 5 JUN 1278
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F179043@
+1 FAMC @F179045@
+1 NOTE @DWNLNOTE@
+0 @I551589@ INDI
+1 NAME Jutta van /Rietberg/
+2 GIVN Jutta van
+2 SURN Rietberg
+1 SEX F
+1 _UID B500D4948F3D440F9801181F768DA20FC0B2
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61540@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61563@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61570@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1204
+2 _SDATE 1 JUL 1204
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 9 MAY 1248
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F179045@
+1 NOTE @DWNLNOTE@
+0 @I551592@ INDI
+1 NAME Baudoin I, Graf von /Bentheim/
+2 GIVN Baudoin I, Graf von
+2 SURN Bentheim
+2 NSFX Burggraaf van Utrecht
+1 SEX M
+1 _UID A86D437924094A2C941562B380A56A03C4F9
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61540@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61563@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61570@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1202
+2 _SDATE 1 JUL 1202
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 9 MAY 1248
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F179045@
+1 FAMC @F179044@
+1 NOTE @DWNLNOTE@
+0 @I554484@ INDI
+1 NAME Kunigunde von /Bronckhorst/
+2 GIVN Kunigunde von
+2 SURN Bronckhorst
+1 SEX F
+1 _UID 895FB26B7B76446DA3992D5539CAB66482AF
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE AFT 1317
+2 _SDATE 1 JAN 1318
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F180606@
+1 FAMC @F179203@
+1 NOTE @DWNLNOTE@
+0 @I554485@ INDI
+1 NAME Bertha von /Bentheim/
+2 GIVN Bertha von
+2 SURN Bentheim
+1 SEX F
+1 _UID EF91DE47965F456DA34072EE117FCEFCE955
+1 CHAN
+2 DATE 6 FEB 2015
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE Unknown
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F180605@
+1 FAMC @F179045@
+1 NOTE @DWNLNOTE@
+0 @I554491@ INDI
+1 NAME Heinrich II, Graf von /Dale/
+2 GIVN Heinrich II, Graf von
+2 SURN Dale
+1 SEX M
+1 _UID C214AB89363048589C826759E41B17C3C782
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE AFT 1272
+2 _SDATE 1 JAN 1273
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F180605@
+1 FAMC @F179365@
+1 NOTE @DWNLNOTE@
+0 @I554492@ INDI
+1 NAME Otto II, Graf von /Dale/
+2 GIVN Otto II, Graf von
+2 SURN Dale
+2 NSFX Herr zu Diepenheim
+1 SEX M
+1 _UID 66957BF3A9B84720A0D7CBF39EA4C2168046
+1 CHAN
+2 DATE 4 FEB 2015
+1 SOUR @S61541@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE AFT 1282
+2 _SDATE 1 JAN 1283
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F180606@
+1 FAMC @F180605@
+1 NOTE @DWNLNOTE@
+0 @I557297@ INDI
+1 NAME Hedwig, Gräfin von /Oldenburg/
+2 GIVN Hedwig, Gräfin von
+2 SURN Oldenburg
+1 SEX F
+1 _UID 04354536E7044ABBA3E72388D6687CF487B5
+1 CHAN
+2 DATE 3 FEB 2015
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 1255
+2 _SDATE 1 JUL 1255
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 15 JUL 1296
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F182072@
+1 FAMC @F179031@
+1 NOTE @DWNLNOTE@
+0 @I557300@ INDI
+1 NAME Eckbert von /Bentheim/
+2 GIVN Eckbert von
+2 SURN Bentheim
+1 SEX M
+1 _UID 7AE42922E5794E4489A2945D3B5A3CD45A98
+1 CHAN
+2 DATE 3 FEB 2015
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 BIRT
+2 DATE 18 MAR 1253
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 DEAT
+2 DATE 1311
+2 _SDATE 1 JUL 1311
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F182072@
+1 FAMC @F179043@
+1 NOTE @DWNLNOTE@
+0 @I558086@ INDI
+1 NAME Katharina, Gräfin von /Dale/
+2 GIVN Katharina, Gräfin von
+2 SURN Dale
+1 SEX F
+1 _UID CB1AD09B679A4FD4880A6F7D58CA34FA4222
+1 CHAN
+2 DATE 3 FEB 2015
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE Unknown
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F182547@
+1 FAMC @F180606@
+1 NOTE @DWNLNOTE@
+0 @I558087@ INDI
+1 NAME Hermann von /Gemen/
+2 GIVN Hermann von
+2 SURN Gemen
+1 SEX M
+1 _UID E0E59CD88480410F8C76BB8068C8D0FAC4BA
+1 CHAN
+2 DATE 3 FEB 2015
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE Unknown
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F182547@
+1 NOTE @DWNLNOTE@
+0 @I558088@ INDI
+1 NAME Bertha, Gräfin von /Dale/
+2 GIVN Bertha, Gräfin von
+2 SURN Dale
+1 SEX F
+1 _UID 230649BDEFAC48FB8372BE3FDF9B30D982C7
+1 CHAN
+2 DATE 3 FEB 2015
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE Unknown
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F182548@
+1 FAMC @F180606@
+1 NOTE @DWNLNOTE@
+0 @I558089@ INDI
+1 NAME Stephan von /Zuylen/
+2 GIVN Stephan von
+2 SURN Zuylen
+2 NSFX Herr zu Zuilen, Westbroek und Anhol
+1 SEX M
+1 _UID EBA30FC8B37F40009BE24565FC59F4064D16
+1 CHAN
+2 DATE 3 FEB 2015
+1 SOUR @S61542@
+2 _TMPLT
+3 FIELD
+4 NAME Page
+1 DEAT
+2 DATE Unknown
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+1 FAMS @F182548@
+1 NOTE @DWNLNOTE@
+0 @F177784@ FAM
+1 CHIL @I551585@
+1 MARR
+2 DATE BEF 1208
+2 _SDATE 31 DEC 1207
+2 SOUR @S61532@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F178191@ FAM
+1 CHIL @I549912@
+1 MARR
+2 SOUR @S61535@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61557@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F178204@ FAM
+1 HUSB @I549911@
+1 WIFE @I549912@
+1 MARR
+2 SOUR @S61535@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61557@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F178856@ FAM
+1 CHIL @I551587@
+1 MARR
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61565@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61567@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F178921@ FAM
+1 CHIL @I551586@
+1 MARR
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61565@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F179031@ FAM
+1 CHIL @I557297@
+1 MARR
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F179043@ FAM
+1 HUSB @I551588@
+1 WIFE @I551585@
+1 CHIL @I549911@
+1 CHIL @I557300@
+1 MARR
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F179044@ FAM
+1 HUSB @I551586@
+1 WIFE @I551587@
+1 CHIL @I551592@
+1 MARR
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F179045@ FAM
+1 HUSB @I551592@
+1 WIFE @I551589@
+1 CHIL @I551588@
+1 CHIL @I554485@
+1 MARR
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61570@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F179203@ FAM
+1 CHIL @I554484@
+1 MARR
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F179365@ FAM
+1 CHIL @I554491@
+1 MARR
+2 DATE BEF 1225
+2 _SDATE 31 DEC 1224
+2 SOUR @S61540@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61563@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F180605@ FAM
+1 HUSB @I554491@
+1 WIFE @I554485@
+1 CHIL @I554492@
+1 MARR
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F180606@ FAM
+1 HUSB @I554492@
+1 WIFE @I554484@
+1 CHIL @I558086@
+1 CHIL @I558088@
+1 MARR
+2 SOUR @S61541@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F182072@ FAM
+1 HUSB @I557300@
+1 WIFE @I557297@
+1 MARR
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F182547@ FAM
+1 HUSB @I558087@
+1 WIFE @I558086@
+1 MARR
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F182548@ FAM
+1 HUSB @I558089@
+1 WIFE @I558088@
+1 MARR
+2 SOUR @S61542@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @F183203@ FAM
+1 CHIL @I551587@
+1 MARR
+2 SOUR @S61545@
+3 _TMPLT
+4 FIELD
+5 NAME Page
+0 @S61532@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61535@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61540@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61541@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61542@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61545@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61557@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61563@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61565@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61567@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @S61570@ SOUR
+1 ABBR GEDCOM file imported on 3 Feb 2015
+1 TITL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _SUBQ GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+1 _BIBL GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+2 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+2 CONC n 3 Feb 2015.
+1 _TMPLT
+2 TID 0
+2 FIELD
+3 NAME Footnote
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+2 FIELD
+3 NAME ShortFootnote
+3 VALUE GEDCOM file, Mark Ballard - Rootsweb Database - mwballard52@yahoo.com.
+2 FIELD
+3 NAME Bibliography
+3 VALUE GEDCOM file submitted by Mark Ballard - Rootsweb Database - mwballard52
+4 CONC @yahoo.com, http://www.rootsweb.com. Created on 26 Nov 2014. Imported o
+4 CONC n 3 Feb 2015.
+0 @DWNLNOTE@ NOTE
+1 CONT Verify details of data for yourself; use this only as a guide
+0 TRLR

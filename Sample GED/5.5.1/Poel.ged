@@ -1,0 +1,2599 @@
+0 HEAD
+1 SOUR AHN
+2 VERS 2.62
+2 NAME Ahnenblatt
+2 CORP Dirk Boettcher
+1 DEST ANSTFILE
+1 DATE 17 SEP 2011
+2 TIME 14:29:36
+1 SUBM @SUBM@
+1 FILE Poel.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ANSI
+2 VERS 1252
+1 PLAC
+2 FORM street, postal_code, city, region, country
+1 _NAVM 2
+2 _NAVI @I71@
+0 @SUBM@ SUBM
+1 NAME Horst von Borries
+1 ADDR Lahnstraße 11
+2 CONT 65606 Villmar Aumenau
+0 @I1@ INDI
+1 NAME Natalie /(von)Poel/
+1 SEX F
+1 FAMC @F39@
+0 @I2@ INDI
+1 NAME Eva /.../
+1 SEX F
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Auguste /Abendroth/
+1 SEX F
+1 BIRT
+2 DATE 26. Oktober 1825
+2 PLAC Hamburg
+1 DEAT
+2 DATE 9. Dezember 1867
+2 PLAC Ratzeburg
+1 FAMS @F2@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Auguste.png
+0 @I4@ INDI
+1 NAME Sturm /Ada/
+1 SEX F
+1 BIRT
+2 DATE 11. März 1875
+2 PLAC Ludwigshafen
+1 DEAT
+2 DATE 5. Dezember 1937
+2 PLAC Puerto Marquez, Argentinien
+1 FAMS @F3@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\Ada_Sturm.png
+0 @I5@ INDI
+1 NAME Agnes (Christine Amalie) /Boysen/
+1 SEX F
+1 BIRT
+2 DATE 12.Oktober 1912
+2 PLAC Hadersleben
+1 DEAT
+2 DATE 14. März 1996
+2 PLAC Büsum
+1 FAMS @F4@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\a.boysen.jpg
+0 @I6@ INDI
+1 NAME Gesine /Brinkmann/
+1 SEX F
+1 BIRT
+2 DATE 30. Oktober1937
+1 FAMC @F5@
+0 @I7@ INDI
+1 NAME Jan /Brinkmann/
+1 SEX M
+1 BIRT
+2 DATE 5. Mai.1939
+1 FAMC @F5@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\jan.jpg
+0 @I8@ INDI
+1 NAME Rudolf /Brinkmann/
+1 SEX M
+1 BIRT
+2 DATE 19. Juni 1904
+2 PLAC Lüdenscheid
+1 DEAT
+2 DATE 05. März 1989
+1 FAMS @F5@
+1 NOTE Führer im Reicharbeitsdienst,
+2 CONT zuletzt Oberarbeitsführer in Krumau (Moldau).
+2 CONT
+2 CONT Nach dem 2. Weltkrieg:
+2 CONT Leiter der Heimvolkshochschule
+2 CONT Wislade in Oberrahmede (Sauerland)
+2 CONT Alterswohnsitz in Lüdenscheid.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\rudolf brinkmann.jpg
+0 @I9@ INDI
+1 NAME Wulf /Brinkmann/
+1 SEX M
+1 BIRT
+2 DATE 3. Oktober 1942
+1 FAMC @F5@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\wulf.jpg
+0 @I10@ INDI
+1 NAME Friederike Elisabeth /Büsch/
+1 SEX F
+1 BIRT
+2 DATE 23. September
+2 PLAC Hamburg
+1 DEAT
+2 DATE 18. Oktober 1821
+2 PLAC Flottbek
+1 FAMS @F6@
+1 FAMC @F48@
+1 NOTE Tochter des Professors Johann Georg Büsch in Hamburg.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\febuesch.jpg
+0 @I11@ INDI
+1 NAME Johann Georg /Büsch/
+1 SEX M
+1 BIRT
+2 DATE 3. Januar 1728
+2 PLAC Alt-Medingen bei Lüneburg
+1 DEAT
+2 DATE 5. August 1800
+2 PLAC Hamburg
+1 FAMS @F48@
+0 @I12@ INDI
+1 NAME Christopher /Dolberg/
+1 SEX M
+1 FAMC @F7@
+0 @I13@ INDI
+1 NAME Frederike /Dolberg/
+1 SEX F
+1 FAMC @F7@
+0 @I14@ INDI
+1 NAME Michael /Dolberg/
+1 SEX M
+1 FAMS @F7@
+0 @I15@ INDI
+1 NAME Dörte /Ewerdt/
+1 SEX F
+1 BIRT
+2 DATE 17. Mai 1959
+2 PLAC Barmstedt / Holstein
+1 FAMS @F8@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\ewi.jpg
+0 @I16@ INDI
+1 NAME Charlotte Eugenie /Freiherrin von Lützow/
+1 SEX F
+1 BIRT
+2 DATE 5. Mai 1904
+2 PLAC Stuttgart
+1 DEAT
+2 DATE 17. November1934
+2 PLAC Offenburg
+1 FAMS @F9@
+0 @I17@ INDI
+1 NAME Amalie Angelica Christiane /Gottschalk/
+1 SEX F
+1 BIRT
+2 DATE 26. July 1777
+2 PLAC Hannover
+1 DEAT
+2 DATE 20. Februar 1838
+2 PLAC St. Petersburg
+1 FAMS @F10@
+0 @I18@ INDI
+1 NAME Alexander Georg /Graf von Nostitz-Rieneck/
+1 SEX M
+1 BIRT
+2 DATE 16. März 1862
+2 PLAC Sasbach
+1 DEAT
+2 DATE 5. September 1927
+2 PLAC Puerto Marquez, La Paz, Entre Rios, Argentina
+1 FAMC @F11@
+0 @I19@ INDI
+1 NAME Ludwig Ferdinand August /Graf von Nostitz-Rieneck/
+1 SEX M
+1 OCCU Hilfsarbeiter am Statistischen Amt des Kaiserlichen Ministeriums  für Elsaß – Lothringen
+1 FAMS @F11@
+1 NOTE Besitzer eine Gutes bei Neidenburg (Ostpreußen) 
+2 CONT
+2 CONT Ehe zum Verschulden des Ehemannes geschieden
+0 @I20@ INDI
+1 NAME Ella /Grafin von Nostitz-Rieneck/
+1 SEX F
+1 DEAT
+2 PLAC München
+1 FAMC @F11@
+0 @I21@ INDI
+1 NAME Hans-Peter Mayer /Hans-Peter/
+1 SEX M
+1 DEAT
+2 DATE 29.7 .1938
+1 OCCU Buchhändler
+1 FAMS @F12@
+1 NOTE Kinder:
+2 CONT
+2 CONT 1. Alexander * 17.11.1981
+2 CONT 2. Sebastian * 22. 12. 1984
+2 CONT 3. Juli * 26.11.1988
+0 @I22@ INDI
+1 NAME Elizabeth Maria Bertha Agatha /Hauser/
+1 SEX F
+1 FAMS @F13@
+0 @I23@ INDI
+1 NAME Annie /Heitkamp/
+1 SEX F
+1 BIRT
+2 DATE 24. Februar 1896
+2 PLAC Kaiserhof, Kreis Samter
+1 FAMS @F14@
+0 @I24@ INDI
+1 NAME Scott /Iven/
+1 SEX M
+1 FAMS @F15@
+0 @I25@ INDI
+1 NAME Annelies (Klara) /Jahn/
+1 SEX F
+1 BIRT
+2 DATE 20 März 1925
+2 PLAC Berlin
+1 FAMS @F16@
+0 @I26@ INDI
+1 NAME Inken /Jakobi/
+1 SEX F
+1 FAMS @F17@
+0 @I27@ INDI
+1 NAME Emmy Botilde Cäcilie Luise (genannt Emely) /Jung/
+1 SEX F
+1 BIRT
+2 DATE 2. Juli 1891
+2 PLAC Straßburg
+1 DEAT
+2 DATE 17. Februar 1926
+2 PLAC Freiburg
+1 BURI
+2 PLAC Dillenburg
+1 FAMS @F18@
+0 @I28@ INDI
+1 NAME Frieda /Jung/
+1 SEX F
+1 BIRT
+2 DATE 4. Juni 1894
+2 PLAC Burg (Dillkreis)
+1 DEAT
+2 DATE 2. Februar 1987
+1 FAMS @F19@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Frieda_Jung.jpg
+0 @I29@ INDI
+1 NAME Auguste (Charlotte Dorothea) /Kossak/
+1 SEX F
+1 BIRT
+2 DATE 23. Dezember 1844
+2 PLAC Ladekopp (Marienburger Werder)
+1 DEAT
+2 DATE 24. August 1931
+2 PLAC Lübeck
+1 BURI
+2 PLAC begraben auf dem St. Jürgen-Friedhof
+1 FAMS @F20@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\auguste_poel_geb._kossak_kl.jpg
+0 @I30@ INDI
+1 NAME Detlef - Hans Johann Detlef /Kraus/
+1 SEX M
+1 BIRT
+2 DATE 30. November 1919
+2 PLAC Hamburg
+1 DEAT
+2 DATE 07. Januar 2008
+2 PLAC Hamburg
+1 OCCU Konzertpianist - Professor
+1 FAMS @F21@
+1 NOTE Detlef Kraus fiel schon früh durch seine hohe Musikalität beim Singen auf. Da beide Eltern Lehrer waren, gab es im Haus selbstverständlich eine Geige, ein Klavier und ein volles Bücherrega
+2 CONC l, aber wenig Geld. So lernte der musikalische Junge zunächst bei sei nem Vater das Klavierspiel, dann Geige und Bratsche. Bereits mit 11 Jahren hatte er seinen ersten öffentlichen Auftrit
+2 CONC t mit Kompositionen von Schubert und Grieg, und mit 13 verdiente er sich sein erstes Taschengeld, indem er Geigenunterricht gab. Für ihn stand bereits als Kind fest, dass er Musiker werden
+2 CONC  wollte.
+2 CONT
+2 CONT Nachdem er im 2. Weltkrieg als Soldat bei der Kavallerie in Lüneburg und auf Kreta stationiert war, studierte er Klavier bei Ferry Gebhardt und Wilhelm Kempff. Für einen Hamburger Pianiste
+2 CONC n lag es nahe, sich besonders dem Hamburger Komponisten Brahms zu widmen. Kraus beherrschte sämtliche Werke von Brahms und wurde zum anerkannten Spezialisten für dessen Musik. Er setzte si
+2 CONC ch für diesen Komponisten sehr erfolgreich ein, veröffentlichte Schriftwerke über seine Musik, war Mitbegründer der Brahms-Gesellschaft, bekam 1975 die Brahms-Medaille des Hamburger Senats
+2 CONC  und erreichte, dass im Brahms-Jahr 1997 ein Platz in Hamburg den Namen Johannes-Brahms-Platz bekam.
+2 CONT
+2 CONT Er fühlt sich mit seinem weitgespannten Repertoire der großen europäischen und besonders der deutschen Tradition verpflichtet, gilt als der letzte Repräsentant klassischer deutscher Klavie
+2 CONC rtradition. Geprägt durch die großen Pianisten-Persönlichkeiten wie Wilhelm Kempff, Edwin Fischer, Walter Gieseking, Raoul von Kozcalski und Alfred Cortot. Brachte das gesamte Klavierwerk 
+2 CONC von Brahms in den Musikzentren der Welt (NY, Tokyo, London, Berlin etc.) zu Gehör, teilweise sogar als Erstaufführungen. Musizierte u.a. mit Eugen Jochum, Joseph Keilberth, Hans Schmidt-Is
+2 CONC serstedt, Rafael Frühbeck de Burgos, Hans Knappertsbusch, Ferenc Friscay, Kurt Masur, Wolfgang Sawallisch). Langjähriger Präsident und noch heute Vize-Präsident der Johannes-Brahms-Gesells
+2 CONC chaft Hamburg,
+2 CONT
+2 CONT Nach einem bewegten Pianistenleben mit gefeierten Tourneen durch die ganze Welt, einer Professur an der Folkwang-Schule in Essen, Juroren-Tätigkeit bei vielen Musikwettbewerben und schrift
+2 CONC stellerischer Veröffentlichungen zog er 1988 zurück in seine Heimatstadt Hamburg
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\detlef kraus.jpg
+0 @I31@ INDI
+1 NAME Hans-Gerhard /Kraus/
+1 SEX M
+1 BIRT
+2 DATE 12. Dezember1957
+1 FAMS @F1@
+1 FAMC @F21@
+1 NOTE Kinder:
+2 CONT Franziska born * 28. März 1994
+2 CONT Friedrich born * 28. Dezember 2001
+2 CONT Johanna born * 28. Dezember 2001
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\hagi.jpg
+0 @I32@ INDI
+1 NAME John /Kraus/
+1 SEX M
+1 BIRT
+2 DATE 2. Juni 1994
+1 FAMC @F8@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\john.jpg
+0 @I33@ INDI
+1 NAME Juliane /Kraus/
+1 SEX F
+1 BIRT
+2 DATE 19. Juni 1964
+1 FAMS @F49@
+1 FAMC @F21@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\juliane kraus.jpg
+0 @I34@ INDI
+1 NAME Karoline /Kraus/
+1 SEX F
+1 BIRT
+2 DATE 4. November 1995
+1 FAMC @F8@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\caroline.jpg
+0 @I35@ INDI
+1 NAME Käthe /Kraus/
+1 SEX F
+1 BIRT
+2 DATE 27. Juli 2000
+1 FAMC @F8@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\kaethe.jpg
+0 @I36@ INDI
+1 NAME Piter Tom /Kraus/
+1 SEX M
+1 BIRT
+2 DATE 26. Oktober 1958
+1 FAMS @F8@
+1 FAMC @F21@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\piter.jpg
+0 @I37@ INDI
+1 NAME Victoria /Kraus/
+1 SEX F
+1 BIRT
+2 DATE 7. März 1999
+1 FAMC @F49@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\victoria.jpg
+0 @I38@ INDI
+1 NAME Ching Wan /Lee/
+1 SEX F
+1 BIRT
+2 DATE 13.Dezember 1960
+2 PLAC Kuala Lumpur
+1 OCCU Gerrit Lee
+1 FAMS @F22@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\shirlee.jpg
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Shirlee2.png
+0 @I39@ INDI
+1 NAME Elisabeth /Luden/
+1 SEX F
+1 FAMS @F23@
+0 @I40@ INDI
+1 NAME Felix Johannes /Martin/
+1 SEX M
+1 BIRT
+2 DATE 13 JUL 1887
+2 PLAC auf Samoa
+1 DEAT
+2 DATE 11 JAN 1939
+2 PLAC auf einem Schiff „Artigas“ auf dem Panamakanal in der Nähe von Rosario, Argentinien.
+1 FAMS @F24@
+0 @I41@ INDI
+1 NAME N. /Menke/
+1 SEX F
+1 FAMS @F25@
+0 @I42@ INDI
+1 NAME Meyer /N.N./
+1 SEX F
+1 FAMS @F26@
+0 @I43@ INDI
+1 NAME Adrian Wilhelm /Pauli/
+1 SEX M
+1 BIRT
+2 DATE 10. Februar 1749
+2 PLAC Lübeck
+1 DEAT
+2 DATE 28. Januar 1815
+2 PLAC Lübeck
+1 OCCU Gutsherr
+1 FAMS @F27@
+1 NOTE Kaufmann, Ratsherr
+2 CONT
+2 CONT vom 16. November 1775 bis zum Abschied am 15. Dezember 1802 Schwedischer Agent (= Konsul) in Lübeck.
+2 CONT
+2 CONT Gutsherr auf Rondeshagen (Herzogtum Lauenburg)
+2 CONT
+2 CONT Zahlreiche Nachkommen überwiegend in den Hansestädten und in Niedersachsen.
+2 CONT 1) In dem umfangreichen Schrifttum, das sich mit dem gesellschaftlichen, kulturellen und politischen Leben des Neumühlener und Flottbeker Kreises befasst, ist die “ Pauli“ (Baron Voght sch
+2 CONC reibt an “die Agentin Pauli“) vielfach erwähnt.
+2 CONT 2) Fritz Ernst, Aus Goethes Freundeskreis, Eugen Rentsch Verlag, Erlenbach-Zürich, 1941, S. 14, 77. Auch im Surkamp-Verlag, Berlin-Frankfurt 1955, S. 8 ff (betr. Episode Heinrich Julius vo
+2 CONC n Lindau ./. Manon Poel)
+2 CONT 3) Casper Voght und sein Hamburger Freundeskreis, Hans Christian Verlag, Hamburg, Teil I 1959, Briefe an Magdalena Pauli * Poel (1792 – 1821) Teil II 1964, Briefe an Johanna Margaretha Sie
+2 CONC veking * Reimarus (1785 – 1812
+0 @I44@ INDI
+1 NAME Alexander /Poel/
+1 SEX M
+1 BIRT
+2 DATE 16. Dezember 1976
+2 PLAC Hanau
+1 FAMS @F17@
+1 FAMC @F41@
+1 NOTE Fachabitur 1997,
+2 CONT Ausbildung zum Redakteur.
+2 CONT Seit 2003 Redakteur beim ZDF.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Alexander.jpg
+0 @I45@ INDI
+1 NAME Angelica /Poel/
+1 SEX F
+1 BIRT
+2 DATE 13. April 1945
+2 PLAC Mölln
+1 OCCU Apothekerin, Studium in Tübingen
+1 FAMS @F28@
+1 FAMC @F16@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Angelica.jpg
+0 @I46@ INDI
+1 NAME Arnold /Poel/
+1 SEX M
+1 BIRT
+2 DATE 3. Oktober 1748
+2 PLAC Archangel
+1 DEAT
+2 PLAC Lübeck
+1 BURI
+2 DATE 21. Februar 1787
+2 PLAC St. Petri-Kirche, Lübeck
+1 OCCU Mecklenburgischer Hofrat
+1 FAMC @F26@
+1 NOTE 26. Oktober 1775 Mitglied der Loge “Zur goldenen Kugel“,
+2 CONT Freimaurer
+2 CONT 1787 Meister
+0 @I47@ INDI
+1 NAME Beate /Poel/
+1 SEX F
+1 BIRT
+2 DATE 30. Oktober 1957
+2 PLAC Wetzlar
+1 OCCU Landwirtschaftsschullehrerin
+1 FAMC @F32@
+1 NOTE verheiratet mit Dierk Boie,
+2 CONT Leiter des Vorstandsbüro Nordfleisch AG
+0 @I48@ INDI
+1 NAME Carl /Poel/
+1 SEX M
+1 BIRT
+2 DATE 12. Dezember 1791 (1792 ?)
+2 PLAC Altona
+1 CHR
+2 DATE 3. Januar 1792
+2 PLAC Atonar
+1 DEAT
+2 DATE 27. Dezember 1794
+2 PLAC Altona
+1 FAMC @F6@
+0 @I49@ INDI
+1 NAME Carl Friedrich Gerhard /Poel/
+1 SEX M
+1 BIRT
+2 DATE 31. März 1851
+2 PLAC Itzehoe
+1 CHR
+2 DATE 17. Mai 1851
+2 PLAC Itzehoe
+1 OCCU Landwirt, Pächter des Familiengutes Wulmenau
+1 FAMS @F29@
+1 FAMC @F33@
+1 NOTE Gevattern:
+2 CONT Oberappellationsgerichtsrath Dr. Pauli aus Lübeck
+2 CONT Senator Dr. Friedrich Sieveking aus Hamburg
+2 CONT Kammerherr Amtmann Carl Emil von Kardorff in Itzehoe
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\gerhard1851.jpg
+0 @I50@ INDI
+1 NAME Caroline /Poel/
+1 SEX F
+1 BIRT
+2 DATE 13. Juli 1801
+2 PLAC Altona
+1 CHR
+2 DATE 26. Juli 1801
+2 PLAC Altona
+1 DEAT
+2 DATE 5. Januar 1803
+2 PLAC Altona
+1 FAMC @F6@
+0 @I51@ INDI
+1 NAME Charlotte Maria Heilwig /Poel/
+1 SEX F
+1 BIRT
+2 DATE 29. April 1925
+2 PLAC Potsdam
+1 FAMS @F21@
+1 FAMC @F14@
+1 NOTE Schulbesuch u.a. in Salem (Bodensee)
+2 CONT Heilgymnastin
+1 OBJE
+2 FORM jpg
+2 FILE C:\Stammbaum\Images\Poel\Maria_Poel.jpg
+0 @I52@ INDI
+1 NAME Claus /Poel/
+1 SEX M
+1 BIRT
+2 DATE 25. Dezember 1940
+2 PLAC Flensburg
+1 CHR
+2 _GODP Gerhard Poel in Lübeck und Hans-Hartmann Poel
+1 DEAT
+2 DATE 5. Juni 1944
+2 PLAC Flensburg
+1 FAMC @F4@
+1 NOTE (Leukämie, Lungenentzündung)
+2 CONT beerdigt in Adelby. (Ein Gedenkstein am Grab der Eltern in Schleswig)
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\ClausPoel1940_2.jpg
+0 @I53@ INDI
+1 NAME David /Poel/
+1 SEX M
+1 BIRT
+2 DATE 1762
+2 PLAC Hamburg
+1 DEAT
+2 DATE 1762
+2 PLAC Hamburg
+1 FAMC @F26@
+0 @I54@ INDI
+1 NAME Eberhard /Poel/
+1 SEX M
+1 BIRT
+2 DATE 28. März 1928
+2 PLAC Gießen
+1 DEAT
+2 DATE 6. September 1946
+2 PLAC Ratzeburg
+1 FAMC @F19@
+1 NOTE an einer Blutvergiftung nach einer Verletzung
+2 CONT
+2 CONT Aufgewachsen in Schelderhütte bei Dillenburg
+2 CONT und in Ratzeburg
+2 CONT
+2 CONT 1946 Abitur
+0 @I55@ INDI
+1 NAME Eduard /Poel/
+1 SEX M
+1 BIRT
+2 DATE 16. Juli 1803
+2 PLAC Altona
+1 CHR
+2 DATE 14. August 1803
+2 PLAC Altona
+1 DEAT
+2 DATE 27. Mai 1823
+2 PLAC Altona
+1 FAMC @F6@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\eduard.jpg
+0 @I56@ INDI
+1 NAME Elisabeth Auguste Juliane Therese /Poel/
+1 SEX F
+1 BIRT
+2 DATE 19. April 1911
+2 PLAC Altona-Othmarschen
+1 DEAT
+2 DATE 13. November 1997
+1 FAMS @F5@
+1 FAMC @F42@
+1 NOTE Schulbesuch in Othmarschen, Altona, den Haag
+2 CONT
+2 CONT Philologiestudium (Englisch, Geographie) in Marburg, Glasgow, Hamburg
+2 CONT Staatsexamen 14. November 1936 Hamburg
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\elisabeth poel 1911-1997.jpg
+0 @I57@ INDI
+1 NAME Emely /Poel/
+1 SEX F
+1 BIRT
+2 DATE 15. März 1955
+2 PLAC Hannover
+1 FAMS @F7@
+1 FAMC @F32@
+1 NOTE Fremdsprachen Korrespondentin
+2 CONT Tätigkeit bei Arnold Otto Meyer in Hamburg (vgl. Gerhard )
+2 CONT
+2 CONT  
+2 CONT verheiratet mit Michael Dolberg, Kaufmann in Hamburg,
+2 CONT Tätigkeit bei Arnold Otto Meyer, dann als Geschäftsführer bei Feddersen.
+0 @I58@ INDI
+1 NAME Emilie [genannt: Mitza] /Poel/
+1 SEX F
+1 FAMC @F39@
+0 @I59@ INDI
+1 NAME Emma Charlotte Rosalie /Poel/
+1 SEX F
+1 BIRT
+2 DATE 5. Juni 1842
+2 PLAC Itzehoe (”klösterlich”)
+1 CHR
+2 DATE 10 Juli 1842
+2 PLAC im Hause
+1 DEAT
+2 DATE Lübeck 17. April 1929
+1 BURI
+2 PLAC Klein-Wesenberg
+1 FAMC @F33@
+1 NOTE Gevattern:
+2 CONT Emma Poel aus Altona
+2 CONT Charlotte von Rumohr in Itzehoe
+2 CONT Gräfin Rosalie von Moltke in Itzehoe
+2 CONT
+2 CONT Bewohnte nach dem Verkauf des Gutes Trenthorst in Lübeck
+2 CONT ein großes Haus an der Wakenitz (Hövelnstraße 1)
+2 CONT vgl. Wilhelm Jensen “Trenthorst“, Neumünster 1956
+2 CONT Porträt: Daguerreotypie von 1858 (Besitz Gerhard W. Poel)
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\charlotte  geb[1]. 1842.jpg
+0 @I60@ INDI
+1 NAME Emma Sophie Cäcilie Wilhelmine /Poel/
+1 SEX F
+1 BIRT
+2 DATE 31. Januar 1811
+2 PLAC Altona
+1 CHR
+2 DATE 15. April 1811
+2 PLAC Altona
+1 DEAT
+2 DATE 3. Dezember 1891
+1 FAMC @F6@
+1 NOTE Unverheiratet
+2 CONT
+2 CONT Emma Poel gründete 1835 den
+2 CONT “Weiblichen Verein für Armen- und Krankenpflege in Altona“,
+2 CONT auf welchem die Gründung des Kinderhospitals in Altona zurückgeht.
+2 CONT Emma Poel gab 1851 ff. in Altona die “Berichte des weiblichen Vereins für Armen- und Krankenpflege“ heraus und
+2 CONT veröffentlichte – anonym – Hamburg 1860
+2 CONT “Denkwürdigkeiten aus dem Leben von Amalie Sieveking, in deren Auftrage von einer Freundin derselben verfasst“
+2 CONT (mit einem Vorwort von Wichern)
+2 CONT Altona 1885 “Altes und Neues aus der Briefmappe“
+2 CONT Altona 1885 “Räthsel und Charaden“
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\EMMA_POEL 1811-1891kl.jpg
+0 @I61@ INDI
+1 NAME Emma Wilhelmine /Poel/
+1 SEX F
+1 FAMC @F39@
+0 @I62@ INDI
+1 NAME Ernst /Poel/
+1 SEX M
+1 BIRT
+2 DATE 22. September 1796
+2 PLAC Neumühlen
+1 CHR
+2 DATE 12. Oktober 1796
+1 DEAT
+2 DATE 5. Juli 1867
+2 PLAC Altona
+1 FAMC @F6@
+1 NOTE gestorbenin Altona 5. Juli 1867, morgens 3 Uhr. Testament 3684/1852
+2 CONT begrabenNeben seinem Vater im Erbbegräbnis Norderreihe in Altona. Nr. 412
+2 CONT
+2 CONT Paten
+2 CONT Karl Friedrich Reinhard, damals französischer Konsul in Hamburg,
+2 CONT (später französischer Graf, Gesandter und Außenminister),
+2 CONT Christine Reimarus in Hamburg
+2 CONT
+2 CONT Unverheiratet
+2 CONT Besuch der Gelehrtenschule (Johanneum) in Hamburg
+2 CONT 1814 Soldat im Hanseatischen Freikorps
+2 CONT Studierte die Rechte
+2 CONT 5. Mai 1816 in Kiel immatrikuliert
+2 CONT 1816 Wintersemester in Göttingen, von dort reiste er nach Jena und schloss sich dem Studentenzuge auf die Wartburg an (“Wartburgfest“)
+2 CONT Weiteres Studium in Berlin (1819) und Kiel
+2 CONT 1821 Juristisches Amtexamen in Glückstadt
+2 CONT Untergerichtsadvokat in Altona
+2 CONT Herausgeber und seit 1837, dem Tode seines Vaters, Hauptredakteur des
+2 CONT “Altonaer Mercur, Zeitung und Intelligenzblatt für die Herzogtümer Schleswig, Holstein und Lauenburg“ Bild
+2 CONT Schrifttumsnachweise:
+2 CONT Alberti (vgl. Anhang Pieter Poel) Kiel 1868, S. 210 Gedenkblatt für Ernst Poel mit Grabrede in No. 167 des Altonaer Mercur von 1867
+2 CONT Konrad Feilchenfeldt in Schleswig-Holsteinisches Biographisches Lexikon, Band 3, Neumünster 1974 (mit Würdigung Poels und weiteren Nachweisen)
+2 CONT Veröffentlichungen:
+2 CONT Freymüthige Gedanken und Wünsche bey Gelegenheit der Vacanzen im Hamburger Gymnasium, mit besonderer Beziehung auf angehende Juristen, Altona 1827 (40 Seite
+1 OBJE
+2 FORM jpg
+2 FILE C:\Stammbaum\Images\Poel\ERNST_POEL 1796-1867_a.jpg
+0 @I63@ INDI
+1 NAME Ernst Karl Friedrich Wilhelm Poel /Poel/
+1 SEX M
+1 BIRT
+2 DATE 3. Dezember 1887
+2 PLAC auf Wulmenau
+1 DEAT
+2 DATE 5. März 1971
+2 PLAC Ratzeburg
+1 OCCU Landrat
+1 FAMS @F18@
+1 FAMS @F19@
+1 FAMC @F29@
+1 NOTE Ernst Poel war zunächst Verwaltungsjurist,
+2 CONT bis 1927 Landrat des Kreises Oldenburg in Holstein.
+2 CONT
+2 CONT Übertritt in die Wirtschaft:
+2 CONT Hüttendirektor in Oberscheld (Hessen-Nassau),
+2 CONT Tätigkeit in Hannover (Industrie).
+2 CONT Im 2. Weltkrieg Landrat in Eutin
+2 CONT Zuletzt wohnhaft auf Familiensitz in Ratzeburg,
+2 CONT Teilhaber eines Handelsunternehmen in Mölln
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Ernst1887.jpg
+0 @I64@ INDI
+1 NAME Ernst Moritz /Poel/
+1 SEX M
+1 BIRT
+2 DATE 2. Juni 1846
+2 PLAC Itzehoe
+1 CHR
+2 DATE 4. Juli 1846
+2 PLAC im Hause
+1 BURI
+2 DATE 4. Juli 1846
+1 FAMC @F33@
+0 @I65@ INDI
+1 NAME Ernst Piter Poel /Poel/
+1 SEX M
+1 BIRT
+2 DATE 4. Oktober 1929
+2 PLAC Gießen
+1 OCCU Kaufmann in Lübeck
+1 FAMS @F30@
+1 FAMC @F19@
+1 NOTE 1950 Abitur in Ratzeburg (Lauenburgische Gelehrten Schule)
+2 CONT 1950 – 1952 Ausbildung zum Bank- und Überseekaufmann
+2 CONT bei Münchmeyer & Co in Hamburg, und anschließende Tätigkeit dort,
+2 CONT 1956 - 1959 für Münchmeyer & Co in Mexiko .in Wall Street, CFA (Chartered Financial Analyst)
+2 CONT 1959 - 1960 bei N.Y. Hanseatic (seiner Zeit größter over-the-counter dealer in Wall Street)
+2 CONT 1962 - 1975 Money Manager unter John Templeton
+2 CONT 1975 - 1990 Money Manager für Central National-Gottesman als Senior Vice President
+2 CONT seit 1. April 1990 im Ruhestand mit Wohnsitz in Boulder, Colorado , USA
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Piter_Poel_4_10_1929.jpg
+0 @I66@ INDI
+1 NAME Felix /Poel/
+1 SEX M
+1 BIRT
+2 DATE 23. März 1884
+1 DEAT
+2 DATE 7. Oktober 1914
+2 PLAC Erchau,
+1 OCCU Oberleutnant
+1 FAMC @F29@
+1 NOTE 1. Weltkrieg
+2 CONT 1. Batterie des Feldartillerie-Regiments Nr. 63
+2 CONT am 1. Oktober 1914 verwundet bei Roye (Frankreich) und
+2 CONT am 7. Oktober 1914 verstorben in Erchau, dort begraben,
+2 CONT später umgebettet auf den
+2 CONT deutschen Soldatenfriedhof Manicourt/Somme,
+2 CONT Block 2 – Grab 139.
+0 @I67@ INDI
+1 NAME Felix Wilhelm Joachim Hermann /Poel/
+1 SEX M
+1 BIRT
+2 DATE 27. Januar 1916
+2 PLAC Hamburg
+1 OCCU Major
+1 FAMS @F16@
+1 FAMC @F18@
+1 NOTE 1935 Abitur in Dillenburg
+2 CONT 1935 - 1945 aktiver Offizier (Panzerwaffe)
+2 CONT 1939 Oberleutnant im Panzerregiment 1 in Erfurt,
+2 CONT Verleihung des Eisernen Kreuzes im Polenfeldzug,
+2 CONT Teilnahme an den Kämpfen in Russland
+2 CONT 1945 Kriegsakademie, Entlassung als Major
+2 CONT
+2 CONT ab 1945 kaufmännische und Textilausbildung
+2 CONT 1955 - 1976 leitender Mitarbeiter im OTTO Versand, Hamburg
+2 CONT (davon 10 Jahre als Mitglied des Vorstandes)
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Felix_Poel _27_1_1916.jpg
+0 @I68@ INDI
+1 NAME Friederike Auguste /Poel/
+1 SEX F
+1 FAMC @F6@
+0 @I69@ INDI
+1 NAME Gerhard August Wolfgang Sophus /Poel/
+1 SEX M
+1 BIRT
+2 DATE 7. Februar 1886
+2 PLAC auf Wulmenau
+1 DEAT
+2 DATE 8 MAY 1945
+2 PLAC Krasnogorsk
+1 OCCU Generalleutnant
+1 FAMS @F14@
+1 FAMC @F29@
+1 NOTE war bekannter Turnierreiter
+2 CONT Teilnahme am 1. Weltkrieg als Rittmeister,
+2 CONT nach dem Krieg Major und Kommandeur der berittenen Schutzpolizei in Potsdam.
+2 CONT 1933 Oberstleutnant der Schutzpolizei in Berlin
+2 CONT Oberst der Landespolizei
+2 CONT 1935 (April) Oberst im Reichsheer
+2 CONT 1936 Kommandeur der Wehrkreisfahr- und Reitschule in Aalen
+2 CONT Teilnahme am 2. Weltkrieg
+2 CONT 1941 1. Juli: Generalmajor
+2 CONT 1942 Kommandant von Vitebsk (1.1.), Kommandant von Smolensk (5.11.)
+2 CONT 1943 Oberfeldkommandant 400
+2 CONT 1944 25. Oktober, Ritterkreuz des Eisernen Kreuzes für die Verteidigung von Wilna Stadtkommandant von Brünn
+2 CONT Stadtkommandant von Brünn
+2 CONT 1944 25. November Ritterkreuz mit Eichenlaub
+2 CONT 1945 Generalleutnant
+2 CONT 09.05.1945 Gefangenschaft im Raum Tabor (CSSR), NKWD-Lager in Nr. 27 (Krasnogorsk), Nr. 48 (Cerny), Leznevo.
+2 CONT 02.11.1946 zum Tode verurteilt durch das Militär-Tribunal der Ivanovskij-Garnison, Militär-Bezirk Moskau, (gemäß Ukaz 1943, Art.)
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\PoelGerhard09.jpg
+0 @I70@ INDI
+1 NAME Gerhard Heinrich Albert Victor /Poel/
+1 SEX M
+1 BIRT
+2 DATE 23. August 1914
+2 PLAC Altona
+1 DEAT
+2 DATE 4. Oktober 1933
+1 FAMC @F18@
+1 NOTE (nach einem Motorradunfall) Dillenburg
+2 CONT begraben in Dillenburg
+2 CONT
+2 CONT 1933 Abitur
+2 CONT Student der Archäologie in Leipzig
+0 @I71@ INDI
+1 NAME Gerhard Walter /Poel/
+1 SEX M
+1 BIRT
+2 DATE 27. Mai 1945
+2 PLAC Flensburg
+1 OCCU Im Ruhestand in Malaysia
+1 FAMS @F22@
+1 FAMC @F4@
+1 NOTE Paten: Maria Poel, Aalen
+2 CONT und Gisela Stange, Flensburg
+2 CONT
+2 CONT Schulbesuch in Flensburg und Schleswig
+2 CONT Lehre als Maschinenschlosser in Rendsburg (Ahlmann Carlshütte) und als Kaufmann im Groß- und Außenhandel, Arnold Otto Meyer, Hamburg, Technisches Büro, mit anschließender Tätigkeit dort.
+2 CONT 1971 bis 1985 Tätigkeit in Malaysia als Branch Manager, Division Manager und Group Manager bei der Tochtergesellschaft Behn, Meyer & Co. Mit Tätigkeit in Ipoh, Kuala Lumpur und Singapore
+2 CONT 1985 bis 1988 Tätigkeit in Jakarta
+2 CONT 1989 bis 1991 Tätigkeit in Hamburg bei Arnold Otto Meyer bzw. Hanseatisches Technologie Kontor, Handlungsbevollmächtigter.
+2 CONT 1991 bis 1994 bei Rudolf Shokai bzw. Joru Armaturen GmbH, Geschäftsführer.
+2 CONT 1994 bis 2009 bei Fristam Pumpen F. Stamp KG (GmbH&Co)  Hamburg,
+2 CONT Tätigkeit in Singapore als Regional Representative bzw. Managing Director von 1994 bis 2008 und
+2 CONT Director bei Fristam Pumps Shanghai von 2005 bis 2008.
+2 CONT
+2 CONT
+2 CONT Gründungs- und Vorstandsmitglied der Deutschen Schule in Kuala Lumpur bis 1985
+2 CONT Life Member im Royal Selangor Club, Kuala Lumpur, aktives Mitglied als Segler im Royal SelangorYacht Club,
+2 CONT Port Klang.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\gerd11.jpg
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\gerd1.png
+0 @I72@ INDI
+1 NAME Gerhard Wolfgang Peter /Poel/
+1 SEX M
+1 BIRT
+2 DATE 31. August 1907
+2 PLAC Altona-Othmarschen
+1 DEAT
+2 DATE 24. September 1941
+2 PLAC Lübeck
+1 BURI
+2 PLAC auf dem St.Jürgen-Friedhof Lübeck
+1 FAMC @F42@
+1 NOTE Schulbesuch in Othmarschen, Essen-Bredeney und Altona (Christianeum)
+2 CONT Kaufmännische Lehre in Hamburg (Reederei),
+2 CONT
+2 CONT landwirtschaftliche Lehre (Geflügelzucht)auf Gut Marquardt (Westhavelland),
+2 CONT
+2 CONT Geflügelzüchter auf Besitzungen in der Mark (Bornstedt) in Thüringen (Bürgel) und in Schlesien (Gusteutschel bei Glogau und Jätzdorf bei Ohlau).
+2 CONT Reisen in Süddeutschland, der Schweiz und in Italien sowie Kanada.
+2 CONT Grunderwerb und Betrieb einer Geflügelfarm in Wöllnitz bei Jena.
+2 CONT Erkrankung an Lungentuberkulose.
+2 CONT
+2 CONT Mitarbeiter an Fachzeitschriften:
+2 CONT Deutsche landwirtschaftliche Geflügelzeitung;
+2 CONT Der deutsche Pelztierzüchter.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\gerhardpoel_kl.jpg
+0 @I73@ INDI
+1 NAME Gerrit Hans Nikolaus /Poel/
+1 SEX M
+1 BIRT
+2 DATE 22. November 1960
+2 PLAC Wetzlar
+1 OCCU Diplom Volkswirt
+1 FAMS @F31@
+1 FAMC @F32@
+0 @I74@ INDI
+1 NAME Gerrit Lee /Poel/
+1 SEX F
+1 BIRT
+2 DATE 3. Januar 1987
+2 PLAC Kuala Lumpur
+1 CHR
+2 _GODP Hans-Jürgen Harder, Oberstudienrat, Schleswig
+2 DATE 31. Juli 1987
+2 PLAC Port-Louis, Mauritius
+1 FAMC @F22@
+1 NOTE Grundschule in Halstenbek,
+2 CONT Mai 2006 Abitur an der German European School Singapore.
+2 CONT Ab 1. August 2006 Kaufmannslehre im Groß- und Außenhandel, bei KHS Asia Pte. Ltd. , Singapore
+2 CONT zusammen mit dem Business College der German European School Singapore.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\gerrit12.jpg
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\gerrit.jpg
+0 @I75@ INDI
+1 NAME Gustav /Poel/
+1 SEX M
+1 BIRT
+2 DATE 26. September 1839
+2 PLAC Itzehoe (”klösterlich”)
+1 CHR
+2 DATE 17. November 1839
+2 PLAC im Hause
+1 DEAT
+2 DATE 26. März 1922
+2 PLAC Lübeck
+1 OCCU Geheimer Regierungsrat
+1 FAMC @F33@
+1 NOTE begraben, wie auch seine Ehefrau, im Erbbegräbnis in Klein-Wesenberg
+2 CONT
+2 CONT Gevattern
+2 CONT Ernst Poel in Altona
+2 CONT August von Rumohr in Schleswig
+2 CONT Graf Adam von Moltke in Itzehoe 
+2 CONT
+2 CONT 24. April 1860 Student der Rechte,
+2 CONT Regierungsrat bei der preußischen Regierung in Erfurt:
+2 CONT Im Ruhestand zunächst auf Trenthorst, dann auf Hof Neuhof in Reinfeld
+2 CONT Bemühen um Erhebung in den preußischen Adelsstand.
+0 @I76@ INDI
+1 NAME Gustav Arthur /Poel/
+1 SEX M
+1 BIRT
+2 DATE 20. August 1893
+1 DEAT
+2 DATE 29. April 1915
+1 OCCU Leutnant
+1 FAMC @F29@
+1 NOTE im Dragoner-Regiment 5 in Hofgeismar
+2 CONT
+2 CONT Ritter des Eisernen Kreuzes
+2 CONT in Kurszany (Kurland) auf Patrouille von den Russen
+2 CONT gefangen genommen und getötet
+0 @I77@ INDI
+1 NAME Gustav Artur Eduard Johann /Poel/
+1 SEX M
+1 BIRT
+2 DATE 2. August 1917
+2 PLAC Hamburg
+1 OCCU Kapitänsleutnant - Dipl. Ing.
+1 FAMS @F32@
+1 FAMC @F18@
+1 NOTE 1936 Abitur in Hannover
+2 CONT 1936 – 1945 Aktiver Offizier bei der Kriegmarine
+2 CONT Leutnant auf einem U-Boot (U 37)
+2 CONT U-Boot Kommandant (U-413), gesunken vor Brighton.
+2 CONT 1943 17.12: Verleihung des Deutschen Kreuzes in Gold
+2 CONT 1944 26.03: Verleihung des Ritterkreuzes des Eisernen Kreuzes
+2 CONT 1945 Entlassung als Kapitänsleutnant
+2 CONT
+2 CONT 1946 - 1951 Studium der Hüttenkunde und des Gießereiwesens
+2 CONT an der Technische Hochschule Aachen, Dipl. Ing.
+2 CONT 1951 - 1970 Tätigkeit in der Industrie, seit 1963 Vorstandsmitglied im Rheinstahlbereich (verschiedene Gesellschaften)
+2 CONT 1970 – 1982 Vorstandsmitglied der Knight Wegenstein A.G. Düsseldorf (Beratung und Planung)
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\poel_gustav_1.jpg
+0 @I78@ INDI
+1 NAME Gustav Konstantin /Poel/
+1 SEX M
+1 FAMC @F39@
+0 @I79@ INDI
+1 NAME Gustav Paul /Poel/
+1 SEX M
+1 BIRT
+2 DATE 17. November 1804
+2 PLAC Altona
+1 DEAT
+2 DATE 16. April 1895
+2 PLAC Trenthorst
+1 OCCU Kanzleirat
+1 FAMS @F33@
+1 FAMC @F6@
+1 NOTE Nach Privatunterreicht Besuch des Christianeums (Akademisches Gymnasium) in Altona.
+2 CONT Studium der Rechte in Göttingen (Dort erhielt er am 2. August 1824 acht Tage Karzer wegen Beteiligung an einem Duell, vgl. Wedekind).
+2 CONT Weiteres Studium in Berlin und Kiel (dort immatrikuliert am 7. Mai 1825). Abschluss des Studiums 1826. Amtexamen in Kiel (II. Charakter “mit Auszeichnung“) Untergerichtsadvokat in Altona.
+2 CONT Übertritt in die Verwaltung.
+2 CONT Dezember 1827 bis 1835 Tätigkeit in der Schleswig–Holstein–Lauenburgischen Kanzlei in Kopenhagen.
+2 CONT Dort Mitarbeiter Uwe Jens Lornsens, mit welchem er auch in Verbindung blieb, als dieser 1831/32 seinen einjährigen Festungsarrest in Friedrichsort und Rendsburg verbüßte (vgl. Jansen S. 32
+2 CONC 5).
+2 CONT Kanzleirat.
+2 CONT Nach Erlass des Königs Friedrich VI vom 12. Mai 1835 ab 6. Juli 1835 Polizeimeister, zweiter Ratsverwandter, Stadtsekretär und Auktionar in Itzehoe (Polizeimeister waren im dänischen Gesam
+2 CONC tstaat Volljuristen)
+2 CONT 1. Juni 1849 Aufgabe des Amtes
+2 CONT
+2 CONT 1847 Erwerb des Hauses “Hinter dem Klosterhof 31“ von seiner Ehefrau und deren Schwester, der Konventualin Charlotte von Rumohr. (Das jetzt abgebrochene Haus war das spätere “Luisenheim“)
+2 CONT Mai bis August 1848 Zivilkommissar für Schleswig bei dem Oberbefehlshaber der Deutschen Bundestruppen, Generalleutnant von Wrangel, bestellt durch die provisorische Regierung in Rendsburg 
+2 CONC am 24. Mai 1848
+2 CONT
+2 CONT Mai 1849 Vorläufige Entlassung als Polizeimeister zum 1. Juni 1949
+2 CONT 11. Dezember 1852 Berufung des Kanzleirats Poel zum Bürgermeister der Stadt Itzehoe. Justizrat (seit ? 1853)
+2 CONT 14. November 1865 Besuch des österreichischen Statthalters in Holstein, Feldmarschall-Leutnant Freiherr von Gablenz, in Itzehoe.
+2 CONT
+2 CONT Auszeichnung Poels mit dem Ritterkreuz des Franz-Josef-Ordens
+2 CONT
+2 CONT 1. Juni 1868 Mit Wirkung vom 1. Juni 1868 Eintritt in den Ruhestand Weiterführung der Amtsgeschäfte bis um 8. Juli 1868
+2 CONT 9. Juli 1868 Ehrenbürger der Stadt Itzehoe (Der erste EB!)
+2 CONT
+2 CONT 1879 Endgültige Übersiedlung nach Trenthorst
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\gustav_poe_1804kl.jpg
+0 @I80@ INDI
+1 NAME Hans-Hartmann /Poel/
+1 SEX M
+1 BIRT
+2 DATE 21. August 1922
+2 PLAC Breslau
+1 DEAT
+2 PLAC Im September 1942 von Feindfahrt nicht zurückgekehrt
+1 OCCU Leutnant
+1 FAMC @F14@
+1 NOTE 1941 Fähnrich zur See in Flensburg-Mürwik
+2 CONT 1942 Leutnant zur See auf einem Unterseeboot; Einsatz Atlantik
+0 @I81@ INDI
+1 NAME Heilwig Amalie Friederike Louise /Poel/
+1 SEX F
+1 BIRT
+2 DATE 5. März 1848
+2 PLAC Itzehoe (”klösterlich”)
+1 CHR
+2 DATE 10. Mai 1848
+1 DEAT
+2 DATE 11. September 1890
+2 PLAC Trenthorst
+1 BURI
+2 PLAC Klein-Wesenberg
+1 FAMC @F33@
+1 NOTE Gevattern
+2 CONT Amalie von Ahlefeldt
+2 CONT Friederike von Ahlefeldt
+2 CONT Louise von Warnstedt
+2 CONT
+2 CONT Tätig in Armen- und Krankenpflege.
+0 @I82@ INDI
+1 NAME Heilwig Lottchen Bertha Therese /Poel/
+1 SEX M
+1 BIRT
+2 DATE 16. Juli 1890
+2 PLAC auf Wulmenau
+1 DEAT
+2 DATE 25. Juni 1987
+1 FAMS @F34@
+1 FAMC @F29@
+1 NOTE Verbrachte ihren Lebensabend im Wohnstift Dießen/Ammersee
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Lottchen.png
+0 @I83@ INDI
+1 NAME Hella Maria /Poel/
+1 SEX F
+1 BIRT
+2 DATE 27. Juli 1962
+2 PLAC New York
+1 OCCU Schullehrerin
+1 FAMS @F35@
+1 FAMC @F30@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Hella.jpg
+0 @I84@ INDI
+1 NAME Jacoba /Poel/
+1 SEX F
+1 BIRT
+2 DATE 1755
+2 PLAC Archangel
+1 DEAT
+2 DATE 1762
+2 PLAC Hamburg
+1 FAMC @F36@
+1 NOTE beerdigt  im Dom 11. Februar 1762 (Läutebuch der St. Petri-Kirche)
+2 CONT
+2 CONT
+0 @I85@ INDI
+1 NAME Jacobus /Poel/
+1 SEX M
+1 BIRT
+2 DATE 1712
+2 PLAC in Holland
+1 DEAT
+2 DATE 25. September 1775
+2 PLAC auf Zierow (Mecklenburg)
+1 BURI
+2 DATE 25. September 1775
+2 PLAC Proseken
+1 OCCU Großfürstlicher und kaiserlicher Hof- und Kommerzienrat.
+1 FAMS @F26@
+1 FAMS @F36@
+1 FAMS @F37@
+1 FAMC @F50@
+1 NOTE (Geburtstag und Geburtsort nicht nachgewiesen); reformiert.
+2 CONT Erzogen in Leiden. Kaufmann in St. Petersburg und Archangel. 
+2 CONT
+2 CONT  Jacobus wurde, wie schon erwähnt in Leiden erzogen, und war in der Pensionsanstalt des Mr. Luzac, des Eigentümers der französischen Leidener Zeitung. Er erwarb sich eine gediegene Bildung
+2 CONC , sprach insbesondere fast alle europäischen Sprachen: fließend holländisch und russisch, aber auch deutsch, vor allem aber holländisch als Sprache der “Gebildeten“. Jacobus lernte die “Ha
+2 CONC ndlung“ bei der Firma van Brienen in St. Petersburg, deren Teilhaber er später wurde, war Leiter der Niederlassung in Archangel, wo er ein bedeutendes Vermögen erwarb. In St. Petersburg ge
+2 CONC noss er besonders die Gunst des Großfürsten (Thronfolger) Peter, dessen Berater er war. Nach dem Tode seiner ersten Frau, von der er zwei Söhne hatte, heiratete er Magdalena van Brienen, m
+2 CONC it der er fünf Kinder hatte. Der 1760 geborene Sohn Pieter wurde Patenkind des Großfürsten. Als dieser als Peter III im Jahre 1762 zur Regierung kam, wünschte er, Jacobus in seinem Herzogt
+2 CONC um Holstein in den Angelegenheiten der gottorpischen Güter und im Zusammenhang mit dem von ihm beaufsichtigten Kanalbau zu verwenden, und bestimmte ihn, sein Geschäft aufzulösen. Kaum war 
+2 CONC dies geschehen, als der Kaiser gestürzt wurde (Er wurde am 17. Juli 1762 ermordet). Jacobus mochte nun nicht mehr in Russland bleiben und zog mit seiner Familie ganz nach  Hamburg, dessen 
+2 CONC Reichsunmittelbarkeit von dem Haus Gottorp und Dänemark erst durch den Gottorper Vergleich vom 27. Mai 1768 de jure anerkannt wurde.
+2 CONT
+2 CONT In Hamburg starb Jacobus’ zweite Frau. 1766 kaufte er die Mecklenburgischen, in sog. Klützer Winkel gelegenen Güter Zierow, Rethwisch , Rastorf und Naudien, sowie weitere Güter in Mecklenb
+2 CONC urg. Im Sommer lebte er meist auf Zierow, im Winter in Hamburg, zunächst “auf den Bleichen“, später “auf dem Wandrahm“, wo er ein großes Haus führte. (Er fuhr, was in Hamburg auffiel, vier
+2 CONC spännig!). Im Jahre 1767 heiratete er ein drittes Mal, war aber nach zwei Jahren wieder verwitwet. (Die dritte Ehe war kinderlos). Nach seinem Tode im September 1775 erhielten seine Tochte
+2 CONC r Magdalena die Güter Zierow und Rethwisch, sein Sohn Pieter Rastorf und Naudien.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\jacobus.jpg
+0 @I86@ INDI
+1 NAME Jan auch: John, Jon, Johann /Poel/
+1 SEX M
+1 BIRT
+2 DATE 1749
+2 PLAC Archangel
+1 DEAT
+2 DATE 26. Dezember 1808
+2 PLAC Lübeck
+1 OCCU Kaufmann in Lübeck
+1 FAMC @F26@
+1 NOTE “an Nervenschwäche“, 59 Jahre alt
+2 CONT begraben in Lübeck am 29. Dezember 1808
+2 CONT
+2 CONT wohnte Königstraße, bei der Hüxstraße Joh.Q.Nr. 753
+0 @I87@ INDI
+1 NAME Johanna Henriette /Poel/
+1 SEX F
+1 BIRT
+2 DATE 9. November 1789
+2 PLAC Altona
+1 CHR
+2 DATE 17. November 1789
+2 PLAC Altona
+1 DEAT
+2 DATE jungen Jahren
+1 FAMC @F6@
+0 @I88@ INDI
+1 NAME Karen Elisabeth /Poel/
+1 SEX F
+1 BIRT
+2 DATE 27. Juli 1962
+2 PLAC New York
+1 OCCU Senior Vice President of Merchandising
+1 FAMS @F15@
+1 FAMC @F30@
+1 NOTE Macy's Department Stores, a division of Federal Department Stores, Inc.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Karen.jpg
+0 @I89@ INDI
+1 NAME Ludwig Louis /Poel/
+1 SEX M
+1 BIRT
+2 DATE 1831
+2 PLAC Odessa
+1 DEAT
+2 DATE 7. Februar 1873
+2 PLAC an der Cholera St. Petersburg
+1 FAMC @F39@
+1 NOTE beerdigt auf dem lutherischen Friedhof Volkowo
+2 CONT
+2 CONT Besuch des Richelieu-Lyzeum in Odessa bis 1850
+2 CONT Dienst beim Kommerzgericht
+2 CONT Ministerialbeamter in St. Petersburg,
+2 CONT Keine Nachkommen
+2 CONT
+2 CONT Nachweise:
+2 CONT - Michnewitsch, Geschichte des Richelieu-Lyceums (russ.) S. 171
+2 CONT - Petersburger Nekropolis III, 379
+0 @I90@ INDI
+1 NAME Magdalena “Menon“ /Poel/
+1 SEX F
+1 BIRT
+2 DATE 23. Februar 1757
+2 PLAC Archangel
+1 DEAT
+2 DATE 4. Januar 1825
+2 PLAC Bückeburg
+1 OCCU 1775 Erbin der Güter Zierow und Rethwisch
+1 FAMS @F27@
+1 FAMC @F36@
+1 OBJE
+2 FORM jpg
+2 FILE C:\Stammbaum\Images\Poel\Magdalena_Poel_verh._Pauli.jpg
+0 @I91@ INDI
+1 NAME Olga /Poel/
+1 SEX F
+1 BIRT
+2 DATE 17. September 1835
+2 PLAC Odessa
+1 CHR
+2 DATE 25. August 1837
+2 PLAC Altona
+1 DEAT
+2 DATE 26. Mai 1862
+1 FAMS @F11@
+1 FAMS @F38@
+1 FAMC @F39@
+1 NOTE Im Gothaer Grafenkalender 1925 (1926?)
+2 CONT und in der Heiratsurkunde zu b) wird sie "von Poel" genannt
+2 CONT
+2 CONT Sohn des David Johan von Harder und der
+2 CONT Ehefrau Natalie geb. von Stieglitz
+2 CONT
+2 CONT Olga von Harder geb. Poel lebte zuletzt in Paris.
+2 CONT Olga starb am 26 Mai 1863 in Sasbach (lt. Illenau Sterberegister. 26 Jahre Monate, 11 Tage)
+2 CONT
+2 CONT Zahlreiche? Nachkommen aus zweiter Ehe, überwiegend in Argentinien.
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Olga.png
+0 @I92@ INDI
+1 NAME Peter Wolfgang /Poel/
+1 SEX M
+1 BIRT
+2 DATE 14. Januar 1841
+2 PLAC Itzehoe (”klösterlich”)
+1 CHR
+2 DATE 15. März 1841
+2 PLAC im Hause
+1 DEAT
+2 DATE 2. Juli 1926
+2 PLAC Lübeck
+1 OCCU Landgerichtsdirektor
+1 FAMS @F20@
+1 FAMC @F33@
+1 NOTE begraben St. Jürgen Friedhof. 
+2 CONT
+2 CONT Gevattern:
+2 CONT Johann Georg Rist, Schleswig (Conferenzrath und Regierungsrath)
+2 CONT Charles Hanbury, Hamburg (Königl. Hannöverscher Misterialresident)
+2 CONT Peter Poel in Odessa
+2 CONT
+2 CONT  Wolfgang Poel wuchs in Itzehoe auf.
+2 CONT Besuch der Gelehrten Schule in Plön.
+2 CONT Studium der Rechte.
+2 CONT Immatrikulation Kiel 2. Mai 1859.
+2 CONT Aktiv im Corps “Holsatia“ in Kiel.
+2 CONT Ausbildung in Schleswig-Holstein-Lauenburg Amtsekretär in Itzehoe (Amt Steinburg) und Reinbek
+2 CONT Richter in Flensburg (königlicher Amtsrichter) vom 1. September 1867 bis zum 1. April 1878, Altona (Kreisgerichtsrat) und seit dem 1. Oktober 1879 in Hamburg (Landrichter), zuletzt Landger
+2 CONC ichtsdirektor daselbst.
+2 CONT
+2 CONT Nach seiner Zurruhesetzung zum 1. Januar 1905 lebte Wolfgang Poel zunächst bis 19. Mai 1911 auf seinem am 1. Mai 1903 erworbenen Landsitz Charlottenhöhe bei Itzehoe, sodann in Lübeck.
+2 CONT
+2 CONT Er zeichnete seine Lebenserinnerungen auf. (2 Bände Erinnerungen von Peter Wolfgang Poel (“Selbsterlebtes“) verwahrt im Staatsarchiv Hamburg mit einem “Register“ dazu. Familienarchiv 424-8
+2 CONC 8/39 Poel)
+2 CONT
+2 CONT Wolfgang Poel war von 1888 bis 1905 Mitglied des Vorstandes, dann Vorsitzender und schließlich Ehrenmitglied des Vorstandes der "Alsterdorfer Anstalten" in Hamburg.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\22_wolfgang_poel_kl.jpg
+0 @I93@ INDI
+1 NAME Pieter /Poel/
+1 SEX M
+1 RELI Totenregister der reformierten Kirche in Altona
+1 BIRT
+2 DATE 17. Juni 1760
+2 PLAC Archangel
+1 DEAT
+2 DATE 3. Oktober 1837
+2 PLAC Altona
+1 BURI
+2 DATE 6. Oktober 1837
+2 PLAC Erbbegräbnis Norderreihe in Altona. Nr. 412
+1 FAMS @F6@
+1 FAMC @F36@
+1 NOTE Patenkind des Großfürsten Peter, des späteren Zaren Peter III.
+2 CONT Wuchs nach Übersiedlung seiner Eltern von Archangel nach Hamburg 
+2 CONT
+2 CONT  1776 bis 1778 Kaufmännische Lehre in Bordeaux
+2 CONT 1778 bis 1780 in Genf und
+2 CONT 1780 bis 1783 in Göttingen
+2 CONT
+2 CONT Studium vorzugsweise der Geschichte, Staatswissenschaften und Nationalökonomie (Sommer 1871 in Lübeck und auf Zierow)
+2 CONT 1783 bis 1784 Tätigkeit im Collegium der Auswärtigen Angelegenheiten in St. Petersburg Sekretär (Secrétaire interprète) im Kaptänsrang.
+2 CONT Einflussreiche Beziehungen durch seinen Onkel (Bruder seiner Mutter) Abraham van Brienen. Aufgabe des Dienstes (Beurlaubung) und Verlassen Russlands.
+2 CONT 1784 bis 1785 Stockholm und Schweden.
+2 CONT Trotz der Befürwortung einflussreicher Verwandter (u.a. Peyron) und ihm zunächst, auch von König Gustaf III. (1771–1792), gemachter Angebote (Zusicherungen) bekam er keine Anstellung im öf
+2 CONC fentlichen Dienst Schwedens.
+2 CONT Seine reformierte Konfession war in dem streng lutherischen Schweden der von Kanzleichef und Reichrat Graf Oxenstierna geltend gemachte Hinderungsgrund.
+2 CONT Dazu vgl. den Briefwechsel von Poel mit dem schwedischen Kanzleipräsidenten Graf Creutz und Graf Oxenstierna in
+2 CONT
+2 CONT 1) der Universität Uppsala (F 491, Gustavianska saml. Quart 17 Nr. 121 2) dem Reichsarchiv Stockholm (Kanslipres. Arkiv, eingegangene Schreiben 1785 - 1790, P; Kanslipres. Koncepter 1786).
+2 CONT
+2 CONT Unterschied zwischen "reformierter" und "lutherischer" siehe Wikipedia
+2 CONT
+2 CONT Pieter Poel, der zunächst seinen Wohnsitz auf der "Großen Freiheit" in Hamburg genommen hatte, ließ nach gemeinschaftlichen Reisen mit dem Kaufmann Caspar Voght, dem späteren Reichsfreiher
+2 CONC rn, nach Frankreich (Paris) und England (London) – Frühjahr 1786 – schließlich 1789 bleibend in Altona nieder, wo er aufgrund käuflich erworbenen königlichen (dänischen) Privilegs den “Alt
+2 CONC onaischen Mercurius“ herausgab “aber nicht eigentlich selbst redigierte“ (vgl. Alberti 1868, S. 211), die derzeit bedeutendste deutschsprachige Zeitung im gesamten Norden, sowie die Landes
+2 CONC kalender.
+2 CONT Pieter Poel war auch sonst journalistisch und schriftstellerisch tätig.
+2 CONT Wir wissen nicht ob Wilhelm von Archenholtz und Piter Poel sich gekannt haben, aber ihr frankophil gemeinsames Gefühl, Einsatz für La Fayette und ihre publizistische Ambitionen - "Minerva"
+2 CONC  und "Altonaischen Mercurius" - , lassen dies vermuten
+2 CONT
+2 CONT Poel hatte ein Stadthaus in Altona in der Großen Freiheit “zwischen de Valory und der Brüdergemeinde“ und wohnte später im Sommer auf dem Landsitz Neumühlen, den er im November 1793 mit de
+2 CONC n Großkaufleuten Georg Heinrich Sieveking und Conrad Johann Matthiessen erworben hatte, nach dem Verkauf von Neumühlen im Jahr 1811 seit 1812 in Teufelsbrücke und schließlich 1816 bis 1822
+2 CONC  zusammen mit Baron Voght auf Flottbek.
+2 CONT
+2 CONT Der sogenannte "Neumühlener Kreis" vermittelte Poel als Mittelpunkt geselligen und literarischen Lebens Kontakte u. a. mit Klopstock, Wilhelm von Humboldt, Friedrich Jacobi, Johann Heinric
+2 CONC h Voß, Georg Kerner.
+2 CONT
+2 CONT  Über den Neumühlener und Flottbeker Kreis und die “Familie“ ist so viel geschrieben worden, dass insoweit auf das Schrifttum verwiesen werden kann.
+2 CONT Poel Beziehungen, auch die verwandtschaftlichen, erstreckten sich nahezu über ganz Europa.
+2 CONT Er ist u.a. auch als Berater seines Vetters Peyron, seit 1792 schwedischer Ministerresident beim Niedersächsischen Kreis in Hamburg, in Erscheinung getreten und in der napoleonischen Zeit 
+2 CONC von Oberpräsident Graf Blücher (Altona) zu Verhandlungen an den Kronprinzen von Schweden, Marschall Bernadotte, gesandt worden.
+2 CONT Poel war auch Direktor des Altonaer Instituts zur Unterstützung französischer Emigranten.
+2 CONT Dies entsprach seiner humanitären Gesinnung, die er später (1816) ähnlich in einem Gutachten über das schleswig-holsteinische Armenwesen offenbarte und die ihn in die geistige Nähe von Vog
+2 CONC hts Christentum der Tat rückt.
+2 CONT Schrifttumsnachweise:
+2 CONT Konrad Feilchenfeldt in Schleswig-Holsteinisches Biographisches Lexikon, Band 3, Neumünster 1974 (mit Würdigung Poels und weiteren Nachweisen)
+2 CONT Schriften in der Allgemeine Deutsche Biographie Bd. 53
+2 CONT Dazu eine Korrektur (Gerhard Poel) pdf-Datei
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Pieter_Poel.png
+0 @I94@ INDI
+1 NAME Pieter Eduard /Poel/
+1 SEX M
+1 BIRT
+2 DATE 12. Oktober 1798
+2 PLAC Altona
+1 CHR
+2 DATE 10. November 1798
+2 PLAC Altona
+1 DEAT
+2 DATE 1850
+2 PLAC Genua auf einer Geschäftsreiseel
+1 OCCU Bankier
+1 FAMS @F39@
+1 FAMC @F6@
+0 @I95@ INDI
+1 NAME Rudolf Carl Sophus Wilhelm /Poel/
+1 SEX M
+1 BIRT
+2 DATE 15. November 1883
+2 PLAC Hamburg
+1 DEAT
+2 DATE 20. März 1916
+1 OCCU Dr. jur. (“cum laude“)
+1 FAMC @F20@
+1 NOTE An den Folgen der Verwundung  verstorben in
+2 CONT Landau (Pfalz).
+2 CONT begrabenauf dem St. Jürgen-Friedhof in Lübeck.
+2 CONT
+2 CONT  Nach der Reifeprüfung im Herbst 1901 zur Universität.
+2 CONT Studium der Rechte.
+2 CONT 3 Semester in Freiburg (aktiv beim Corps Rhenania),
+2 CONT 1 Semester in München,
+2 CONT 2 Semester in Göttingen.
+2 CONT Dezember 1904 Referendarexamen beim Oberlandesgericht Celle.
+2 CONT Frühjahr 1905 Dr. jur. (“cum laude“) in Leipzig
+2 CONT 1906 Militärdienst,
+2 CONT Sommer 1910 Assessorexamen,
+2 CONT
+2 CONT Frühjahr 1913 Ernennung zum Regierungsrat.
+2 CONT
+2 CONT Abteilungsvorstand bei der Polizeibehörde in Hamburg.
+2 CONT Reserveoffizier im Feldartillerie-Regiment Nr. 80.
+2 CONT
+2 CONT Teilnahme am 1. Weltkrieg an der Westfront.
+2 CONT Oberleutnant. Im Dezember 1916 bei Verdun schwer verwundet (18 Splitter einer Handgrante).
+2 CONT Ritter des EK I. und II. Klasse ,
+2 CONT des Hamburgischen Hanseatenkreuzes und des Orden vom Zähringer Löwen mit Schwertern
+2 CONT (Letzterer wurde verliehen wegen der erfolgreichen Verteidigung des Passes von Markirch)
+1 OBJE
+2 FORM jpg
+2 FILE C:\Stammbaum\Images\Poel\RUDOLF_POEL geb 1883.JPG
+0 @I96@ INDI
+1 NAME Rutger /Poel/
+1 SEX M
+1 BIRT
+2 DATE 1753
+2 PLAC Archangel
+1 DEAT
+2 DATE 5. Mai 1772
+2 PLAC Göttingen
+1 FAMC @F36@
+1 NOTE Als stud. jur, 19 Jahre alt in Göttingen
+2 CONT an den Folgen eines Duells
+2 CONT begrabenam 8. Mai 1772.
+2 CONT Sterberegister St. Jacobi 1772, S. 288 Nr. 32
+2 CONT
+2 CONT 30. April 1768 Immatrikuliert am Gymnasium in Hamburg
+2 CONT 1770 nach Göttingen abgegangen
+0 @I97@ INDI
+1 NAME Sabine /Poel/
+1 SEX F
+1 BIRT
+2 DATE 21. April 1959
+2 PLAC Wetzlar
+1 OCCU Biologisch-Technische Assistentin
+1 FAMC @F32@
+1 NOTE Ausbildung an der Rheinakademie in Köln
+2 CONT Tätigkeit im Münchener Krankenhaus als medizinisch technische Assistentin
+0 @I98@ INDI
+1 NAME Sigrid /Poel/
+1 SEX F
+1 BIRT
+2 DATE 5. Dezember 1949
+2 PLAC Flensburg
+1 CHR
+2 DATE 6. Januar 1950
+1 FAMC @F4@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\SigridPoel1949.jpg
+0 @I99@ INDI
+1 NAME Sophie Anna Dorothea /Poel/
+1 SEX F
+1 BIRT
+2 DATE 26. Dezember 1843
+2 PLAC Itzehoe
+1 CHR
+2 DATE 11. Februar 1844
+2 PLAC im Hause
+1 FAMC @F33@
+1 NOTE Gevattern
+2 CONT Anninka Poel
+2 CONT Sophie Hanbury
+2 CONT Dorothea Louise von Rumohr
+0 @I100@ INDI
+1 NAME Stephanie /Poel/
+1 SEX F
+1 BIRT
+2 DATE 9. Augst 1984
+1 FAMC @F41@
+1 NOTE Adoptivtochter
+2 CONT Fachabitur 2006,
+2 CONT Ausbildung zur Kauffrau für Bürokommunikation.
+2 CONT Seit 2008 in einer Wirtschaftskanzlei in München angestellt, seit 2009 als Eventmanagerin.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Stephanie.jpg
+0 @I101@ INDI
+1 NAME Tanya Christiane /Poel/
+1 SEX F
+1 BIRT
+2 DATE 19. August 1965
+2 PLAC New York
+1 OCCU Pilotin / Fluglehrerin United American Airlines.
+1 FAMS @F40@
+1 FAMC @F30@
+1 NOTE Kinder sind aus Metthews 1. Ehe (Stieftöchter)
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Tanya.jpg
+0 @I102@ INDI
+1 NAME Theodor /Poel/
+1 SEX M
+1 BIRT
+2 DATE 4. November 1806
+2 PLAC Altona
+1 CHR
+2 DATE 7. Dezember (?) 1806
+2 PLAC Altona
+1 DEAT
+2 DATE 16. Juni 1829
+1 FAMC @F6@
+1 NOTE 1824 in Göttingen als “stud. med. T. Poel aus Altona“ eingetragen.
+2 CONT
+2 CONT Am 19. September 1824 nach einer Brockenbesucherliste
+2 CONT mit Heinrich Heine auf dem Brocken.
+2 CONT
+2 CONT Fortsetzung des Studiums in Berlin.
+2 CONT
+2 CONT Am 1. Mai. 1826 in Kiel als “stud. jur. aus Altona“ immatrikuliert.
+2 CONT 1828 beim Stadtgericht in Berlin
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\theodor.jpg
+0 @I103@ INDI
+1 NAME Vera /Poel/
+1 SEX F
+1 FAMC @F39@
+0 @I104@ INDI
+1 NAME Walter Rudolf Arnold /Poel/
+1 SEX M
+1 BIRT
+2 DATE 27. Oktober 1908
+2 PLAC Altona-Othmarschen
+1 CHR
+2 DATE 8. Dezember 1908
+2 PLAC Altona-Othmarschen
+1 DEAT
+2 DATE 31. Januar 1984
+2 PLAC Schleswig
+1 OCCU Oberlandesgerichtsrat
+1 FAMS @F4@
+1 FAMC @F42@
+1 NOTE 1928 Abitur Christianeum in Altona
+2 CONT 1928 - 1931 Studium der Rechte und der Volkswirtschaft in Hamburg, München und Kiel
+2 CONT 27. November 1931 Referendarexamen in Kiel
+2 CONT 16. Dezember 1931 bis 15. Dezember 1934 Justizausbildung in Schleswig- Holstein und Lübeck
+2 CONT 11. April 1935 Assessorexamen in Berlin
+2 CONT 15. September 1935 Übergang zur Justiz. Assessor und Gerichtsassessor in Schleswig-Holstein (Itzehoe, Altona, Kiel, Flensburg) und Ostpreußen (Allenstein und Lyck)
+2 CONT 1. Juni 1939 Staatsanwalt in Flensburg, Dienstantritt 1. August 1939; mit Abordnung nach Itzehoe (1940) und Kiel (1943/44 und 1946)
+2 CONT
+2 CONT Nach militärischer Ausbildung 1938 Reserveübung und “Sudeteneinsatz“ (Flak- Regiment 62 Oldenburg)
+2 CONT Kriegsteilnahme 1940 bis 1943 und 1944 bis 1945 bei der Luftwaffe und beim Heer:
+2 CONT - Res. Flak Scheinwerfer-Abt. 340 mit Kommandierungen zur Luftnachrichtentruppe
+2 CONT - Gruppe Heeresstreifendienst z.b.V. 2 mit Kommandierungen
+2 CONT - Artillerie Regiment 1352
+2 CONT Obergefreiter, Verwundetenabzeichen in Schwarz, amerikanische Kriegsgefangenschaft und Internierung in Bayern, Hessen und Württemberg
+2 CONT 25. April 1946 Entlassung in Kornwestheim
+2 CONT
+2 CONT September 1946 wieder im Zivilberuf, zunächst in Kiel, dann in Flensburg
+2 CONT 1956 Abordnung zum Generalstaatsanwalt nach Schleswig
+2 CONT 1957 Versetzung dorthin
+2 CONT 1. April 1957 Ernennung zum Ersten Staatsanwalt
+2 CONT 1. November 1964 Ernennung zum Oberlandesgerichtsrat in Schleswig
+2 CONT (Mitglied von Zivil- und Strafsenaten und stellvertretender Vorsitzender)
+2 CONT 31. Oktober 1973 Versetzung in den Ruhestand
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\36_walter_poel_kl.jpg
+0 @I105@ INDI
+1 NAME Wiebke /Poel/
+1 SEX F
+1 BIRT
+2 DATE 23. März 1947
+1 FAMC @F4@
+0 @I106@ INDI
+1 NAME Wilhelm /Poel/
+1 SEX M
+1 DEAT
+2 DATE 1867
+2 PLAC ermordet
+1 FAMC @F39@
+1 NOTE Half als Student den Russen im Krimkrieg bei der
+2 CONT Verteidigung Odessa gegen die Engländer und wurde dekoriert.
+2 CONT Trat in die russische Armee ein. Streit mit einem Vorgesetzten im Kaukasus.
+2 CONT Flucht in die Vereinigten Staaten von Amerika.
+2 CONT Teilnahme am Bürgerkrieg auf Seiten der Sezessionisten.
+0 @I107@ INDI
+1 NAME Wilhelm /Poel/
+1 SEX M
+1 BIRT
+2 DATE 31. Januar 1794
+2 PLAC Atonar
+1 CHR
+2 DATE 23. Februar 1794
+2 PLAC Atonar
+1 DEAT
+2 DATE 27. Dezember 1794
+2 PLAC auf seinem Ruhesitz in Arnheim
+1 FAMS @F23@
+1 FAMC @F6@
+1 NOTE Paten
+2 CONT Conrad Johann Matthiessen
+2 CONT Georg Heinrich Sieveking, Schwager von Christine Reimarus
+2 CONT Magdalena Pauli * Poel
+2 CONT
+2 CONT
+2 CONT verh mit Elisabeth Luden, welche ihn überlebte. Keine Kinder. Das große hinterlassene Vermögen ging an ein Pflegekind.
+2 CONT
+2 CONT
+2 CONT
+2 CONT Sein Vater, Pieter Poel, schreibt am 2. November 1830 an v.d. Recke in Mitau (vgl. Schrifttum zu 6.B.4 im Anhang) “....der älteste hat mit einem Schwiegersohn meines Schwagers Sillem ein H
+2 CONC andlungshaus in Amsterdam“ ebenda
+0 @I108@ INDI
+1 NAME Wolfgang /Poel/
+1 SEX M
+1 BIRT
+2 DATE 7. Februar 1950
+2 PLAC Wuppertal-Elberfeldt
+1 FAMS @F41@
+1 FAMC @F16@
+1 NOTE Studium der Mathematik und Betriebswirtschaft in Göttingen
+2 CONT
+2 CONT Vorstandsmitglied einer Versicherungsgesellschaft.
+2 CONT Nach Auflösung des Arbeitsverhältnisses betrieb er zwischenzeitlich mit seiner Ehefrau ein Buchhandels- und Versandgeschäft in Pfaffenhofen.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Wolfgang.jpg
+0 @I109@ INDI
+1 NAME Wolfgang Gustav Rudolph Thomas /Poel/
+1 SEX M
+1 BIRT
+2 DATE 23. Dezember 1873
+2 PLAC Adelbylund bei Flensburg
+1 DEAT
+2 DATE (gefallen)3. Oktober 1914
+2 PLAC 3. Oktober 1914 im Gefecht von Beuvraignes
+1 OCCU Hauptmann
+1 FAMS @F42@
+1 FAMC @F20@
+1 NOTE beerdigt zunächst auf dem Dorffriedhof von Avricourt,
+2 CONT jetzt auf dem Deutschen Soldatenfriedhof in Nampcel (ostwärts Noyon)
+2 CONT
+2 CONT Reifeprüfung Hamburg, Wilhelm-Gymnasium, 1. März 1892
+2 CONT
+2 CONT Unteroffizier im Schleswigschen Feldartillerie-Regiment Nr. 9
+2 CONT 17. November 1892 Portepeefähnrich
+2 CONT 17. Juni 1893 Seconde-Lieutenant
+2 CONT 1901 bis 1904 Besuch der Kriegsakademie
+2 CONT 12. September 1902 Oberleutnant im Lauenburgischen Feldartillerie-Regiment Nr. 45
+2 CONT Kommandierung zum Großen Generalstab in Berlin-Schöneberg
+2 CONT Hauptmanngemäß Patent vom 17. Mai 1910.
+2 CONT Batteriechef.
+2 CONT Juli 1914 “Abschied mit der gesetzlichen Pension mit der Erlaubnis zum Tragen der Uniform des Feldartillerie-Regiment Nr. 9 “ und Verleihung des roten Adler Ordens 4. Klasse.
+2 CONT Übergang in das Nachrichtenbüro der Friedr. Krupp Aktiengesellschaft in Essen.
+2 CONT Nach Ausbruch des Krieges stellte sich Wolfgang Poel 1914 dem Heer zur Verfügung.
+2 CONT Ausrücken als Führer der 6. Batterie des 18. Reserve-Feldartillerie-Regiments (II Abt.) 29./30. August in Brüssel.
+2 CONT Verleihung des Eisernen Kreuzes.
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\31_wolfgang_poel_kl.jpg
+0 @I110@ INDI
+1 NAME Claes Cornelisz /Pool/
+1 SEX M
+1 CHR
+2 DATE 19. Februar1651
+2 PLAC Amsterdam, Zuiderkerk
+1 BURI
+2 DATE 02. Juni 1710
+2 PLAC Amsterdam, Oosterkerk
+1 FAMS @F53@
+1 NOTE von Alphen
+2 CONT geboren 1603 oder 1604.
+2 CONT
+2 CONT Amsterdam
+2 CONT 29. September 1629    
+2 CONT Aufgebot Claes Cz. P, Schiffszimmergeselle, 25 Jahre alt, mit Consent seines Vaters,
+2 CONT und Geertje ( = Geertruid) Gerritsdr, von Amsterdam, 18 Jahre alt,
+2 CONT Tochter von Gerrit Jansz. und Tietgie ( = Titia) Teunisdr. ( = Tochter des Antonius)
+2 CONT
+2 CONT 14. Oktober 1629    
+2 CONT Getraut in der Oude Kerk zu Amsterdam
+2 CONT
+2 CONT 1657    
+2 CONT Als “Kornträger und Bürger“ genannt
+2 CONT
+2 CONT 1668    
+2 CONT “wonende in die Foeliestraat“
+2 CONT
+2 CONT “5 augustus    
+2 CONT Begraven op het Sint Anthoniskerkhof.”
+2 CONT
+2 CONT Claes Cornelisz. Witwe, auch “Grietien Gerrets” geschrieben, lebte am 19. August 1679 (Aufgebot des Sohnes Gerrit) nicht mehr.
+2 CONT
+2 CONT Aus dieser Ehe sind 11 Kinder bekannt
+2 CONT
+2 CONT Bruder: Cornelis Cornelisz P o o l
+2 CONT
+2 CONT Kinder:
+2 CONT
+2 CONT Annetje
+2 CONT * 23.06.1630
+2 CONT Zeugen: Tiet Teunis, Gerrit Jansz.
+2 CONT
+2 CONT Jan
+2 CONT * 18.09.1633
+2 CONT Taufe Oude Kerk
+2 CONT Zeugen: Ael Jans, Gerrit Jansz.
+2 CONT
+2 CONT Grietjen
+2 CONT * 16.09.1635
+2 CONT Zeugen: Cornelis Cornelisz., Sara Volckers
+2 CONT
+2 CONT Aeltjen
+2 CONT * 207.06.1637
+2 CONT Zeugen: Susanna Thijssen, Teunis Gerrits,
+2 CONT Tietje Teunis
+2 CONT
+2 CONT Cornelis
+2 CONT * 14.11.1638
+2 CONT Zeugen: Pieter Teunis, Willempje Gerrits
+2 CONT
+2 CONT Giertjen
+2 CONT * 22.01.1640
+2 CONT Zeugen: Willem Gerrits
+2 CONT
+2 CONT Cornelis
+2 CONT * 29.09.1641
+2 CONT Zeugen: Aeltjen Cornelis, Tietgen Thomas
+2 CONT
+2 CONT Tietjen und Gerrit
+2 CONT * 27.08.1643
+2 CONT Zeugen: Pieter Teunis, Tietje Teunis,
+2 CONT Griet Harms
+2 CONT
+2 CONT Tietje
+2 CONT * 21.11.1645
+2 CONT Zeugen: Pieter Teunis Byman (?)
+2 CONT
+2 CONT Gerrit
+2 CONT * 19.02.1651
+2 CONT Zeugen: Ds. Anthonius Hillarius (=Vroliijk = Fröhlich),
+2 CONT Judick Hillarius, Grietjen Hendrickdr
+0 @I111@ INDI
+1 NAME Gerrit Claesz /Pool/
+1 SEX M
+1 FAMS @F52@
+1 FAMC @F53@
+1 NOTE getauft 19. Februar1651 Amsterdam, Zuiderkerk
+2 CONT beerd 02. Juni 1710 Amsterdam, Oosterkerk
+2 CONT verheiratet
+2 CONT 1) 29.08.1679 Marritje Jansdr.
+2 CONT 2) 24.11.1693 Eva Snellings
+2 CONT
+2 CONT Zu Trauzeugen von Gerrit Pool
+2 CONT (letztere ist wahrscheinlich personengleich mit “Geertje“ Hendrickdr., zweiter Ehefrau des Cornelis Cornelisz. Pool. Anthonius Hilarius, “Diener des göttlichen Wortes“,
+2 CONT ist wahrscheinlich der Bruder oder Halbbruder von Geertje Henricksdr., sein Vater ist Gerrit Jansz. Vrolijk = Fröhlich)
+2 CONT 19 februari 1651
+2 CONT
+2 CONT Doop in de Zuiderkerk van Gerret, zoon van Claes Cornelisz. Pool en Grietjen Gerrets. Getuigen: Ds. Anthoniuns Hillarius, Judick Hillarius en Grietien Henricksdr.
+2 CONT
+2 CONT 19 augustus 1679
+2 CONT Ondertrouw van Gerrit Claesz. Pool (van Amsterdam, scheepstimmerman, oud 28 jaar, wonende op Rapenburg, ouders overleden, geassisteerd door sijn broer Johannes Pool) en Marritje Jansdr. (v
+2 CONC an Amsterdam, oud 28 jaar, wonende op de Heiligeweg, ouders overleden, geassisteerd door har zuster). De huwelijksvoltrekking vond plaats in de Nieuwe Kerk op 29 augustus 1679
+2 CONT
+2 CONT 19. September 1679
+2 CONT Bürgerbuch: G.Cz.P., Schiffszimmermann, “ist ein ein*er Bürger“
+2 CONT
+2 CONT Resolutieboek, folio 70
+2 CONT Den 19 November 1686 is tot provisioneel meester timmerman op Comgnieswerp aengestelt, op authorisatie van den vergaderingh Gerrit Claess Pool met een staende tractement van twaelf hondert
+2 CONC  gulden in ‘t jaar, vrij huyshuer, vier guldens bier, vuer en licht, heden ingaende. Er leistete den Eid am 25. November 1686 Resolutieboek, folio 80 Festsetzung des Tagesgeldes seit dem 1
+2 CONC 5. Juni 1690 1 Juni 1693 Begraven in de Oosterkerk Marretje Jans, van Saanen, huisvrouw van Gerrit Claesse Pool, wonende op Oostenburg bij de Oostindische werf.
+2 CONT
+2 CONT 30. Oktober 1693
+2 CONT Ondertrouw van Gerrit Claesz. Pool (van Amsterdam, meester scheepstimmerman van de Oostindische Compagnie , wedunaar van Marritje Jans van Saanen op Oostenburg) en Eva Snellings (van Amste
+2 CONC rdam, oud 43 jaar, wonende op het Nieuwe eiland, ouders overleden, geassisteerd met haar zuster Marritje Jacobs Snellings). De bruid tekende Eva Snellingh. Het huwelijk weid op 24 november
+2 CONC  1693 gesloten in de Nieuwe Kerk.
+2 CONT
+2 CONT Resolutieboek, folio 80
+2 CONT Am 5. November 1693 wurde das Tagesgeld, das Gerrit Cz. Pool seit dem 15 Juni 1690 verdiente, erhöht.
+2 CONT
+2 CONT Vom 30. August 1697 Bis zum 13. Januar 1698 bildete G.Cz. Pool Zar Peter d.Gr. im Schiffbau aus.
+2 CONT
+2 CONT 2 juni 1710
+2 CONT Begraven in de Oosterkerk: Gerrit Klaasz. Pool, meester scheepstimmerman van de bewindhebberen der Oostindische Compagnie, wonende op Oostenburg bij de Oostindische werf.
+2 CONT
+2 CONT 1717 Besuch des Zaren in Amsterdam. Zusammentreffen mit der Witwe Pool
+2 CONT
+2 CONT 12 maart 1726
+2 CONT Begraven in de Oude Kerk Eva Snellingh, weduwe von Gerrit Claasz. Pool, wonende op Kattenburg
+2 CONT Gerrit Claesz P o o l ist dadurch bekannt geworden, dass er Zar Peter d. Gr. im Schiffsbau ausgebildet hat. Der Zar wohnte damals auf der Werft der Oostindische Compagnie auf Oostenburg. P
+2 CONC eter war oft Gast der Familie und hing an ihr.
+2 CONT Briefwechsel Pools mit Zar Peter
+2 CONT
+2 CONT a) Erik Amberger, Die Familien van Brienen und ihre Sippe in Archangel, aus dem Leben einer Kolonie, Berlin 1936
+2 CONT und
+2 CONT
+2 CONT b) Wilhelm Albers, Stammreihe der Familie Poel, Manuskript. Es handelt sich um zumindest drei Briefe
+2 CONT
+2 CONT aa) Pool an Zar Peter am 20. Februar 1700
+2 CONT Dank für die Mitteilung einer geruhsamen Stelle (bei der Admiralität),
+2 CONT bb) Peter an Pool, Antwort
+2 CONT Peter schickt eine Zeichnung (Bild) seines neuesten, in Woronesch gebauten Schiffs “Gottes Vorsehung“.
+2 CONT cc) Pool an Peter am 19. Mai 1704
+2 CONT Pool berichtet über die gemeinsam gebaute Fregatte “Peter und Paul“, dass das Schiff bereits eine Reise nach Ostindien gemacht habe und dass es im guten Zustand zurückgekehrt sei. Es liege
+2 CONC  nun bei der Werft und werde für eine neue Reise klar gemacht.
+0 @I112@ INDI
+1 NAME Jan /Pool/
+1 SEX M
+1 CHR
+2 DATE 15.Juli 1682
+2 PLAC Amsterdam (Zuiderkerk)
+1 FAMS @F50@
+1 FAMC @F52@
+1 NOTE getauft 15.Juli 1682 Amsterdam (Zuiderkerk)
+2 CONT
+2 CONT Resolutieboek folio 100
+2 CONT 11 August 1710
+2 CONT Wegen des Ablebens des “Gerrit Claesz. Pool, Meesterscheepstimmerman, wurde sein Sohn Jan Pool an seiner Stelle angestellt, und zwar mit einem Gehalt von 600 Gulden pro Jahr nebst zwei Gul
+2 CONC den pro Werktag (300 Werktage im Jahr gerechnet), weiter freie Wohnung im Hause der Compagnie und vier Gulden an Bier, Feuer und Licht frei. 29. September 1710 Er leistete den Eid.
+2 CONT
+2 CONT Resolutieboek folio 120
+2 CONT Am 19. November 1720
+2 CONT wurde das Gehalt des Jan Pool erhöht, mit Wirkung vom 1. November 1720
+2 CONT
+2 CONT Resolutieboek folio 129
+2 CONT Am 1. Juli 1723
+2 CONT wurde ein anderer ernannt anstatt des “Meisters Schiffszimmermanns Jan Pool“, der aus dem Dienste der Compagnie entlassen war.
+0 @I113@ INDI
+1 NAME Johannes Pool (Jan) /Pool/
+1 SEX M
+1 FAMC @F53@
+1 NOTE 18.09.1633    
+2 CONT Taufe Oude Kerk
+2 CONT
+2 CONT “22 juli 1656.
+2 CONT Ondertrouw van Johannes Pool (van Amsterdam, Boekhouder, oud 23 jaar, geassisteerd met sijn Vader Claes Cornelisz. Pool, wonende op de Keizersgracht)
+2 CONT en Maria Simons Crayestaijin (van Rotterdam, oud 26 jaar, geassisteerd door haar zuster Grietje Crayestayn, wonende in den Runstraat). De huwelijksvoltrekking vond plaats op
+2 CONT 6 augustus 1656     in die Nieuwe Kerk.“
+2 CONT
+2 CONT Bürgerbuch
+2 CONT 5. Dezember 1657    
+2 CONT Johannes Pool, Buchhalter, Sohn von Claes Cornelisse Pool “hat seinen Bürgereid geleistet“
+0 @I114@ INDI
+1 NAME Gater /Rosemarie/
+1 SEX F
+1 BIRT
+2 DATE 4 NOV 1929
+1 FAMS @F43@
+0 @I115@ INDI
+1 NAME Charlotte /Scheffler/
+1 SEX F
+1 FAMS @F44@
+0 @I116@ INDI
+1 NAME Carl Friedrich Arnold /Schetelig/
+1 SEX M
+1 BIRT
+2 DATE 5. Juni 1835
+2 PLAC Heide/Holstein
+1 DEAT
+2 DATE 17. Februar 1900
+2 PLAC Nervi/Italien
+1 FAMS @F45@
+1 NOTE praktizierender Arzt (1859 - 1867) in HongKong, beherrschte 7 Sprachen
+2 CONT Präsident (1861) vom German Club in HongKong und Bibliothekar (1867)
+2 CONT 1868 Author: „On the Natives of Formosa“
+2 CONT Ab 1868 in Hamburg, später in Bad Homburg
+2 CONT und verbrachte ab 1873 aus gesundheitlichen Gründen die Wintermonate in Nervi,
+2 CONT dort war er als Arzt und Dolmetscher beliebt
+2 CONT Sein Testament wurde 1901 in Hongkong eröffnet
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\ArnoldSchetelig.png
+0 @I117@ INDI
+1 NAME Elisabeth /Schetelig/
+1 SEX F
+1 BIRT
+2 DATE 11. Juli 1875
+2 PLAC Altona
+1 DEAT
+2 DATE 6. November1955
+2 PLAC Münster
+1 FAMS @F42@
+1 FAMC @F45@
+1 NOTE an den Folgen eines am 3. November erlittenen Straßenverkehrsunfalls;
+2 CONT begraben auf dem St. Jürgen Friedhof in Lübeck
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\elisabethpoel_schetelig.jpg
+0 @I118@ INDI
+1 NAME Wilhelm Julius Claudio /Schetelig/
+1 SEX M
+1 BIRT
+2 DATE 19. November 1876
+2 PLAC Nervi /Italien
+1 OCCU Studierte Maschineningenieurwesen
+1 FAMS @F46@
+1 FAMC @F45@
+0 @I119@ INDI
+1 NAME Dora Marie /Schöning/
+1 SEX F
+1 FAMS @F46@
+0 @I120@ INDI
+1 NAME Judith /Schreur van Hoghenstein/
+1 SEX F
+1 FAMS @F37@
+0 @I121@ INDI
+1 NAME Christiane Henrike /Schubert/
+1 SEX F
+1 FAMS @F31@
+0 @I122@ INDI
+1 NAME Adelheid /Stodiek/
+1 SEX F
+1 BIRT
+2 DATE 31. Juli 1931
+2 PLAC Bokel bei Bielefeld
+1 FAMS @F30@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Adelheid Poel.jpg
+0 @I123@ INDI
+1 NAME Heidrun /Stuy/
+1 SEX F
+1 BIRT
+2 DATE 16. Dezember 1951
+1 FAMS @F41@
+1 NOTE geschieden
+0 @I124@ INDI
+1 NAME Matthew /Trucco/
+1 SEX M
+1 OCCU Pilot bei Northwest Airlines
+1 FAMS @F40@
+0 @I125@ INDI
+1 NAME Friedrich Wilhelm /v. Borries/
+1 SEX M
+1 FAMS @F2@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\friedrich_wilhelm.jpg
+0 @I126@ INDI
+1 NAME Marie Magdalene /v. Borries/
+1 SEX F
+1 BIRT
+2 DATE 3. Februar 1860
+2 PLAC auf Rittergut Dalldorf (Holstein),
+1 DEAT
+2 DATE 11. Februar 1958
+2 PLAC Hannover
+1 FAMS @F29@
+1 FAMC @F2@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\mariemagdalenavb.jpg
+0 @I127@ INDI
+1 NAME Magdalena /van B r i e n e n/
+1 SEX F
+1 FAMS @F36@
+0 @I128@ INDI
+1 NAME Andrea /Vidal/
+1 SEX F
+1 BIRT
+2 DATE 31 MAR 1977
+1 FAMC @F28@
+0 @I129@ INDI
+1 NAME Christine /Vidal/
+1 SEX F
+1 BIRT
+2 DATE 25 JUL 1975
+1 FAMC @F28@
+0 @I130@ INDI
+1 NAME Harald /Vidal/
+1 SEX M
+1 FAMS @F28@
+0 @I131@ INDI
+1 NAME Anke /von Freeden/
+1 SEX F
+1 FAMC @F43@
+0 @I132@ INDI
+1 NAME Christiane /von Freeden/
+1 SEX F
+1 BIRT
+2 DATE 24 JUN 1946
+1 FAMC @F44@
+0 @I133@ INDI
+1 NAME Dieter /von Freeden/
+1 SEX M
+1 BIRT
+2 DATE 10. Dezember 1918
+1 OCCU Dr.jur.
+1 FAMS @F43@
+1 FAMC @F34@
+0 @I134@ INDI
+1 NAME Dirk /von Freeden/
+1 SEX M
+1 FAMC @F43@
+1 NOTE Kinder:
+2 CONT 1. Daniel * 27.11.1986
+2 CONT 2. Svenja * 1989
+0 @I135@ INDI
+1 NAME Gerhard /von Freeden/
+1 SEX M
+1 BIRT
+2 DATE 5 MAY 1955
+1 FAMC @F44@
+0 @I136@ INDI
+1 NAME Heilwig /von Freeden/
+1 SEX M
+1 FAMC @F34@
+0 @I137@ INDI
+1 NAME Henning /von Freeden/
+1 SEX M
+1 BIRT
+2 DATE JAN 1959
+1 FAMS @F47@
+1 FAMC @F43@
+1 OBJE
+2 FORM jpg
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\Henning_Freeden.jpg
+0 @I138@ INDI
+1 NAME Hermann /von Freeden/
+1 SEX F
+1 BIRT
+2 DATE 18. Februar 1883
+2 PLAC in Salzwedel
+1 DEAT
+2 DATE 21. August 1968
+2 PLAC Ratzeburg
+1 OCCU Major
+1 FAMS @F34@
+1 NOTE Oberregierungsrat
+2 CONT im Reichsinnenministerium in Berlin (Auswanderungssamt).
+0 @I139@ INDI
+1 NAME Klaus /von Freeden/
+1 SEX M
+1 BIRT
+2 DATE 9.März 1919
+1 FAMS @F44@
+1 FAMC @F34@
+0 @I140@ INDI
+1 NAME Regina /von Freeden/
+1 SEX F
+1 BIRT
+2 DATE 8 SEP 1949
+1 FAMS @F12@
+1 FAMC @F44@
+0 @I141@ INDI
+1 NAME Ursula /von Freeden/
+1 SEX F
+1 BIRT
+2 DATE 17 APR 1961
+1 FAMC @F44@
+0 @I142@ INDI
+1 NAME Alexander Georg /von Harder/
+1 SEX M
+1 BIRT
+2 DATE 16. Juli 1832
+2 PLAC St. Petersburg
+1 DEAT
+2 DATE 12. Januar 1880
+2 PLAC Dresden
+1 OCCU Privatgelehrter ( cand. Zool. Dorpat )
+1 FAMS @F38@
+1 NOTE Gutsbesitzer auf Lindenhaus bei Sasbach (Baden),
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\AlexandervH.png
+0 @I143@ INDI
+1 NAME Alexander Georg /von Harder/
+1 SEX M
+1 BIRT
+2 DATE 16. März 1862
+2 PLAC Lindenhaus in Sasbach
+1 DEAT
+2 DATE 5. Dezember 1937
+2 PLAC Puerto Marquez, Argentinien
+1 FAMS @F13@
+1 FAMS @F3@
+1 FAMC @F38@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\AlexandervHJR.png
+0 @I144@ INDI
+1 NAME Benita Bertha Olga /von Harder/
+1 SEX F
+1 BIRT
+2 DATE 10. Mai 1898
+2 PLAC Mannheim
+1 DEAT
+2 DATE 17. Juli 1977
+2 PLAC La Paz
+1 OCCU sie studierte Sprachen und Literatur
+1 FAMS @F24@
+1 FAMC @F3@
+1 NOTE Benita und Felix hatten 8 Kinder
+2 CONT eines davon wurde am 25. März 1926 in Baden-Baden geboren
+2 CONT Jorge Edmundo Félix Martin (geb. 03.06.1938)
+2 CONT Eine Tochter Benita´s, Ada Dora Lawrie, geb. Martin, spricht noch heute perfekt Deutsch
+2 CONT Sie hat einen Sohn Felix Juan Lawrie in La Paz, Entre Rios
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\BenitavonHarder.png
+0 @I145@ INDI
+1 NAME Ilse /von Harder/
+1 SEX F
+1 BIRT
+2 DATE 28. Januar 1863
+2 PLAC Sasbach
+1 FAMC @F13@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\IisevonHarder.png
+0 @I146@ INDI
+1 NAME Ingeborg Emma /von Harder/
+1 SEX F
+1 BIRT
+2 DATE 2. Januar 1901
+2 PLAC Mannheim
+1 DEAT
+2 DATE 25. Oktober 1922
+1 FAMC @F3@
+1 NOTE Kinder: Ernst Alexander Berkefeld Tino von Leers (*17. Mai 1921 in Puerto Marquez vermisst 7. Mai 1944):::: Ada Luisa Benita von Leers (*25. September 1922  in Puerto Marquez)
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\IngeborgEmmavonHarder.png
+0 @I147@ INDI
+1 NAME Wolfgang /von Harder/
+1 SEX M
+1 BIRT
+2 DATE 28. Februar 1897
+2 PLAC Mannheim
+1 DEAT
+2 DATE 19. Januar 1962
+2 PLAC Puerto Marquez
+1 FAMS @F9@
+1 FAMC @F3@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\WolfgangvonHarder.png
+0 @I148@ INDI
+1 NAME Berta (Elisabeth Dorothee) /von Loeben/
+1 SEX F
+1 FAMS @F32@
+1 NOTE genannt Berti
+0 @I149@ INDI
+1 NAME Carl Wilhelm /von Pustau/
+1 SEX M
+1 BIRT
+2 DATE 1820
+2 PLAC Oldesloe
+1 DEAT
+2 DATE 1879
+1 FAMS @F25@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\wilhelmvpustau.png
+0 @I150@ INDI
+1 NAME Julie /von Pustau/
+1 SEX F
+1 FAMS @F45@
+1 FAMC @F25@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Verwandte\JulieSchetelig.png
+0 @I151@ INDI
+1 NAME Sophie Friederike Mathilde Wulfhilde /von Rumohr/
+1 SEX F
+1 BIRT
+2 DATE 13. Oktober 1806
+2 PLAC auf Trenthorst
+1 DEAT
+2 DATE 27. Juli 1894
+2 PLAC auf Trenthorst
+1 OCCU Konventualin des adligen Klosters Itzehoe
+1 FAMS @F33@
+1 OBJE
+2 FORM png
+2 FILE E:\Documents\Ahnenblatt\Stammbaum\Poel\Sophie_Poel_g_v_Rumohr.png
+0 @I152@ INDI
+1 NAME Anna (“Anninka“) /von Stieglitz/
+1 SEX F
+1 BIRT
+2 DATE 1804/05
+2 PLAC St. Petersburg
+1 DEAT
+2 DATE 8. November 1883
+2 PLAC Paris
+1 BURI
+2 DATE 12. November 1883
+2 PLAC Illenau
+1 FAMS @F39@
+1 FAMC @F10@
+0 @I153@ INDI
+1 NAME Ludwig Baron /von Stieglitz/
+1 SEX M
+1 BIRT
+2 DATE 24. Dezember 1779
+2 PLAC Arolsen
+1 DEAT
+2 DATE 18.März 1843
+2 PLAC St. Petersburg
+1 FAMS @F10@
+0 @I154@ INDI
+1 NAME Paul /Wartmann/
+1 SEX M
+1 FAMS @F35@
+0 @I155@ INDI
+1 NAME Christine /Willnow/
+1 SEX F
+1 FAMS @F47@
+1 NOTE Kinder:
+2 CONT 1. Constance* 1987
+2 CONT 2. Nikolaus* 1989
+0 @F1@ FAM
+1 HUSB @I31@
+1 WIFE @I2@
+1 MARR Y
+0 @F2@ FAM
+1 HUSB @I125@
+1 WIFE @I3@
+1 CHIL @I126@
+1 MARR
+2 DATE 4. Oktober 1850
+2 PLAC Hamburg
+0 @F3@ FAM
+1 HUSB @I143@
+1 WIFE @I4@
+1 CHIL @I144@
+1 CHIL @I147@
+1 CHIL @I146@
+1 MARR Y
+0 @F4@ FAM
+1 HUSB @I104@
+1 WIFE @I5@
+1 CHIL @I71@
+1 CHIL @I52@
+1 CHIL @I105@
+1 CHIL @I98@
+1 MARR
+2 DATE 18. Januar 1940
+2 PLAC Itzehoe
+0 @F5@ FAM
+1 HUSB @I8@
+1 WIFE @I56@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I9@
+1 MARR
+2 DATE 23. November 1936
+2 PLAC Travemünde
+0 @F6@ FAM
+1 HUSB @I93@
+1 WIFE @I10@
+1 CHIL @I79@
+1 CHIL @I87@
+1 CHIL @I68@
+1 CHIL @I48@
+1 CHIL @I107@
+1 CHIL @I62@
+1 CHIL @I94@
+1 CHIL @I50@
+1 CHIL @I55@
+1 CHIL @I102@
+1 CHIL @I60@
+1 MARR
+2 DATE 6. Januar 1787
+2 PLAC Hamburg
+0 @F7@ FAM
+1 HUSB @I14@
+1 WIFE @I57@
+1 CHIL @I13@
+1 CHIL @I12@
+1 MARR Y
+0 @F8@ FAM
+1 HUSB @I36@
+1 WIFE @I15@
+1 CHIL @I32@
+1 CHIL @I34@
+1 CHIL @I35@
+1 MARR
+2 DATE 1993
+0 @F9@ FAM
+1 HUSB @I147@
+1 WIFE @I16@
+1 MARR
+2 DATE 30. März 1930
+2 PLAC Sasbach
+0 @F10@ FAM
+1 HUSB @I153@
+1 WIFE @I17@
+1 CHIL @I152@
+1 MARR Y
+0 @F11@ FAM
+1 HUSB @I19@
+1 WIFE @I91@
+1 CHIL @I20@
+1 CHIL @I18@
+1 MARR
+2 DATE 17. September 1851
+0 @F12@ FAM
+1 HUSB @I21@
+1 WIFE @I140@
+1 MARR Y
+0 @F13@ FAM
+1 HUSB @I143@
+1 WIFE @I22@
+1 CHIL @I145@
+1 MARR Y
+0 @F14@ FAM
+1 HUSB @I69@
+1 WIFE @I23@
+1 CHIL @I80@
+1 CHIL @I51@
+1 MARR
+2 DATE 20. Dezember 1920
+0 @F15@ FAM
+1 HUSB @I24@
+1 WIFE @I88@
+1 MARR Y
+0 @F16@ FAM
+1 HUSB @I67@
+1 WIFE @I25@
+1 CHIL @I45@
+1 CHIL @I108@
+1 MARR
+2 DATE 15. Juli 1944
+2 PLAC Ratzeburg
+0 @F17@ FAM
+1 HUSB @I44@
+1 WIFE @I26@
+1 MARR
+2 DATE 16. September 2006
+0 @F18@ FAM
+1 HUSB @I63@
+1 WIFE @I27@
+1 CHIL @I70@
+1 CHIL @I67@
+1 CHIL @I77@
+1 MARR
+2 DATE 29. Januar 1913
+2 PLAC Marburg (Lahn)
+0 @F19@ FAM
+1 HUSB @I63@
+1 WIFE @I28@
+1 CHIL @I54@
+1 CHIL @I65@
+1 MARR
+2 DATE 10. März 1927
+2 PLAC Burg (Dillkreis)
+0 @F20@ FAM
+1 HUSB @I92@
+1 WIFE @I29@
+1 CHIL @I109@
+1 CHIL @I95@
+1 MARR
+2 DATE 15. November 1872
+2 PLAC Königsberg (Preußen
+0 @F21@ FAM
+1 HUSB @I30@
+1 WIFE @I51@
+1 CHIL @I31@
+1 CHIL @I36@
+1 CHIL @I33@
+1 MARR
+2 DATE Oktober 1955
+2 PLAC Konstanz
+0 @F22@ FAM
+1 HUSB @I71@
+1 WIFE @I38@
+1 CHIL @I74@
+1 MARR
+2 DATE 8. Oktober 1985
+2 PLAC Kuala Lumpur
+0 @F23@ FAM
+1 HUSB @I107@
+1 WIFE @I39@
+1 MARR Y
+0 @F24@ FAM
+1 HUSB @I40@
+1 WIFE @I144@
+1 MARR
+2 DATE 12. September 1920
+2 PLAC La Paz
+0 @F25@ FAM
+1 HUSB @I149@
+1 WIFE @I41@
+1 CHIL @I150@
+1 MARR
+2 DATE 7 OCT 1851
+2 PLAC Bremen
+0 @F26@ FAM
+1 HUSB @I85@
+1 WIFE @I42@
+1 CHIL @I46@
+1 CHIL @I86@
+1 CHIL @I53@
+1 MARR Y
+0 @F27@ FAM
+1 HUSB @I43@
+1 WIFE @I90@
+1 MARR
+2 DATE 14. April 1776
+0 @F28@ FAM
+1 HUSB @I130@
+1 WIFE @I45@
+1 CHIL @I129@
+1 CHIL @I128@
+1 MARR
+2 PLAC Hamburg
+0 @F29@ FAM
+1 HUSB @I49@
+1 WIFE @I126@
+1 CHIL @I66@
+1 CHIL @I69@
+1 CHIL @I63@
+1 CHIL @I82@
+1 CHIL @I76@
+1 MARR
+2 DATE Mai 1884
+2 PLAC Ratzeburg
+0 @F30@ FAM
+1 HUSB @I65@
+1 WIFE @I122@
+1 CHIL @I83@
+1 CHIL @I88@
+1 CHIL @I101@
+1 MARR
+2 DATE 14. Oktober 1961
+2 PLAC New York
+0 @F31@ FAM
+1 HUSB @I73@
+1 WIFE @I121@
+1 MARR
+2 DATE 10. September 1994
+2 PLAC München
+0 @F32@ FAM
+1 HUSB @I77@
+1 WIFE @I148@
+1 CHIL @I57@
+1 CHIL @I47@
+1 CHIL @I97@
+1 CHIL @I73@
+1 MARR
+2 DATE 22. Mai 1954
+2 PLAC Meerbusch
+0 @F33@ FAM
+1 HUSB @I79@
+1 WIFE @I151@
+1 CHIL @I92@
+1 CHIL @I75@
+1 CHIL @I59@
+1 CHIL @I99@
+1 CHIL @I64@
+1 CHIL @I81@
+1 CHIL @I49@
+1 MARR
+2 DATE 27. Mai 1837
+2 PLAC Nienstedten
+0 @F34@ FAM
+1 HUSB @I82@
+1 WIFE @I138@
+1 CHIL @I133@
+1 CHIL @I136@
+1 CHIL @I139@
+1 MARR
+2 DATE 29. April 1914
+2 PLAC Ratzeburg
+0 @F35@ FAM
+1 HUSB @I154@
+1 WIFE @I83@
+1 MARR Y
+0 @F36@ FAM
+1 HUSB @I85@
+1 WIFE @I127@
+1 CHIL @I93@
+1 CHIL @I96@
+1 CHIL @I84@
+1 CHIL @I90@
+1 MARR Y
+0 @F37@ FAM
+1 HUSB @I85@
+1 WIFE @I120@
+1 MARR Y
+0 @F38@ FAM
+1 HUSB @I142@
+1 WIFE @I91@
+1 CHIL @I143@
+1 MARR
+2 DATE 20. März 1861
+2 PLAC Heidelberg
+0 @F39@ FAM
+1 HUSB @I94@
+1 WIFE @I152@
+1 CHIL @I89@
+1 CHIL @I106@
+1 CHIL @I91@
+1 CHIL @I78@
+1 CHIL @I58@
+1 CHIL @I1@
+1 CHIL @I103@
+1 CHIL @I61@
+1 MARR
+2 DATE BEF 1831
+2 PLAC St. Petersburg
+0 @F40@ FAM
+1 HUSB @I124@
+1 WIFE @I101@
+1 MARR Y
+0 @F41@ FAM
+1 HUSB @I108@
+1 WIFE @I123@
+1 CHIL @I44@
+1 CHIL @I100@
+1 MARR Y
+0 @F42@ FAM
+1 HUSB @I109@
+1 WIFE @I117@
+1 CHIL @I104@
+1 CHIL @I72@
+1 CHIL @I56@
+1 MARR
+2 DATE 10. Oktober 1906
+0 @F43@ FAM
+1 HUSB @I133@
+1 WIFE @I114@
+1 CHIL @I137@
+1 CHIL @I134@
+1 CHIL @I131@
+1 MARR Y
+0 @F44@ FAM
+1 HUSB @I139@
+1 WIFE @I115@
+1 CHIL @I132@
+1 CHIL @I140@
+1 CHIL @I135@
+1 CHIL @I141@
+1 MARR Y
+0 @F45@ FAM
+1 HUSB @I116@
+1 WIFE @I150@
+1 CHIL @I117@
+1 CHIL @I118@
+1 MARR
+2 DATE 2. September 1874
+0 @F46@ FAM
+1 HUSB @I118@
+1 WIFE @I119@
+1 MARR
+2 DATE 03. Juli 1905
+0 @F47@ FAM
+1 HUSB @I137@
+1 WIFE @I155@
+1 MARR Y
+0 @F48@ FAM
+1 HUSB @I11@
+1 CHIL @I10@
+0 @F49@ FAM
+1 WIFE @I33@
+1 CHIL @I37@
+0 @F50@ FAM
+1 HUSB @I112@
+1 CHIL @I85@
+0 @F53@ FAM
+1 HUSB @I110@
+1 CHIL @I111@
+1 CHIL @I113@
+0 @F52@ FAM
+1 HUSB @I111@
+1 CHIL @I112@
+0 TRLR
