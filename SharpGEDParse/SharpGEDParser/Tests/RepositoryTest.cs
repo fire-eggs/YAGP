@@ -386,12 +386,16 @@ namespace SharpGEDParser.Tests
         [Test]
         public void Repo_Rfn()
         {
+            // TODO REPO.RFN is non-standard: possibly from Ancestry.Com
             var txt = "0 @R1@ REPO\n1 RFN blah\n";
             var res = ReadIt(txt);
             Assert.AreEqual(1, res.Count);
             Repository rec = res[0] as Repository;
             Assert.IsNotNull(rec);
-            Assert.AreEqual("blah", rec.RFN);
+            
+            // REPO.RFN is a non-standard tag
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(2, rec.Unknowns[0].Beg);
         }
 
         [Test]
@@ -403,7 +407,10 @@ namespace SharpGEDParser.Tests
             Assert.AreEqual(1, res.Count);
             Repository rec = res[0] as Repository;
             Assert.IsNotNull(rec);
-            Assert.IsFalse(true); // TODO validate results
+
+            // REPO.CALN is a common but non-standard tag
+            Assert.AreEqual(1, rec.Unknowns.Count);
+            Assert.AreEqual(2, rec.Unknowns[0].Beg);
         }
     }
 }
