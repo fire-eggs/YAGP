@@ -179,7 +179,12 @@ namespace SharpGEDParser.Tests
         {
             // A set of 'blank' files (no data, BOM/no-BOM, does not start with "0 HEAD")
             FileRead fr = new FileRead();
-            var path = @"Z:\HOST_E\proj\GED\all_ged\09";
+
+            var path = Path.Combine(
+                TestContext.CurrentContext.TestDirectory, 
+                @"..\..\..\..\", 
+                @"Sample GED\blank");
+
             foreach (var file in Directory.GetFiles(path, "blank*.ged"))
             {
                 fr.ReadGed(file);
